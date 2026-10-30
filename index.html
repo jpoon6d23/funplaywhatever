@@ -211,6 +211,15 @@ figcaption{font-size:14px;line-height:1.6;color:var(--ink-2);margin-top:12px}
 .more:hover{border-color:var(--work)}
 .more b{font:600 15px var(--mono);color:var(--work);font-variant-numeric:tabular-nums}
 
+/* 學習筆記 */
+.notes{grid-column:1/-1;min-width:0}
+.note-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.note-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:12px;text-decoration:none}
+.note-list a:hover{border-color:var(--work)}
+.nt{grid-column:1;font:700 20px/1.35 var(--display)}
+.nd{grid-column:1;font-size:14px;line-height:1.6;color:var(--ink-2)}
+.na{grid-column:2;grid-row:1/span 2;font:500 18px var(--mono);color:var(--work)}
+
 /* 貼文集 view */
 .pv{padding-block:40px 64px}
 .back{display:inline-block;font:500 12px/1 var(--mono);letter-spacing:.08em;color:var(--ink-2);text-decoration:none;margin-bottom:20px}
@@ -407,6 +416,12 @@ footer{border-top:1px solid var(--line);padding-block:56px 48px;display:grid;gap
       </div>
       <figcaption>想睇自己嘅未來，唔使算命。睇吓你每日接收緊乜嘢就得。</figcaption>
     </figure>
+    <div class="notes">
+      <p class="rel-h">學習筆記</p>
+      <ul class="note-list">
+        <li><a href="learn/boiling.html"><span class="nt">點解大火煲湯係嘥氣？</span><span class="nd">蒸發同滾、氣壓同滾點、活化能：煲牛腩點解唔使開大火，壓力煲點解快咁多。</span><span class="na" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
   </section>
 
   <!-- LONG GAME -->
