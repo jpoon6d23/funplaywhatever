@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>全部都係電</title>
+<meta name="description" content="由光、WiFi、發電機、化學到八達通：你摸到、睇到、用到嘅嘢，背後都係電磁力。">
+<meta property="og:title" content="全部都係電">
+<meta property="og:description" content="由光、WiFi、發電機、化學到八達通：你摸到、睇到、用到嘅嘢，背後都係電磁力。">
+<meta property="og:type" content="article">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:wght@500;700&family=Noto+Sans+HK:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--copper)}
+
+/* Layout: picture-first lab notebook. Each section = one moving picture with as few words as possible. Every section carries its decay law as a badge. */
+:root{
+  --bg:#0c1320; --surface:#131d2f; --surface2:#1a2740; --line:#26344f;
+  --fg:#e7eaf1; --muted:#93a0b8; --faint:#5f6c85;
+  --copper:#e48a52; --copper-soft:rgba(228,138,82,.14);
+  --field:#62b3ff; --field-soft:rgba(98,179,255,.13);
+  --plus:#ff6f6f; --ok:#4fd18b; --warn:#f2c14e; --bad:#ff6f6f;
+  --font-display:"Chiron Sung HK","Noto Serif TC","Songti TC",serif;
+  --font-body:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --plus:#c93b3b; --ok:#16864e; --warn:#9a6c00; --bad:#c93b3b; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --plus:#c93b3b; --ok:#16864e; --warn:#9a6c00; --bad:#c93b3b; color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.75;margin:0}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(34px,7vw,54px);font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(26px,4.6vw,34px);font-weight:700}
+h3{font-size:21px;font-weight:700;margin-top:6px}
+p{margin:0}
+.stack{display:flex;flex-direction:column;gap:16px}
+.mono{font-family:var(--font-mono)}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+#heroCv{width:100%;height:330px;display:block;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.map a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;background:var(--surface)}
+.map a:hover,.map a:focus-visible{border-color:var(--copper);outline:none}
+.map b{font-family:var(--font-display);font-size:17px}
+.map span{font-family:var(--font-mono);font-size:13px;color:var(--field)}
+.map small{font-size:13px;color:var(--muted);line-height:1.5}
+@media (max-width:640px){.map{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sec{display:flex;flex-direction:column;gap:18px;padding-top:44px;margin-top:40px;border-top:1px solid var(--line)}
+.sec-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;justify-content:space-between}
+.law{font-family:var(--font-mono);font-size:13.5px;color:var(--field);background:var(--field-soft);padding:3px 10px;border-radius:999px}
+.you{font-size:15px;color:var(--muted);display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.you code{font-family:var(--font-mono);font-size:13.5px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:4px 10px;line-height:1.6;white-space:normal;min-width:0}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab-t{font-size:13px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.04em}
+.ctrl{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ctrl label{font-size:14px;color:var(--muted);min-width:88px}
+.ctrl input[type=range]{flex:1;min-width:160px;accent-color:var(--copper)}
+.ctrl output{font-family:var(--font-mono);font-size:15px;min-width:70px;text-align:right}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button.chip{font:inherit;font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--fg);cursor:pointer}
+button.chip:hover{border-color:var(--copper)}
+button.chip:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+button.chip[aria-pressed="true"]{background:var(--copper-soft);border-color:var(--copper);color:var(--copper)}
+.fread{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;font-family:var(--font-mono);font-size:15px}.fread #fName{font-family:var(--font-body);font-size:22px;color:var(--copper);font-weight:700}.fread b{font-weight:500}.fread .fa{color:var(--faint);font-style:normal}.fread small{flex-basis:100%;font-family:var(--font-body);font-size:12.5px;color:var(--muted)}
+.read{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.read div{background:var(--surface2);border-radius:10px;padding:10px 12px;min-width:0}
+.read small{display:block;font-size:12.5px;color:var(--muted)}
+.read b{font-family:var(--font-mono);font-size:19px;font-weight:500;font-variant-numeric:tabular-nums}
+.verdict{border:1px solid var(--copper);background:var(--copper-soft);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.verdict .vl{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.12em;color:var(--copper)}
+.verdict p{font-size:16px}
+.verdict b{color:var(--fg)}
+.note{font-size:14px;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) 92px;gap:10px;align-items:center}
+.bar .nm{font-size:14px;line-height:1.4}
+.bar .nm small{display:block;font-family:var(--font-mono);color:var(--field);font-size:12.5px}
+.track{height:12px;border-radius:6px;background:var(--surface2);overflow:hidden}
+.track i{display:block;height:100%;background:var(--field);border-radius:6px;transition:width .15s}
+.bar output{font-family:var(--font-mono);font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:520px){.bar{grid-template-columns:minmax(0,1fr) 80px}.bar .track{grid-column:1/-1;order:3}}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.card{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card b{font-size:16px}
+.card .f{font-family:var(--font-mono);font-size:12.5px;color:var(--field)}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.6}
+.en-track{position:relative;height:74px;margin:6px 8px 0}
+.en-line{position:absolute;left:0;right:0;top:36px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--field),var(--copper))}
+.en-dot{position:absolute;top:30px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--surface);border:3px solid var(--fg);cursor:pointer;padding:0}
+.en-dot[aria-pressed="true"]{border-color:var(--copper);background:var(--copper)}
+.en-lbl{position:absolute;font-family:var(--font-mono);font-size:12px;color:var(--muted);transform:translateX(-50%);white-space:nowrap}
+.en-axis{display:flex;justify-content:space-between;font-size:12.5px;color:var(--faint);margin:0 8px}
+.detail{background:var(--surface2);border-radius:12px;padding:14px 16px;font-size:15.5px;display:flex;flex-direction:column;gap:6px}
+.detail h4{margin:0;font-size:17px;font-family:var(--font-display)}
+svg text{font-family:var(--font-body)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.flow .st{flex:1 1 120px;background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.flow .st svg{width:100%;height:34px}
+.flow .st b{font-size:14.5px}
+.flow .st small{font-size:12.5px;color:var(--muted);line-height:1.45}
+.flow .ar{align-self:center;color:var(--faint);font-family:var(--font-mono)}
+@media (max-width:560px){.flow .ar{display:none}}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--muted);font-weight:500;background:var(--surface)}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--copper);white-space:nowrap}
+.fix{counter-reset:f;display:flex;flex-direction:column;gap:10px;padding:0;margin:0;list-style:none}
+.fix li{counter-increment:f;display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;font-size:16px}
+.fix li::before{content:counter(f);font-family:var(--font-mono);color:var(--copper);font-size:15px;padding-top:2px}
+.punch{font-family:var(--font-display);font-size:clamp(22px,4vw,28px);line-height:1.5;text-wrap:balance}
+.src{font-size:13.5px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.src a{color:var(--field)}
+.meter{position:relative;height:16px;border-radius:8px;background:linear-gradient(90deg,var(--ok) 0%,var(--warn) 45%,var(--bad) 80%);opacity:.9}
+.meter i{position:absolute;top:-5px;width:4px;height:26px;margin-left:-2px;background:var(--fg);border-radius:2px;transition:left .15s}
+.meter-l{display:flex;justify-content:space-between;font-size:12px;color:var(--faint);font-family:var(--font-mono)}
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.scrollx svg{min-width:560px;display:block}
+.lg2{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
+.lg2 .sw{display:inline-block;width:16px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.icons{display:flex;flex-wrap:wrap;gap:14px 18px;justify-content:flex-start}
+.ic{margin:0;display:flex;flex-direction:column;align-items:center;gap:4px;width:84px}
+.ic figcaption{font-size:13.5px;color:var(--fg);text-align:center;line-height:1.35}
+.ic figcaption small{display:block;font-size:12px;color:var(--muted)}
+.icons.big{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 12px;justify-items:center}.icons.big .ic{width:auto;max-width:120px}.icons.big svg{width:56px;height:56px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+<header class="hero">
+  <div class="eyebrow">生活物理筆記 · 電磁力</div>
+  <h1>全部都係電</h1>
+  <canvas id="heroCv" role="img" aria-label="三格圖：企定嘅靜態場（磁石、靜電），近處來回搖嘅近場（八達通、電磁爐、無線充電），甩出去嘅遠場（光、WiFi、電台）"></canvas>
+  <nav class="map" aria-label="四段">
+    <a href="#far"><b>遠場</b><small>光、WiFi、X 光</small></a>
+    <a href="#grid"><b>轉轉轉</b><small>發電機到插蘇</small></a>
+    <a href="#static"><b>靜態場</b><small>磁石、化學、生命、觸覺</small></a>
+    <a href="#near"><b>近場</b><small>八達通、無線充電</small></a>
+  </nav>
+</header>
+
+<section class="sec" id="far" aria-labelledby="h-far">
+  <div class="sec-head"><span class="eyebrow">遠場</span></div>
+  <h2 id="h-far">飛走咗嘅波：電台到 X 光，同一樣嘢</h2>
+  <div class="lab">
+    <div class="lab-t">成條光譜：可見光有幾細</div>
+    <div class="scrollx"><svg id="specRuler" viewBox="0 0 640 152" width="100%" role="img" aria-label="由無線電到伽馬射線嘅光譜尺，上面係每秒搖幾多下，下面係一粒光子嘅能量，兩把尺一齊行；可見光只係中間一條好窄嘅彩虹"></svg></div>
+    <div class="btns" id="srcTabs" role="group" aria-label="揀源頭"></div>
+    <div class="ctrl"><label for="rF">頻率</label><input id="rF" type="range" min="4" max="20.5" step="0.05" value="9.39"></div>
+    <div class="fread" aria-live="polite"><b id="fName">–</b><span id="rFv">–</span><span><i class="fa">→</i> 一粒光子 <b id="fE">–</b></span><small>搖快 10 倍，能量大 10 倍</small></div>
+    <canvas id="waveCv" style="width:100%;height:60px;display:block" role="img" aria-label="依頻率改變嘅波"></canvas>
+    <canvas id="srcCv" style="width:100%;height:200px;display:block;background:var(--surface2);border-radius:12px" role="img" aria-label="電磁波源頭動畫"></canvas>
+    <p class="note" id="srcCap"></p>
+    <div class="icons" id="fEx" aria-live="polite"></div>
+  </div>
+  <div class="lab">
+    <div class="lab-t">同一個空間，同一個場：所有波疊埋一齊，互相穿過</div>
+    <div class="btns" id="shBtns" role="group" aria-label="開關每一種"></div>
+    <canvas id="shareCv" style="width:100%;display:block;background:var(--surface2);border-radius:12px" role="img" aria-label="一間房入面同時有電台嘅長波、WiFi 嘅圓圈波、燈光射落杯再反射入眼、八達通讀卡器嘅近場泡、分子周圍嘅靜態場。下面係手機嗰一點嘅電場隨時間：所有波加埋"></canvas>
+    <p class="note">成間房只有一個電磁場。每一點嘅數值，就係所有波喺嗰一刻加埋。佢哋互相穿過，唔會撞埋。你部手機只揀 WiFi 嗰個頻率去聽，你對眼只收可見光，其餘照樣喺你身邊穿過。</p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">行遠啲：同一啲光要鋪開，所以暗咗</div>
+    <div class="ctrl"><label for="rFar">行遠幾多倍</label><input id="rFar" type="range" min="1" max="3" step="1" value="1"><output id="rFarv">1 倍</output></div>
+    <canvas id="spreadCv" style="width:100%;height:210px;display:block;background:var(--surface2);border-radius:12px" role="img" aria-label="燈泡嘅光，行遠兩倍要鋪四格，行遠三倍要鋪九格，每格得返九分之一"></canvas>
+    <p class="note">波本身跌得慢（1/r），亮度跌 1/r²。都係慢，所以幾百光年外嘅星你都睇到。</p>
+  </div>
+</section>
+
+<section class="sec" id="grid" aria-labelledby="h-grid">
+  <div class="sec-head"><span class="eyebrow">轉轉轉</span></div>
+  <h2 id="h-grid">好遠有嚿磁石喺度轉，你屋企先有電</h2>
+  <h3>由轉嚿磁石，到你屋企</h3>
+  <div class="lab">
+    <div class="btns"><button class="chip" id="gStop" type="button" aria-pressed="false">停咗發電機</button><button class="chip" id="gNoTx" type="button" aria-pressed="false">唔用變壓器</button></div>
+    <div class="scrollx"><canvas id="gridCv" style="width:100%;min-width:640px;display:block" role="img" aria-label="風、水、蒸氣轉動發電機，經升壓變壓器、高壓線、變電站、街邊變壓器送到屋企；成條路同一個節奏"></canvas></div>
+    <p class="note">成條路都係交流電（AC）：黃點原地前後擺，節奏就係發電機嘅轉速，你屋企把風扇都跟住佢轉。去到尿袋先變直流電（DC），俾手機、電腦用。</p>
+    <p class="note">2019 年 8 月英國兩間電廠一分鐘內停機，大約一百萬戶即刻冇電。</p>
+  </div>
+</section>
+
+<section class="sec" id="static" aria-labelledby="h-static">
+  <div class="sec-head"><span class="eyebrow">靜態場</span></div>
+  <h2 id="h-static">唔郁嘅場：磁石、化學、生命、觸覺</h2>
+  <p class="note">化學反應 = 電子搬位。生命 = 一大串化學反應。觸覺 = 電子雲互推。全部都係靜態場。</p>
+  <h3>雪櫃磁石、玩具火車扣</h3>
+  <div class="lab">
+    <div class="lab-t">實驗：反轉右邊塊磁石，再拉開佢</div>
+    <svg id="magSvg" viewBox="100 14 470 132" width="100%" role="img" aria-label="兩塊磁石，相吸或者相斥"></svg>
+    <div class="btns"><button class="chip" id="magFlip" type="button">反轉右邊磁石</button></div>
+    <div class="ctrl"><label for="rMag">拉開</label><input id="rMag" type="range" min="0" max="100" step="1" value="0"><output id="rMagv">貼住</output></div>
+  </div>
+  <p class="note">N 同 S 永遠一齊出現，遠少少就互相抵銷，所以雪櫃磁石隔張厚紙就吸唔住。</p>
+  <h3>化學 = 搶電子遊戲</h3>
+  <div class="lab">
+    <div class="btns" id="molBtns"></div>
+    <canvas id="molCv" style="width:100%;height:300px;display:block;background:var(--surface2);border-radius:12px" role="img" aria-label="分子入面電子偏向邊粒原子嘅動畫"></canvas>
+    <p class="note" id="molCap"></p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">生命：太陽將電子推上山，你將佢一級級放落山</div>
+    <div class="scrollx"><canvas id="lifeCv" style="width:100%;min-width:640px;display:block" role="img" aria-label="太陽光經光合作用將電子推上山變成糖；呼吸將電子一級級放落山交俾氧，每級收埋能量俾你用；氧氣同水、二氧化碳喺葉同人之間循環"></canvas></div>
+    <p class="note">光係遠場；推電子上山、交電子俾氧係靜態場。由太陽到你郁手指，全部都係電磁力。</p>
+  </div>
+  <h3>觸覺：撳落枱</h3>
+  <div class="lab">
+    <canvas id="touchCv" style="width:100%;height:320px;display:block;background:var(--surface2);border-radius:12px" role="img" aria-label="左邊：手指同枱嘅電子雲靠近就互相推開；右邊：皮膚被壓，神經通道被扯開，帶電離子衝入去，電訊號傳上腦"></canvas>
+    <p class="note">「掂到」即係兩邊電子雲近到互相推。再加一條量子規矩：兩粒電子唔可以擠同一個位，所以張枱咁硬。感覺就係神經將「壓」變成「電」。推同覺，兩步都係電磁力。</p>
+  </div>
+</section>
+
+<section class="sec" id="near" aria-labelledby="h-near">
+  <div class="sec-head"><span class="eyebrow">近場</span></div>
+  <h2 id="h-near">郁緊嘅場，但未飛走：無線插電</h2>
+  <div class="lab">
+    <div class="lab-t">近場要兩邊同時喺度先傳到</div>
+    <div class="btns"><button class="chip" id="rxBtn" type="button" aria-pressed="true">接收者：喺度</button></div>
+    <canvas id="nearCv" style="width:100%;height:280px;display:block;background:var(--surface2);border-radius:12px" role="img" aria-label="近場同遠場比較：近場冇接收者時能量彈返去，遠場有冇接收者都飛走"></canvas>
+    <p class="note">近場：冇人收，能量彈返去發射端；有人收，能量先流過去。遠場好似大聲講嘢，有冇人聽都照講。</p>
+    <div class="lab-t">拉遠啲試吓：近場一離開就冇</div>
+    <div class="btns" id="devBtns" role="group" aria-label="揀用品"></div>
+    <div class="ctrl"><label for="rGap">距離</label><input id="rGap" type="range" min="0" max="100" step="1" value="6"><output id="rGapv">貼住</output></div>
+    <canvas id="devCv" style="width:100%;height:280px;display:block;background:var(--surface2);border-radius:12px" role="img" aria-label="八達通、電磁爐、無線充電：接收端離發射端越遠，收到嘅電跌得越快"></canvas>
+  </div>
+</section>
+
+<section class="sec" id="bridge" aria-labelledby="h-bridge">
+  <div class="sec-head"><span class="eyebrow">由你識嘅嘢搭過去</span></div>
+  <h2 id="h-bridge">同你之前學過嘅嘢點樣接駁</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>你已經識嘅</th><th>喺呢頁變成</th></tr></thead>
+    <tbody>
+      <tr><td>場、波、粒子；近場同遠場</td><td>開頭嘅三格圖：企定、近處來回搖、甩出去</td></tr>
+      <tr><td>煲湯：Maxwell–Boltzmann 條尾、光電效應比喻</td><td>光子能量門檻：可見光 3.1 eV ＜ C–C 鍵 3.6 eV ＜ UV。過門檻先打得斷</td></tr>
+      <tr><td>氫鍵 0.2 eV、C–C 鍵 3.6 eV</td><td>水嘅表面張力同溶解靠氫鍵；UV 曬傷靠打斷 C–C 鍵</td></tr>
+      <tr><td>生物能量學：O₂ 接收電子、細胞膜每米 4,000 萬伏特</td><td>氧化 = 電子交俾氧；你成個人本身就係一部電化學機器</td></tr>
+      <tr><td>資訊論：bits</td><td>電變資訊：晶體管開關、WiFi 同電台用電磁波載 bits</td></tr>
+      <tr><td>音樂：泛音、八度（頻率 2 倍）</td><td>可見光由紅到紫，頻率差唔夠 2 倍，即係唔夠一個八度</td></tr>
+      <tr><td>磁石同極相推</td><td>觸覺：手指同枱嘅電子雲都係負，靠近就互相推</td></tr>
+      <tr><td>發電機、變壓器（法拉第感應）</td><td>電磁爐就係一個變壓器，副線圈係你個鑊</td></tr>
+      <tr><td>沙堆雪崩</td><td>2019 英國停電：兩部發電機跳閘，觸發自動連鎖切斷</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="sec" id="end" aria-label="結尾">
+  <p class="punch">除咗重力，你生活入面遇到嘅每一下推、拉、黐、滑、光同熱，全部都係同一個力。</p>
+  <div class="src">
+    <span>資料來源</span>
+    <a href="https://ukerc.ac.uk/news/what-happened-electricity-system-fri-aug-9-2019/">UKERC：What happened to our electricity system on Friday August 9th 2019?</a>
+    <a href="https://en.wikipedia.org/wiki/FeliCa">Wikipedia：FeliCa（八達通用嘅非接觸卡技術）</a>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function(){
+var css=getComputedStyle(document.documentElement);
+function tok(n){return css.getPropertyValue(n).trim()}
+var C={};function readTok(){css=getComputedStyle(document.documentElement);['--fg','--muted','--faint','--copper','--field','--plus','--line','--surface','--surface2','--ok','--warn','--bad'].forEach(function(k){C[k]=tok(k)})}
+readTok();
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fitCanvas(cv,h){var w=cv.clientWidth||640,d=window.devicePixelRatio||1;cv.width=Math.round(w*d);cv.height=Math.round(h*d);var x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);return {x:x,w:w,h:h}}
+
+/* icons */
+function trefoil(){var d='';[90,210,330].forEach(function(a0){var a1=(a0-30)*Math.PI/180,a2=(a0+30)*Math.PI/180,r1=7,r2=19,cx=24,cy=26;function P(r,a){return (cx+r*Math.cos(a)).toFixed(2)+' '+(cy-r*Math.sin(a)).toFixed(2)}d+='M'+P(r1,a1)+' L'+P(r2,a1)+' A'+r2+' '+r2+' 0 0 0 '+P(r2,a2)+' L'+P(r1,a2)+' A'+r1+' '+r1+' 0 0 1 '+P(r1,a1)+' Z '});return d}
+var ICONS={
+ magnet:[['M10 8H20V26A4 4 0 0 0 28 26V8H38V26A14 14 0 0 1 10 26Z','f','fg'],['M10 8H20V15H10Z','f','plus'],['M28 8H38V15H28Z','f','field']],
+ balloon:[['M24 5C33 5 37 12 37 18C37 26 30 32 24 32C18 32 11 26 11 18C11 12 15 5 24 5Z','s','plus'],['M22 35L24 32L26 35Z','f','plus'],['M24 35C21 39 27 41 24 46','s','fg']],
+ card:[['M6 11H42A3 3 0 0 1 45 14V34A3 3 0 0 1 42 37H6A3 3 0 0 1 3 34V14A3 3 0 0 1 6 11Z','s','fg'],['M9 18H17V26H9Z','s','acc'],['M28 18A8 8 0 0 1 28 30','s','field'],['M33 15A12 12 0 0 1 33 33','s','field']],
+ hob:[['M5 5H43V43H5Z','s','fg'],['M12 24A12 12 0 1 0 36 24A12 12 0 1 0 12 24','s','acc'],['M18 24A6 6 0 1 0 30 24A6 6 0 1 0 18 24','s','acc']],
+ charger:[['M7 38H41A3 3 0 0 1 41 44H7A3 3 0 0 1 7 38Z','s','fg'],['M16 4H32A3 3 0 0 1 35 7V30A3 3 0 0 1 32 33H16A3 3 0 0 1 13 30V7A3 3 0 0 1 16 4Z','s','fg'],['M26 10L19 20H24L21 28L29 17H24Z','f','warn']],
+ guitar:[['M8 35A9 9 0 1 0 26 35A9 9 0 1 0 8 35','s','fg'],['M14 26A6.5 6.5 0 1 0 27 26A6.5 6.5 0 1 0 14 26','s','fg'],['M24 22L40 6','s','fg'],['M37 3L45 11','s','acc'],['M15 33A2.5 2.5 0 1 0 20 33A2.5 2.5 0 1 0 15 33','f','fg']],
+ gate:[['M8 45V6H40V45','s','fg'],['M14 45V12H34V45','s','faint'],['M19 27A5 5 0 0 1 29 27','s','field'],['M16 23A9 9 0 0 1 32 23','s','field']],
+ transformer:[['M10 8H38V40H10Z','s','faint'],['M17 15H31V33H17Z','s','faint'],['M5 15H17M5 19H17M5 23H17M5 27H17M5 31H17','s','acc'],['M31 13H43M31 16H43M31 19H43M31 22H43M31 25H43M31 28H43M31 31H43M31 34H43','s','acc']],
+ tower:[['M24 12L14 45M24 12L34 45M17 34H31M19 26H29','s','fg'],['M22 10A2 2 0 1 0 26 10A2 2 0 1 0 22 10','f','fg'],['M16 4A9 9 0 0 0 16 16','s','field'],['M32 4A9 9 0 0 1 32 16','s','field'],['M11 1A15 15 0 0 0 11 19','s','field'],['M37 1A15 15 0 0 1 37 19','s','field']],
+ wifi:[['M6 20A26 26 0 0 1 42 20','s','field'],['M12 27A17 17 0 0 1 36 27','s','field'],['M18 34A8.5 8.5 0 0 1 30 34','s','field'],['M21.5 40A2.5 2.5 0 1 0 26.5 40A2.5 2.5 0 1 0 21.5 40','f','field']],
+ phone:[['M15 4H33A3 3 0 0 1 36 7V41A3 3 0 0 1 33 44H15A3 3 0 0 1 12 41V7A3 3 0 0 1 15 4Z','s','fg'],['M20 39H28','s','fg'],['M17 10H31V33H17Z','f','field']],
+ microwave:[['M3 11H45V39H3Z','s','fg'],['M7 15H32V35H7Z','s','fg'],['M36 18A2.5 2.5 0 1 0 41 18A2.5 2.5 0 1 0 36 18','s','fg'],['M36 27H41M36 31H41','s','fg'],['M11 25C14 23 17 27 20 25C23 23 26 27 29 25','s','field']],
+ remote:[['M17 4H31A3 3 0 0 1 34 7V41A3 3 0 0 1 31 44H17A3 3 0 0 1 14 41V7A3 3 0 0 1 17 4Z','s','fg'],['M21 10A3 3 0 1 0 27 10A3 3 0 1 0 21 10','f','plus'],['M19 20H22V23H19ZM26 20H29V23H26ZM19 27H22V30H19ZM26 27H29V30H26ZM19 34H22V37H19ZM26 34H29V37H26Z','f','fg']],
+ heater:[['M10 18V42M17 18V42M24 18V42M31 18V42M38 18V42','s','fg',4],['M7 44H41','s','fg'],['M15 13C13 10 17 8 15 4M24 13C22 10 26 8 24 4M33 13C31 10 35 8 33 4','s','plus']],
+ person:[['M19 10A5 5 0 1 0 29 10A5 5 0 1 0 19 10','s','fg'],['M14 45V27A10 10 0 0 1 34 27V45','s','fg'],['M8 22A18 18 0 0 0 8 40M40 22A18 18 0 0 1 40 40','s','plus']],
+ sun:[['M15 24A9 9 0 1 0 33 24A9 9 0 1 0 15 24','f','warn'],['M24 3V9M24 39V45M3 24H9M39 24H45M9 9L13 13M35 35L39 39M39 9L35 13M13 35L9 39','s','warn']],
+ sunv:[['M15 24A9 9 0 1 0 33 24A9 9 0 1 0 15 24','f','vio'],['M24 3V9M24 39V45M3 24H9M39 24H45M9 9L13 13M35 35L39 39M39 9L35 13M13 35L9 39','s','vio']],
+ bulb:[['M24 5A12 12 0 0 1 31 27V32H17V27A12 12 0 0 1 24 5Z','s','warn'],['M18 36H30M19 40H29M21 44H27','s','fg']],
+ screen:[['M4 8H44V34H4Z','s','fg'],['M8 12H40V30H8Z','f','field'],['M24 34V40M16 42H32','s','fg']],
+ note:[['M3 14H45V36H3Z','s','fg'],['M19 25A5 5 0 1 0 29 25A5 5 0 1 0 19 25','s','fg'],['M8 19H12M36 31H40','s','fg'],['M8 6L12 10M24 3V8M40 6L36 10','s','vio']],
+ chest:[['M13 6C9 18 9 32 14 44H34C39 32 39 18 35 6','s','fg'],['M24 6V44','s','faint'],['M24 13C19 13 15 15 13 18M24 13C29 13 33 15 35 18M24 20C19 20 15 22 12 25M24 20C29 20 33 22 36 25M24 27C19 27 15 29 12 32M24 27C29 27 33 29 36 32','s','fg']],
+ luggage:[['M9 17H39V39H9Z','s','fg'],['M18 17V11H30V17','s','fg'],['M4 44H44','s','faint'],['M15 22V34M24 22V34M33 22V34','s','faint'],['M2 8L8 14M46 8L40 14','s','field']],
+ trefoil:[[trefoil(),'f','warn'],['M21 26A3 3 0 1 0 27 26A3 3 0 1 0 21 26','f','warn']],
+ leaf:[['M9 40C9 21 22 9 41 7C39 27 27 40 9 40Z','s','ok'],['M9 40L31 18','s','ok']],
+ scanner:[['M8 24A16 16 0 1 0 40 24A16 16 0 1 0 8 24','s','fg',5],['M16 24A8 8 0 1 0 32 24A8 8 0 1 0 16 24','s','faint'],['M2 42H46','s','fg']]};
+var ICV={fg:'var(--fg)',faint:'var(--faint)',acc:'var(--copper)',plus:'var(--plus)',field:'var(--field)',warn:'var(--warn)',ok:'var(--ok)',vio:'#9a8ff0'};
+function icCanvasCol(k){return k==='vio'?'#9a8ff0':k==='acc'?C['--copper']:C['--'+k]}
+function iconSVG(n,sz){var s='<svg viewBox="0 0 48 48" width="'+(sz||48)+'" height="'+(sz||48)+'" aria-hidden="true">';(ICONS[n]||[]).forEach(function(p){s+=p[1]==='f'?'<path d="'+p[0]+'" fill="'+ICV[p[2]]+'"/>':'<path d="'+p[0]+'" fill="none" stroke="'+ICV[p[2]]+'" stroke-width="'+(p[3]||2.6)+'" stroke-linecap="round" stroke-linejoin="round"/>'});return s+'</svg>'}
+function icFig(n,label,sub){return '<figure class="ic">'+iconSVG(n)+'<figcaption>'+label+(sub?'<small>'+sub+'</small>':'')+'</figcaption></figure>'}
+function drawIcon(c,n,x,y,sz){c.save();c.translate(x-sz/2,y-sz/2);c.scale(sz/48,sz/48);(ICONS[n]||[]).forEach(function(p){var path=new Path2D(p[0]);if(p[1]==='f'){c.fillStyle=icCanvasCol(p[2]);c.fill(path)}else{c.strokeStyle=icCanvasCol(p[2]);c.lineWidth=p[3]||2.6;c.lineCap='round';c.lineJoin='round';c.stroke(path)}});c.restore()}
+var EX={'無線電':[['tower','電台'],['screen','電視'],['card','八達通']],'微波':[['phone','手機'],['wifi','WiFi'],['microwave','微波爐']],'紅外線':[['remote','遙控器'],['heater','暖爐'],['person','你個身']],'可見光':[['sun','太陽'],['bulb','燈泡'],['screen','螢幕']],'紫外線':[['sunv','曬傷'],['note','驗鈔燈']],'X 光':[['chest','照肺'],['luggage','行李掃描']],'伽馬射線':[['trefoil','放射性物質'],['scanner','醫院掃描']]};
+/* hero: three fields */
+var hc2=null,hT0=performance.now();
+function drawHero2(){var cv=document.getElementById('heroCv'),cw=cv.clientWidth||700,stack=cw<640;if(!hc2){var hh=stack?750:330;cv.style.height=hh+'px';hc2=fitCanvas(cv,hh)}
+  var c=hc2.x,w=hc2.w,h=hc2.h,t=reduce?1:(performance.now()-hT0)/1000,font=tok('--font-body');c.clearRect(0,0,w,h);
+  var pw=stack?w:w/3,ph=stack?h/3:h;
+  var P=[['static','企定','靜態場',C['--plus'],[['magnet','磁石'],['balloon','靜電'],['leaf','化學、生命']]],['near','來回搖・近處','近場',C['--copper'],[['card','八達通'],['hob','電磁爐'],['charger','無線充電']]],['far','來回搖・甩出去','遠場',C['--field'],[['bulb','光'],['wifi','WiFi'],['tower','電台']]]];
+  P.forEach(function(p,i){var ox=stack?0:i*pw,oy=stack?i*ph:0,cx=ox+pw/2,cy=oy+ph*0.42;
+    c.textBaseline='middle';c.textAlign='left';c.fillStyle=p[3];c.font='500 16px '+font;c.fillText(p[2],ox+14,oy+20);c.fillStyle=C['--muted'];c.font='13px '+font;c.fillText(p[1],ox+14,oy+40);
+    if(p[0]==='static'){c.strokeStyle=C['--plus'];c.globalAlpha=0.5;c.lineWidth=1.5;for(var k=1;k<=4;k++){c.beginPath();c.ellipse(cx,cy-21,12+k*11,8+k*10,0,Math.PI,2*Math.PI);c.stroke()}c.globalAlpha=1;drawIcon(c,'magnet',cx,cy,64)}
+    else if(p[0]==='near'){var br=1+0.14*Math.sin(t*4);for(var k2=1;k2<=4;k2++){c.strokeStyle=C['--copper'];c.globalAlpha=0.6-k2*0.11;c.lineWidth=1.6;c.beginPath();c.ellipse(cx,cy,(16+k2*13)*br,(30+k2*9)*br,0,0,6.2832);c.stroke()}c.globalAlpha=1;
+      c.strokeStyle=C['--copper'];c.lineWidth=3;for(var k3=-1;k3<=1;k3++){c.beginPath();c.ellipse(cx+k3*6,cy,6,24,0,0,6.2832);c.stroke()}}
+    else{var ax=ox+pw*0.2,span=pw*0.78;for(var k4=0;k4<6;k4++){var r=8+((t*48+k4*span/6)%span);c.strokeStyle=C['--field'];c.globalAlpha=Math.max(0,0.9*(1-r/span));c.lineWidth=2;c.beginPath();c.arc(ax,cy,r,-0.85,0.85);c.stroke()}c.globalAlpha=1;
+      c.strokeStyle=C['--copper'];c.lineWidth=4;c.beginPath();c.moveTo(ax,cy-30+8*Math.sin(t*5));c.lineTo(ax,cy+30+8*Math.sin(t*5));c.stroke()}
+    var ex=p[4],iy=oy+ph-62,gap=Math.min(86,pw/3.3);ex.forEach(function(e,j){var x=cx+(j-(ex.length-1)/2)*gap;drawIcon(c,e[0],x,iy,40);c.fillStyle=C['--fg'];c.font='13px '+font;c.textAlign='center';c.fillText(e[1],x,iy+34)});
+    if(i>0){c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();if(stack){c.moveTo(16,oy);c.lineTo(w-16,oy)}else{c.moveTo(ox,16);c.lineTo(ox,h-16)}c.stroke()}});
+  if(!reduce)requestAnimationFrame(drawHero2)}
+
+/* magnets */
+var flip=false;
+function drawMag(){var g=+document.getElementById('rMag').value,F=1/Math.pow(1+g/30,4);document.getElementById('rMagv').textContent=gapWord(g);
+  function L(x,n,c){return '<rect x="'+x+'" y="52" width="70" height="46" rx="4" fill="'+c+'"/><text x="'+(x+35)+'" y="82" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">'+n+'</text>'}
+  function A(x1,x2,c){var d=x2>x1?1:-1;return '<path d="M'+x1.toFixed(1)+' 34 L'+x2.toFixed(1)+' 34 M'+(x2-8*d).toFixed(1)+' 27 L'+x2.toFixed(1)+' 34 L'+(x2-8*d).toFixed(1)+' 41" fill="none" stroke="'+c+'" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="'+Math.max(0.15,F).toFixed(2)+'"/>'}
+  var rx=252+g*1.7,len=10+44*F,s=L(110,'N',C['--plus'])+L(180,'S',C['--field']),msg,strong=F>0.25,weak=F>0.04;
+  if(flip){s+=L(rx,'N',C['--plus'])+L(rx+70,'S',C['--field'])+A(200,200+len,C['--ok'])+A(rx+50,rx+50-len,C['--ok']);msg=strong?'S 對住 N：吸住':weak?'遠咗少少：吸力跌咗好多':'再遠少少：吸力冇晒';}
+  else{s+=L(rx,'S',C['--field'])+L(rx+70,'N',C['--plus'])+A(230,230-len,C['--bad'])+A(rx+20,rx+20+len,C['--bad']);msg=strong?'S 對住 S：推開':weak?'遠咗少少：推力跌咗好多':'再遠少少：推力冇晒';}
+  s+='<text x="335" y="134" text-anchor="middle" font-size="17" fill="'+C['--fg']+'">'+msg+'</text>';
+  document.getElementById('magSvg').innerHTML=s;}
+document.getElementById('magFlip').addEventListener('click',function(){flip=!flip;drawMag()});document.getElementById('rMag').addEventListener('input',drawMag);
+
+/* spectrum ruler */
+function sup(n){return String(n).replace('-','⁻').replace(/\d/g,function(c){return '⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]})}
+function drawRuler(){var x0=20,x1=620,lo=4,hi=21;function X(f){return x0+(Math.log10(f)-lo)/(hi-lo)*(x1-x0)}
+  var B=[[1e4,3e8,'無線電'],[3e8,3e11,'微波'],[3e11,4e14,'紅外線'],[7.9e14,3e16,'紫外'],[3e16,3e19,'X 光'],[3e19,1e21,'伽馬']];
+  var s='<defs><linearGradient id="rbw" x1="0" x2="1"><stop offset="0" stop-color="#ff3b30"/><stop offset=".22" stop-color="#ff9500"/><stop offset=".42" stop-color="#ffd60a"/><stop offset=".62" stop-color="#34c759"/><stop offset=".82" stop-color="#0a84ff"/><stop offset="1" stop-color="#8e44ff"/></linearGradient></defs>';
+  s+='<text x="'+x0+'" y="22" font-size="12" fill="'+C['--muted']+'">每秒搖幾多下</text>';
+  [9,12,15,18,21].forEach(function(d){var xd=X(Math.pow(10,d));s+='<text x="'+xd.toFixed(1)+'" y="22" text-anchor="'+(d===21?'end':'middle')+'" font-size="12" fill="'+C['--faint']+'">10'+sup(d)+'</text>'});
+  B.forEach(function(b,i){var a=X(b[0]),c=X(b[1]);s+='<rect x="'+a.toFixed(1)+'" y="40" width="'+(c-a).toFixed(1)+'" height="30" fill="'+(i%2?C['--surface2']:C['--line'])+'"/>';if(c-a>34)s+='<text x="'+((a+c)/2).toFixed(1)+'" y="61" text-anchor="middle" font-size="15" fill="'+C['--fg']+'">'+b[2]+'</text>'});
+  for(var d=lo;d<=hi;d++){var xd=X(Math.pow(10,d));s+='<line x1="'+xd.toFixed(1)+'" y1="70" x2="'+xd.toFixed(1)+'" y2="'+(d%3?74:79)+'" stroke="'+C['--faint']+'"/>'}
+  s+='<text x="'+x0+'" y="94" font-size="12" fill="'+C['--muted']+'">一粒光子能量</text>';
+  [[-6,'10⁻⁶ eV'],[-3,'10⁻³ eV'],[0,'1 eV'],[3,'10³ eV'],[6,'10⁶ eV']].forEach(function(e){var xe=X(Math.pow(10,e[0])/4.1357e-15);s+='<text x="'+xe.toFixed(1)+'" y="94" text-anchor="middle" font-size="12" fill="'+C['--copper']+'">'+e[1]+'</text>'});
+  var va=X(4e14),vb=X(7.9e14);s+='<rect x="'+va.toFixed(1)+'" y="34" width="'+(vb-va).toFixed(1)+'" height="42" fill="url(#rbw)" stroke="'+C['--fg']+'" stroke-width="1.2"/>';
+  s+='<path d="M'+va.toFixed(1)+' 98 L190 108 M'+vb.toFixed(1)+' 98 L450 108" stroke="'+C['--muted']+'" stroke-width="1" stroke-dasharray="3 3" fill="none"/>';
+  s+='<rect x="190" y="108" width="260" height="14" rx="3" fill="url(#rbw)"/><text x="182" y="120" text-anchor="end" font-size="13" fill="'+C['--muted']+'">紅</text><text x="458" y="120" font-size="13" fill="'+C['--muted']+'">紫</text>';
+  s+='<text x="320" y="144" text-anchor="middle" font-size="15" fill="'+C['--fg']+'">可見光：成條尺 2%</text>';
+  var m=Math.min(x1,Math.max(x0,X(curF)));s+='<path d="M'+(m-7).toFixed(1)+' 28 L'+(m+7).toFixed(1)+' 28 L'+m.toFixed(1)+' 37 Z" fill="'+C['--copper']+'"/>';
+  document.getElementById('specRuler').innerHTML=s;}
+
+/* light spreads out with distance */
+var spc=null;
+function drawSpread(){var cv=document.getElementById('spreadCv');if(!spc)spc=fitCanvas(cv,210);var c=spc.x,w=spc.w,h=spc.h,font=tok('--font-body'),r=+document.getElementById('rFar').value;c.clearRect(0,0,w,h);c.textBaseline='middle';
+  document.getElementById('rFarv').textContent=r+' 倍';
+  var bx=36,cy=h/2-6,U=(w-bx-110)/3,S0=Math.min(32,(h-70)/3.4);
+  function quad(X,s){var k=s*0.4,u=s*0.3;return [[X,cy-s/2],[X+k,cy-s/2-u],[X+k,cy+s/2-u],[X,cy+s/2]]}
+  for(var g=1;g<=3;g++){var Q=quad(bx+U*g,S0*g);c.strokeStyle=C['--faint'];c.setLineDash([3,4]);c.lineWidth=1;c.beginPath();Q.forEach(function(p,i){i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])});c.closePath();c.stroke();c.setLineDash([])}
+  var X=bx+U*r,s=S0*r,Q=quad(X,s);
+  c.strokeStyle=C['--warn'];c.globalAlpha=0.45;c.lineWidth=1.2;Q.forEach(function(p){c.beginPath();c.moveTo(bx+6,cy-4);c.lineTo(p[0],p[1]);c.stroke()});c.globalAlpha=1;
+  function L(a,b,t){return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t]}
+  for(var i=0;i<r;i++)for(var j=0;j<r;j++){var a=L(L(Q[0],Q[1],i/r),L(Q[3],Q[2],i/r),j/r),b=L(L(Q[0],Q[1],(i+1)/r),L(Q[3],Q[2],(i+1)/r),j/r),cc=L(L(Q[0],Q[1],(i+1)/r),L(Q[3],Q[2],(i+1)/r),(j+1)/r),d=L(L(Q[0],Q[1],i/r),L(Q[3],Q[2],i/r),(j+1)/r);
+    c.fillStyle=C['--warn'];c.globalAlpha=0.9/(r*r);c.beginPath();c.moveTo(a[0],a[1]);c.lineTo(b[0],b[1]);c.lineTo(cc[0],cc[1]);c.lineTo(d[0],d[1]);c.closePath();c.fill();c.globalAlpha=1;c.strokeStyle=C['--fg'];c.lineWidth=1;c.stroke()}
+  drawIcon(c,'bulb',bx,cy,40);
+  c.fillStyle=C['--fg'];c.font='500 14px '+font;c.textAlign='center';c.fillText('鋪 '+r*r+' 格',X+s*0.2,cy-s/2-s*0.3-14);
+  var mx=w-30,m0=34,m1=h-44;c.fillStyle=C['--line'];rrect(c,mx-7,m0,14,m1-m0,5);c.fill();var fh=(m1-m0)/(r*r);c.fillStyle=C['--warn'];rrect(c,mx-7,m1-fh,14,fh,5);c.fill();
+  c.font='12px '+font;c.fillStyle=C['--fg'];c.fillText('每格',mx,m0-20);c.fillText('幾光',mx,m0-6);
+  c.fillStyle=C['--muted'];c.font='13px '+font;c.fillText(r===1?'一格食晒啲光':'遠 '+r+' 倍 → 鋪 '+r*r+' 格 → 每格得 1/'+r*r,(w-40)/2,h-16)}
+document.getElementById('rFar').addEventListener('input',drawSpread);
+
+/* source animation */
+var SRC=[
+ {k:'ant',n:'電子來回搖',f:1e8,bands:['無線電','微波'],cap:'天線入面嘅電子上上落落，每搖一下甩出一圈波。'},
+ {k:'vib',n:'分子震動',f:3e13,bands:['紅外線'],cap:'原子之間嘅鍵好似彈弓咁震；越熱，紅外線越多。'},
+ {k:'jump',n:'電子跳級',f:5.5e14,bands:['可見光','紫外線'],cap:'電子由外圈跌落內圈，多出嚟嘅能量變成一粒光。跌得越多，光越藍。'},
+ {k:'xray',n:'高速電子急停',f:3e18,bands:['X 光'],cap:'高速電子喺原子核旁邊急轉急停，甩出 X 光。'},
+ {k:'nuc',n:'原子核',f:3e20,bands:['伽馬射線'],cap:'原子核入面重新排位，放出伽馬射線。唯一唔關電子事嘅源頭。'}];
+var srcMode='ant',sctx=null,st0=performance.now(),srcTabs=document.getElementById('srcTabs');
+SRC.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=o.n;b.dataset.src=o.k;b.addEventListener('click',function(){document.getElementById('rF').value=Math.log10(o.f).toFixed(2);updF()});srcTabs.appendChild(b)});
+function modeFor(name){for(var i=0;i<SRC.length;i++)if(SRC[i].bands.indexOf(name)>=0)return SRC[i].k;return 'ant'}
+function setSrc(k){srcMode=k;[].forEach.call(srcTabs.children,function(b){b.setAttribute('aria-pressed',b.dataset.src===k?'true':'false')});document.getElementById('srcCap').textContent=SRC.filter(function(o){return o.k===k})[0].cap;if(reduce)drawSrc(1.8)}
+function photon(x,y,len,wl,col,amp){var c=sctx.x;c.strokeStyle=col;c.lineWidth=2;c.beginPath();for(var i=0;i<=len;i++){var e=Math.sin(Math.PI*i/len),yy=y+amp*e*Math.sin(i/wl*6.283);i?c.lineTo(x+i,yy):c.moveTo(x+i,yy)}c.stroke();c.fillStyle=col;c.beginPath();c.moveTo(x+len+9,y);c.lineTo(x+len,y-5);c.lineTo(x+len,y+5);c.closePath();c.fill()}
+function stxt(s,x,y,col,size,align){var c=sctx.x;c.fillStyle=col||C['--muted'];c.font=(size||13)+'px '+tok('--font-body');c.textAlign=align||'left';c.textBaseline='alphabetic';c.fillText(s,x,y)}
+function sdot(x,y,r,col,label){var c=sctx.x;c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.283);c.fill();if(label){c.fillStyle='#fff';c.font='700 '+Math.round(r*1.1)+'px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(label,x,y+1)}}
+function drawSrc(t){if(!sctx)sctx=fitCanvas(document.getElementById('srcCv'),200);var c=sctx.x,w=sctx.w,h=sctx.h;c.clearRect(0,0,w,h);
+  var lam=3e8/curF,vis=lam>=3.8e-7&&lam<=7.5e-7,pcol=vis?visColor(lam):'#a78bfa',P,cx,cy;
+  if(srcMode==='ant'){var ax=Math.max(60,w*0.16),span=w-ax-20;
+    for(var k=0;k<6;k++){var r=(t*70+k*span/6)%span;c.strokeStyle=C['--field'];c.globalAlpha=Math.max(0,1-r/span);c.lineWidth=2;c.beginPath();c.arc(ax,100,r+12,-0.85,0.85);c.stroke()}c.globalAlpha=1;
+    c.strokeStyle=C['--copper'];c.lineWidth=5;c.beginPath();c.moveTo(ax,28);c.lineTo(ax,172);c.stroke();
+    for(var i=0;i<5;i++)sdot(ax,52+i*24+14*Math.sin(t*5),7,C['--field'],'−');
+    stxt('天線：電子上上落落',ax-40,20,C['--muted'],13)}
+  else if(srcMode==='vib'){cx=Math.max(120,w*0.25);var d=74+20*Math.sin(t*6),a=cx-d/2,b=cx+d/2;c.strokeStyle=C['--muted'];c.lineWidth=2;c.beginPath();c.moveTo(a,100);for(var z=1;z<12;z++)c.lineTo(a+(b-a)*z/12,100+(z%2?-8:8));c.lineTo(b,100);c.stroke();
+    sdot(a,100,20,C['--faint'],'C');sdot(b,100,22,C['--plus'],'O');
+    P=(t%2.2)/2.2;if(P>0.08)photon(b+34+P*Math.max(0,w-b-170),100,100,15,C['--plus'],8);
+    stxt('化學鍵好似彈弓咁震',cx-70,30)}
+  else if(srcMode==='jump'){cx=Math.max(100,w*0.2);cy=100;[30,55,80].forEach(function(r){c.strokeStyle=C['--line'];c.lineWidth=1.5;c.beginPath();c.arc(cx,cy,r,0,6.283);c.stroke()});sdot(cx,cy,11,C['--copper'],'+');
+    P=t%3;var ang=t*2.2,rr;if(P<1.6)rr=80;else if(P<1.9)rr=80-(P-1.6)/0.3*50;else if(P<2.7)rr=30;else rr=30+(P-2.7)/0.3*50;
+    sdot(cx+rr*Math.cos(ang),cy+rr*Math.sin(ang),6,C['--field']);
+    if(P>1.75){var q=(P-1.75)/1.25,px=cx+92+q*Math.max(0,w-cx-220);photon(px,cy,100,vis?16:9,pcol,8);if(!vis)stxt('紫外線：眼睇唔到',px,cy-20,C['--muted'],12)}
+    stxt('外圈 → 內圈',cx-40,18)}
+  else if(srcMode==='xray'){cx=Math.max(200,w*0.4);cy=112;c.strokeStyle=C['--line'];c.setLineDash([3,4]);c.lineWidth=1.5;c.beginPath();c.moveTo(20,cy-40);c.lineTo(cx,cy-40);c.arc(cx,cy,40,-Math.PI/2,0.35);c.lineTo(cx+100,cy+80);c.stroke();c.setLineDash([]);
+    sdot(cx,cy,24,C['--copper'],'+');P=(t%2.6)/2.6;var ex,ey;
+    if(P<0.45){ex=20+(cx-20)*(P/0.45);ey=cy-40}else if(P<0.6){var an=-Math.PI/2+(P-0.45)/0.15*(Math.PI/2+0.35);ex=cx+40*Math.cos(an);ey=cy+40*Math.sin(an)}else{var u=(P-0.6)/0.4,sx=cx+40*Math.cos(0.35),sy=cy+40*Math.sin(0.35);ex=sx+(cx+100-sx)*u;ey=sy+(cy+80-sy)*u}
+    sdot(ex,ey,6,C['--field']);
+    if(P>0.5){var q2=(P-0.5)/0.5;photon(cx+48+q2*Math.max(0,w-cx-170),cy-60,90,5,C['--fg'],7)}
+    stxt('高速電子喺原子核旁邊急轉',20,24)}
+  else{cx=Math.max(110,w*0.22);cy=100;var O=[[0,0],[16,4],[-15,6],[4,-15],[-6,16],[18,-12],[-18,-10],[10,18],[-12,-20],[22,10],[-24,8],[2,26]];
+    P=t%2.2;if(P<0.35){c.strokeStyle=C['--warn'];c.globalAlpha=1-P/0.35;c.lineWidth=2;c.beginPath();c.arc(cx,cy,34+P*140,0,6.283);c.stroke();c.globalAlpha=1}
+    O.forEach(function(o,i){sdot(cx+o[0]+2*Math.sin(t*11+i),cy+o[1]+2*Math.cos(t*13+i*2),9,i%2?C['--faint']:C['--plus'],i%2?'':'+')});
+    var q3=P/2.2;photon(cx+50+q3*Math.max(0,w-cx-180),cy,100,4,C['--warn'],8);
+    stxt('原子核：質子（紅）同中子（灰）',cx-60,24)}
+}
+function srcLoop(){drawSrc((performance.now()-st0)/1000);requestAnimationFrame(srcLoop)}
+
+/* spectrum */
+var BANDS=[[0,3e8,'無線電','天線入面嘅電子來回搖','電台、電視、八達通（13.56 MHz）'],[3e8,3e11,'微波','天線或者磁控管入面嘅電子','手機、WiFi、微波爐（2.45 GHz）、雷達'],[3e11,4e14,'紅外線','分子震動','電視遙控器、暖爐、你自己個身'],[4e14,7.9e14,'可見光','電子喺原子入面跳級','太陽、燈泡、螢幕'],[7.9e14,3e16,'紫外線','電子跳較大嘅級','曬傷、驗鈔燈'],[3e16,3e19,'X 光','內層電子、高速電子急停','照肺、機場行李掃描'],[3e19,1e30,'伽馬射線','原子核','放射性衰變、PET 掃描']];
+var wc=document.getElementById('waveCv'),wctx=null,wPhase=0,curF=2.45e9;
+function fmtF(f){var u=[[1e18,'百京'],[1e15,'千兆'],[1e12,'萬億'],[1e8,'億'],[1e4,'萬']];for(var i=0;i<u.length;i++){if(f>=u[i][0])return (f/u[i][0]).toPrecision(3)+' '+u[i][1]+'下/秒'}return f.toFixed(0)+' 下/秒'}
+function fmtL(l){if(l>=1000)return (l/1000).toPrecision(3)+' km';if(l>=1)return l.toPrecision(3)+' m';if(l>=1e-2)return (l*100).toPrecision(3)+' cm';if(l>=1e-3)return (l*1000).toPrecision(3)+' mm';if(l>=1e-6)return (l*1e6).toPrecision(3)+' μm';if(l>=1e-9)return (l*1e9).toPrecision(3)+' nm';return (l*1e12).toPrecision(3)+' pm'}
+function fmtE(e){if(e>=1e6)return (e/1e6).toPrecision(3)+' MeV';if(e>=1e3)return (e/1e3).toPrecision(3)+' keV';if(e>=0.01)return e.toPrecision(3)+' eV';var ex=Math.floor(Math.log10(e)),m=e/Math.pow(10,ex);return m.toFixed(1)+'×10'+String(ex).replace('-','⁻').replace(/\d/g,function(c){return '⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]})+' eV'}
+function visColor(lam){var nm=lam*1e9,h=nm<450?260-(nm-380)*0.6:nm<495?220-(nm-450)*1.5:nm<570?150-(nm-495)*1.3:nm<590?55-(nm-570)*1:nm<620?35-(nm-590)*0.7:10;return 'hsl('+Math.max(0,h)+',85%,58%)'}
+function updF(){var lg=+document.getElementById('rF').value,f=Math.pow(10,lg);curF=f;var lam=3e8/f,E=4.1357e-15*f;
+  document.getElementById('rFv').textContent=fmtF(f);
+  var b=BANDS.filter(function(x){return f>=x[0]&&f<x[1]})[0]||BANDS[0];
+  document.getElementById('fName').textContent=b[2];document.getElementById('fE').textContent=fmtE(E);
+  document.getElementById('fEx').innerHTML=(EX[b[2]]||[]).map(function(e){return icFig(e[0],e[1])}).join('');setSrc(modeFor(b[2]));drawRuler();
+  }
+function drawWave(){if(!wctx){var o=fitCanvas(wc,60);wctx=o}var x=wctx.x,w=wctx.w,h=wctx.h;x.clearRect(0,0,w,h);
+  var lg=Math.log10(curF),t=(lg-4)/(20.5-4),wl=320*Math.pow(6/320,t),lam=3e8/curF;
+  x.strokeStyle=(lam>=3.8e-7&&lam<=7.5e-7)?visColor(lam):C['--field'];x.lineWidth=2;x.beginPath();
+  for(var i=0;i<=w;i++){var y=h/2+22*Math.sin((i/wl)*6.283-wPhase);i?x.lineTo(i,y):x.moveTo(i,y)}x.stroke();}
+function waveLoop(){wPhase+=0.08;drawWave();if(!reduce)requestAnimationFrame(waveLoop)}
+document.getElementById('rF').addEventListener('input',updF);updF();waveLoop();if(reduce)drawSrc(1.8);else srcLoop();
+
+/* molecules */
+var MOL={
+ salt:{n:'鹽（Na + Cl）',d:null,cap:'化學嘅核心：搶電子。鈉最外層得 1 粒電子，好想甩；氯差 1 粒先夠 8 粒，好想搶。各自都危險，就係因為急住交易。交易完兩邊都穩定晒，變成一正一負嘅鹽。',scene:'salt'},
+ oil:{n:'油（C–H）',d:0.35,cap:'C 同 H 差唔多力，冇人搶到電子，所以冇正負頭。冇正負頭就冇嘢俾人黐：唔黐水、溶唔到鹽、一層層滑來滑去，所以油咁滑。',scene:'oil',atoms:[['C',0,0,24,'gray'],['H',-108,0,15,'h'],['H',108,0,15,'h'],['H',0,-76,15,'h'],['H',0,76,15,'h']],bonds:[[0,1,0.42],[0,2,0.42],[0,3,0.42],[0,4,0.42]]},
+ water:{n:'水（O–H）',d:1.24,cap:'O 搶咗 H 嘅電子：O 嗰頭負，H 嗰頭正。負頭吸住 Na⁺，正頭吸住 Cl⁻，一粒粒拉走，所以水溶到鹽，好多嘢都係咁溶。水分子之間都係咁黐住，一滴水自己企到，所以《蟲蟲特工隊》嘅昆蟲飲嘢唔使杯。',scene:'water'},
+ ox:{n:'氧化',d:null,cap:'生鏽、燒嘢、呼吸都係同一件事：電子交俾氧。分別只係快慢：生鏽慢，燒嘢快，呼吸分好多細步，將能量一啲啲收埋。',scene:'ox'},
+ mix:{n:'油同水',d:null,cap:'唔係油推開水：係水分子正負互相黐住，冇正負頭嘅油擠唔入去，俾水逼咗出嚟。油輕啲，所以浮喺水面。',scene:'mix'},
+ soap:{n:'肥皂／蛋黃醬',d:null,cap:'肥皂同蛋黃入面嘅卵磷脂，一頭鍾意水、一頭鍾意油。尾插入油，頭向住水，將油包住：肥皂就可以用水沖走油；蛋黃醬啲油滴就唔會撈返埋一齊分層。',scene:'soap'}};
+var molMode='salt',mctx=null,mT0=performance.now(),MB=document.getElementById('molBtns'),MH=300;
+Object.keys(MOL).forEach(function(k){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=MOL[k].n;b.dataset.k=k;b.addEventListener('click',function(){molMode=k;mT0=performance.now();mixS=null;soapS=null;molUpd()});MB.appendChild(b)});
+function molUpd(){[].forEach.call(MB.children,function(b){b.setAttribute('aria-pressed',b.dataset.k===molMode?'true':'false')});document.getElementById('molCap').textContent=MOL[molMode].cap;if(reduce)drawMol()}
+function colOf(k){return {gray:'#888780',h:'#e9e6dc',plus:C['--plus'],ok:C['--ok'],copper:C['--copper'],vio:'#9a8ff0'}[k]}
+function atomD(c,x,y,r,col,s,font){c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.2832);c.fill();if(col==='#e9e6dc'){c.strokeStyle=C['--faint'];c.lineWidth=1;c.stroke()}if(s){c.fillStyle=col==='#e9e6dc'?'#2c2c2a':'#fff';c.font='600 '+Math.round(Math.max(10,r*0.78))+'px '+font;c.textAlign='center';c.textBaseline='middle';c.fillText(s,x,y+1)}}
+function arrowD(c,x1,y1,x2,y2,col,lw){var a=Math.atan2(y2-y1,x2-x1);c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw||2;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-8*Math.cos(a-0.45),y2-8*Math.sin(a-0.45));c.lineTo(x2-8*Math.cos(a+0.45),y2-8*Math.sin(a+0.45));c.closePath();c.fill()}
+function h2o(c,x,y,a,s){[a,a+1.82].forEach(function(b){c.fillStyle='#e9e6dc';c.strokeStyle=C['--faint'];c.lineWidth=0.8;c.beginPath();c.arc(x+9*s*Math.cos(b),y+9*s*Math.sin(b),3.4*s,0,6.2832);c.fill();c.stroke()});c.fillStyle=C['--plus'];c.beginPath();c.arc(x,y,6*s,0,6.2832);c.fill()}
+function antD(c,x,y){c.save();c.fillStyle=C['--fg'];c.strokeStyle=C['--fg'];c.lineWidth=1.4;c.globalAlpha=0.85;
+  c.beginPath();c.ellipse(x-15,y-6,9,6,-0.15,0,6.2832);c.fill();c.beginPath();c.ellipse(x-1,y-7,6,4,0,0,6.2832);c.fill();c.beginPath();c.ellipse(x+10,y-9,5,4.5,0,0,6.2832);c.fill();
+  [-5,0,5].forEach(function(o){c.beginPath();c.moveTo(x-1+o*0.4,y-6);c.lineTo(x-1+o*1.6,y+3);c.stroke()});
+  c.beginPath();c.moveTo(x+13,y-12);c.quadraticCurveTo(x+20,y-22,x+27,y-16);c.stroke();c.beginPath();c.moveTo(x+12,y-12);c.quadraticCurveTo(x+16,y-24,x+24,y-22);c.stroke();c.restore()}
+var dropS=null;
+function buildDrop(w,h){var cx=w*0.6,base=h-30,rx=Math.min(w*0.36,215),ry=Math.min(rx*0.78,h-90),M=[],row=0;for(var y=base-16;y>base-ry+10;y-=30){for(var x=cx-rx+18+(row%2)*14;x<cx+rx-12;x+=30){var dx=(x-cx)/rx,dy=(base-y)/ry;if(dx*dx+dy*dy<0.84)M.push({x:x,y:y,a:Math.random()*6.28,ph:Math.random()*6.28})}row++}return {w:w,h:h,cx:cx,base:base,rx:rx,ry:ry,M:M}}
+function sceneDrop(c,w,h,t,font,noInset){if(!dropS||dropS.w!==w||dropS.h!==h)dropS=buildDrop(w,h);var S=dropS;
+  c.fillStyle=C['--line'];c.fillRect(0,S.base,w,h-S.base);
+  c.fillStyle=C['--field'];c.globalAlpha=0.12;c.beginPath();c.ellipse(S.cx,S.base,S.rx,S.ry,0,Math.PI,2*Math.PI);c.fill();c.globalAlpha=1;c.strokeStyle=C['--field'];c.lineWidth=2;c.beginPath();c.ellipse(S.cx,S.base,S.rx,S.ry,0,Math.PI,2*Math.PI);c.stroke();
+  var P=S.M.map(function(m){return {x:m.x+2.5*Math.sin(t*3+m.ph),y:m.y+2.5*Math.cos(t*2.6+m.ph),a:m.a+0.5*Math.sin(t*1.4+m.ph)}});
+  c.strokeStyle=C['--field'];c.globalAlpha=0.6;c.setLineDash([3,3]);c.lineWidth=1.2;
+  for(var i=0;i<P.length;i++)for(var j=i+1;j<P.length;j++){if(Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y)<40){c.beginPath();c.moveTo(P[i].x,P[i].y);c.lineTo(P[j].x,P[j].y);c.stroke()}}
+  c.setLineDash([]);c.globalAlpha=1;P.forEach(function(p){h2o(c,p.x,p.y,p.a,1)});
+  S.M.forEach(function(m,i){var dx=(m.x-S.cx)/S.rx,dy=(S.base-m.y)/S.ry;if(dx*dx+dy*dy>0.42){var p=P[i],vx=S.cx-p.x,vy=(S.base-S.ry*0.25)-p.y,L=Math.hypot(vx,vy);arrowD(c,p.x+vx/L*8,p.y+vy/L*8,p.x+vx/L*24,p.y+vy/L*24,C['--copper'],1.8)}});
+  antD(c,S.cx-S.rx-30,S.base);
+  if(!noInset){  var ix=56,iy=72;c.strokeStyle=C['--faint'];c.lineWidth=2;c.beginPath();c.moveTo(ix,iy);c.lineTo(ix-26,iy+28);c.moveTo(ix,iy);c.lineTo(ix+26,iy+28);c.stroke();
+  atomD(c,ix,iy,14,C['--plus'],'O',font);atomD(c,ix-26,iy+28,9,'#e9e6dc','H',font);atomD(c,ix+26,iy+28,9,'#e9e6dc','H',font);
+  c.font='600 15px '+font;c.textAlign='center';c.textBaseline='middle';c.fillStyle=C['--field'];c.fillText('δ−',ix,iy-26);c.fillStyle=C['--plus'];c.fillText('δ+',ix-40,iy+44);c.fillText('δ+',ix+40,iy+44);}
+  c.font='13px '+font;c.fillStyle=C['--copper'];c.textAlign='right';c.fillText('橙色：表面只係被入面拉',w-12,20);c.fillStyle=C['--field'];c.fillText('虛線：負嗰頭吸住正嗰頭',w-12,40)}
+var mixS=null;
+function buildMix(w,h,x0,x1,y0,y1){var s=26,cols=Math.floor((x1-x0-14)/s),wr=Math.max(3,Math.floor((y1-y0)*0.4/(s*0.87))),or=2,W=[],O=[],r,k;
+  for(r=0;r<wr;r++)for(k=0;k<cols-(r%2);k++)W.push({x:x0+14+k*s+(r%2)*s/2,y:y1-13-r*s*0.87});
+  var top=y1-13-(wr-1)*s*0.87;for(r=0;r<or;r++)for(k=0;k<cols-(r%2);k++)O.push({x:x0+14+k*s+(r%2)*s/2,y:top-s*0.95-r*s*0.62});
+  function mk(slots,oil){var P=slots.map(function(){return {oil:oil,sx:x0+12+Math.random()*(x1-x0-24),sy:y0+12+Math.random()*(y1-y0-24),a:Math.random()*6.28,ph:Math.random()*6.28,dl:Math.random()*1.6}});
+    P.sort(function(a,b){return a.sx-b.sx});slots.sort(function(a,b){return a.x-b.x||a.y-b.y});P.forEach(function(p,i){p.tx=slots[i].x;p.ty=slots[i].y});return P}
+  return {w:w,h:h,P:mk(W,false).concat(mk(O,true))}}
+function sceneMix(c,w,h,t,font){var x0=16,x1=w-16,y0=34,y1=h-14,per=12,tt=reduce?per-1:t%per;
+  if(!mixS||mixS.w!==w||mixS.h!==h||(!reduce&&tt<mixS.last))mixS=buildMix(w,h,x0,x1,y0,y1);mixS.last=tt;
+  var P=mixS.P,ss=function(f){return f*f*(3-2*f)};
+  P.forEach(function(p){var f=ss(Math.max(0,Math.min(1,(tt-1.2-p.dl)/3.6))),wob=Math.sin(Math.PI*f)*14*Math.sin(p.ph*3);p.x=p.sx+(p.tx-p.sx)*f+wob+1.6*Math.sin(t*3+p.ph);p.y=p.sy+(p.ty-p.sy)*f+1.6*Math.cos(t*2.7+p.ph)});
+  c.strokeStyle=C['--line'];c.lineWidth=1.5;c.strokeRect(x0,y0,x1-x0,y1-y0);
+  c.strokeStyle=C['--field'];c.globalAlpha=0.55;c.setLineDash([3,3]);c.lineWidth=1.1;var n=P.length;
+  for(var a=0;a<n;a++)if(!P[a].oil)for(var b=a+1;b<n;b++)if(!P[b].oil&&Math.abs(P[a].x-P[b].x)<30&&Math.hypot(P[a].x-P[b].x,P[a].y-P[b].y)<30){c.beginPath();c.moveTo(P[a].x,P[a].y);c.lineTo(P[b].x,P[b].y);c.stroke()}
+  c.setLineDash([]);c.globalAlpha=1;
+  P.forEach(function(p){if(p.oil){c.fillStyle=C['--warn'];c.beginPath();c.ellipse(p.x,p.y,9,5.5,p.a+0.3*Math.sin(t+p.ph),0,6.2832);c.fill()}else h2o(c,p.x,p.y,p.a+t*0.3,0.9)});
+  c.font='13px '+font;c.textBaseline='middle';c.textAlign='left';c.fillStyle=C['--muted'];c.fillText(tt<1.2?'撈勻咗':tt<6?'水分子互相黐埋，將油逼走……':'水喺底，油浮喺水面',x0+4,18);
+  c.textAlign='right';c.fillStyle=C['--warn'];c.fillText('● 油',x1-60,18);c.fillStyle=C['--plus'];c.fillText('● 水',x1-4,18)}
+function eDot(c,x,y){c.fillStyle=C['--field'];c.beginPath();c.arc(x,y,5,0,6.2832);c.fill()}
+function sceneOx(c,w,h,t,font){var stack=w<560,pw=stack?w:w/3,ph=stack?h/3:h,ss=function(f){return f*f*(3-2*f)};
+  var P=[['生鏽','慢：幾年','→ 鐵鏽'],['燒嘢','快：一秒內','→ 熱 + 光'],['呼吸','分好多細步','→ 能量收埋，俾身體用']];
+  P.forEach(function(p,i){var ox=stack?0:i*pw,oy=stack?i*ph:0,ly=oy+ph*(stack?0.5:0.45),lx=ox+pw*(stack?0.16:0.2),rx=ox+pw*(stack?0.84:0.8),r=stack?14:18,mx=(lx+rx)/2,ex,ey,f,q;
+    if(i>0){c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();if(stack){c.moveTo(12,oy);c.lineTo(w-12,oy)}else{c.moveTo(ox,14);c.lineTo(ox,h-14)}c.stroke()}
+    c.textBaseline='middle';c.textAlign='left';c.fillStyle=C['--fg'];c.font='500 15px '+font;c.fillText(p[0],ox+12,oy+18);var tw=c.measureText(p[0]).width;c.fillStyle=C['--muted'];c.font='12px '+font;c.fillText(p[1],ox+22+tw,oy+19);
+    var ay=ly-r-(stack?17:28);c.setLineDash([4,4]);arrowD(c,lx+r+4,ay,rx-r-4,ay,C['--field'],1.4);c.setLineDash([]);c.fillStyle=C['--field'];c.font='12px '+font;c.textAlign='center';c.fillText('電子交俾氧',mx,ay-10);
+    c.fillStyle=C['--fg'];c.font='500 13px '+font;c.textAlign='center';c.fillText(p[2],ox+pw/2,oy+ph-(stack?13:20));
+    if(i===0){q=(t%9)/9;f=ss(q<0.12?0:q<0.82?(q-0.12)/0.7:1);
+      var by=ly+r+(stack?14:22),bx0=lx-r,bx1=rx+r;c.fillStyle='#8a8f98';c.fillRect(bx0,by,bx1-bx0,10);
+      c.fillStyle='#a0522d';for(var k=0;k<14;k++){if(k/14<f){var sx=bx0+((k*37)%14+0.5)/14*(bx1-bx0);c.beginPath();c.ellipse(sx,by+5,7,6,0,0,6.2832);c.fill()}}
+      c.fillStyle=C['--muted'];c.font='11px '+font;c.textAlign='left';if(!stack)c.fillText('鐵',bx0,by+22);
+      atomD(c,lx,ly,r+3,'#8a8f98','Fe',font);atomD(c,rx,ly,r,C['--plus'],'O',font);
+      for(var k2=0;k2<2;k2++){var an=t*1.6+k2*Math.PI;eDot(c,lx+(r+12)*Math.cos(an)+(rx-lx)*f,ly+(r+12)*Math.sin(an))}
+      if(f>=1){c.font='700 14px '+font;c.textAlign='center';c.fillStyle=C['--plus'];c.fillText('+',lx+r+6,ly-r-2);c.fillStyle=C['--field'];c.fillText('−',rx+r+6,ly-r-2)}}
+    else if(i===1){q=(t%2.4)/2.4;f=ss(q<0.3?0:q<0.5?(q-0.3)/0.2:1);var gl=q>0.45&&q<0.9?Math.sin((q-0.45)/0.45*Math.PI):0,fb=ly+r+(stack?10:16),fh=(stack?30:44)*(0.75+0.35*gl);
+      var g=c.createRadialGradient(mx,fb-fh*0.5,2,mx,fb-fh*0.5,fh*1.6);g.addColorStop(0,'rgba(255,170,60,'+(0.15+0.45*gl)+')');g.addColorStop(1,'rgba(255,170,60,0)');c.fillStyle=g;c.fillRect(mx-fh*1.7,fb-fh*2.2,fh*3.4,fh*2.6);
+      [[-12,0.7,C['--copper']],[12,0.75,C['--copper']],[0,1,C['--copper']],[0,0.6,C['--warn']]].forEach(function(L,j){var hh=fh*L[1]*(0.9+0.12*Math.sin(t*11+j*2)),x=mx+L[0],wd=(L[2]===C['--warn']?7:11);c.fillStyle=L[2];c.beginPath();c.moveTo(x-wd,fb);c.quadraticCurveTo(x-wd*0.9,fb-hh*0.5,x+2*Math.sin(t*9+j),fb-hh);c.quadraticCurveTo(x+wd*0.9,fb-hh*0.5,x+wd,fb);c.closePath();c.fill()});
+      if(gl>0.05){c.strokeStyle=C['--warn'];c.globalAlpha=gl;c.lineWidth=1.6;for(var k3=0;k3<6;k3++){var a3=-Math.PI/2+(k3-2.5)*0.42;c.beginPath();c.moveTo(mx+Math.cos(a3)*(fh*0.9),fb-fh*0.5+Math.sin(a3)*(fh*0.9));c.lineTo(mx+Math.cos(a3)*(fh*1.35),fb-fh*0.5+Math.sin(a3)*(fh*1.35));c.stroke()}c.globalAlpha=1}
+      atomD(c,lx,ly,r,'#5f5e5a','C',font);atomD(c,rx,ly,r,C['--plus'],'O',font);
+      for(var k4=0;k4<2;k4++){var an4=t*6+k4*Math.PI;eDot(c,lx+(r+10)*Math.cos(an4)+(rx-lx)*f,ly+(r+10)*Math.sin(an4))}}
+    else{var steps=3;q=(t%4.5)/4.5;var pos=q*(steps+1.4),seg=Math.min(steps,Math.floor(pos)),fr=Math.min(1,pos-seg);
+      c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();for(var hx=0;hx<6;hx++){var aa=hx/6*6.2832+0.52,px=lx+(r+2)*Math.cos(aa),py=ly+(r+2)*Math.sin(aa);hx?c.lineTo(px,py):c.moveTo(px,py)}c.closePath();c.stroke();
+      c.fillStyle=C['--muted'];c.font='12px '+font;c.textAlign='center';c.fillText('食物',lx,ly+r+16);
+      atomD(c,rx,ly,r,C['--plus'],'O',font);
+      var xs=[lx];for(var s3=1;s3<=steps;s3++)xs.push(lx+(rx-lx)*s3/(steps+1));xs.push(rx);
+      for(var s4=1;s4<=steps;s4++){c.fillStyle='#7F77DD';c.fillRect(xs[s4]-6,ly-10,12,20)}
+      c.fillStyle=C['--muted'];c.font='11px '+font;c.fillText('泵',xs[2],ly+r+16);
+      for(var s5=1;s5<=steps;s5++){var ag=pos-s5;if(ag>=0&&ag<1.2){var yy=ly+12+ag*(stack?18:34);c.globalAlpha=Math.max(0,1-ag/1.2);c.fillStyle=C['--ok'];c.beginPath();c.arc(xs[s5],yy,6,0,6.2832);c.fill();c.fillStyle='#fff';c.font='700 10px sans-serif';c.fillText('+',xs[s5],yy+0.5);c.globalAlpha=1}}
+      var a0=xs[seg],a1=xs[seg+1];ex=a0+(a1-a0)*ss(fr);ey=ly-(r+6)*Math.sin(Math.PI*ss(fr))-4;if(pos<steps+1)eDot(c,ex,ey);else eDot(c,rx+(r+9)*Math.cos(t*3),ly+(r+9)*Math.sin(t*3))}});}
+var soapS=null;
+function sceneSalt(c,w,h,t,font){var nar=w<560,s=Math.min(1,w/640),top=nar?150:150,xs=[w*0.17,w*0.5,w*0.83],T=[['鈉 Na','掉落水會爆'],['氯 Cl₂','黃綠色毒氣'],['鹽 NaCl','日日要食']];
+  c.textBaseline='middle';c.textAlign='center';
+  T.forEach(function(p,i){c.fillStyle=C['--fg'];c.font='500 15px '+font;c.fillText(p[0],xs[i],20);c.fillStyle=i<2?C['--bad']:C['--ok'];c.font='12px '+font;c.fillText(p[1],xs[i],38)});
+  c.fillStyle=C['--muted'];c.font='22px '+font;c.fillText('+',w*0.335,96);c.fillText('→',w*0.665,96);
+  var x=xs[0],sw=46*s+8;c.fillStyle=C['--field'];c.globalAlpha=0.25;c.fillRect(x-sw,104,sw*2,30);c.globalAlpha=1;c.strokeStyle=C['--field'];c.lineWidth=1.5;c.beginPath();c.moveTo(x-sw,104);c.lineTo(x+sw,104);c.stroke();
+  for(var k=0;k<9;k++){var a=-Math.PI*(0.1+0.8*k/8),L=(14+12*Math.abs(Math.sin(t*9+k*1.7)))*(0.7+0.3*s);c.strokeStyle=k%2?C['--warn']:C['--copper'];c.lineWidth=2;c.beginPath();c.moveTo(x+Math.cos(a)*14,92+Math.sin(a)*10);c.lineTo(x+Math.cos(a)*(14+L),92+Math.sin(a)*(10+L));c.stroke()}
+  c.fillStyle='#b4b2a9';c.fillRect(x-12,90,24,15);c.strokeStyle='#5f5e5a';c.lineWidth=1;c.strokeRect(x-12,90,24,15);
+  x=xs[1];for(var b=0;b<7;b++){var bx=x+Math.cos(b*0.9+t*0.6)*(16*s+6)+(b-3)*6*s,by=92+Math.sin(b*1.3+t*0.8)*12;c.fillStyle='#c3d13a';c.globalAlpha=0.45;c.beginPath();c.arc(bx,by,15*s+6,0,6.2832);c.fill()}c.globalAlpha=1;
+  c.fillStyle=C['--bad'];c.beginPath();c.moveTo(x,58);c.lineTo(x+11,76);c.lineTo(x-11,76);c.closePath();c.fill();c.fillStyle='#fff';c.font='700 12px sans-serif';c.fillText('!',x,70);
+  x=xs[2];var gs=15*s+6;for(var lay=1;lay>=0;lay--)for(var r=0;r<3;r++)for(var q=0;q<3;q++){var px=x+(q-1)*gs+lay*gs*0.45,py=96+(r-1)*gs-lay*gs*0.45,na=(r+q+lay)%2===0;c.globalAlpha=lay?0.45:1;c.fillStyle=na?'#9a8ff0':C['--ok'];c.beginPath();c.arc(px,py,na?gs*0.3:gs*0.42,0,6.2832);c.fill()}c.globalAlpha=1;
+  c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();c.moveTo(12,top);c.lineTo(w-12,top);c.stroke();
+  var cy=top+(h-top)*0.45,per=6,p=t%per,ax=w*(nar?0.27:0.32),bx2=w*(nar?0.73:0.68),ra=(nar?30:38),rb=(nar?26:32),f=p<1.6?0:p<2.6?(p-1.6):1;f=f*f*(3-2*f);var att=p>2.8?Math.min(1,(p-2.8)/0.8):0,pull=att*(nar?14:28);ax+=pull;bx2-=pull;
+  var naAlpha=f>=1?Math.max(0,1-(p-2.6)/0.5):1;
+  c.strokeStyle=C['--faint'];c.lineWidth=1.4;c.setLineDash([3,3]);c.globalAlpha=naAlpha;c.beginPath();c.arc(ax,cy,ra,0,6.2832);c.stroke();c.globalAlpha=1;c.beginPath();c.arc(bx2,cy,rb,0,6.2832);c.stroke();c.setLineDash([]);
+  atomD(c,ax,cy,nar?14:17,'#9a8ff0',f>=1?'Na⁺':'Na',font);atomD(c,bx2,cy,nar?14:17,C['--ok'],f>=1?'Cl⁻':'Cl',font);
+  var rot=t*0.7;for(var e=0;e<7;e++){var ae=rot+e*6.2832/8;eDot(c,bx2+rb*Math.cos(ae),cy+rb*Math.sin(ae))}
+  var a1=rot+0.3,sx=ax+ra*Math.cos(a1),sy=cy+ra*Math.sin(a1),ae8=rot+7*6.2832/8,ex=bx2+rb*Math.cos(ae8),ey=cy+rb*Math.sin(ae8);
+  c.fillStyle=C['--field'];c.beginPath();c.arc(sx+(ex-sx)*f,sy+(ey-sy)*f-30*Math.sin(Math.PI*f),5,0,6.2832);c.fill();
+  c.font='12px '+font;c.textAlign='center';var ly=cy+ra+18;
+  if(p<2.8){c.fillStyle=C['--muted'];c.fillText('最外層得 1 粒',ax,ly);c.fillText('好想甩走佢',ax,ly+16);c.fillText('差 1 粒先夠 8 粒',bx2,ly);c.fillText('好想搶',bx2,ly+16)}
+  else{c.fillStyle=C['--ok'];c.font='500 13px '+font;c.fillText('交易完：兩邊都滿足晒，一正一負黐埋，乖晒',w/2,ly+8);if(att>0.3){arrowD(c,ax+ra+4,cy-ra-6,ax+ra+24,cy-ra-6,C['--muted'],1.6);arrowD(c,bx2-rb-4,cy-ra-6,bx2-rb-24,cy-ra-6,C['--muted'],1.6)}}}
+function soapMol(c,x,y,ang,len){var ux=Math.cos(ang),uy=Math.sin(ang);c.strokeStyle=C['--warn'];c.lineWidth=2;c.beginPath();c.moveTo(x,y);for(var i=1;i<=6;i++){var d=len*i/6,o=(i%2?2.6:-2.6)*(i<6?1:0);c.lineTo(x+ux*d-uy*o,y+uy*d+ux*o)}c.stroke();c.fillStyle=C['--field'];c.beginPath();c.arc(x,y,4.5,0,6.2832);c.fill()}
+function buildSoap(w,h){var nar=w<560,y0=56,y1=h-14,my=(y0+y1)/2,D=nar?[[0.32,-14,32],[0.72,18,28]]:[[0.27,0,40],[0.55,-22,32],[0.8,16,36]],M=[];
+  D=D.map(function(d){return {x:w*d[0],y:my+d[1],r:d[2]}});
+  D.forEach(function(d,di){var n=Math.round(2*Math.PI*(d.r+8)/13);for(var i=0;i<n;i++){var th=i/n*6.2832;M.push({d:di,th:th,sx:16+Math.random()*(w-32),sy:y0+10+Math.random()*(y1-y0-20),sa:Math.random()*6.28,dl:Math.random()*1.8})}});
+  return {w:w,h:h,D:D,M:M,y0:y0,y1:y1}}
+function sceneSoap(c,w,h,t,font){if(!soapS||soapS.w!==w||soapS.h!==h)soapS=buildSoap(w,h);var S=soapS,per=12,tt=reduce?per-1:t%per,ss=function(f){return f*f*(3-2*f)};
+  soapMol(c,22,26,0,40);c.font='13px '+font;c.textBaseline='middle';c.textAlign='left';c.fillStyle=C['--field'];c.fillText('頭鍾意水',72,18);c.fillStyle=C['--warn'];c.fillText('尾鍾意油',72,36);
+  c.fillStyle=C['--field'];c.globalAlpha=0.08;c.fillRect(12,S.y0,w-24,S.y1-S.y0);c.globalAlpha=1;c.strokeStyle=C['--line'];c.lineWidth=1.5;c.strokeRect(12,S.y0,w-24,S.y1-S.y0);
+  c.fillStyle=C['--field'];c.textAlign='right';c.fillText('水',w-20,S.y0+14);
+  var DP=S.D.map(function(d,i){return {x:d.x+4*Math.sin(t*0.7+i*2),y:d.y+3*Math.cos(t*0.6+i),r:d.r}});
+  DP.forEach(function(d){c.fillStyle=C['--warn'];c.globalAlpha=0.55;c.beginPath();c.arc(d.x,d.y,d.r,0,6.2832);c.fill();c.globalAlpha=1});
+  c.fillStyle=C['--fg'];c.textAlign='center';c.fillText('油',DP[0].x,DP[0].y);
+  S.M.forEach(function(m){var d=DP[m.d],f=ss(Math.max(0,Math.min(1,(tt-1-m.dl)/3.2))),hx=d.x+(d.r+8)*Math.cos(m.th),hy=d.y+(d.r+8)*Math.sin(m.th),ta=m.th+Math.PI,da=((ta-m.sa+9*Math.PI)%(2*Math.PI))-Math.PI;
+    var jx=f<1?3*Math.sin(t*2+m.dl*9):0;soapMol(c,m.sx+(hx-m.sx)*f+jx,m.sy+(hy-m.sy)*f,m.sa+da*f+(1-f)*0.4*Math.sin(t*2+m.dl*5),14)});
+  c.fillStyle=C['--muted'];c.textAlign='center';c.font='13px '+font;c.fillText(tt<5.5?'分子游埋去油度……':'尾插入油，頭向住水：每粒油都包住咗',w/2,S.y1-12)}
+function drawAtoms(c,m,w,h,t,font){var cx=w/2,cy=h/2+6,sc=Math.min(1,w/430);
+  var P=m.atoms.map(function(a){return {s:a[0],x:cx+a[1]*sc,y:cy+a[2]*sc,r:a[3]*sc,col:colOf(a[4])}});
+    m.bonds.forEach(function(b){var A=P[b[0]],B=P[b[1]];c.strokeStyle=C['--faint'];c.lineWidth=2;c.beginPath();c.moveTo(A.x,A.y);c.lineTo(B.x,B.y);c.stroke()});
+    m.bonds.forEach(function(b,bi){var A=P[b[0]],B=P[b[1]],ux=B.x-A.x,uy=B.y-A.y,L=Math.hypot(ux,uy);ux/=L;uy/=L;var mx=A.x+(B.x-A.x)*b[2],my=A.y+(B.y-A.y)*b[2];
+      c.fillStyle=C['--field'];c.globalAlpha=0.16;c.beginPath();c.ellipse(mx,my,L*0.2,9*sc+4,Math.atan2(uy,ux),0,6.2832);c.fill();c.globalAlpha=0.95;
+      for(var k=0;k<8;k++){var ph=k*2.39+bi*1.3,a1=Math.cos(t*2.1+ph)*L*0.15,a2=Math.sin(t*2.9+ph*1.7)*(7*sc+2);c.beginPath();c.arc(mx+ux*a1-uy*a2,my+uy*a1+ux*a2,2.5,0,6.2832);c.fill()}c.globalAlpha=1});
+    P.forEach(function(p){atomD(c,p.x,p.y,p.r,p.col,p.s,font)});
+    if(m.d>0.6){var q=P.map(function(){return 0});m.bonds.forEach(function(b){var sh=0.5-b[2];q[b[0]]-=sh;q[b[1]]+=sh});
+      P.forEach(function(p,i){if(Math.abs(q[i])<0.1)return;var dx=p.x-cx,dy=p.y-cy,d=Math.hypot(dx,dy),lx,ly;if(d<2){lx=p.x+p.r+16;ly=p.y-p.r-6}else{lx=p.x+dx/d*(p.r+16);ly=p.y+dy/d*(p.r+16)}
+        c.fillStyle=q[i]<0?C['--field']:C['--plus'];c.font='600 '+Math.round(13+Math.min(1,Math.abs(q[i]))*5)+'px '+font;c.textAlign='center';c.fillText(q[i]<0?'δ−':'δ+',lx,ly)})}
+    if(m.cancel){c.fillStyle=C['--muted'];c.font='13px '+font;c.textAlign='right';c.fillText('四邊拉力加埋 = 0',w-12,18)}}
+function angLerp(a,b,f){var d=((b-a+9*Math.PI)%(2*Math.PI))-Math.PI;return a+d*f}
+function h2oInset(c,ix,iy,font){c.strokeStyle=C['--faint'];c.lineWidth=2;c.beginPath();c.moveTo(ix,iy);c.lineTo(ix-24,iy+26);c.moveTo(ix,iy);c.lineTo(ix+24,iy+26);c.stroke();
+  atomD(c,ix,iy,13,C['--plus'],'O',font);atomD(c,ix-24,iy+26,8,'#e9e6dc','H',font);atomD(c,ix+24,iy+26,8,'#e9e6dc','H',font);
+  c.font='600 14px '+font;c.textAlign='center';c.textBaseline='middle';c.fillStyle=C['--field'];c.fillText('δ−',ix,iy-24);c.fillStyle=C['--plus'];c.fillText('δ+',ix-38,iy+40);c.fillText('δ+',ix+38,iy+40)}
+function sceneDissolve(c,w,h,t,font){var ss=function(f){return f*f*(3-2*f)},cl=function(v){return Math.max(0,Math.min(1,v))},tt=reduce?11.5:t%12,g=26,x0=30,yb=h-30;
+  c.fillStyle=C['--muted'];c.font='13px '+font;c.textAlign='left';c.textBaseline='middle';c.fillText('搶電子力差 1.24',12,18);
+  h2oInset(c,52,62,font);
+  var AMB=[[0.42,0.42],[0.92,0.16],[0.48,0.9],[0.95,0.88],[0.7,0.1],[0.36,0.66],[0.9,0.36],[0.76,0.94],[0.55,0.18]];
+  AMB.forEach(function(p,i){h2o(c,p[0]*w+3*Math.sin(t*2+i),p[1]*h+3*Math.cos(t*1.7+i*2),i*1.9+0.6*Math.sin(t+i),0.85)});
+  var LV=[[1,3],[2,3],[2,1]],DS=[[0.62,0.34],[0.83,0.58],[0.6,0.74]];
+  for(var r=0;r<4;r++)for(var q=0;q<3;q++){var leaving=LV.some(function(l,k){return l[0]===q&&l[1]===r&&tt>=k*4+0.6});if(leaving)continue;var na=(r+q)%2===0;atomD(c,x0+q*g,yb-r*g,na?8:12,na?'#9a8ff0':C['--ok'],'',font)}
+  c.fillStyle=C['--muted'];c.font='12px '+font;c.textAlign='center';c.fillText('鹽',x0+g,yb+20);
+  LV.forEach(function(l,k){var na=(l[0]+l[1])%2===0,sx=x0+l[0]*g,sy=yb-l[1]*g,dx=DS[k][0]*w,dy=DS[k][1]*h,st=k*4,f=ss(cl((tt-st-0.6)/2.4)),fs=ss(cl((tt-st)/2.2)),ix=sx+(dx-sx)*f,iy=sy+(dy-sy)*f,rr=na?21:25;
+    for(var j=0;j<5;j++){var th=j*1.2566+k,px0=dx+Math.cos(th+1.3)*62,py0=dy+Math.sin(th+1.3)*48,tx=ix+Math.cos(th)*rr,ty=iy+Math.sin(th)*rr,ta=na?th-0.91:th+Math.PI-0.91,a0=th*2+k;
+      var jx=(1-fs)*3*Math.sin(t*2+j+k);h2o(c,px0+(tx-px0)*fs+jx,py0+(ty-py0)*fs,angLerp(a0+(1-fs)*0.5*Math.sin(t+j),ta,fs),0.85)}
+    if(tt>=st+0.6||f>0)atomD(c,ix,iy,na?9:12,na?'#9a8ff0':C['--ok'],na?'Na⁺':'Cl⁻',font)})}
+function sceneWater(c,w,h,t,font){var nar=w<560,pw=nar?w:w*0.5,ph=nar?300:h;
+  c.save();c.beginPath();c.rect(0,0,pw,ph);c.clip();sceneDissolve(c,pw,ph,t,font);c.restore();
+  var ox=nar?0:pw,oy=nar?ph:0;c.save();c.translate(ox,oy);c.beginPath();c.rect(0,0,w-ox,h-oy);c.clip();sceneDrop(c,w-ox,h-oy,t,font,true);c.restore();
+  c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();if(nar){c.moveTo(12,ph);c.lineTo(w-12,ph)}else{c.moveTo(pw,14);c.lineTo(pw,h-14)}c.stroke()}
+function chainD(c,x,y,len,col){c.strokeStyle=col;c.lineWidth=3;c.lineCap='round';c.beginPath();for(var i=0;i<=6;i++){var xx=x+len*i/6,yy=y+(i%2?-4:4);i?c.lineTo(xx,yy):c.moveTo(xx,yy)}c.stroke();c.lineCap='butt'}
+function sceneOil(c,w,h,t,font,m){var nar=w<560,pw=nar?w:w*0.5,ph=nar?250:h;
+  c.save();c.beginPath();c.rect(0,0,pw,ph);c.clip();drawAtoms(c,m,pw,ph,t,font);c.restore();
+  c.fillStyle=C['--muted'];c.font='13px '+font;c.textAlign='left';c.textBaseline='middle';c.fillText('搶電子力差 0.35：電子平分',12,18);
+  var ox=nar?0:pw,oy=nar?ph:0,w2=w-ox,h2=h-oy;
+  c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();if(nar){c.moveTo(12,ph);c.lineTo(w-12,ph)}else{c.moveTo(pw,14);c.lineTo(pw,h-14)}c.stroke();
+  c.fillStyle=C['--fg'];c.font='500 14px '+font;c.fillText('冇正負頭 → 冇嘢黐',ox+12,oy+18);
+  var nL=nar?3:4,sp=nar?28:38,L=Math.min(56,w2*0.18);
+  c.save();c.beginPath();c.rect(ox+6,oy+34,w2-12,h2-40);c.clip();
+  for(var l=0;l<nL;l++){var y=oy+52+l*sp,v=(l%2?-1:1)*(16+l*7),span=w2+L;for(var k=0;k<4;k++){var x=ox-L+(((k*span/4+v*t)%span)+span)%span;chainD(c,x,y,L,C['--warn'])}
+    if(!reduce){c.strokeStyle=C['--muted'];c.globalAlpha=0.5;arrowD(c,ox+w2-40,y+sp/2-2,ox+w2-40+(v>0?18:-18),y+sp/2-2,C['--muted'],1.3);c.globalAlpha=1}}
+  c.restore();
+  var base=oy+h2-22,cx0=ox+26;for(var r=0;r<2;r++)for(var q=0;q<4;q++){var na=(r+q)%2===0;atomD(c,cx0+q*16,base-r*16,na?5:7,na?'#9a8ff0':C['--ok'],'',font)}
+  c.fillStyle=C['--muted'];c.font='13px '+font;c.textAlign='left';c.fillText('鹽：喺油度溶唔到',cx0+70,base-8)}
+
+function drawMol(){var cv=document.getElementById('molCv'),nar=cv.clientWidth<560,want=nar?({ox:480,salt:350,soap:320,water:560,oil:450}[molMode]||MH):MH;if(!mctx||mctx.h!==want){cv.style.height=want+'px';mctx=fitCanvas(cv,want)}var c=mctx.x,w=mctx.w,h=mctx.h,cx=w/2,cy=h/2+6,sc=Math.min(1,w/430),t=reduce?3:(performance.now()-mT0)/1000,font=tok('--font-body'),m=MOL[molMode];c.clearRect(0,0,w,h);
+  c.textBaseline='middle';
+  if(m.scene==='water')sceneWater(c,w,h,t,font);
+  else if(m.scene==='oil')sceneOil(c,w,h,t,font,m);
+  else if(m.scene==='mix')sceneMix(c,w,h,t,font);
+  else if(m.scene==='ox')sceneOx(c,w,h,t,font);
+  else if(m.scene==='salt')sceneSalt(c,w,h,t,font);
+  else if(m.scene==='soap')sceneSoap(c,w,h,t,font);
+  if(!reduce)requestAnimationFrame(drawMol)}
+
+/* life: sun pushes electrons uphill */
+var lc2=null,LW=900,LH=460,lK=1,lT0=performance.now();
+function fitLife(){var cv=document.getElementById('lifeCv'),w=cv.clientWidth||LW,d=window.devicePixelRatio||1,h=Math.round(w*LH/LW);cv.style.height=h+'px';cv.width=Math.round(w*d);cv.height=Math.round(h*d);lK=w/LW;lc2=cv.getContext('2d');lc2.setTransform(d*lK,0,0,d*lK,0,0)}
+var LP=[[236,330],[336,112],[572,112],[572,167],[622,167],[622,222],[672,222],[672,277],[722,277],[722,332],[788,332]],LL=pathLen(LP),RIS=[3,5,7,9];
+function drawLife(){if(!lc2)fitLife();var c=lc2,t=reduce?2.2:(performance.now()-lT0)/1000,font=tok('--font-body'),tot=LL[LL.length-1],per=8,ss=function(f){return f*f*(3-2*f)};
+  c.clearRect(0,0,LW,LH);c.textBaseline='middle';
+  var F=function(s,x,y,col,sz,al,wt){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(sz||15)+'px '+font;c.textAlign=al||'center';c.fillText(s,x,y)};
+  arrowD(c,28,346,28,96,C['--faint'],1.6);F('高',28,82,C['--muted'],14);F('低',28,362,C['--muted'],14);c.save();c.translate(12,220);c.rotate(-Math.PI/2);F('電子嘅能量',0,0,C['--muted'],14);c.restore();
+  var sx=96,sy=78;c.fillStyle=C['--warn'];c.beginPath();c.arc(sx,sy,24,0,6.2832);c.fill();c.strokeStyle=C['--warn'];c.lineWidth=3;for(var r=0;r<8;r++){var a=r*0.785+t*0.3;c.beginPath();c.moveTo(sx+31*Math.cos(a),sy+31*Math.sin(a));c.lineTo(sx+40*Math.cos(a),sy+40*Math.sin(a));c.stroke()}F('太陽',sx,sy+56,C['--fg'],15,'center','500');
+  var lx0=120,ly0=110,lx1=214,ly1=300;for(var ph=0;ph<3;ph++){var q=((t*0.6+ph/3)%1),dx=lx1-lx0,dy=ly1-ly0,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,cx0=lx0+dx*q,cy0=ly0+dy*q;c.strokeStyle=C['--warn'];c.lineWidth=2;c.globalAlpha=Math.sin(Math.PI*q);c.beginPath();for(var i=0;i<=30;i++){var s=(i-15)*1.4,o=5*Math.sin(i*0.9);var px=cx0+ux*s-uy*o,py=cy0+uy*s+ux*o;i?c.lineTo(px,py):c.moveTo(px,py)}c.stroke()}c.globalAlpha=1;
+  F('光（遠場）',150,232,C['--warn'],13,'right');
+  c.save();c.translate(206,318);c.rotate(-0.55);c.fillStyle=C['--ok'];c.beginPath();c.ellipse(0,0,40,17,0,0,6.2832);c.fill();c.strokeStyle=C['--surface2'];c.lineWidth=2;c.beginPath();c.moveTo(-36,0);c.lineTo(36,0);c.stroke();c.restore();
+  c.strokeStyle=C['--ok'];c.lineWidth=3;c.beginPath();c.moveTo(178,334);c.lineTo(160,350);c.stroke();F('葉',150,362,C['--fg'],15,'center','500');
+  c.strokeStyle=C['--faint'];c.lineWidth=3;c.beginPath();LP.forEach(function(p,i){i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])});c.stroke();
+  F('① 光合作用',356,196,C['--fg'],16,'left','500');F('光將電子推上山',356,218,C['--muted'],14,'left');
+  c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();for(var hx=0;hx<6;hx++){var aa=hx/6*6.2832+0.52,px2=452+19*Math.cos(aa),py2=80+19*Math.sin(aa);hx?c.lineTo(px2,py2):c.moveTo(px2,py2)}c.closePath();c.stroke();F('糖',452,81,C['--fg'],14);
+  F('② 糖：電子喺山頂',452,146,C['--fg'],16,'center','500');F('儲住能量，等你食',452,168,C['--muted'],14);
+  F('③ 呼吸：一級級落山',672,58,C['--fg'],16,'center','500');F('每級收少少能量',672,80,C['--muted'],14);
+  RIS.forEach(function(k){var x=LP[k][0],y0=LP[k-1][1],y1=LP[k][1];c.fillStyle='#7F77DD';c.fillRect(x-6,y0+4,12,y1-y0-8)});
+  atomD(c,806,332,17,C['--plus'],'O',font);F('④ 交俾氧，變返水',790,364,C['--fg'],15,'center','500');
+  drawIcon(c,'person',852,196,64);F('你',852,244,C['--fg'],16,'center','500');F('郁、諗、保暖',852,264,C['--muted'],14);
+  for(var e=0;e<3;e++){var q2=((t/per)+e/3)%1,d=q2*tot,pt=pAt(LP,LL,Math.min(d,tot-0.01));
+    RIS.forEach(function(k){var dk=LL[k],ag=(d-dk)/tot;if(ag>=0&&ag<0.16){var f=ss(ag/0.16),x0=LP[k][0]+10,y0=(LP[k-1][1]+LP[k][1])/2,x1=826,y1=196,px3=x0+(x1-x0)*f,py3=y0+(y1-y0)*f-40*Math.sin(Math.PI*f);c.globalAlpha=1-f*0.5;c.fillStyle=C['--ok'];c.beginPath();c.arc(px3,py3,7,0,6.2832);c.fill();c.fillStyle='#fff';c.font='700 11px sans-serif';c.textAlign='center';c.fillText('+',px3,py3+0.5);c.globalAlpha=1}});
+    if(q2<0.03){c.fillStyle=C['--warn'];c.globalAlpha=0.6;c.beginPath();c.arc(pt[0],pt[1],12,0,6.2832);c.fill();c.globalAlpha=1}
+    c.fillStyle=C['--field'];c.beginPath();c.arc(pt[0],pt[1],7,0,6.2832);c.fill();c.fillStyle='#fff';c.font='700 11px sans-serif';c.textAlign='center';c.fillText('−',pt[0],pt[1]+0.5)}
+  c.setLineDash([5,5]);c.lineDashOffset=-t*20;arrowD(c,250,392,780,392,C['--plus'],1.6);c.lineDashOffset=t*20;arrowD(c,780,426,250,426,C['--field'],1.6);c.setLineDash([]);c.lineDashOffset=0;
+  for(var o=0;o<5;o++){var oq=((t*0.12+o/5)%1);c.fillStyle=C['--plus'];c.beginPath();c.arc(250+530*oq,392,4,0,6.2832);c.fill();var wq=((t*0.12+o/5+0.1)%1);c.fillStyle=C['--field'];c.beginPath();c.arc(780-530*wq,426,4,0,6.2832);c.fill()}
+  F('O₂：葉 → 你',515,378,C['--plus'],14);F('水、CO₂：你 → 葉',515,446,C['--field'],14);
+  if(!reduce)requestAnimationFrame(drawLife)}
+
+/* near-field devices vs distance */
+var devMode='card',dctx=null,dLv=0.3,dLast=performance.now(),DVB=document.getElementById('devBtns');
+[['card','八達通'],['hob','電磁爐'],['pad','無線充電']].forEach(function(d){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=d[1];b.dataset.k=d[0];b.addEventListener('click',function(){devMode=d[0];devUpd()});DVB.appendChild(b)});
+function gapWord(z){return z<8?'貼住':z<30?'近':z<60?'有啲遠':'遠'}
+function devUpd(){[].forEach.call(DVB.children,function(b){b.setAttribute('aria-pressed',b.dataset.k===devMode?'true':'false')});document.getElementById('rGapv').textContent=gapWord(+document.getElementById('rGap').value);if(reduce)drawDev()}
+document.getElementById('rGap').addEventListener('input',devUpd);
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath()}
+function drawDev(){if(!dctx)dctx=fitCanvas(document.getElementById('devCv'),280);var c=dctx.x,w=dctx.w,h=dctx.h,now=performance.now(),dt=Math.min(0.05,(now-dLast)/1000),t=reduce?1:now/1000,font=tok('--font-body');dLast=now;c.clearRect(0,0,w,h);c.textBaseline='middle';
+  var z=+document.getElementById('rGap').value,p=Math.pow(1+Math.pow(z/22,2),-3),B=Math.sqrt(p),cx=(w-84)/2+12,R=Math.min(96,cx-34),by=h-58,ty=by-40-z/100*(h-180),cy1=by-15,cy2=ty+7;
+  var mx=w-44,m0=56,m1=h-40;c.fillStyle=C['--line'];rrect(c,mx-9,m0,18,m1-m0,6);c.fill();c.fillStyle=C['--warn'];var fh=(m1-m0)*p;if(fh>1){rrect(c,mx-9,m1-fh,18,fh,6);c.fill()}
+  c.fillStyle=C['--fg'];c.font='500 13px '+font;c.textAlign='center';c.fillText('多電',mx,m0-16);c.fillStyle=C['--muted'];c.fillText('少電',mx,m1+16);
+  for(var i=-2;i<=2;i++){var x=cx+i*R*0.36;c.strokeStyle=C['--field'];c.globalAlpha=Math.max(0.07,B);c.lineWidth=2;c.setLineDash([4,5]);c.beginPath();c.moveTo(x,cy1);c.lineTo(x,cy2);c.stroke();c.setLineDash([]);
+    if(B>0.05&&!reduce){for(var k=0;k<2;k++){var q=((t*0.9+k/2+i*0.13)%1+1)%1,yy=cy1-(cy1-cy2)*q;c.fillStyle=C['--warn'];c.globalAlpha=B*Math.sin(Math.PI*q);c.beginPath();c.arc(x,yy,3.5,0,6.2832);c.fill()}}}c.globalAlpha=1;
+  var st,stc;
+  if(devMode==='card'){c.fillStyle=C['--surface'];c.strokeStyle=C['--line'];c.lineWidth=1.5;rrect(c,cx-R-18,by-6,2*R+36,36,6);c.fill();c.stroke();c.fillStyle=C['--muted'];c.font='12px '+font;c.fillText('閘機讀卡器',cx,by+18);
+    var ok=p>0.2;c.fillStyle=C['--surface2'];c.strokeStyle=C['--fg'];c.lineWidth=2;rrect(c,cx-R,ty-28,2*R,26,5);c.fill();c.stroke();c.fillStyle=ok?C['--ok']:C['--copper'];c.fillRect(cx-R*0.72,ty-21,16,11);c.fillStyle=C['--fg'];c.font='12px '+font;c.fillText('八達通',cx+R*0.2,ty-15);
+    st=ok?'嘟！過到閘':'拍唔到';stc=ok?C['--ok']:C['--muted']}
+  else if(devMode==='hob'){c.fillStyle=C['--surface'];c.strokeStyle=C['--fg'];c.lineWidth=1.5;rrect(c,cx-R-24,by-6,2*R+48,34,6);c.fill();c.stroke();c.fillStyle=C['--muted'];c.font='12px '+font;c.fillText('電磁爐',cx,by+12);
+    c.fillStyle=C['--surface2'];c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.moveTo(cx-R*0.85,ty-2);c.lineTo(cx+R*0.85,ty-2);c.lineTo(cx+R,ty-46);c.lineTo(cx-R,ty-46);c.closePath();c.fill();c.stroke();c.beginPath();c.moveTo(cx-R,ty-42);c.lineTo(cx-R-16,ty-46);c.moveTo(cx+R,ty-42);c.lineTo(cx+R+16,ty-46);c.stroke();
+    c.strokeStyle=C['--copper'];c.globalAlpha=Math.min(1,p*1.6);c.lineWidth=6;c.beginPath();c.moveTo(cx-R*0.82,ty-3);c.lineTo(cx+R*0.82,ty-3);c.stroke();c.globalAlpha=1;
+    if(p>0.15){for(var s=0;s<3;s++){var sp=((t*0.7+s/3)%1);c.strokeStyle=C['--muted'];c.globalAlpha=Math.min(1,p*1.4)*(1-sp);c.lineWidth=1.8;c.beginPath();for(var j=0;j<7;j++)c.lineTo(cx-20+s*20+3*Math.sin(j+t*6),ty-52-sp*22-j*3);c.stroke()}c.globalAlpha=1}
+    st=p>0.2?'鑊底自己熱':p>0.03?'微微暖':'唔熱';stc=p>0.2?C['--copper']:C['--muted']}
+  else{c.fillStyle=C['--surface'];c.strokeStyle=C['--line'];c.lineWidth=1.5;rrect(c,cx-R-10,by-6,2*R+20,26,10);c.fill();c.stroke();c.fillStyle=C['--muted'];c.font='12px '+font;c.fillText('充電板',cx,by+14);
+    c.fillStyle=C['--surface2'];c.strokeStyle=C['--fg'];c.lineWidth=2;rrect(c,cx-R*0.85,ty-20,1.7*R,18,5);c.fill();c.stroke();c.fillStyle=C['--fg'];c.fillText('手機',cx,ty-11);
+    if(!reduce)dLv+=dt*p*0.3;if(dLv>1)dLv=0.15;var bx=cx-30,byy=ty-62;c.strokeStyle=C['--fg'];c.lineWidth=2;rrect(c,bx,byy,56,24,4);c.stroke();c.fillStyle=C['--fg'];c.fillRect(bx+56,byy+7,4,10);c.fillStyle=p>0.03?C['--ok']:C['--faint'];c.fillRect(bx+3,byy+3,50*dLv,18);
+    if(p>0.03){c.fillStyle=C['--warn'];c.beginPath();c.moveTo(bx+76,byy-2);c.lineTo(bx+68,byy+13);c.lineTo(bx+74,byy+13);c.lineTo(bx+70,byy+27);c.lineTo(bx+81,byy+9);c.lineTo(bx+75,byy+9);c.closePath();c.fill()}
+    st=p>0.25?'充得快':p>0.03?'充得好慢':'充唔到';stc=p>0.25?C['--ok']:C['--muted']}
+  c.strokeStyle=C['--copper'];c.lineWidth=4;c.beginPath();c.ellipse(cx,cy1,R*0.9,6,0,0,6.2832);c.stroke();c.lineWidth=3;c.beginPath();c.ellipse(cx,cy2,R*0.8,5,0,0,6.2832);c.stroke();
+  c.fillStyle=stc;c.font='500 16px '+font;c.textAlign='left';c.fillText(st,14,22);
+  if(!reduce)requestAnimationFrame(drawDev)}
+
+/* touch: electron clouds push, nerves turn press into electricity */
+var tctx=null,tT0=performance.now();
+function cloudD(c,x,y,R,sy,a,noNuc){c.save();c.translate(x,y);c.scale(1,sy);c.fillStyle=C['--field'];[[1,0.22],[0.72,0.26],[0.45,0.3]].forEach(function(l){c.globalAlpha=l[1]*a;c.beginPath();c.arc(0,0,R*l[0],0,6.2832);c.fill()});c.restore();if(!noNuc){c.globalAlpha=a;c.fillStyle=C['--plus'];c.beginPath();c.arc(x,y,3.5,0,6.2832);c.fill()}c.globalAlpha=1}
+function drawTouch(){var cv=document.getElementById('touchCv'),cw=cv.clientWidth||640,stack=cw<600,H=stack?620:320;if(!tctx||tctx.h!==H){cv.style.height=H+'px';tctx=fitCanvas(cv,H)}
+  var c=tctx.x,w=tctx.w,h=tctx.h,t=reduce?1.8:(performance.now()-tT0)/1000,font=tok('--font-body'),ss=function(f){return f*f*(3-2*f)};c.clearRect(0,0,w,h);c.textBaseline='middle';
+  var q=(t%4)/4,pr=q<0.4?ss(q/0.4):q<0.62?1:ss(1-(q-0.62)/0.38),pw=stack?w:w/2,ph=stack?h/2:h;
+  var F=function(s,x,y,col,sz,al,wt){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(sz||13)+'px '+font;c.textAlign=al||'left';c.fillText(s,x,y)};
+  (function(ox,oy){F('① 推：電子雲互推',ox+12,oy+20,C['--fg'],15,'left','500');
+    var x0=ox+pw*0.24,x1=ox+pw*0.9,N=pw>360?5:4,sp=(x1-x0)/(N-1),R=Math.min(sp*0.5,26),tY=oy+ph*0.6,dMax=R*3.3,dMin=R*1.3,d=dMax-(dMax-dMin)*pr,fY=tY-d,Fz=Math.max(0,Math.min(1,(2*R-d)/(2*R-dMin))),Fp=Fz*Fz;
+    cloudD(c,ox+18,oy+46,9,1,1,true);F('電子雲（負）',ox+32,oy+46,C['--field'],12);c.fillStyle=C['--plus'];c.beginPath();c.arc(ox+pw*0.5+4,oy+46,3.5,0,6.2832);c.fill();F('原子核（正）',ox+pw*0.5+14,oy+46,C['--plus'],12);
+    c.save();c.beginPath();c.rect(ox,oy+62,pw,ph-112);c.clip();
+    for(var i=0;i<N;i++){var x=x0+i*sp,sq=1-0.28*Fp;cloudD(c,x,fY-R*1.9,R,1,0.4);cloudD(c,x,tY+R*1.9,R,1,0.4);cloudD(c,x,fY-R*0.12*Fp,R,sq,1);cloudD(c,x,tY+R*0.12*Fp,R,sq,1);
+      if(Fp>0.04){var m=(fY+tY)/2,L=6+R*0.9*Fp;c.globalAlpha=Math.min(1,Fp*1.5);arrowD(c,x,m-3,x,m-3-L,C['--copper'],2.2);arrowD(c,x,m+3,x,m+3+L,C['--copper'],2.2);c.globalAlpha=1}}
+    c.restore();
+    F('手指',ox+12,fY-R,C['--fg'],14,'left','500');F('枱',ox+12,tY+R,C['--fg'],14,'left','500');
+    if(Fp>0.4){F('靠得越近，推得越大力',ox+pw/2,oy+ph-34,C['--copper'],14,'center','500');F('兩粒電子唔可以擠同一個位，所以咁硬',ox+pw/2,oy+ph-14,C['--muted'],12,'center')}
+    else F(q<0.5?'撳落去……':'彈返起',ox+pw/2,oy+ph-34,C['--muted'],14,'center')})(0,0);
+  (function(ox,oy){F('② 覺：神經將「壓」變成「電」',ox+12,oy+20,C['--fg'],15,'left','500');
+    var cx=ox+pw*0.36,sY=oy+84,dep=18*pr,mY=oy+ph*0.56,mx0=ox+pw*0.1,mx1=ox+pw*0.66,open=Math.max(0,Math.min(1,(pr-0.5)/0.4));
+    c.fillStyle=C['--plus'];c.globalAlpha=0.07;c.fillRect(ox+14,sY,pw-28,ph-sY+oy-14);c.globalAlpha=1;
+    c.strokeStyle=C['--plus'];c.lineWidth=2;c.beginPath();for(var xx=ox+14;xx<=ox+pw-14;xx+=3){var yy=sY+dep*Math.exp(-Math.pow((xx-cx)/34,2));xx===ox+14?c.moveTo(xx,yy):c.lineTo(xx,yy)}c.stroke();
+    var tip=sY+dep-1;c.fillStyle=C['--surface'];c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.moveTo(cx-24,oy+36);c.lineTo(cx-24,tip-16);c.quadraticCurveTo(cx-24,tip,cx,tip);c.quadraticCurveTo(cx+24,tip,cx+24,tip-16);c.lineTo(cx+24,oy+36);c.fill();c.stroke();
+    F('皮膚被壓凹',cx+34,sY-14,C['--muted'],12);
+    c.fillStyle=C['--surface2'];c.strokeStyle='#7F77DD';c.lineWidth=2.5;rrect(c,mx0,mY,mx1-mx0,26,13);c.fill();c.stroke();
+    var gap=3+12*open;c.fillStyle=C['--surface2'];c.fillRect(cx-gap/2,mY-3,gap,6);c.fillStyle='#7F77DD';c.fillRect(cx-gap/2-7,mY-9,7,18);c.fillRect(cx+gap/2,mY-9,7,18);
+    F(open>0.3?'通道被扯開':'通道閂住',cx-gap/2-12,mY-16,open>0.3?C['--fg']:C['--muted'],12,'right');
+    for(var k=0;k<10;k++){var rw=k%2,ix=mx0+20+(Math.floor(k/2)+0.5*rw)*(mx1-mx0-40)/5,iy=sY+30+rw*22+2*Math.sin(t*2+k);if(Math.abs(ix-cx)<18)continue;c.fillStyle=C['--warn'];c.globalAlpha=0.7;c.beginPath();c.arc(ix,iy,4.5,0,6.2832);c.fill();c.globalAlpha=1}
+    if(open>0.05&&!reduce){for(var j=0;j<4;j++){var qq=((t*1.3+j/4)%1),yy2=mY-34+qq*56;c.globalAlpha=open*Math.sin(Math.PI*qq);c.fillStyle=C['--warn'];c.beginPath();c.arc(cx,yy2,4.5,0,6.2832);c.fill();c.fillStyle='#2c2c2a';c.font='700 8px sans-serif';c.textAlign='center';c.fillText('+',cx,yy2+0.5)}c.globalAlpha=1}
+    F('帶電離子衝入去',cx,mY+42,open>0.3?C['--warn']:C['--muted'],12,'center');
+    var bx=ox+pw-40,by=oy+ph-46;c.strokeStyle='#7F77DD';c.lineWidth=3;c.beginPath();c.moveTo(mx1,mY+13);c.lineTo(bx,mY+13);c.lineTo(bx,by-18);c.stroke();
+    if(open>0.05){c.strokeStyle=C['--warn'];c.globalAlpha=open;c.lineWidth=3;c.setLineDash([8,10]);c.lineDashOffset=-t*60;c.beginPath();c.moveTo(mx1,mY+13);c.lineTo(bx,mY+13);c.lineTo(bx,by-18);c.stroke();c.setLineDash([]);c.lineDashOffset=0;c.globalAlpha=1}
+    c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.arc(bx,by,16,0,6.2832);c.stroke();F('腦',bx,by,C['--fg'],13,'center');F('電訊號',(mx1+bx)/2,mY+30,open>0.3?C['--warn']:C['--muted'],12,'center')})(stack?0:pw,stack?ph:0);
+  c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();if(stack){c.moveTo(16,ph);c.lineTo(w-16,ph)}else{c.moveTo(pw,16);c.lineTo(pw,h-16)}c.stroke();
+  if(!reduce)requestAnimationFrame(drawTouch)}
+
+/* one space, one field: many waves overlap */
+var SH={ctx:null,on:{radio:true,wifi:true,light:true,card:true,chem:true},hist:[],last:null};
+var SHL=[['radio','電台'],['wifi','WiFi'],['light','光：睇嘢'],['card','八達通'],['chem','化學']];
+(function(){var box=document.getElementById('shBtns');SHL.forEach(function(l){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=l[1];b.dataset.k=l[0];b.setAttribute('aria-pressed','true');b.addEventListener('click',function(){SH.on[l[0]]=!SH.on[l[0]];b.setAttribute('aria-pressed',SH.on[l[0]]?'true':'false');if(reduce)drawShare()});box.appendChild(b)})})();
+function drawShare(){var cv=document.getElementById('shareCv'),cw=cv.clientWidth||640,Hs=cw<560?300:310,H=Hs+128;if(!SH.ctx||SH.ctx.h!==H)SH.ctx=fitCanvas(cv,H);var c=SH.ctx.x,w=SH.ctx.w,h=SH.ctx.h,now=performance.now()/1000,t=reduce?2:now,font=tok('--font-body'),O=SH.on;c.clearRect(0,0,w,h);c.textBaseline='middle';
+  var rx0=w*0.15,rx1=w-10,ry0=14,ry1=Hs-10,tw={x:w*0.06,y:Hs*0.5},ro={x:rx0+(rx1-rx0)*0.14,y:Hs*0.3},la={x:rx0+(rx1-rx0)*0.66,y:ry0+18},cup={x:rx0+(rx1-rx0)*0.5,y:Hs*0.72},eye={x:rx1-26,y:Hs*0.5},rd={x:rx0+(rx1-rx0)*0.16,y:Hs*0.8},mol={x:rx0+(rx1-rx0)*0.8,y:Hs*0.84},P={x:rx0+(rx1-rx0)*0.42,y:Hs*0.42};
+  c.strokeStyle=C['--line'];c.lineWidth=2;c.strokeRect(rx0,ry0,rx1-rx0,ry1-ry0);c.fillStyle=C['--surface'];c.fillRect(rx0-3,Hs*0.3,6,Hs*0.4);
+  var F=function(s,x,y,col,al){txt(s,x,y,col||C['--muted'],12,al||'center')};
+  function txt(s,x,y,col,sz,al){c.fillStyle=col;c.font=sz+'px '+font;c.textAlign=al;c.fillText(s,x,y)}
+  if(O.radio){var lr=Math.min(150,w*0.3);for(var i=0;i<8;i++){var x=tw.x+((t*55+i*lr)%(lr*8));if(x>w)continue;c.strokeStyle=C['--vio']||'#9a8ff0';c.globalAlpha=0.4;c.lineWidth=3;c.beginPath();c.moveTo(x,ry0);c.lineTo(x,ry1);c.stroke()}c.globalAlpha=1}
+  if(O.wifi){var lw=34;c.save();c.beginPath();c.rect(rx0,ry0,rx1-rx0,ry1-ry0);c.clip();for(var k=0;k<14;k++){var r=((t*45+k*lw)%(lw*14));c.strokeStyle=C['--field'];c.globalAlpha=0.55*(1-r/(lw*14));c.lineWidth=2;c.beginPath();c.arc(ro.x,ro.y,r+4,0,6.2832);c.stroke()}c.restore();c.globalAlpha=1}
+  if(O.light){[[la,cup],[cup,eye],[la,{x:la.x-90,y:ry1}],[la,{x:la.x+70,y:ry1}],[la,{x:rx0+30,y:ry1-30}]].forEach(function(s,i){wave(s[0].x,s[0].y,s[1].x,s[1].y,i===1?C['--warn']:C['--warn'],i<2?2.2:1.4,i<2?1:0.5)});
+    c.fillStyle=C['--warn'];c.beginPath();c.moveTo(la.x-14,la.y);c.lineTo(la.x+14,la.y);c.lineTo(la.x+8,la.y-12);c.lineTo(la.x-8,la.y-12);c.closePath();c.fill();c.strokeStyle=C['--faint'];c.lineWidth=1.5;c.beginPath();c.moveTo(la.x,la.y-12);c.lineTo(la.x,ry0);c.stroke()}
+  function wave(x1,y1,x2,y2,col,lw,a){var L=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/L,uy=(y2-y1)/L;c.strokeStyle=col;c.globalAlpha=a;c.lineWidth=lw;c.beginPath();for(var s=0;s<=L;s+=1.5){var o=2.2*Math.sin(s/3.2-t*14),xx=x1+ux*s-uy*o,yy=y1+uy*s+ux*o;s?c.lineTo(xx,yy):c.moveTo(xx,yy)}c.stroke();c.globalAlpha=1}
+  if(O.card){var br=1+0.25*Math.sin(t*10);for(var e=1;e<=3;e++){c.strokeStyle=C['--copper'];c.globalAlpha=0.7-e*0.18;c.lineWidth=2;c.beginPath();c.ellipse(rd.x,rd.y-10,(12+e*9)*br,(6+e*5)*br,0,0,6.2832);c.stroke()}c.globalAlpha=1}
+  if(O.chem){[[-14,0],[14,4]].forEach(function(m){var mx=mol.x+m[0],my=mol.y+m[1];c.strokeStyle=C['--ok'];c.globalAlpha=0.55;c.lineWidth=1.2;for(var q=1;q<=2;q++){c.beginPath();c.ellipse(mx,my-5*q,6,5*q,0,0,6.2832);c.stroke();c.beginPath();c.ellipse(mx,my+5*q,6,5*q,0,0,6.2832);c.stroke()}c.globalAlpha=1;dot(mx,my-3,4,C['--plus']);dot(mx-4,my+4,2.5,'#e9e6dc');dot(mx+4,my+4,2.5,'#e9e6dc')})}
+  function dot(x,y,r,col){c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.2832);c.fill()}
+  drawIcon(c,'tower',tw.x,tw.y,40);F('電台',tw.x,tw.y+30);drawIcon(c,'wifi',ro.x,ro.y,30);F('WiFi',ro.x,ro.y+24);F('燈',la.x+24,la.y-4,C['--muted'],'left');
+  c.fillStyle=C['--fg'];c.fillRect(cup.x-11,cup.y-12,22,22);c.fillRect(cup.x-50,cup.y+10,100,4);F('杯',cup.x,cup.y+26);
+  c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.arc(eye.x+8,eye.y,18,0,6.2832);c.stroke();c.fillStyle=C['--fg'];c.beginPath();c.arc(eye.x-2,eye.y-3,3,0,6.2832);c.fill();F('你對眼',eye.x+4,eye.y+30);
+  c.fillStyle=C['--surface2'];c.strokeStyle=C['--fg'];c.lineWidth=1.5;c.fillRect(rd.x-16,rd.y-4,32,14);c.strokeRect(rd.x-16,rd.y-4,32,14);c.strokeRect(rd.x-12,rd.y-18,24,10);F('八達通',rd.x,rd.y+24);F('化學',mol.x,mol.y+20);
+  drawIcon(c,'phone',P.x,P.y,30);c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.arc(P.x+20,P.y-14,5,0,6.2832);c.stroke();F('● 呢一點',P.x+20,P.y-28,C['--fg']);
+  var sig={radio:0.8*Math.sin(6.2832*((P.x-tw.x)/Math.min(150,w*0.3)-t*55/Math.min(150,w*0.3))),wifi:0.6*Math.sin(6.2832*(Math.hypot(P.x-ro.x,P.y-ro.y)/34-t*45/34)),light:0.35*Math.sin(t*40),card:0.06*Math.sin(t*10),chem:0.04},sum=0;Object.keys(sig).forEach(function(k){if(O[k])sum+=sig[k]});
+  if(!reduce&&(SH.last===null||now-SH.last>0.02)){SH.last=now;SH.hist.push({s:sum,c:Object.assign({},sig),o:Object.assign({},O)});if(SH.hist.length>240)SH.hist.shift()}
+  var gx0=16,gx1=w-16,gy=Hs+64,gA=40;c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();c.moveTo(gx0,gy);c.lineTo(gx1,gy);c.stroke();txt('● 呢一點嘅電場：全部波加埋（粗線）',gx0,Hs+14,C['--fg'],12.5,'left');txt('時間 →',gx1,gy+gA+12,C['--muted'],11,'right');
+  var CK={radio:C['--vio']||'#9a8ff0',wifi:C['--field'],light:C['--warn']};['radio','wifi','light'].forEach(function(k){c.strokeStyle=CK[k];c.globalAlpha=0.45;c.lineWidth=1.2;c.beginPath();var st=false;SH.hist.forEach(function(p,i){if(!p.o[k]){st=false;return}var x=gx1-(SH.hist.length-1-i)*(gx1-gx0)/239,y=gy-gA*0.6*p.c[k];if(!st){c.moveTo(x,y);st=true}else c.lineTo(x,y)});c.stroke();c.globalAlpha=1});
+  c.strokeStyle=C['--fg'];c.lineWidth=2.2;c.beginPath();SH.hist.forEach(function(p,i){var x=gx1-(SH.hist.length-1-i)*(gx1-gx0)/239,y=gy-gA*0.55*p.s;i?c.lineTo(x,y):c.moveTo(x,y)});c.stroke();
+  if(!reduce)requestAnimationFrame(drawShare)}
+
+/* near vs far */
+var rxOn=true,nctx=null,nT0=performance.now();
+document.getElementById('rxBtn').addEventListener('click',function(){rxOn=!rxOn;this.textContent='接收者：'+(rxOn?'喺度':'唔喺度');this.setAttribute('aria-pressed',rxOn?'true':'false');if(reduce)drawNear()});
+function meterD(c,x,y,v,font){c.fillStyle=C['--muted'];c.font='12px '+font;c.textAlign='right';c.textBaseline='middle';c.fillText('發射端用緊嘅電',x-64,y);c.fillStyle=C['--line'];c.fillRect(x-58,y-5,58,10);c.fillStyle=C['--warn'];c.fillRect(x-58,y-5,58*v,10)}
+function drawNear(){var cv=document.getElementById('nearCv'),cw=cv.clientWidth||640,stack=cw<560;if(!nctx){cv.style.height=(stack?460:280)+'px';nctx=fitCanvas(cv,stack?460:280)}var c=nctx.x,w=nctx.w,h=nctx.h,t=reduce?1.2:(performance.now()-nT0)/1000,font=tok('--font-body');c.clearRect(0,0,w,h);
+  var pw=stack?w:w/2,ph=stack?h/2:h;
+  (function(ox,oy){var tx=ox+pw*0.24,ty=oy+ph*0.56,rxX=ox+pw*0.66,D=rxX-tx-14;
+    c.fillStyle=C['--fg'];c.font='500 14px '+font;c.textAlign='left';c.textBaseline='middle';c.fillText('近場：無線充電',ox+12,oy+20);meterD(c,ox+pw-12,oy+44,rxOn?0.85:0.08,font);
+    for(var i=0;i<30;i++){var th=(i/29-0.5)*2.4,p=(t*0.45+i*0.37)%1,r,toR=rxOn&&Math.abs(th)<0.42;r=toR?p*D:D*0.78*Math.sin(Math.PI*p);
+      c.fillStyle=C['--copper'];c.globalAlpha=toR?0.95:0.75;c.beginPath();c.arc(tx+r*Math.cos(th),ty+r*Math.sin(th)*0.75,3,0,6.2832);c.fill()}c.globalAlpha=1;
+    c.strokeStyle=C['--copper'];c.lineWidth=3;for(var k=-1;k<=1;k++){c.beginPath();c.ellipse(tx-4+k*6,ty,6,30,0,0,6.2832);c.stroke()}
+    if(rxOn){for(var k2=-1;k2<=1;k2++){c.beginPath();c.ellipse(rxX+k2*6,ty,6,30,0,0,6.2832);c.stroke()}var g=0.75+0.25*Math.sin(t*9);c.fillStyle=C['--warn'];c.globalAlpha=g;c.beginPath();c.arc(rxX,ty-54,11,0,6.2832);c.fill();c.globalAlpha=1;c.fillStyle=C['--muted'];c.font='12px '+font;c.textAlign='center';c.fillText('收到，燈著',rxX,ty-76)}
+    c.fillStyle=rxOn?C['--ok']:C['--muted'];c.font='13px '+font;c.textAlign='center';c.fillText(rxOn?'有人收：能量流過去':'冇人收：能量彈返去',ox+pw/2,oy+ph-16)})(0,0);
+  (function(ox,oy){var ax=ox+pw*0.2,ay=oy+ph*0.56,rxX=ox+pw*0.74,sp=pw*0.1,n=7,span=n*sp,D=rxX-ax,hit=false;
+    c.fillStyle=C['--fg'];c.font='500 14px '+font;c.textAlign='left';c.textBaseline='middle';c.fillText('遠場：電台',ox+12,oy+20);meterD(c,ox+pw-12,oy+44,0.85,font);
+    for(var k=0;k<n;k++){var r=12+((t*55+k*sp)%span);if(Math.abs(r-D)<6)hit=true;c.strokeStyle=C['--field'];c.globalAlpha=0.85*(1-r/(span+12));c.lineWidth=2;c.beginPath();c.arc(ax,ay,r,-0.8,0.8);c.stroke()}c.globalAlpha=1;
+    c.strokeStyle=C['--copper'];c.lineWidth=4;c.beginPath();c.moveTo(ax,ay-34);c.lineTo(ax,ay+34);c.stroke();
+    if(rxOn){c.strokeStyle=C['--muted'];c.lineWidth=2;c.beginPath();c.moveTo(rxX,ay-16);c.lineTo(rxX,ay+16);c.stroke();c.fillStyle=C['--warn'];c.globalAlpha=hit?0.9:0.15;c.beginPath();c.arc(rxX,ay-30,7,0,6.2832);c.fill();c.globalAlpha=1}
+    c.fillStyle=C['--muted'];c.font='13px '+font;c.textAlign='center';c.fillText('有冇人收，都照飛走',ox+pw/2,oy+ph-16)})(stack?0:pw,stack?ph:0);
+  if(!stack){c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();c.moveTo(pw,16);c.lineTo(pw,h-16);c.stroke()}else{c.strokeStyle=C['--line'];c.beginPath();c.moveTo(16,ph);c.lineTo(w-16,ph);c.stroke()}
+  if(!reduce)requestAnimationFrame(drawNear)}
+
+/* grid: spin to home */
+var gc2=null,gStopped=false,gNoTx=false,gA=0,gLast=performance.now(),gK=1,GW=1100,GH=610,gDC=0;
+function fitGrid(){var cv=document.getElementById('gridCv'),w=cv.clientWidth||GW,d=window.devicePixelRatio||1,h=Math.round(w*GH/GW);cv.style.height=h+'px';cv.width=Math.round(w*d);cv.height=Math.round(h*d);gK=w/GW;gc2=cv.getContext('2d');gc2.setTransform(d*gK,0,0,d*gK,0,0)}
+function gBtn(id,get,set,on,off){var b=document.getElementById(id);b.addEventListener('click',function(){set(!get());b.setAttribute('aria-pressed',get()?'true':'false');b.textContent=get()?on:off;if(reduce)drawGrid()})}
+gBtn('gStop',function(){return gStopped},function(v){gStopped=v},'重新開動發電機','停咗發電機');
+gBtn('gNoTx',function(){return gNoTx},function(v){gNoTx=v},'用返變壓器','唔用變壓器');
+function coil(c,x,y1,y2,n,col){for(var i=0;i<n;i++){var y=y1+(y2-y1)*(i+0.5)/n;c.strokeStyle=col;c.lineWidth=2.2;c.beginPath();c.ellipse(x,y,13,Math.max(2.5,(y2-y1)/n*0.42),0,0,6.2832);c.stroke()}}
+function xfmr(c,x,np,ns,label,font,dim){c.globalAlpha=dim?0.35:1;c.strokeStyle=C['--faint'];c.lineWidth=7;c.strokeRect(x,208,60,84);coil(c,x,222,278,np,C['--copper']);coil(c,x+60,222,278,ns,C['--copper']);c.globalAlpha=1;c.fillStyle=C['--muted'];c.font='14px '+font;c.textAlign='center';c.textBaseline='middle';c.fillText(label,x+30,318)}
+function pathLen(p){var L=[0];for(var i=1;i<p.length;i++)L.push(L[i-1]+Math.hypot(p[i][0]-p[i-1][0],p[i][1]-p[i-1][1]));return L}
+function pAt(p,L,d){var tot=L[L.length-1];d=((d%tot)+tot)%tot;for(var i=1;i<p.length;i++){if(d<=L[i]){var f=(d-L[i-1])/((L[i]-L[i-1])||1);return [p[i-1][0]+f*(p[i][0]-p[i-1][0]),p[i-1][1]+f*(p[i][1]-p[i-1][1])]}}return p[p.length-1]}
+function dotsOn(c,p,n,off){var L=pathLen(p),tot=L[L.length-1];for(var i=0;i<n;i++){var q=pAt(p,L,i*tot/n+off);c.fillStyle=C['--warn'];c.beginPath();c.arc(q[0],q[1],2.8,0,6.2832);c.fill()}}
+function scope(c,x,lvl,title,font,dc){c.strokeStyle=C['--faint'];c.lineWidth=1;c.strokeRect(x-44,30,88,54);c.fillStyle=C['--muted'];c.font='13px '+font;c.textAlign='center';c.textBaseline='middle';c.fillText(title,x,18);
+  var mid=57,A=lvl*22;c.strokeStyle=dc?C['--ok']:C['--field'];c.lineWidth=1.8;c.beginPath();
+  if(dc){c.moveTo(x-40,mid-A);c.lineTo(x+40,mid-A)}else{for(var i=0;i<=80;i++){var xx=x-40+i,y=mid-A*Math.sin(gA-(80-i)/80*6.2832*1.25);i?c.lineTo(xx,y):c.moveTo(xx,y)}}c.stroke();
+  c.fillStyle=C['--warn'];c.beginPath();c.arc(x+40,dc?mid-A:mid-A*Math.sin(gA),4,0,6.2832);c.fill()}
+var gV=[0,0,0,0],gIv=[0,0,0,0],gHv=[0,0,0,0];
+function gridRows(c,font,on,dt){var cols=[[300,368],[442,728],[788,872],[886,1092]],tv=on?(gNoTx?[0.35,0.28,0.2,0.1]:[0.35,1,0.55,0.15]):[0,0,0,0],ti=on?(gNoTx?[8,8,8,8]:[5,1,3,8]):[0,0,0,0],th=on?(gNoTx?[0.12,1,0.1,0.12]:[0.04,0.06,0.02,0.05]):[0,0,0,0],k=reduce?1:Math.min(1,dt*4),now=performance.now();
+  for(var i=0;i<4;i++){gV[i]+=(tv[i]-gV[i])*k;gIv[i]+=(ti[i]-gIv[i])*k;gHv[i]+=(th[i]-gHv[i])*k}
+  c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();c.moveTo(30,428);c.lineTo(1090,428);c.stroke();
+  var Y=[470,540,588];
+  c.textBaseline='middle';c.textAlign='left';c.font='500 16px '+font;
+  arrowD(c,46,494,46,446,C['--field'],2.4);c.fillStyle=C['--field'];c.fillText('電壓',62,Y[0]);
+  for(var d=0;d<3;d++){c.fillStyle=C['--warn'];c.beginPath();c.arc(40+d*9,Y[1],3.5,0,6.2832);c.fill()}c.fillStyle=C['--warn'];c.fillText('電流',72,Y[1]);
+  c.fillStyle=C['--bad'];c.beginPath();c.moveTo(38,Y[2]+10);c.quadraticCurveTo(36,Y[2]-2,46,Y[2]-12);c.quadraticCurveTo(56,Y[2]-2,54,Y[2]+10);c.closePath();c.fill();c.fillText('熱',66,Y[2]);
+  cols.forEach(function(cl,i){var x0=cl[0],x1=cl[1],m=(x0+x1)/2;c.fillStyle=C['--surface2'];c.globalAlpha=0.7;c.fillRect(x0,436,x1-x0,170);c.globalAlpha=1;
+    var bh=62*gV[i];c.fillStyle=C['--field'];c.fillRect(m-14,502-bh,28,bh);c.strokeStyle=C['--line'];c.strokeRect(m-14,440,28,62);
+    var n=Math.round(gIv[i]),sw=4*Math.sin(gA*3);for(var j=0;j<n;j++){c.fillStyle=C['--warn'];c.beginPath();c.arc(m+(j-(n-1)/2)*11+sw,Y[1],4,0,6.2832);c.fill()}
+    if(gHv[i]>0.015){for(var f=-1;f<=1;f++){var fh=(6+44*gHv[i])*(0.85+0.15*Math.sin(now/90+f*2+i)),fx=m+f*15;c.fillStyle=C['--bad'];c.globalAlpha=Math.min(1,0.35+gHv[i]);c.beginPath();c.moveTo(fx-6,602);c.quadraticCurveTo(fx-7,602-fh*0.5,fx,602-fh);c.quadraticCurveTo(fx+7,602-fh*0.5,fx+6,602);c.closePath();c.fill()}c.globalAlpha=1}});}
+function drawGrid(){if(!gc2)fitGrid();var c=gc2,now=performance.now(),dt=Math.min(0.05,(now-gLast)/1000),font=tok('--font-body'),on=!gStopped;gLast=now;if(on&&!reduce){gA+=dt*2.4;gDC+=dt*14}
+  c.clearRect(0,0,GW,GH);c.textBaseline='middle';
+  var F=function(s,x,y,col,sz,al){c.fillStyle=col||C['--muted'];c.font=(sz||14)+'px '+font;c.textAlign=al||'center';c.fillText(s,x,y)};
+  c.strokeStyle=C['--faint'];c.lineWidth=3;c.setLineDash([6,6]);c.lineDashOffset=-gA*12;[[118,120],[110,262],[112,378]].forEach(function(s){c.beginPath();c.moveTo(s[0],s[1]);c.lineTo(228,250);c.stroke()});c.setLineDash([]);
+  c.strokeStyle=C['--faint'];c.lineWidth=3;c.beginPath();c.moveTo(85,95);c.lineTo(85,165);c.stroke();for(var b=0;b<3;b++){var a=gA*0.35+b*2.094;c.strokeStyle=C['--fg'];c.lineWidth=3;c.beginPath();c.moveTo(85,95);c.lineTo(85+40*Math.cos(a),95+40*Math.sin(a));c.stroke()}c.fillStyle=C['--fg'];c.beginPath();c.arc(85,95,4,0,6.2832);c.fill();F('風',85,182,C['--fg'],15);
+  for(var wv=0;wv<4;wv++){c.strokeStyle=C['--field'];c.lineWidth=2;c.beginPath();for(var yy=210;yy<240;yy+=2){var xx=62+wv*12+3*Math.sin(yy/5+now/150);yy===210?c.moveTo(xx,yy):c.lineTo(xx,yy)}c.stroke()}
+  c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.arc(85,262,20,0,6.2832);c.stroke();for(var s2=0;s2<6;s2++){var a2=gA*0.6+s2*1.047;c.beginPath();c.moveTo(85,262);c.lineTo(85+20*Math.cos(a2),262+20*Math.sin(a2));c.stroke()}F('水',85,300,C['--fg'],15);
+  c.fillStyle=C['--surface2'];c.strokeStyle=C['--fg'];c.lineWidth=2;c.fillRect(62,362,46,30);c.strokeRect(62,362,46,30);
+  for(var fl=0;fl<3;fl++){var fh=10+4*Math.sin(now/90+fl*2);c.fillStyle=C['--copper'];c.beginPath();c.moveTo(68+fl*13,404);c.lineTo(74+fl*13,404-fh);c.lineTo(80+fl*13,404);c.closePath();c.fill()}
+  for(var pf=0;pf<3;pf++){var pp=((now/1000*0.6+pf/3)%1);c.fillStyle=C['--muted'];c.globalAlpha=0.6*(1-pp);c.beginPath();c.arc(85+6*Math.sin(pp*6+pf),358-pp*40,5+pp*6,0,6.2832);c.fill()}c.globalAlpha=1;
+  F('煲水出蒸氣',85,420,C['--fg'],15);F('煤、氣、核',85,440,C['--muted'],12);
+  var gx=262,gy=250,R=60;c.strokeStyle=C['--copper'];c.lineWidth=2.4;c.beginPath();for(var k=0;k<=72;k++){var a3=k/72*6.2832,rr=R+(k%2?7:-7);k?c.lineTo(gx+rr*Math.cos(a3),gy+rr*Math.sin(a3)):c.moveTo(gx+rr*Math.cos(a3),gy+rr*Math.sin(a3))}c.stroke();
+  c.save();c.translate(gx,gy);c.rotate(gA);c.fillStyle=C['--plus'];c.fillRect(-40,-10,40,20);c.fillStyle=C['--field'];c.fillRect(0,-10,40,20);c.fillStyle='#fff';c.font='700 13px sans-serif';c.textAlign='center';c.fillText('N',-20,1);c.fillText('S',20,1);c.restore();
+  F('發電機：轉磁石',gx,166,C['--fg'],15);
+  var amp=on?7*Math.sin(gA):0;
+  c.strokeStyle=C['--copper'];c.lineWidth=3;c.beginPath();c.moveTo(330,250);c.lineTo(368,250);c.stroke();
+  var S2=[[442,250],[468,132],[500,140],[560,152],[620,140],[680,152],[708,140],[728,250]];
+  c.strokeStyle=C['--bad'];c.globalAlpha=0.55*(gNoTx?1:0.05);c.lineWidth=12;c.beginPath();S2.forEach(function(q,i){i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1])});c.stroke();c.globalAlpha=1;
+  c.strokeStyle=C['--copper'];c.lineWidth=2.4;c.beginPath();S2.forEach(function(q,i){i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1])});c.stroke();
+  [500,620].forEach(function(px){c.strokeStyle=C['--faint'];c.lineWidth=2;c.beginPath();c.moveTo(px-20,340);c.lineTo(px,128);c.lineTo(px+20,340);c.moveTo(px-26,138);c.lineTo(px+26,138);c.moveTo(px-14,250);c.lineTo(px+14,250);c.stroke()});
+  F('高壓電線',560,360,C['--muted'],14);
+  if(gNoTx&&on){for(var hs=0;hs<6;hs++){var hx=500+hs*35,hy=118-((now/700+hs*0.3)%1)*24;c.strokeStyle=C['--bad'];c.globalAlpha=0.7;c.lineWidth=1.6;c.beginPath();for(var j=0;j<8;j++)c.lineTo(hx+3*Math.sin(j+now/120),hy-j*2.5);c.stroke()}c.globalAlpha=1;F('電喺路上變晒熱',560,96,C['--bad'],13)}
+  c.strokeStyle=C['--copper'];c.lineWidth=3;c.beginPath();c.moveTo(788,250);c.lineTo(812,250);c.moveTo(872,250);c.lineTo(1080,250);c.stroke();
+  xfmr(c,368,3,9,'升壓',font,gNoTx);xfmr(c,728,9,4,'變電站',font,gNoTx);
+  c.globalAlpha=gNoTx?0.35:1;c.strokeStyle=C['--faint'];c.lineWidth=6;c.strokeRect(812,222,60,56);coil(c,812,232,268,4,C['--copper']);coil(c,872,232,268,2,C['--copper']);c.globalAlpha=1;F('街邊',842,300,C['--muted'],14);
+  dotsOn(c,[[330,250],[368,250]],5,amp);dotsOn(c,S2,gNoTx?44:7,amp);dotsOn(c,[[788,250],[812,250]],3,amp);dotsOn(c,[[872,250],[1080,250]],12,amp);
+  var dim=gStopped?0.25:gNoTx?0.4:1;
+  c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.moveTo(886,365);c.lineTo(886,205);c.lineTo(989,150);c.lineTo(1092,205);c.lineTo(1092,365);c.closePath();c.stroke();
+  c.globalAlpha=dim;c.strokeStyle=C['--copper'];c.lineWidth=2;c.beginPath();c.moveTo(912,250);c.lineTo(912,288);c.moveTo(985,250);c.lineTo(985,284);c.moveTo(1040,250);c.lineTo(1040,272);c.stroke();
+  c.fillStyle=C['--fg'];c.beginPath();c.moveTo(898,326);c.lineTo(902,292);c.lineTo(926,292);c.lineTo(930,326);c.closePath();c.fill();
+  if(on){for(var st2=0;st2<3;st2++){var sp2=((now/1000*0.8+st2/3)%1);c.strokeStyle=C['--muted'];c.globalAlpha=dim*0.8*(1-sp2);c.lineWidth=1.6;c.beginPath();for(var j2=0;j2<6;j2++)c.lineTo(906+st2*8+2.5*Math.sin(j2+now/150),288-sp2*14-j2*2.5);c.stroke()}}
+  c.globalAlpha=dim;c.save();c.translate(985,300);c.rotate(gA);for(var fb=0;fb<3;fb++){c.rotate(2.094);c.fillStyle=C['--fg'];c.beginPath();c.ellipse(11,0,11,4,0,0,6.2832);c.fill()}c.restore();c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.moveTo(985,304);c.lineTo(985,326);c.moveTo(975,328);c.lineTo(995,328);c.stroke();
+  c.fillStyle=C['--surface2'];c.strokeStyle=C['--fg'];c.lineWidth=1.5;c.fillRect(1030,272,20,16);c.strokeRect(1030,272,20,16);
+  c.strokeStyle=C['--ok'];c.lineWidth=2;c.beginPath();c.moveTo(1040,288);c.lineTo(1040,298);c.stroke();if(on)dotsOn(c,[[1040,288],[1040,298]],2,gDC%10);
+  c.strokeStyle=C['--fg'];c.lineWidth=1.5;c.strokeRect(1022,298,40,24);c.beginPath();c.moveTo(1016,326);c.lineTo(1068,326);c.stroke();
+  for(var bt=0;bt<3;bt++){c.fillStyle=on&&Math.sin(gA*3+bt*2)>0?C['--field']:C['--line'];c.fillRect(1028+bt*11,306,7,7)}
+  c.globalAlpha=1;F('熱',914,346,C['--fg'],14);F('動力',985,346,C['--fg'],14);F('資訊',1042,346,C['--fg'],14);F('你屋企',989,382,C['--fg'],15);
+  if(gStopped)F('發電機停，屋企即刻冇電',989,405,C['--bad'],13);else if(gNoTx)F('到屋企淨返好少電',989,405,C['--bad'],13);
+  scope(c,349,on?0.45:0,'發電機出口',font);scope(c,560,on?(gNoTx?0.45:1):0,'高壓線',font);scope(c,758,on?(gNoTx?0.25:0.6):0,'變電站後',font);scope(c,930,on?(gNoTx?0.1:0.3):0,'插蘇：AC',font);scope(c,1042,on?(gNoTx?0.08:0.3):0,'尿袋後：DC',font,true);
+  gridRows(c,font,on,dt);
+  if(!reduce)requestAnimationFrame(drawGrid)}
+
+drawHero2();drawMag();drawSpread();molUpd();drawMol();drawNear();drawGrid();drawLife();devUpd();drawDev();drawTouch();drawShare();
+/* theme / resize */
+function redrawAll(){readTok();SH.ctx=null;spc=null;sctx=null;hc2=null;mctx=null;dropS=null;mixS=null;soapS=null;nctx=null;gc2=null;lc2=null;dctx=null;tctx=null;drawRuler();drawSpread();drawMag();updF();wctx=null;drawWave();if(reduce){drawHero2();drawMol();drawNear();drawGrid();drawLife();drawDev();drawTouch();drawShare()}}
+var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(redrawAll,150)});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',redrawAll);
+new MutationObserver(redrawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>
+</body>
+</html>
