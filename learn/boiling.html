@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>點解大火煲湯係嘥氣？</title>
+<meta name="description" content="由「蒸發同滾有咩分別」推到點解煲牛腩唔使開大火，同埋壓力煲點解快咁多。">
+<meta property="og:title" content="點解大火煲湯係嘥氣？">
+<meta property="og:description" content="由「蒸發同滾有咩分別」推到點解煲牛腩唔使開大火，同埋壓力煲點解快咁多。">
+<meta property="og:type" content="article">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+/* Layout: one argument from top to bottom. Evaporation vs boiling, boiling point set by outside pressure (live pot + vapour-pressure curve), where extra fire goes, why lower temperature cooks slower (photoelectric analogy + molecular energy tail), then what to do in the kitchen. Same visual series as the ΔG page. */
+:root{
+  --bg:#10141c; --panel:#171d28; --panel2:#131923; --line:#29344a; --ink:#e7ecf3; --muted:#93a0b4;
+  --ice:#7cc4f2; --steam:#f08a6a; --plateau:#f0c14b; --good:#5fcf8d; --bad:#ef6a5b; --uv:#b49cf0; --on:#10141c;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 72px;display:grid;gap:36px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(28px,5.6vw,44px);line-height:1.2;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(20px,3.4vw,25px);line-height:1.3;margin:0;text-wrap:balance}
+h3{font-size:16px;margin:0;line-height:1.4}
+p{margin:0}
+ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
+section{display:grid;gap:14px}
+.step{font-family:var(--mono);font-size:13px;color:var(--plateau);letter-spacing:.04em}
+.lede{color:var(--muted);max-width:66ch}
+.thesis{font-family:var(--display);font-size:clamp(18px,3vw,22px);line-height:1.55;border-left:3px solid var(--plateau);padding:4px 0 4px 14px;max-width:44ch}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px}
+.small{font-size:14px}
+.muted{color:var(--muted)}
+svg{width:100%;height:auto;display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ctl label{font-size:14px;color:var(--muted)}
+.ctl input[type=range]{flex:1 1 220px;accent-color:var(--plateau);height:28px}
+.btn{font:inherit;font-size:14px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 13px;cursor:pointer}
+.btn.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--ice);outline-offset:2px}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:14px;align-items:center}
+.bars{display:grid;gap:8px;font-size:13.5px}
+.brow,.crow{display:grid;grid-template-columns:170px minmax(0,1fr) 84px;gap:10px;align-items:center}
+.crow{font-size:14px}
+.crow.on span:first-child{font-weight:700}
+.trk{height:12px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.trk>div{height:100%;border-radius:6px}
+.num{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.ro{display:grid;gap:4px;font-size:14.5px;line-height:1.6}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px;border-top:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;border-top:0}
+td:first-child{white-space:nowrap;color:var(--muted)}
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.g{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;display:grid;gap:2px}
+.g span{font-size:12.5px;color:var(--muted)}
+.g b{font-family:var(--mono);font-weight:500;font-size:19px;font-variant-numeric:tabular-nums}
+.tip{border-left:3px solid var(--good);border-radius:0;padding-left:12px}
+.tip.no{border-left-color:var(--bad)}
+#m-svg{max-width:720px;margin:0 auto}
+.cards.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+@media (max-width:520px){.brow,.crow{grid-template-columns:110px minmax(0,1fr) 70px}}
+.home{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--muted);text-decoration:none;justify-self:start}
+.home:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="home" href="../#learn">← 玩笑但 · 學習</a>
+  <header style="display:grid;gap:12px">
+    <h1>點解大火煲湯係嘥氣？</h1>
+    <p class="lede">由「蒸發同滾有咩分別」開始，一路推到點解煲牛腩唔使開大火，同埋壓力煲點解快咁多。每一步都可以自己郁嚟睇。</p>
+    <p class="thesis">水一滾，溫度就頂咗喺滾點。火再大，只會令水走得快，唔會令嘢熟得快。</p>
+  </header>
+
+  <section>
+    <span class="step">第一步</span>
+    <h2>蒸發同滾係兩樣嘢</h2>
+    <div class="cards">
+      <div class="card">
+        <svg viewBox="0 0 380 312" role="img" aria-label="左：蒸發，淨係表面最快嗰幾粒走；右：沸騰，成杯水入面出泡">
+          <text x="100" y="40" text-anchor="middle" style="font-size:18px;font-weight:700;fill:var(--ink)">蒸發</text>
+          <text x="280" y="40" text-anchor="middle" style="font-size:18px;font-weight:700;fill:var(--ink)">滾（沸騰）</text>
+          <rect x="32" y="100" width="136" height="118" style="fill:var(--ice);opacity:.2"/>
+          <path d="M30 62 L30 214 Q30 220 36 220 L164 220 Q170 220 170 214 L170 62" fill="none" style="stroke:var(--muted)" stroke-width="1.5"/>
+          <g style="fill:var(--ice)"><circle cx="50" cy="120" r="3"/><circle cx="75" cy="135" r="3"/><circle cx="100" cy="118" r="3"/><circle cx="128" cy="140" r="3"/><circle cx="152" cy="122" r="3"/><circle cx="60" cy="165" r="3"/><circle cx="92" cy="160" r="3"/><circle cx="120" cy="175" r="3"/><circle cx="148" cy="168" r="3"/><circle cx="70" cy="200" r="3"/><circle cx="105" cy="198" r="3"/><circle cx="140" cy="203" r="3"/></g>
+          <g style="fill:var(--steam)"><circle cx="64" cy="84" r="3.5"/><circle cx="104" cy="72" r="3.5"/><circle cx="140" cy="88" r="3.5"/></g>
+          <g fill="none" style="stroke:var(--steam)" stroke-width="1.2"><path d="M64 98 L64 90 M61 93 L64 89 L67 93"/><path d="M104 96 L104 78 M101 81 L104 77 L107 81"/><path d="M140 98 L140 94"/></g>
+          <rect x="212" y="100" width="136" height="118" style="fill:var(--ice);opacity:.2"/>
+          <path d="M210 62 L210 214 Q210 220 216 220 L344 220 Q350 220 350 214 L350 62" fill="none" style="stroke:var(--muted)" stroke-width="1.5"/>
+          <g fill="none" style="stroke:var(--ice)" stroke-width="1.4"><circle cx="236" cy="205" r="3"/><circle cx="262" cy="180" r="5"/><circle cx="290" cy="200" r="3.5"/><circle cx="316" cy="160" r="7"/><circle cx="244" cy="140" r="7"/><circle cx="300" cy="122" r="8"/><circle cx="270" cy="110" r="5"/><circle cx="330" cy="205" r="3"/></g>
+          <g style="fill:var(--plateau)"><polygon points="236,244 244,226 252,244"/><polygon points="262,244 270,222 278,244"/><polygon points="288,244 296,224 304,244"/><polygon points="314,244 322,226 330,244"/></g>
+          <g style="font-size:14px;fill:var(--muted)" text-anchor="middle"><text x="100" y="250">任何溫度都有</text><text x="100" y="270">淨係喺水面</text><text x="100" y="290">最快嗰幾粒走甩 → 變凍</text><text x="280" y="268">要去到滾點先有</text><text x="280" y="288">成煲水入面出泡</text><text x="280" y="308">溫度唔郁，熱變潛熱</text></g>
+        </svg>
+      </div>
+      <div class="card">
+        <div class="tbl"><table>
+          <thead><tr><th></th><th>蒸發</th><th>滾</th></tr></thead>
+          <tbody>
+            <tr><td>幾時有</td><td>任何溫度，凍水都有</td><td>去到滾點先有</td></tr>
+            <tr><td>喺邊度</td><td>只喺水面</td><td>成煲水入面出泡</td></tr>
+            <tr><td>由咩決定</td><td>冇門檻；快慢睇溫度、濕度、風、氣壓</td><td>有門檻；滾點由外面嘅氣壓決定</td></tr>
+            <tr><td>水溫</td><td>走嘅係最快嗰幾粒，剩低嘅變凍</td><td>頂住喺滾點唔再升</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">流汗、吹凍碗湯、游完水上岸覺得凍，全部係蒸發：走甩嘅係動能最高嗰幾粒分子，剩低嘅平均慢咗，所以變凍。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="boil">
+    <span class="step">第二步</span>
+    <h2>滾點由外面嘅氣壓決定</h2>
+    <p class="lede">水入面不停有細蒸氣泡形成。泡入面向外推嘅力叫蒸氣壓，溫度越高推得越大力。佢輸畀外面嘅氣壓，泡即刻俾壓扁；追得上，泡就撐得住、浮上嚟，呢個就係滾。所以外面氣壓越低，越低溫就滾。揀地方，再拉火力：</p>
+    <div class="stage">
+      <div class="ctl" role="group" aria-label="揀地方" id="b-pr"></div>
+      <div class="ctl"><label for="b-t">火力</label><input type="range" id="b-t" min="20" max="130" step="1" value="70"><span id="b-tv" class="num" style="min-width:4.5em"></span></div>
+      <div class="bgrid">
+        <svg id="b-pot" viewBox="0 0 380 190" role="img" aria-label="煲水示意：火、氣泡、外面壓力"></svg>
+        <svg id="b-cur" viewBox="0 0 380 250" role="img" aria-label="蒸氣壓曲線同外面壓力，交點係滾點"></svg>
+      </div>
+      <div class="bars">
+        <div class="brow"><span>泡入面向外推（蒸氣壓）</span><div class="trk"><div id="b-v1" style="background:var(--ice)"></div></div><span class="num" id="b-v1t"></span></div>
+        <div class="brow"><span>外面向內壓（氣壓）</span><div class="trk"><div id="b-v2" style="background:var(--steam)"></div></div><span class="num" id="b-v2t"></span></div>
+      </div>
+      <div class="ro" id="b-o"></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="step">第三步</span>
+    <h2>滾咗之後，多出嚟嘅火去咗邊</h2>
+    <div class="cards">
+      <div class="card">
+        <svg viewBox="0 0 600 310" role="img" aria-label="細火同大火：兩煲水都係 100°C，大火只係蒸氣多咗">
+          <path d="M60 120 L60 210 Q60 220 70 220 L230 220 Q240 220 240 210 L240 120" fill="none" style="stroke:var(--muted)" stroke-width="2"/>
+          <rect x="62" y="140" width="176" height="78" style="fill:var(--ice);opacity:.22"/>
+          <text x="150" y="190" text-anchor="middle" style="font-size:26px;font-weight:700;fill:var(--ink)">100°C</text>
+          <g fill="none" style="stroke:var(--muted)" stroke-width="2"><path d="M125 112 q8 -8 0 -16 t0 -16 t0 -16"/><path d="M175 112 q8 -8 0 -16 t0 -16 t0 -16"/></g>
+          <g style="fill:var(--plateau)"><polygon points="118,240 126,228 134,240"/><polygon points="142,240 150,228 158,240"/><polygon points="166,240 174,228 182,240"/></g>
+          <text x="150" y="274" text-anchor="middle" style="font-size:18px;font-weight:700;fill:var(--ink)">細火：微滾</text>
+          <text x="150" y="298" text-anchor="middle" style="font-size:15px;fill:var(--muted)">蒸氣少，gas 用得少</text>
+          <path d="M360 120 L360 210 Q360 220 370 220 L530 220 Q540 220 540 210 L540 120" fill="none" style="stroke:var(--muted)" stroke-width="2"/>
+          <rect x="362" y="140" width="176" height="78" style="fill:var(--ice);opacity:.22"/>
+          <text x="450" y="190" text-anchor="middle" style="font-size:26px;font-weight:700;fill:var(--ink)">100°C</text>
+          <g fill="none" style="stroke:var(--muted)" stroke-width="2"><path d="M382 112 q8 -8 0 -16 t0 -16 t0 -16 t0 -16"/><path d="M410 112 q8 -8 0 -16 t0 -16 t0 -16 t0 -16 t0 -16"/><path d="M438 112 q8 -8 0 -16 t0 -16 t0 -16 t0 -16"/><path d="M466 112 q8 -8 0 -16 t0 -16 t0 -16 t0 -16 t0 -16"/><path d="M494 112 q8 -8 0 -16 t0 -16 t0 -16 t0 -16"/><path d="M520 112 q8 -8 0 -16 t0 -16 t0 -16"/></g>
+          <g style="fill:var(--plateau)"><polygon points="390,252 402,226 414,252"/><polygon points="424,252 436,222 448,252"/><polygon points="458,252 470,222 482,252"/><polygon points="492,252 504,226 516,252"/></g>
+          <text x="450" y="280" text-anchor="middle" style="font-size:18px;font-weight:700;fill:var(--ink)">大火：狂滾</text>
+          <text x="450" y="302" text-anchor="middle" style="font-size:15px;fill:var(--muted)">溫度一樣，只係蒸氣多咗</text>
+        </svg>
+      </div>
+      <div class="card">
+        <ul class="small">
+          <li>滾緊嘅時候，加入嘅熱全部用嚟將水變成蒸氣（潛熱），唔會再令水溫升。</li>
+          <li>所以大火同細火，水溫都係 100°C。大火只係每秒變走多啲水。</li>
+          <li>將 1 公升水滾到冇咗，最少要 2,260 kJ，即係大約 0.63 度電嘅能量，仲未計爐頭散走嘅熱。呢啲能量全部變咗蒸氣飛走。</li>
+          <li>煮熟靠嘅係溫度，唔係泡有幾多。微滾同狂滾，熟得一樣快。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="step">第四步</span>
+    <h2>點解溫度低咗，就煮得慢咁多</h2>
+    <p class="lede">煮熟係化學反應：骨膠原拆開變啫喱、蛋白質變性、澱粉吸水。每個反應都有一道門檻，叫活化能（activation energy）：撞過嚟嘅分子要夠大力，先拆得開。同光電效應係同一個道理。</p>
+    <div class="cards">
+      <div class="card">
+        <svg viewBox="0 0 600 290" role="img" aria-label="光電效應：好多粒紅光打唔出電子，一粒紫外光就打得出">
+          <text x="150" y="30" text-anchor="middle" style="font-size:18px;font-weight:700;fill:var(--ink)">100 粒紅光</text>
+          <text x="450" y="30" text-anchor="middle" style="font-size:18px;font-weight:700;fill:var(--ink)">1 粒紫外光</text>
+          <g fill="none" style="stroke:var(--steam)" stroke-width="2"><path d="M70 50 q6 9 0 18 t0 18 t0 18 t0 18 t0 18 t0 18 t0 18"/><path d="M100 50 q6 9 0 18 t0 18 t0 18 t0 18 t0 18 t0 18 t0 18"/><path d="M130 50 q6 9 0 18 t0 18 t0 18 t0 18 t0 18 t0 18 t0 18"/><path d="M160 50 q6 9 0 18 t0 18 t0 18 t0 18 t0 18 t0 18 t0 18"/><path d="M190 50 q6 9 0 18 t0 18 t0 18 t0 18 t0 18 t0 18 t0 18"/><path d="M220 50 q6 9 0 18 t0 18 t0 18 t0 18 t0 18 t0 18 t0 18"/></g>
+          <rect x="40" y="200" width="220" height="26" rx="3" style="fill:var(--muted);opacity:.55"/>
+          <path d="M450 50 q4 5 0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10 t0 10" fill="none" style="stroke:var(--uv)" stroke-width="2.5"/>
+          <rect x="340" y="200" width="220" height="26" rx="3" style="fill:var(--muted);opacity:.55"/>
+          <line x1="458" y1="196" x2="508" y2="132" style="stroke:var(--ice)" stroke-width="2"/>
+          <circle cx="512" cy="126" r="8" style="fill:var(--ice)"/>
+          <text x="526" y="122" style="font-size:16px;fill:var(--ink)">e⁻</text>
+          <text x="150" y="256" text-anchor="middle" style="font-size:17px;fill:var(--ink)">冇一粒電子彈出嚟</text>
+          <text x="150" y="280" text-anchor="middle" style="font-size:15px;fill:var(--muted)">每粒都唔夠力，數量多都冇用</text>
+          <text x="450" y="256" text-anchor="middle" style="font-size:17px;fill:var(--ink)">電子即刻彈出嚟</text>
+          <text x="450" y="280" text-anchor="middle" style="font-size:15px;fill:var(--muted)">一粒夠力，就有反應</text>
+        </svg>
+      </div>
+      <div class="card">
+        <div class="tbl"><table>
+          <thead><tr><th></th><th>光電效應</th><th>煲牛腩</th></tr></thead>
+          <tbody>
+            <tr><td>撞落去嘅嘢</td><td>光子</td><td>水分子</td></tr>
+            <tr><td>每粒幾大力</td><td>由光嘅顏色決定</td><td>由水溫決定</td></tr>
+            <tr><td>門檻</td><td>打走一粒電子要嘅能量</td><td>拆開骨膠原要嘅活化能</td></tr>
+            <tr><td>加數量冇用</td><td>紅光再強都打唔出電子</td><td>火再大，水都係 100°C，夠力嘅分子冇多到</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">有一點唔同：光電效應每粒光子能量一樣，所以係「有」或者「冇」。水分子嘅能量有高有低，總有少數夠力，所以溫度低係煮得慢，唔係煮唔熟。</p>
+      </div>
+    </div>
+    <div class="stage">
+      <h3>水分子嘅能量分佈：煮熟靠最右邊嗰條尾</h3>
+      <div class="ctl"><label for="m-t">水溫</label><input type="range" id="m-t" min="60" max="120" step="1" value="100"><span id="m-tv" class="num" style="min-width:4em"></span></div>
+      <div class="ctl" role="group" aria-label="快速揀溫度" id="m-pr"></div>
+      <svg id="m-svg" viewBox="0 0 600 270" role="img" aria-label="分子能量分佈曲線，門檻右邊嘅陰影係夠力反應嘅分子"></svg>
+      <div class="gauges">
+        <div class="g"><span>煮熟速度（對比 100°C）</span><b id="m-r"></b></div>
+        <div class="g"><span>海平面要煲 2 個鐘嘅牛腩</span><b id="m-h"></b></div>
+      </div>
+      <p class="small muted">曲線唔對稱：左邊企、右邊拖住一條長尾巴。溫度升高，成條曲線向右攤開，條尾大好多，所以大約每高 10°C，就快一倍。虛線係 100°C；門檻位置同陰影高度係示意，真實嘅尾部細到睇唔到，但道理一樣。</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="step">第五步</span>
+    <h2>同一煲牛腩，喺唔同地方要煲幾耐</h2>
+    <div class="card">
+      <div style="display:grid;gap:8px" id="b-cook"></div>
+      <p class="small muted">壓力煲大約 2 bar，水 120°C 先滾，只係高 20°C，即係兩次「快一倍」：2 × 2 = 4 倍快。珠峰頂有啲豆同米可能永遠煮唔腍。每 10°C 一倍只係經驗法則，唔同食物有出入。第二步揀地方，呢度會跟住亮。</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="step">結論</span>
+    <h2>喺廚房點用</h2>
+    <div class="cards two">
+      <div class="card tip"><h3>未滾：大火</h3><p class="small">由凍水去到 100°C，大火係有用嘅，快啲到滾點。</p></div>
+      <div class="card tip"><h3>滾咗：轉細火，冚蓋</h3><p class="small">保持微滾就夠，熟得一樣快。冚蓋減少蒸發，慳 gas，湯又唔會乾得咁快。</p></div>
+      <div class="card tip"><h3>想快：用壓力煲</h3><p class="small">唯一可以令有水嘅嘢熱過 100°C 嘅方法，係提高氣壓。2 bar 大約 120°C，大約快 4 倍。</p></div>
+      <div class="card tip no"><h3>大火真係有用嘅時候</h3><p class="small">炒、煎、燒：冇水頂住，表面可以熱過 100°C，先會出焦香（梅納反應大約要 140°C 以上先明顯）。收汁：想水走得快，大火就啱。</p></div>
+    </div>
+  </section>
+</main>
+
+<script>
+(()=>{
+const PRE=[["海平面",101.3,"0 m"],["大帽山",90.3,"957 m"],["乞力馬扎羅",47.9,"5,895 m"],["珠峰頂",31.4,"8,849 m"],["壓力煲",201,"約 2 bar"]];
+const COOK=[["壓力煲 120°C",201],["海平面 100°C",101.3],["大帽山 97°C",90.3],["乞力馬扎羅 80°C",47.9],["珠峰頂 70°C",31.4]];
+const ant=T=>T<=100?[8.07131,1730.63,233.426]:[8.14019,1810.94,244.485];
+const pv=T=>{const[a,b,c]=ant(T);return Math.pow(10,a-b/(c+T))/7.50062;};
+const tb=P=>{const mm=P*7.50062;const[a,b,c]=mm<=760?[8.07131,1730.63,233.426]:[8.14019,1810.94,244.485];return b/(a-Math.log10(mm))-c;};
+const hrs=P=>2*Math.pow(2,(100-tb(P))/10), fmt=h=>h<1?Math.round(h*60)+' 分鐘':h.toFixed(1)+' 個鐘';
+const reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=id=>document.getElementById(id);
+let P=101.3,sel=0,st={};
+const t=$('b-t'),pr=$('b-pr');
+PRE.forEach(([n,p,h],i)=>{const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=`${n} ${h}`;b.onclick=()=>{P=p;sel=i;update();};pr.appendChild(b);});
+const X=T=>50+(T-20)/110*310, Y=p=>215-Math.min(p,220)/220*195;
+const maxH=hrs(31.4);
+function update(){
+ [...pr.children].forEach((b,i)=>{b.classList.toggle('on',i===sel);b.setAttribute('aria-pressed',i===sel);});
+ const Tb=tb(P),Ts=+t.value,Tw=Math.min(Ts,Tb),boil=Ts>=Tb-0.05,v=pv(Tw);
+ st={Tb,Ts,Tw,boil,v};
+ $('b-tv').textContent='水 '+Math.round(Tw)+'°C';
+ $('b-v1').style.width=Math.min(100,v/220*100)+'%';$('b-v1t').textContent=v.toFixed(0)+' kPa';
+ $('b-v2').style.width=Math.min(100,P/220*100)+'%';$('b-v2t').textContent=P.toFixed(0)+' kPa';
+ const tx=(x,y,s,a,f,w)=>`<text x="${x}" y="${y}" text-anchor="${a}" style="font-size:${s}px;fill:${f};${w?'font-weight:700;':''}">`;
+ let s=`<line x1="50" y1="215" x2="362" y2="215" stroke="var(--muted)" stroke-width="0.8"/><line x1="50" y1="215" x2="50" y2="16" stroke="var(--muted)" stroke-width="0.8"/>`;
+ [20,40,60,80,100,120].forEach(T=>{s+=tx(X(T),232,12,'middle','var(--muted)')+T+'</text>';});
+ [0,50,100,150,200].forEach(p=>{s+=tx(44,Y(p)+4,12,'end','var(--muted)')+p+'</text>';});
+ s+=tx(362,248,12,'end','var(--muted)')+'水溫 °C</text>'+tx(56,14,12,'start','var(--muted)')+'蒸氣壓 kPa</text>';
+ const pts=[];for(let T=20;T<=130;T++){const p=pv(T);if(p>220)break;pts.push(X(T).toFixed(1)+','+Y(p).toFixed(1));}
+ s+=`<polyline points="${pts.join(' ')}" fill="none" stroke="var(--ice)" stroke-width="2.5"/>`;
+ s+=`<line x1="50" y1="${Y(P)}" x2="362" y2="${Y(P)}" stroke="var(--steam)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+ s+=`<line x1="${X(Tb)}" y1="${Y(P)}" x2="${X(Tb)}" y2="215" stroke="var(--plateau)" stroke-width="1" stroke-dasharray="3 3"/>`;
+ s+=`<circle cx="${X(Tb)}" cy="${Y(P)}" r="6" fill="var(--plateau)"/>`+tx(X(Tb)-10,Y(P)-9,13,'end','var(--ink)',1)+`滾點 ${Math.round(Tb)}°C</text>`;
+ s+=`<circle cx="${X(Tw)}" cy="${Y(v)}" r="5" fill="var(--ink)"/>`;
+ $('b-cur').innerHTML=s;
+ $('b-o').innerHTML=`<div>${boil?'<b style="color:var(--good)">滾緊。</b>泡入面推出去嘅力撐得住外面，泡可以喺水入面長大、浮上嚟。':'<b>未滾。</b>泡一形成就俾外面壓扁。水面仍然有分子一粒粒走，即係蒸發。'}</div><div>喺呢度，水最熱只可以去到 <b>${Math.round(Tb)}°C</b>。${Ts>Tb+1?'再大火都唔會再熱，只係滾得快啲、gas 用得多啲。':''}</div><div class="muted">海平面煲 2 個鐘嘅牛腩，喺呢度大約要 <b style="color:var(--ink)">${fmt(hrs(P))}</b>。</div>`;
+ $('b-cook').innerHTML=COOK.map(([n,p])=>{const h=hrs(p),on=Math.abs(p-P)<0.5;return `<div class="crow${on?' on':''}"><span>${n}</span><div class="trk"><div style="width:${(h/maxH*100).toFixed(1)}%;background:${on?'var(--plateau)':'var(--muted)'}"></div></div><span class="num">${fmt(h)}</span></div>`;}).join('');
+}
+t.addEventListener('input',update);update();
+const pot=$('b-pot');let Bb=[],Vv=[],vis=true;
+if('IntersectionObserver' in window)new IntersectionObserver(e=>{vis=e[0].isIntersecting;}).observe(pot);
+function frame(){
+ const {boil,Ts,Tb,v}=st;
+ if(!reduceM&&vis){
+  if(boil&&Bb.length<40&&Math.random()<0.3+Math.min(0.5,(Ts-Tb)/30))Bb.push({x:70+Math.random()*240,y:156,r:2,life:0,k:1});
+  if(!boil&&v/P>0.45&&Bb.length<12&&Math.random()<0.06*v/P)Bb.push({x:70+Math.random()*240,y:156,r:1,life:0,k:0});
+  if(Vv.length<30&&Math.random()<Math.min(0.5,0.05+v/P*0.35))Vv.push({x:60+Math.random()*260,y:60,a:1});
+  Bb=Bb.filter(b=>{b.life++;if(b.k){b.y-=1.3+b.r*0.08;b.r=Math.min(9,b.r+0.09);return b.y>64;}b.r=b.life<20?b.r+0.18:b.r-0.25;return b.r>0.2;});
+  Vv=Vv.filter(d=>{d.y-=0.9;d.a-=0.016;return d.a>0;});
+ }
+ const fl=Math.max(0.15,(Ts-20)/110);
+ let s=`<rect x="52" y="60" width="276" height="98" fill="var(--ice)" fill-opacity="0.2"/><path d="M50 30 L50 150 Q50 160 60 160 L320 160 Q330 160 330 150 L330 30" fill="none" stroke="var(--muted)" stroke-width="2"/>`;
+ const aw=(1+P/101*1.6).toFixed(1);[110,190,270].forEach(x=>{s+=`<line x1="${x}" y1="14" x2="${x}" y2="46" stroke="var(--steam)" stroke-width="${aw}"/><path d="M${x-5} 40 L${x} 48 L${x+5} 40" fill="none" stroke="var(--steam)" stroke-width="${aw}"/>`;});
+ [120,160,200,240].forEach(x=>{const h=10+fl*18;s+=`<polygon points="${x-8},184 ${x},${(184-h).toFixed(1)} ${x+8},184" fill="var(--plateau)" fill-opacity="0.85"/>`;});
+ Bb.forEach(b=>{s+=`<circle cx="${b.x.toFixed(1)}" cy="${b.y.toFixed(1)}" r="${b.r.toFixed(1)}" fill="var(--panel2)" fill-opacity="0.6" stroke="var(--ice)" stroke-width="1.2"/>`;});
+ Vv.forEach(d=>{s+=`<circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="2" fill="var(--ice)" fill-opacity="${d.a.toFixed(2)}"/>`;});
+ pot.innerHTML=s;
+ if(!reduceM)requestAnimationFrame(frame);
+}
+frame();
+
+const mt=$('m-t'),mpr=$('m-pr'),svg=$('m-svg');
+const EA=7,MX=e=>40+e/12*540,f=(e,k)=>2/Math.sqrt(Math.PI)*Math.sqrt(e)/Math.pow(k,1.5)*Math.exp(-e/k);
+const S=180/f(0.5,1),MY=v=>230-v*S;
+const path=k=>{let d='';for(let i=0;i<=240;i++){const e=i*0.05;d+=(i?'L':'M')+MX(e).toFixed(1)+' '+MY(f(e,k)).toFixed(1);}return d;};
+[["山頂 80°C",80],["海平面 100°C",100],["壓力煲 120°C",120]].forEach(([n,v])=>{const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=n;b.dataset.v=v;b.onclick=()=>{mt.value=v;mu();};mpr.appendChild(b);});
+function mu(){const T=+mt.value,k=(T+273.15)/373.15;
+ $('m-tv').textContent=T+'°C';
+ [...mpr.children].forEach(b=>{const on=+b.dataset.v===T;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
+ let tail='M'+MX(EA).toFixed(1)+' 230';for(let i=0;i<=100;i++){const e=EA+i*0.05;tail+='L'+MX(e).toFixed(1)+' '+MY(f(e,k)*6).toFixed(1);}tail+='L'+MX(12).toFixed(1)+' 230Z';
+ const ty=Math.min(200,MY(f(EA,k)*6)-12);
+ svg.innerHTML=`<line x1="40" y1="230" x2="580" y2="230" stroke="var(--muted)" stroke-width="1"/>
+ <text x="40" y="22" style="font-size:15px;fill:var(--muted)">有幾多粒分子</text>
+ <text x="580" y="256" text-anchor="end" style="font-size:15px;fill:var(--muted)">每粒分子嘅能量 →</text>
+ <path d="${path(1)}" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="6 4"/>
+ <path d="${tail}" fill="var(--steam)" fill-opacity="0.4"/>
+ <path d="${path(k)}" fill="none" stroke="var(--ice)" stroke-width="3"/>
+ <line x1="${MX(EA)}" y1="44" x2="${MX(EA)}" y2="230" stroke="var(--steam)" stroke-width="2"/>
+ <text x="${MX(EA)}" y="38" text-anchor="middle" style="font-size:15px;fill:var(--ink)">門檻（活化能）</text>
+ <text x="${MX(EA)+10}" y="${ty}" style="font-size:15px;fill:var(--ink)">夠力嘅分子（放大咗）</text>`;
+ const r=Math.pow(2,(T-100)/10),h=2/r;
+ $('m-r').textContent='× '+(r<1?r.toFixed(2):r.toFixed(1));$('m-h').textContent=fmt(h);}
+mt.addEventListener('input',mu);mu();
+})();
+</script>
+
+</body>
+</html>
