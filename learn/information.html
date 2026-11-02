@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>估錯先有資訊</title>
+<meta name="description" content="由一個 bit 講到相片壓縮、和弦、笑話同啊哈：個腦估、估錯、再壓縮。">
+<meta property="og:title" content="估錯先有資訊">
+<meta property="og:description" content="由一個 bit 講到相片壓縮、和弦、笑話同啊哈：個腦估、估錯、再壓縮。">
+<meta property="og:type" content="article">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:wght@500;700&family=Noto+Sans+HK:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0c1320; --surface:#131d2f; --surface2:#1a2740; --line:#26344f;
+  --fg:#e7eaf1; --muted:#93a0b8; --faint:#5f6c85;
+  --copper:#e48a52; --copper-soft:rgba(228,138,82,.14);
+  --field:#62b3ff; --field-soft:rgba(98,179,255,.13);
+  --ok:#4fd18b; --ok-soft:rgba(79,209,139,.13); --warn:#f2c14e; --warn-soft:rgba(242,193,78,.13);
+  --bad:#ff6f6f; --bad-soft:rgba(255,111,111,.13); --vio:#a99bf5; --vio-soft:rgba(169,155,245,.14);
+  --hot:#ff7a45; --cold:#5aa9ff;
+  --font-display:"Chiron Sung HK","Noto Serif TC","Songti TC",serif;
+  --font-body:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.75;margin:0}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(34px,7vw,54px);font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(25px,4.6vw,33px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,110px),1fr));gap:10px}
+.map a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;background:var(--surface)}
+.map a:hover,.map a:focus-visible{border-color:var(--copper);outline:none}
+.map b{font-family:var(--font-display);font-size:17px}
+.map small{font-size:13px;color:var(--muted);line-height:1.5}
+.sec{display:flex;flex-direction:column;gap:18px;padding-top:44px;margin-top:40px;border-top:1px solid var(--line)}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab-t{font-size:13px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.04em}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button.chip{font:inherit;font-size:14px;line-height:1.4;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--fg);cursor:pointer}
+button.chip:hover{border-color:var(--copper)}
+button.chip:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+button.chip[aria-pressed="true"]{background:var(--copper-soft);border-color:var(--copper);color:var(--copper)}
+canvas.cv{width:100%;display:block;background:var(--surface2);border-radius:12px}
+svg.fig{width:100%;height:auto;display:block}
+svg.fig text{font-family:var(--font-body)}
+.note{font-size:14px;color:var(--muted);line-height:1.65}
+.src{font-size:12.5px;color:var(--faint);line-height:1.6}
+.punch{font-family:var(--font-display);font-size:clamp(22px,4vw,28px);line-height:1.5;text-wrap:balance}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.card{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card b{font-family:var(--font-display);font-size:18px;font-weight:700;line-height:1.35}
+.card small{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card .k{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:10px}
+.kpi{background:var(--surface2);border-radius:12px;padding:10px 12px;min-width:0}
+.kpi span{display:block;font-size:12.5px;color:var(--muted)}
+.kpi b{display:block;font-family:var(--font-mono);font-size:22px;font-weight:500;line-height:1.3;font-variant-numeric:tabular-nums}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.row label{font-size:14px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--copper)}
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px}
+table.tbl.wide{min-width:520px}
+table.tbl th,table.tbl td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.tbl th{font-size:13px;color:var(--muted);font-weight:500}
+table.tbl td:first-child{white-space:nowrap}
+.tag{display:inline-block;font-size:12.5px;line-height:1.5;padding:1px 9px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.t-ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.t-bad{color:var(--bad);background:var(--bad-soft);border-color:transparent}
+.t-warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.t-field{color:var(--field);background:var(--field-soft);border-color:transparent}
+.t-cu{color:var(--copper);background:var(--copper-soft);border-color:transparent}
+.t-vio{color:var(--vio);background:var(--vio-soft);border-color:transparent}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.foot{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.mob-only{display:none}
+@media (max-width:600px){.mob-only{display:block}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--copper)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+
+<header class="hero">
+  <div class="eyebrow">思考筆記 · 資訊</div>
+  <h1>估錯先有資訊</h1>
+  <p class="lede">資訊就係要問幾多條「係定唔係」。一張相、一首歌、一個笑話、一次「啊哈」，都係同一部機：個腦估、估錯、再壓縮。壓縮得越勁，越爽。</p>
+  <nav class="map" aria-label="八段">
+    <a href="#bit"><b>1 bit</b><small>一條係定唔係</small></a>
+    <a href="#pixel"><b>一格相</b><small>24 條問題</small></a>
+    <a href="#zip"><b>壓縮</b><small>估到就唔使問</small></a>
+    <a href="#surprise"><b>意外</b><small>越意外越多</small></a>
+    <a href="#music"><b>音樂</b><small>易估嘅規律</small></a>
+    <a href="#fun"><b>好玩</b><small>一高一低</small></a>
+    <a href="#joke"><b>笑話</b><small>三樣齊</small></a>
+    <a href="#aha"><b>啊哈</b><small>突然壓細</small></a>
+  </nav>
+</header>
+
+<section class="sec" id="bit" aria-labelledby="h-bit">
+  <span class="eyebrow">1 bit</span>
+  <h2 id="h-bit">一個 bit = 一條「係定唔係」</h2>
+  <div class="lab">
+    <div class="lab-t">我諗咗 1 到 64 其中一個數。每次問「大過正中間嗎？」</div>
+    <div class="btns"><button class="chip" id="qAsk" type="button">問一條</button><button class="chip" id="qReset" type="button">再玩</button></div>
+    <svg class="fig" id="qSvg" viewBox="0 0 640 260" role="img" aria-label="64 格，每問一條就剷走一半"></svg>
+    <div class="kpis">
+      <div class="kpi"><span>仲有幾多個可能</span><b id="qLeft">64</b></div>
+      <div class="kpi"><span>問咗幾多條</span><b id="qN">0</b></div>
+      <div class="kpi"><span>最少要幾多條</span><b>6</b></div>
+    </div>
+    <p class="note">64 → 32 → 16 → 8 → 4 → 2 → 1：切 6 次。所以 log₂64 = 6 bit。log₂ 就係「要對半切幾多次」。</p>
+  </div>
+</section>
+
+<section class="sec" id="pixel" aria-labelledby="h-pixel">
+  <span class="eyebrow">一格相</span>
+  <h2 id="h-pixel">相入面每一格，最多問 24 條</h2>
+  <div class="lab">
+    <div class="row"><label for="cR" style="color:var(--bad);min-width:20px">紅</label><input type="range" id="cR" min="0" max="255" value="228" style="flex:1"></div>
+    <div class="row"><label for="cG" style="color:var(--ok);min-width:20px">綠</label><input type="range" id="cG" min="0" max="255" value="138" style="flex:1"></div>
+    <div class="row"><label for="cB" style="color:var(--field);min-width:20px">藍</label><input type="range" id="cB" min="0" max="255" value="82" style="flex:1"></div>
+    <svg class="fig" id="pxSvg" viewBox="0 0 640 170" role="img" aria-label="一格顏色由紅綠藍三種光組成，每種 256 級，即係 8 條係定唔係；加埋 24 條"></svg>
+    <p class="note">每種光分 256 級，2⁸ = 256，即係 8 條。三種加埋 24 條，2²⁴ = 16,777,216 種顏色。</p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">一張 1,200 萬像素嘅相</div>
+    <svg class="fig" id="szSvg" viewBox="0 0 640 140" role="img" aria-label="未壓縮 36 MB；手機存落嚟大約 3 MB"></svg>
+    <p class="note">1,200 萬格 × 24 條 = 2.88 億 bit。8 bit = 1 byte，即係 36 MB。手機存落嚟大約 3 MB：每格平均只係問咗大約 2 條。其餘 22 條去咗邊？</p>
+  </div>
+</section>
+
+<section class="sec" id="zip" aria-labelledby="h-zip">
+  <span class="eyebrow">壓縮</span>
+  <h2 id="h-zip">估得到嘅，就唔使問</h2>
+  <div class="lab">
+    <div class="btns" id="zBtns" role="group" aria-label="揀一行相"></div>
+    <canvas class="cv" id="zCv" role="img" aria-label="一行相素：每格嘅原本數值好大；但同隔籬格嘅差好細，記差就慳好多"></canvas>
+    <div class="kpis">
+      <div class="kpi"><span>照記每格</span><b id="zRaw"></b></div>
+      <div class="kpi"><span>只記同隔籬差幾多</span><b id="zRes" style="color:var(--ok)"></b></div>
+    </div>
+    <p class="note">隔籬格通常差唔多。記「同前面一格差幾多」，大部分係 0 或者好細嘅數，用好少 bit 就寫得落。亂碼冇規律，點都壓唔細。</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="k">ZIP</span><b>重複就寫「同前面一樣」</b><small>完全還原得返</small></div>
+    <div class="card"><span class="k">JPEG、MP3</span><b>再丟埋你睇唔到、聽唔到嘅</b><small>細好多，但還原唔返</small></div>
+    <div class="card"><span class="k">亂碼</span><b>冇規律，壓唔細</b><small>bit 最多，但冇意思</small></div>
+  </div>
+</section>
+
+<section class="sec" id="surprise" aria-labelledby="h-surprise">
+  <span class="eyebrow">意外</span>
+  <h2 id="h-surprise">越意外，資訊越多</h2>
+  <div class="lab">
+    <div class="btns" id="sBtns" role="group" aria-label="揀一件事"></div>
+    <svg class="fig" id="sSvg" viewBox="0 0 640 170" role="img" aria-label="驚喜等於 log₂(1 除以機率)：一定發生 0 bit；擲公 1 bit；七月落雪大約 13 bit；中六合彩頭獎大約 24 bit"></svg>
+    <p class="note">驚喜（bit）= log₂(1 ÷ p)，p 係你本來估佢發生嘅機率。早知會發生，0 bit。</p>
+  </div>
+</section>
+
+<section class="sec" id="music" aria-labelledby="h-music">
+  <span class="eyebrow">音樂</span>
+  <h2 id="h-music">好聽嘅和弦，規律短、易估</h2>
+  <div class="lab">
+    <div class="btns" id="mBtns" role="group" aria-label="揀兩粒音嘅比例"></div>
+    <div class="btns" id="mPlay" role="group" aria-label="聽"><button class="chip" type="button" data-p="lo" aria-pressed="false">▶ 低音</button><button class="chip" type="button" data-p="hi" aria-pressed="false">▶ 高音</button><button class="chip" type="button" data-p="both" aria-pressed="false">▶ 兩粒一齊（和弦）</button></div>
+    <canvas class="cv" id="mCv" role="img" aria-label="兩粒音加埋嘅波形；比例越簡單，越快重複一次"></canvas>
+    <p class="note" id="mCap"></p>
+    <p class="src">低音固定 220 Hz，高音跟比例。先逐粒聽，再撳「兩粒一齊」。iPhone 要閂咗側邊靜音掣先聽到。</p>
+  </div>
+</section>
+
+<section class="sec" id="fun" aria-labelledby="h-fun">
+  <span class="eyebrow">好玩</span>
+  <h2 id="h-fun">好玩唔係 bit 越多越好，係兩個數一高一低</h2>
+  <div class="lab">
+    <div class="btns" id="fBtns" role="group" aria-label="揀例子"></div>
+    <canvas class="cv" id="fCv" role="img" aria-label="橫軸：揭盅嗰下有幾意外；直軸：揭盅前有幾唔確定。兩個對角最爽"></canvas>
+    <p class="note" id="fCap"></p>
+    <p class="src">形狀參考 Cheung 等人 2019 年《Current Biology》嘅和弦研究：好肯定但答案意外，或者好唔確定但答案估得到，最爽。</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="k">反例</span><b>電話簿</b><small>每個號碼大約 27 bit，睇完一本都唔會笑</small></div>
+    <div class="card"><span class="k">反例</span><b>冇買嘅六合彩</b><small>攪珠由唔確定變確定，但你冇落注</small></div>
+    <div class="card"><span class="k">反例</span><b>收音機雜音</b><small>bit 最多，冇感覺</small></div>
+  </div>
+</section>
+
+<section class="sec" id="joke" aria-labelledby="h-joke">
+  <span class="eyebrow">笑話</span>
+  <h2 id="h-joke">好笑 = 驚喜 × 有解 × 安全</h2>
+  <div class="lab">
+    <div class="btns" id="jBtns" role="group" aria-label="揀情境"></div>
+    <canvas class="cv" id="jCv" role="img" aria-label="橫軸驚喜，上半安全，下半有威脅；分成悶、好笑、唔明、嬲或者驚四區"></canvas>
+    <div class="row"><label for="jRep">同一句粗口，聽第幾次</label><b id="jRepV" style="font-family:var(--font-mono)">1</b></div>
+    <input type="range" id="jRep" min="1" max="300" step="1" value="1">
+    <p class="note" id="jCap"></p>
+  </div>
+  <p class="note">例子：「醫生叫我戒煙、戒酒、戒夜瞓。我諗咗一晚，決定戒醫生。」「戒」之後你估煙或者酒；「醫生」大約 1/100，即係 6.6 bit 驚喜。解讀：佢唔戒習慣，戒咗定規矩嗰個人。冇人受傷。三樣齊。</p>
+</section>
+
+<section class="sec" id="aha" aria-labelledby="h-aha">
+  <span class="eyebrow">啊哈</span>
+  <h2 id="h-aha">啊哈 = 要記嘅嘢突然大減</h2>
+  <div class="lab">
+    <svg class="fig" id="ahaSvg" viewBox="0 0 640 340" role="img" aria-label="未通之前五條獨立規則：熱、溫度、氣壓、蒸發、聲音；一條提示之後，變成一條：全部都係波波郁、撞、彈開。要記嘅嘢由好長變好短"></svg>
+    <p class="note">觸發啊哈嘅新資訊好少，可能得一句提示。大嘅係慳咗幾多：幾本規則書變一本。個腦獎勵嘅係壓縮得幾勁。</p>
+  </div>
+  <div class="card" style="border-left:3px solid var(--warn);border-radius:0 12px 12px 0">
+    <span class="k">小心</span><b>啊哈唔等於啱</b>
+    <small>爽係「壓縮成功」嘅訊號，唔係「呢個係真」嘅訊號。2020 年 Laukkonen 等人發現，人解完字謎有啊哈感覺，會覺得同時見到嘅句子更真，包括錯嘅。陰謀論就係壓縮得最勁嘅理論：一個原因解釋晒所有嘢。驗法：條規則要預測到一樣有機會錯嘅嘢。</small>
+  </div>
+  <p class="punch">個腦係一部壓縮機：估中冇感覺；估錯得嚟搵到新規律，先爽。</p>
+  <div class="lab">
+    <div class="lab-t">連住諗</div>
+    <div class="scrollx"><table class="tbl">
+      <tr><th>概念</th><th>喺呢度點用</th></tr>
+      <tr><td>熵</td><td>揭盅前仲有幾多條未答，就係不確定</td></tr>
+      <tr><td>股價反映預期</td><td>大家都知嘅消息 = 0 bit，唔會郁；意外先郁到市</td></tr>
+      <tr><td>流行</td><td>入口要喺甜蜜位：熟悉，加少少新</td></tr>
+      <tr><td>AI</td><td>大型語言模型做嘅，就係估下一個字；估得準，就壓得細</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p class="src">資料：Shannon 1948；Cheung 等人 2019《Current Biology》；Laukkonen 等人 2020《Cognition》。數字為常見近似值。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+var css=getComputedStyle(document.documentElement);
+function tok(n){return css.getPropertyValue(n).trim()}
+var C={};function readTok(){css=getComputedStyle(document.documentElement);['--fg','--muted','--faint','--copper','--copper-soft','--field','--field-soft','--line','--surface','--surface2','--ok','--ok-soft','--warn','--warn-soft','--bad','--bad-soft','--vio','--vio-soft','--hot','--cold','--bg'].forEach(function(k){C[k]=tok(k)})}
+readTok();
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function fitCanvas(cv,h){var w=cv.clientWidth||640,d=Math.min(2,window.devicePixelRatio||1);cv.style.height=h+'px';cv.width=Math.round(w*d);cv.height=Math.round(h*d);var x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);return {x:x,w:w,h:h}}
+function FONT(){return tok('--font-body')}
+function MONO(){return tok('--font-mono')}
+function cl(v,a,b){a=a==null?0:a;b=b==null?1:b;return Math.max(a,Math.min(b,v))}
+function ss(f){f=cl(f);return f*f*(3-2*f)}
+function lerp(a,b,f){return a+(b-a)*f}
+function dot(c,x,y,r,col,a){c.globalAlpha=a==null?1:a;c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.2832);c.fill();c.globalAlpha=1}
+function arrow(c,x1,y1,x2,y2,col,lw){var a=Math.atan2(y2-y1,x2-x1),L=Math.hypot(x2-x1,y2-y1),hd=Math.min(8,L*0.5);c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw||2;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();if(L<2)return;c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-hd*Math.cos(a-0.5),y2-hd*Math.sin(a-0.5));c.lineTo(x2-hd*Math.cos(a+0.5),y2-hd*Math.sin(a+0.5));c.closePath();c.fill()}
+function txt(c,s,x,y,col,size,align,wt,base){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+FONT();c.textAlign=align||'left';c.textBaseline=base||'middle';c.fillText(s,x,y)}
+function mtxt(c,s,x,y,col,size,align,wt){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+MONO();c.textAlign=align||'left';c.textBaseline='middle';c.fillText(s,x,y)}
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.arcTo(x+w,y,x+w,y+r,r);c.lineTo(x+w,y+h-r);c.arcTo(x+w,y+h,x+w-r,y+h,r);c.lineTo(x+r,y+h);c.arcTo(x,y+h,x,y+h-r,r);c.lineTo(x,y+r);c.arcTo(x,y,x+r,y,r);c.closePath()}
+function rng(seed){var a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gauss(r){var u=0,v=0;while(u===0)u=r();while(v===0)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(6.2832*v)}
+var SVGNS='http://www.w3.org/2000/svg';
+function S(tag,at,parent,text){var e=document.createElementNS(SVGNS,tag);for(var k in at)e.setAttribute(k,at[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+function H(tag,at,parent,html){var e=document.createElement(tag);for(var k in at){if(k==='class')e.className=at[k];else e.setAttribute(k,at[k])}if(html!=null)e.innerHTML=html;if(parent)parent.appendChild(e);return e}
+function chips(box,items,cur,onPick){box.innerHTML='';items.forEach(function(it){var b=H('button',{class:'chip',type:'button','aria-pressed':String(it.k===cur)},box);b.textContent=it.n;b.onclick=function(){box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');onPick(it.k)}})}
+function pct(v,d){return (v>=0?'+':'−')+Math.abs(v*100).toFixed(d==null?0:d)+'%'}
+var LOOPS=[];
+function reg(cv,fn){var o={cv:cv,fn:fn,vis:true};LOOPS.push(o);if('IntersectionObserver' in window)new IntersectionObserver(function(e){o.vis=e[0].isIntersecting}).observe(cv);return o}
+var REDRAW=[];
+function onRedraw(fn){REDRAW.push(fn)}
+function startLoops(){function frame(now){var t=now/1000;LOOPS.forEach(function(o){if(o.vis)o.fn(t)});requestAnimationFrame(frame)}if(reduce){LOOPS.forEach(function(o){o.fn(3)})}else requestAnimationFrame(frame)}
+function resetAll(){readTok();REDRAW.forEach(function(f){f()});if(reduce)LOOPS.forEach(function(o){o.fn(3)})}
+var _rz,_lw=window.innerWidth;window.addEventListener('resize',function(){clearTimeout(_rz);_rz=setTimeout(function(){if(Math.abs(window.innerWidth-_lw)>2){_lw=window.innerWidth;resetAll()}},150)});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',resetAll);
+new MutationObserver(resetAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+function svgFit(sv,h){var w=Math.max(300,Math.round(sv.clientWidth||sv.parentNode.clientWidth||600));sv.setAttribute('viewBox','0 0 '+w+' '+h);sv.style.height='auto';while(sv.firstChild)sv.removeChild(sv.firstChild);return w}
+function T(sv,x,y,s,o){o=o||{};var e=S('text',{x:x,y:y,'text-anchor':o.a||'start','dominant-baseline':o.b||'middle',style:'fill:'+(o.c||'var(--fg)')+';font-size:'+(o.s||14)+'px;font-weight:'+(o.w||400)+(o.m?';font-family:var(--font-mono)':'')},sv,s);return e}
+function box(sv,x,y,w,h,col,soft,label,sz){S('rect',{x:x,y:y,width:w,height:h,rx:10,style:'fill:'+soft+';stroke:'+col+';stroke-width:1.2'},sv);var lines=label.split('\n');lines.forEach(function(l,i){T(sv,x+w/2,y+h/2+(i-(lines.length-1)/2)*(sz+4),l,{a:'middle',s:sz,c:'var(--fg)',w:500})})}
+function sArrow(sv,x1,y1,x2,y2,col){var a=Math.atan2(y2-y1,x2-x1),hd=7;S('line',{x1:x1,y1:y1,x2:x2,y2:y2,style:'stroke:'+col+';stroke-width:1.6'},sv);S('path',{d:'M'+x2+' '+y2+' L'+(x2-hd*Math.cos(a-0.5))+' '+(y2-hd*Math.sin(a-0.5))+' L'+(x2-hd*Math.cos(a+0.5))+' '+(y2-hd*Math.sin(a+0.5))+'Z',style:'fill:'+col},sv)}
+
+/* 1. guessing */
+var Q={};function qReset(){Q={sec:1+Math.floor(Math.random()*64),lo:1,hi:64,n:0,last:''};qDraw()}
+$('qAsk').onclick=function(){if(Q.lo===Q.hi)return;var mid=Math.floor((Q.lo+Q.hi)/2),yes=Q.sec>mid;Q.last='大過 '+mid+' 嗎？ → '+(yes?'係':'唔係');if(yes)Q.lo=mid+1;else Q.hi=mid;Q.n++;qDraw()};
+$('qReset').onclick=qReset;
+function qDraw(){var sv=$('qSvg'),narrow=(sv.clientWidth||600)<520,cs=narrow?Math.floor(((sv.clientWidth||340)-14)/8):30,h=cs*8+50,W=svgFit(sv,h),x0=narrow?0:(W-cs*8)/2;
+  T(sv,narrow?0:x0,14,Q.n?Q.last:'撳「問一條」開始',{s:14,w:500,c:Q.lo===Q.hi?'var(--ok)':'var(--fg)'});
+  for(var i=1;i<=64;i++){var c=(i-1)%8,r=Math.floor((i-1)/8),on=i>=Q.lo&&i<=Q.hi,hit=Q.lo===Q.hi&&i===Q.sec;
+    S('rect',{x:x0+c*cs+2,y:30+r*cs+2,width:cs-4,height:cs-4,rx:6,style:'fill:'+(hit?'var(--ok)':on?'var(--copper-soft)':'var(--surface2)')+';stroke:'+(hit?'var(--ok)':on?'var(--copper)':'var(--line)')+';opacity:'+(on?1:0.45)},sv);
+    T(sv,x0+c*cs+cs/2,30+r*cs+cs/2,String(i),{a:'middle',s:cs>26?12:10.5,m:1,c:hit?'var(--bg)':on?'var(--fg)':'var(--faint)'})}
+  if(!narrow&&Q.lo===Q.hi)T(sv,x0+cs*8+16,30+cs*4,'搵到！問咗 '+Q.n+' 條',{s:15,w:700,c:'var(--ok)'});
+  $('qLeft').textContent=Q.hi-Q.lo+1;$('qN').textContent=Q.n;
+}
+qReset();
+/* 2. pixel */
+function px(){var v=[+$('cR').value,+$('cG').value,+$('cB').value],sv=$('pxSvg'),narrow=(sv.clientWidth||600)<520,h=narrow?190:170,W=svgFit(sv,h),sw=narrow?70:120;
+  S('rect',{x:0,y:10,width:sw,height:sw,rx:12,style:'fill:rgb('+v.join(',')+');stroke:var(--line)'},sv);T(sv,sw/2,sw+26,'一格',{a:'middle',s:13,c:'var(--muted)'});
+  var cols=['--bad','--ok','--field'],x0=sw+(narrow?12:28),bs=Math.min(narrow?26:34,(W-x0-60)/8);
+  v.forEach(function(val,k){var y=10+k*(bs+18);for(var b=0;b<8;b++){var bit=(val>>(7-b))&1;S('rect',{x:x0+b*bs,y:y,width:bs-4,height:bs-4,rx:5,style:'fill:'+(bit?'var('+cols[k]+')':'var(--surface2)')+';stroke:var('+cols[k]+')'},sv);T(sv,x0+b*bs+(bs-4)/2,y+(bs-4)/2,String(bit),{a:'middle',s:11.5,m:1,c:bit?'var(--bg)':'var(--faint)'})}
+    T(sv,x0+8*bs+6,y+(bs-4)/2,String(val),{s:13,m:1,w:500,c:'var('+cols[k]+')'})});
+  T(sv,x0,h-10,'3 × 8 = 24 條係定唔係',{s:13.5,w:500});
+}
+['cR','cG','cB'].forEach(function(id){$(id).addEventListener('input',px)});
+function sz(){var sv=$('szSvg'),W=svgFit(sv,120),lx=W<520?70:110,bw=W-lx-80;
+  [['未壓縮',36,'var(--bad)'],['手機檔案',3,'var(--ok)']].forEach(function(r,i){var y=14+i*50;T(sv,0,y+14,r[0],{s:14,w:500});S('rect',{x:lx,y:y,width:Math.max(4,bw*r[1]/36),height:28,rx:6,style:'fill:'+r[2]},sv);T(sv,lx+bw*r[1]/36+8,y+14,r[1]+' MB',{s:14,w:500,m:1,c:r[2]})})}
+/* 3. zip */
+var ZK=[{k:'sky',n:'天空'},{k:'sun',n:'有太陽'},{k:'noise',n:'亂碼'}],zK='sky',ZC=null;
+function zData(k){var r=rng(k==='noise'?77:12),a=[],i;for(i=0;i<32;i++){var v;if(k==='noise')v=Math.floor(r()*256);else{v=Math.round(110+i*1.6+(r()<0.3?(r()<0.5?-1:1):0));if(k==='sun'&&i>=13&&i<=19)v=Math.round(232+r()*3)}a.push(v)}return a}
+function gam(d){return d===0?1:1+2*Math.floor(Math.log2(Math.abs(d)+1))+1}
+chips($('zBtns'),ZK,'sky',function(k){zK=k;drawZ()});
+function drawZ(){var cv=$('zCv'),g=fitCanvas(cv,cv.clientWidth<520?240:260),c=g.x,w=g.w,h=g.h,a=zData(zK),n=a.length,cw=(w-20)/n,L=10;c.clearRect(0,0,w,h);
+  for(var i=0;i<n;i++){var v=a[i];c.fillStyle=zK==='noise'?'rgb('+v+','+v+','+v+')':'rgb('+Math.round(v*0.55)+','+Math.round(v*0.78)+','+v+')';c.fillRect(L+i*cw,8,cw-1,26)}
+  txt(c,'每格原本嘅數（0–255）',L,48,C['--muted'],12);var by=56,bh=70;
+  for(i=0;i<n;i++){var hh=bh*a[i]/255;c.fillStyle=C['--field'];c.globalAlpha=0.7;c.fillRect(L+i*cw+1,by+bh-hh,cw-3,hh);c.globalAlpha=1}
+  txt(c,'同前面一格差幾多',L,by+bh+18,C['--muted'],12);var ry=by+bh+30,rh=60,mid=ry+rh/2;c.strokeStyle=C['--line'];c.beginPath();c.moveTo(L,mid);c.lineTo(w-L,mid);c.stroke();
+  var raw=n*8,res=8;for(i=1;i<n;i++){var d=a[i]-a[i-1];res+=gam(d);var dh=Math.max(1.5,(rh/2)*cl(Math.abs(d)/128));c.fillStyle=Math.abs(d)<4?C['--ok']:C['--warn'];if(d>=0)c.fillRect(L+i*cw+1,mid-dh,cw-3,dh);else c.fillRect(L+i*cw+1,mid,cw-3,dh)}
+  $('zRaw').textContent=raw+' bit';$('zRes').textContent=res+' bit';$('zRes').style.color=res<raw?C['--ok']:C['--bad'];
+}
+/* 4. surprise */
+var SE=[{k:'sure',n:'一定發生',p:1},{k:'coin',n:'擲公',p:0.5},{k:'die',n:'擲到 6',p:1/6},{k:'snow',n:'七月落雪',p:1/10000},{k:'lotto',n:'六合彩頭獎',p:1/13983816}],sK='coin';
+chips($('sBtns'),SE,'coin',function(k){sK=k;drawS()});
+function drawS(){var sv=$('sSvg'),narrow=(sv.clientWidth||600)<520,h=150,W=svgFit(sv,h),L=6,R=10,X=function(b){return L+(W-L-R)*b/26},y0=86;
+  S('line',{x1:X(0),y1:y0,x2:X(26),y2:y0,style:'stroke:var(--line);stroke-width:2'},sv);[0,5,10,15,20,25].forEach(function(b){S('line',{x1:X(b),y1:y0-4,x2:X(b),y2:y0+4,style:'stroke:var(--faint)'},sv);T(sv,X(b),y0+18,b+' bit',{a:b===0?'start':b===25?'end':'middle',s:11,m:1,c:'var(--faint)'})});
+  SE.forEach(function(e){var b=Math.log2(1/e.p),on=e.k===sK;S('circle',{cx:X(b),cy:y0,r:on?9:5,style:'fill:'+(on?'var(--copper)':'var(--muted)')},sv)});
+  var e=SE.filter(function(x){return x.k===sK})[0],b=Math.log2(1/e.p),pt=e.p===1?'1':e.p>=0.1?e.p.toFixed(e.p===0.5?1:2):'1/'+Math.round(1/e.p).toLocaleString('en-GB');
+  var a=X(b)>W-160?'end':X(b)<120?'start':'middle';T(sv,X(b),y0-38,e.n,{a:a,s:16,w:700});T(sv,X(b),y0-16,'p = '+pt+'  →  '+b.toFixed(b<1?1:1)+' bit',{a:a,s:13,m:1,c:'var(--copper)'});
+  T(sv,0,h-8,'驚喜 = log₂(1 ÷ p)',{s:12.5,c:'var(--muted)'});
+}
+/* 5. music */
+var MU=[{k:'2',n:'2:1 八度',a:2,b:1,t:'每 1 個週期就重複：最易估，聽落最「同一粒音」。'},{k:'3',n:'3:2 五度',a:3,b:2,t:'每 2 個週期重複一次：好易估，好和諧。'},{k:'5',n:'5:4 大三度',a:5,b:4,t:'每 4 個週期重複一次：仲易估，開朗。'},{k:'16',n:'16:15 小二度',a:16,b:15,t:'要 15 個週期先重複：個腦估唔到，聽落刺耳，仲會聽到「嗡嗡」聲。'}],mK='3',MC=null;
+chips($('mBtns'),MU,'3',function(k){mK=k;var m=MU.filter(function(x){return x.k===k})[0];$('mCap').textContent=m.t;drawM()});$('mCap').textContent=MU[1].t;
+var AC=null,AW=null;
+function ac(){if(!AC){var A=window.AudioContext||window.webkitAudioContext;if(!A)return null;AC=new A();var re=new Float32Array([0,1,0.45,0.25,0.12,0.06]),im=new Float32Array(re.length);AW=AC.createPeriodicWave(re,im)}if(AC.state==='suspended')AC.resume();return AC}
+function tone(f,t0,dur){var o=AC.createOscillator(),g=AC.createGain();o.setPeriodicWave(AW);o.frequency.value=f;g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(0.16,t0+0.03);g.gain.setValueAtTime(0.16,t0+dur-0.3);g.gain.linearRampToValueAtTime(0,t0+dur);o.connect(g);g.connect(AC.destination);o.start(t0);o.stop(t0+dur+0.05)}
+$('mPlay').querySelectorAll('button').forEach(function(b){b.onclick=function(){var a=ac();if(!a){$('mCap').textContent='呢個瀏覽器播唔到聲。';return}
+  var m=MU.filter(function(x){return x.k===mK})[0],lo=220,hi=220*m.a/m.b,p=b.dataset.p,t=a.currentTime+0.05,d=p==='both'?2.4:1.3;
+  if(p!=='hi')tone(lo,t,d);if(p!=='lo')tone(hi,t,d);b.setAttribute('aria-pressed','true');setTimeout(function(){b.setAttribute('aria-pressed','false')},d*1000)}});
+function drawM(){var cv=$('mCv'),g=fitCanvas(cv,cv.clientWidth<520?200:220),c=g.x,w=g.w,h=g.h,m=MU.filter(function(x){return x.k===mK})[0],L=8,R=8,cyc=15;c.clearRect(0,0,w,h);
+  var X=function(t){return L+(w-L-R)*t/cyc},fl=1,fh=m.a/m.b;
+  for(var k=0;k<=cyc;k+=m.b){c.strokeStyle=C['--copper'];c.globalAlpha=0.6;c.setLineDash([4,4]);c.beginPath();c.moveTo(X(k),8);c.lineTo(X(k),h-22);c.stroke();c.setLineDash([]);c.globalAlpha=1}
+  function wv(f,y0,amp,col,lw,sum){c.strokeStyle=col;c.lineWidth=lw;c.beginPath();for(var i=0;i<=900;i++){var t=cyc*i/900,v=sum?(Math.sin(6.2832*fl*t)+Math.sin(6.2832*fh*t))/2:Math.sin(6.2832*f*t);i?c.lineTo(X(t),y0-v*amp):c.moveTo(X(t),y0-v*amp)}c.stroke()}
+  wv(fl,32,14,C['--faint'],1.2);wv(fh,72,14,C['--faint'],1.2);wv(0,h*0.68,h*0.2,C['--field'],2,true);
+  txt(c,'低音',L,12,C['--faint'],11.5);txt(c,'高音',L,52,C['--faint'],11.5);txt(c,'加埋（你耳仔聽到）',L,h*0.68-h*0.2-12,C['--muted'],12);
+  txt(c,'虛線 = 重複一次',w-R,h-8,C['--copper'],12,'right');
+}
+/* 6. fun saddle */
+var FP=[{k:'joke',n:'笑話笑位',s:.82,u:.18,f:'好笑',w:'鋪排令你好肯定下一句係乜，最後一句完全估唔到。'},{k:'music',n:'音樂亂完返主調',s:.18,u:.82,f:'釋放',w:'和弦亂咗一輪，你唔知會去邊；最後返到最估得到嘅主調。'},{k:'rep',n:'同一首歌第 100 次',s:.18,u:.18,f:'悶',w:'未開始已經知，聽到都冇意外。'},{k:'noise',n:'雜音、電話簿',s:.82,u:.82,f:'亂',w:'由頭到尾估唔到，答案亦冇規律。bit 最多，冇感覺。'},{k:'crash',n:'股災新聞',s:.85,u:.4,f:'驚',w:'同笑話差唔多位置，但唔安全，所以係驚，唔係好玩。'}],fK='joke',FC=null;
+chips($('fBtns'),FP,'joke',function(k){fK=k;drawF()});
+function drawF(){var cv=$('fCv'),g=fitCanvas(cv,cv.clientWidth<520?280:320),c=g.x,w=g.w,h=g.h,L=20,R=10,Tp=26,B=28,pw=w-L-R,ph=h-Tp-B;c.clearRect(0,0,w,h);
+  var nx=18,ny=10;for(var i=0;i<nx;i++)for(var j=0;j<ny;j++){var s=(i+.5)/nx,u=(j+.5)/ny,f=cl(.5+2*(s-.5)*(.5-u));c.fillStyle=C['--ok'];c.globalAlpha=0.05+0.6*f;c.fillRect(L+i*pw/nx,Tp+ph-(j+1)*ph/ny,pw/nx+0.5,ph/ny+0.5)}c.globalAlpha=1;
+  txt(c,'釋放',L+8,Tp+14,C['--fg'],14,'left','700');txt(c,'亂',w-R-8,Tp+14,C['--fg'],14,'right','700');txt(c,'悶',L+8,Tp+ph-14,C['--fg'],14,'left','700');txt(c,'笑位',w-R-8,Tp+ph-14,C['--fg'],14,'right','700');
+  txt(c,'↑ 揭盅前有幾唔確定',L,12,C['--muted'],12);txt(c,'揭盅嗰下有幾意外 →',w-R,h-10,C['--muted'],12,'right');
+  var cur=null;FP.forEach(function(p){var x=L+p.s*pw,y=Tp+(1-p.u)*ph,on=p.k===fK;if(on)cur=p;dot(c,x,y,on?9:6,p.k==='crash'?C['--bad']:C['--copper']);if(on){c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();c.arc(x,y,12,0,6.2832);c.stroke()}
+    txt(c,p.n,x,y+(p.u>0.6?20:-18),on?C['--fg']:C['--muted'],12.5,'center',on?'700':'')});
+  $('fCap').textContent=cur.f+'：'+cur.w;
+}
+/* 7. joke map */
+var JS=[{k:'news',n:'新聞主播講粗口',p:1e-5,res:1,safe:1},{k:'kid',n:'5 歲細路講粗口',p:1/5000,res:1,safe:1},{k:'doc',n:'「決定戒醫生」',p:1/100,res:1,safe:1},{k:'friend',n:'朋友講粗口',p:null,res:1,safe:1},{k:'road',n:'陌生人指住你鬧',p:1/1000,res:1,safe:0},{k:'noise',n:'隨機亂碼',p:1e-9,res:0,safe:1},{k:'again',n:'同一個笑話聽第二次',p:0.9,res:1,safe:1}],jK='news';
+chips($('jBtns'),JS,'news',function(k){jK=k;drawJ()});
+$('jRep').addEventListener('input',function(){jK='friend';$('jBtns').querySelectorAll('button').forEach(function(b,i){b.setAttribute('aria-pressed',String(JS[i].k==='friend'))});drawJ()});
+function drawJ(){var cv=$('jCv'),g=fitCanvas(cv,cv.clientWidth<520?240:260),c=g.x,w=g.w,h=g.h,L=36,R=8,Tp=8,B=30;c.clearRect(0,0,w,h);
+  var X=function(b){return L+(w-L-R)*Math.min(b,31.5)/32},ys=Tp,ym=Tp+(h-Tp-B)*0.62,yb=h-B;
+  function reg(b0,b1,y0,y1,col,lab){c.fillStyle=C[col];c.globalAlpha=col==='--faint'?0.12:0.16;c.fillRect(X(b0),y0,X(b1)-X(b0)-2,y1-y0-2);c.globalAlpha=1;txt(c,lab,X(b0)+8,y0+14,C[col==='--faint'?'--muted':col],13,'left','700')}
+  reg(0,3,ys,ym,'--faint','悶');reg(3,20,ys,ym,'--ok','好笑');reg(20,32,ys,ym,'--faint','唔明');reg(0,32,ym+2,yb,'--bad','嬲／驚');
+  txt(c,'安全',4,(ys+ym)/2,C['--muted'],12);txt(c,'威脅',4,(ym+yb)/2,C['--muted'],12);
+  [0,10,20].forEach(function(b){mtxt(c,String(b),X(b),h-18,C['--faint'],11,'center')});txt(c,'驚喜（bit）',w-R,h-6,C['--faint'],11,'right');
+  var s=JS.filter(function(x){return x.k===jK})[0],n=+$('jRep').value;$('jRepV').textContent=n;var p=s.k==='friend'?n/(n+300):s.p,b=Math.log2(1/p);
+  var v=!s.safe?'嬲／驚':b<3?'悶':(!s.res||b>20)?'唔明':'好笑';var x=X(b),y=s.safe?(ys+ym)/2+8:(ym+yb)/2+6;
+  dot(c,x,y,9,C['--copper']);var lab=s.k==='friend'?'粗口（第 '+n+' 次）':s.n;txt(c,lab,x>w-150?x-14:x<130?x+14:x,y-18,C['--fg'],13,x>w-150?'right':x<130?'left':'center','700');
+  var pt=p>=0.1?Math.round(p*100)+'%':'1/'+Math.round(1/p).toLocaleString('en-GB');
+  $('jCap').textContent='p = '+pt+'，驚喜 '+b.toFixed(1)+' bit；有第二個解讀：'+(s.res?'有':'冇')+'；安全：'+(s.safe?'係':'唔係')+'　→　'+v;
+}
+/* 8. aha */
+function drawAha(){var sv=$('ahaSvg'),narrow=(sv.clientWidth||600)<520,h=narrow?360:340,W=svgFit(sv,h),bw=narrow?W*0.36:Math.min(200,W*0.3),bh=narrow?34:36,gap=narrow?8:10;
+  T(sv,0,12,'未通：5 條規則',{s:13,c:'var(--muted)'});var R5=['熱傳導','溫度','氣壓','蒸發','聲音'];
+  R5.forEach(function(r,i){box(sv,0,26+i*(bh+gap),bw,bh,'var(--faint)','var(--surface2)',r,14)});
+  var my=26+2*(bh+gap)+bh/2,rx=narrow?W*0.56:W*0.6,rw=W-rx-2;
+  T(sv,(bw+rx)/2,my-14,'一條提示',{a:'middle',s:12.5,c:'var(--muted)'});sArrow(sv,bw+8,my,rx-8,my,'var(--copper)');
+  T(sv,rx,my-62,'通咗：1 條規則',{s:13,c:'var(--muted)'});box(sv,rx,my-46,rw,92,'var(--ok)','var(--ok-soft)','全部都係波波\n郁、撞、彈開',narrow?14:16);
+  var by=26+5*(bh+gap)+16,lw=narrow?40:50,bwid=W-lw-4;T(sv,0,by+10,'未通',{s:13,c:'var(--muted)'});S('rect',{x:lw,y:by,width:bwid,height:20,rx:5,style:'fill:var(--faint);opacity:.6'},sv);
+  T(sv,0,by+44,'通咗',{s:13,c:'var(--muted)'});S('rect',{x:lw,y:by+34,width:bwid*0.2,height:20,rx:5,style:'fill:var(--ok)'},sv);
+  T(sv,lw+bwid*0.2+10,by+44,'慳咗嘅部分 = 有幾爽',{s:13,w:500,c:'var(--copper)'});
+}
+function drawStatic5(){qDraw();px();sz();drawZ();drawS();drawM();drawF();drawJ();drawAha()}
+drawStatic5();onRedraw(drawStatic5);
+
+
+startLoops();
+})();
+</script>
+
+</body>
+</html>

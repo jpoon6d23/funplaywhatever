@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>錢會搬屋</title>
+<meta name="description" content="行業輪動：經濟週期唔同階段，錢點解由一類行業搬去另一類。">
+<meta property="og:title" content="錢會搬屋">
+<meta property="og:description" content="行業輪動：經濟週期唔同階段，錢點解由一類行業搬去另一類。">
+<meta property="og:type" content="article">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:wght@500;700&family=Noto+Sans+HK:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0c1320; --surface:#131d2f; --surface2:#1a2740; --line:#26344f;
+  --fg:#e7eaf1; --muted:#93a0b8; --faint:#5f6c85;
+  --copper:#e48a52; --copper-soft:rgba(228,138,82,.14);
+  --field:#62b3ff; --field-soft:rgba(98,179,255,.13);
+  --ok:#4fd18b; --ok-soft:rgba(79,209,139,.13); --warn:#f2c14e; --warn-soft:rgba(242,193,78,.13);
+  --bad:#ff6f6f; --bad-soft:rgba(255,111,111,.13); --vio:#a99bf5; --vio-soft:rgba(169,155,245,.14);
+  --hot:#ff7a45; --cold:#5aa9ff;
+  --font-display:"Chiron Sung HK","Noto Serif TC","Songti TC",serif;
+  --font-body:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.75;margin:0}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(34px,7vw,54px);font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(25px,4.6vw,33px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,110px),1fr));gap:10px}
+.map a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;background:var(--surface)}
+.map a:hover,.map a:focus-visible{border-color:var(--copper);outline:none}
+.map b{font-family:var(--font-display);font-size:17px}
+.map small{font-size:13px;color:var(--muted);line-height:1.5}
+.sec{display:flex;flex-direction:column;gap:18px;padding-top:44px;margin-top:40px;border-top:1px solid var(--line)}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab-t{font-size:13px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.04em}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button.chip{font:inherit;font-size:14px;line-height:1.4;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--fg);cursor:pointer}
+button.chip:hover{border-color:var(--copper)}
+button.chip:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+button.chip[aria-pressed="true"]{background:var(--copper-soft);border-color:var(--copper);color:var(--copper)}
+canvas.cv{width:100%;display:block;background:var(--surface2);border-radius:12px}
+svg.fig{width:100%;height:auto;display:block}
+svg.fig text{font-family:var(--font-body)}
+.note{font-size:14px;color:var(--muted);line-height:1.65}
+.src{font-size:12.5px;color:var(--faint);line-height:1.6}
+.punch{font-family:var(--font-display);font-size:clamp(22px,4vw,28px);line-height:1.5;text-wrap:balance}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.card{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card b{font-family:var(--font-display);font-size:18px;font-weight:700;line-height:1.35}
+.card small{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card .k{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:10px}
+.kpi{background:var(--surface2);border-radius:12px;padding:10px 12px;min-width:0}
+.kpi span{display:block;font-size:12.5px;color:var(--muted)}
+.kpi b{display:block;font-family:var(--font-mono);font-size:22px;font-weight:500;line-height:1.3;font-variant-numeric:tabular-nums}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.row label{font-size:14px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--copper)}
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px}
+table.tbl.wide{min-width:520px}
+table.tbl th,table.tbl td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.tbl th{font-size:13px;color:var(--muted);font-weight:500}
+table.tbl td:first-child{white-space:nowrap}
+.tag{display:inline-block;font-size:12.5px;line-height:1.5;padding:1px 9px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.t-ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.t-bad{color:var(--bad);background:var(--bad-soft);border-color:transparent}
+.t-warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.t-field{color:var(--field);background:var(--field-soft);border-color:transparent}
+.t-cu{color:var(--copper);background:var(--copper-soft);border-color:transparent}
+.t-vio{color:var(--vio);background:var(--vio-soft);border-color:transparent}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.foot{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.mob-only{display:none}
+@media (max-width:600px){.mob-only{display:block}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--copper)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+
+<header class="hero">
+  <div class="eyebrow">股市筆記 · 行業</div>
+  <h1>錢會搬屋</h1>
+  <p class="lede">經濟由復甦去到過熱、再去放緩，錢會由一類行業搬去另一類。背後只有兩條槓桿：盈利跟經濟郁幾多，同埋加息對佢好定壞。</p>
+  <nav class="map" aria-label="五段">
+    <a href="#cycle"><b>週期</b><small>股市行快半步</small></a>
+    <a href="#lever1"><b>槓桿一</b><small>經濟一郁，盈利郁幾多</small></a>
+    <a href="#lever2"><b>槓桿二</b><small>加息，邊個最驚</small></a>
+    <a href="#map"><b>四個角</b><small>十一個行業入座</small></a>
+    <a href="#rule"><b>唔係定律</b><small>點樣用先啱</small></a>
+  </nav>
+</header>
+
+<section class="sec" id="cycle" aria-labelledby="h-cycle">
+  <span class="eyebrow">週期</span>
+  <h2 id="h-cycle">股市行快半步</h2>
+  <div class="lab">
+    <div class="btns" id="phBtns" role="group" aria-label="揀階段"></div>
+    <div class="legend"><span><i style="background:var(--faint)"></i>經濟</span><span><i style="background:var(--copper)"></i>股市</span></div>
+    <canvas class="cv" id="cyCv" role="img" aria-label="經濟同股市兩條波浪；股市條線早半步見底同見頂"></canvas>
+    <div class="cards" id="phCards"></div>
+  </div>
+  <p class="note">股市通常喺新聞最差嗰陣見底。等到新聞話經濟好返，股市已經升咗一大段。</p>
+</section>
+
+<section class="sec" id="lever1" aria-labelledby="h-lever1">
+  <span class="eyebrow">槓桿一</span>
+  <h2 id="h-lever1">經濟差少少，有啲公司盈利跌一大截</h2>
+  <div class="lab">
+    <div class="row"><label for="ecR">經濟變幾多</label><b id="ecV" style="font-family:var(--font-mono)"></b></div>
+    <input type="range" id="ecR" min="-10" max="10" step="1" value="-5">
+    <svg class="fig" id="levSvg" viewBox="0 0 640 260" role="img" aria-label="汽車廠：經濟跌 5%，銷售跌 10%，盈利跌 90%。牙膏廠：銷售差唔多唔郁，盈利只跌少少"></svg>
+    <p class="note">汽車廠有大量固定成本：廠房、機器、人工，賣少咗都要照俾。牙膏同藥，經濟差都照買。</p>
+    <p class="src">示意數字：兩間廠平時都係賣 £100、賺 £10。汽車廠固定成本 £80；牙膏廠固定成本 £30。</p>
+  </div>
+</section>
+
+<section class="sec" id="lever2" aria-labelledby="h-lever2">
+  <span class="eyebrow">槓桿二</span>
+  <h2 id="h-lever2">錢越遲先賺到，越驚加息</h2>
+  <div class="lab">
+    <div class="row"><label for="rtR">利率</label><b id="rtV" style="font-family:var(--font-mono)"></b></div>
+    <input type="range" id="rtR" min="2" max="10" step="0.5" value="7">
+    <svg class="fig" id="pvSvg" viewBox="0 0 640 260" role="img" aria-label="將來收 £100，今日值幾多。利率越高，越遠嘅錢跌得越多"></svg>
+    <p class="note">股價大約等於「將來賺嘅錢，折返做今日值幾多」。科技同成長股大部分盈利喺好遠嘅將來，所以最驚加息。公用同地產借好多錢、派息似債券，息口高就輸俾國債。</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="k">高息反而好</span><b>金融</b><small>息高，銀行借錢出去賺多啲</small></div>
+    <div class="card"><span class="k">通脹反而好</span><b>能源、原材料</b><small>通脹即係佢哋賣嘅嘢加價</small></div>
+  </div>
+</section>
+
+<section class="sec" id="map" aria-labelledby="h-map">
+  <span class="eyebrow">四個角</span>
+  <h2 id="h-map">兩條槓桿，四個角，四個階段</h2>
+  <div class="lab">
+    <div class="btns" id="mpBtns" role="group" aria-label="揀階段"></div>
+    <svg class="fig" id="mapSvg" viewBox="0 0 640 460" role="img" aria-label="橫軸：盈利跟經濟郁幾多；直軸：加息對佢好定壞。右下科技、非必需消費，早期復甦最好；右上能源、原材料、金融，後期過熱最好；左上必需消費、醫療，放緩最好；左下公用、地產，預期減息最好"></svg>
+    <p class="note" id="mpCap"></p>
+  </div>
+</section>
+
+<section class="sec" id="rule" aria-labelledby="h-rule">
+  <span class="eyebrow">唔係定律</span>
+  <h2 id="h-rule">傾向，唔係定律</h2>
+  <div class="cards">
+    <div class="card"><span class="k">2008</span><b>金融係禍首</b><small>按教科書應該早期復甦領先，結果一路跌</small></div>
+    <div class="card"><span class="k">2020</span><b>科技由頭帶到尾</b><small>疫情令所有人搬上網，週期圖完全唔啱</small></div>
+    <div class="card"><span class="k">分歧</span><b>金融、地產擺邊？</b><small>有框架擺早期復甦，有框架擺後期；兩邊都有道理</small></div>
+    <div class="card"><span class="k">事後</span><b>每張輪動圖都係事後畫</b><small>當時冇人肯定而家喺邊個階段</small></div>
+  </div>
+  <div class="lab">
+    <div class="lab-t">比較實際嘅用法</div>
+    <svg class="fig" id="useSvg" viewBox="0 0 640 170" role="img" aria-label="唔好估週期，睇創新高嘅龍頭股嚟自邊個角：嚟自右邊代表市場夠膽冒險；嚟自左邊代表大家喺度避險"></svg>
+  </div>
+  <p class="punch">唔使估而家係週期邊一格，睇錢搬緊去邊個角就得。</p>
+  <div class="lab">
+    <div class="lab-t">連住諗</div>
+    <div class="scrollx"><table class="tbl">
+      <tr><th>概念</th><th>喺呢度點用</th></tr>
+      <tr><td>債券價格同息口</td><td>加息時遠期盈利跌得最多，同長債一樣</td></tr>
+      <tr><td>固定成本</td><td>經營槓桿：固定成本越高，盈利對經濟越敏感</td></tr>
+      <tr><td>倖存者偏差</td><td>教科書例子都係揀啱嘅週期嚟講</td></tr>
+      <tr><td>主動 vs 被動</td><td>行業輪動係主動投資者嘅工具；被動投資者全部都揸</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p class="src">框架：經濟週期與行業表現嘅常見分類（例如 Fidelity 嘅 business cycle approach）。示意數字只作解釋。</p>
+  <p class="src">唔係投資建議。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+var css=getComputedStyle(document.documentElement);
+function tok(n){return css.getPropertyValue(n).trim()}
+var C={};function readTok(){css=getComputedStyle(document.documentElement);['--fg','--muted','--faint','--copper','--copper-soft','--field','--field-soft','--line','--surface','--surface2','--ok','--ok-soft','--warn','--warn-soft','--bad','--bad-soft','--vio','--vio-soft','--hot','--cold','--bg'].forEach(function(k){C[k]=tok(k)})}
+readTok();
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function fitCanvas(cv,h){var w=cv.clientWidth||640,d=Math.min(2,window.devicePixelRatio||1);cv.style.height=h+'px';cv.width=Math.round(w*d);cv.height=Math.round(h*d);var x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);return {x:x,w:w,h:h}}
+function FONT(){return tok('--font-body')}
+function MONO(){return tok('--font-mono')}
+function cl(v,a,b){a=a==null?0:a;b=b==null?1:b;return Math.max(a,Math.min(b,v))}
+function ss(f){f=cl(f);return f*f*(3-2*f)}
+function lerp(a,b,f){return a+(b-a)*f}
+function dot(c,x,y,r,col,a){c.globalAlpha=a==null?1:a;c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.2832);c.fill();c.globalAlpha=1}
+function arrow(c,x1,y1,x2,y2,col,lw){var a=Math.atan2(y2-y1,x2-x1),L=Math.hypot(x2-x1,y2-y1),hd=Math.min(8,L*0.5);c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw||2;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();if(L<2)return;c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-hd*Math.cos(a-0.5),y2-hd*Math.sin(a-0.5));c.lineTo(x2-hd*Math.cos(a+0.5),y2-hd*Math.sin(a+0.5));c.closePath();c.fill()}
+function txt(c,s,x,y,col,size,align,wt,base){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+FONT();c.textAlign=align||'left';c.textBaseline=base||'middle';c.fillText(s,x,y)}
+function mtxt(c,s,x,y,col,size,align,wt){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+MONO();c.textAlign=align||'left';c.textBaseline='middle';c.fillText(s,x,y)}
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.arcTo(x+w,y,x+w,y+r,r);c.lineTo(x+w,y+h-r);c.arcTo(x+w,y+h,x+w-r,y+h,r);c.lineTo(x+r,y+h);c.arcTo(x,y+h,x,y+h-r,r);c.lineTo(x,y+r);c.arcTo(x,y,x+r,y,r);c.closePath()}
+function rng(seed){var a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gauss(r){var u=0,v=0;while(u===0)u=r();while(v===0)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(6.2832*v)}
+var SVGNS='http://www.w3.org/2000/svg';
+function S(tag,at,parent,text){var e=document.createElementNS(SVGNS,tag);for(var k in at)e.setAttribute(k,at[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+function H(tag,at,parent,html){var e=document.createElement(tag);for(var k in at){if(k==='class')e.className=at[k];else e.setAttribute(k,at[k])}if(html!=null)e.innerHTML=html;if(parent)parent.appendChild(e);return e}
+function chips(box,items,cur,onPick){box.innerHTML='';items.forEach(function(it){var b=H('button',{class:'chip',type:'button','aria-pressed':String(it.k===cur)},box);b.textContent=it.n;b.onclick=function(){box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');onPick(it.k)}})}
+function pct(v,d){return (v>=0?'+':'−')+Math.abs(v*100).toFixed(d==null?0:d)+'%'}
+var LOOPS=[];
+function reg(cv,fn){var o={cv:cv,fn:fn,vis:true};LOOPS.push(o);if('IntersectionObserver' in window)new IntersectionObserver(function(e){o.vis=e[0].isIntersecting}).observe(cv);return o}
+var REDRAW=[];
+function onRedraw(fn){REDRAW.push(fn)}
+function startLoops(){function frame(now){var t=now/1000;LOOPS.forEach(function(o){if(o.vis)o.fn(t)});requestAnimationFrame(frame)}if(reduce){LOOPS.forEach(function(o){o.fn(3)})}else requestAnimationFrame(frame)}
+function resetAll(){readTok();REDRAW.forEach(function(f){f()});if(reduce)LOOPS.forEach(function(o){o.fn(3)})}
+var _rz,_lw=window.innerWidth;window.addEventListener('resize',function(){clearTimeout(_rz);_rz=setTimeout(function(){if(Math.abs(window.innerWidth-_lw)>2){_lw=window.innerWidth;resetAll()}},150)});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',resetAll);
+new MutationObserver(resetAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+function svgFit(sv,h){var w=Math.max(300,Math.round(sv.clientWidth||sv.parentNode.clientWidth||600));sv.setAttribute('viewBox','0 0 '+w+' '+h);sv.style.height='auto';while(sv.firstChild)sv.removeChild(sv.firstChild);return w}
+function T(sv,x,y,s,o){o=o||{};var e=S('text',{x:x,y:y,'text-anchor':o.a||'start','dominant-baseline':o.b||'middle',style:'fill:'+(o.c||'var(--fg)')+';font-size:'+(o.s||14)+'px;font-weight:'+(o.w||400)+(o.m?';font-family:var(--font-mono)':'')},sv,s);return e}
+function box(sv,x,y,w,h,col,soft,label,sz){S('rect',{x:x,y:y,width:w,height:h,rx:10,style:'fill:'+soft+';stroke:'+col+';stroke-width:1.2'},sv);var lines=label.split('\n');lines.forEach(function(l,i){T(sv,x+w/2,y+h/2+(i-(lines.length-1)/2)*(sz+4),l,{a:'middle',s:sz,c:'var(--fg)',w:500})})}
+function sArrow(sv,x1,y1,x2,y2,col){var a=Math.atan2(y2-y1,x2-x1),hd=7;S('line',{x1:x1,y1:y1,x2:x2,y2:y2,style:'stroke:'+col+';stroke-width:1.6'},sv);S('path',{d:'M'+x2+' '+y2+' L'+(x2-hd*Math.cos(a-0.5))+' '+(y2-hd*Math.sin(a-0.5))+' L'+(x2-hd*Math.cos(a+0.5))+' '+(y2-hd*Math.sin(a+0.5))+'Z',style:'fill:'+col},sv)}
+
+var PH=[{k:'rec',n:'早期復甦',u:0.13,s:['科技','非必需消費'],w:'減息加經濟好轉，兩條槓桿一齊幫手',col:'--field'},{k:'hot',n:'後期過熱',u:0.42,s:['能源','原材料','金融'],w:'經濟仲好，但通脹同利率高',col:'--copper'},{k:'slow',n:'放緩',u:0.67,s:['必需消費','醫療'],w:'大家開始擔心經濟，錢搬去盈利穩陣嘅行業',col:'--ok'},{k:'cut',n:'預期減息',u:0.9,s:['公用','地產'],w:'估息口見頂，怕息嘅防守股開始升',col:'--vio'}];
+var CY={k:'rec',auto:true,u:0,ctx:null,last:0};
+function phCards(k){var p=PH.filter(function(x){return x.k===k})[0];$('phCards').innerHTML=p.s.map(function(s){return '<div class="card" style="border-left:3px solid var('+p.col+');border-radius:0 12px 12px 0"><span class="k">'+p.n+'領先</span><b>'+s+'</b></div>'}).join('')+'<div class="card"><span class="k">點解</span><small style="color:var(--fg);font-size:14.5px">'+p.w+'</small></div>'}
+chips($('phBtns'),PH,'rec',function(k){CY.k=k;CY.auto=false;phCards(k);mpSet(k)});phCards('rec');
+function drawCy(t){if(!CY.ctx)CY.ctx=fitCanvas($('cyCv'),($('cyCv').clientWidth<520)?230:260);var g=CY.ctx,c=g.x,w=g.w,h=g.h;c.clearRect(0,0,w,h);
+  var L=12,R=12,Tp=54,B=w<520?52:40,u0=-0.15,u1=1.05,X=function(u){return L+(w-L-R)*(u-u0)/(u1-u0)},Y=function(v){return Tp+(h-Tp-B)*(1-(v+1)/2)};
+  var bands=[[0,0.3,'--field'],[0.3,0.55,'--copper'],[0.55,0.8,'--ok'],[0.8,1.0,'--vio']];
+  var cur=PH.filter(function(x){return x.k===CY.k})[0];
+  bands.forEach(function(b,i){c.fillStyle=C[b[2]];c.globalAlpha=PH[i].k===CY.k?0.16:0.05;c.fillRect(X(b[0]),4,X(b[1])-X(b[0]),h-B-4);c.globalAlpha=1;txt(c,PH[i].n,(X(b[0])+X(b[1]))/2,16,PH[i].k===CY.k?C[b[2]]:C['--faint'],w<520?11.5:13,'center',PH[i].k===CY.k?'500':'')});
+  function curve(sh,col,lw){c.strokeStyle=col;c.lineWidth=lw;c.beginPath();for(var i=0;i<=200;i++){var u=u0+(u1-u0)*i/200,v=-Math.cos(6.2832*(u+sh));i?c.lineTo(X(u),Y(v)):c.moveTo(X(u),Y(v))}c.stroke()}
+  curve(0,C['--faint'],2);curve(0.12,C['--copper'],2.6);
+  function mark(u,v,s,col,above,al){dot(c,X(u),Y(v),4,col);txt(c,s,X(u)+(al==='right'?-6:al==='left'?6:0),Y(v)+(above?-14:16),col,12,al||'center','500')}
+  var nw=w<520;mark(-0.12,-1,'股市見底',C['--copper'],false,'left');if(nw){dot(c,X(0),Y(-1),4,C['--muted']);txt(c,'經濟見底',X(0)+6,Y(-1)+30,C['--muted'],12,'left','500')}else mark(0,-1,'經濟見底',C['--muted'],false);mark(0.38,1,'股市見頂',C['--copper'],true,'right');mark(0.5,1,'經濟見頂',C['--muted'],true,'left');mark(0.88,-1,'股市見底',C['--copper'],false);
+  if(CY.auto&&!reduce){var dt=Math.min(0.05,t-(CY.last||t));CY.u=(CY.u+dt*0.06)%1;var kk=PH[CY.u<0.3?0:CY.u<0.55?1:CY.u<0.8?2:3].k;if(kk!==CY.k){CY.k=kk;phCards(kk);$('phBtns').querySelectorAll('button').forEach(function(b,i){b.setAttribute('aria-pressed',String(PH[i].k===kk))})}}else if(!CY.auto)CY.u=cur.u;
+  CY.last=t;var ux=X(CY.u);c.strokeStyle=C['--fg'];c.globalAlpha=0.5;c.setLineDash([3,4]);c.beginPath();c.moveTo(ux,28);c.lineTo(ux,h-B);c.stroke();c.setLineDash([]);c.globalAlpha=1;
+  dot(c,ux,Y(-Math.cos(6.2832*CY.u)),5,C['--faint']);dot(c,ux,Y(-Math.cos(6.2832*(CY.u+0.12))),5.5,C['--copper']);
+  txt(c,'時間 →',w-R,h-14,C['--faint'],11.5,'right');
+}
+reg($('cyCv'),drawCy);onRedraw(function(){CY.ctx=null});
+
+/* lever 1 */
+function lev(){var e=+$('ecR').value/100;$('ecV').textContent=(e>0?'+':e<0?'−':'')+Math.abs(e*100)+'%';
+  var co=[{n:'汽車廠',sens:2,var:0.1,fix:80,col:'--copper'},{n:'牙膏廠',sens:0.2,var:0.6,fix:30,col:'--ok'}];
+  var sv=$('levSvg'),narrow=(sv.clientWidth||600)<520,h=narrow?300:260,W=svgFit(sv,h),lx=narrow?0:90,cx=narrow?W/2:lx+(W-lx)/2,half=(W-lx)/2-60,mx=2;
+  S('line',{x1:cx,y1:6,x2:cx,y2:h-22,style:'stroke:var(--faint)'},sv);T(sv,cx,h-8,'0',{a:'middle',s:11.5,m:1,c:'var(--faint)'});
+  co.forEach(function(o,i){var S1=100*(1+o.sens*e),P=S1*(1-o.var)-o.fix,sc=o.sens*e,pc=(P-10)/10;var y=(narrow?22:16)+i*(narrow?140:122);
+    T(sv,narrow?0:0,narrow?y:y+34,o.n,{s:16,w:700,c:'var('+o.col+')'});var yb=narrow?y+22:y+6;
+    [['銷售',sc],['盈利',pc]].forEach(function(r,j){var yy=yb+j*44,len=half*cl(Math.abs(r[1])/mx),x=r[1]>=0?cx:cx-len;
+      S('rect',{x:x,y:yy,width:Math.max(1.5,len),height:22,rx:5,style:'fill:var('+(r[1]>=0?'--ok':'--bad')+');opacity:'+(j?1:0.55)},sv);
+      T(sv,r[1]>=0?cx-8:cx+8,yy+11,r[0],{a:r[1]>=0?'end':'start',s:13,c:'var(--muted)'});
+      var lbl=(r[1]>0?'+':r[1]<0?'−':'')+Math.round(Math.abs(r[1])*100)+'%';if(j&&P<0)lbl+='（蝕錢）';
+      T(sv,r[1]>=0?x+len+6:x-6,yy+11,lbl,{a:r[1]>=0?'start':'end',s:13.5,w:500,m:1,c:'var('+(r[1]>=0?'--ok':'--bad')+')'})})});
+}
+$('ecR').addEventListener('input',lev);
+/* lever 2 */
+function pv(){var r=+$('rtR').value/100;$('rtV').textContent=(r*100).toFixed(1).replace('.0','')+'%';
+  var sv=$('pvSvg'),narrow=(sv.clientWidth||600)<520,h=narrow?270:250,W=svgFit(sv,h),lx=narrow?58:72,bw=W-lx-(narrow?92:150);
+  var Y=[[1,'似公用：錢近'],[5,''],[10,''],[20,'似科技：錢遠']];
+  T(sv,lx,12,'將來收 £100，今日值幾多',{s:13,c:'var(--muted)'});
+  Y.forEach(function(y,i){var v=100/Math.pow(1+r,y[0]),b=100/Math.pow(1.05,y[0]),ch=v/b-1,yy=32+i*(narrow?56:52);
+    T(sv,0,yy+12,y[0]+' 年後',{s:14,w:500});S('rect',{x:lx,y:yy,width:bw,height:24,rx:5,style:'fill:none;stroke:var(--line)'},sv);
+    S('rect',{x:lx,y:yy,width:bw*0.78*v/100,height:24,rx:5,style:'fill:var(--field);opacity:'+(0.45+0.55*(1-i/4))},sv);
+    T(sv,lx+bw*0.78*v/100+6,yy+12,'£'+v.toFixed(1),{s:13.5,w:500,m:1});
+    var chs=Math.abs(ch)<0.0005?'基準':(ch>0?'+':'−')+Math.abs(ch*100).toFixed(0)+'%';
+    T(sv,lx+bw+(narrow?10:14),yy+12,chs,{s:13.5,w:500,m:1,c:Math.abs(ch)<0.0005?'var(--muted)':ch<0?'var(--bad)':'var(--ok)'});
+    if(y[1]&&!narrow)T(sv,lx+bw+64,yy+12,y[1],{s:12.5,c:'var(--muted)'});
+    if(y[1]&&narrow)T(sv,lx,yy+36,y[1],{s:11.5,c:'var(--muted)'});
+  });
+  T(sv,lx+bw+(narrow?10:14),h-6,'對比 5%',{s:11.5,c:'var(--faint)'});
+}
+$('rtR').addEventListener('input',pv);
+/* map */
+var SEC=[['科技',0.86,0.14],['非必需消費',0.74,0.27],['通訊',0.58,0.36],['工業',0.66,0.5],['金融',0.68,0.72],['能源',0.9,0.86],['原材料',0.84,0.66],['醫療',0.26,0.62],['必需消費',0.14,0.76],['公用',0.12,0.22],['地產',0.34,0.12]];
+var QD={rec:[0.5,1,0,0.5,'--field','早期復甦'],hot:[0.5,1,0.5,1,'--copper','後期過熱'],slow:[0,0.5,0.5,1,'--ok','放緩'],cut:[0,0.5,0,0.5,'--vio','預期減息']};
+var MPC={rec:'右下：盈利跟經濟郁得多，又驚加息。減息加復甦，兩樣都啱晒。',hot:'右上：經濟好、通脹高、息口高，呢幾個行業反而受惠。',slow:'左上：唔太受經濟影響。大家開始驚，錢就搬嚟呢度。',cut:'左下：唔太受經濟影響，但好驚加息。估息口見頂嗰陣開始升。'};
+var mpK='rec';chips($('mpBtns'),PH,'rec',function(k){mpK=k;drawMap()});
+function mpSet(k){mpK=k;$('mpBtns').querySelectorAll('button').forEach(function(b,i){b.setAttribute('aria-pressed',String(PH[i].k===k))});drawMap()}
+function drawMap(){var sv=$('mapSvg'),narrow=(sv.clientWidth||600)<520,h=narrow?400:460,W=svgFit(sv,h),L=narrow?6:26,R=6,Tp=34,B=40,pw=W-L-R,ph=h-Tp-B,X=function(v){return L+pw*v},Y=function(v){return Tp+ph*(1-v)};
+  Object.keys(QD).forEach(function(k){var q=QD[k];S('rect',{x:X(q[0]),y:Y(q[3]),width:pw*0.5,height:ph*0.5,style:'fill:var('+q[4]+');opacity:'+(k===mpK?0.2:0.06)},sv);
+    var tx=q[0]<0.5?X(q[0])+10:X(q[1])-10,ty=q[2]<0.5?Y(q[2])-12:Y(q[3])+18;T(sv,tx,ty,q[5],{a:q[0]<0.5?'start':'end',s:narrow?13:15,w:700,c:k===mpK?'var('+q[4]+')':'var(--faint)'})});
+  S('line',{x1:X(0.5),y1:Y(0),x2:X(0.5),y2:Y(1),style:'stroke:var(--line)'},sv);S('line',{x1:X(0),y1:Y(0.5),x2:X(1),y2:Y(0.5),style:'stroke:var(--line)'},sv);
+  var pts=[[0.75,0.25],[0.75,0.75],[0.25,0.75],[0.25,0.25]];for(var i=0;i<4;i++){var a=pts[i],b=pts[(i+1)%4],ax=X(lerp(a[0],b[0],0.3)),ay=Y(lerp(a[1],b[1],0.3)),bx=X(lerp(a[0],b[0],0.7)),by=Y(lerp(a[1],b[1],0.7));
+    var ox=(a[1]===b[1])?0:(a[0]>0.5?18:-18),oy=(a[0]===b[0])?0:(a[1]>0.5?-18:18);S('path',{d:'M'+ax+' '+ay+' Q'+((ax+bx)/2+ox)+' '+((ay+by)/2+oy)+' '+bx+' '+by,style:'fill:none;stroke:var(--faint);stroke-width:1.4;stroke-dasharray:4 4'},sv);
+    var ang=Math.atan2(by-((ay+by)/2+oy),bx-((ax+bx)/2+ox));S('path',{d:'M'+bx+' '+by+' l'+(-8*Math.cos(ang-0.5))+' '+(-8*Math.sin(ang-0.5))+' l'+(8*Math.cos(ang-0.5)-8*Math.cos(ang+0.5))+' '+(8*Math.sin(ang-0.5)-8*Math.sin(ang+0.5))+'z',style:'fill:var(--faint)'},sv)}
+  var inQ=function(s){var q=QD[mpK];return s[1]>=q[0]&&s[1]<=q[1]&&s[2]>=q[2]&&s[2]<=q[3]};
+  SEC.forEach(function(s){var on=inQ(s);S('circle',{cx:X(s[1]),cy:Y(s[2]),r:on?7:5,style:'fill:'+(on?'var('+QD[mpK][4]+')':'var(--muted)')},sv);T(sv,X(s[1])+(s[1]>0.8?-10:10),Y(s[2]),s[0],{a:s[1]>0.8?'end':'start',s:narrow?12.5:14,w:on?700:400,c:on?'var(--fg)':'var(--muted)'})});
+  T(sv,X(1),h-12,'盈利跟經濟郁幾多 →',{a:'end',s:12.5,c:'var(--muted)'});T(sv,X(0),h-12,'穩',{s:12.5,c:'var(--faint)'});
+  T(sv,X(0)+2,Tp-16,'越上：加息都唔驚　越下：越驚加息',{s:12.5,c:'var(--muted)'});
+  $('mpCap').textContent=MPC[mpK];
+}
+/* use */
+function drawUse(){var sv=$('useSvg'),narrow=(sv.clientWidth||600)<520,h=narrow?230:170,W=svgFit(sv,h);
+  if(narrow){box(sv,W/2-80,6,160,44,'var(--fg)','var(--surface2)','創新高嘅龍頭\n嚟自邊？',13.5);
+    box(sv,0,110,W/2-8,74,'var(--copper)','var(--copper-soft)','科技、非必需\n市場夠膽冒險\n趨勢交易好打',12.5);box(sv,W/2+8,110,W/2-8,74,'var(--ok)','var(--ok-soft)','公用、必需、醫療\n大家避險\n機會少，注碼細',12.5);
+    sArrow(sv,W/2-30,52,W/4,106,'var(--copper)');sArrow(sv,W/2+30,52,W*0.75,106,'var(--ok)');return}
+  box(sv,W/2-90,56,180,52,'var(--fg)','var(--surface2)','創新高嘅龍頭\n嚟自邊個角？',15);
+  box(sv,0,40,W/2-130,86,'var(--ok)','var(--ok-soft)','左邊：公用、必需、醫療\n大家避險\n好機會少，注碼細啲',14);
+  box(sv,W/2+130,40,W/2-130,86,'var(--copper)','var(--copper-soft)','右邊：科技、非必需\n市場夠膽冒險\n趨勢交易最好打',14);
+  sArrow(sv,W/2-92,82,W/2-126,82,'var(--ok)');sArrow(sv,W/2+92,82,W/2+126,82,'var(--copper)');
+}
+function drawStatic3(){lev();pv();drawMap();drawUse()}
+drawStatic3();onRedraw(drawStatic3);
+
+
+startLoops();
+})();
+</script>
+
+</body>
+</html>

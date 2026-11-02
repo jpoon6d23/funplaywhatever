@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>揀邊種痛</title>
+<meta name="description" content="主動同被動投資：被動痛喺大熊市，主動痛喺上落市。揀咗好處，就要食埋壞處。">
+<meta property="og:title" content="揀邊種痛">
+<meta property="og:description" content="主動同被動投資：被動痛喺大熊市，主動痛喺上落市。揀咗好處，就要食埋壞處。">
+<meta property="og:type" content="article">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:wght@500;700&family=Noto+Sans+HK:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0c1320; --surface:#131d2f; --surface2:#1a2740; --line:#26344f;
+  --fg:#e7eaf1; --muted:#93a0b8; --faint:#5f6c85;
+  --copper:#e48a52; --copper-soft:rgba(228,138,82,.14);
+  --field:#62b3ff; --field-soft:rgba(98,179,255,.13);
+  --ok:#4fd18b; --ok-soft:rgba(79,209,139,.13); --warn:#f2c14e; --warn-soft:rgba(242,193,78,.13);
+  --bad:#ff6f6f; --bad-soft:rgba(255,111,111,.13); --vio:#a99bf5; --vio-soft:rgba(169,155,245,.14);
+  --hot:#ff7a45; --cold:#5aa9ff;
+  --font-display:"Chiron Sung HK","Noto Serif TC","Songti TC",serif;
+  --font-body:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.75;margin:0}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(34px,7vw,54px);font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(25px,4.6vw,33px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,110px),1fr));gap:10px}
+.map a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;background:var(--surface)}
+.map a:hover,.map a:focus-visible{border-color:var(--copper);outline:none}
+.map b{font-family:var(--font-display);font-size:17px}
+.map small{font-size:13px;color:var(--muted);line-height:1.5}
+.sec{display:flex;flex-direction:column;gap:18px;padding-top:44px;margin-top:40px;border-top:1px solid var(--line)}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab-t{font-size:13px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.04em}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button.chip{font:inherit;font-size:14px;line-height:1.4;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--fg);cursor:pointer}
+button.chip:hover{border-color:var(--copper)}
+button.chip:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+button.chip[aria-pressed="true"]{background:var(--copper-soft);border-color:var(--copper);color:var(--copper)}
+canvas.cv{width:100%;display:block;background:var(--surface2);border-radius:12px}
+svg.fig{width:100%;height:auto;display:block}
+svg.fig text{font-family:var(--font-body)}
+.note{font-size:14px;color:var(--muted);line-height:1.65}
+.src{font-size:12.5px;color:var(--faint);line-height:1.6}
+.punch{font-family:var(--font-display);font-size:clamp(22px,4vw,28px);line-height:1.5;text-wrap:balance}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.card{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card b{font-family:var(--font-display);font-size:18px;font-weight:700;line-height:1.35}
+.card small{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card .k{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:10px}
+.kpi{background:var(--surface2);border-radius:12px;padding:10px 12px;min-width:0}
+.kpi span{display:block;font-size:12.5px;color:var(--muted)}
+.kpi b{display:block;font-family:var(--font-mono);font-size:22px;font-weight:500;line-height:1.3;font-variant-numeric:tabular-nums}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.row label{font-size:14px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--copper)}
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px}
+table.tbl.wide{min-width:520px}
+table.tbl th,table.tbl td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.tbl th{font-size:13px;color:var(--muted);font-weight:500}
+table.tbl td:first-child{white-space:nowrap}
+.tag{display:inline-block;font-size:12.5px;line-height:1.5;padding:1px 9px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.t-ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.t-bad{color:var(--bad);background:var(--bad-soft);border-color:transparent}
+.t-warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.t-field{color:var(--field);background:var(--field-soft);border-color:transparent}
+.t-cu{color:var(--copper);background:var(--copper-soft);border-color:transparent}
+.t-vio{color:var(--vio);background:var(--vio-soft);border-color:transparent}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.foot{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.mob-only{display:none}
+@media (max-width:600px){.mob-only{display:block}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--copper)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+
+<header class="hero">
+  <div class="eyebrow">股市筆記 · 策略</div>
+  <h1>揀邊種痛</h1>
+  <p class="lede">被動投資痛喺大熊市，主動投資痛喺上落市。你揀咗一種打法嘅好處，就要食埋佢嘅壞處。</p>
+  <nav class="map" aria-label="五段">
+    <a href="#two"><b>兩種打法</b><small>坐定定 vs 不停郁</small></a>
+    <a href="#weather"><b>四種天氣</b><small>邊個市邊個贏</small></a>
+    <a href="#passive"><b>被動最痛</b><small>大熊市</small></a>
+    <a href="#active"><b>主動最痛</b><small>上落市</small></a>
+    <a href="#choose"><b>揀邊種痛</b><small>好處連壞處</small></a>
+  </nav>
+</header>
+
+<section class="sec" id="two" aria-labelledby="h-two">
+  <span class="eyebrow">兩種打法</span>
+  <h2 id="h-two">一個坐定定，一個不停郁</h2>
+  <div class="lab">
+    <svg class="fig" id="twoSvg" viewBox="0 0 640 250" role="img" aria-label="被動：買晒成個市場，然後唔郁，等。主動：揀股、入市、止蝕或者食糊，再揀過，不停循環"></svg>
+  </div>
+  <div class="lab">
+    <div class="lab-t">一年要做幾多次決定</div>
+    <svg class="fig" id="dotSvg" viewBox="0 0 640 190" role="img" aria-label="被動一年大約一個決定；主動每個交易日都要睇市，一年大約 250 日"></svg>
+  </div>
+</section>
+
+<section class="sec" id="weather" aria-labelledby="h-weather">
+  <span class="eyebrow">四種天氣</span>
+  <h2 id="h-weather">同一個市，兩種打法</h2>
+  <div class="lab">
+    <div class="btns" id="wBtns" role="group" aria-label="揀市況"></div>
+    <div class="legend"><span><i style="background:var(--field)"></i>被動（一直揸住）</span><span><i style="background:var(--copper)"></i>主動（企喺平均線上面先揸）</span><span><i style="background:var(--copper-soft);height:10px"></i>主動揸緊貨</span></div>
+    <canvas class="cv" id="wCv" role="img" aria-label="模擬走勢：被動同主動兩條資產線"></canvas>
+    <div class="kpis">
+      <div class="kpi"><span>被動結果</span><b id="kP" style="color:var(--field)"></b></div>
+      <div class="kpi"><span>被動最大跌幅</span><b id="kPd"></b></div>
+      <div class="kpi"><span>主動結果</span><b id="kA" style="color:var(--copper)"></b></div>
+      <div class="kpi"><span>主動最大跌幅</span><b id="kAd"></b></div>
+      <div class="kpi"><span>主動買賣次數</span><b id="kT"></b></div>
+    </div>
+    <p class="punch" id="wSay" style="font-size:20px"></p>
+    <p class="src">示意：模擬走勢，唔係真數據。主動規則：價格高過 40 日平均線就買，跌穿就賣，每次買賣扣 0.1%。</p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">一張表睇晒</div>
+    <div class="scrollx"><table class="tbl" id="wTbl"></table></div>
+  </div>
+</section>
+
+<section class="sec" id="passive" aria-labelledby="h-passive">
+  <span class="eyebrow">被動最痛</span>
+  <h2 id="h-passive">大熊市：跌一半，坐十年</h2>
+  <div class="lab">
+    <div class="legend"><span><i style="background:var(--bad)"></i>最多跌咗幾多</span><span><i style="background:var(--cold)"></i>幾多年先升返舊高位</span></div>
+    <svg class="fig" id="ddSvg" viewBox="0 0 640 330" role="img" aria-label="歷史大熊市：道指 1929 跌 89% 要 25 年；日經 1989 跌 82% 要 34 年；納指 2000 跌 78% 要 15 年；標普 2007 跌 57% 要 5 年半；標普 2000 跌 49% 要 7 年；標普 2022 跌 25% 要 2 年"></svg>
+    <p class="src">價格指數，未計股息；計埋股息會快啲返本，但跌幅一樣嚇人。</p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">如果你有 £100,000</div>
+    <div class="btns" id="ddBtns" role="group" aria-label="揀一次熊市"></div>
+    <input type="range" id="ddR" min="0" max="90" step="1" value="50" aria-label="跌幅">
+    <div class="kpis">
+      <div class="kpi"><span>跌幅</span><b id="ddV" style="color:var(--bad)"></b></div>
+      <div class="kpi"><span>你戶口剩返</span><b id="ddLeft"></b></div>
+      <div class="kpi"><span>要升幾多先返本</span><b id="ddNeed" style="color:var(--warn)"></b></div>
+    </div>
+    <svg class="fig" id="ddBar" viewBox="0 0 640 90" role="img" aria-label="跌得越深，要升返嘅百分比越大"></svg>
+    <p class="note">跌 50% 要升 100%；跌 80% 要升 400%。跌得越深，爬返嘅路長得越快。</p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">被動唯一嘅死法：喺最低位賣</div>
+    <div class="legend"><span><i style="background:var(--field)"></i>一直揸住</span><span><i style="background:var(--bad)"></i>最低位賣，返到舊高位先買返</span></div>
+    <svg class="fig" id="sellSvg" viewBox="0 0 640 300" role="img" aria-label="2007 年 £100,000 買標普。一直揸住，2019 年尾變大約 £206,000；2009 年最低位賣咗，2013 年升返舊高位先買返，2019 年尾得大約 £89,000"></svg>
+    <p class="note">同一個市、同一段時間。分別只係 2009 年 3 月嗰一下頂唔頂得順。</p>
+    <p class="src">標普 500 價格，大約值；2007 年 10 月高位 1,565，2009 年 3 月低位 677，2019 年尾 3,231。</p>
+  </div>
+</section>
+
+<section class="sec" id="active" aria-labelledby="h-active">
+  <span class="eyebrow">主動最痛</span>
+  <h2 id="h-active">上落市：被挫上挫落</h2>
+  <div class="lab">
+    <div class="legend"><span><i style="background:var(--field)"></i>價格</span><span><i style="background:var(--faint)"></i>40 日平均線</span><span><i style="background:var(--ok)"></i>買</span><span><i style="background:var(--bad)"></i>賣</span></div>
+    <canvas class="cv" id="chopCv" role="img" aria-label="上落市入面，價格不停穿上穿落平均線。每次買咗就跌、賣咗就升，每單蝕少少，累積起嚟好大"></canvas>
+    <p class="note" id="chopSay"></p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">專業基金都難</div>
+    <svg class="fig" id="spivaSvg" viewBox="0 0 640 150" role="img" aria-label="十個主動基金入面，大約九個 15 年內輸俾標普 500"></svg>
+    <p class="src">SPIVA：截至 2024 年底，15 年內約 89.5% 美國大型股主動基金跑輸標普 500。</p>
+  </div>
+</section>
+
+<section class="sec" id="choose" aria-labelledby="h-choose">
+  <span class="eyebrow">揀邊種痛</span>
+  <h2 id="h-choose">揀好處，即係簽埋壞處</h2>
+  <div class="two" id="chooseBox"></div>
+  <p class="punch">策略唔會死喺市場，會死喺你頂唔順嗰日。</p>
+  <div class="lab">
+    <div class="lab-t">連住諗</div>
+    <div class="scrollx"><table class="tbl">
+      <tr><th>概念</th><th>喺呢度點用</th></tr>
+      <tr><td>期望值</td><td>正期望值嘅策略都會連輸幾次；連輸就放棄，期望值就冇得兌現</td></tr>
+      <tr><td>存活率係乘法</td><td>喺最低位賣、唔守止蝕，都係會令你冇得再玩嘅錯</td></tr>
+      <tr><td>行業輪動</td><td>主動投資者可以睇錢搬緊去邊個行業</td></tr>
+      <tr><td>運氣同樣本</td><td>一年贏咗唔代表策略好；要睇幾十次、幾個週期</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p class="src">資料：道指、日經 225、納指、標普 500 歷史高低位；S&amp;P Dow Jones Indices SPIVA。模擬部分只作示意。</p>
+  <p class="src">唔係投資建議。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+var css=getComputedStyle(document.documentElement);
+function tok(n){return css.getPropertyValue(n).trim()}
+var C={};function readTok(){css=getComputedStyle(document.documentElement);['--fg','--muted','--faint','--copper','--copper-soft','--field','--field-soft','--line','--surface','--surface2','--ok','--ok-soft','--warn','--warn-soft','--bad','--bad-soft','--vio','--vio-soft','--hot','--cold','--bg'].forEach(function(k){C[k]=tok(k)})}
+readTok();
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function fitCanvas(cv,h){var w=cv.clientWidth||640,d=Math.min(2,window.devicePixelRatio||1);cv.style.height=h+'px';cv.width=Math.round(w*d);cv.height=Math.round(h*d);var x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);return {x:x,w:w,h:h}}
+function FONT(){return tok('--font-body')}
+function MONO(){return tok('--font-mono')}
+function cl(v,a,b){a=a==null?0:a;b=b==null?1:b;return Math.max(a,Math.min(b,v))}
+function ss(f){f=cl(f);return f*f*(3-2*f)}
+function lerp(a,b,f){return a+(b-a)*f}
+function dot(c,x,y,r,col,a){c.globalAlpha=a==null?1:a;c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.2832);c.fill();c.globalAlpha=1}
+function arrow(c,x1,y1,x2,y2,col,lw){var a=Math.atan2(y2-y1,x2-x1),L=Math.hypot(x2-x1,y2-y1),hd=Math.min(8,L*0.5);c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw||2;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();if(L<2)return;c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-hd*Math.cos(a-0.5),y2-hd*Math.sin(a-0.5));c.lineTo(x2-hd*Math.cos(a+0.5),y2-hd*Math.sin(a+0.5));c.closePath();c.fill()}
+function txt(c,s,x,y,col,size,align,wt,base){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+FONT();c.textAlign=align||'left';c.textBaseline=base||'middle';c.fillText(s,x,y)}
+function mtxt(c,s,x,y,col,size,align,wt){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+MONO();c.textAlign=align||'left';c.textBaseline='middle';c.fillText(s,x,y)}
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.arcTo(x+w,y,x+w,y+r,r);c.lineTo(x+w,y+h-r);c.arcTo(x+w,y+h,x+w-r,y+h,r);c.lineTo(x+r,y+h);c.arcTo(x,y+h,x,y+h-r,r);c.lineTo(x,y+r);c.arcTo(x,y,x+r,y,r);c.closePath()}
+function rng(seed){var a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gauss(r){var u=0,v=0;while(u===0)u=r();while(v===0)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(6.2832*v)}
+var SVGNS='http://www.w3.org/2000/svg';
+function S(tag,at,parent,text){var e=document.createElementNS(SVGNS,tag);for(var k in at)e.setAttribute(k,at[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+function H(tag,at,parent,html){var e=document.createElement(tag);for(var k in at){if(k==='class')e.className=at[k];else e.setAttribute(k,at[k])}if(html!=null)e.innerHTML=html;if(parent)parent.appendChild(e);return e}
+function chips(box,items,cur,onPick){box.innerHTML='';items.forEach(function(it){var b=H('button',{class:'chip',type:'button','aria-pressed':String(it.k===cur)},box);b.textContent=it.n;b.onclick=function(){box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');onPick(it.k)}})}
+function pct(v,d){return (v>=0?'+':'−')+Math.abs(v*100).toFixed(d==null?0:d)+'%'}
+var LOOPS=[];
+function reg(cv,fn){var o={cv:cv,fn:fn,vis:true};LOOPS.push(o);if('IntersectionObserver' in window)new IntersectionObserver(function(e){o.vis=e[0].isIntersecting}).observe(cv);return o}
+var REDRAW=[];
+function onRedraw(fn){REDRAW.push(fn)}
+function startLoops(){function frame(now){var t=now/1000;LOOPS.forEach(function(o){if(o.vis)o.fn(t)});requestAnimationFrame(frame)}if(reduce){LOOPS.forEach(function(o){o.fn(3)})}else requestAnimationFrame(frame)}
+function resetAll(){readTok();REDRAW.forEach(function(f){f()});if(reduce)LOOPS.forEach(function(o){o.fn(3)})}
+var _rz,_lw=window.innerWidth;window.addEventListener('resize',function(){clearTimeout(_rz);_rz=setTimeout(function(){if(Math.abs(window.innerWidth-_lw)>2){_lw=window.innerWidth;resetAll()}},150)});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',resetAll);
+new MutationObserver(resetAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+function svgFit(sv,h){var w=Math.max(300,Math.round(sv.clientWidth||sv.parentNode.clientWidth||600));sv.setAttribute('viewBox','0 0 '+w+' '+h);sv.style.height='auto';while(sv.firstChild)sv.removeChild(sv.firstChild);return w}
+function T(sv,x,y,s,o){o=o||{};var e=S('text',{x:x,y:y,'text-anchor':o.a||'start','dominant-baseline':o.b||'middle',style:'fill:'+(o.c||'var(--fg)')+';font-size:'+(o.s||14)+'px;font-weight:'+(o.w||400)+(o.m?';font-family:var(--font-mono)':'')},sv,s);return e}
+function box(sv,x,y,w,h,col,soft,label,sz){S('rect',{x:x,y:y,width:w,height:h,rx:10,style:'fill:'+soft+';stroke:'+col+';stroke-width:1.2'},sv);var lines=label.split('\n');lines.forEach(function(l,i){T(sv,x+w/2,y+h/2+(i-(lines.length-1)/2)*(sz+4),l,{a:'middle',s:sz,c:'var(--fg)',w:500})})}
+function sArrow(sv,x1,y1,x2,y2,col){var a=Math.atan2(y2-y1,x2-x1),hd=7;S('line',{x1:x1,y1:y1,x2:x2,y2:y2,style:'stroke:'+col+';stroke-width:1.6'},sv);S('path',{d:'M'+x2+' '+y2+' L'+(x2-hd*Math.cos(a-0.5))+' '+(y2-hd*Math.sin(a-0.5))+' L'+(x2-hd*Math.cos(a+0.5))+' '+(y2-hd*Math.sin(a+0.5))+'Z',style:'fill:'+col},sv)}
+
+var BULL_S=0.007,CHOP_A=0.07,CHOP_S=0.005;
+var BULL_MU=0.0007,SIM_IN=1.005,SIM_OUT=0.99;
+var CHOP_P=30,CHOP_K=0.25;
+var SIM_N=420,SIM_MA=40,SIM_COST=0.001;
+function genPath(kind){
+  var r=rng({bull:11,chop:7,bear:5,vee:3}[kind]),p=[100],i,t,v=100;
+  if(kind==='bull'){for(i=1;i<SIM_N;i++){v*=Math.exp(BULL_MU+BULL_S*gauss(r));p.push(v)}}
+  else if(kind==='chop'){var lc=0;for(i=1;i<SIM_N;i++){var tg2=CHOP_A*Math.sin(6.2832*i/CHOP_P)+CHOP_A*0.55*Math.sin(6.2832*i/(CHOP_P*0.43)+1);lc=lc+CHOP_K*(tg2-lc)+CHOP_S*gauss(r);p.push(100*Math.exp(lc))}}
+  else if(kind==='bear'){var lv=Math.log(100),k;for(i=1;i<SIM_N;i++){t=i/SIM_N;var target;
+      if(t<0.12)target=Math.log(100*(1+0.06*t/0.12));
+      else if(t<0.78)target=Math.log(106*Math.exp(Math.log(0.42)*(t-0.12)/0.66));
+      else target=Math.log(106*0.42*(1+0.05*Math.sin(6.2832*(t-0.78)/0.2)));
+      var rally=0.06*Math.sin(6.2832*i/48)*(t>0.15&&t<0.78?1:0.3);
+      lv=lv+0.25*(target+rally-lv)+0.011*gauss(r);p.push(Math.exp(lv))}}
+  else{var lv2=Math.log(100);for(i=1;i<SIM_N;i++){t=i/SIM_N;var tg;
+      if(t<0.2)tg=100*(1+0.06*t/0.2);
+      else if(t<0.23)tg=106*(1-0.35*ss((t-0.2)/0.03));
+      else if(t<0.38)tg=106*0.65+(106*1.03-106*0.65)*ss((t-0.23)/0.15);
+      else tg=106*1.03*(1+0.10*(t-0.38)/0.62);
+      lv2=lv2+0.35*(Math.log(tg)-lv2)+0.009*gauss(r);p.push(Math.exp(lv2))}}
+  var b=p[0];return p.map(function(x){return x/b*100});
+}
+function runActive(p){
+  var eq=[100],inM=[false],trades=[],cash=100,sh=0,ma=[],sum=0,i;
+  for(i=0;i<p.length;i++){sum+=p[i];if(i>=SIM_MA)sum-=p[i-SIM_MA];ma.push(i>=SIM_MA-1?sum/SIM_MA:null)}
+  var holding=false;
+  for(i=1;i<p.length;i++){
+    if(holding){/* value moves */}
+    var val=holding?sh*p[i]:cash;
+    var up=ma[i]!=null&&p[i]>ma[i]*SIM_IN,dn=ma[i]!=null&&p[i]<ma[i]*SIM_OUT;
+    if(up&&!holding){cash=val*(1-SIM_COST);sh=cash/p[i];holding=true;trades.push({i:i,t:'b',p:p[i]});val=sh*p[i]}
+    else if(dn&&holding){cash=val*(1-SIM_COST);holding=false;trades.push({i:i,t:'s',p:p[i]});val=cash}
+    eq.push(val);inM.push(holding);
+  }
+  return {eq:eq,inM:inM,trades:trades,ma:ma};
+}
+function maxDD(a){var pk=a[0],m=0;a.forEach(function(v){pk=Math.max(pk,v);m=Math.min(m,v/pk-1)});return m}
+
+
+/* 1. two strategies */
+function drawTwo(){var sv=$('twoSvg'),narrow=(sv.clientWidth||600)<540,h=narrow?270:262,W=svgFit(sv,h);
+  var lx=narrow?0:70,bw=narrow?(W-24)/3:(W-lx-40)/3,gap=narrow?12:20,bh=narrow?52:48,sz=narrow?13:15;
+  if(narrow)bw=(W-2*gap)/3;
+  var y1=narrow?32:28,y2=narrow?150:140;
+  T(sv,narrow?0:4,narrow?14:y1+bh/2,'被動',{s:narrow?15:17,w:700,c:'var(--field)'});
+  T(sv,narrow?0:4,narrow?128:y2+bh/2,'主動',{s:narrow?15:17,w:700,c:'var(--copper)'});
+  var P=['買晒\n成個市場','唔郁','等\n十年廿年'],A=['揀股','入市','止蝕\n或者食糊'];
+  for(var i=0;i<3;i++){var x=lx+i*(bw+gap);
+    box(sv,x,y1,bw,bh,'var(--field)','var(--field-soft)',P[i],sz);
+    box(sv,x,y2,bw,bh,'var(--copper)','var(--copper-soft)',A[i],sz);
+    if(i<2){sArrow(sv,x+bw+2,y1+bh/2,x+bw+gap-2,y1+bh/2,'var(--field)');sArrow(sv,x+bw+2,y2+bh/2,x+bw+gap-2,y2+bh/2,'var(--copper)')}}
+  var xa=lx+bw/2,xb=lx+2*(bw+gap)+bw/2,yb=y2+bh+8,yd=yb+34;
+  S('path',{d:'M'+xb+' '+yb+' C'+xb+' '+yd+' '+xa+' '+yd+' '+xa+' '+(yb+2),style:'fill:none;stroke:var(--copper);stroke-width:1.6;stroke-dasharray:5 4'},sv);
+  S('path',{d:'M'+xa+' '+yb+' l-5 9 l10 0 z',style:'fill:var(--copper)'},sv);
+  T(sv,(xa+xb)/2,yd+14,'再嚟，不停循環',{a:'middle',s:13,c:'var(--copper)'});
+}
+/* dot grid */
+function drawDots(){var sv=$('dotSvg'),narrow=(sv.clientWidth||600)<540,h=narrow?250:210,W=svgFit(sv,h);
+  var lw=narrow?W:Math.min(200,W*0.3);
+  if(narrow){T(sv,0,14,'被動',{s:15,w:700,c:'var(--field)'});S('circle',{cx:26,cy:46,r:9,style:'fill:var(--field)'},sv);T(sv,46,46,'≈ 1 次',{s:15,m:1});
+    var x0=0,y0=86,cols=25,sp=Math.min(14,(W-4)/cols);T(sv,0,y0-12,'主動',{s:15,w:700,c:'var(--copper)'});
+    for(var i=0;i<250;i++){var c=i%cols,r=Math.floor(i/cols);S('circle',{cx:x0+sp/2+c*sp,cy:y0+8+r*sp,r:Math.min(4.6,sp*0.33),style:'fill:var(--copper);opacity:'+(0.35+0.65*((i*37)%11<3?1:0))},sv)}
+    T(sv,0,y0+8+10*sp+10,'≈ 250 次：每個交易日都要睇',{s:14,m:0,c:'var(--muted)'});return}
+  T(sv,0,16,'被動',{s:16,w:700,c:'var(--field)'});S('circle',{cx:lw/2,cy:92,r:12,style:'fill:var(--field)'},sv);T(sv,lw/2,128,'≈ 1 次',{a:'middle',s:16,m:1});T(sv,lw/2,152,'例如每年供一次款',{a:'middle',s:13,c:'var(--muted)'});
+  var x0=lw+30,cols=25,sp=Math.min(15,(W-x0-4)/cols);T(sv,x0,16,'主動',{s:16,w:700,c:'var(--copper)'});
+  for(var j=0;j<250;j++){var cc=j%cols,rr=Math.floor(j/cols);S('circle',{cx:x0+sp/2+cc*sp,cy:38+rr*sp,r:Math.min(4.8,sp*0.33),style:'fill:var(--copper);opacity:'+(0.35+0.65*((j*37)%11<3?1:0))},sv)}
+  T(sv,x0,38+10*sp+8,'≈ 250 次：每個交易日都要睇',{s:14,c:'var(--muted)'});
+}
+
+/* 2. weather */
+var WK=[{k:'bull',n:'牛市'},{k:'chop',n:'上落市'},{k:'bear',n:'大熊市'},{k:'vee',n:'急跌急升'}];
+var WSAY={bull:'牛市：被動贏。主動成日俾細跌震走，追返要俾錢。',chop:'上落市：主動最痛。買咗就跌，賣咗就升，次次蝕少少。',bear:'大熊市：主動贏好多。跌穿平均線就走，避開大部分跌幅；被動要硬食。',vee:'急跌急升：主動喺低位附近賣咗，升返先追，所以落後。'};
+var W={k:'bull',t0:0,ctx:null,data:{}};
+WK.forEach(function(o){var p=genPath(o.k);W.data[o.k]={p:p,a:runActive(p)}});
+function wPick(k){W.k=k;W.t0=performance.now()/1000;var d=W.data[k],p=d.p,a=d.a;
+  $('kP').textContent=pct(p[p.length-1]/100-1);$('kPd').textContent=pct(maxDD(p));$('kA').textContent=pct(a.eq[a.eq.length-1]/100-1);$('kAd').textContent=pct(maxDD(a.eq));$('kT').textContent=a.trades.length;$('wSay').textContent=WSAY[k];
+  if(reduce)drawW(99)}
+chips($('wBtns'),WK,'bull',wPick);
+function drawW(t){if(!W.ctx)W.ctx=fitCanvas($('wCv'),($('wCv').clientWidth<520)?250:290);var g=W.ctx,c=g.x,w=g.w,h=g.h;c.clearRect(0,0,w,h);
+  var d=W.data[W.k],p=d.p,a=d.a,N=p.length,prog=reduce?1:cl((t-W.t0)/1.8),n=Math.max(2,Math.floor(N*ss(prog)));
+  var lo=Math.min(Math.min.apply(null,p),Math.min.apply(null,a.eq)),hi=Math.max(Math.max.apply(null,p),Math.max.apply(null,a.eq));lo=Math.floor(lo/20)*20;hi=Math.ceil(hi/20)*20;
+  var L=40,R=62,Tp=12,B=22,X=function(i){return L+(w-L-R)*i/(N-1)},Y=function(v){return Tp+(h-Tp-B)*(1-(v-lo)/(hi-lo))};
+  for(var v=lo;v<=hi;v+=20){c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();c.moveTo(L,Y(v));c.lineTo(w-R,Y(v));c.stroke();mtxt(c,String(v),L-6,Y(v),v===100?C['--fg']:C['--faint'],11,'right')}
+  c.strokeStyle=C['--faint'];c.setLineDash([4,4]);c.beginPath();c.moveTo(L,Y(100));c.lineTo(w-R,Y(100));c.stroke();c.setLineDash([]);
+  c.fillStyle=C['--copper-soft'];var s0=-1;for(var i=1;i<=n;i++){var on=i<n&&a.inM[i];if(on&&s0<0)s0=i-1;if(!on&&s0>=0){c.fillRect(X(s0),Tp,X(i-1)-X(s0),h-Tp-B);s0=-1}}
+  function line(arr,col,lw){c.strokeStyle=col;c.lineWidth=lw;c.lineJoin='round';c.beginPath();for(var i=0;i<n;i++){i?c.lineTo(X(i),Y(arr[i])):c.moveTo(X(i),Y(arr[i]))}c.stroke()}
+  line(p,C['--field'],2);line(a.eq,C['--copper'],2.4);
+  a.trades.forEach(function(tr){if(tr.i>=n)return;var x=X(tr.i),y=Y(p[tr.i]);c.fillStyle=tr.t==='b'?C['--ok']:C['--bad'];c.beginPath();if(tr.t==='b'){c.moveTo(x,y+5);c.lineTo(x-4,y+12);c.lineTo(x+4,y+12)}else{c.moveTo(x,y-5);c.lineTo(x-4,y-12);c.lineTo(x+4,y-12)}c.fill()});
+  var ey1=Y(p[n-1]),ey2=Y(a.eq[n-1]);if(Math.abs(ey1-ey2)<16){var m=(ey1+ey2)/2;ey1=m+(ey1>=ey2?8:-8);ey2=m+(ey1>=ey2?-8:8)}
+  mtxt(c,pct(p[n-1]/100-1),w-R+6,ey1,C['--field'],12,'left','500');mtxt(c,pct(a.eq[n-1]/100-1),w-R+6,ey2,C['--copper'],12,'left','500');
+  txt(c,'時間 →',w-R,h-8,C['--faint'],11,'right');
+}
+reg($('wCv'),drawW);onRedraw(function(){W.ctx=null});
+wPick('bull');
+(function(){var rows=[['牛市','全食','t-ok','食少啲','t-warn'],['上落市','原地踏步','','被挫，最痛','t-bad'],['大熊市','跌一半，最痛','t-bad','走得甩','t-ok'],['急跌急升','頂得住就冇事','t-ok','賣低買高','t-bad']];
+  var h='<tr><th>市況</th><th>被動</th><th>主動</th></tr>';rows.forEach(function(r){h+='<tr><td>'+r[0]+'</td><td><span class="tag '+r[2]+'">'+r[1]+'</span></td><td><span class="tag '+r[4]+'">'+r[3]+'</span></td></tr>'});$('wTbl').innerHTML=h})();
+
+/* 3. drawdowns */
+var DD=[['美股 1929','道指',89,25],['日本 1989','日經 225',82,34],['科網 2000','納指',78,15],['金融海嘯 2007','標普 500',57,5.5],['科網 2000','標普 500',49,7],['加息 2022','標普 500',25,2]];
+function drawDD(){var sv=$('ddSvg'),narrow=(sv.clientWidth||600)<520,rh=narrow?66:52,h=DD.length*rh+24,W=svgFit(sv,h);
+  var lx=narrow?0:150,bx=narrow?0:160,bw=W-bx-(narrow?70:90);
+  DD.forEach(function(d,i){var y=i*rh+8;
+    if(narrow){T(sv,0,y+8,d[0]+' · '+d[1],{s:14,w:500});y+=18}else{T(sv,0,y+12,d[0],{s:14,w:500});T(sv,0,y+31,d[1],{s:12.5,c:'var(--muted)'})}
+    var w1=bw*d[2]/100,w2=bw*d[3]/35;
+    S('rect',{x:bx,y:y+3,width:w1,height:14,rx:4,style:'fill:var(--bad)'},sv);T(sv,bx+w1+6,y+10,'−'+d[2]+'%',{s:13,m:1,c:'var(--bad)'});
+    S('rect',{x:bx,y:y+22,width:w2,height:10,rx:4,style:'fill:var(--cold)'},sv);T(sv,bx+w2+6,y+27,d[3]+' 年',{s:13,m:1,c:'var(--cold)'});
+  });
+}
+/* slider */
+var DDB=DD.map(function(d){return {k:String(d[2]),n:d[0]+' '+d[1].replace(' 225','')}});
+chips($('ddBtns'),DDB,'57',function(k){$('ddR').value=k;ddUpd()});
+function ddUpd(){var d=+$('ddR').value/100,left=100000*(1-d),need=d>=1?Infinity:1/(1-d)-1;
+  $('ddV').textContent='−'+Math.round(d*100)+'%';$('ddLeft').textContent='£'+Math.round(left).toLocaleString('en-GB');$('ddNeed').textContent='+'+Math.round(need*100)+'%';
+  var sv=$('ddBar'),W=svgFit(sv,90),bw=W-8,maxN=9;
+  S('rect',{x:0,y:8,width:bw,height:26,rx:6,style:'fill:none;stroke:var(--faint);stroke-dasharray:4 3'},sv);
+  S('rect',{x:0,y:8,width:bw*(1-d),height:26,rx:6,style:'fill:var(--field)'},sv);
+  T(sv,6,21,'剩返 £'+Math.round(left/1000)+'k',{s:13,w:500,c:(1-d)>0.3?'var(--bg)':'var(--fg)'});if((1-d)<=0.3){}
+  T(sv,bw-4,21,'£100k',{a:'end',s:12.5,c:'var(--muted)'});
+  var nw=Math.min(bw,bw*need/maxN);S('rect',{x:0,y:58,width:Math.max(2,nw),height:22,rx:6,style:'fill:var(--warn)'},sv);
+  T(sv,Math.min(nw+8,bw-150),69,'要升 '+Math.round(need*100)+'%',{s:13,w:500,c:nw>bw-150?'var(--bg)':'var(--warn)'});
+}
+$('ddR').addEventListener('input',function(){var v=$('ddR').value;$('ddBtns').querySelectorAll('button').forEach(function(b,i){b.setAttribute('aria-pressed',String(DDB[i].k===v))});ddUpd()});
+$('ddR').value=57;
+
+/* sell at bottom */
+var SPX=[[2007.78,1549],[2008.0,1468],[2008.4,1400],[2008.7,1166],[2008.9,903],[2009.17,677],[2009.5,920],[2009.9,1115],[2010.3,1186],[2010.55,1030],[2011.3,1364],[2011.75,1131],[2012.25,1408],[2012.9,1426],[2013.24,1569],[2013.9,1848],[2014.9,2059],[2015.6,1972],[2016.1,1932],[2016.9,2239],[2017.9,2674],[2018.05,2824],[2018.97,2507],[2019.97,3231]];
+function drawSell(){var sv=$('sellSvg'),narrow=(sv.clientWidth||600)<520,h=narrow?260:300,W=svgFit(sv,h);
+  var L=narrow?40:52,R=narrow?62:80,Tp=16,B=26,x0=2007.6,x1=2020.1,X=function(x){return L+(W-L-R)*(x-x0)/(x1-x0)},Y=function(v){return Tp+(h-Tp-B)*(1-v/240)};
+  [0,50,100,150,200].forEach(function(v){S('line',{x1:L,y1:Y(v),x2:W-R,y2:Y(v),style:'stroke:var(--line)'},sv);T(sv,L-6,Y(v),'£'+v+'k',{a:'end',s:11.5,m:1,c:'var(--faint)'})});
+  [2008,2010,2012,2014,2016,2018,2020].forEach(function(y){T(sv,X(y),h-10,String(y),{a:'middle',s:11.5,m:1,c:'var(--faint)'})});
+  var hold=SPX.map(function(q){return [q[0],100*q[1]/1565]});
+  var d1='';hold.forEach(function(q,i){d1+=(i?'L':'M')+X(q[0]).toFixed(1)+' '+Y(q[1]).toFixed(1)});
+  S('path',{d:d1,style:'fill:none;stroke:var(--field);stroke-width:2.4;stroke-linejoin:round'},sv);
+  var cash=100*677/1565,d2='';hold.forEach(function(q,i){var v;if(q[0]<=2009.17)v=q[1];else if(q[0]<2013.24)v=cash;else v=cash*SPX[i][1]/1569;d2+=(i?'L':'M')+X(q[0]).toFixed(1)+' '+Y(v).toFixed(1)});
+  S('path',{d:d2,style:'fill:none;stroke:var(--bad);stroke-width:2.4;stroke-linejoin:round;stroke-dasharray:'+(narrow?'0':'0')},sv);
+  S('circle',{cx:X(2009.17),cy:Y(cash),r:5,style:'fill:var(--bad)'},sv);T(sv,X(2009.17)+8,Y(cash)+16,'最低位賣',{s:13,w:500,c:'var(--bad)'});
+  S('circle',{cx:X(2013.24),cy:Y(cash),r:5,style:'fill:var(--bad)'},sv);T(sv,X(2013.24)+6,Y(cash)+18,'升返舊高先買返',{s:13,w:500,c:'var(--bad)'});
+  var endH=100*3231/1565,endS=cash*3231/1569;
+  T(sv,W-R+6,Y(endH),'£'+Math.round(endH)+'k',{s:13,w:500,m:1,c:'var(--field)'});T(sv,W-R+6,Y(endS),'£'+Math.round(endS)+'k',{s:13,w:500,m:1,c:'var(--bad)'});
+}
+/* 4. chop zoom */
+var CH={ctx:null};
+(function(){var p=genPath('chop').slice(0,300),a=runActive(p);CH.p=p;CH.a=a;var res=[],buy=null;a.trades.forEach(function(t){if(t.t==='b')buy=t;else if(buy){res.push({i0:buy.i,i1:t.i,r:t.p/buy.p*(1-SIM_COST)*(1-SIM_COST)-1});buy=null}});CH.res=res;
+  var tot=res.reduce(function(m,x){return m*(1+x.r)},1)-1,losers=res.filter(function(x){return x.r<0}).length;
+  $('chopSay').textContent=res.length+' 單買賣，'+losers+' 單蝕錢，加埋 '+pct(tot)+'；同一段時間指數 '+pct(p[p.length-1]/100-1)+'。每單只係蝕少少，但係會一路累積。'})();
+function drawChop(){if(!CH.ctx)CH.ctx=fitCanvas($('chopCv'),($('chopCv').clientWidth<520)?260:300);var g=CH.ctx,c=g.x,w=g.w,h=g.h;c.clearRect(0,0,w,h);
+  var p=CH.p,a=CH.a,N=p.length,lo=86,hi=114,L=36,R=12,Tp=10,B=86,X=function(i){return L+(w-L-R)*i/(N-1)},Y=function(v){return Tp+(h-Tp-B)*(1-(v-lo)/(hi-lo))};
+  [90,100,110].forEach(function(v){c.strokeStyle=C['--line'];c.beginPath();c.moveTo(L,Y(v));c.lineTo(w-R,Y(v));c.stroke();mtxt(c,String(v),L-5,Y(v),C['--faint'],11,'right')});
+  c.fillStyle=C['--copper-soft'];var s0=-1,i;for(i=1;i<=N;i++){var on=i<N&&a.inM[i];if(on&&s0<0)s0=i-1;if(!on&&s0>=0){c.fillRect(X(s0),Tp,X(i-1)-X(s0),h-Tp-B);s0=-1}}
+  c.strokeStyle=C['--faint'];c.lineWidth=1.5;c.setLineDash([5,4]);c.beginPath();var st=false;for(i=0;i<N;i++){if(a.ma[i]==null)continue;st?c.lineTo(X(i),Y(a.ma[i])):c.moveTo(X(i),Y(a.ma[i]));st=true}c.stroke();c.setLineDash([]);
+  c.strokeStyle=C['--field'];c.lineWidth=2;c.beginPath();for(i=0;i<N;i++)i?c.lineTo(X(i),Y(p[i])):c.moveTo(X(i),Y(p[i]));c.stroke();
+  a.trades.forEach(function(tr){var x=X(tr.i),y=Y(p[tr.i]);c.fillStyle=tr.t==='b'?C['--ok']:C['--bad'];c.beginPath();if(tr.t==='b'){c.moveTo(x,y+5);c.lineTo(x-5,y+13);c.lineTo(x+5,y+13)}else{c.moveTo(x,y-5);c.lineTo(x-5,y-13);c.lineTo(x+5,y-13)}c.fill()});
+  var by=h-B+22,bh=34,cum=0,mx=0.035;txt(c,'每單結果',L,by-12,C['--muted'],12);
+  CH.res.forEach(function(r){var x=X((r.i0+r.i1)/2),hh=bh*cl(Math.abs(r.r)/mx);c.fillStyle=r.r<0?C['--bad']:C['--ok'];if(r.r<0)c.fillRect(x-3,by+bh/2,6,hh/2+1);else c.fillRect(x-3,by+bh/2-hh/2-1,6,hh/2+1)});
+  c.strokeStyle=C['--line'];c.beginPath();c.moveTo(L,by+bh/2);c.lineTo(w-R,by+bh/2);c.stroke();
+  txt(c,'綠 = 賺　紅 = 蝕',w-R,by+bh+16,C['--faint'],11.5,'right');
+}
+reg($('chopCv'),drawChop);onRedraw(function(){CH.ctx=null});
+/* spiva */
+function drawSpiva(){var sv=$('spivaSvg'),W=svgFit(sv,150),n=10,sp=Math.min(56,(W-10)/n),x0=(W-sp*n)/2;
+  for(var i=0;i<n;i++){var cx=x0+sp*i+sp/2,col=i<9?'var(--bad)':'var(--ok)',op=i<9?0.75:1;S('circle',{cx:cx,cy:34,r:sp*0.17,style:'fill:'+col+';opacity:'+op},sv);S('path',{d:'M'+(cx-sp*0.27)+' 86 Q'+(cx-sp*0.27)+' 50 '+cx+' 50 Q'+(cx+sp*0.27)+' 50 '+(cx+sp*0.27)+' 86 Z',style:'fill:'+col+';opacity:'+op},sv)}
+  T(sv,x0+sp*4.5,112,'9 個：15 年內輸俾指數',{a:'middle',s:14,w:500,c:'var(--bad)'});T(sv,x0+sp*9.5,112,'1 個',{a:'middle',s:14,w:500,c:'var(--ok)'});
+  T(sv,W/2,136,'而且邊個係嗰 1 個，事前好難估',{a:'middle',s:13,c:'var(--muted)'});
+}
+/* 5. choose */
+(function(){var D=[['被動','var(--field)','買晒成個市場，坐定定',[['好處','唔使做嘢；牛市全食；成本最平'],['代價','大熊市跌 50–80%，可能要等十幾廿年先返本'],['最痛','大熊市'],['死法','喺最低位賣出'],['要有','頂得住長期蝕錢嘅心臟']]],['主動','var(--copper)','揀時間、揀股，不停郁',[['好處','大熊市可以走；可能跑贏'],['代價','要做嘢；上落市被挫；大部分人輸'],['最痛','上落市'],['死法','連輸幾次就放棄，或者唔守止蝕'],['要有','紀律、時間、頂得住連續細輸']]]];
+  var box=$('chooseBox');D.forEach(function(d){var h='<div class="card" style="border-top:3px solid '+d[1]+';border-radius:0 0 12px 12px;gap:8px"><b style="color:'+d[1]+'">'+d[0]+'</b><small>'+d[2]+'</small>';d[3].forEach(function(r){h+='<div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;font-size:14.5px;line-height:1.55;border-top:1px solid var(--line);padding-top:8px"><span style="color:var(--muted)">'+r[0]+'</span><span>'+r[1]+'</span></div>'});h+='</div>';box.insertAdjacentHTML('beforeend',h)})})();
+
+function drawStatic(){drawTwo();drawDots();drawDD();ddUpd();drawSell();drawSpiva()}
+drawStatic();onRedraw(drawStatic);
+
+
+startLoops();
+})();
+</script>
+
+</body>
+</html>

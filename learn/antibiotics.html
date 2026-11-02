@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>抗生素只識打細菌</title>
+<meta name="description" content="細菌、真菌、病毒有咩分別；點解抗生素醫唔到流感，亂食點樣養出惡菌。">
+<meta property="og:title" content="抗生素只識打細菌">
+<meta property="og:description" content="細菌、真菌、病毒有咩分別；點解抗生素醫唔到流感，亂食點樣養出惡菌。">
+<meta property="og:type" content="article">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:wght@500;700&family=Noto+Sans+HK:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0c1320; --surface:#131d2f; --surface2:#1a2740; --line:#26344f;
+  --fg:#e7eaf1; --muted:#93a0b8; --faint:#5f6c85;
+  --copper:#e48a52; --copper-soft:rgba(228,138,82,.14);
+  --field:#62b3ff; --field-soft:rgba(98,179,255,.13);
+  --ok:#4fd18b; --ok-soft:rgba(79,209,139,.13); --warn:#f2c14e; --warn-soft:rgba(242,193,78,.13);
+  --bad:#ff6f6f; --bad-soft:rgba(255,111,111,.13); --vio:#a99bf5; --vio-soft:rgba(169,155,245,.14);
+  --hot:#ff7a45; --cold:#5aa9ff;
+  --font-display:"Chiron Sung HK","Noto Serif TC","Songti TC",serif;
+  --font-body:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.75;margin:0}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(34px,7vw,54px);font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(25px,4.6vw,33px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,110px),1fr));gap:10px}
+.map a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;background:var(--surface)}
+.map a:hover,.map a:focus-visible{border-color:var(--copper);outline:none}
+.map b{font-family:var(--font-display);font-size:17px}
+.map small{font-size:13px;color:var(--muted);line-height:1.5}
+.sec{display:flex;flex-direction:column;gap:18px;padding-top:44px;margin-top:40px;border-top:1px solid var(--line)}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab-t{font-size:13px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.04em}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button.chip{font:inherit;font-size:14px;line-height:1.4;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--fg);cursor:pointer}
+button.chip:hover{border-color:var(--copper)}
+button.chip:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+button.chip[aria-pressed="true"]{background:var(--copper-soft);border-color:var(--copper);color:var(--copper)}
+canvas.cv{width:100%;display:block;background:var(--surface2);border-radius:12px}
+svg.fig{width:100%;height:auto;display:block}
+svg.fig text{font-family:var(--font-body)}
+.note{font-size:14px;color:var(--muted);line-height:1.65}
+.src{font-size:12.5px;color:var(--faint);line-height:1.6}
+.punch{font-family:var(--font-display);font-size:clamp(22px,4vw,28px);line-height:1.5;text-wrap:balance}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.card{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card b{font-family:var(--font-display);font-size:18px;font-weight:700;line-height:1.35}
+.card small{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card .k{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:10px}
+.kpi{background:var(--surface2);border-radius:12px;padding:10px 12px;min-width:0}
+.kpi span{display:block;font-size:12.5px;color:var(--muted)}
+.kpi b{display:block;font-family:var(--font-mono);font-size:22px;font-weight:500;line-height:1.3;font-variant-numeric:tabular-nums}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.row label{font-size:14px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--copper)}
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px}
+table.tbl.wide{min-width:520px}
+table.tbl th,table.tbl td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.tbl th{font-size:13px;color:var(--muted);font-weight:500}
+table.tbl td:first-child{white-space:nowrap}
+.tag{display:inline-block;font-size:12.5px;line-height:1.5;padding:1px 9px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.t-ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.t-bad{color:var(--bad);background:var(--bad-soft);border-color:transparent}
+.t-warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.t-field{color:var(--field);background:var(--field-soft);border-color:transparent}
+.t-cu{color:var(--copper);background:var(--copper-soft);border-color:transparent}
+.t-vio{color:var(--vio);background:var(--vio-soft);border-color:transparent}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.foot{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.mob-only{display:none}
+@media (max-width:600px){.mob-only{display:block}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--copper)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+
+<header class="hero">
+  <div class="eyebrow">身體筆記 · 細菌</div>
+  <h1>抗生素只識打細菌</h1>
+  <p class="lede">細菌、真菌、病毒係三樣好唔同嘅嘢。抗生素專打細菌獨有嘅零件，所以對病毒同真菌冇用；亂食仲會養出惡菌。</p>
+  <nav class="map" aria-label="六段">
+    <a href="#size"><b>幾大</b><small>細胞、細菌、病毒</small></a>
+    <a href="#what"><b>係乜</b><small>三樣嘢點分</small></a>
+    <a href="#target"><b>打邊度</b><small>抗生素嘅目標</small></a>
+    <a href="#virus"><b>病毒點玩</b><small>借你部機</small></a>
+    <a href="#resist"><b>惡菌點嚟</b><small>變異加篩選</small></a>
+    <a href="#do"><b>點做</b><small>邊個病要食</small></a>
+  </nav>
+</header>
+
+<section class="sec" id="size" aria-labelledby="h-size">
+  <span class="eyebrow">幾大</span>
+  <h2 id="h-size">細菌係一粒細胞，病毒細到冇位放工廠</h2>
+  <div class="lab">
+    <svg class="fig" id="sizeSvg" viewBox="0 0 640 330" role="img" aria-label="同一個比例：人類細胞約 20 微米，酵母約 5 微米，大腸桿菌約 2 微米，流感病毒約 0.1 微米，要放大 20 倍先見到"></svg>
+    <p class="note">同一個比例尺：左邊嘅病毒只係一點。如果一粒細菌放大到足球咁大：病毒大約一粒花生，你一粒細胞高過一個人。</p>
+  </div>
+</section>
+
+<section class="sec" id="what" aria-labelledby="h-what">
+  <span class="eyebrow">係乜</span>
+  <h2 id="h-what">三樣嘢，三種生存方法</h2>
+  <div class="lab">
+    <svg class="fig" id="whatSvg" viewBox="0 0 640 300" role="img" aria-label="細菌：一粒完整細胞，冇細胞核，有細胞壁，自己食、自己生。真菌：同我哋一樣有細胞核。病毒：得一段基因加一個外殼，要入你細胞先生到"></svg>
+  </div>
+  <div class="lab">
+    <div class="lab-t">邊個同邊個係親戚</div>
+    <svg class="fig" id="treeSvg" viewBox="0 0 640 230" role="img" aria-label="生命樹：細菌一邊；有細胞核嘅一邊分出植物，再分出真菌同動物。真菌同動物係近親。病毒唔係細胞，唔喺樹上"></svg>
+    <p class="note">親戚越近，零件越似，藥就越難淨係打中佢而唔傷你。</p>
+  </div>
+</section>
+
+<section class="sec" id="target" aria-labelledby="h-target">
+  <span class="eyebrow">打邊度</span>
+  <h2 id="h-target">抗生素打細菌有、你冇嘅零件</h2>
+  <div class="lab">
+    <div class="btns" id="tgBtns" role="group" aria-label="揀一個目標"></div>
+    <svg class="fig" id="tgSvg" viewBox="0 0 640 260" role="img" aria-label="左邊細菌，右邊你嘅細胞；抗生素打細菌獨有嘅零件"></svg>
+    <p class="note" id="tgCap"></p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">零件對照</div>
+    <p class="src mob-only">← 打橫掃睇晒 →</p>
+    <div class="scrollx"><table class="tbl wide" id="partTbl"></table></div>
+    <p class="note">病毒冇自己嘅零件，用緊你部機；真菌嘅零件同你太似。所以兩樣都要用另一類藥，而且選擇少好多。</p>
+  </div>
+</section>
+
+<section class="sec" id="virus" aria-labelledby="h-virus">
+  <span class="eyebrow">病毒點玩</span>
+  <h2 id="h-virus">病毒借你部機抄自己</h2>
+  <div class="lab">
+    <div class="btns" id="vBtns" role="group" aria-label="揀一步"></div>
+    <canvas class="cv" id="vCv" role="img" aria-label="病毒黐住細胞、入去、用細胞嘅工廠抄出好多個自己、再走出嚟感染其他細胞"></canvas>
+    <p class="note" id="vCap"></p>
+  </div>
+</section>
+
+<section class="sec" id="resist" aria-labelledby="h-resist">
+  <span class="eyebrow">惡菌點嚟</span>
+  <h2 id="h-resist">亂食抗生素，等於幫惡菌清場</h2>
+  <div class="lab">
+    <div class="btns">
+      <button class="chip" id="rKill" type="button">落抗生素</button>
+      <button class="chip" id="rGrow" type="button">等佢生返</button>
+      <button class="chip" id="rReset" type="button">重新開始</button>
+    </div>
+    <canvas class="cv" id="rCv" role="img" aria-label="一大堆細菌入面有幾隻天生唔怕藥。落抗生素殺晒其他，佢哋生返出嚟就變成大多數"></canvas>
+    <div class="kpis">
+      <div class="kpi"><span>第幾輪抗生素</span><b id="rRound">0</b></div>
+      <div class="kpi"><span>仲生存</span><b id="rAlive">0</b></div>
+      <div class="kpi"><span>唔怕藥嘅比例</span><b id="rPct" style="color:var(--bad)">0%</b></div>
+    </div>
+    <p class="note">撳「落抗生素」，再撳「等佢生返」，重複兩三次。紅色由少數變大多數，就係進化：變異加篩選。</p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">仲會殺埋好菌</div>
+    <div class="btns" id="gBtns" role="group" aria-label="揀時間"></div>
+    <canvas class="cv" id="gCv" role="img" aria-label="腸入面本來有好多種好菌；食完抗生素大部分死咗，真菌同壞菌趁機霸位；之後慢慢恢復"></canvas>
+    <p class="note" id="gCap"></p>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>2021 年直接死於抗藥細菌</span><b>114 萬人</b></div>
+    <div class="kpi"><span>2050 年預測（每年）</span><b style="color:var(--bad)">191 萬人</b></div>
+    <div class="kpi"><span>2025–2050 累計預測</span><b style="color:var(--bad)">3,900 萬人</b></div>
+  </div>
+  <p class="src">GRAM 研究，《Lancet》2024。即係大約每分鐘三個人。</p>
+</section>
+
+<section class="sec" id="do" aria-labelledby="h-do">
+  <span class="eyebrow">點做</span>
+  <h2 id="h-do">呢個病，食抗生素有冇用？</h2>
+  <div class="lab">
+    <div class="lab-t">撳張卡睇答案</div>
+    <div class="cards" id="flip"></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="k">病毒</span><b>傷風、流感、新冠</b><small>抗生素冇用。休息、飲水；高風險人士問醫生抗病毒藥。</small></div>
+    <div class="card"><span class="k">醫生開咗</span><b>跟足份量同日數</b><small>唔好食剩留返下次，唔好分俾人。</small></div>
+    <div class="card"><span class="k">預防</span><b>洗手、打疫苗</b><small>少啲人病，就少啲人要食藥，惡菌少啲機會出現。</small></div>
+    <div class="card"><span class="k">唔好</span><b>一感冒就問醫生攞抗生素</b><small>醫唔到病，只會幫你身體入面嘅細菌練抗藥性。</small></div>
+  </div>
+  <p class="punch">抗生素係一把專打細菌嘅鎖匙。插錯門，唔單止開唔到，仲會令細菌換鎖。</p>
+  <div class="lab">
+    <div class="lab-t">連住諗</div>
+    <div class="scrollx"><table class="tbl">
+      <tr><th>概念</th><th>喺呢度點用</th></tr>
+      <tr><td>進化</td><td>抗藥性 = 變異 + 篩選；抗生素就係篩選嗰隻手</td></tr>
+      <tr><td>生態平衡</td><td>殺晒好菌，空出嚟嘅位就俾機會主義者霸</td></tr>
+      <tr><td>親戚遠近</td><td>越似我哋嘅病原體，越難搵到淨係傷佢嘅藥</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p class="src">資料：GRAM（Global Research on Antimicrobial Resistance），《Lancet》2024；大小為常見數值。</p>
+  <p class="src">唔係醫療建議；用唔用藥，由醫生判斷。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+var css=getComputedStyle(document.documentElement);
+function tok(n){return css.getPropertyValue(n).trim()}
+var C={};function readTok(){css=getComputedStyle(document.documentElement);['--fg','--muted','--faint','--copper','--copper-soft','--field','--field-soft','--line','--surface','--surface2','--ok','--ok-soft','--warn','--warn-soft','--bad','--bad-soft','--vio','--vio-soft','--hot','--cold','--bg'].forEach(function(k){C[k]=tok(k)})}
+readTok();
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function fitCanvas(cv,h){var w=cv.clientWidth||640,d=Math.min(2,window.devicePixelRatio||1);cv.style.height=h+'px';cv.width=Math.round(w*d);cv.height=Math.round(h*d);var x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);return {x:x,w:w,h:h}}
+function FONT(){return tok('--font-body')}
+function MONO(){return tok('--font-mono')}
+function cl(v,a,b){a=a==null?0:a;b=b==null?1:b;return Math.max(a,Math.min(b,v))}
+function ss(f){f=cl(f);return f*f*(3-2*f)}
+function lerp(a,b,f){return a+(b-a)*f}
+function dot(c,x,y,r,col,a){c.globalAlpha=a==null?1:a;c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.2832);c.fill();c.globalAlpha=1}
+function arrow(c,x1,y1,x2,y2,col,lw){var a=Math.atan2(y2-y1,x2-x1),L=Math.hypot(x2-x1,y2-y1),hd=Math.min(8,L*0.5);c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw||2;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();if(L<2)return;c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-hd*Math.cos(a-0.5),y2-hd*Math.sin(a-0.5));c.lineTo(x2-hd*Math.cos(a+0.5),y2-hd*Math.sin(a+0.5));c.closePath();c.fill()}
+function txt(c,s,x,y,col,size,align,wt,base){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+FONT();c.textAlign=align||'left';c.textBaseline=base||'middle';c.fillText(s,x,y)}
+function mtxt(c,s,x,y,col,size,align,wt){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+MONO();c.textAlign=align||'left';c.textBaseline='middle';c.fillText(s,x,y)}
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.arcTo(x+w,y,x+w,y+r,r);c.lineTo(x+w,y+h-r);c.arcTo(x+w,y+h,x+w-r,y+h,r);c.lineTo(x+r,y+h);c.arcTo(x,y+h,x,y+h-r,r);c.lineTo(x,y+r);c.arcTo(x,y,x+r,y,r);c.closePath()}
+function rng(seed){var a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gauss(r){var u=0,v=0;while(u===0)u=r();while(v===0)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(6.2832*v)}
+var SVGNS='http://www.w3.org/2000/svg';
+function S(tag,at,parent,text){var e=document.createElementNS(SVGNS,tag);for(var k in at)e.setAttribute(k,at[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+function H(tag,at,parent,html){var e=document.createElement(tag);for(var k in at){if(k==='class')e.className=at[k];else e.setAttribute(k,at[k])}if(html!=null)e.innerHTML=html;if(parent)parent.appendChild(e);return e}
+function chips(box,items,cur,onPick){box.innerHTML='';items.forEach(function(it){var b=H('button',{class:'chip',type:'button','aria-pressed':String(it.k===cur)},box);b.textContent=it.n;b.onclick=function(){box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');onPick(it.k)}})}
+function pct(v,d){return (v>=0?'+':'−')+Math.abs(v*100).toFixed(d==null?0:d)+'%'}
+var LOOPS=[];
+function reg(cv,fn){var o={cv:cv,fn:fn,vis:true};LOOPS.push(o);if('IntersectionObserver' in window)new IntersectionObserver(function(e){o.vis=e[0].isIntersecting}).observe(cv);return o}
+var REDRAW=[];
+function onRedraw(fn){REDRAW.push(fn)}
+function startLoops(){function frame(now){var t=now/1000;LOOPS.forEach(function(o){if(o.vis)o.fn(t)});requestAnimationFrame(frame)}if(reduce){LOOPS.forEach(function(o){o.fn(3)})}else requestAnimationFrame(frame)}
+function resetAll(){readTok();REDRAW.forEach(function(f){f()});if(reduce)LOOPS.forEach(function(o){o.fn(3)})}
+var _rz,_lw=window.innerWidth;window.addEventListener('resize',function(){clearTimeout(_rz);_rz=setTimeout(function(){if(Math.abs(window.innerWidth-_lw)>2){_lw=window.innerWidth;resetAll()}},150)});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',resetAll);
+new MutationObserver(resetAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+function svgFit(sv,h){var w=Math.max(300,Math.round(sv.clientWidth||sv.parentNode.clientWidth||600));sv.setAttribute('viewBox','0 0 '+w+' '+h);sv.style.height='auto';while(sv.firstChild)sv.removeChild(sv.firstChild);return w}
+function T(sv,x,y,s,o){o=o||{};var e=S('text',{x:x,y:y,'text-anchor':o.a||'start','dominant-baseline':o.b||'middle',style:'fill:'+(o.c||'var(--fg)')+';font-size:'+(o.s||14)+'px;font-weight:'+(o.w||400)+(o.m?';font-family:var(--font-mono)':'')},sv,s);return e}
+function box(sv,x,y,w,h,col,soft,label,sz){S('rect',{x:x,y:y,width:w,height:h,rx:10,style:'fill:'+soft+';stroke:'+col+';stroke-width:1.2'},sv);var lines=label.split('\n');lines.forEach(function(l,i){T(sv,x+w/2,y+h/2+(i-(lines.length-1)/2)*(sz+4),l,{a:'middle',s:sz,c:'var(--fg)',w:500})})}
+function sArrow(sv,x1,y1,x2,y2,col){var a=Math.atan2(y2-y1,x2-x1),hd=7;S('line',{x1:x1,y1:y1,x2:x2,y2:y2,style:'stroke:'+col+';stroke-width:1.6'},sv);S('path',{d:'M'+x2+' '+y2+' L'+(x2-hd*Math.cos(a-0.5))+' '+(y2-hd*Math.sin(a-0.5))+' L'+(x2-hd*Math.cos(a+0.5))+' '+(y2-hd*Math.sin(a+0.5))+'Z',style:'fill:'+col},sv)}
+
+/* drawings */
+function bact(sv,cx,cy,L,Wd,o){o=o||{};var g=S('g',{},sv);
+  S('rect',{x:cx-L/2,y:cy-Wd/2,width:L,height:Wd,rx:Wd/2,style:'fill:var(--ok-soft);stroke:'+(o.wallHi?'var(--copper)':'var(--ok)')+';stroke-width:'+(o.wallHi?4:Math.max(1.2,Wd*0.07))},g);
+  if(o.detail){S('rect',{x:cx-L/2+Wd*0.12,y:cy-Wd/2+Wd*0.12,width:L-Wd*0.24,height:Wd*0.76,rx:Wd*0.38,style:'fill:none;stroke:var(--ok);stroke-width:1;opacity:.6'},g);
+    var d='M'+(cx-L*0.22)+' '+cy;for(var i=0;i<=24;i++){var a=i/24*6.2832;d+=' L'+(cx+Math.cos(a)*L*0.2+Math.sin(a*3)*L*0.03)+' '+(cy+Math.sin(a)*Wd*0.22+Math.cos(a*4)*Wd*0.04)}
+    S('path',{d:d,style:'fill:none;stroke:'+(o.dnaHi?'var(--copper)':'var(--fg)')+';stroke-width:'+(o.dnaHi?2.4:1.4)+';opacity:.85'},g);
+    if(o.dnaHi){S('circle',{cx:cx+L*0.2,cy:cy,r:Wd*0.09,style:'fill:var(--copper)'},g)}
+    var rr=rng(4);for(var k=0;k<14;k++){var px=cx+(rr()-0.5)*L*0.8,py=cy+(rr()-0.5)*Wd*0.6;if(Math.abs(px-cx)<L*0.25&&Math.abs(py-cy)<Wd*0.25)continue;S('circle',{cx:px,cy:py,r:o.riboHi?Wd*0.055:Wd*0.04,style:'fill:'+(o.riboHi?'var(--copper)':'var(--ok)')},g)}
+    if(o.flag!==false){var fd='M'+(cx+L/2)+' '+cy;for(var j=1;j<=20;j++){fd+=' L'+(cx+L/2+j*L*0.025)+' '+(cy+Math.sin(j*0.9)*Wd*0.18)}S('path',{d:fd,style:'fill:none;stroke:var(--ok);stroke-width:1.4'},g)}}
+  return g}
+function yeast(sv,cx,cy,r,o){o=o||{};S('ellipse',{cx:cx,cy:cy,rx:r,ry:r*0.86,style:'fill:var(--vio-soft);stroke:var(--vio);stroke-width:1.6'},sv);
+  if(o.detail){S('ellipse',{cx:cx+r*0.95,cy:cy-r*0.55,rx:r*0.36,ry:r*0.3,style:'fill:var(--vio-soft);stroke:var(--vio);stroke-width:1.4'},sv);S('circle',{cx:cx-r*0.15,cy:cy+r*0.05,r:r*0.32,style:'fill:var(--vio);opacity:.35;stroke:var(--vio)'},sv);S('circle',{cx:cx+r*0.4,cy:cy+r*0.3,r:r*0.18,style:'fill:none;stroke:var(--vio);opacity:.6'},sv)}}
+function virus(sv,cx,cy,r,o){o=o||{};var p='';for(var i=0;i<6;i++){var a=i/6*6.2832+0.52;p+=(i?'L':'M')+(cx+Math.cos(a)*r)+' '+(cy+Math.sin(a)*r)}
+  if(r>6)for(var k=0;k<12;k++){var b=k/12*6.2832;S('line',{x1:cx+Math.cos(b)*r*0.9,y1:cy+Math.sin(b)*r*0.9,x2:cx+Math.cos(b)*r*1.35,y2:cy+Math.sin(b)*r*1.35,style:'stroke:var(--bad);stroke-width:'+Math.max(1,r*0.06)},sv);S('circle',{cx:cx+Math.cos(b)*r*1.4,cy:cy+Math.sin(b)*r*1.4,r:Math.max(1,r*0.08),style:'fill:var(--bad)'},sv)}
+  S('path',{d:p+'Z',style:'fill:var(--bad-soft);stroke:var(--bad);stroke-width:'+Math.max(1,r*0.07)},sv);
+  if(o.detail){var d='M'+(cx-r*0.45)+' '+cy;for(var j=1;j<=16;j++)d+=' L'+(cx-r*0.45+j*r*0.056)+' '+(cy+Math.sin(j*1.3)*r*0.3);S('path',{d:d,style:'fill:none;stroke:var(--fg);stroke-width:1.4'},sv)}}
+
+/* size */
+function drawSize(){var sv=$('sizeSvg'),narrow=(sv.clientWidth||600)<540,h=narrow?400:330,W=svgFit(sv,h);
+  var D=narrow?Math.min(170,W*0.46):Math.min(240,W*0.38),cx=D/2+6,cy=narrow?D/2+16:h/2-14,u=D/20;
+  S('circle',{cx:cx,cy:cy,r:D/2,style:'fill:var(--field-soft);stroke:var(--field);stroke-width:1.6'},sv);S('circle',{cx:cx-D*0.08,cy:cy+D*0.04,r:D*0.16,style:'fill:var(--field);opacity:.25'},sv);
+  T(sv,cx,cy+D/2+18,'人類細胞 ≈ 20 µm',{a:'middle',s:14,w:500});
+  var yx=cx+D/2+u*2.5+18,yy=cy-D*0.28;yeast(sv,yx,yy,u*2.5);T(sv,yx+u*2.5+8,yy,'真菌 ≈ 5 µm',{s:13.5});
+  var bx=cx+D/2+u+18,by=cy+D*0.12;bact(sv,bx,by,u*2,u*0.6);T(sv,bx+u+10,by,'細菌 ≈ 2 µm',{s:13.5});
+  var vy=by+Math.max(20,u*1.6);S('circle',{cx:bx-u*0.1,cy:vy,r:Math.max(0.9,u*0.05),style:'fill:var(--bad)'},sv);T(sv,bx+u+10,vy,'病毒 ≈ 0.1 µm',{s:13.5,c:'var(--bad)'});
+  var zx,zy,zw,zh;if(narrow){zx=0;zy=cy+D/2+40;zw=W;zh=h-zy-6}else{zx=W*0.6;zy=24;zw=W-zx-2;zh=h-48}
+  S('rect',{x:zx,y:zy,width:zw,height:zh,rx:12,style:'fill:var(--surface2);stroke:var(--faint);stroke-dasharray:5 4'},sv);
+  T(sv,zx+12,zy+18,'放大睇：細菌 vs 病毒',{s:13,c:'var(--muted)'});
+  var BL=Math.min(zw*0.62,zh*1.9),z=BL/2;bact(sv,zx+zw*0.42,zy+zh*0.56,BL,BL*0.3,{detail:true});
+  virus(sv,zx+zw*0.42+BL/2+z*0.08+8,zy+zh*0.3,Math.max(4,z*0.05),{});T(sv,zx+zw*0.42+BL/2-6,zy+zh*0.3-14-Math.max(4,z*0.05),'病毒',{a:'middle',s:13,c:'var(--bad)'});
+  if(!narrow){S('line',{x1:bx+u,y1:by-u*0.3,x2:zx,y2:zy+zh*0.3,style:'stroke:var(--faint);stroke-dasharray:3 4'},sv);S('line',{x1:bx+u,y1:by+u*0.3,x2:zx,y2:zy+zh*0.8,style:'stroke:var(--faint);stroke-dasharray:3 4'},sv)}
+}
+/* what */
+function drawWhat(){var sv=$('whatSvg'),narrow=(sv.clientWidth||600)<540,h=narrow?270:290,W=svgFit(sv,h),cw=W/3,dy=narrow?62:74,r=narrow?34:44;
+  var X=[cw*0.5,cw*1.5,cw*2.5];
+  bact(sv,X[0],dy,r*2.2,r*0.95,{detail:true,flag:!narrow});yeast(sv,X[1]-r*0.2,dy,r*0.9,{detail:true});virus(sv,X[2],dy,r*0.62,{detail:true});
+  var tx=[['細菌','var(--ok)',['一粒完整細胞','冇細胞核','有細胞壁','自己食、自己生']],['真菌','var(--vio)',['同我哋一樣','有細胞核','菇、酵母、霉','香港腳、鵝口瘡']],['病毒','var(--bad)',['唔係細胞','得基因加外殼','冇自己工廠','入你細胞先生到']]];
+  tx.forEach(function(t,i){var y=dy+r+(narrow?30:38);T(sv,X[i],y,t[0],{a:'middle',s:narrow?17:19,w:700,c:t[1]});t[2].forEach(function(l,j){T(sv,X[i],y+26+j*(narrow?20:22),l,{a:'middle',s:narrow?12.5:14,c:j?'var(--muted)':'var(--fg)'})})});
+}
+/* tree */
+function drawTree(){var sv=$('treeSvg'),narrow=(sv.clientWidth||600)<540,h=narrow?280:262,W=svgFit(sv,h);
+  var vw=narrow?0:150,tw=W-vw-(narrow?0:20),x0=4,s=narrow?13:14;
+  function nd(x,y,t,col){var w=t.length*s+20;S('rect',{x:x,y:y-15,width:w,height:30,rx:8,style:'fill:var(--surface2);stroke:'+col},sv);T(sv,x+w/2,y,t,{a:'middle',s:s,w:500,c:col==='var(--line)'?'var(--fg)':col});return x+w}
+  function ln(x1,y1,x2,y2){S('path',{d:'M'+x1+' '+y1+' H'+((x1+x2)/2)+' V'+y2+' H'+x2,style:'fill:none;stroke:var(--faint);stroke-width:1.4'},sv)}
+  var ya=narrow?100:110,e0=nd(x0,ya,'共同祖先','var(--line)'),c1=x0+tw*0.3,yb=narrow?36:40,yc=narrow?150:160;
+  ln(e0,ya,c1,yb);nd(c1,yb,'細菌','var(--ok)');ln(e0,ya,c1,yc);var e2=nd(c1,yc,'有細胞核','var(--line)');
+  var c2=Math.min(c1+tw*0.32,W-150),yd=narrow?112:118,ye=narrow?196:200;ln(e2,yc,c2,yd);nd(c2,yd,'植物','var(--ok)');ln(e2,yc,c2,ye);S('circle',{cx:c2+4,cy:ye,r:4,style:'fill:var(--faint)'},sv);var e3=c2+8;
+  var c3=Math.min(e3+24,W-96);ln(e3,ye,c3,ye-24);nd(c3,ye-24,'真菌','var(--vio)');ln(e3,ye,c3,ye+24);nd(c3,ye+24,'動物','var(--copper)');
+  if(narrow){h=0;S('rect',{x:W-128,y:8,width:126,height:52,rx:10,style:'fill:var(--bad-soft);stroke:var(--bad);stroke-dasharray:4 3'},sv);T(sv,W-65,26,'病毒',{a:'middle',s:14,w:700,c:'var(--bad)'});T(sv,W-65,46,'唔係細胞，唔喺樹上',{a:'middle',s:11.5,c:'var(--muted)'})}
+  else{S('rect',{x:W-vw,y:80,width:vw,height:64,rx:10,style:'fill:var(--bad-soft);stroke:var(--bad);stroke-dasharray:4 3'},sv);T(sv,W-vw/2,102,'病毒',{a:'middle',s:15,w:700,c:'var(--bad)'});T(sv,W-vw/2,124,'唔係細胞，唔喺樹上',{a:'middle',s:12.5,c:'var(--muted)'})}
+}
+/* target */
+var TG=[{k:'wall',n:'細胞壁'},{k:'ribo',n:'核糖體'},{k:'dna',n:'DNA 解旋酶'}],tgK='wall';
+var TGC={wall:'細胞壁係細菌嘅外殼，冇咗就爆。你嘅細胞冇壁。盤尼西林（1928 年 Fleming 發現）打呢度。',ribo:'核糖體係整蛋白質嘅工廠。細菌用細啲嘅 70S 型號，你用 80S。四環素、紅黴素專塞 70S。',dna:'DNA 解旋酶幫細菌解開打結嘅 DNA。你用另一個版本。環丙沙星打呢度。'};
+chips($('tgBtns'),TG,'wall',function(k){tgK=k;drawTg()});
+function drawTg(){var sv=$('tgSvg'),narrow=(sv.clientWidth||600)<540,h=narrow?300:250,W=svgFit(sv,h);
+  var bw=narrow?W*0.8:W*0.46,bcx=narrow?W/2:W*0.26,bcy=narrow?66:118;
+  bact(sv,bcx,bcy,bw,bw*0.36,{flag:false,detail:true,wallHi:tgK==='wall',riboHi:tgK==='ribo',dnaHi:tgK==='dna'});
+  T(sv,bcx,bcy+bw*0.18+20,'細菌',{a:'middle',s:15,w:700,c:'var(--ok)'});
+  var hcx=narrow?W/2:W*0.76,hcy=narrow?212:112,hr=narrow?52:78;
+  S('circle',{cx:hcx,cy:hcy,r:hr,style:'fill:var(--field-soft);stroke:var(--field);stroke-width:1.4'},sv);S('circle',{cx:hcx,cy:hcy,r:hr*0.36,style:'fill:var(--field);opacity:.22;stroke:var(--field)'},sv);
+  var rr=rng(9);for(var k=0;k<12;k++){var a=rr()*6.2832,d=hr*(0.5+rr()*0.38);S('circle',{cx:hcx+Math.cos(a)*d,cy:hcy+Math.sin(a)*d,r:tgK==='ribo'?4:3,style:'fill:var(--field)'},sv)}
+  var msg={wall:'冇細胞壁',ribo:'核糖體係 80S，唔同型號',dna:'用另一版本，藏喺細胞核'}[tgK];
+  T(sv,hcx,hcy+hr+18,'你嘅細胞：'+msg,{a:'middle',s:narrow?13:14,w:500,c:'var(--field)'});
+  $('tgCap').textContent=TGC[tgK];
+}
+(function(){var R=[['肽聚糖細胞壁',1,'冇（用甲殼素）',0,0],['70S 核糖體',1,'冇（80S）','冇（80S）',0],['細菌版 DNA 解旋酶',1,0,0,0],['細胞核',0,1,1,0],['自己嘅工廠',1,1,1,0]];
+  function cell(v){if(v===1)return '<span class="tag t-ok">有</span>';if(v===0)return '<span class="tag">冇</span>';return '<span class="tag">'+v+'</span>'}
+  var h='<tr><th>零件</th><th style="color:var(--ok)">細菌</th><th style="color:var(--vio)">真菌</th><th style="color:var(--field)">你</th><th style="color:var(--bad)">病毒</th></tr>';R.forEach(function(r){h+='<tr><td>'+r[0]+'</td><td>'+cell(r[1])+'</td><td>'+cell(r[2])+'</td><td>'+cell(r[3])+'</td><td>'+cell(r[4])+'</td></tr>'});$('partTbl').innerHTML=h})();
+
+/* virus animation */
+var VS=[{k:0,n:'1 黐住'},{k:1,n:'2 入去'},{k:2,n:'3 抄自己'},{k:3,n:'4 走出嚟'}];
+var VC=['病毒認出你細胞表面嘅門鎖，黐住佢。疫苗訓練出嚟嘅抗體，就係喺呢步攔截。','病毒將自己嘅基因放入細胞。外殼留喺外面或者溶咗。','病毒冇工廠，用你細胞嘅核糖體抄出幾百至幾千個自己。抗生素喺度冇嘢打：用緊嘅係你部機。','新病毒衝出細胞，再去感染其他細胞。特敏福呢類抗病毒藥，就係阻止佢哋走。'];
+var V={step:0,auto:true,t0:0,ctx:null};
+chips($('vBtns'),VS,0,function(k){V.step=+k;V.auto=false;V.t0=performance.now()/1000;$('vCap').textContent=VC[V.step]});
+$('vCap').textContent=VC[0];
+function vir(c,x,y,r,a){c.globalAlpha=a==null?1:a;c.strokeStyle=C['--bad'];c.lineWidth=1.4;for(var k=0;k<8;k++){var b=k/8*6.2832;c.beginPath();c.moveTo(x+Math.cos(b)*r,y+Math.sin(b)*r);c.lineTo(x+Math.cos(b)*r*1.45,y+Math.sin(b)*r*1.45);c.stroke()}c.fillStyle=C['--bad-soft'];c.beginPath();for(var i=0;i<6;i++){var q=i/6*6.2832+0.52;i?c.lineTo(x+Math.cos(q)*r,y+Math.sin(q)*r):c.moveTo(x+Math.cos(q)*r,y+Math.sin(q)*r)}c.closePath();c.fill();c.stroke();c.globalAlpha=1}
+function drawV(t){if(!V.ctx)V.ctx=fitCanvas($('vCv'),($('vCv').clientWidth<520)?250:280);var g=V.ctx,c=g.x,w=g.w,h=g.h;c.clearRect(0,0,w,h);
+  var dur=2.6,el=t-V.t0;if(V.auto){var s=Math.floor(el/dur)%4;if(s!==V.step){V.step=s;$('vCap').textContent=VC[s];$('vBtns').querySelectorAll('button').forEach(function(b,i){b.setAttribute('aria-pressed',String(i===s))})}}
+  var f=reduce?1:cl(((el%dur)/dur)*1.25);if(!V.auto)f=reduce?1:cl(el/dur*1.25);
+  var cx=w*0.62,cy=h*0.55,R=Math.min(w*0.34,h*0.42);
+  c.fillStyle=C['--field-soft'];c.strokeStyle=C['--field'];c.lineWidth=2;c.beginPath();c.arc(cx,cy,R,0,6.2832);c.fill();c.stroke();
+  c.fillStyle=C['--field'];c.globalAlpha=0.2;c.beginPath();c.arc(cx+R*0.25,cy+R*0.1,R*0.3,0,6.2832);c.fill();c.globalAlpha=1;
+  var rr=rng(2);for(var k=0;k<18;k++){var a=rr()*6.2832,d=R*(0.35+rr()*0.5);dot(c,cx+Math.cos(a)*d,cy+Math.sin(a)*d,3,C['--field'],0.8)}
+  txt(c,'你嘅細胞',cx,cy+R+14,C['--field'],13,'center','500');
+  var dx=cx-R,vr=Math.max(8,R*0.11);
+  if(V.step===0){var x=lerp(w*0.06,dx-vr*1.3,ss(f));vir(c,x,cy,vr);if(f>0.8){c.fillStyle=C['--ok'];c.globalAlpha=0.9;rrect(c,w*0.02,h*0.08,Math.min(220,w*0.5),28,14);c.fill();c.globalAlpha=1;txt(c,'抗體喺呢度攔截',w*0.02+12,h*0.08+14,C['--bg'],13,'left','500')}}
+  else if(V.step===1){vir(c,dx-vr*1.3,cy,vr,1-0.7*f);c.strokeStyle=C['--fg'];c.lineWidth=2;c.beginPath();var L=R*0.5*ss(f);for(var j=0;j<=20;j++){var xx=dx-vr*0.3+L*j/20,yy=cy+Math.sin(j*1.1+t*4)*5;j?c.lineTo(xx,yy):c.moveTo(xx,yy)}c.stroke()}
+  else if(V.step===2){var n=Math.floor(1+ss(f)*11);var r2=rng(5);for(var m=0;m<n;m++){var a2=r2()*6.2832,d2=R*(0.2+r2()*0.55);vir(c,cx+Math.cos(a2)*d2,cy+Math.sin(a2)*d2,vr*0.7)}
+    c.fillStyle=C['--bad'];c.globalAlpha=0.9;rrect(c,w*0.02,h*0.08,Math.min(230,w*0.55),28,14);c.fill();c.globalAlpha=1;txt(c,'抗生素：冇嘢打',w*0.02+12,h*0.08+14,C['--bg'],13,'left','500')}
+  else{var r3=rng(5);for(var q=0;q<12;q++){var a3=r3()*6.2832,d3=R*(0.2+r3()*0.55),ex=cx+Math.cos(a3)*R*1.6,ey=cy+Math.sin(a3)*R*1.25;var ff=ss(cl(f*1.2-q*0.03));vir(c,lerp(cx+Math.cos(a3)*d3,ex,ff),lerp(cy+Math.sin(a3)*d3,ey,ff),vr*0.7)}
+    c.fillStyle=C['--warn'];c.globalAlpha=0.9;rrect(c,w*0.02,h*0.08,Math.min(240,w*0.58),28,14);c.fill();c.globalAlpha=1;txt(c,'抗病毒藥：阻止佢哋走',w*0.02+12,h*0.08+14,C['--bg'],13,'left','500')}
+}
+reg($('vCv'),drawV);onRedraw(function(){V.ctx=null});
+
+/* resistance sim */
+var RS={ctx:null,b:[],round:0,anim:0,mode:''};
+function rInit(){var r=rng(21);RS.b=[];for(var i=0;i<240;i++)RS.b.push({x:r(),y:r(),res:i<7,alive:true,born:0,die:0});RS.round=0;rKpi()}
+function rKpi(){var al=RS.b.filter(function(b){return b.alive}),rs=al.filter(function(b){return b.res}).length;$('rRound').textContent=RS.round;$('rAlive').textContent=al.length;$('rPct').textContent=al.length?Math.round(rs/al.length*100)+'%':'—'}
+$('rKill').onclick=function(){var r=Math.random,now=performance.now()/1000;RS.b.forEach(function(b){if(b.alive&&!b.res&&r()<0.98){b.alive=false;b.die=now}});RS.round++;rKpi()};
+$('rGrow').onclick=function(){var al=RS.b.filter(function(b){return b.alive});if(!al.length)return;var now=performance.now()/1000,r=Math.random;RS.b=RS.b.filter(function(b){return b.alive});var i=0;while(RS.b.length<240){var p=al[i%al.length];RS.b.push({x:cl(p.x+(r()-0.5)*0.12),y:cl(p.y+(r()-0.5)*0.12),res:p.res,alive:true,born:now,die:0});i++}rKpi()};
+$('rReset').onclick=rInit;rInit();
+function drawR(t){if(!RS.ctx)RS.ctx=fitCanvas($('rCv'),($('rCv').clientWidth<520)?220:240);var g=RS.ctx,c=g.x,w=g.w,h=g.h;c.clearRect(0,0,w,h);var now=performance.now()/1000;
+  RS.b.forEach(function(b,i){var x=14+b.x*(w-28),y=14+b.y*(h-28),wob=reduce?0:Math.sin(t*2+i)*1.2,a=1,sz=1;
+    if(!b.alive){var e=now-b.die;a=cl(1-e/0.8);if(a<=0)return;sz=1+e*0.6}else if(b.born){sz=ss(cl((now-b.born)/0.5))}
+    c.save();c.translate(x+wob,y);c.rotate((i*0.7)%3.14);c.globalAlpha=a*(b.alive?1:0.6);c.fillStyle=b.alive?(b.res?C['--bad']:C['--ok']):C['--faint'];rrect(c,-7*sz,-3.2*sz,14*sz,6.4*sz,3.2*sz);c.fill();c.restore()});
+  c.globalAlpha=1}
+reg($('rCv'),drawR);onRedraw(function(){RS.ctx=null});
+
+/* gut */
+var GS=[{k:'a',n:'平時'},{k:'b',n:'食完抗生素'},{k:'c',n:'幾個月後'}],gK='a';
+var GCAP={a:'平時：好多種好菌霸住晒啲位，壞菌同真菌冇得擴張。',b:'食完抗生素：好菌死咗大半。真菌（念珠菌）同壞菌（難辨梭菌）趁機霸位，可以引起鵝口瘡、肚瀉。',c:'幾個月後：大部分返嚟，但有啲種類可能冇咗。'};
+var GD={a:{good:220,kinds:8,fun:3,bad:2},b:{good:46,kinds:3,fun:26,bad:22},c:{good:196,kinds:6,fun:4,bad:3}};
+chips($('gBtns'),GS,'a',function(k){gK=k;$('gCap').textContent=GCAP[k];drawG()});$('gCap').textContent=GCAP.a;
+var GCOL=['#4fd18b','#3fb6a8','#62b3ff','#8fd14f','#2fa36b','#7fc8e8','#5ad1c0','#9ad18b'];
+function drawG(){var cv=$('gCv'),g=fitCanvas(cv,(cv.clientWidth<520)?200:220),c=g.x,w=g.w,h=g.h,d=GD[gK],r=rng(31);c.clearRect(0,0,w,h);
+  for(var i=0;i<d.good;i++){var x=10+r()*(w-20),y=10+r()*(h-20);c.fillStyle=GCOL[i%d.kinds];c.save();c.translate(x,y);c.rotate(r()*3.14);rrect(c,-6,-2.6,12,5.2,2.6);c.fill();c.restore()}
+  for(var j=0;j<d.fun;j++){var fx=14+r()*(w-28),fy=14+r()*(h-28);c.fillStyle=C['--vio'];c.globalAlpha=0.85;c.beginPath();c.ellipse(fx,fy,8,6.5,0,0,6.2832);c.fill();c.beginPath();c.ellipse(fx+8,fy-5,4,3.4,0,0,6.2832);c.fill();c.globalAlpha=1}
+  for(var k=0;k<d.bad;k++){var bx=12+r()*(w-24),by=12+r()*(h-24);c.fillStyle=C['--bad'];c.save();c.translate(bx,by);c.rotate(r()*3.14);rrect(c,-9,-3,18,6,3);c.fill();c.restore()}
+  var lx=10,ly=h-14;[['好菌',GCOL[0]],['真菌',C['--vio']],['壞菌',C['--bad']]].forEach(function(l){c.fillStyle=C['--surface'];c.globalAlpha=0.85;rrect(c,lx-4,ly-11,62,22,11);c.fill();c.globalAlpha=1;dot(c,lx+6,ly,5,l[1]);txt(c,l[0],lx+16,ly,C['--fg'],12.5);lx+=70});
+}
+/* flip */
+(function(){var F=[['傷風','冇用：病毒','bad'],['流感','冇用：病毒；高風險可問抗病毒藥','bad'],['新冠','冇用：病毒','bad'],['喉嚨痛','大多數係病毒；驗到鏈球菌先要','warn'],['尿道炎','多數有用：通常係細菌','ok'],['香港腳','冇用：真菌，要抗真菌藥','bad'],['細菌性肺炎','有用：由醫生判斷','ok'],['鵝口瘡','冇用：真菌；抗生素有時仲會引發','bad']];
+  var box=$('flip');F.forEach(function(f){var b=H('button',{class:'card',type:'button','aria-pressed':'false',style:'cursor:pointer;text-align:left;font:inherit;color:inherit;min-height:84px'},box);
+    b.innerHTML='<b>'+f[0]+'</b><small>撳睇答案</small>';b.onclick=function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(on));b.innerHTML=on?'<b>'+f[0]+'</b><span class="tag t-'+f[2]+'" style="white-space:normal">'+f[1]+'</span>':'<b>'+f[0]+'</b><small>撳睇答案</small>';b.style.borderColor=on?'var(--'+f[2]+')':''}})})();
+
+function drawStatic2(){drawSize();drawWhat();drawTree();drawTg();drawG()}
+drawStatic2();onRedraw(drawStatic2);
+
+
+startLoops();
+})();
+</script>
+
+</body>
+</html>

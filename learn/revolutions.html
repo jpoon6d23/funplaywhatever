@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>革命嘅規律</title>
+<meta name="description" content="三十幾場革命：點樣開始、推唔推得倒、點樣收尾、革完多咗同少咗乜。">
+<meta property="og:title" content="革命嘅規律">
+<meta property="og:description" content="三十幾場革命：點樣開始、推唔推得倒、點樣收尾、革完多咗同少咗乜。">
+<meta property="og:type" content="article">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:wght@500;700&family=Noto+Sans+HK:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0c1320; --surface:#131d2f; --surface2:#1a2740; --line:#26344f;
+  --fg:#e7eaf1; --muted:#93a0b8; --faint:#5f6c85;
+  --copper:#e48a52; --copper-soft:rgba(228,138,82,.14);
+  --field:#62b3ff; --field-soft:rgba(98,179,255,.13);
+  --ok:#4fd18b; --ok-soft:rgba(79,209,139,.13); --warn:#f2c14e; --warn-soft:rgba(242,193,78,.13);
+  --bad:#ff6f6f; --bad-soft:rgba(255,111,111,.13); --vio:#a99bf5; --vio-soft:rgba(169,155,245,.14);
+  --hot:#ff7a45; --cold:#5aa9ff;
+  --font-display:"Chiron Sung HK","Noto Serif TC","Songti TC",serif;
+  --font-body:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#b65d24; --copper-soft:rgba(182,93,36,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.75;margin:0}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(34px,7vw,54px);font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(25px,4.6vw,33px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,110px),1fr));gap:10px}
+.map a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;background:var(--surface)}
+.map a:hover,.map a:focus-visible{border-color:var(--copper);outline:none}
+.map b{font-family:var(--font-display);font-size:17px}
+.map small{font-size:13px;color:var(--muted);line-height:1.5}
+.sec{display:flex;flex-direction:column;gap:18px;padding-top:44px;margin-top:40px;border-top:1px solid var(--line)}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab-t{font-size:13px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.04em}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button.chip{font:inherit;font-size:14px;line-height:1.4;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--fg);cursor:pointer}
+button.chip:hover{border-color:var(--copper)}
+button.chip:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+button.chip[aria-pressed="true"]{background:var(--copper-soft);border-color:var(--copper);color:var(--copper)}
+canvas.cv{width:100%;display:block;background:var(--surface2);border-radius:12px}
+svg.fig{width:100%;height:auto;display:block}
+svg.fig text{font-family:var(--font-body)}
+.note{font-size:14px;color:var(--muted);line-height:1.65}
+.src{font-size:12.5px;color:var(--faint);line-height:1.6}
+.punch{font-family:var(--font-display);font-size:clamp(22px,4vw,28px);line-height:1.5;text-wrap:balance}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.card{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card b{font-family:var(--font-display);font-size:18px;font-weight:700;line-height:1.35}
+.card small{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card .k{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:10px}
+.kpi{background:var(--surface2);border-radius:12px;padding:10px 12px;min-width:0}
+.kpi span{display:block;font-size:12.5px;color:var(--muted)}
+.kpi b{display:block;font-family:var(--font-mono);font-size:22px;font-weight:500;line-height:1.3;font-variant-numeric:tabular-nums}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.row label{font-size:14px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--copper)}
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px}
+table.tbl.wide{min-width:520px}
+table.tbl th,table.tbl td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.tbl th{font-size:13px;color:var(--muted);font-weight:500}
+table.tbl td:first-child{white-space:nowrap}
+.tag{display:inline-block;font-size:12.5px;line-height:1.5;padding:1px 9px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.t-ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.t-bad{color:var(--bad);background:var(--bad-soft);border-color:transparent}
+.t-warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.t-field{color:var(--field);background:var(--field-soft);border-color:transparent}
+.t-cu{color:var(--copper);background:var(--copper-soft);border-color:transparent}
+.t-vio{color:var(--vio);background:var(--vio-soft);border-color:transparent}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.foot{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.mob-only{display:none}
+@media (max-width:600px){.mob-only{display:block}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+@keyframes swing{0%{transform:rotate(26deg)}50%{transform:rotate(-26deg)}100%{transform:rotate(26deg)}}
+@keyframes step{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-10px)}50%,70%{transform:translateY(-20px)}75%,95%{transform:translateY(-30px)}100%{transform:translateY(0)}}
+.pend{transform-origin:22px 2px;animation:swing 2.4s ease-in-out infinite}
+.rat{animation:step 4s steps(1,end) infinite}
+.mx{display:grid;grid-template-columns:minmax(96px,1.5fr) repeat(5,minmax(0,1fr)) minmax(40px,.8fr);gap:3px;font-size:13px;align-items:center;min-width:520px}
+.mx .h{color:var(--muted);font-size:12px;text-align:center;line-height:1.3;padding-bottom:4px}
+.mx .h.hot{color:var(--copper);font-weight:700}
+.mx .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mx .c{height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.mx .f{background:var(--field);color:var(--bg)}
+.mx .p{background:color-mix(in srgb,var(--field) 32%,transparent);color:var(--fg)}
+.mx .x{background:var(--bad);color:var(--bg);font-weight:700}
+.mx .e{background:var(--surface2);color:var(--faint)}
+.mx .ok{background:var(--ok-soft);color:var(--ok);font-weight:700}
+.mx .no{background:var(--bad-soft);color:var(--bad);font-weight:700}
+.mx .armycol{outline:2px solid var(--copper);outline-offset:-1px}
+.flow{display:flex;flex-direction:column;gap:0}
+.fs{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start}
+.fs .no2{width:34px;height:34px;border-radius:50%;background:var(--copper-soft);color:var(--copper);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:500}
+.fs .bx{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.fs .bx b{font-family:var(--font-display);font-size:18px}
+.fs .bx small{display:block;color:var(--muted);font-size:14px;line-height:1.55}
+.fa{width:2px;height:14px;background:var(--line);margin-left:16px}
+.scat{min-width:600px}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--copper)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+
+<header class="hero">
+  <div class="eyebrow">歷史筆記 · 革命</div>
+  <h1>革命嘅規律</h1>
+  <p class="lede">由雅典到阿拉伯之春，三十幾場革命擺埋一齊，有三條規律好穩定：國家變弱加期望落空先會開始；槍聽唔聽話決定推唔推得倒；有冇制度接手決定之後好定壞。</p>
+  <nav class="map" aria-label="六段">
+    <a href="#start"><b>點開始</b><small>好咗一輪再跌</small></a>
+    <a href="#army"><b>推唔推得倒</b><small>睇槍</small></a>
+    <a href="#two"><b>兩種成功</b><small>推翻 vs 建立</small></a>
+    <a href="#end"><b>點收尾</b><small>五條路</small></a>
+    <a href="#map"><b>一張圖</b><small>二十九場</small></a>
+    <a href="#ledger"><b>多咗少咗</b><small>棘輪同鐘擺</small></a>
+  </nav>
+</header>
+
+<section class="sec" id="start" aria-labelledby="h-start">
+  <span class="eyebrow">點開始</span>
+  <h2 id="h-start">最嬲嘅唔係一直窮嘅人</h2>
+  <div class="lab">
+    <div class="legend"><span><i style="background:var(--copper)"></i>大家期望</span><span><i style="background:var(--field)"></i>實際生活</span></div>
+    <svg class="fig" id="jSvg" viewBox="0 0 640 280" role="img" aria-label="J 曲線：生活好咗一輪，期望跟住升；之後實際突然跌，期望仲喺高位，中間嘅差距就係最易爆嘅時候"></svg>
+    <p class="note">大躍進餓死幾千萬人都冇革命。最易爆係好咗一輪之後突然變差：好似升市之後急跌，最嬲嘅係啱啱見過錢又蝕返嗰班。</p>
+    <p class="src">James Davies 1962「J 曲線」；托克維爾研究法國大革命都有同樣觀察。</p>
+  </div>
+  <div class="lab">
+    <div class="lab-t">四步</div>
+    <div class="flow" id="flow4"></div>
+  </div>
+</section>
+
+<section class="sec" id="army" aria-labelledby="h-army">
+  <span class="eyebrow">推唔推得倒</span>
+  <h2 id="h-army">決定勝負嘅係最後一欄：槍</h2>
+  <div class="lab">
+    <div class="legend"><span><i style="background:var(--field);height:10px;width:10px"></i>明顯有</span><span><i style="background:var(--field-soft);height:10px;width:10px"></i>部分</span><span><i style="background:var(--bad);height:10px;width:10px"></i>相反：企舊政權</span><span><i style="background:var(--surface2);height:10px;width:10px"></i>冇</span></div>
+    <p class="src mob-only">← 打橫掃睇晒六欄 →</p>
+    <div class="scrollx"><div class="mx" id="mx"></div></div>
+    <p class="note">民生困苦差唔多場場都有，連失敗嗰啲都有：窮係背景，唔係開關。四場失敗嘅，軍隊全部企喺舊政權嗰邊；成功嗰啲，冇一場係咁。</p>
+    <p class="src">示意分類，按史實判斷。</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>非暴力運動成功率</span><b style="color:var(--ok)">約 2 倍</b></div>
+    <div class="kpi"><span>對比武裝運動；之後亦較大機會出民主</span><b style="font-size:15px;font-family:var(--font-body)">Chenoweth 同 Stephan，2011</b></div>
+  </div>
+</section>
+
+<section class="sec" id="two" aria-labelledby="h-two">
+  <span class="eyebrow">兩種成功</span>
+  <h2 id="h-two">推得倒，同建得好，係兩回事</h2>
+  <div class="two">
+    <div class="card" style="border-top:3px solid var(--copper);border-radius:0 0 12px 12px;gap:6px"><b style="color:var(--copper)">推翻成功靠</b><div id="topple"></div></div>
+    <div class="card" style="border-top:3px solid var(--ok);border-radius:0 0 12px 12px;gap:6px"><b style="color:var(--ok)">建立好秩序靠</b><div id="build"></div></div>
+  </div>
+  <div class="lab">
+    <div class="lab-t">失敗通常係其中一樣</div>
+    <div class="cards" id="fails"></div>
+  </div>
+</section>
+
+<section class="sec" id="end" aria-labelledby="h-end">
+  <span class="eyebrow">點收尾</span>
+  <h2 id="h-end">推翻嗰刻最開心，之後幾乎一定分裂</h2>
+  <div class="lab">
+    <div id="endBox" style="display:flex;flex-direction:column;gap:14px"></div>
+  </div>
+</section>
+
+<section class="sec" id="map" aria-labelledby="h-map">
+  <span class="eyebrow">一張圖</span>
+  <h2 id="h-map">點樣推倒定左右，有冇制度接手定上下</h2>
+  <div class="lab">
+    <div class="legend"><span><i style="background:var(--ok);height:10px;width:10px;border-radius:50%"></i>立憲、民主</span><span><i style="background:var(--bad);height:10px;width:10px;border-radius:50%"></i>強人、一黨、神權</span><span><i style="background:var(--warn);height:10px;width:10px;border-radius:50%"></i>反覆、分裂</span><span><i style="border:1.5px solid var(--muted);height:10px;width:10px;border-radius:50%;background:none"></i>失敗</span></div>
+    <p class="src mob-only">← 打橫掃睇全圖 →</p>
+    <div class="scrollx"><svg class="fig scat" id="scSvg" viewBox="0 0 680 545" role="img" aria-label="二十九場革命：左上綠色多數係談判或非暴力，而且有現成機構接手；右下紅色多數係用槍攞政權；底下失敗帶由北京 1989 到太平天國"></svg></div>
+    <p class="note">右上例外：美國獨立、荷蘭起義打仗都去到上面，因為開打之前已經有自己嘅議會。左下例外：伊朗 1979 大部分係和平示威，收尾由組織最嚴密嗰派奪權。失敗唔睇你用乜方法，只睇軍隊有冇倒戈。</p>
+  </div>
+</section>
+
+<section class="sec" id="ledger" aria-labelledby="h-ledger">
+  <span class="eyebrow">多咗少咗</span>
+  <h2 id="h-ledger">口號係自由，最穩定嘅產品係一個更強嘅國家</h2>
+  <div class="two">
+    <div class="card" style="flex-direction:row;align-items:center;gap:14px"><svg width="44" height="56" viewBox="0 0 44 56" aria-hidden="true"><g class="rat"><rect x="10" y="40" width="24" height="10" rx="2" style="fill:var(--field)"></rect></g><path d="M6 52 L14 46 L14 40 L22 34 L22 28 L30 22 L30 16 L38 10" style="fill:none;stroke:var(--faint);stroke-width:1.5"></path></svg><div style="display:flex;flex-direction:column"><b style="color:var(--field)">棘輪</b><small>上咗就好難落返嚟</small></div></div>
+    <div class="card" style="flex-direction:row;align-items:center;gap:14px"><svg width="44" height="56" viewBox="0 0 44 56" aria-hidden="true"><line x1="6" y1="2" x2="38" y2="2" style="stroke:var(--faint);stroke-width:1.5"></line><g class="pend"><line x1="22" y1="2" x2="22" y2="40" style="stroke:var(--warn);stroke-width:1.5"></line><circle cx="22" cy="44" r="6" style="fill:var(--warn)"></circle></g></svg><div style="display:flex;flex-direction:column"><b style="color:var(--warn)">鐘擺</b><small>會擺返轉頭</small></div></div>
+  </div>
+  <div class="two" id="ledgerBox"></div>
+  <p class="note">托克維爾 1856 年已經講：法國大革命冇推翻舊制度嘅中央集權，反而完成咗佢。拿破崙嘅省長、布爾什維克嘅黨國、明治嘅徵兵同警察，都係同一樣嘢。</p>
+  <div class="lab">
+    <div class="lab-t">常見講法 vs 證據</div>
+    <div class="scrollx"><table class="tbl">
+      <tr><th>常見講法</th><th>證據講乜</th></tr>
+      <tr><td>窮就會革命</td><td>最易爆係好咗一輪之後突然變差</td></tr>
+      <tr><td>政府冇錢先會出事</td><td>好常見，但唔係必要：古巴、伊朗、北京 1989 都唔係</td></tr>
+      <tr><td>溫和冇用，最後一定用槍</td><td>印度、民權運動、東歐、台灣由頭到尾冇轉武裝都贏</td></tr>
+      <tr><td>和平過渡靠當權者有良心</td><td>多數係計數：銀行收數、斷交、經濟拖唔落去</td></tr>
+      <tr><td>革命係一路進步</td><td>唔一定：雅典民主 186 年後冇咗，之後二千年冇再出現</td></tr>
+    </table></div>
+  </div>
+  <p class="punch">最成功嘅革命，係令下一場革命變得多餘嘅嗰一種。</p>
+  <p class="note">英國 1688 之後三百幾年冇再革命，唔係因為冇問題，係因為問題可以透過國會、選舉、法庭慢慢改。</p>
+  <div class="lab">
+    <div class="lab-t">連住諗</div>
+    <div class="scrollx"><table class="tbl">
+      <tr><th>概念</th><th>喺呢度點用</th></tr>
+      <tr><td>期望同現實</td><td>J 曲線同股市一樣：最嬲嘅係見過錢又蝕返嗰班</td></tr>
+      <tr><td>Trade-off</td><td>解藥本身好多時係下一個病嘅來源</td></tr>
+      <tr><td>演化</td><td>進化唔等於進步，只係適應當時環境</td></tr>
+      <tr><td>錢點樣嚟搵你</td><td>革命都要一個人人肯信嘅故事，但故事撐唔起制度</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p class="src">參考框架：Skocpol 1979（財政軍事危機）；Davies 1962（J 曲線）；Brinton 1938（激進化）；O'Donnell 同 Schmitter 1986（威權過渡）；Chenoweth 同 Stephan 2011（非暴力成功率）；Acemoglu 同 Robinson（制度論）；托克維爾 1856。分類同位置為示意。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+var css=getComputedStyle(document.documentElement);
+function tok(n){return css.getPropertyValue(n).trim()}
+var C={};function readTok(){css=getComputedStyle(document.documentElement);['--fg','--muted','--faint','--copper','--copper-soft','--field','--field-soft','--line','--surface','--surface2','--ok','--ok-soft','--warn','--warn-soft','--bad','--bad-soft','--vio','--vio-soft','--hot','--cold','--bg'].forEach(function(k){C[k]=tok(k)})}
+readTok();
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function fitCanvas(cv,h){var w=cv.clientWidth||640,d=Math.min(2,window.devicePixelRatio||1);cv.style.height=h+'px';cv.width=Math.round(w*d);cv.height=Math.round(h*d);var x=cv.getContext('2d');x.setTransform(d,0,0,d,0,0);return {x:x,w:w,h:h}}
+function FONT(){return tok('--font-body')}
+function MONO(){return tok('--font-mono')}
+function cl(v,a,b){a=a==null?0:a;b=b==null?1:b;return Math.max(a,Math.min(b,v))}
+function ss(f){f=cl(f);return f*f*(3-2*f)}
+function lerp(a,b,f){return a+(b-a)*f}
+function dot(c,x,y,r,col,a){c.globalAlpha=a==null?1:a;c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.2832);c.fill();c.globalAlpha=1}
+function arrow(c,x1,y1,x2,y2,col,lw){var a=Math.atan2(y2-y1,x2-x1),L=Math.hypot(x2-x1,y2-y1),hd=Math.min(8,L*0.5);c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw||2;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();if(L<2)return;c.beginPath();c.moveTo(x2,y2);c.lineTo(x2-hd*Math.cos(a-0.5),y2-hd*Math.sin(a-0.5));c.lineTo(x2-hd*Math.cos(a+0.5),y2-hd*Math.sin(a+0.5));c.closePath();c.fill()}
+function txt(c,s,x,y,col,size,align,wt,base){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+FONT();c.textAlign=align||'left';c.textBaseline=base||'middle';c.fillText(s,x,y)}
+function mtxt(c,s,x,y,col,size,align,wt){c.fillStyle=col||C['--muted'];c.font=(wt||'')+' '+(size||13)+'px '+MONO();c.textAlign=align||'left';c.textBaseline='middle';c.fillText(s,x,y)}
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.arcTo(x+w,y,x+w,y+r,r);c.lineTo(x+w,y+h-r);c.arcTo(x+w,y+h,x+w-r,y+h,r);c.lineTo(x+r,y+h);c.arcTo(x,y+h,x,y+h-r,r);c.lineTo(x,y+r);c.arcTo(x,y,x+r,y,r);c.closePath()}
+function rng(seed){var a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gauss(r){var u=0,v=0;while(u===0)u=r();while(v===0)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(6.2832*v)}
+var SVGNS='http://www.w3.org/2000/svg';
+function S(tag,at,parent,text){var e=document.createElementNS(SVGNS,tag);for(var k in at)e.setAttribute(k,at[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+function H(tag,at,parent,html){var e=document.createElement(tag);for(var k in at){if(k==='class')e.className=at[k];else e.setAttribute(k,at[k])}if(html!=null)e.innerHTML=html;if(parent)parent.appendChild(e);return e}
+function chips(box,items,cur,onPick){box.innerHTML='';items.forEach(function(it){var b=H('button',{class:'chip',type:'button','aria-pressed':String(it.k===cur)},box);b.textContent=it.n;b.onclick=function(){box.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');onPick(it.k)}})}
+function pct(v,d){return (v>=0?'+':'−')+Math.abs(v*100).toFixed(d==null?0:d)+'%'}
+var LOOPS=[];
+function reg(cv,fn){var o={cv:cv,fn:fn,vis:true};LOOPS.push(o);if('IntersectionObserver' in window)new IntersectionObserver(function(e){o.vis=e[0].isIntersecting}).observe(cv);return o}
+var REDRAW=[];
+function onRedraw(fn){REDRAW.push(fn)}
+function startLoops(){function frame(now){var t=now/1000;LOOPS.forEach(function(o){if(o.vis)o.fn(t)});requestAnimationFrame(frame)}if(reduce){LOOPS.forEach(function(o){o.fn(3)})}else requestAnimationFrame(frame)}
+function resetAll(){readTok();REDRAW.forEach(function(f){f()});if(reduce)LOOPS.forEach(function(o){o.fn(3)})}
+var _rz,_lw=window.innerWidth;window.addEventListener('resize',function(){clearTimeout(_rz);_rz=setTimeout(function(){if(Math.abs(window.innerWidth-_lw)>2){_lw=window.innerWidth;resetAll()}},150)});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',resetAll);
+new MutationObserver(resetAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+function svgFit(sv,h){var w=Math.max(300,Math.round(sv.clientWidth||sv.parentNode.clientWidth||600));sv.setAttribute('viewBox','0 0 '+w+' '+h);sv.style.height='auto';while(sv.firstChild)sv.removeChild(sv.firstChild);return w}
+function T(sv,x,y,s,o){o=o||{};var e=S('text',{x:x,y:y,'text-anchor':o.a||'start','dominant-baseline':o.b||'middle',style:'fill:'+(o.c||'var(--fg)')+';font-size:'+(o.s||14)+'px;font-weight:'+(o.w||400)+(o.m?';font-family:var(--font-mono)':'')},sv,s);return e}
+function box(sv,x,y,w,h,col,soft,label,sz){S('rect',{x:x,y:y,width:w,height:h,rx:10,style:'fill:'+soft+';stroke:'+col+';stroke-width:1.2'},sv);var lines=label.split('\n');lines.forEach(function(l,i){T(sv,x+w/2,y+h/2+(i-(lines.length-1)/2)*(sz+4),l,{a:'middle',s:sz,c:'var(--fg)',w:500})})}
+function sArrow(sv,x1,y1,x2,y2,col){var a=Math.atan2(y2-y1,x2-x1),hd=7;S('line',{x1:x1,y1:y1,x2:x2,y2:y2,style:'stroke:'+col+';stroke-width:1.6'},sv);S('path',{d:'M'+x2+' '+y2+' L'+(x2-hd*Math.cos(a-0.5))+' '+(y2-hd*Math.sin(a-0.5))+' L'+(x2-hd*Math.cos(a+0.5))+' '+(y2-hd*Math.sin(a+0.5))+'Z',style:'fill:'+col},sv)}
+
+/* J curve */
+function drawJ6(){var sv=$('jSvg'),narrow=(sv.clientWidth||600)<520,h=narrow?250:280,W=svgFit(sv,h),L=8,R=narrow?70:96,Tp=20,B=30,X=function(t){return L+(W-L-R)*t},Y=function(v){return Tp+(h-Tp-B)*(1-v)};
+  var N=100,exp=[],real=[];for(var i=0;i<=N;i++){var t=i/N;exp.push(0.12+0.78*t);real.push(t<0.72?0.08+0.74*t:0.08+0.74*0.72-1.5*(t-0.72)*(t-0.72)*3.2)}
+  var gap='M'+X(0.72)+' '+Y(exp[72]);for(i=72;i<=N;i++)gap+=' L'+X(i/N)+' '+Y(exp[i]);for(i=N;i>=72;i--)gap+=' L'+X(i/N)+' '+Y(real[i]);
+  S('path',{d:gap+'Z',style:'fill:var(--bad-soft)'},sv);
+  function pl(a,col){var d='';a.forEach(function(v,i){d+=(i?'L':'M')+X(i/N).toFixed(1)+' '+Y(v).toFixed(1)});S('path',{d:d,style:'fill:none;stroke:'+col+';stroke-width:2.6;stroke-linejoin:round'},sv)}
+  pl(exp,'var(--copper)');pl(real,'var(--field)');
+  T(sv,X(1)+6,Y(exp[N]),'期望',{s:13,w:500,c:'var(--copper)'});T(sv,X(1)+6,Y(real[N]),'實際',{s:13,w:500,c:'var(--field)'});
+  T(sv,X(0.9),(Y(exp[90])+Y(real[90]))/2,'差距',{a:'middle',s:14,w:700,c:'var(--bad)'});
+  S('line',{x1:X(0.72),y1:Y(real[72])+8,x2:X(0.72),y2:h-B,style:'stroke:var(--faint);stroke-dasharray:3 4'},sv);T(sv,X(0.72),h-12,'好日子突然完',{a:'middle',s:12.5,c:'var(--muted)'});
+  T(sv,X(0.3),Y(real[30])+22,'生活慢慢好咗',{a:'middle',s:12.5,c:'var(--muted)'});
+}
+/* four steps */
+(function(){var F=[['壓力累積','打仗打到冇錢，加上百姓經歷過好日子之後突然變差'],['觸發','一樣好平嘅嘢加稅或者一單事件：鹽、茶、麵包、手推車、鐵路。大家發覺唔係自己一個嬲'],['舊政權裂開','精英唔再團結：有人搵外援，有人拒絕執行命令'],['槍唔再聽話','士兵唔肯開槍、倒戈或者中立：伊朗軍隊宣佈中立、莫斯科唔派坦克。去到呢步，政權基本上已經倒咗']];
+  var h='';F.forEach(function(f,i){h+='<div class="fs"><div class="no2">'+(i+1)+'</div><div class="bx"><b>'+f[0]+'</b><small>'+f[1]+'</small></div></div>'+(i<3?'<div class="fa"></div>':'')});$('flow4').innerHTML=h})();
+/* matrix */
+(function(){var D=[['雅典 前508','e','p','f','f','e',1],['陳勝吳廣 前209','p','f','e','f','p',1],['英國 1642','f','e','f','f','p',1],['英國 1688','e','e','f','f','f',1],['美國 1775','f','e','p','f','e',1],['法國 1789','f','f','f','f','f',1],['太平天國 1850','p','f','p','x','x',0],['歐洲 1848','p','f','e','p','x',0],['明治 1868','f','p','f','f','f',1],['辛亥 1911','f','p','f','f','f',1],['俄國 1917','f','f','f','f','f',1],['中共 1949','f','f','f','p','f',1],['印度 1947','f','f','f','e','f',1],['古巴 1959','e','p','f','f','f',1],['伊朗 1979','e','f','p','f','f',1],['北京 1989','e','f','e','f','x',0],['東歐 1989','f','f','f','f','f',1],['南非 1994','f','f','f','f','e',1],['埃及 2011','p','f','e','f','f',1],['巴林 2011','e','p','x','e','x',0]];
+  var sym={f:'●',p:'◐',x:'✗',e:'–'},h='<span></span>';['政府冇錢','民生困苦','外患外壓','精英分裂','軍隊倒戈','推翻到？'].forEach(function(t,i){h+='<span class="h'+(i===4?' hot':'')+'">'+t+'</span>'});
+  D.forEach(function(r){h+='<span class="n">'+r[0]+'</span>';for(var k=1;k<=5;k++)h+='<span class="c '+r[k]+(k===5?' armycol':'')+'">'+sym[r[k]]+'</span>';h+='<span class="c '+(r[6]?'ok':'no')+'">'+(r[6]?'成':'敗')+'</span>'});$('mx').innerHTML=h})();
+/* two kinds */
+(function(){function li(a){return a.map(function(t){return '<div style="display:flex;gap:8px;font-size:14.5px;line-height:1.55;border-top:1px solid var(--line);padding-top:7px;margin-top:7px"><span style="color:var(--faint)">•</span><span>'+t+'</span></div>'}).join('')}
+  $('topple').innerHTML=li(['舊政權自己變弱：冇錢、打輸仗','精英分裂','軍隊唔撐','聯盟夠闊：大家只要同意「唔要佢」','好多時有外力推一把']);
+  $('build').innerHTML=li(['有現成機構接手：國會、議會、憲法、工會','目標細，最好包裝成「恢復舊權利」','盡量唔用槍，或者打完槍聽制度話','有人肯交權：華盛頓、曼德拉','有中產階級同經濟基礎','溫和派有組織，唔係淨係激進派有組織']);
+  var F=[['軍隊仲撐舊政權','1848、太平天國、北京 1989、巴林'],['精英冇分裂','太平天國：士紳同湘軍企清朝'],['聯盟只得共同敵人','辛亥、伊朗：敵人一走就散'],['推翻嘅人冇組織','埃及、伊朗：俾最有組織嗰派收割'],['打仗令激進派坐穩','法國 1792、伊朗兩伊戰爭'],['外國出兵','巴林；雅典被馬其頓終結']];
+  $('fails').innerHTML=F.map(function(f){return '<div class="card" style="border-left:3px solid var(--bad);border-radius:0 12px 12px 0"><b style="font-size:16px">'+f[0]+'</b><small>'+f[1]+'</small></div>'}).join('')})();
+/* endings */
+(function(){var S5=['壓力累積','觸發','舊政權裂開','推翻：聯盟最闊、最開心','聯盟分裂：共同敵人冇咗'];
+  var S5b=['壓力','觸發','裂開','推翻','聯盟分裂'];var h='<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px">';S5b.forEach(function(s,i){h+='<span class="tag'+(i===4?' t-warn':i===3?' t-ok':'')+'" style="font-size:14px;padding:4px 12px">'+s+'</span>'+(i<4?'<span style="color:var(--faint)">→</span>':'')});h+='</div><p class="note">推翻嗰刻係聯盟最闊、最開心嘅時候；共同敵人一冇咗，就開始分裂。</p>';
+  h+='<div style="display:flex;flex-direction:column;gap:8px;padding:12px 14px;border:1px dashed var(--warn);border-radius:12px"><span class="lab-t" style="color:var(--warn)">分岔位：四個轉轍器</span><div class="btns">'+['有冇現成機構接手','槍聽邊個話','邊派最有組織','外力撐邊個'].map(function(t){return '<span class="tag t-warn" style="font-size:14px;padding:3px 12px">'+t+'</span>'}).join('')+'</div></div>';
+  var E=[['強人收割','bad','克倫威爾、拿破崙、史太林、卡斯特羅'],['一黨制度化','bad','蘇聯、中共、古巴、伊朗'],['談判立憲','ok','英國 1688、美國、印度、台灣、南非、東歐'],['鎮壓或復辟','warn','1848、太平天國、英國 1660、法國 1815'],['碎片化','warn','黃巾變三國、辛亥變軍閥、利比亞、敘利亞']];
+  h+='<div class="cards">'+E.map(function(e){return '<div class="card" style="border-top:3px solid var(--'+e[1]+');border-radius:0 0 12px 12px"><b style="color:var(--'+e[1]+')">'+e[0]+'</b><small>'+e[2]+'</small></div>'}).join('')+'</div>';
+  $('endBox').innerHTML=h})();
+/* scatter (fixed 680x545 layout) */
+(function(){var sv=$('scSvg');
+  S('rect',{x:70,y:40,width:290,height:200,rx:6,style:'fill:var(--ok-soft)'},sv);S('rect',{x:360,y:240,width:290,height:200,rx:6,style:'fill:var(--bad-soft)'},sv);
+  S('line',{x1:70,y1:40,x2:70,y2:440,style:'stroke:var(--line)'},sv);S('line',{x1:70,y1:440,x2:650,y2:440,style:'stroke:var(--line)'},sv);
+  T(sv,74,26,'↑ 權力受制約',{s:12.5,c:'var(--muted)'});T(sv,76,430,'強人／一黨／神權',{s:11.5,c:'var(--faint)'});
+  var G=[[105,64,'台灣'],[232,80,'印度 1947'],[128,96,'美國民權運動'],[325,104,'南非 1994'],[267,120,'雅典 前508'],[186,136,'英國 1688'],[151,168,'東歐 1989'],[337,208,'大憲章 1215'],[476,80,'美國獨立',1],[546,152,'荷蘭起義',1]];
+  var Yw=[[499,200,'南北戰爭'],[383,264,'明治 1868'],[302,320,'阿拉伯之春'],[430,344,'辛亥 1911'],[546,272,'黃巾 184'],[615,248,'海地','e'],[592,320,'明亡 1644','e']];
+  var Rd=[[511,312,'英國 1649','e'],[476,368,'法國 1789','e'],[604,376,'古巴 1959','e'],[546,400,'陳勝吳廣','e'],[633,416,'中共 1949','m'],[511,424,'羅馬共和→帝國','e'],[580,432,'俄國 1917'],[290,416,'伊朗 1979',1]];
+  function put(arr,col){arr.forEach(function(p){var big=p[3]===1;S('circle',{cx:p[0],cy:p[1],r:big?6.5:5.5,style:'fill:var('+col+')'},sv);var a=p[3]==='e'?'end':p[3]==='m'?'middle':'start',dx=a==='end'?-8:a==='middle'?0:8,dy=a==='middle'?-12:4;T(sv,p[0]+dx,p[1]+dy,p[2],{a:a,s:12.5,w:big?700:400,b:'auto'})})}
+  put(G,'--ok');put(Yw,'--warn');put(Rd,'--bad');
+  S('line',{x1:70,y1:458,x2:650,y2:458,style:'stroke:var(--line);stroke-dasharray:4 4'},sv);T(sv,74,476,'失敗：軍隊冇倒戈，舊政權留低',{s:11.5,c:'var(--faint)'});
+  [[128,'北京 1989','s'],[360,'歐洲 1848','s'],[522,'德國農民戰爭','e'],[615,'太平天國','e']].forEach(function(f){S('circle',{cx:f[0],cy:495,r:5.5,style:'fill:none;stroke:var(--muted);stroke-width:1.5'},sv);T(sv,f[0]+(f[2]==='e'?-8:8),499,f[1],{a:f[2]==='e'?'end':'start',s:12.5,c:'var(--muted)',b:'auto'})});
+  T(sv,70,532,'談判／非暴力',{s:12.5,c:'var(--muted)'});T(sv,360,532,'舊政權點樣倒 →',{a:'middle',s:12.5,c:'var(--muted)'});T(sv,650,532,'武裝奪權',{a:'end',s:12.5,c:'var(--muted)'});
+})();
+/* ledger */
+(function(){var M=[['rt','國家權力：幾乎每一次。連美國都由鬆散邦聯變聯邦'],['rt','法律上身份平等：封建特權、世襲貴族、合法奴隸制，廢咗冇一個真正翻生'],['rt','民族主義'],['pd','有份話事嘅人：逐步擴大，但會被收返'],['pd','新精英：換咗一班，但永遠有一班']],Ls=[['rt','舊精英：法國貴族、日本武士、中國地主'],['pd','自由：短期幾乎一定少咗，長期睇路線'],['pd','財富：短期通常變窮'],['pd','宗教權力：法國少咗，伊朗多咗'],['rt','生命：死咗嘅人冇得擺返']];
+  function col(t,c,a){return '<div class="card" style="gap:2px"><b style="color:var(--'+c+')">'+t+'</b>'+a.map(function(x){return '<div style="display:flex;gap:8px;align-items:flex-start;font-size:14.5px;line-height:1.55;border-top:1px solid var(--line);padding-top:7px;margin-top:6px"><span class="tag '+(x[0]==='rt'?'t-field':'t-warn')+'">'+(x[0]==='rt'?'棘輪':'鐘擺')+'</span><span>'+x[1]+'</span></div>'}).join('')+'</div>'}
+  $('ledgerBox').innerHTML=col('多咗','ok',M)+col('少咗','bad',Ls)})();
+function drawStatic6(){drawJ6()}
+drawStatic6();onRedraw(drawStatic6);
+
+
+startLoops();
+})();
+</script>
+
+</body>
+</html>
