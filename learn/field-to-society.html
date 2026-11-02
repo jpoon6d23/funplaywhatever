@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>由場到社會</title>
+<meta name="description" content="由量子場一級級爬上去：粒子、原子核、原子、分子、細胞到社會。越細嘅嘢黐得越實、越早出現；越上越鬆，先夠靈活變出生命同故事。">
+<meta property="og:title" content="由場到社會">
+<meta property="og:description" content="由量子場一級級爬上去：粒子、原子核、原子、分子、細胞到社會。越細嘅嘢黐得越實、越早出現；越上越鬆，先夠靈活變出生命同故事。">
+<meta property="og:type" content="article">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+/* Layout: share-ready picture page. One climbable ladder (fields at the bottom, society at the top) where every rung is a moving picture with its glue, what newly appears, its time, and the variation + selection step to the next rung; a hot-to-cool bar runs beside it. Then one picture that merges peeling, hitting harder and going back in time. Domain colours: physics blue, chemistry teal, biology green, mind violet, society gold. */
+:root{
+  --bg:#10141c; --panel:#171d28; --panel2:#131923; --line:#29344a; --ink:#e7ecf3; --muted:#93a0b4;
+  --phys:#7cc4f2; --chem:#4fb3a8; --bio:#8fd16a; --mind:#b49cf0; --soc:#f0c14b; --hot:#f08a6a;
+  --good:#5fcf8d; --bad:#ef6a5b; --on:#10141c;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#eef2f6; --panel:#ffffff; --panel2:#f5f8fb; --line:#d3dbe5; --ink:#142030; --muted:#56657a;
+    --phys:#1f78b4; --chem:#17806f; --bio:#3f7f1f; --mind:#6a4fc0; --soc:#9a6b00; --hot:#c4502e;
+    --good:#1f7f49; --bad:#c23a2b; --on:#ffffff; color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#eef2f6; --panel:#ffffff; --panel2:#f5f8fb; --line:#d3dbe5; --ink:#142030; --muted:#56657a;
+  --phys:#1f78b4; --chem:#17806f; --bio:#3f7f1f; --mind:#6a4fc0; --soc:#9a6b00; --hot:#c4502e;
+  --good:#1f7f49; --bad:#c23a2b; --on:#ffffff; color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 72px;display:grid;gap:34px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(28px,5.6vw,44px);line-height:1.2;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(20px,3.4vw,24px);line-height:1.3;margin:0;text-wrap:balance}
+h3{font-size:16px;margin:0;line-height:1.4}
+p{margin:0}
+ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
+section{display:grid;gap:14px}
+.lede{color:var(--muted);max-width:66ch}
+.thesis{font-family:var(--display);font-size:clamp(18px,3vw,22px);line-height:1.55;border-left:3px solid var(--soc);padding:4px 0 4px 14px;max-width:46ch}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+svg{width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13.5px;color:var(--muted)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.lg2{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.lg2{grid-template-columns:1fr}}
+.ladder{display:grid;gap:6px;position:relative}
+.rung{font:inherit;color:var(--ink);text-align:left;display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:4px 10px;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:7px 12px;cursor:pointer}
+.rung .mk{width:12px;height:12px;border-radius:3px}
+.rung .rn{font-weight:500}
+.rung .rt{grid-column:2/4;font-size:12.5px;color:var(--muted);line-height:1.3}
+.rung[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.rung:focus-visible,.btn:focus-visible{outline:2px solid var(--phys);outline-offset:2px}
+.st{font-size:12px;border-radius:999px;padding:0 8px;border:1px solid;white-space:nowrap;line-height:1.6}
+.s0{color:var(--good);border-color:var(--good)} .s1{color:var(--soc);border-color:var(--soc)} .s2{color:var(--bad);border-color:var(--bad)}
+.detail{display:grid;gap:12px;min-width:0}
+.dhead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.dhead h3{font-family:var(--display);font-size:22px}
+.kv{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:6px 12px;font-size:14.5px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0}
+.fix{border:1px solid var(--hot);border-radius:10px;padding:10px 12px;font-size:14.5px;display:grid;gap:4px}
+.fix b{color:var(--hot);font-weight:500}
+.strip{display:grid;gap:2px}
+.strip span{font-size:13px;color:var(--muted)}
+.fx{display:grid;gap:10px}
+.fxrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;border-top:1px solid var(--line);padding-top:10px}
+.fxrow:first-child{border-top:0;padding-top:0}
+@media (max-width:640px){.fxrow{grid-template-columns:1fr;gap:4px}}
+.q{font-family:var(--mono);font-size:13.5px;color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 10px;overflow-x:auto}
+.q small{display:block;font-family:var(--body);font-size:12px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:7px 8px;border-top:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;border-top:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.brow{display:grid;grid-template-columns:150px minmax(0,1fr) 120px;gap:10px;align-items:center;font-size:14px}
+.trk{height:14px;background:var(--panel2);border:1px solid var(--line);border-radius:7px;overflow:hidden;position:relative}
+.trk>div{height:100%;border-radius:7px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+@media (max-width:560px){.brow{grid-template-columns:96px minmax(0,1fr) 86px;font-size:13px}}
+.ledger{display:grid;gap:8px}
+.btn{font:inherit;font-size:14px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 13px;cursor:pointer}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+canvas{width:100%;height:auto;display:block;background:var(--panel2);border:1px solid var(--line);border-radius:10px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ctl .lab{font-size:13.5px;color:var(--muted);min-width:13em}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.m{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;display:grid;gap:2px}
+.m span{font-size:12.5px;color:var(--muted)}
+.m b{font-family:var(--mono);font-weight:500;font-size:18px;font-variant-numeric:tabular-nums}
+.chart{max-width:760px;margin:0 auto}
+.onion{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}.oc{margin:0;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px;display:grid;gap:3px;align-content:start}.oc b{font-size:16px}.oc span{font-size:13px;color:var(--muted);line-height:1.45}.oc .yr{font-family:var(--mono);font-size:12.5px;color:var(--phys)}
+.ev .yr{font-family:var(--mono);font-size:12.5px;color:var(--phys)}
+.ev dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:5px 12px;margin:0;font-size:14px}
+.ev dt{color:var(--muted);white-space:nowrap}
+.ev dd{margin:0}
+
+.legend2 svg,.rt2 svg,.conn svg{width:auto;height:auto;display:inline-block;flex:none}
+.legend2{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted);align-items:center}
+.legend2 span{display:inline-flex;align-items:center;gap:6px}
+.lad{display:grid;grid-template-columns:32px minmax(0,1fr);column-gap:12px;row-gap:0}
+.gbar{grid-column:1;grid-row:1 / span 40;border-radius:15px;background:linear-gradient(to top,var(--hot),var(--soc) 30%,var(--phys) 65%,var(--mind));display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:12px 0}
+.gbar span{writing-mode:vertical-rl;font-size:13.5px;font-weight:700;letter-spacing:.12em;color:var(--on);line-height:1}
+.rung2{grid-column:2;display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:8px 12px 8px 8px;min-width:0}
+.rung2 canvas{width:92px;height:72px;border:0;background:transparent;border-radius:8px}
+.rung2.side{border-style:dashed;border-color:var(--hot);margin-left:24px}
+.rt2{display:grid;gap:2px;min-width:0}
+.rt2 .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.rt2 .nm{font-family:var(--display);font-weight:700;font-size:17px}
+.rt2 .tm{font-family:var(--mono);font-size:12.5px;color:var(--phys);white-space:nowrap}
+.rt2 .gl,.rt2 .em,.rt2 .waste{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;line-height:1.4}
+.rt2 .em{color:var(--ink)}
+.conn{grid-column:2;display:flex;align-items:center;gap:6px 10px;padding:6px 0 6px 30px;font-size:12.5px;color:var(--muted);flex-wrap:wrap;position:relative}
+.conn::before{content:"";position:absolute;left:46px;top:0;bottom:0;border-left:2px dotted var(--line);z-index:-1}
+.conn svg{flex:none}
+.waste{color:var(--hot)!important;display:inline-flex;align-items:center;gap:4px}
+.unk{color:var(--bad)}
+#peelCv{width:100%;display:block}
+@media (max-width:560px){.rung2{grid-template-columns:80px minmax(0,1fr)}.rung2 canvas{width:80px;height:63px}.conn{padding-left:10px}.rung2.side{margin-left:10px}}
+</style>
+
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+  <header style="display:grid;gap:12px">
+    <h1>由場到社會</h1>
+    <p class="thesis">越細嘅嘢黐得越實、越早出現；越上越鬆，先夠靈活變出生命同故事。</p>
+  </header>
+
+  <section aria-labelledby="h-lad">
+    <h2 id="h-lad">一級級爬上去</h2>
+    <div class="legend2">
+      <span><svg width="58" height="22" viewBox="0 0 58 22" aria-hidden="true"><circle cx="4" cy="5" r="2.6" style="fill:var(--phys)"/><circle cx="10" cy="15" r="2.6" style="fill:var(--bio)"/><circle cx="16" cy="7" r="2.6" style="fill:var(--mind)"/><path d="M22 3H40L33 12V19H29V12Z" fill="none" style="stroke:var(--muted)" stroke-width="1.6" stroke-linejoin="round"/><circle cx="50" cy="13" r="3.2" style="fill:var(--good)"/><path d="M50 8V2M47 5L50 2L53 5" fill="none" style="stroke:var(--good)" stroke-width="1.6"/></svg>升級：亂咁變，揀穩陣嘅留低</span>
+      <span><svg width="34" height="14" viewBox="0 0 34 14" aria-hidden="true"><path d="M1 7H5L8 2L12 12L16 2L20 12L24 2L27 7H33" fill="none" style="stroke:var(--ink)" stroke-width="3" stroke-linejoin="round"/></svg>黐住佢嘅：越粗越實</span>
+      <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 0L8.6 5.4L14 7L8.6 8.6L7 14L5.4 8.6L0 7L5.4 5.4Z" style="fill:var(--soc)"/></svg>新出現</span>
+      <span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 12A6 6 0 0 1 14 5M16 8A6 6 0 0 1 6 15" fill="none" style="stroke:var(--hot)" stroke-width="2"/><path d="M11 3L14 5L12 8M9 17L6 15L8 12" fill="none" style="stroke:var(--hot)" stroke-width="2"/></svg>用舊一層嘅廢料</span>
+    </div>
+    <div class="stage"><div class="lad" id="lad"></div></div>
+    <p class="small muted">由最底開始，一級級向上睇。</p>
+  </section>
+
+  <section id="proof" aria-labelledby="h-peel">
+    <h2 id="h-peel">一層層剝開</h2>
+    <p class="thesis">證明 = 攞嘢射落去，睇佢點彈返出嚟。</p>
+    <div class="stage">
+      <h3>撞得越大力，睇得越細，返到越早嘅宇宙</h3>
+      <div class="ctl" id="peelBtns" role="group" aria-label="揀一層"></div>
+      <canvas id="peelCv" role="img" aria-label="一粒粒子撞向一個圓圈。撞得越大力，圓圈入面見到越細嘅結構：分子、電子、原子核、質子中子、夸克、場。上面條時間線顯示宇宙幾時熱到可以拆開佢，越細就越早"></canvas>
+    </div>
+    <div class="stage">
+      <h3>同一招，用咗兩次</h3>
+      <div class="ctl"><span class="lab">1909 金箔：α 粒子 → 金原子</span><button type="button" class="btn" data-m="0">如果係布甸</button><button type="button" class="btn" data-m="1">如果有原子核</button></div>
+      <div class="ctl"><span class="lab">1968 SLAC：電子 → 質子</span><button type="button" class="btn" data-m="2">如果質子係軟波波</button><button type="button" class="btn" data-m="3">如果入面有硬點</button></div>
+      <canvas id="sc" style="aspect-ratio:680/300" aria-label="散射實驗模擬：粒子射向原子或者質子"></canvas>
+      <div class="metrics">
+        <div class="m"><span>射咗</span><b id="n0">0</b></div>
+        <div class="m"><span>彈開超過 30°</span><b id="n1">0</b></div>
+        <div class="m"><span>彈返轉頭（超過 90°）</span><b id="n2">0</b></div>
+      </div>
+      <p class="small muted" id="scap"></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-arch">
+    <h2 id="h-arch">邊幾級最肯定</h2>
+    <div class="stage">
+      <svg class="chart" id="arch" viewBox="0 0 640 250" role="img" aria-label="確定程度：由粒子到分子最清楚；最底嘅暗物質同量子重力、上面嘅生命起源同意識仲未知；社會有爭議"></svg>
+    </div>
+  </section>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const tok=n=>(getComputedStyle(document.documentElement).getPropertyValue(n)||'').trim()||'#888';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const T=(x,y,t,o)=>`<text x="${x}" y="${y}" text-anchor="${(o&&o.a)||'middle'}" style="font-size:${(o&&o.s)||14}px;fill:var(${(o&&o.c)||'--ink'});${o&&o.b?'font-weight:700;':''}">${t}</text>`;
+const ss=f=>{f=Math.max(0,Math.min(1,f));return f*f*(3-2*f)};
+function dot(c,x,y,r,col,a){c.globalAlpha=a==null?1:a;c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,6.2832);c.fill();c.globalAlpha=1}
+const QC=['#ff6f6f','#4fd18b','#62b3ff'];
+function people(c,x,y,s,col){c.strokeStyle=col;c.lineWidth=2*s;c.beginPath();c.arc(x,y-7*s,3.6*s,0,6.2832);c.stroke();c.beginPath();c.arc(x,y+6*s,7*s,Math.PI,2*Math.PI);c.stroke()}
+function drawLv(c,k,cx,cy,s,t){
+ if(k==='field'||k===0){const cols=[tok('--phys'),tok('--mind'),tok('--soc')];[-16,0,16].forEach((o,i)=>{c.strokeStyle=cols[i];c.globalAlpha=0.85;c.lineWidth=1.8*s;c.beginPath();const bx=cx-40*s+((t*26+i*30)%80)*s;for(let x=-40;x<=40;x+=1.5){const X=cx+x*s,bump=7*s*Math.exp(-Math.pow((X-bx)/(7*s),2)),y=cy+o*s+1.5*s*Math.sin(x*0.35+t*3+i)-bump*(i===1?1:0.4);x===-40?c.moveTo(X,y):c.lineTo(X,y)}c.stroke();c.globalAlpha=1});return}
+ if(k===1){[[0,-14,QC[0]],[16,-4,QC[1]],[-14,6,QC[2]]].forEach((q,i)=>dot(c,cx+q[0]*s+4*s*Math.sin(t*2+i*2),cy+q[1]*s+4*s*Math.cos(t*1.7+i),4.2*s,q[2]));
+   const ex=cx+22*s*Math.cos(t*1.3),ey=cy+16*s*Math.sin(t*1.3);dot(c,ex,ey,3.2*s,tok('--phys'));
+   c.strokeStyle=tok('--soc');c.lineWidth=1.6*s;c.beginPath();const px=cx-30*s+((t*30)%60)*s;for(let i=0;i<=16;i++){const x=px+i*1.2*s,y=cy+18*s+3*s*Math.sin(i*1.2);i?c.lineTo(x,y):c.moveTo(x,y)}c.stroke();return}
+ if(k===2||k==='quark'){const one=k==='quark';(one?[[0,tok('--hot')]]:[[-18,tok('--hot')],[18,tok('--muted')]]).forEach((p,j)=>{const X=cx+p[0]*s,R=(one?28:15)*s;c.fillStyle=p[1];c.globalAlpha=0.16;c.beginPath();c.arc(X,cy,R,0,6.2832);c.fill();c.globalAlpha=0.9;c.strokeStyle=p[1];c.lineWidth=1.4*s;c.stroke();c.globalAlpha=1;
+     const Q=[[-0.42,-0.3],[0.42,-0.3],[0,0.45]].map((q,i)=>[X+q[0]*R+2*s*Math.sin(t*5+i*2+j),cy+q[1]*R+2*s*Math.cos(t*4+i+j)]);
+     c.strokeStyle=tok('--ink');c.globalAlpha=0.55;c.lineWidth=1.2*s;for(let a=0;a<3;a++){const A=Q[a],B=Q[(a+1)%3];c.beginPath();for(let i=0;i<=12;i++){const f=i/12,x=A[0]+(B[0]-A[0])*f,y=A[1]+(B[1]-A[1])*f,nx=-(B[1]-A[1]),ny=B[0]-A[0],L=Math.hypot(nx,ny)||1,o=2*s*Math.sin(f*18+t*8);i?c.lineTo(x+nx/L*o,y+ny/L*o):c.moveTo(x,y)}c.stroke()}c.globalAlpha=1;
+     Q.forEach((q,i)=>dot(c,q[0],q[1],(one?5:3.2)*s,QC[i]))});return}
+ if(k===3){[[0,0],[-9,-6],[9,-6],[-9,7],[9,7],[0,-13],[0,13]].forEach((p,i)=>dot(c,cx+p[0]*s+1.2*s*Math.sin(t*9+i*1.7),cy+p[1]*s+1.2*s*Math.cos(t*8+i*2.1),6.5*s,i%2?tok('--muted'):tok('--hot')));return}
+ if(k===4){c.strokeStyle=tok('--phys');c.globalAlpha=0.25;c.lineWidth=7*s;c.beginPath();c.ellipse(cx,cy,26*s,20*s,0,0,6.2832);c.stroke();c.globalAlpha=1;dot(c,cx,cy,4.5*s,tok('--hot'));const a=t*2.2;dot(c,cx+26*s*Math.cos(a),cy+20*s*Math.sin(a),3.4*s,tok('--phys'));return}
+ if(k===5){const v=1.5*s*Math.sin(t*6),O=[cx,cy-4*s],H1=[cx-17*s-v,cy+10*s],H2=[cx+17*s+v,cy+10*s];c.strokeStyle=tok('--muted');c.lineWidth=2.5*s;c.beginPath();c.moveTo(H1[0],H1[1]);c.lineTo(O[0],O[1]);c.lineTo(H2[0],H2[1]);c.stroke();dot(c,O[0],O[1],9*s,tok('--hot'));dot(c,H1[0],H1[1],5.5*s,'#e9e6dc');dot(c,H2[0],H2[1],5.5*s,'#e9e6dc');return}
+ if(k===6){const ph=(t%5)/5,d=ph<0.4?0:ph<0.75?ss((ph-0.4)/0.35):1-ss((ph-0.75)/0.25),sep=12*s*d,R=22*s-5*s*d;[-1,1].forEach(sg=>{const X=cx+sg*sep;c.fillStyle=tok('--bio');c.globalAlpha=0.16;c.beginPath();c.arc(X,cy,R,0,6.2832);c.fill();c.globalAlpha=1;c.strokeStyle=tok('--bio');c.lineWidth=2*s;c.stroke();
+     c.strokeStyle=tok('--mind');c.lineWidth=1.4*s;c.beginPath();for(let i=0;i<=10;i++){const x=X-7*s+i*1.4*s,y=cy+3*s*Math.sin(i*1.4+t*3);i?c.lineTo(x,y):c.moveTo(x,y)}c.stroke()});return}
+ if(k===7){const N=[[-26,-12],[-8,-20],[14,-14],[28,4],[6,14],[-18,12]],E=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[1,4],[0,4]];c.strokeStyle=tok('--mind');c.globalAlpha=0.5;c.lineWidth=1.3*s;E.forEach(e=>{c.beginPath();c.moveTo(cx+N[e[0]][0]*s,cy+N[e[0]][1]*s);c.lineTo(cx+N[e[1]][0]*s,cy+N[e[1]][1]*s);c.stroke()});c.globalAlpha=1;
+   E.forEach((e,i)=>{const f=((t*0.9+i*0.37)%1);const A=N[e[0]],B=N[e[1]];dot(c,cx+(A[0]+(B[0]-A[0])*f)*s,cy+(A[1]+(B[1]-A[1])*f)*s,2.2*s,tok('--soc'),Math.sin(Math.PI*f))});N.forEach(n=>dot(c,cx+n[0]*s,cy+n[1]*s,4*s,tok('--mind')));return}
+ if(k===8){const P=[[-24,4],[0,-6],[24,4],[0,16]];c.strokeStyle=tok('--soc');c.globalAlpha=0.35;c.setLineDash([3*s,3*s]);c.lineWidth=1.2*s;for(let i=0;i<4;i++)for(let j=i+1;j<4;j++){c.beginPath();c.moveTo(cx+P[i][0]*s,cy+P[i][1]*s);c.lineTo(cx+P[j][0]*s,cy+P[j][1]*s);c.stroke()}c.setLineDash([]);c.globalAlpha=1;
+   P.forEach(p=>people(c,cx+p[0]*s,cy+p[1]*s,s*0.85,tok('--ink')));const q=(t*0.5)%1,a=Math.floor(t*0.5)%4,b=(a+1)%4,f=ss(q);dot(c,cx+(P[a][0]+(P[b][0]-P[a][0])*f)*s,cy+(P[a][1]+(P[b][1]-P[a][1])*f)*s-10*s*Math.sin(Math.PI*f),3.6*s,tok('--soc'));return}
+ if(k==='star'){const g=c.createRadialGradient(cx,cy,2,cx,cy,22*s);g.addColorStop(0,tok('--soc'));g.addColorStop(1,tok('--hot'));c.fillStyle=g;c.beginPath();c.arc(cx,cy,18*s+1.5*s*Math.sin(t*3),0,6.2832);c.fill();
+   [0,1,2].forEach(i=>{const f=((t*0.4+i/3)%1),an=i*2.1+0.5;dot(c,cx+Math.cos(an)*(20+f*18)*s,cy+Math.sin(an)*(20+f*14)*s,3.2*s,i===1?'#888780':tok('--hot'),1-f)});return}}
+/* ladder */
+const LV=[{n:'量子場',tm:'大爆炸',g:0,gl:'佢係最底',em:'粒子',a:'幾種場重疊，其中一條有一下波動'},
+ {n:'基本粒子',tm:'一眨眼',g:0,gl:'場嘅一下波動',em:'質量',a:'夸克、電子、光子走來走去'},
+ {n:'質子、中子',tm:'1 微秒',g:5,gl:'強力',em:'原子核嘅零件',a:'每粒入面三粒夸克，用膠子黐住'},
+ {n:'原子核',tm:'3 分鐘',g:4,gl:'核力',em:'元素',a:'質子同中子擠埋一舊'},
+ {n:'原子',tm:'38 萬年',g:3,gl:'電磁力',em:'化學',a:'原子核外面有電子雲'},
+ {n:'分子',tm:'45 億年前',g:2.2,gl:'化學鍵',em:'形狀 → 功能',a:'一粒水分子'},
+ {n:'生命',tm:'35 億年前',g:1.3,gl:'氫鍵 + 能量流',em:'繁殖、進化',a:'一粒細胞分裂'},
+ {n:'意識',tm:'6 億年前',g:'spark',gl:'神經電訊號',em:'感受、「我」',a:'神經網絡入面訊號走來走去'},
+ {n:'社會',tm:'7 萬年前',g:'story',gl:'故事：錢、國家、宗教',em:'陌生人合作',a:'幾個人之間傳錢傳故事'}];
+const CON=[{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣',star:1},{t:'q',q:'化學點變生命：未知'},{t:'vs',v:'突變',s:'留到後代',w:'藍藻排出嘅 O₂ 廢氣 → 動物有力燒嘢'},{t:'vs',v:'想像、發明',s:'試過得唔得、錢、權力',w:'植物屍體 → 煤、石油 → 工業'}];
+function spring(g){if(g==='spark')return `<svg width="34" height="14" viewBox="0 0 34 14" aria-hidden="true"><path d="M2 7H10L13 2L17 12L21 4L24 7H32" fill="none" style="stroke:var(--mind)" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+ if(g==='story')return `<svg width="34" height="16" viewBox="0 0 34 16" aria-hidden="true"><path d="M5 2H29A3 3 0 0 1 32 5V9A3 3 0 0 1 29 12H14L9 15V12H5A3 3 0 0 1 2 9V5A3 3 0 0 1 5 2Z" fill="none" style="stroke:var(--soc)" stroke-width="1.6"/></svg>`;
+ if(!g)return `<svg width="34" height="14" viewBox="0 0 34 14" aria-hidden="true"><path d="M4 7H30" style="stroke:var(--line)" stroke-width="2" stroke-dasharray="3 3"/></svg>`;
+ return `<svg width="34" height="14" viewBox="0 0 34 14" aria-hidden="true"><path d="M1 7H5L8 2L12 12L16 2L20 12L24 2L27 7H33" fill="none" style="stroke:var(--ink)" stroke-width="${g}" stroke-linejoin="round" stroke-linecap="round"/></svg>`}
+const SPK=`<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 0L8.6 5.4L14 7L8.6 8.6L7 14L5.4 8.6L0 7L5.4 5.4Z" style="fill:var(--soc)"/></svg>`;
+const FUN=`<svg width="58" height="22" viewBox="0 0 58 22" aria-hidden="true"><circle cx="4" cy="5" r="2.6" style="fill:var(--phys)"/><circle cx="10" cy="15" r="2.6" style="fill:var(--bio)"/><circle cx="16" cy="7" r="2.6" style="fill:var(--mind)"/><path d="M22 3H40L33 12V19H29V12Z" fill="none" style="stroke:var(--muted)" stroke-width="1.6" stroke-linejoin="round"/><circle cx="50" cy="13" r="3.2" style="fill:var(--good)"/><path d="M50 8V2M47 5L50 2L53 5" fill="none" style="stroke:var(--good)" stroke-width="1.6"/></svg>`;
+const REC=`<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 12A6 6 0 0 1 14 5M16 8A6 6 0 0 1 6 15" fill="none" style="stroke:var(--hot)" stroke-width="2"/><path d="M11 3L14 5L12 8M9 17L6 15L8 12" fill="none" style="stroke:var(--hot)" stroke-width="2"/></svg>`;
+const Q=`<svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" style="stroke:var(--bad)" stroke-width="1.8"/><text x="11" y="15.5" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--bad)">?</text></svg>`;
+(function(){const box=$('lad');let h='<div class="gbar" aria-hidden="true"><span>越大　越易拆　越遲　越凍</span><span>越細　越難拆　越早　越熱</span></div>';
+ const rung=(L,k,cls)=>`<div class="rung2 ${cls||''}"><canvas data-k="${k}" width="92" height="72" role="img" aria-label="${L.a}"></canvas><div class="rt2"><div class="top"><span class="nm">${L.n}</span><span class="tm">${L.tm}</span></div><div class="gl">${spring(L.g)}<span>${L.gl}</span></div><div class="em">${SPK}<span>新：${L.em}</span></div></div></div>`;
+ const conn=C=>{let s='<div class="conn">';if(C.t==='q')s+=Q+`<span class="unk">${C.q}</span>`;else s+=FUN+`<span>變：${C.v}　揀：${C.s}</span>`;if(C.w)s+=`<span class="waste">${REC}${C.w}</span>`;return s+'</div>'};
+ for(let i=LV.length-1;i>=0;i--){h+=rung(LV[i],i);if(i>0){const C=CON[i-1];h+=conn(C);if(C.star){h+=`<div class="rung2 side"><canvas data-k="star" width="92" height="72" role="img" aria-label="一粒星發光，煮出碳同氧飛出去"></canvas><div class="rt2"><div class="top"><span class="nm">星</span><span class="tm">1 億年</span></div><div class="gl">${spring(3.6)}<span>重力</span></div><div class="waste">${REC}<span>星爆炸嘅灰：碳、氧、鐵 → 分子嘅原料</span></div></div></div>`;h+=conn({t:'vs',v:'亂撞',s:'最穩陣'})}}}
+ box.innerHTML=h;})();
+const CVS=[];document.querySelectorAll('#lad canvas').forEach(cv=>{const d=Math.min(2,window.devicePixelRatio||1);cv.width=92*d;cv.height=72*d;const g=cv.getContext('2d');g.setTransform(d,0,0,d,0,0);const k=cv.dataset.k;CVS.push({cv,g,k:isNaN(+k)?k:+k,vis:true})});
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{const o=CVS.find(o=>o.cv===e.target);if(o)o.vis=e.isIntersecting}));CVS.forEach(o=>io.observe(o.cv))}
+function drawRungs(t){CVS.forEach(o=>{if(!o.vis)return;o.g.clearRect(0,0,92,72);drawLv(o.g,o.k,46,36,1,t)})}
+/* peel: hit harder, see smaller, go earlier */
+const PS=[{k:5,n:'分子',yr:'1908',p:'光',tp:4.45},{k:4,n:'原子入面有電子',yr:'1897',p:'陰極射線',tp:4},{k:3,n:'原子核',yr:'1909',p:'α 粒子',tp:3},{k:2,n:'質子、中子',yr:'1919、1932',p:'α 粒子',tp:2.05},{k:'quark',n:'夸克',yr:'1968',p:'高速電子',tp:1.45},{k:0,n:'場（Higgs）',yr:'2012',p:'質子對撞',tp:0.85}];
+const TK=['大爆炸','一眨眼','1 微秒','3 分鐘','38 萬年','今日'];
+const PE={st:0,auto:true,t0:null,ctx:null};
+(function(){const b=$('peelBtns');PS.forEach((p,i)=>{const e=document.createElement('button');e.type='button';e.className='btn';e.textContent=p.n.replace('原子入面有電子','電子');e.dataset.i=i;e.onclick=()=>{PE.st=i;PE.auto=false;PE.t0=null;peelUpd();if(reduce)drawPeel(2)};b.appendChild(e)})})();
+function peelUpd(){$('peelBtns').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===PE.st))}
+function fitPeel(){const cv=$('peelCv'),w=cv.clientWidth||640,d=Math.min(2,window.devicePixelRatio||1),h=w<560?376:300;cv.style.height=h+'px';cv.width=w*d;cv.height=h*d;const g=cv.getContext('2d');g.setTransform(d,0,0,d,0,0);PE.ctx={g,w,h}}
+function drawPeel(t){if(!PE.ctx)fitPeel();const {g:c,w,h}=PE.ctx;if(PE.t0===null)PE.t0=t;let ts=reduce?1:t-PE.t0;if(!reduce&&PE.auto&&ts>3.6){PE.st=(PE.st+1)%PS.length;PE.t0=t;ts=0;peelUpd()}
+ const S=PS[PE.st],nar=w<560;c.clearRect(0,0,w,h);c.textBaseline='middle';const F=tok('--body');
+ const tx0=24,tx1=w-24,ty=46,X=i=>tx0+i/5*(tx1-tx0);c.strokeStyle=tok('--line');c.lineWidth=4;c.lineCap='round';c.beginPath();c.moveTo(tx0,ty);c.lineTo(tx1,ty);c.stroke();c.lineCap='butt';
+ TK.forEach((k,i)=>{c.fillStyle=tok('--muted');c.font='12px '+F;c.textAlign=i===0?'left':i===5?'right':'center';c.fillText(k,i===0?tx0-6:i===5?tx1+6:X(i),ty+18);c.fillStyle=tok('--line');c.fillRect(X(i)-1,ty-6,2,12)});
+ const mx=X(S.tp);c.fillStyle=tok('--hot');c.beginPath();c.moveTo(mx,ty-6);c.lineTo(mx-8,ty-18);c.lineTo(mx+8,ty-18);c.closePath();c.fill();c.font='500 12px '+F;c.textAlign=mx>w*0.7?'right':mx<w*0.3?'left':'center';c.fillText('宇宙熱到可以拆開佢',mx<w*0.3?mx-8:mx>w*0.7?mx+8:mx,ty-30);
+ const icx=nar?w*0.62:w*0.55,icy=nar?166:176,R=nar?62:80,pw=1+PE.st*0.55;
+ c.fillStyle=tok('--panel');c.beginPath();c.arc(icx,icy,R,0,6.2832);c.fill();c.strokeStyle=tok('--soc');c.lineWidth=2;c.stroke();c.save();c.beginPath();c.arc(icx,icy,R-2,0,6.2832);c.clip();drawLv(c,S.k,icx,icy,R/34,t);c.restore();
+ const q=(ts%1.4)/1.4,px=24+q*(icx-R-30),py=icy;if(q<0.95){c.strokeStyle=tok('--hot');c.globalAlpha=0.5;c.lineWidth=2+pw*1.5;c.beginPath();c.moveTo(Math.max(16,px-40-pw*10),py);c.lineTo(px,py);c.stroke();c.globalAlpha=1;dot(c,px,py,3+pw*1.6,tok('--hot'));dot(c,px,py,7+pw*3,tok('--hot'),0.18)}
+ if(q>0.9){const f=(q-0.9)/0.1;dot(c,icx-R,icy,10+20*f,tok('--soc'),0.5*(1-f))}
+ c.textAlign='left';c.fillStyle=tok('--ink');c.font='700 '+(nar?17:20)+'px '+tok('--display');const lx=nar?16:24,ly=nar?icy+R+34:icy-30;c.fillText(S.n,lx,ly);c.font='13px '+F;c.fillStyle=tok('--muted');c.fillText(S.yr+' · 用'+S.p+'撞',lx,ly+24);
+ const bx=lx,by=h-30,bw=nar?w-32:Math.min(240,icx-R-60);c.fillStyle=tok('--muted');c.font='12px '+F;c.fillText('撞得幾大力',bx,by-14);c.fillStyle=tok('--line');c.fillRect(bx,by-4,bw,8);c.fillStyle=tok('--hot');c.fillRect(bx,by-4,bw*(PE.st+1)/PS.length,8)}
+/* loop */
+let last=0;function frame(now){const t=now/1000;drawRungs(t);drawPeel(t);requestAnimationFrame(frame)}
+peelUpd();if(reduce){drawRungs(1);drawPeel(1)}else requestAnimationFrame(frame);
+addEventListener('resize',()=>{PE.ctx=null;if(reduce)drawPeel(1)});
+
+/* certainty arch */
+(()=>{const LV=[['暗物質',0.15,'--phys'],['粒子',0.93,'--phys'],['原子核',0.95,'--phys'],['原子',0.97,'--phys'],['星',0.9,'--phys'],['分子',0.86,'--chem'],['生命起源',0.2,'--bio'],['意識',0.1,'--mind'],['社會',0.42,'--soc']];
+ const X=i=>64+i*66,Y=v=>196-v*150;let p=`M${X(0)} ${Y(LV[0][1])}`;
+ for(let i=0;i<LV.length-1;i++){const p0=LV[Math.max(0,i-1)],p1=LV[i],p2=LV[i+1],p3=LV[Math.min(LV.length-1,i+2)];const x1=X(i)+(X(i+1)-X(Math.max(0,i-1)))/6,y1=Y(p1[1])+(Y(p2[1])-Y(p0[1]))/6,x2=X(i+1)-(X(Math.min(LV.length-1,i+2))-X(i))/6,y2=Y(p2[1])-(Y(p3[1])-Y(p1[1]))/6;p+=`C${x1} ${y1} ${x2} ${y2} ${X(i+1)} ${Y(p2[1])}`}
+ let s=`<line x1="30" y1="196" x2="30" y2="40" style="stroke:var(--muted)" stroke-width="1.5"/><path d="M24 48L30 38L36 48" fill="none" style="stroke:var(--muted)" stroke-width="1.5"/>${T(30,28,'肯定',{c:'--muted',s:13})}`;
+ s+=`<path d="${p}" fill="none" style="stroke:var(--line)" stroke-width="10" stroke-linecap="round"/><path d="${p}" fill="none" style="stroke:var(--ink)" stroke-width="2"/>`;
+ LV.forEach((l,i)=>{s+=`<circle cx="${X(i)}" cy="${Y(l[1])}" r="8" style="fill:var(${l[2]});stroke:var(--panel)" stroke-width="2.5"/>`+T(X(i),232,l[0],{s:13,c:'--muted'})});
+ s+=T(260,22,'零件簡單、可以重做無限次',{s:13,c:'--good'})+T(X(0),214,'太細、太早',{s:12,c:'--bad'})+T(X(7)-6,214,'只發生過一次、零件太多',{s:12,c:'--bad'});
+ $('arch').innerHTML=s;})();
+
+
+})();
+</script>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const tok=n=>(getComputedStyle(document.documentElement).getPropertyValue(n)||'').trim()||'#888';
+const cv=$('sc'),g=cv.getContext('2d'),W=680,H=300,dpr=Math.min(2,window.devicePixelRatio||1);
+cv.width=W*dpr;cv.height=H*dpr;g.scale(dpr,dpr);
+const X0=430,Y0=150,K=36,V=3,BW=115,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const M=[
+ {t:'sphere',R:115,lab:'正電荷平均散開成一舊',src:'α 粒子 →',cap:'布甸模型（Thomson）預測：正電荷散開，推力好弱，個個差唔多直穿，冇一粒會彈返轉頭。'},
+ {t:'point',lab:'正電荷集中喺中間一點',src:'α 粒子 →',cap:'原子核模型預測：大部分直穿，偶然正面撞中就彈返轉頭。1909 年實驗見到嘅就係呢個。（模擬誇張咗比例，實際約 8,000 粒先有 1 粒。）'},
+ {t:'sphere',R:70,lab:'電荷平均散開成一舊',src:'電子 →',cap:'如果質子係一舊均勻軟嘢：電子差唔多直穿，好少大角度彈開。'},
+ {t:'three',R:70,pts:[[-24,-16],[20,-22],[4,26]],lab:'入面有三粒細小硬點',src:'電子 →',cap:'如果質子入面有細小硬點：間中有大角度彈開。1968 年 SLAC 見到嘅就係呢個，嗰啲硬點就係夸克。'}
+];
+let m=1,P=[],S=[],cnt=[0,0,0],vis=true;
+function force(x,y){const o=M[m];let fx=0,fy=0;
+ const add=(cx,cy,k,R)=>{const dx=x-cx,dy=y-cy,r=Math.max(1.5,Math.hypot(dx,dy)),q=R&&r<R?k/(R*R*R):k/(r*r*r);fx+=q*dx;fy+=q*dy;};
+ if(o.t==='sphere')add(X0,Y0,K,o.R);else if(o.t==='point')add(X0,Y0,K,0);else o.pts.forEach(p=>add(X0+p[0],Y0+p[1],K/3,0));
+ return[fx,fy];}
+function near(p){const o=M[m];if(o.t==='sphere')return false;const pts=o.t==='point'?[[0,0]]:o.pts;return pts.some(q=>Math.hypot(p.x-X0-q[0],p.y-Y0-q[1])<30);}
+function step(p){const n=near(p)?24:3,dt=1/n;for(let i=0;i<n;i++){const[fx,fy]=force(p.x,p.y);p.vx+=fx*dt;p.vy+=fy*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;}}
+const spawn=y=>({x:-4,y:y??Y0+(Math.random()*2-1)*BW,vx:V,vy:0,tr:[]});
+const out=p=>p.x<-12||p.x>W+12||p.y<-12||p.y>H+12;
+const ang=p=>Math.atan2(Math.abs(p.vy),p.vx)*180/Math.PI;
+function classify(p){cnt[0]++;const a=ang(p);if(a>30)cnt[1]++;if(a>90)cnt[2]++;}
+function target(){const o=M[m],hot=tok('--hot');g.fillStyle=hot;g.strokeStyle=hot;
+ if(o.R){g.globalAlpha=.16;g.beginPath();g.arc(X0,Y0,o.R,0,7);g.fill();g.globalAlpha=.7;g.lineWidth=1;g.setLineDash([4,4]);g.stroke();g.setLineDash([]);g.globalAlpha=1;}
+ if(o.t==='point'){g.beginPath();g.arc(X0,Y0,4.5,0,7);g.fill();}
+ if(o.t==='three')o.pts.forEach(q=>{g.beginPath();g.arc(X0+q[0],Y0+q[1],4,0,7);g.fill();});
+ g.fillStyle=tok('--muted');g.font='14px sans-serif';g.textAlign='center';g.fillText(o.lab,X0,Math.max(18,Y0-(o.R||70)-10));
+ g.textAlign='left';g.fillText(o.src,10,22);}
+function line(pts,col,al){g.strokeStyle=col;g.globalAlpha=al;g.lineWidth=1.3;g.beginPath();pts.forEach((q,i)=>i?g.lineTo(q[0],q[1]):g.moveTo(q[0],q[1]));g.stroke();g.globalAlpha=1;}
+function draw(){g.clearRect(0,0,W,H);target();const ink=tok('--ink'),hi=tok('--soc');
+ S.forEach(z=>line(z.pts,z.a>30?hi:ink,.45));
+ P.forEach(p=>line(p.tr.concat([[p.x,p.y]]),ang(p)>30?hi:ink,.85));
+ ['n0','n1','n2'].forEach((id,i)=>{$(id).textContent=cnt[i].toLocaleString();});}
+const btns=document.querySelectorAll('#proof button[data-m]');
+function setM(k){m=k;P=[];S=[];cnt=[0,0,0];
+ btns.forEach(b=>b.setAttribute('aria-pressed',+b.dataset.m===k));
+ $('scap').textContent=M[k].cap;
+ if(reduce){for(let i=0;i<161;i++){const p=spawn(Y0-BW+i*BW*2/160),pts=[[p.x,p.y]];let n=0;while(!out(p)&&n<2000){step(p);if(n%2===0)pts.push([p.x,p.y]);n++;}classify(p);S.push({pts,a:ang(p)});}}
+ draw();}
+btns.forEach(b=>b.onclick=()=>setM(+b.dataset.m));
+if('IntersectionObserver' in window)new IntersectionObserver(e=>{vis=e[0].isIntersecting;}).observe(cv);
+function loop(){if(vis){if(Math.random()<.7)P.push(spawn());
+ P.forEach(p=>{step(p);p.tr.push([p.x,p.y]);if(p.tr.length>14)p.tr.shift();});
+ P=P.filter(p=>{if(out(p)){classify(p);return false;}return true;});
+ draw();}
+ requestAnimationFrame(loop);}
+setM(1);if(!reduce)loop();
+
+})();
+</script>
+
+</body>
+</html>
