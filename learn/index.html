@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>學習筆記 · 玩笑但</title>
+<meta name="description" content="玩笑但嘅學習筆記：科學、錢同股市、身體、歷史。每篇都係多圖少字。">
+<meta property="og:title" content="學習筆記 · 玩笑但">
+<meta property="og:description" content="科學、錢同股市、身體、歷史：多圖少字嘅學習筆記。">
+<meta property="og:type" content="website">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#11151b; --panel:#171c24; --ink:#e7eaef; --ink-2:#97a1b0; --line:#2a323e; --grid:rgba(151,161,176,.07);
+  --heat:#ff7b47; --work:#55c6bf;
+  --display:"LXGW WenKai TC","Kaiti TC","STKaiti","KaiTi",serif;
+  --body:"Noto Sans TC","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font:400 17px/1.75 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:20px 72px}
+.back{display:inline-flex;gap:6px;font:500 13px/1 var(--mono);color:var(--ink-2);text-decoration:none;padding:6px 0}
+.back:hover{color:var(--ink)}
+h1{font:700 clamp(34px,6vw,48px)/1.2 var(--display);margin:24px 0 6px}
+.sub{color:var(--ink-2);margin:0 0 22px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.fc{font:500 14px/1.4 var(--body);padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink-2);cursor:pointer}
+.fc:hover{border-color:var(--work)}
+.fc:focus-visible{outline:2px solid var(--work);outline-offset:2px}
+.fc[aria-pressed="true"]{color:var(--work);border-color:var(--work)}
+.note-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.note-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:12px;text-decoration:none}
+.note-list a:hover{border-color:var(--work)}
+.meta{grid-column:1;display:flex;gap:10px;align-items:center;font:500 12px/1.4 var(--mono);color:var(--ink-2)}
+.ct{color:var(--work)}
+.nt{grid-column:1;font:700 20px/1.35 var(--display)}
+.nd{grid-column:1;font-size:14px;line-height:1.6;color:var(--ink-2)}
+.na{grid-column:2;grid-row:1/span 3;font:500 18px var(--mono);color:var(--work)}
+.empty{color:var(--ink-2);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../#learn">← 玩笑但</a>
+  <h1>學習筆記</h1>
+  <p class="sub"><span id="count">10</span> 篇，最新嘅喺最上面。每篇都係多圖少字。</p>
+  <div class="filters" role="group" aria-label="揀類別"><button type="button" class="fc" data-f="all" aria-pressed="true">全部</button><button type="button" class="fc" data-f="sci" aria-pressed="false">科學</button><button type="button" class="fc" data-f="money" aria-pressed="false">錢同股市</button><button type="button" class="fc" data-f="body" aria-pressed="false">身體</button><button type="button" class="fc" data-f="hist" aria-pressed="false">歷史同社會</button></div>
+  <ul class="note-list" id="list">
+      <li data-c="sci"><a href="field-to-society.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-11-02</span></span><span class="nt">由場到社會</span><span class="nd">由量子場一級級爬上去：粒子、原子核、原子、分子、細胞到社會。越細嘅嘢黐得越實、越早出現；越上越鬆，先夠靈活變出生命同故事。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="hist"><a href="revolutions.html"><span class="meta"><span class="ct">歷史同社會</span><span class="dt">2026-11-02</span></span><span class="nt">革命嘅規律</span><span class="nd">三十幾場革命：點樣開始、推唔推得倒、點樣收尾、革完多咗同少咗乜。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="money"><a href="money.html"><span class="meta"><span class="ct">錢同股市</span><span class="dt">2026-11-02</span></span><span class="nt">錢點樣嚟搵你</span><span class="nd">用途只係價錢一細部分：稀缺、身份、恐懼、節日同宗教點樣令人肯俾錢。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="money"><a href="sectors.html"><span class="meta"><span class="ct">錢同股市</span><span class="dt">2026-11-02</span></span><span class="nt">錢會搬屋</span><span class="nd">行業輪動：經濟週期唔同階段，錢點解由一類行業搬去另一類。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="money"><a href="active-passive.html"><span class="meta"><span class="ct">錢同股市</span><span class="dt">2026-11-02</span></span><span class="nt">揀邊種痛</span><span class="nd">主動同被動投資：被動痛喺大熊市，主動痛喺上落市。揀咗好處，就要食埋壞處。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="body"><a href="antibiotics.html"><span class="meta"><span class="ct">身體</span><span class="dt">2026-11-02</span></span><span class="nt">抗生素只識打細菌</span><span class="nd">細菌、真菌、病毒有咩分別；點解抗生素醫唔到流感，亂食點樣養出惡菌。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="sci"><a href="information.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-11-02</span></span><span class="nt">估錯先有資訊</span><span class="nd">由一個 bit 講到相片壓縮、和弦、笑話同啊哈：個腦估、估錯、再壓縮。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="sci"><a href="balls.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-11-02</span></span><span class="nt">全部都係波波</span><span class="nd">原子有幾細、能量點樣由太陽傳到你拍個波、熱、風、蒸發、聲音、金屬：全部都係波波撞嚟撞去。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="sci"><a href="em.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-10-30</span></span><span class="nt">全部都係電</span><span class="nd">遠場、發電、化學、近場：由光、WiFi 到八達通，你摸到睇到用到嘅嘢，背後都係電磁力。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="sci"><a href="boiling.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-10-26</span></span><span class="nt">點解大火煲湯係嘥氣？</span><span class="nd">蒸發同滾、氣壓同滾點、活化能：煲牛腩點解唔使開大火，壓力煲點解快咁多。</span><span class="na" aria-hidden="true">→</span></a></li>
+  </ul>
+</div>
+<script>
+(function(){var bs=document.querySelectorAll('.fc'),li=document.querySelectorAll('#list li'),cnt=document.getElementById('count');
+bs.forEach(function(b){b.addEventListener('click',function(){var f=b.getAttribute('data-f'),n=0;bs.forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});li.forEach(function(l){var on=f==='all'||l.getAttribute('data-c')===f;l.hidden=!on;if(on)n++});cnt.textContent=n})});})();
+</script>
+</body>
+</html>
