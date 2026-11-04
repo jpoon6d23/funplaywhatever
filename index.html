@@ -277,6 +277,7 @@ footer{border-top:1px solid var(--line);padding-block:56px 48px;display:grid;gap
         <b>知道點樣攞到佢</b>
       </p>
       <p class="tagline">The safest way to get what you want is to deserve what you want</p>
+      <p class="tagline">Pain is inevitable, suffering is optional</p>
     </div>
 
     <div class="field-card">
@@ -341,7 +342,8 @@ footer{border-top:1px solid var(--line);padding-block:56px 48px;display:grid;gap
     <div>
       <div class="tag"><span>責任</span><span class="f">單機遊戲</span></div>
       <h2>我食飯 你唔會飽</h2>
-      <p class="lede">你嘅人生得你一個玩家。只有你有責任，亦只有你有能力令佢變好。</p>
+      <p class="lede">If you want to do it right, do it yourself</p>
+      <p class="lede">If physics doesn’t say no, it means YOU CAN DO IT</p>
       <div class="rel">
         <p class="rel-h">相關</p>
         <div class="chips">
@@ -697,6 +699,7 @@ footer{border-top:1px solid var(--line);padding-block:56px 48px;display:grid;gap
       <h2>沒有奇蹟 只有累積</h2>
       <p class="lede">每個人都值得擁有健康 財富 智慧 go get it</p>
       <p class="lede muted">當然你未必會成功 同你有一日會死 所以 have fun by all means</p>
+      <p class="lede muted">Now is a gift, that’s why it’s called the present</p>
       <div class="rel">
         <p class="rel-h">相關</p>
         <div class="chips">
@@ -708,15 +711,18 @@ footer{border-top:1px solid var(--line);padding-block:56px 48px;display:grid;gap
       </div>
     </div>
     <figure class="fig">
-      <svg id="spiralSvg" viewBox="0 0 400 260" role="img" aria-label="一條向上嘅螺旋，每圈經過學、心、身，最頂係你想要嘅嘢">
+      <svg id="spiralSvg" viewBox="0 0 400 260" role="img" aria-label="一條螺旋，每圈經過學、心、身；中間有兩次跌落去，一次跌到低過起點，但繼續轉，最後去到你想要嘅嘢。虛線係以為嘅直線">
+        <line id="spiralIdeal" class="s-ar-dash" stroke-width="1" opacity=".55"/>
+        <text id="spiralIdealT" class="s-ts" style="font-size:11px">以為</text>
         <path id="spiralPath" class="s-ar" stroke-width="1.6" d=""/>
+        <g id="spiralCrash"></g>
         <g id="spiralNodes"></g>
-        <line x1="335" y1="39" x2="335" y2="8" class="s-ar" stroke-width="1.6"/>
-        <path d="M335,8 L359,14 L335,20 Z" class="f-work"/>
-        <text x="325" y="18" class="s-ts" text-anchor="end" style="fill:var(--ink)">你想要嘅嘢</text>
-        <circle id="spiralDot" r="5" class="f-heat" cx="50" cy="204"/>
+        <line x1="370" y1="50" x2="370" y2="16" class="s-ar" stroke-width="1.6"/>
+        <path d="M370,16 L394,22 L370,28 Z" class="f-work"/>
+        <text x="360" y="26" class="s-ts" text-anchor="end" style="fill:var(--ink)">你想要嘅嘢</text>
+        <circle id="spiralDot" r="5" class="f-heat" cx="22" cy="182"/>
       </svg>
-      <figcaption>每一圈做嘅嘢一樣，但企嘅位置高咗少少。呢個就係複利。</figcaption>
+      <figcaption>每圈都係學、心、身。有時會跌得好深，深過起點。繼續轉，總體先會向上。</figcaption>
     </figure>
   </section>
 
@@ -765,6 +771,8 @@ If everyone work for themselves, no innovations at all, electricity, motor, cars
       <p class="ler"><span>Learn</span><span class="arr">→</span><span>Earn</span><span class="arr">→</span><span class="on">Return</span></p>
       <p class="lede">我中意學野 每一次既aha moment都係度連結大宇宙同小宇宙(自己) 好過引 人生好短 唔玩唔笑太晒 學到真野人生仲會輕鬆左 好抵</p>
       <p class="lede">學到嘅嘢放喺度 呢個網站係 Return 嗰部分</p>
+      <p class="lede">It is easier to change yourself than the world, and the best way to change the world is to change yourself</p>
+      <p class="lede">May all beings be happy, healthy, safe &amp; peaceful</p>
       <p class="ver" style="margin-top:18px">v1 · 永遠 BETA</p>
     </div>
     <div class="links">
@@ -1079,26 +1087,47 @@ If everyone work for themselves, no innovations at all, electricity, motor, cars
   /* ---------- SPIRAL ---------- */
   (function(){
     var path = document.getElementById("spiralPath"), nodes = document.getElementById("spiralNodes"), dot = document.getElementById("spiralDot");
-    function pt(t){ var u = t/(2*Math.PI); return [50 + 95*u + 50*Math.sin(t), 236 - 55*u - 32*Math.cos(t)]; }
-    var d = "", steps = 360, T = 6*Math.PI;
-    for(var i=0;i<=steps;i++){ var p = pt(i/steps*T); d += (i ? "L" : "M") + p[0].toFixed(1) + "," + p[1].toFixed(1); }
-    path.setAttribute("d", d);
-    var names = ["學","心","身"], out = "";
-    for(var k=0;k<9;k++){
-      var q = pt(k*2*Math.PI/3);
-      out += '<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="11" class="s-box-hi"/>';
-      out += '<text x="'+q[0].toFixed(1)+'" y="'+(q[1]+4.5).toFixed(1)+'" class="s-ts" text-anchor="middle" style="fill:var(--ink);font-size:12px">'+names[k%3]+'</text>';
+    /* 起點、5 個圈（學→心→身）、終點。第 2 圈仆街跌穿起點，第 5 圈又跌少少 */
+    var S = [22,182], W = [[78,142],[140,226],[204,172],[262,104],[318,132]], E = [370,50], R = 16;
+    var P = [S].concat(W, [E]);
+    function sub(p,q){ return [p[0]-q[0], p[1]-q[1]]; }
+    function unit(v){ var l = Math.hypot(v[0],v[1]); return [v[0]/l, v[1]/l]; }
+    function tan(i){ return unit(sub(P[Math.min(i+1,P.length-1)], P[Math.max(i-1,0)])); }
+    function f(n){ return n.toFixed(1); }
+    var d = "M" + f(S[0]) + "," + f(S[1]), names = ["學","心","身"], out = "";
+    for(var i=0;i<P.length-1;i++){
+      var p0 = P[i], p1 = P[i+1], t0 = tan(i), t1 = tan(i+1), k = Math.hypot(p1[0]-p0[0], p1[1]-p0[1])/3;
+      d += "C" + f(p0[0]+t0[0]*k) + "," + f(p0[1]+t0[1]*k) + " " + f(p1[0]-t1[0]*k) + "," + f(p1[1]-t1[1]*k) + " " + f(p1[0]) + "," + f(p1[1]);
+      if(i+1 < P.length-1){
+        var n = [t1[1], -t1[0]], C = [p1[0]+n[0]*R, p1[1]+n[1]*R], A = [p1[0]+2*n[0]*R, p1[1]+2*n[1]*R];
+        d += "A" + R + "," + R + " 0 0 0 " + f(A[0]) + "," + f(A[1]) + "A" + R + "," + R + " 0 0 0 " + f(p1[0]) + "," + f(p1[1]);
+        var th0 = Math.atan2(-n[1], -n[0]);
+        for(var j=0;j<3;j++){
+          var ph = th0 - (60 + 120*j)*Math.PI/180, x = C[0] + R*Math.cos(ph), y = C[1] + R*Math.sin(ph);
+          out += '<circle cx="'+f(x)+'" cy="'+f(y)+'" r="9" class="s-box-hi"/>';
+          out += '<text x="'+f(x)+'" y="'+f(y+3.8)+'" class="s-ts" text-anchor="middle" style="fill:var(--ink);font-size:10px">'+names[j]+'</text>';
+        }
+      }
     }
+    path.setAttribute("d", d);
     nodes.innerHTML = out;
-    var end = pt(T);
-    if(reduce){ dot.setAttribute("cx", end[0].toFixed(1)); dot.setAttribute("cy", end[1].toFixed(1)); return; }
+    var ideal = document.getElementById("spiralIdeal"), it = document.getElementById("spiralIdealT");
+    ideal.setAttribute("x1", S[0]); ideal.setAttribute("y1", S[1]); ideal.setAttribute("x2", E[0]); ideal.setAttribute("y2", E[1]);
+    var ang = Math.atan2(E[1]-S[1], E[0]-S[0])*180/Math.PI, lx = 172, ly = S[1] + (E[1]-S[1])*(lx-S[0])/(E[0]-S[0]) - 6;
+    it.setAttribute("x", lx); it.setAttribute("y", f(ly)); it.setAttribute("transform", "rotate("+f(ang)+" "+lx+" "+f(ly)+")");
+    document.getElementById("spiralCrash").innerHTML =
+      '<line x1="12" y1="'+S[1]+'" x2="392" y2="'+S[1]+'" stroke="var(--line)" stroke-width="1"/>' +
+      '<circle cx="'+S[0]+'" cy="'+S[1]+'" r="3" fill="var(--ink-2)"/>' +
+      '<text x="'+S[0]+'" y="'+(S[1]+16)+'" class="s-ts" style="font-size:10px">起點</text>' +
+      '<text x="'+W[1][0]+'" y="'+(W[1][1]+20)+'" class="s-ts" text-anchor="middle" style="fill:var(--heat);font-size:12px">仆街</text>' +
+      '<text x="'+W[4][0]+'" y="'+(W[4][1]+20)+'" class="s-ts" text-anchor="middle" style="fill:var(--heat);font-size:12px">又仆街</text>';
+    if(reduce){ dot.setAttribute("cx", E[0]); dot.setAttribute("cy", E[1]); return; }
     var len = 0; try { len = path.getTotalLength(); } catch(e){}
-    var tt = 0, dur = 12;
+    if(!len){ dot.setAttribute("cx", E[0]); dot.setAttribute("cy", E[1]); return; }
+    var tt = 0, dur = 16;
     visibleRunner(document.getElementById("spiralSvg"), function(dt){
       tt = (tt + dt) % dur;
-      var f = tt/dur;
-      if(len){ var P = path.getPointAtLength(f*len); dot.setAttribute("cx", P.x.toFixed(1)); dot.setAttribute("cy", P.y.toFixed(1)); }
-      else { var p = pt(f*T); dot.setAttribute("cx", p[0].toFixed(1)); dot.setAttribute("cy", p[1].toFixed(1)); }
+      var Q = path.getPointAtLength(tt/dur*len); dot.setAttribute("cx", Q.x.toFixed(1)); dot.setAttribute("cy", Q.y.toFixed(1));
     });
   })();
 })();
