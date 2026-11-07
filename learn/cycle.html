@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>你活喺自己個 cycle 入面</title>
+<meta name="description" content="Cycle 好長，人命好短。每一代人都以為自己見到嘅係永恆真理。改變唔到個潮，就改變你個位。">
+<meta property="og:title" content="你活喺自己個 cycle 入面">
+<meta property="og:description" content="Cycle 好長，人命好短。你以為見到成個世界，其實只係你抽到嗰一段。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/cycle.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/cycle.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="你活喺自己個 cycle 入面">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/cycle.html">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:wght@500;700&family=Noto+Sans+HK:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0c1320; --surface:#131d2f; --surface2:#1a2740; --line:#26344f;
+  --fg:#e7eaf1; --muted:#93a0b8; --faint:#5f6c85;
+  --copper:#f5b942; --copper-soft:rgba(245,185,66,.14);
+  --field:#62b3ff; --field-soft:rgba(98,179,255,.13);
+  --ok:#4fd18b; --ok-soft:rgba(79,209,139,.13); --warn:#f2c14e; --warn-soft:rgba(242,193,78,.13);
+  --bad:#ff6f6f; --bad-soft:rgba(255,111,111,.13); --vio:#a99bf5; --vio-soft:rgba(169,155,245,.14);
+  --hot:#ff7a45; --cold:#5aa9ff;
+  --font-display:"Chiron Sung HK","Noto Serif TC","Songti TC",serif;
+  --font-body:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#9a6400; --copper-soft:rgba(154,100,0,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#eef1f6; --surface:#ffffff; --surface2:#f4f6fa; --line:#d6dce7;
+  --fg:#131a28; --muted:#566178; --faint:#8a94a8;
+  --copper:#9a6400; --copper-soft:rgba(154,100,0,.10);
+  --field:#1d6cc2; --field-soft:rgba(29,108,194,.09);
+  --ok:#16864e; --ok-soft:rgba(22,134,78,.10); --warn:#9a6c00; --warn-soft:rgba(154,108,0,.10);
+  --bad:#c93b3b; --bad-soft:rgba(201,59,59,.09); --vio:#6a55c9; --vio-soft:rgba(106,85,201,.10);
+  --hot:#d9541c; --cold:#2a78d0; color-scheme:light}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.75;margin:0}
+.wrap{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(34px,7vw,54px);font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(25px,4.6vw,33px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,110px),1fr));gap:10px}
+.map a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;color:var(--fg);text-decoration:none;background:var(--surface)}
+.map a:hover,.map a:focus-visible{border-color:var(--copper);outline:none}
+.map b{font-family:var(--font-display);font-size:17px}
+.map small{font-size:13px;color:var(--muted);line-height:1.5}
+.sec{display:flex;flex-direction:column;gap:18px;padding-top:44px;margin-top:40px;border-top:1px solid var(--line)}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab-t{font-size:13px;color:var(--muted);font-family:var(--font-mono);letter-spacing:.04em}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button.chip{font:inherit;font-size:14px;line-height:1.4;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--fg);cursor:pointer}
+button.chip:hover{border-color:var(--copper)}
+button.chip:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+button.chip[aria-pressed="true"]{background:var(--copper-soft);border-color:var(--copper);color:var(--copper)}
+canvas.cv{width:100%;display:block;background:var(--surface2);border-radius:12px}
+svg.fig{width:100%;height:auto;display:block}
+svg.fig text{font-family:var(--font-body)}
+.note{font-size:14px;color:var(--muted);line-height:1.65}
+.src{font-size:12.5px;color:var(--faint);line-height:1.6}
+.punch{font-family:var(--font-display);font-size:clamp(22px,4vw,28px);line-height:1.5;text-wrap:balance}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.card{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card b{font-family:var(--font-display);font-size:18px;font-weight:700;line-height:1.35}
+.card small{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card .k{font-family:var(--font-mono);font-size:12px;color:var(--faint);letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:10px}
+.kpi{background:var(--surface2);border-radius:12px;padding:10px 12px;min-width:0}
+.kpi span{display:block;font-size:12.5px;color:var(--muted)}
+.kpi b{display:block;font-family:var(--font-mono);font-size:22px;font-weight:500;line-height:1.3;font-variant-numeric:tabular-nums}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.row label{font-size:14px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--copper)}
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px}
+table.tbl.wide{min-width:520px}
+table.tbl th,table.tbl td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.tbl th{font-size:13px;color:var(--muted);font-weight:500}
+table.tbl td:first-child{white-space:nowrap}
+.tag{display:inline-block;font-size:12.5px;line-height:1.5;padding:1px 9px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.t-ok{color:var(--ok);background:var(--ok-soft);border-color:transparent}
+.t-bad{color:var(--bad);background:var(--bad-soft);border-color:transparent}
+.t-warn{color:var(--warn);background:var(--warn-soft);border-color:transparent}
+.t-field{color:var(--field);background:var(--field-soft);border-color:transparent}
+.t-cu{color:var(--copper);background:var(--copper-soft);border-color:transparent}
+.t-vio{color:var(--vio);background:var(--vio-soft);border-color:transparent}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.foot{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.mob-only{display:none}
+@media (max-width:600px){.mob-only{display:block}}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--copper)}
+.gen{background:var(--surface2);border:1px solid var(--line);border-left:4px solid var(--copper);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.gen .k{font-family:var(--font-mono);font-size:12.5px;color:var(--faint);letter-spacing:.04em}
+.gen .truth{font-family:var(--font-display);font-size:clamp(24px,5vw,30px);font-weight:700;line-height:1.3}
+.gen p{font-size:16px;line-height:1.65}
+.nw{white-space:nowrap}
+.c-ok{color:var(--ok)} .c-bad{color:var(--bad)} .c-cu{color:var(--copper)}
+.card .truth{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.35}
+.end{gap:10px}
+.end .spg{font-family:var(--font-display);font-size:clamp(28px,6vw,44px);line-height:1.25;font-weight:700;text-wrap:balance}
+.end .spg span{color:var(--copper)}
+.end .one{color:var(--muted);font-size:19px}
+.lfo{display:flex;flex-direction:column;line-height:1.02;margin:22px 0 18px}
+.lfo b{font-family:var(--font-body);font-weight:700;font-size:clamp(40px,11vw,100px);letter-spacing:-.02em;white-space:nowrap}
+.lfo .l{color:var(--copper)} .lfo .f{color:var(--fg)} .lfo .o{color:var(--bad)}
+.end .bitch{font-size:clamp(20px,4.4vw,28px);font-weight:700;color:var(--muted)}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.gal a{display:block}
+.gal img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line)}
+.gal a:hover img{border-color:var(--copper)}
+.dl{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;font-size:15px;color:var(--copper);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 16px}
+.dl:hover{border-color:var(--copper)}
+table.tbl a{color:var(--copper)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+
+<header class="hero">
+  <div class="eyebrow">人生筆記 · cycle</div>
+  <h1>你活喺<span class="nw">自己個 cycle 入面</span></h1>
+  <p class="lede">Cycle 好長，人命好短。你以為見到成個世界，其實只係你抽到嗰一段。</p>
+  <nav class="map" aria-label="六段">
+    <a href="#len"><b>有幾長</b><small>cycle 對人命</small></a>
+    <a href="#spx"><b>每代真理</b><small>同一個市場</small></a>
+    <a href="#world"><b>唔止股市</b><small>換個地方</small></a>
+    <a href="#pos"><b>改變位置</b><small>你控制到乜</small></a>
+    <a href="#end"><b>單人遊戲</b><small>lead, follow</small></a>
+    <a href="#link"><b>搭過去</b><small>連埋你識嘅</small></a>
+  </nav>
+</header>
+
+<section class="sec" id="len" aria-labelledby="h-len">
+  <span class="eyebrow">有幾長</span>
+  <h2 id="h-len">大 cycle 喺你條命入面，<span class="nw">睇落似一條直線</span></h2>
+  <div class="lab">
+    <div class="lab-t">拉吓：你喺第幾年出世？出世時間 = 抽籤</div>
+    <input type="range" id="born" min="0" max="170" value="90" aria-label="出世年份（0 至 170 年）">
+    <svg class="fig" id="wvSvg" role="img" aria-label="四條波：經濟周期 4 至 10 年、股市長牛長熊約 35 年一轉、長期債務周期 50 至 75 年、大國興衰約 250 年。一個人約 80 年嘅命只框住每條波嘅一段。"></svg>
+    <p class="note" id="wvNote"></p>
+    <p class="src">周期長度係常見模型（例如 Ray Dalio）嘅大約數，唔係物理定律。</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span>經濟周期</span><b>4–10 年</b></div>
+    <div class="kpi"><span>長牛＋長熊</span><b>~35 年</b></div>
+    <div class="kpi"><span>長期債務</span><b>50–75 年</b></div>
+    <div class="kpi"><span>大國興衰</span><b>~250 年</b></div>
+    <div class="kpi"><span>你條命</span><b>~80 年</b></div>
+  </div>
+  <p class="punch">所以每一代人都以為：<br>自己見到嘅，就係永恆真理。</p>
+  <p class="note">你阿爺講嘢你當廢話 —— 因為佢抽到嘅係另一段。</p>
+</section>
+
+<section class="sec" id="spx" aria-labelledby="h-spx">
+  <span class="eyebrow">同一個市場</span>
+  <h2 id="h-spx">你幾時成年，<span class="nw">決定你覺得股票</span><span class="nw">係天堂定地獄</span></h2>
+  <div class="lab">
+    <div class="btns" id="genBtns" role="group" aria-label="揀一代人"></div>
+    <svg class="fig" id="spxSvg" role="img" aria-label="1920 至 2025 年 S&amp;P 500 對數走勢：1929 至 1954 長熊、1954 至 1966 長牛、1966 至 1982 長熊、1982 至 2000 長牛、2000 至 2009 長熊、2009 之後長牛"></svg>
+    <div class="legend"><span><i style="background:var(--bad)"></i>長熊</span><span><i style="background:var(--ok)"></i>長牛</span><span><i style="background:var(--copper)"></i>呢代人嘅投資年份</span></div>
+    <div class="gen" id="genCard" aria-live="polite"></div>
+    <p class="src">S&amp;P 500（1957 年前用其前身指數），年尾收市＋主要高低位，未計股息，對數刻度。2025 年底收市 6,845.50。</p>
+  </div>
+  <p class="punch">每段長牛長熊 9–25 年 ——<br>已經係一個人大半段投資人生。</p>
+</section>
+
+<section class="sec" id="world" aria-labelledby="h-world">
+  <span class="eyebrow">唔止股市</span>
+  <h2 id="h-world">換個地方，都係同一回事</h2>
+  <div class="cards">
+    <div class="card"><span class="k">1978+ · 中國改革開放</span><b class="truth c-ok">「膽大就發達」</b><small>實質人均 GDP 升約 30 倍，近 8 億人脫貧。低基數年代，郁就有得賺。</small></div>
+    <div class="card"><span class="k">2020+ · 香港</span><b class="truth c-bad">「呢度冇得玩」</b><small>言論收緊、自由收緊，一班人移民。同一個城市，上一代覺得係天堂。</small></div>
+    <div class="card"><span class="k">而家 · 加沙、烏克蘭</span><b class="truth">下一代：可能係低基數重建嘅一代</b><small>前提：要有和平同重建。德、日戰後有；好多地方冇。</small></div>
+  </div>
+  <p class="punch">8 代人，8 條真理。<br>全部都啱 —— 只係啱咗佢抽到嗰段。</p>
+  <p class="note">唔讀歷史、唔識 zoom out，你就會將自己嗰段當成全部，見唔到下一個浪。</p>
+</section>
+
+<section class="sec" id="pos" aria-labelledby="h-pos">
+  <span class="eyebrow">你控制到乜</span>
+  <h2 id="h-pos">改變唔到個潮，就改變你個位</h2>
+  <div class="lab">
+    <svg class="fig" id="tideSvg" viewBox="0 0 640 300" role="img" aria-label="一個人坐喺浪底嗌個世界唔公平；另一個人踩住滑浪板跟住個浪上"></svg>
+    <p class="note">人命 ~80 年，大 cycle 50–250 年。想改變潮流？可以，但要大量時間＋大量運氣。<b class="c-cu">改變位置，今日就做得到。</b></p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="k">1</span><b>Zoom out</b><small>讀歷史 = 借人哋幾百年嘅 cycle 嚟睇，唔使淨靠自己嗰 40 年。</small></div>
+    <div class="card"><span class="k">2</span><b>換位</b><small>地方・資產・技能 —— 邊度係上升浪，就企去邊度。</small></div>
+    <div class="card"><span class="k">3</span><b>跟浪</b><small>唔使估頂估底。浪嚟就上，浪走就落。</small></div>
+  </div>
+</section>
+
+<section class="sec end" id="end" aria-labelledby="h-end">
+  <span class="eyebrow">At the end of the day</span>
+  <h2 id="h-end" class="spg">Life is a <span>single player game.</span></h2>
+  <p class="one">You got 1 life. Make your choice.</p>
+  <div class="lfo" aria-label="Lead, follow, or fuck off."><b class="l">LEAD.</b><b class="f">FOLLOW.</b><b class="o">OR FUCK OFF.</b></div>
+  <p class="bitch">Bitching is not helping.</p>
+</section>
+
+<section class="sec" id="link" aria-labelledby="h-link">
+  <span class="eyebrow">由你識嘅嘢搭過去</span>
+  <h2 id="h-link">同你已經識嘅嘢連埋</h2>
+  <div class="lab">
+    <div class="scrollx"><table class="tbl">
+      <tr><th>你識嘅</th><th>喺呢度點用</th></tr>
+      <tr><td><a href="sectors.html">錢會搬屋</a></td><td>行業輪動係細 cycle：錢幾年搬一次屋。長牛長熊係大一級嘅搬屋，一搬十幾年。</td></tr>
+      <tr><td><a href="active-passive.html">揀邊種痛</a></td><td>2009 後一代覺得被動必贏，因為佢哋未試過 16 年原地踏步嗰種痛。</td></tr>
+      <tr><td><a href="revolutions.html">革命嘅規律</a></td><td>大國興衰、制度收緊或者放開，係大 cycle 入面嘅轉折位。</td></tr>
+      <tr><td>Trend following</td><td>就係「跟浪」：唔估個潮幾時轉，淨係企啱邊。</td></tr>
+      <tr><td>Backtest 樣本</td><td>淨用一段 cycle 嘅數據驗證系統，等於淨係問一代人點睇股票。</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section class="sec" id="imgs" aria-labelledby="h-imgs">
+  <span class="eyebrow">分享用</span>
+  <h2 id="h-imgs">6 張圖，撳落去就係原圖</h2>
+  <div class="gal">
+    <a href="../img/cycle/cycle-1.jpg"><img src="../img/cycle/cycle-1.jpg" width="1080" height="1350" loading="lazy" alt="分享圖 1：cycle 有幾長"></a>
+    <a href="../img/cycle/cycle-2.jpg"><img src="../img/cycle/cycle-2.jpg" width="1080" height="1350" loading="lazy" alt="分享圖 2：100 年美股"></a>
+    <a href="../img/cycle/cycle-3.jpg"><img src="../img/cycle/cycle-3.jpg" width="1080" height="1350" loading="lazy" alt="分享圖 3：每一代一條真理"></a>
+    <a href="../img/cycle/cycle-4.jpg"><img src="../img/cycle/cycle-4.jpg" width="1080" height="1350" loading="lazy" alt="分享圖 4：唔止股市"></a>
+    <a href="../img/cycle/cycle-5.jpg"><img src="../img/cycle/cycle-5.jpg" width="1080" height="1350" loading="lazy" alt="分享圖 5：改變你個位"></a>
+    <a href="../img/cycle/cycle-6.jpg"><img src="../img/cycle/cycle-6.jpg" width="1080" height="1350" loading="lazy" alt="分享圖 6：Lead, follow, or fuck off"></a>
+  </div>
+  <a class="dl" href="../img/cycle/cycle-long.png" download>下載成套長圖 ↓</a>
+</section>
+
+<footer class="foot">
+  <p class="src">資料：S&amp;P 500 歷史收市（1957 年前為前身指數）；2025 年底收市 6,845.50；美國 CPI（1980 年 3 月按年 14.8%）；World Bank 中國實質人均 GDP（2015 年美元，1979 年 $404 → 2024 年 $13,119）。周期長度為常見模型嘅大約數。</p>
+</footer>
+</div>
+
+<script>
+(function(){
+var NS='http://www.w3.org/2000/svg';
+function $(id){return document.getElementById(id)}
+function C(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+function S(tag,at,p,txt){var e=document.createElementNS(NS,tag);for(var k in at)e.setAttribute(k,at[k]);if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e}
+function clear(s){while(s.firstChild)s.removeChild(s.firstChild)}
+function width(s){return Math.max(300,Math.round(s.getBoundingClientRect().width||640))}
+
+/* ---------- 1. cycle waves vs one life ---------- */
+var rows=[
+  {name:'經濟周期',len:'4–10 年',P:8,A:12,ph:0,seen:'一世見 ~10 次'},
+  {name:'股市長牛＋長熊',len:'~35 年',P:34,A:15,ph:.3,seen:'一世見 ~2 轉'},
+  {name:'長期債務周期',len:'50–75 年',P:64,A:18,ph:.55,seen:'一世見 ~1 次'},
+  {name:'大國興衰',len:'~250 年',P:250,A:22,ph:null,seen:'一世得一小段'}
+];
+function wy(r,t,cy){return r.ph===null?cy-r.A*Math.sin(2*Math.PI*(t-130)/r.P):cy-r.A*Math.sin(2*Math.PI*(t/r.P+r.ph))}
+function drawWaves(){
+  var s=$('wvSvg'),W=width(s),rh=80,H=rh*4+62,b=+$('born').value,L0=b,L1=b+80;
+  clear(s);s.setAttribute('viewBox','0 0 '+W+' '+H);
+  var X=function(t){return t/250*W};
+  var cu=C('--copper'),fg=C('--fg'),mu=C('--muted'),ln=C('--line'),fa=C('--faint');
+  var d=S('defs',{},s),cp=S('clipPath',{id:'wvLife'},d);S('rect',{x:X(L0),y:0,width:X(80),height:H},cp);
+  S('rect',{x:X(L0),y:2,width:X(80),height:rh*4+4,rx:8,fill:C('--copper-soft'),stroke:cu,'stroke-width':1.5,'stroke-dasharray':'6 5'},s);
+  rows.forEach(function(r,i){
+    var top=i*rh,cy=top+50,p='';
+    for(var t=0;t<=250;t+=.5)p+=(t?'L':'M')+X(t).toFixed(1)+' '+wy(r,t,cy).toFixed(1);
+    S('path',{d:p,fill:'none',stroke:ln,'stroke-width':2.5},s);
+    S('path',{d:p,fill:'none',stroke:cu,'stroke-width':3.5,'clip-path':'url(#wvLife)','stroke-linecap':'round'},s);
+    var t1=S('text',{x:2,y:top+20,'font-size':14,'font-weight':700,fill:fg},s,r.name+' ');
+    S('tspan',{fill:mu,'font-weight':400,'font-size':13},t1,r.len);
+    S('text',{x:W-2,y:top+20,'font-size':13,'font-weight':700,fill:cu,'text-anchor':'end'},s,r.seen);
+  });
+  var ay=rh*4+16;
+  S('line',{x1:0,y1:ay,x2:W,y2:ay,stroke:ln,'stroke-width':1.5},s);
+  [0,50,100,150,200,250].forEach(function(t){
+    S('text',{x:Math.min(Math.max(X(t),2),W-2),y:ay+18,'font-size':11,fill:fa,'text-anchor':t===0?'start':(t===250?'end':'middle')},s,t===250?'250 年':String(t));
+  });
+  S('text',{x:X(L0+40),y:ay+36,'font-size':13,'font-weight':700,fill:cu,'text-anchor':'middle'},s,'◀ 你條命 ~80 年 ▶');
+  // what the big cycle looks like from inside this window
+  var th=2*Math.PI*(L0+40-130)/250,c=Math.cos(th),sn=Math.sin(th),st,bel;
+  if(c>.5){st='一路升';bel='世界一定越嚟越好'}else if(c<-.5){st='一路跌';bel='世界一定越嚟越差'}else if(sn>0){st='喺頂部打轉';bel='好日子永遠唔會完'}else{st='喺谷底打轉';bel='一世都翻唔到身'}
+  $('wvNote').innerHTML='你抽到第 '+L0+'–'+L1+' 年：大國興衰喺你條命入面<b>'+st+'</b>，你好大機會覺得「'+bel+'」。拉去第二個位，同一條波，結論完全唔同。';
+}
+$('born').addEventListener('input',drawWaves);
+
+/* ---------- 2. S&P 500 log chart + generations ---------- */
+var data=[[1921,6.8],[1922,7.3],[1923,8.6],[1924,8.6],[1925,10.1],[1926,12.5],[1927,13.5],[1928,17.7],[1929,24.4],[1929.7,31.9],[1930,21.5],[1931,15.3],[1932,8.1],[1932.5,4.4],[1933,6.9],[1934,10.1],[1935,9.5],[1936,13.4],[1937,17.2],[1937.2,18.7],[1938,10.6],[1939,13.2],[1940,12.5],[1941,10.6],[1942,8.7],[1942.3,7.5],[1943,9.8],[1944,11.7],[1945,13.3],[1946,17.4],[1947,15.3],[1948,15.3],[1949,15.2],[1950,16.8],[1951,20.4],[1952,23.8],[1953,26.6],[1954,24.8],[1955,36.0],[1956,45.5],[1957,46.7],[1958,40.0],[1959,55.2],[1960,59.9],[1961,58.1],[1962,71.6],[1963,63.1],[1964,75.0],[1965,84.8],[1966,92.4],[1966.1,94.1],[1967,80.3],[1968,96.5],[1968.9,108.4],[1969,103.9],[1970,92.1],[1970.4,69.3],[1971,92.2],[1972,102.1],[1973,118.1],[1974,97.6],[1974.75,62.3],[1975,68.6],[1976,90.2],[1977,107.5],[1978,95.1],[1979,96.1],[1980,107.9],[1981,135.8],[1982,122.6],[1982.6,102.4],[1983,140.6],[1984,164.9],[1985,167.2],[1986,211.3],[1987,242.2],[1987.65,336.8],[1987.8,224.8],[1988,247.1],[1989,277.7],[1990,353.4],[1991,330.2],[1992,417.1],[1993,435.7],[1994,466.5],[1995,459.3],[1996,615.9],[1997,740.7],[1998,970.4],[1999,1229.2],[2000,1469.3],[2000.2,1527],[2001,1320.3],[2002,1148.1],[2002.78,776.8],[2003,879.8],[2004,1111.9],[2005,1211.9],[2006,1248.3],[2007,1418.3],[2007.78,1565],[2008,1468.4],[2009,903.3],[2009.19,676.5],[2010,1115.1],[2011,1257.6],[2012,1257.6],[2013,1426.2],[2014,1848.4],[2015,2058.9],[2016,2043.9],[2017,2238.8],[2018,2673.6],[2019,2506.9],[2020,3230.8],[2020.22,2237],[2021,3756.1],[2022,4766.2],[2022.78,3577],[2023,3839.5],[2024,4769.8],[2025,5881.6],[2025.27,4983],[2026,6845.5]];
+var bands=[[1929.7,1954.7,0,'−86%','25 年返本'],[1954.7,1966.1,1,'戰後','×3'],[1966.1,1982.6,0,'16 年','原地踏步'],[1982.6,2000.2,1,'18 年','×15'],[2000.2,2009.2,0,'失落','十年'],[2009.2,2026,1,'QE 牛','×10']];
+var gens=[
+  {btn:'1930s 大蕭條',a:1929.7,b:1954.7,era:'1930s · 大蕭條成年',saw:'美股由頂跌 86%，25 年先返本（1954）。',truth:'「股票 = 賭場」',tc:'c-bad',joke:'一世唔掂股票。唔係蠢，係見過。'},
+  {btn:'Boomers',a:1982.6,b:2007.8,era:'Boomers · 1946–64 出世',saw:'出世百廢待興；揾錢最多嗰 25 年，撞正 1982–2007 股樓齊升。',truth:'「努力就有回報」',tc:'c-ok',joke:'現實：瞓喺度都過得爽。唔係佢叻，係出世時間啱。'},
+  {btn:'1970s',a:1966.1,b:1982.6,era:'1970s · 70 年代成年',saw:'美股 16 年原地踏步；美國通脹最高見 14.8%（1980）。',truth:'「股市係垃圾」',tc:'c-bad',joke:'買咗 16 年，得返通脹同白頭髮。'},
+  {btn:'1990s',a:1990,b:2013.2,era:'1990s · 90 年代成年',saw:'前半瞓喺度都升；1999 年先入場嘅，13 年先返本。',truth:'「股票長升長有」',tc:'c-ok',joke:'早三年入同遲三年入，係兩個人生。'},
+  {btn:'2009+ QE 一代',a:2009.2,b:2026,era:'2009+ · QE 一代',saw:'S&P 由 2009 年低位 677，升到 2025 年底 6,845，十倍。',truth:'「月供 SPY 就得」',tc:'c-ok',joke:'以為自己係巴菲特，其實係聯儲局。'}
+];
+var sel=0;
+function tw(str,fs){var w=0;for(var i=0;i<str.length;i++){w+=str.charCodeAt(i)>255?fs:fs*.6}return w}
+function drawSpx(){
+  var s=$('spxSvg'),W=width(s),narrow=W<480,H=Math.round(Math.min(440,Math.max(320,W*.72)));
+  clear(s);s.setAttribute('viewBox','0 0 '+W+' '+H);
+  var L=narrow?34:48,R=W-6,T=52,B=H-26,x0=1920,x1=2026.5,lo=Math.log10(3),hi=Math.log10(12000);
+  var X=function(t){return L+(t-x0)/(x1-x0)*(R-L)},Y=function(v){return B-(Math.log10(v)-lo)/(hi-lo)*(B-T)};
+  var ok=C('--ok'),bad=C('--bad'),cu=C('--copper'),fg=C('--fg'),mu=C('--muted'),fa=C('--faint'),ln=C('--line');
+  bands.forEach(function(b){
+    var x=X(b[0]),w=X(b[1])-x,col=b[2]?ok:bad;
+    S('rect',{x:x,y:T-48,width:w,height:B-T+48,fill:b[2]?C('--ok-soft'):C('--bad-soft')},s);
+    S('rect',{x:x,y:T-48,width:w,height:3,fill:col},s);
+    var fs1=narrow?11:13,fs2=narrow?10:12,cx=x+w/2;
+    if(tw(b[3],fs1)<w-4)S('text',{x:cx,y:T-28,'font-size':fs1,'font-weight':700,fill:col,'text-anchor':'middle'},s,b[3]);
+    if(tw(b[4],fs2)<w-4)S('text',{x:cx,y:T-12,'font-size':fs2,fill:fg,'text-anchor':'middle'},s,b[4]);
+  });
+  var g=gens[sel];
+  S('rect',{x:X(g.a),y:T-2,width:X(g.b)-X(g.a),height:B-T+2,fill:'none',stroke:cu,'stroke-width':2.5,rx:4},s);
+  [10,100,1000,10000].forEach(function(v){
+    S('line',{x1:L,y1:Y(v),x2:R,y2:Y(v),stroke:ln,'stroke-width':1},s);
+    S('text',{x:L-6,y:Y(v)+4,'font-size':11,fill:fa,'text-anchor':'end'},s,narrow?(v>=1000?(v/1000)+'k':String(v)):v.toLocaleString('en'));
+  });
+  var step=narrow?20:20;
+  for(var t=1920;t<=2020;t+=step){if(narrow&&(t-1920)%40)continue;S('text',{x:X(t),y:B+17,'font-size':11,fill:mu,'text-anchor':'middle'},s,String(t))}
+  S('line',{x1:L,y1:B,x2:R,y2:B,stroke:ln,'stroke-width':1.5},s);
+  var p='';data.forEach(function(q,i){p+=(i?'L':'M')+X(q[0]).toFixed(1)+' '+Y(q[1]).toFixed(1)});
+  S('path',{d:p,fill:'none',stroke:fg,'stroke-width':2,'stroke-linejoin':'round'},s);
+  function dot(t,v,lab,dx,dy,an){S('circle',{cx:X(t),cy:Y(v),r:3.5,fill:cu},s);S('text',{x:X(t)+dx,y:Y(v)+dy,'font-size':12,'font-weight':700,fill:cu,'text-anchor':an||'start'},s,lab)}
+  dot(1932.5,4.4,'1932 低位',7,4);
+  dot(2009.19,676.5,'677',0,18,'middle');
+  dot(2026,6845.5,'6,845',-6,-8,'end');
+  $('genCard').innerHTML='<span class="k">'+g.era+'</span><b class="truth '+g.tc+'">'+g.truth+'</b><p>'+g.saw+'</p><p class="note">'+g.joke+'</p>';
+}
+var gb=$('genBtns');
+gens.forEach(function(g,i){
+  var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=g.btn;b.setAttribute('aria-pressed',String(i===sel));
+  b.addEventListener('click',function(){sel=i;[].forEach.call(gb.children,function(x,j){x.setAttribute('aria-pressed',String(j===i))});drawSpx()});
+  gb.appendChild(b);
+});
+
+/* ---------- 3. tide: complain or change position ---------- */
+function drawTide(){
+  var s=$('tideSvg');clear(s);
+  var k=640/width(s),F=function(b){return Math.round(Math.max(b,13*k))};
+  var fg=C('--fg'),cu=C('--copper'),fi=C('--field'),mu=C('--muted'),bad=C('--bad'),sf=C('--surface2'),ln=C('--line');
+  var Wv=function(x){return 165+78*Math.cos(2*Math.PI*(x-128)/768)};
+  var d=S('defs',{},s),gr=S('linearGradient',{id:'sea',x1:0,y1:0,x2:0,y2:1},d);
+  S('stop',{offset:0,'stop-color':fi,'stop-opacity':.55},gr);S('stop',{offset:1,'stop-color':fi,'stop-opacity':.04},gr);
+  var a='M0 300',b='';for(var x=0;x<=640;x+=4){a+=' L'+x+' '+Wv(x).toFixed(1);b+=(x?' L':'M')+x+' '+Wv(x).toFixed(1)}a+=' L640 300 Z';
+  S('path',{d:a,fill:'url(#sea)'},s);S('path',{d:b,fill:'none',stroke:fi,'stroke-width':3},s);
+  var P=function(col){return{stroke:col,'stroke-width':4,'stroke-linecap':'round',fill:'none'}};
+  var x1=122,y1=Wv(122);
+  S('circle',{cx:x1,cy:y1-47,r:10,fill:fg},s);
+  S('path',Object.assign(P(fg),{d:'M'+x1+' '+(y1-37)+' L'+x1+' '+(y1-14)+' L'+(x1+19)+' '+(y1-13)+' L'+(x1+22)+' '+(y1-1)}),s);
+  S('path',Object.assign(P(fg),{d:'M'+x1+' '+(y1-32)+' L'+(x1-15)+' '+(y1-51)+' M'+x1+' '+(y1-32)+' L'+(x1+15)+' '+(y1-51)}),s);
+  var bw=Math.max(184,F(19)*7+28),bh=Math.max(44,F(19)+24);S('rect',{x:x1-bw/2+14,y:y1-78-bh,width:bw,height:bh,rx:12,fill:sf,stroke:ln,'stroke-width':1.5},s);
+  S('path',{d:'M'+(x1-7)+' '+(y1-79)+' L'+x1+' '+(y1-64)+' L'+(x1+9)+' '+(y1-79)+' Z',fill:sf},s);
+  S('text',{x:x1+14,y:y1-78-bh/2+F(19)*.36,'font-size':F(19),'font-weight':700,fill:fg,'text-anchor':'middle'},s,'個世界唔公平！');
+  S('text',{x:x1+14,y:y1+34,'font-size':F(18),'font-weight':700,fill:bad,'text-anchor':'middle'},s,'原地 bitching');
+  var x2=397,y2=Wv(397),g=S('g',{transform:'rotate(-30 '+x2+' '+y2+')'},s);
+  S('rect',{x:x2-37,y:y2-5,width:74,height:8,rx:4,fill:cu},g);
+  S('circle',{cx:x2+4,cy:y2-59,r:10,fill:cu},g);
+  S('path',Object.assign(P(cu),{d:'M'+(x2+3)+' '+(y2-49)+' L'+x2+' '+(y2-24)+' M'+x2+' '+(y2-24)+' L'+(x2-14)+' '+(y2-5)+' M'+x2+' '+(y2-24)+' L'+(x2+15)+' '+(y2-5)}),g);
+  S('path',Object.assign(P(cu),{d:'M'+(x2+1)+' '+(y2-42)+' L'+(x2-22)+' '+(y2-37)+' M'+(x2+1)+' '+(y2-42)+' L'+(x2+24)+' '+(y2-50)}),g);
+  S('text',{x:222,y:y2-34,'font-size':F(18),'font-weight':700,fill:cu,'text-anchor':'middle'},s,'轉位：跟住個浪上');
+  S('path',{d:'M'+(x1+38)+' '+(y1+4)+' C '+(x1+128)+' '+(y1+6)+', '+(x2-102)+' '+(y2+58)+', '+(x2-45)+' '+(y2+26),fill:'none',stroke:mu,'stroke-width':2,'stroke-dasharray':'7 6'},s);
+  S('path',{d:'M'+(x2-45)+' '+(y2+26)+' l-14 -1 l6 11 z',fill:mu},s);
+  S('text',{x:275,y:y1+36,'font-size':F(16),fill:mu,'text-anchor':'middle'},s,'你揀');
+  S('text',{x:540,y:Wv(540)-14,'font-size':F(15),fill:fi,'text-anchor':'middle'},s,'浪頂');
+}
+
+function all(){drawWaves();drawSpx();drawTide()}
+all();
+var rz,lw=window.innerWidth;
+window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){if(Math.abs(window.innerWidth-lw)>2){lw=window.innerWidth;all()}},150)});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',all);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(all);
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
