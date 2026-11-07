@@ -144,6 +144,13 @@ canvas{width:100%;height:auto;display:block;background:var(--panel2);border:1px 
 <style>
 .site-back{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
 .site-back:hover{color:var(--ink)}
+.unk2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.unk2 .card h3{font-family:var(--display);font-size:20px}
+.uhead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip2{font-size:13px;border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:2px 10px}
+.ans{font-size:14px;border-top:1px solid var(--line);padding-top:10px}
+.ans b{font-weight:500}
 </style>
 </head>
 <body>
@@ -194,6 +201,70 @@ canvas{width:100%;height:auto;display:block;background:var(--panel2);border:1px 
       <svg class="chart" id="arch" viewBox="0 0 640 250" role="img" aria-label="確定程度：由粒子到分子最清楚；最底嘅暗物質同量子重力、上面嘅生命起源同意識仲未知；社會有爭議"></svg>
     </div>
   </section>
+
+  <section id="unknown" aria-labelledby="h-unk">
+    <h2 id="h-unk">兩個冇答案</h2>
+    <p class="lede">兩級都未知，但係唔同種未知。</p>
+    <div class="unk2">
+      <article class="card">
+        <div class="uhead"><h3>化學 → 生命</h3><span class="st s1">查案型：知道要搵乜</span></div>
+        <svg viewBox="0 0 320 214" role="img" aria-label="水、甲烷、氨到胺基酸同核苷酸已經做到；會自己抄自己嘅 RNA 只做到片段；去到第一粒細胞點樣跳過去仲未知">
+          <defs><marker id="ua" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" style="stroke:var(--muted)" stroke-width="1.5"/></marker></defs>
+          <rect x="6" y="4" width="150" height="34" rx="8" style="fill:var(--panel2);stroke:var(--chem)" stroke-width="1.5"/>
+          <text x="81" y="26" text-anchor="middle" style="font-size:13px;fill:var(--ink)">水、甲烷、氨</text>
+          <line x1="81" y1="40" x2="81" y2="58" style="stroke:var(--muted)" stroke-width="1.2" marker-end="url(#ua)"/>
+          <rect x="6" y="60" width="150" height="34" rx="8" style="fill:var(--panel2);stroke:var(--chem)" stroke-width="1.5"/>
+          <text x="81" y="82" text-anchor="middle" style="font-size:13px;fill:var(--ink)">胺基酸、核苷酸</text>
+          <line x1="81" y1="96" x2="81" y2="114" style="stroke:var(--muted)" stroke-width="1.2" marker-end="url(#ua)"/>
+          <rect x="6" y="116" width="150" height="34" rx="8" style="fill:var(--panel2);stroke:var(--soc)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="81" y="138" text-anchor="middle" style="font-size:13px;fill:var(--ink)">會自己抄自己嘅 RNA</text>
+          <line x1="81" y1="152" x2="81" y2="170" style="stroke:var(--bad)" stroke-width="1.2" stroke-dasharray="3 3"/>
+          <text x="96" y="166" style="font-size:14px;font-weight:700;fill:var(--bad)">?</text>
+          <rect x="6" y="172" width="150" height="34" rx="8" style="fill:var(--panel2);stroke:var(--bad)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="81" y="194" text-anchor="middle" style="font-size:13px;fill:var(--ink)">第一粒細胞</text>
+          <text x="170" y="26" style="font-size:12px;fill:var(--muted)">到處都有</text>
+          <text x="170" y="76" style="font-size:12px;fill:var(--muted)">1953 年實驗：</text>
+          <text x="170" y="92" style="font-size:12px;fill:var(--muted)">放電 + 氣體就砌到</text>
+          <text x="170" y="132" style="font-size:12px;fill:var(--muted)">實驗室整到抄少少</text>
+          <text x="170" y="148" style="font-size:12px;fill:var(--muted)">未抄到自己全條</text>
+          <text x="170" y="188" style="font-size:12px;fill:var(--muted)">中間點跳過去</text>
+          <text x="170" y="204" style="font-size:12px;fill:var(--bad)">未知</text>
+        </svg>
+        <p class="small">大家同意答案係化學，只係未搵到條路。好似查案：知道兇手係邊類人，未搵到路線。</p>
+        <p class="ans"><b>點先算答到：</b>喺實驗室由死物整出一樣會自己複製、會進化嘅嘢。</p>
+      </article>
+      <article class="card">
+        <div class="uhead"><h3>生命 → 意識</h3><span class="st s2">連題目都未定</span></div>
+        <svg viewBox="0 0 320 214" role="img" aria-label="腦嘅神經網絡分兩邊：容易問題有進展，包括注意力、記憶、講得出見到紅色、麻醉閂得到；困難問題冇答案：點解神經訊號會有感覺">
+          <defs><marker id="ub" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" style="stroke:var(--muted)" stroke-width="1.5"/></marker></defs>
+          <rect x="85" y="4" width="150" height="34" rx="8" style="fill:var(--panel2);stroke:var(--mind)" stroke-width="1.5"/>
+          <text x="160" y="26" text-anchor="middle" style="font-size:13px;fill:var(--ink)">腦：神經網絡</text>
+          <line x1="130" y1="40" x2="86" y2="61" style="stroke:var(--muted)" stroke-width="1.2" marker-end="url(#ub)"/>
+          <line x1="190" y1="40" x2="234" y2="61" style="stroke:var(--muted)" stroke-width="1.2" marker-end="url(#ub)"/>
+          <rect x="6" y="64" width="148" height="112" rx="10" style="fill:var(--panel2);stroke:var(--good)" stroke-width="1.5"/>
+          <text x="80" y="88" text-anchor="middle" style="font-size:14px;font-weight:700;fill:var(--good)">容易問題</text>
+          <text x="80" y="112" text-anchor="middle" style="font-size:12.5px;fill:var(--ink)">注意力、記憶</text>
+          <text x="80" y="131" text-anchor="middle" style="font-size:12.5px;fill:var(--ink)">講得出「見到紅」</text>
+          <text x="80" y="150" text-anchor="middle" style="font-size:12.5px;fill:var(--ink)">麻醉閂得到</text>
+          <text x="80" y="168" text-anchor="middle" style="font-size:12px;fill:var(--good)">有進展</text>
+          <rect x="166" y="64" width="148" height="112" rx="10" style="fill:var(--panel2);stroke:var(--bad)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="240" y="88" text-anchor="middle" style="font-size:14px;font-weight:700;fill:var(--bad)">困難問題</text>
+          <text x="240" y="118" text-anchor="middle" style="font-size:12.5px;fill:var(--ink)">點解神經訊號</text>
+          <text x="240" y="138" text-anchor="middle" style="font-size:12.5px;fill:var(--ink)">會「有感覺」？</text>
+          <text x="240" y="168" text-anchor="middle" style="font-size:12px;fill:var(--bad)">冇答案</text>
+          <text x="160" y="204" text-anchor="middle" style="font-size:12px;fill:var(--muted)">訊號量得晒，訊號同感覺之間仲缺一步</text>
+        </svg>
+        <p class="small">科學解釋到你點解會嗌「好痛」，解釋唔到點解會痛。</p>
+        <div class="chips" aria-label="四個主要理論"><span class="chip2">全域工作空間：資訊廣播晒全腦</span><span class="chip2">整合資訊：整合越多越有意識</span><span class="chip2">預測處理：不停估，估錯就改</span><span class="chip2">錯覺論：感覺係腦講嘅故事</span></div>
+        <ul class="small muted">
+          <li>2025 年《Nature》：兩派一齊設計實驗，事前寫低預測，結果兩邊都有預測唔中。</li>
+          <li>2024 年一批科學家聯署：哺乳類同雀鳥有意識嘅證據強；所有脊椎動物同好多無脊椎動物有實在可能。</li>
+        </ul>
+        <p class="ans"><b>點先算答到：</b>未有共識，連用咩方法驗都未定。</p>
+      </article>
+    </div>
+    <p class="small muted">資料：Miller 1953《Science》；Chalmers 1995；Cogitate Consortium 2025《Nature》；New York Declaration on Animal Consciousness 2024。</p>
+  </section>
 </main>
 <script>
 (()=>{
@@ -235,7 +306,7 @@ const LV=[{n:'量子場',tm:'大爆炸',g:0,gl:'佢係最底',em:'粒子',a:'幾
  {n:'生命',tm:'35 億年前',g:1.3,gl:'氫鍵 + 能量流',em:'繁殖、進化',a:'一粒細胞分裂'},
  {n:'意識',tm:'6 億年前',g:'spark',gl:'神經電訊號',em:'感受、「我」',a:'神經網絡入面訊號走來走去'},
  {n:'社會',tm:'7 萬年前',g:'story',gl:'故事：錢、國家、宗教',em:'陌生人合作',a:'幾個人之間傳錢傳故事'}];
-const CON=[{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣',star:1},{t:'q',q:'化學點變生命：未知'},{t:'vs',v:'突變',s:'留到後代',w:'藍藻排出嘅 O₂ 廢氣 → 動物有力燒嘢'},{t:'vs',v:'想像、發明',s:'試過得唔得、錢、權力',w:'植物屍體 → 煤、石油 → 工業'}];
+const CON=[{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣'},{t:'vs',v:'亂撞',s:'最穩陣',star:1},{t:'q',q:'化學點變生命：未知'},{t:'vs',v:'突變',s:'留到後代',u:'點解會有感覺：未知',w:'藍藻排出嘅 O₂ 廢氣 → 動物有力燒嘢'},{t:'vs',v:'想像、發明',s:'試過得唔得、錢、權力',w:'植物屍體 → 煤、石油 → 工業'}];
 function spring(g){if(g==='spark')return `<svg width="34" height="14" viewBox="0 0 34 14" aria-hidden="true"><path d="M2 7H10L13 2L17 12L21 4L24 7H32" fill="none" style="stroke:var(--mind)" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
  if(g==='story')return `<svg width="34" height="16" viewBox="0 0 34 16" aria-hidden="true"><path d="M5 2H29A3 3 0 0 1 32 5V9A3 3 0 0 1 29 12H14L9 15V12H5A3 3 0 0 1 2 9V5A3 3 0 0 1 5 2Z" fill="none" style="stroke:var(--soc)" stroke-width="1.6"/></svg>`;
  if(!g)return `<svg width="34" height="14" viewBox="0 0 34 14" aria-hidden="true"><path d="M4 7H30" style="stroke:var(--line)" stroke-width="2" stroke-dasharray="3 3"/></svg>`;
@@ -246,7 +317,7 @@ const REC=`<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><p
 const Q=`<svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" style="stroke:var(--bad)" stroke-width="1.8"/><text x="11" y="15.5" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--bad)">?</text></svg>`;
 (function(){const box=$('lad');let h='<div class="gbar" aria-hidden="true"><span>越大　越易拆　越遲　越凍</span><span>越細　越難拆　越早　越熱</span></div>';
  const rung=(L,k,cls)=>`<div class="rung2 ${cls||''}"><canvas data-k="${k}" width="92" height="72" role="img" aria-label="${L.a}"></canvas><div class="rt2"><div class="top"><span class="nm">${L.n}</span><span class="tm">${L.tm}</span></div><div class="gl">${spring(L.g)}<span>${L.gl}</span></div><div class="em">${SPK}<span>新：${L.em}</span></div></div></div>`;
- const conn=C=>{let s='<div class="conn">';if(C.t==='q')s+=Q+`<span class="unk">${C.q}</span>`;else s+=FUN+`<span>變：${C.v}　揀：${C.s}</span>`;if(C.w)s+=`<span class="waste">${REC}${C.w}</span>`;return s+'</div>'};
+ const conn=C=>{let s='<div class="conn">';if(C.t==='q')s+=Q+`<span class="unk">${C.q}</span>`;else s+=FUN+`<span>變：${C.v}　揀：${C.s}</span>`;if(C.u)s+=Q+`<span class="unk">${C.u}</span>`;if(C.w)s+=`<span class="waste">${REC}${C.w}</span>`;return s+'</div>'};
  for(let i=LV.length-1;i>=0;i--){h+=rung(LV[i],i);if(i>0){const C=CON[i-1];h+=conn(C);if(C.star){h+=`<div class="rung2 side"><canvas data-k="star" width="92" height="72" role="img" aria-label="一粒星發光，煮出碳同氧飛出去"></canvas><div class="rt2"><div class="top"><span class="nm">星</span><span class="tm">1 億年</span></div><div class="gl">${spring(3.6)}<span>重力</span></div><div class="waste">${REC}<span>星爆炸嘅灰：碳、氧、鐵 → 分子嘅原料</span></div></div></div>`;h+=conn({t:'vs',v:'亂撞',s:'最穩陣'})}}}
  box.innerHTML=h;})();
 const CVS=[];document.querySelectorAll('#lad canvas').forEach(cv=>{const d=Math.min(2,window.devicePixelRatio||1);cv.width=92*d;cv.height=72*d;const g=cv.getContext('2d');g.setTransform(d,0,0,d,0,0);const k=cv.dataset.k;CVS.push({cv,g,k:isNaN(+k)?k:+k,vis:true})});
