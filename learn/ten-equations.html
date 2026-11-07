@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>十條式圖解</title>
+<meta name="description" content="唔使計，淨係睇概念：最小作用量、對稱同守恆、量子、電磁、重力、質能、低熵起點、熵、ΔG、變異加選擇。每條式一句講晒、一幅可以郁嘅圖。">
+<meta property="og:title" content="十條式圖解">
+<meta property="og:description" content="唔使計，淨係睇概念：最小作用量、對稱同守恆、量子、電磁、重力、質能、低熵起點、熵、ΔG、變異加選擇。每條式一句講晒、一幅可以郁嘅圖。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/ten-equations.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/ten-equations.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="十條式圖解">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/ten-equations.html">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+/* Layout: a family tree up top, then ten cards in the tree's numbering; each card = plain-words idea + one working picture + what it explains. Group colour on the number badge matches the tree. */
+:root{
+  --bg:#0f1520; --panel:#171f2c; --panel2:#121a25; --line:#29364a; --ink:#e8edf3; --muted:#93a1b2;
+  --gen:#f0c14b; --pil:#63b3e0; --down:#93a1b2; --ther:#ee7a5a; --life:#4ad0a0; --on:#14110a;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#eef2f6; --panel:#ffffff; --panel2:#f5f8fb; --line:#d2dbe5; --ink:#152030; --muted:#56657a;
+    --gen:#9a6b00; --pil:#1f6fa8; --down:#56657a; --ther:#c2462a; --life:#12855c; --on:#ffffff; color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#eef2f6; --panel:#ffffff; --panel2:#f5f8fb; --line:#d2dbe5; --ink:#152030; --muted:#56657a;
+  --gen:#9a6b00; --pil:#1f6fa8; --down:#56657a; --ther:#c2462a; --life:#12855c; --on:#ffffff; color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:grid;gap:30px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(28px,5.5vw,44px);line-height:1.2;margin:0 0 8px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(20px,3.4vw,25px);line-height:1.3;margin:0;text-wrap:balance}
+p{margin:0}
+.lede{color:var(--muted);max-width:66ch}
+.tree{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.tree svg{width:100%;height:auto;display:block}
+svg text{font-family:var(--body)}
+.eqc{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:grid}
+.eqh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:16px 18px 6px}
+.badge{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:15px;color:var(--on);flex:none}
+.g-gen .badge{background:var(--gen)} .g-pil .badge{background:var(--pil)} .g-ther .badge{background:var(--ther)} .g-life .badge{background:var(--life)}
+.formula{font-family:var(--mono);font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 8px}
+.one{padding:0 18px 10px;font-size:16.5px;font-weight:500;max-width:62ch}
+.fig{background:var(--panel2);border-block:1px solid var(--line);padding:10px 12px}
+.fig svg,.fig canvas{width:100%;height:auto;display:block}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 4px 2px;font-size:14px}
+.ctl label{color:var(--muted)}
+.ctl input[type=range]{flex:1 1 200px;accent-color:var(--gen);height:28px}
+.ctl .val{font-family:var(--mono);min-width:6.5em}
+.ctl button{font:inherit;font-size:14px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 13px;cursor:pointer}
+.ctl button[aria-pressed="true"]{background:var(--gen);border-color:var(--gen);color:var(--on)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--gen);outline-offset:2px}
+.figcap{font-size:13.5px;color:var(--muted);padding:6px 4px 2px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4px 22px;padding:12px 18px 16px}
+.meta div{min-width:0}
+.meta b{display:block;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:.04em}
+.warn{color:var(--ther)}
+.mini{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+.mini th,.mini td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.mini th{font-size:12.5px;color:var(--muted);font-weight:500}
+.tw{overflow-x:auto}
+.foot{font-size:13px;color:var(--muted)}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;justify-self:start;font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+  <header>
+    <h1>十條式圖解</h1>
+    <p class="lede">唔使計，淨係睇概念。每條式一句講晒、一幅可以郁嘅圖，同埋佢解釋到乜嘢。上面嘅族譜顯示佢哋點樣連埋：左邊講「規則可以點」，右邊講「實際會點」。</p>
+  </header>
+
+  <section class="tree" aria-label="十條式族譜">
+    <svg viewBox="0 0 680 340" role="img" aria-label="十條式族譜：左邊主幹，右邊熱力學同生命">
+      <text x="20" y="22" font-size="13" fill="var(--muted)">主幹：規則可以點（時間倒轉播都成立）</text>
+      <text x="470" y="22" font-size="13" fill="var(--muted)">第二條腿：實際會點</text>
+      <g font-size="14" text-anchor="middle">
+        <rect x="24" y="36" width="180" height="40" rx="8" fill="none" stroke="var(--gen)" stroke-width="1.5"/><text x="114" y="61" fill="var(--ink)">① 最小作用量</text>
+        <rect x="232" y="36" width="180" height="40" rx="8" fill="none" stroke="var(--gen)" stroke-width="1.5"/><text x="322" y="61" fill="var(--ink)">② 對稱 → 守恆</text>
+        <line x1="204" y1="56" x2="232" y2="56" stroke="var(--gen)" stroke-dasharray="3 3"/>
+        <g stroke="var(--line)" stroke-width="1.2"><line x1="114" y1="76" x2="66" y2="118"/><line x1="114" y1="76" x2="166" y2="118"/><line x1="114" y1="76" x2="266" y2="118"/><line x1="114" y1="76" x2="366" y2="118"/></g>
+        <rect x="24" y="118" width="84" height="40" rx="8" fill="none" stroke="var(--pil)" stroke-width="1.5"/><text x="66" y="143" fill="var(--ink)">③ 量子</text>
+        <rect x="124" y="118" width="84" height="40" rx="8" fill="none" stroke="var(--pil)" stroke-width="1.5"/><text x="166" y="143" fill="var(--ink)">④ 電磁</text>
+        <rect x="224" y="118" width="84" height="40" rx="8" fill="none" stroke="var(--pil)" stroke-width="1.5"/><text x="266" y="143" fill="var(--ink)">⑤ 重力</text>
+        <rect x="324" y="118" width="88" height="40" rx="8" fill="none" stroke="var(--pil)" stroke-width="1.5"/><text x="368" y="143" fill="var(--ink)">⑥ 質能</text>
+        <g stroke="var(--line)" stroke-width="1.2"><line x1="66" y1="158" x2="66" y2="196"/><line x1="166" y1="158" x2="166" y2="196"/><line x1="266" y1="158" x2="266" y2="196"/><line x1="368" y1="158" x2="368" y2="196"/></g>
+        <rect x="24" y="196" width="388" height="40" rx="8" fill="none" stroke="var(--down)" stroke-dasharray="4 4"/>
+        <text x="218" y="221" font-size="13" fill="var(--muted)">下游特例：F = ma、牛頓引力、庫侖定律、波動、E = hf</text>
+        <rect x="470" y="36" width="190" height="36" rx="8" fill="none" stroke="var(--ther)" stroke-width="1.5"/><text x="565" y="59" fill="var(--ink)">⑦ 低熵起點</text>
+        <rect x="470" y="96" width="190" height="36" rx="8" fill="none" stroke="var(--ther)" stroke-width="1.5"/><text x="565" y="119" fill="var(--ink)">⑧ 熵</text>
+        <rect x="470" y="156" width="190" height="36" rx="8" fill="none" stroke="var(--ther)" stroke-width="1.5"/><text x="565" y="179" fill="var(--ink)">⑨ 自發性 ΔG</text>
+        <rect x="470" y="216" width="190" height="36" rx="8" fill="none" stroke="var(--life)" stroke-width="1.5"/><text x="565" y="239" fill="var(--ink)">⑩ 變異 + 選擇</text>
+        <rect x="510" y="276" width="110" height="36" rx="18" fill="var(--life)"/><text x="565" y="299" fill="var(--on)">你</text>
+        <g stroke="var(--muted)" stroke-width="1.4" fill="none"><path d="M565,72 V92"/><path d="M565,132 V152"/><path d="M565,192 V212"/><path d="M565,252 V272"/></g>
+        <g fill="var(--muted)"><path d="M560,88 L565,95 L570,88Z"/><path d="M560,148 L565,155 L570,148Z"/><path d="M560,208 L565,215 L570,208Z"/><path d="M560,268 L565,275 L570,268Z"/></g>
+      </g>
+      <text x="24" y="268" font-size="13" fill="var(--muted)">左邊話你知世界「可以」點郁；</text>
+      <text x="24" y="288" font-size="13" fill="var(--muted)">右邊係唯一講「只准向前」嘅部分。</text>
+      <text x="24" y="308" font-size="13" fill="var(--muted)">你會老、會記得琴日唔記得聽日，全部喺右邊。</text>
+    </svg>
+  </section>
+
+  <!-- 1 -->
+  <section class="eqc g-gen" id="e1">
+    <div class="eqh"><span class="badge">1</span><h2>最小作用量</h2><span class="formula">δS = 0</span></div>
+    <p class="one">大自然揀路，揀嘅係「代價」平坦嗰條：附近所有路嘅代價都差唔多，佢哋嘅箭頭指同一方向，加埋最長。</p>
+    <div class="fig">
+      <svg id="s1" viewBox="0 0 640 250" role="img" aria-label="拋波路線同代價曲線"></svg>
+      <div class="ctl"><label for="a1">改條路</label><input type="range" id="a1" min="-1" max="1" step="0.05" value="0.6"><span class="val" id="v1"></span></div>
+      <p class="figcap">左邊：波由 A 拋去 B，淡色係其他可能嘅路。右邊：每條路嘅代價。真實嘅路喺谷底，谷底係平嘅，所以附近嘅路代價幾乎一樣。</p>
+    </div>
+    <div class="meta">
+      <div><b>日常例子</b>拋波嘅拋物線；光喺玻璃同空氣之間轉彎（行最快嘅路）。</div>
+      <div><b>解釋到</b>幾乎所有基本定律都可以由佢生出嚟：F = ma、電磁、相對論、量子力學嘅路徑積分。</div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="eqc g-gen" id="e2">
+    <div class="eqh"><span class="badge">2</span><h2>對稱 → 守恆</h2><span class="formula">Noether 定理</span></div>
+    <p class="one">如果規則唔理「幾時」、「喺邊」、「向邊個方向」，就一定有一樣嘢永遠守恆。</p>
+    <div class="fig">
+      <svg viewBox="0 0 640 270" role="img" aria-label="三種對稱對應三種守恆">
+        <g stroke="var(--ink)" stroke-width="2" fill="none">
+          <circle cx="56" cy="50" r="22"/><path d="M56,50 V36 M56,50 L66,56"/>
+          <rect x="34" y="128" width="16" height="16" rx="2"/><rect x="66" y="128" width="16" height="16" rx="2"/><path d="M50,136 H62" stroke-dasharray="3 3"/>
+          <path d="M76,226 A20,20 0 1 1 64,206"/><path d="M58,200 L66,206 L58,212"/>
+        </g>
+        <g font-size="14" fill="var(--ink)">
+          <text x="104" y="46">規則今日同聽日一樣</text><text x="104" y="66" font-size="12.5" fill="var(--muted)">時間對稱</text>
+          <text x="104" y="132">規則喺呢度同喺嗰度一樣</text><text x="104" y="152" font-size="12.5" fill="var(--muted)">空間對稱</text>
+          <text x="104" y="218">規則向邊個方向都一樣</text><text x="104" y="238" font-size="12.5" fill="var(--muted)">旋轉對稱</text>
+        </g>
+        <g stroke="var(--gen)" stroke-width="2"><path d="M300,50 H360"/><path d="M300,136 H360"/><path d="M300,222 H360"/></g>
+        <g fill="var(--gen)"><path d="M356,44 L366,50 L356,56Z"/><path d="M356,130 L366,136 L356,142Z"/><path d="M356,216 L366,222 L356,228Z"/></g>
+        <g font-size="15" font-weight="700" fill="var(--gen)"><text x="378" y="46">能量守恆</text><text x="378" y="132">動量守恆</text><text x="378" y="218">角動量守恆</text></g>
+        <g font-size="12.5" fill="var(--muted)"><text x="378" y="66">能量唔會憑空出現或者消失</text><text x="378" y="152">火箭向後噴氣，自己就向前</text><text x="378" y="238">溜冰收埋手，就轉得快</text></g>
+      </svg>
+    </div>
+    <div class="meta">
+      <div><b>點樣理解</b>守恆唔係巧合，亦唔係額外加落去嘅規矩。只要規則本身有呢種對稱，守恆就自動出現。</div>
+      <div><b>解釋到</b>點解能量、動量、角動量、電荷會守恆。由「觀察到」升級做「明白點解」。</div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="eqc g-pil" id="e3">
+    <div class="eqh"><span class="badge">3</span><h2>量子</h2><span class="formula">iħ ∂ψ/∂t = Ĥψ</span></div>
+    <p class="one">粒子唔係一粒波子，係一個「機會波」。呢條式講個波點樣隨時間變。波一被困住，就只可以有某幾種形狀。</p>
+    <div class="fig">
+      <svg id="s3" viewBox="0 0 640 230" role="img" aria-label="盒入面嘅駐波同能量級"></svg>
+      <div class="ctl"><span style="color:var(--muted)">揀形狀</span><span id="b3"></span></div>
+      <p class="figcap">上面係個波，下面陰影係「喺呢度搵到粒子嘅機會」。困住嘅波只可以係完整嘅半個波、一個波、一個半……所以能量一級級，冇中間值。</p>
+    </div>
+    <div class="meta">
+      <div><b>日常例子</b>霓虹燈每種氣體有固定顏色：電子由高級跌落低級，放出嘅光能量固定，顏色就固定。</div>
+      <div><b>解釋到</b>原子點解穩定、電子點解唔跌落原子核、化學鍵、晶片、激光。</div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="eqc g-pil" id="e4">
+    <div class="eqh"><span class="badge">4</span><h2>電磁</h2><span class="formula">∂μF^μν = μ₀J^ν</span></div>
+    <p class="one">電同磁係同一樣嘢嘅兩面。變緊嘅電場會生出磁場，變緊嘅磁場會生出電場，兩樣互相生，個波就自己走落去。呢個波就係光。</p>
+    <div class="fig">
+      <svg id="s4" viewBox="0 0 640 200" role="img" aria-label="電場同磁場互相推住前進嘅波"></svg>
+      <p class="figcap">黃色：電場上下震。藍色：磁場前後震（垂直入頁）。兩者互相推住，以光速向右走。四條 Maxwell 方程壓縮成上面一條。</p>
+    </div>
+    <div class="meta">
+      <div><b>日常例子</b>發電機（轉磁石生電）、摩打（電生磁推動）、Wi-Fi、微波爐、陽光。</div>
+      <div><b>解釋到</b>光嘅本質，同埋所有化學：原子之間嘅吸引同排斥，全部係電力。</div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="eqc g-pil" id="e5">
+    <div class="eqh"><span class="badge">5</span><h2>重力</h2><span class="formula">Gμν = 8πG/c⁴ Tμν</span></div>
+    <p class="one">質量同能量令時空彎曲；物件喺彎咗嘅時空入面行「最直」嘅路，睇落就好似被吸住。</p>
+    <div class="fig">
+      <svg id="s5" viewBox="0 0 640 280" role="img" aria-label="質量令網格凹陷，行星繞住轉"></svg>
+      <div class="ctl"><label for="m5">中間嘅質量</label><input type="range" id="m5" min="0.6" max="3" step="0.1" value="1.8"><span class="val" id="v5"></span></div>
+      <p class="figcap">橡皮膜只係比喻：真實嘅彎曲包括時間。越近大質量，時間行得越慢。</p>
+    </div>
+    <div class="meta">
+      <div><b>日常例子</b>GPS 衛星喺高空，重力弱啲，時鐘每日快大約 38 微秒；唔修正，定位每日會差大約 10 公里。</div>
+      <div><b>解釋到</b>行星軌道、黑洞、光經過太陽會轉彎、宇宙膨脹。牛頓引力係佢喺弱重力時嘅近似。</div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="eqc g-pil" id="e6">
+    <div class="eqh"><span class="badge">6</span><h2>質能 / 動量</h2><span class="formula">E² = (pc)² + (mc²)²</span></div>
+    <p class="one">總能量好似三角形嘅斜邊：一條邊係「靜止嗰陣本身有嘅能量」（質量），另一條邊係「郁動帶嚟嘅能量」（動量）。</p>
+    <div class="fig">
+      <svg id="s6" viewBox="0 0 640 250" role="img" aria-label="能量三角形"></svg>
+      <div class="ctl"><label for="b6">速度</label><input type="range" id="b6" min="0" max="0.9" step="0.01" value="0.6"><span class="val" id="v6"></span><button type="button" id="ph6" aria-pressed="false">光子（冇質量）</button></div>
+    </div>
+    <div class="meta">
+      <div><b>點樣理解</b>靜止時冇動量，三角形壓扁成一條橫線，就係 E = mc²。光子冇質量，橫邊係零，全部能量都係動量。</div>
+      <div><b>解釋到</b>核能（少咗少少質量變成好多能量）、光冇質量但有動量（太陽帆可以俾光推）。</div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="eqc g-ther" id="e7">
+    <div class="eqh"><span class="badge">7</span><h2>低熵起點</h2><span class="formula">過去假設</span></div>
+    <p class="one">宇宙一開始極度整齊。之後發生嘅所有嘢，都係喺度慢慢「洗牌」。</p>
+    <div class="fig">
+      <svg id="s7" viewBox="0 0 640 210" role="img" aria-label="由排好嘅牌到洗勻嘅牌"></svg>
+    </div>
+    <div class="meta">
+      <div><b>解釋到</b>時間點解有方向：因為起點咁整齊，先有得一路變亂。冇呢個起點，就冇「過去」同「將來」之分。</div>
+      <div><b class="warn">注意</b>呢條唔係推導出嚟嘅定律，係一個觀察到嘅事實。點解一開始咁整齊？而家冇人知。</div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="eqc g-ther" id="e8">
+    <div class="eqh"><span class="badge">8</span><h2>熵</h2><span class="formula">S = k log W · dS ≥ 0</span></div>
+    <p class="one">熵就係數「有幾多種排法，睇落都係同一個樣」。亂嘅排法多到壓倒性，所以嘢自然行向亂。</p>
+    <div class="fig">
+      <svg id="s8" viewBox="0 0 640 230" role="img" aria-label="擲硬幣：公字數目嘅排法分佈"></svg>
+      <div class="ctl"><label for="n8">硬幣數目</label><input type="range" id="n8" min="0" max="5" step="1" value="3"><span class="val" id="v8"></span></div>
+      <p class="figcap" id="c8"></p>
+    </div>
+    <div class="meta">
+      <div><b>日常例子</b>熱由熱嘅地方流去凍嘅地方；墨水滴落水會散開，唔會自己聚返埋。</div>
+      <div><b>解釋到</b>時間箭頭、熱機效率有上限、嘢點解會爛。</div>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="eqc g-ther" id="e9">
+    <div class="eqh"><span class="badge">9</span><h2>自發性</h2><span class="formula">ΔG = ΔH − TΔS</span></div>
+    <p class="one">一件事會唔會自己發生，係兩股力拗手瓜：「熱嘅代價」對「溫度乘排法嘅好處」。</p>
+    <div class="fig">
+      <svg id="s9" viewBox="0 0 640 230" role="img" aria-label="冰溶：熱嘅代價同溫度乘排法嘅好處"></svg>
+      <div class="ctl"><label for="t9">溫度</label><input type="range" id="t9" min="-60" max="80" step="1" value="-20"><span class="val" id="v9"></span></div>
+      <p class="figcap" id="c9"></p>
+    </div>
+    <div class="meta">
+      <div><b>解釋到</b>所有化學反應、身體代謝、蛋白質摺疊、冰溶水沸。</div>
+      <div><b>人生比喻</b>
+        <div class="tw"><table class="mini">
+          <tr><th>式入面</th><th>比喻</th></tr>
+          <tr><td>ΔH</td><td>成本：要畀幾多。可正可負，有啲事本身就係賺</td></tr>
+          <tr><td>ΔS</td><td>件事本身帶嚟幾多可能性，似天賦</td></tr>
+          <tr><td>T</td><td>環境、時勢：放大 ΔS 嘅價值，唔由你揀</td></tr>
+          <tr><td>努力</td><td>唔喺條式入面：係外來嘅功，好似陽光推光合作用上山</td></tr>
+        </table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="eqc g-life" id="e10">
+    <div class="eqh"><span class="badge">10</span><h2>變異 + 選擇</h2><span class="formula">Price 方程</span></div>
+    <p class="one">一群嘢之間有差異、會遺傳、有啲生得多啲，平均值就會自己移。冇人設計，都會越嚟越適應環境。</p>
+    <div class="fig">
+      <canvas id="c10" width="640" height="220" aria-label="一群個體嘅特徵分佈隨世代移動"></canvas>
+      <div class="ctl">
+        <label for="s10">選擇有幾強</label><input type="range" id="s10" min="0" max="1" step="0.05" value="0.5"><span class="val" id="v10"></span>
+        <button type="button" id="next10">下一代</button><button type="button" id="auto10" aria-pressed="false">自動</button><button type="button" id="reset10">重新開始</button>
+      </div>
+      <p class="figcap" id="g10"></p>
+    </div>
+    <div class="meta">
+      <div><b>點樣理解</b>Price 方程將平均值嘅變化拆做兩份：「邊個生得多」（選擇），同埋「仔女唔完全似父母」（遺傳走樣）。選擇強度調做零，平均值只會亂咁飄。</div>
+      <div><b class="warn">注意</b>呢條唔係物理，但同物理唔矛盾：生命喺局部變得有序，係靠向外面排熱，令宇宙總熵照樣上升（⑧ ⑨）。</div>
+    </div>
+  </section>
+
+  <p class="foot">所有圖都係示意，重點係概念；條式只係擺出嚟對照，唔使識計。</p>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const f1=n=>Math.round(n*10)/10;
+
+/* 1: action */
+function draw1(){
+  const a=+$('a1').value;let s='';
+  const P=(aa)=>{let d='';for(let i=0;i<=60;i++){const u=i/60,x=40+380*u,y=215-150*4*u*(1-u)-aa*65*Math.sin(Math.PI*u);d+=(i?'L':'M')+x.toFixed(1)+','+y.toFixed(1);}return d;};
+  s+=`<line x1="20" y1="215" x2="440" y2="215" stroke="var(--line)"/>`;
+  [-0.8,-0.4,0.4,0.8].forEach(g=>{s+=`<path d="${P(g)}" fill="none" stroke="var(--muted)" stroke-opacity=".35" stroke-width="1.2"/>`;});
+  s+=`<path d="${P(0)}" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+  s+=`<path d="${P(a)}" fill="none" stroke="var(--gen)" stroke-width="3"/>`;
+  s+=`<circle cx="40" cy="215" r="6" fill="var(--ink)"/><circle cx="420" cy="215" r="6" fill="var(--ink)"/>`;
+  s+=`<text x="40" y="238" font-size="13" text-anchor="middle" fill="var(--muted)">A</text><text x="420" y="238" font-size="13" text-anchor="middle" fill="var(--muted)">B</text>`;
+  s+=`<text x="230" y="238" font-size="12.5" text-anchor="middle" fill="var(--muted)">虛線 = 真實嘅路，黃色 = 你揀嘅路</text>`;
+  const X=v=>540+v*75,Y=c=>200-c*140;let u='';for(let i=0;i<=40;i++){const v=-1+i/20;u+=(i?'L':'M')+X(v).toFixed(1)+','+Y(v*v).toFixed(1);}
+  s+=`<line x1="460" y1="200" x2="620" y2="200" stroke="var(--line)"/><text x="540" y="40" font-size="12.5" text-anchor="middle" fill="var(--muted)">代價（作用量）</text>`;
+  s+=`<path d="${u}" fill="none" stroke="var(--ink)" stroke-width="2"/>`;
+  s+=`<circle cx="${X(a)}" cy="${Y(a*a)}" r="7" fill="var(--gen)"/>`;
+  s+=`<text x="540" y="222" font-size="12.5" text-anchor="middle" fill="var(--muted)">↑ 谷底 = 真實嘅路</text>`;
+  $('s1').innerHTML=s;
+  $('v1').textContent=Math.abs(a)<0.03?'真實嘅路':(a>0?'向上彎 ':'向下彎 ')+Math.round(Math.abs(a)*100)+'%';
+}
+$('a1').addEventListener('input',draw1);draw1();
+
+/* 3: particle in a box */
+let n3=2;
+(function(){const w=$('b3');[1,2,3,4].forEach(n=>{const b=document.createElement('button');b.type='button';b.textContent='第 '+n+' 級';b.setAttribute('aria-pressed',n===n3);b.onclick=()=>{n3=n;[...w.children].forEach((x,i)=>x.setAttribute('aria-pressed',i+1===n));};w.appendChild(b);});})();
+function draw3(t){
+  const L=50,R=390,base=95,amp=62;let s=`<line x1="${L}" y1="20" x2="${L}" y2="210" stroke="var(--ink)" stroke-width="3"/><line x1="${R}" y1="20" x2="${R}" y2="210" stroke="var(--ink)" stroke-width="3"/>`;
+  s+=`<line x1="${L}" y1="${base}" x2="${R}" y2="${base}" stroke="var(--line)"/>`;
+  const ph=Math.cos(t*0.0018*n3*n3);let d='',pd=`M${L},205`;
+  for(let i=0;i<=120;i++){const u=i/120,x=L+(R-L)*u,sv=Math.sin(n3*Math.PI*u);d+=(i?'L':'M')+x.toFixed(1)+','+(base-amp*sv*ph).toFixed(1);pd+=`L${x.toFixed(1)},${(205-48*sv*sv).toFixed(1)}`;}
+  pd+=`L${R},205Z`;
+  s+=`<path d="${pd}" fill="var(--pil)" fill-opacity=".35"/><path d="${d}" fill="none" stroke="var(--pil)" stroke-width="2.5"/>`;
+  s+=`<text x="${(L+R)/2}" y="16" font-size="12.5" text-anchor="middle" fill="var(--muted)">困住粒子嘅盒</text>`;
+  s+=`<text x="440" y="20" font-size="12.5" fill="var(--muted)">能量級</text>`;
+  [1,2,3,4].forEach(n=>{const y=210-n*n*11.5;const on=n===n3;s+=`<line x1="440" y1="${y}" x2="560" y2="${y}" stroke="${on?'var(--gen)':'var(--muted)'}" stroke-width="${on?3:1.5}"/><text x="570" y="${y+4}" font-size="12.5" fill="${on?'var(--gen)':'var(--muted)'}">第 ${n} 級</text>`;});
+  $('s3').innerHTML=s;
+}
+
+/* 4: EM wave */
+function draw4(t){
+  let s=`<line x1="30" y1="100" x2="612" y2="100" stroke="var(--line)"/><path d="M604,94 L614,100 L604,106" fill="none" stroke="var(--muted)" stroke-width="1.5"/>`;
+  const k=2*Math.PI/200,ph=t*0.004;let e='',b='',ticks='';
+  for(let x=30;x<=600;x+=3){const v=Math.sin(k*x-ph);e+=(x===30?'M':'L')+x+','+(100-62*v).toFixed(1);b+=(x===30?'M':'L')+x+','+(100+26*v).toFixed(1);}
+  for(let x=40;x<=600;x+=20){const v=Math.sin(k*x-ph);ticks+=`<line x1="${x}" y1="100" x2="${x}" y2="${(100-62*v).toFixed(1)}" stroke="var(--gen)" stroke-opacity=".35"/>`;}
+  s+=ticks+`<path d="${b}" fill="none" stroke="var(--pil)" stroke-width="2" stroke-dasharray="6 4"/><path d="${e}" fill="none" stroke="var(--gen)" stroke-width="2.5"/>`;
+  s+=`<text x="34" y="26" font-size="12.5" fill="var(--gen)">電場</text><text x="34" y="190" font-size="12.5" fill="var(--pil)">磁場（垂直入頁）</text><text x="600" y="190" font-size="12.5" text-anchor="end" fill="var(--muted)">光速 →</text>`;
+  $('s4').innerHTML=s;
+}
+
+/* 5: curved spacetime */
+function draw5(t){
+  const m=+$('m5').value,s0=22,cx=320,cy=120;
+  const z=(x,y)=>-m/Math.sqrt(x*x+y*y+0.6);
+  const P=(x,y)=>[cx+(x-y)*s0*0.87, cy+(x+y)*s0*0.42-z(x,y)*s0*0.9];
+  let s='';
+  for(let a=-5;a<=5.001;a+=0.5){let d1='',d2='';for(let b=-5;b<=5.001;b+=0.25){const p=P(a,b),q=P(b,a);d1+=(d1?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1);d2+=(d2?'L':'M')+q[0].toFixed(1)+','+q[1].toFixed(1);}
+    s+=`<path d="${d1}" fill="none" stroke="var(--muted)" stroke-opacity=".45" stroke-width="1"/><path d="${d2}" fill="none" stroke="var(--muted)" stroke-opacity=".45" stroke-width="1"/>`;}
+  const r=2.4;let orb='';for(let i=0;i<=72;i++){const th=i/72*2*Math.PI,p=P(r*Math.cos(th),r*Math.sin(th));orb+=(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1);}
+  s+=`<path d="${orb}" fill="none" stroke="var(--pil)" stroke-opacity=".6" stroke-dasharray="4 4"/>`;
+  const c=P(0,0);s+=`<circle cx="${c[0].toFixed(1)}" cy="${(c[1]-8).toFixed(1)}" r="${6+m*3}" fill="var(--gen)"/>`;
+  const th=t*0.0006*Math.sqrt(m),pp=P(r*Math.cos(th),r*Math.sin(th));
+  s+=`<circle cx="${pp[0].toFixed(1)}" cy="${(pp[1]-5).toFixed(1)}" r="6" fill="var(--pil)"/>`;
+  $('s5').innerHTML=s;$('v5').textContent=m<1.2?'輕':m<2.2?'中':'重';
+}
+
+/* 6: energy triangle */
+function draw6(){
+  const photon=$('ph6').getAttribute('aria-pressed')==='true',b=+$('b6').value,g=1/Math.sqrt(1-b*b),L0=100,x0=90,y0=232;
+  const W=photon?0:L0,Hh=photon?160:g*b*L0;let s='';
+  s+=`<line x1="${x0}" y1="${y0}" x2="${x0+W}" y2="${y0}" stroke="var(--pil)" stroke-width="5"/>`;
+  s+=`<line x1="${x0+W}" y1="${y0}" x2="${x0+W}" y2="${y0-Hh}" stroke="var(--ther)" stroke-width="5"/>`;
+  s+=`<line x1="${x0}" y1="${y0}" x2="${x0+W}" y2="${y0-Hh}" stroke="var(--gen)" stroke-width="5"/>`;
+  if(!photon)s+=`<text x="${x0+W/2}" y="${y0+18}" font-size="12.5" text-anchor="middle" fill="var(--pil)">靜止能量（質量）</text>`;
+  if(Hh>8)s+=`<text x="${x0+W+12}" y="${y0-Hh/2+4}" font-size="12.5" fill="var(--ther)">郁動（動量）</text>`;
+  const E=photon?Hh:g*L0;
+  s+=`<text x="${x0+W/2-14}" y="${y0-Hh/2-8}" font-size="13" text-anchor="end" fill="var(--gen)">總能量</text>`;
+  s+=`<text x="380" y="70" font-size="14" fill="var(--ink)">${photon?'光子：冇質量':'總能量 = 靜止能量嘅 '+g.toFixed(2)+' 倍'}</text>`;
+  s+=`<text x="380" y="96" font-size="12.5" fill="var(--muted)">${photon?'全部能量都係動量，永遠以光速行':(b<0.01?'靜止：三角形壓扁，就係 E = mc²':'越接近光速，總能量升得越快')}</text>`;
+  $('s6').innerHTML=s;$('v6').textContent=photon?'光速':'光速嘅 '+Math.round(b*100)+'%';
+  $('b6').disabled=photon;
+}
+$('b6').addEventListener('input',draw6);$('ph6').onclick=()=>{const p=$('ph6').getAttribute('aria-pressed')!=='true';$('ph6').setAttribute('aria-pressed',p);draw6();};draw6();
+
+/* 7: deck of cards */
+(function(){
+  const cols=['var(--gen)','var(--pil)','var(--ther)','var(--life)'];
+  const sorted=[...Array(16)].map((_,i)=>Math.floor(i/4));
+  const mid=[0,0,1,0,0,1,2,1,1,3,2,2,3,2,3,3];
+  const mixed=[2,0,3,1,3,0,2,1,0,3,1,2,2,0,1,3];
+  const deck=(arr,x0)=>arr.map((c,i)=>`<rect x="${x0+(i%8)*22}" y="${46+Math.floor(i/8)*34}" width="18" height="28" rx="3" fill="${cols[c]}"/>`).join('');
+  let s=deck(sorted,24)+deck(mid,236)+deck(mixed,448);
+  s+=`<line x1="24" y1="140" x2="610" y2="140" stroke="var(--muted)" stroke-width="1.5"/><path d="M604,134 L614,140 L604,146" fill="none" stroke="var(--muted)" stroke-width="1.5"/>`;
+  s+=`<g font-size="13" text-anchor="middle"><text x="110" y="166" fill="var(--ink)">大爆炸</text><text x="322" y="166" fill="var(--ink)">而家</text><text x="534" y="166" fill="var(--ink)">好遠嘅將來</text>`;
+  s+=`<text x="110" y="186" font-size="12.5" fill="var(--muted)">極整齊（熵好低）</text><text x="322" y="186" font-size="12.5" fill="var(--muted)">一路洗緊</text><text x="534" y="186" font-size="12.5" fill="var(--muted)">洗勻晒，冇嘢再發生</text></g>`;
+  s+=`<text x="24" y="28" font-size="12.5" fill="var(--muted)">時間 →</text>`;
+  $('s7').innerHTML=s;
+})();
+
+/* 8: coins */
+const NS=[4,10,20,50,100,400],lf=[0];for(let i=1;i<=400;i++)lf[i]=lf[i-1]+Math.log(i);
+function draw8(){
+  const N=NS[+$('n8').value],lc=k=>lf[N]-lf[k]-lf[N-k],mx=lc(Math.floor(N/2));
+  let s=`<line x1="40" y1="190" x2="600" y2="190" stroke="var(--line)"/>`;const w=560/(N+1);
+  let mid=0,tot=0;for(let k=0;k<=N;k++){const p=Math.exp(lc(k)-mx),h=p*160,x=40+k*w;s+=`<rect x="${(x+w*0.1).toFixed(2)}" y="${(190-h).toFixed(2)}" width="${Math.max(w*0.8,0.6).toFixed(2)}" height="${h.toFixed(2)}" fill="${k>=0.4*N&&k<=0.6*N?'var(--ther)':'var(--muted)'}"/>`;
+    const pr=Math.exp(lc(k)-N*Math.log(2));tot+=pr;if(k>=0.4*N&&k<=0.6*N)mid+=pr;}
+  s+=`<text x="40" y="210" font-size="12.5" fill="var(--muted)">全部字</text><text x="600" y="210" font-size="12.5" text-anchor="end" fill="var(--muted)">全部公</text><text x="320" y="210" font-size="12.5" text-anchor="middle" fill="var(--muted)">一半半</text>`;
+  s+=`<text x="40" y="22" font-size="12.5" fill="var(--muted)">每條棒 = 有幾多種排法得出嗰個公字數目</text>`;
+  $('s8').innerHTML=s;$('v8').textContent=N+' 個';
+  const l10=lc(Math.floor(N/2))/Math.LN10,ways=l10<6?Math.round(Math.exp(lc(Math.floor(N/2))))+' 種':'1 後面大約 '+Math.floor(l10)+' 個 0 咁多種';
+  $('c8').textContent='全部公只有 1 種排法；一半半有 '+ways+'。落喺中間（紅色，四成至六成公）嘅機會：'+(mid*100>=99.995?'超過 99.99%':(mid*100).toFixed(1)+'%')+'。';
+}
+$('n8').addEventListener('input',draw8);draw8();
+
+/* 9: ice melting */
+function draw9(){
+  const C=+$('t9').value,T=C+273.15,dH=6.01,dS=0.022,TdS=T*dS,dG=dH-TdS;
+  const X=t=>60+(t-213)/(140)*540,Y=v=>200-(v-3.5)/(8-3.5)*170;let s='';
+  s+=`<line x1="60" y1="200" x2="600" y2="200" stroke="var(--line)"/>`;
+  s+=`<line x1="60" y1="${Y(dH)}" x2="600" y2="${Y(dH)}" stroke="var(--ther)" stroke-width="2.5"/><text x="66" y="${Y(dH)-8}" font-size="12.5" fill="var(--ther)">熱嘅代價（ΔH）</text>`;
+  s+=`<line x1="${X(213)}" y1="${Y(213*dS)}" x2="${X(353)}" y2="${Y(353*dS)}" stroke="var(--life)" stroke-width="2.5"/><text x="596" y="${Y(353*dS)+16}" font-size="12.5" text-anchor="end" fill="var(--life)">溫度 × 排法（TΔS）</text>`;
+  const xc=X(273.15);s+=`<line x1="${xc}" y1="${Y(dH)}" x2="${xc}" y2="200" stroke="var(--gen)" stroke-dasharray="3 4"/><text x="${xc}" y="218" font-size="12.5" text-anchor="middle" fill="var(--gen)">0°C</text>`;
+  const px=X(T);s+=`<line x1="${px}" y1="${Y(dH)}" x2="${px}" y2="${Y(TdS)}" stroke="var(--gen)" stroke-width="4"/><circle cx="${px}" cy="${Y(TdS)}" r="5" fill="var(--gen)"/>`;
+  $('s9').innerHTML=s;$('v9').textContent=C+'°C';
+  $('c9').textContent=Math.abs(dG)<0.06?'兩邊打和：冰同水一齊存在，就係 0°C。':dG>0?'紅線高過綠線：代價大過好處，ΔG 係正，冰唔會自己溶。':'綠線高過紅線：好處大過代價，ΔG 係負，冰自己溶，溶晒就停。';
+}
+$('t9').addEventListener('input',draw9);draw9();
+
+/* 10: selection */
+const cv=$('c10'),cx=cv.getContext('2d');let pop=[],gen=0,auto=null;
+const randn=()=>{let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
+function reset10(){pop=[...Array(400)].map(()=>randn());gen=0;draw10();}
+function next10(){const s=+$('s10').value,w=pop.map(x=>Math.exp(s*x)),tot=w.reduce((a,b)=>a+b,0),cum=[];let c=0;w.forEach(v=>{c+=v/tot;cum.push(c);});
+  const np=[];for(let i=0;i<pop.length;i++){const r=Math.random();let lo=0,hi=cum.length-1;while(lo<hi){const m=(lo+hi)>>1;if(cum[m]<r)lo=m+1;else hi=m;}np.push(pop[lo]+0.25*randn());}
+  pop=np;gen++;draw10();}
+function cssv(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+function draw10(){
+  const d=devicePixelRatio||1,W=cv.clientWidth||640,H=W*220/640;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
+  cx.clearRect(0,0,W,H);const lo=-4,hi=8,bins=48,cnt=new Array(bins).fill(0);pop.forEach(x=>{const b=Math.floor((x-lo)/(hi-lo)*bins);if(b>=0&&b<bins)cnt[b]++;});
+  const mx=Math.max(60,...cnt),bw=(W-40)/bins,base=H-28;
+  cx.strokeStyle=cssv('--line');cx.beginPath();cx.moveTo(20,base);cx.lineTo(W-20,base);cx.stroke();
+  cx.fillStyle=cssv('--life');cnt.forEach((c,i)=>{const h=c/mx*(base-24);cx.fillRect(20+i*bw+1,base-h,bw-2,h);});
+  const mean=pop.reduce((a,b)=>a+b,0)/pop.length,mxp=20+(mean-lo)/(hi-lo)*(W-40);
+  cx.strokeStyle=cssv('--gen');cx.lineWidth=2;cx.beginPath();cx.moveTo(mxp,14);cx.lineTo(mxp,base);cx.stroke();cx.lineWidth=1;
+  cx.fillStyle=cssv('--muted');cx.font='12.5px '+cssv('--body');cx.textAlign='left';cx.fillText('特徵細',20,H-8);cx.textAlign='right';cx.fillText('特徵大（生存優勢）',W-20,H-8);
+  cx.fillStyle=cssv('--gen');cx.textAlign=mxp>W*0.75?'right':'left';cx.fillText('平均',mxp+(mxp>W*0.75?-6:6),26);
+  $('g10').textContent='第 '+gen+' 代 · 平均特徵：'+mean.toFixed(2)+'（起點係 0）';
+  $('v10').textContent=(+$('s10').value).toFixed(2);
+}
+$('s10').addEventListener('input',()=>{$('v10').textContent=(+$('s10').value).toFixed(2);});
+$('next10').onclick=next10;$('reset10').onclick=reset10;
+$('auto10').onclick=()=>{if(auto){clearInterval(auto);auto=null;$('auto10').setAttribute('aria-pressed','false');}else{auto=setInterval(next10,reduce?900:450);$('auto10').setAttribute('aria-pressed','true');}};
+addEventListener('resize',draw10);reset10();
+
+/* animation loop for 3,4,5 */
+function frame(t){draw3(reduce?0:t);draw4(reduce?0:t);draw5(reduce?0:t);if(!reduce)requestAnimationFrame(frame);}
+$('m5').addEventListener('input',()=>{if(reduce)draw5(0);});
+document.querySelectorAll('#b3 button').forEach(b=>b.addEventListener('click',()=>{if(reduce)draw3(0);}));
+requestAnimationFrame(frame);
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>冰水蒸氣 ΔG</title>
+<meta name="description" content="冰加熱到蒸氣，曲線點解有平台：ΔG = ΔH − TΔS，熔點同沸點就係兩條線交叉嘅位置。仲有水點樣滾、點解山頂煮唔腍。">
+<meta property="og:title" content="冰水蒸氣 ΔG">
+<meta property="og:description" content="冰加熱到蒸氣，曲線點解有平台：ΔG = ΔH − TΔS，熔點同沸點就係兩條線交叉嘅位置。仲有水點樣滾、點解山頂煮唔腍。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/ice-water-steam.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/ice-water-steam.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="冰水蒸氣 ΔG">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/ice-water-steam.html">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+/* Layout: one shared temperature axis. ΔG panel and heating curve side by side, molecule view underneath, then short cards that explain H = U + PV, heat vs work, and why boiling costs 6.8× melting. */
+:root{
+  --bg:#10141c; --panel:#171d28; --panel2:#131923; --line:#29344a; --ink:#e7ecf3; --muted:#93a0b4;
+  --ice:#7cc4f2; --water:#4fb3a8; --steam:#f08a6a; --plateau:#f0c14b; --good:#5fcf8d; --bad:#ef6a5b; --on:#10141c;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#eef2f6; --panel:#ffffff; --panel2:#f5f8fb; --line:#d3dbe5; --ink:#142030; --muted:#56657a;
+    --ice:#1f78b4; --water:#17806f; --steam:#c4502e; --plateau:#9a6b00; --good:#1f7f49; --bad:#c23a2b; --on:#ffffff; color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#eef2f6; --panel:#ffffff; --panel2:#f5f8fb; --line:#d3dbe5; --ink:#142030; --muted:#56657a;
+  --ice:#1f78b4; --water:#17806f; --steam:#c4502e; --plateau:#9a6b00; --good:#1f7f49; --bad:#c23a2b; --on:#ffffff; color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 72px;display:grid;gap:34px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(28px,5.6vw,44px);line-height:1.2;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(20px,3.4vw,24px);line-height:1.3;margin:0;text-wrap:balance}
+h3{font-size:16px;margin:0;line-height:1.4}
+p{margin:0}
+.lede{color:var(--muted);max-width:66ch}
+.thesis{font-family:var(--display);font-size:clamp(18px,3vw,22px);line-height:1.55;border-left:3px solid var(--plateau);padding:4px 0 4px 14px;max-width:46ch}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px}
+.stage svg{width:100%;height:auto;display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ctl input[type=range]{flex:1 1 220px;accent-color:var(--plateau);height:28px}
+.btn{font:inherit;font-size:14px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 13px;cursor:pointer}
+.btn.primary{background:var(--plateau);border-color:var(--plateau);color:var(--on)}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--ice);outline-offset:2px}
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.g{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;display:grid;gap:2px;min-width:0}
+.g span{font-size:12.5px;color:var(--muted)}
+.g b{font-family:var(--mono);font-weight:500;font-size:18px;font-variant-numeric:tabular-nums}
+.g i{font-style:normal;font-size:13.5px;color:var(--muted)}
+.pos{color:var(--bad)} .neg{color:var(--good)} .zero{color:var(--plateau)}
+canvas{width:100%;height:170px;display:block;background:var(--panel2);border:1px solid var(--line);border-radius:10px}
+.cap{font-size:13.5px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
+.bar{display:flex;height:30px;border-radius:6px;overflow:hidden;font-family:var(--mono);font-size:12.5px}
+.bar div{display:flex;align-items:center;padding:0 8px;color:var(--on);white-space:nowrap}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:7px 8px;border-top:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;border-top:0}
+.eq{font-family:var(--mono);font-size:14.5px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;overflow-x:auto}
+.defs{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px}
+.defs dt{font-family:var(--mono);color:var(--plateau)}
+.defs dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--panel2);font-size:14px;min-width:0}
+.chip b{font-family:var(--mono);font-weight:500}
+.muted{color:var(--muted)}
+.btn.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;align-items:center}
+.bgrid svg{width:100%;height:auto;display:block}
+.bars{display:grid;gap:8px;font-size:13.5px}
+.brow,.crow{display:grid;grid-template-columns:170px minmax(0,1fr) 84px;gap:10px;align-items:center}
+.crow{font-size:14px}
+.crow.on span:first-child{font-weight:700}
+.trk{height:12px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.trk>div{height:100%;border-radius:6px}
+.num{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.ro{display:grid;gap:4px;font-size:14.5px;line-height:1.6}
+.cook{display:grid;gap:8px}
+#boil td{white-space:nowrap}
+@media (max-width:520px){.brow,.crow{grid-template-columns:112px minmax(0,1fr) 70px}}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;justify-self:start;font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+  <header style="display:grid;gap:12px">
+    <h1>冰水蒸氣 ΔG</h1>
+    <p class="lede">左邊係 ΔG 隨溫度變化，右邊係將 1 kg 冰由 −20°C 一路加熱到 120°C 嘅曲線。兩邊共用同一條溫度軸。</p>
+    <p class="thesis">加熱曲線嘅平台，正正出現喺 ΔG = 0 嘅溫度。喺嗰度加入嘅熱，冇用嚟令分子郁快啲，全部用嚟將分子拉開。</p>
+  </header>
+
+  <section class="stage" aria-label="ΔG 同加熱曲線">
+    <svg id="chart" viewBox="0 0 600 452" role="img" aria-label="左：融化同沸騰嘅 ΔG；右：加熱曲線；共用溫度軸"></svg>
+    <div class="ctl">
+      <button type="button" class="btn primary" id="play">▶ 由 −20°C 開始加熱</button>
+      <label for="e" class="muted" style="font-size:14px">加入嘅能量</label>
+      <input type="range" id="e" min="0" max="3094" step="1" value="200">
+    </div>
+    <div class="ctl" role="group" aria-label="跳去">
+      <button type="button" class="btn" data-e="21">−10°C 冰</button>
+      <button type="button" class="btn" data-e="209">0°C 平台</button>
+      <button type="button" class="btn" data-e="585">50°C 水</button>
+      <button type="button" class="btn" data-e="1924">100°C 平台</button>
+      <button type="button" class="btn" data-e="3074">110°C 蒸氣</button>
+    </div>
+    <div class="gauges" id="gauges"></div>
+    <canvas id="mol" aria-label="分子示意：冰排好格、水貼住滑、蒸氣散開"></canvas>
+    <p class="cap" id="molcap"></p>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>點樣計交叉溫度</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="eq">ΔG = ΔH − T × ΔS</div>
+        <dl class="defs">
+          <dt>ΔG</dt><dd>吉布斯自由能嘅變化。負數 = 件事會自己發生；零 = 打和；正數 = 唔會自己發生。</dd>
+          <dt>ΔH</dt><dd>焓嘅變化，即係要向環境攞幾多熱（正數）或者放幾多熱（負數）。</dd>
+          <dt>T</dt><dd>溫度，用絕對溫標 K（攝氏 + 273.15）。</dd>
+          <dt>ΔS</dt><dd>熵嘅變化，即係轉變之後多咗幾多種排法。</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p>ΔG = 0 嘅時候，ΔH 同 T × ΔS 打和，所以交叉溫度 T = ΔH ÷ ΔS。</p>
+        <div class="eq">融化：6,010 J/mol ÷ 22.0 J/(mol·K) = 273 K = 0°C</div>
+        <div class="eq">沸騰：40,700 J/mol ÷ 109 J/(mol·K) = 373 K = 100°C</div>
+        <p class="muted" style="font-size:14px">熔點同沸點唔係水嘅神秘屬性，係兩條線交叉嘅位置。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px" id="boil">
+    <h2>水點樣滾</h2>
+    <p class="lede">水滾唔係「去到 100°C」，係水入面嘅蒸氣泡撐得住外面嘅壓力。100°C 只係海平面嘅答案。揀地方，再拉火力。</p>
+    <div class="stage">
+      <div class="ctl" role="group" aria-label="揀地方" id="b-pr"></div>
+      <div class="ctl"><label for="b-t" class="muted" style="font-size:14px">火力</label><input type="range" id="b-t" min="20" max="130" step="1" value="70"><span id="b-tv" class="num" style="min-width:4.5em"></span></div>
+      <div class="bgrid">
+        <svg id="b-pot" viewBox="0 0 380 190" role="img" aria-label="煲水示意：火、氣泡、外面壓力"></svg>
+        <svg id="b-cur" viewBox="0 0 380 250" role="img" aria-label="蒸氣壓曲線同外面壓力，交點係滾點"></svg>
+      </div>
+      <div class="bars">
+        <div class="brow"><span>泡入面向外推（蒸氣壓）</span><div class="trk"><div id="b-v1" style="background:var(--ice)"></div></div><span class="num" id="b-v1t"></span></div>
+        <div class="brow"><span>外面向內壓（氣壓）</span><div class="trk"><div id="b-v2" style="background:var(--steam)"></div></div><span class="num" id="b-v2t"></span></div>
+      </div>
+      <div class="ro" id="b-o"></div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>點解會滾</h3>
+        <p>水分子有快有慢，夠快嗰啲想走，佢哋向外推嘅力叫蒸氣壓。溫度越高，蒸氣壓升得越勁，藍線越去越斜。</p>
+        <p>水入面不停有細蒸氣泡形成。蒸氣壓輸畀外面壓力，泡即刻俾壓扁；追得上，泡就撐得住、長大、浮上嚟，呢個就係滾。</p>
+        <p class="muted" style="font-size:14px">滾咗之後再大火都唔會再熱，熱全部變潛熱，只係滾得快啲。</p>
+      </div>
+      <div class="card">
+        <h3>用 ΔG 講</h3>
+        <p>氣壓低，蒸氣有多啲空間散開，ΔS 變大，所以 T × ΔS 喺較低溫度就追上 ΔH。</p>
+        <div class="tbl"><table>
+          <thead><tr><th>地方</th><th>氣壓</th><th>ΔS</th><th>滾點 = ΔH ÷ ΔS</th></tr></thead>
+          <tbody>
+            <tr><td>壓力煲</td><td class="num" style="text-align:left">201 kPa</td><td class="num" style="text-align:left">103</td><td>121°C</td></tr>
+            <tr><td>海平面</td><td class="num" style="text-align:left">101 kPa</td><td class="num" style="text-align:left">109</td><td>100°C</td></tr>
+            <tr><td>乞力馬扎羅</td><td class="num" style="text-align:left">48 kPa</td><td class="num" style="text-align:left">115</td><td>80°C</td></tr>
+            <tr><td>珠峰頂</td><td class="num" style="text-align:left">31 kPa</td><td class="num" style="text-align:left">119</td><td>70°C</td></tr>
+          </tbody>
+        </table></div>
+        <p class="muted" style="font-size:13.5px">ΔH = 40,700 J/mol。ΔS 單位係 J/(mol·K)，計法：ΔS = 109 + 8.314 × ln(101 ÷ 氣壓)。ln 係自然對數；8.314 係氣體常數 R。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>煮嘢快慢</h2>
+    <p class="lede">煮熟靠化學反應：蛋白質變性、骨膠原變啫喱、澱粉吸水。粗略計，溫度每差 10°C，速度差一倍。海平面煲 2 個鐘嘅牛腩，喺唔同地方要：</p>
+    <div class="card">
+      <div class="cook" id="b-cook"></div>
+      <p class="muted" style="font-size:14px">壓力煲只係高 20°C，即係兩個「快一倍」：2 × 2 = 4 倍快。珠峰頂有啲豆同米可能永遠煮唔腍。每 10°C 一倍只係經驗法則，唔同食物會有出入。上面揀地方，呢度會跟住亮。</p>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>蒸發同沸騰</h2>
+    <div class="cards">
+      <div class="card">
+        <svg viewBox="0 0 380 312" role="img" aria-label="左：蒸發，淨係表面最快嗰幾粒走；右：沸騰，成杯水入面出泡" style="width:100%;height:auto;display:block">
+          <text x="100" y="40" text-anchor="middle" style="font-size:16px;font-weight:700;fill:var(--ink)">蒸發</text>
+          <text x="280" y="40" text-anchor="middle" style="font-size:16px;font-weight:700;fill:var(--ink)">沸騰</text>
+          <rect x="32" y="100" width="136" height="118" fill="var(--ice)" fill-opacity="0.2"/>
+          <path d="M30 62 L30 214 Q30 220 36 220 L164 220 Q170 220 170 214 L170 62" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+          <g fill="var(--ice)"><circle cx="50" cy="120" r="3"/><circle cx="75" cy="135" r="3"/><circle cx="100" cy="118" r="3"/><circle cx="128" cy="140" r="3"/><circle cx="152" cy="122" r="3"/><circle cx="60" cy="165" r="3"/><circle cx="92" cy="160" r="3"/><circle cx="120" cy="175" r="3"/><circle cx="148" cy="168" r="3"/><circle cx="70" cy="200" r="3"/><circle cx="105" cy="198" r="3"/><circle cx="140" cy="203" r="3"/></g>
+          <g fill="var(--steam)"><circle cx="64" cy="84" r="3.5"/><circle cx="104" cy="72" r="3.5"/><circle cx="140" cy="88" r="3.5"/></g>
+          <g stroke="var(--steam)" stroke-width="1.2" fill="none"><path d="M64 98 L64 90 M61 93 L64 89 L67 93"/><path d="M104 96 L104 78 M101 81 L104 77 L107 81"/><path d="M140 98 L140 94"/></g>
+          <rect x="212" y="100" width="136" height="118" fill="var(--ice)" fill-opacity="0.2"/>
+          <path d="M210 62 L210 214 Q210 220 216 220 L344 220 Q350 220 350 214 L350 62" fill="none" stroke="var(--muted)" stroke-width="1.5"/>
+          <g fill="none" stroke="var(--ice)" stroke-width="1.4"><circle cx="236" cy="205" r="3"/><circle cx="262" cy="180" r="5"/><circle cx="290" cy="200" r="3.5"/><circle cx="316" cy="160" r="7"/><circle cx="244" cy="140" r="7"/><circle cx="300" cy="122" r="8"/><circle cx="270" cy="110" r="5"/><circle cx="330" cy="205" r="3"/></g>
+          <g fill="var(--plateau)"><polygon points="236,244 244,226 252,244"/><polygon points="262,244 270,222 278,244"/><polygon points="288,244 296,224 304,244"/><polygon points="314,244 322,226 330,244"/></g>
+          <g style="font-size:13px;fill:var(--muted)" text-anchor="middle"><text x="100" y="250">任何溫度都有</text><text x="100" y="270">淨係喺表面</text><text x="100" y="290">最快嗰幾粒走甩 → 變凍</text><text x="280" y="268">要去到滾點</text><text x="280" y="288">成杯水入面出泡</text><text x="280" y="308">溫度唔郁，熱全部變潛熱</text></g>
+        </svg>
+      </div>
+      <div class="card">
+        <p><b>蒸發</b>：一杯水放喺枱面，表面最快嗰幾粒分子自己走甩。走嘅係動能最高嗰啲，剩低嘅平均慢咗，所以變凍。流汗、吹凍碗湯、游完水上岸覺得凍，都係呢個原理。</p>
+        <p><b>沸騰</b>：要蒸氣壓追上外面壓力，成杯水由底到面出泡。呢段時間溫度唔郁，加入嘅熱全部用嚟變相。</p>
+        <p class="muted" style="font-size:14px">沸騰係一個溫度門檻，門檻由外面壓力決定，所以山頂、海平面、壓力煲嘅滾點都唔同。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>H = U + PV：PV 係乜</h2>
+    <div class="cards">
+      <div class="card">
+        <p><b>U（內能）</b>＝分子亂震、亂轉、亂撞嘅動能，加分子之間同化學鍵嘅位能。成件嘢整體向一個方向郁嘅動能唔計。</p>
+        <p><b>PV</b>＝為咗騰出位置而推開大氣嘅成本。P 係大氣壓，V 係佔咗幾多體積。</p>
+        <p>所以 H 係「內能」加「佔位費」。喺開放嘅空氣入面做實驗，量到嘅熱係 ΔH。</p>
+      </div>
+      <div class="card">
+        <h3>1 kg 水滾嘅 2,260 kJ 去咗邊</h3>
+        <div class="bar" aria-label="2,091 kJ 拉開分子，169 kJ 推開空氣">
+          <div style="flex:2091;background:var(--water)">拉開分子 2,091</div>
+          <div style="flex:169;background:var(--steam)">PV</div>
+        </div>
+        <p class="muted" style="font-size:14px">水變蒸氣，體積大咗大約 1.67 m³。推開大氣：101,325 Pa × 1.67 m³ ≈ 169 kJ，佔大約 7.5%。融化嘅體積差唔多，仲細咗少少，所以融化幾乎冇 PV。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>熱同功係交收方式，唔係兩種能量</h2>
+    <div class="card">
+      <div class="tbl"><table>
+        <thead><tr><th></th><th>係乜</th><th>銀行比喻</th></tr></thead>
+        <tbody>
+          <tr><td>動能、位能</td><td>能量喺入面以咩形式存放</td><td>錢放喺活期定定期</td></tr>
+          <tr><td>熱</td><td>因為溫差，靠分子亂撞傳過嚟</td><td>現金入數</td></tr>
+          <tr><td>功</td><td>有方向咁推，力 × 距離</td><td>轉賬入數</td></tr>
+        </tbody>
+      </table></div>
+      <p>現金可以入活期，亦可以入定期。熱入 50°C 嘅水變動能（升溫）；熱入 0°C 嘅冰變位能（溫度唔郁）。功都一樣：搓手變熱，拉長橡筋變位能。</p>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>ΔG 講嘅係一個轉變，唔係一樣嘢</h2>
+    <div class="card">
+      <p>同一杯 50°C 嘅水：</p>
+      <div class="chips">
+        <div class="chip">融化 ΔG = <b class="neg">−1.10</b> kJ/mol　→ 保持係水，唔會結冰</div>
+        <div class="chip">沸騰 ΔG = <b class="pos">+5.48</b> kJ/mol　→ 唔會自己滾</div>
+      </div>
+      <p class="muted" style="font-size:14px">所以唔可以話「水 ΔG 負、冰 ΔG 正」。要講清楚係邊個轉變、喺幾多度。冰喺 −10°C 入面啲分子仍然一直震緊，只係「融化」呢件事唔會發生。ΔG = 0 只代表打和；係你持續加熱，佢先會變相。停咗加熱，冰同水就會一直共存。</p>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>點解沸騰要多 6.8 倍能量</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="bar" aria-label="融化 334 kJ"><div style="flex:334;background:var(--ice)">融化 334</div><div style="flex:1926;background:transparent"></div></div>
+        <div class="bar" aria-label="沸騰 2,260 kJ"><div style="flex:2260;background:var(--steam)">沸騰 2,260 kJ/kg</div></div>
+      </div>
+      <div class="card">
+        <p><b>融化（固體 → 液體）</b>：分子由排好格仔變成可以滑動，但仲係貼住，大部分氫鍵仲喺度。</p>
+        <p><b>沸騰（液體 → 氣體）</b>：每粒分子要同所有鄰居完全拉開，再加推開空氣嘅錢。</p>
+        <p class="muted" style="font-size:14px">拆嘅係分子之間嘅吸引（氫鍵），唔係化學鍵。水蒸氣仍然係 H₂O。</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>還債比喻</h2>
+    <div class="card">
+      <div class="tbl"><table>
+        <tbody>
+          <tr><td style="font-family:var(--mono)">ΔH &gt; 0</td><td>要還嘅債：件事要向環境攞能量</td></tr>
+          <tr><td style="font-family:var(--mono)">T</td><td>環境，你控制唔到</td></tr>
+          <tr><td style="font-family:var(--mono)">ΔS</td><td>天賦：轉變之後多咗幾多種可能</td></tr>
+          <tr><td style="font-family:var(--mono)">T × ΔS</td><td>還債能力</td></tr>
+          <tr><td style="font-family:var(--mono)" class="neg">ΔG &lt; 0</td><td>還得晒 → 件事會發生，一路行到 ΔG = 0 先停</td></tr>
+          <tr><td style="font-family:var(--mono)" class="zero">ΔG = 0</td><td>啱啱打和 → 平台，加入嘅熱全部用嚟變相</td></tr>
+          <tr><td style="font-family:var(--mono)" class="pos">ΔG &gt; 0</td><td>還唔晒 → 件事唔會發生，反方向先會</td></tr>
+        </tbody>
+      </table></div>
+      <p class="muted" style="font-size:14px">留意方向：<a href="bond-energy-map.html" style="color:inherit">化學鍵能量地圖</a>用「系統跌落低位 = 系統負債」講 ΔH &lt; 0，同呢度嘅「債」方向相反。兩個比喻揀一個用。</p>
+    </div>
+  </section>
+</main>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const yT=T=>400-(T+25)/150*350, xG=g=>60+(g+4)/18*190, xE=E=>330+E/3094*255;
+const gm=T=>6.01-(T+273.15)*0.022, gb=T=>40.7-(T+273.15)*0.109;
+const K=[[0,-20],[41.8,0],[375.8,0],[793.8,100],[3053.8,100],[3093.8,120]];
+function stateOf(E){
+ if(E<41.8)return{T:-20+E/2.09,s:1,l:0,g:0,p:'冰',go:'動能',goL:'冰升溫'};
+ if(E<375.8){const f=(E-41.8)/334;return{T:0,s:1-f,l:f,g:0,p:`冰水共存（已融 ${Math.round(f*100)}%）`,go:'位能',goL:'拆開分子，溫度唔郁'};}
+ if(E<793.8)return{T:(E-375.8)/4.18,s:0,l:1,g:0,p:'水',go:'動能',goL:'水升溫'};
+ if(E<3053.8){const f=(E-793.8)/2260;return{T:100,s:0,l:1-f,g:f,p:`水同蒸氣共存（已蒸發 ${Math.round(f*100)}%）`,go:'位能',goL:'完全拉開分子＋推開空氣'};}
+ return{T:100+(E-3053.8)/2.0,s:0,l:0,g:1,p:'蒸氣',go:'動能',goL:'蒸氣升溫'};
+}
+const sg=g=>Math.abs(g)<0.05?['zero','0']:g>0?['pos','+'+g.toFixed(2)]:['neg',g.toFixed(2)];
+function base(){
+ let o='';
+ const T=(x,y,str,size,anchor,fill,bold)=>`<text x="${x}" y="${y}" text-anchor="${anchor||'start'}" style="font-size:${size}px;fill:${fill||'var(--muted)'};${bold?'font-weight:500;':''}font-family:var(--body)">${str}</text>`;
+ o+=T(155,28,'ΔG（kJ/mol）',16,'middle','var(--ink)',1)+T(457,28,'加熱曲線（1 kg 水）',16,'middle','var(--ink)',1);
+ [0,100].forEach(v=>{o+=`<line x1="60" y1="${yT(v)}" x2="588" y2="${yT(v)}" stroke="var(--line)" stroke-dasharray="4 5" stroke-width="1.2"/>`+T(290,yT(v)+5,v+'°C',15,'middle','var(--muted)');});
+ [-20,50,120].forEach(v=>{o+=T(290,yT(v)+5,v+'°C',13,'middle','var(--muted)');});
+ o+=`<line x1="${xG(0)}" y1="44" x2="${xG(0)}" y2="402" stroke="var(--muted)" stroke-width="1"/>`;
+ o+=T(xG(0),420,'0',14,'middle')+T(60,446,'← 會發生',14,'start','var(--good)')+T(250,446,'唔會發生 →',14,'end','var(--bad)');
+ o+=`<line x1="${xG(gm(-25))}" y1="${yT(-25)}" x2="${xG(gm(125))}" y2="${yT(125)}" stroke="var(--ice)" stroke-width="3"/>`;
+ o+=`<line x1="${xG(gb(-25))}" y1="${yT(-25)}" x2="${xG(gb(125))}" y2="${yT(125)}" stroke="var(--steam)" stroke-width="3"/>`;
+ o+=T(xG(gm(-15))+10,yT(-15)+5,'融化',15,'start','var(--ice)',1)+T(xG(gb(50))+10,yT(50),'沸騰',15,'start','var(--steam)',1);
+ o+=`<line x1="330" y1="402" x2="588" y2="402" stroke="var(--muted)" stroke-width="1"/>`+T(457,428,'加入嘅能量（kJ）→',14,'middle');
+ for(let i=0;i<K.length-1;i++){const [a,ta]=K[i],[b,tb]=K[i+1],flat=ta===tb;o+=`<line x1="${xE(a)}" y1="${yT(ta)}" x2="${xE(b)}" y2="${yT(tb)}" stroke="${flat?'var(--plateau)':'var(--muted)'}" stroke-width="${flat?5:2.4}" stroke-linecap="round"/>`;}
+ o+=T(xE(1923),yT(100)+26,'沸騰平台 2,260',14,'middle','var(--plateau)',1)+T(xE(209),yT(0)+26,'融化 334',14,'middle','var(--plateau)',1);
+ return o;
+}
+const chart=document.getElementById('chart'), e=document.getElementById('e'), gauges=document.getElementById('gauges');
+let B=base(), cur=stateOf(+e.value);
+function draw(){
+ const E=+e.value, st=stateOf(E), T=st.T, y=yT(T); cur=st;
+ const m=gm(T), b=gb(T), col=g=>Math.abs(g)<0.05?'var(--plateau)':g>0?'var(--bad)':'var(--good)';
+ let s=B+`<line x1="60" y1="${y}" x2="262" y2="${y}" stroke="var(--ink)" stroke-width="1" opacity="0.35"/><line x1="318" y1="${y}" x2="588" y2="${y}" stroke="var(--ink)" stroke-width="1" opacity="0.35"/>`;
+ s+=`<circle cx="${xG(m)}" cy="${y}" r="7" fill="${col(m)}"/><circle cx="${xG(b)}" cy="${y}" r="7" fill="${col(b)}"/><circle cx="${xE(E)}" cy="${y}" r="8" fill="var(--ink)"/>`;
+ chart.innerHTML=s;
+ const [cm,vm]=sg(m),[cb,vb]=sg(b);
+ const say=(g,yes,no,tie)=>Math.abs(g)<0.05?tie:g>0?no:yes;
+ gauges.innerHTML=`<div class="g"><span>溫度</span><b>${T.toFixed(1)}°C</b><i>${st.p}</i></div>
+ <div class="g"><span>融化 ΔG（kJ/mol）</span><b class="${cm}">${vm}</b><i>${say(m,'會融／已融晒','唔會自己融','打和：冰水共存')}</i></div>
+ <div class="g"><span>沸騰 ΔG（kJ/mol）</span><b class="${cb}">${vb}</b><i>${say(b,'會滾／已變晒蒸氣','唔會自己滾','打和：水汽共存')}</i></div>
+ <div class="g"><span>加入嘅熱變咗</span><b style="color:${st.go==='位能'?'var(--plateau)':'var(--ink)'}">${st.go}</b><i>${st.goL}</i></div>`;
+ document.getElementById('molcap').textContent=`每粒分子平均郁幾快只睇溫度（${T.toFixed(0)}°C）。喺平台上溫度唔變，所以分子速度唔變，變嘅只係有幾多粒由「貼住」變成「散開」。`;
+ if(reduce)paintMol(false);
+}
+e.addEventListener('input',draw);
+document.querySelectorAll('[data-e]').forEach(b=>b.addEventListener('click',()=>{stopPlay();e.value=b.dataset.e;draw();}));
+let raf=0,playing=false;const pb=document.getElementById('play');
+function stopPlay(){playing=false;cancelAnimationFrame(raf);pb.textContent='▶ 由 −20°C 開始加熱';}
+pb.onclick=()=>{if(playing){stopPlay();return;}playing=true;pb.textContent='❚❚ 暫停';const start=+e.value>=3090?0:+e.value,t0=performance.now(),dur=12000*(1-start/3094);
+ const step=n=>{if(!playing)return;const k=Math.min(1,(n-t0)/dur);e.value=Math.round(start+(3094-start)*k);draw();if(k<1)raf=requestAnimationFrame(step);else stopPlay();};raf=requestAnimationFrame(step);};
+
+/* molecules */
+const cv=document.getElementById('mol'),cx=cv.getContext('2d');let W=0,H=0;const N=60,P=[];
+function size(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);cx.setTransform(d,0,0,d,0,0);W=r.width;H=r.height;}
+for(let i=0;i<N;i++)P.push({x:0,y:0,vx:0,vy:0,ph:Math.random()*6.28,init:false});
+function site(i){const cols=12,s=13;const c=i%cols,r=Math.floor(i/cols);return[24+c*s,H-18-r*s];}
+function paintMol(move){
+ if(!W)size();
+ const st=cur,Tk=st.T+273.15,v=1.5*Math.sqrt(Tk/373);
+ const nS=Math.round(N*st.s),nG=Math.round(N*st.g),nL=N-nS-nG;
+ const cI=css('--ice'),cW=css('--water'),cS=css('--steam'),cInk=css('--muted');
+ cx.clearRect(0,0,W,H);
+ const pool=H*0.45;
+ cx.strokeStyle=css('--line');cx.setLineDash([4,5]);cx.beginPath();cx.moveTo(0,H-pool);cx.lineTo(W,H-pool);cx.stroke();cx.setLineDash([]);
+ P.forEach((p,i)=>{
+  const ph=i<nS?0:i<nS+nL?1:2;
+  if(!p.init){const a=Math.random()*6.28;p.vx=Math.cos(a);p.vy=Math.sin(a);p.init=true;const [sx,sy]=site(i);p.x=sx;p.y=sy;}
+  if(ph===0){const [sx,sy]=site(i);p.ph+=0.25*v;const amp=1.6*Math.sqrt(Tk/273);const tx=sx+Math.sin(p.ph)*amp,ty=sy+Math.cos(p.ph*1.3)*amp;p.x+=(tx-p.x)*(move?0.25:1);p.y+=(ty-p.y)*(move?0.25:1);}
+  else{
+   if(move){if(ph===1&&Math.random()<0.12){const a=Math.random()*6.28;p.vx=Math.cos(a);p.vy=Math.sin(a);}
+    p.x+=p.vx*v;p.y+=p.vy*v;}
+   const top=ph===1?H-pool+6:6;
+   if(p.x<6){p.x=6;p.vx=Math.abs(p.vx);} if(p.x>W-6){p.x=W-6;p.vx=-Math.abs(p.vx);}
+   if(p.y<top){p.y=top;p.vy=Math.abs(p.vy);} if(p.y>H-6){p.y=H-6;p.vy=-Math.abs(p.vy);}
+  }
+  cx.beginPath();cx.arc(p.x,p.y,4.5,0,6.283);cx.fillStyle=ph===0?cI:ph===1?cW:cS;cx.fill();
+ });
+ cx.font='13px '+getComputedStyle(document.body).fontFamily;cx.fillStyle=cInk;cx.textAlign='right';
+ cx.fillText(`冰 ${nS}　水 ${nL}　蒸氣 ${nG}`,W-10,18);
+}
+function loop(){paintMol(true);requestAnimationFrame(loop);}
+addEventListener('resize',()=>{size();B=base();draw();paintMol(false);});
+size();draw();
+if(reduce)paintMol(false);else loop();
+</script>
+<script>
+(()=>{
+const PRE=[["海平面",101.3,"0 m"],["大帽山",90.3,"957 m"],["乞力馬扎羅",47.9,"5,895 m"],["珠峰頂",31.4,"8,849 m"],["壓力煲",201,"約 2 bar"]];
+const COOK=[["壓力煲 120°C",201],["海平面 100°C",101.3],["大帽山 97°C",90.3],["乞力馬扎羅 80°C",47.9],["珠峰頂 70°C",31.4]];
+const ant=T=>T<=100?[8.07131,1730.63,233.426]:[8.14019,1810.94,244.485];
+const pv=T=>{const[a,b,c]=ant(T);return Math.pow(10,a-b/(c+T))/7.50062;};
+const tb=P=>{const mm=P*7.50062;const[a,b,c]=mm<=760?[8.07131,1730.63,233.426]:[8.14019,1810.94,244.485];return b/(a-Math.log10(mm))-c;};
+const hrs=P=>2*Math.pow(2,(100-tb(P))/10), fmt=h=>h<1?Math.round(h*60)+' 分鐘':h.toFixed(1)+' 個鐘';
+const reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=id=>document.getElementById(id);
+let P=101.3,sel=0,st={};
+const t=$('b-t'),pr=$('b-pr');
+PRE.forEach(([n,p,h],i)=>{const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=`${n} ${h}`;b.onclick=()=>{P=p;sel=i;update();};pr.appendChild(b);});
+const X=T=>50+(T-20)/110*310, Y=p=>215-Math.min(p,220)/220*195;
+const maxH=hrs(31.4);
+function update(){
+ [...pr.children].forEach((b,i)=>b.classList.toggle('on',i===sel));
+ const Tb=tb(P),Ts=+t.value,Tw=Math.min(Ts,Tb),boil=Ts>=Tb-0.05,v=pv(Tw);
+ st={Tb,Ts,Tw,boil,v};
+ $('b-tv').textContent='水 '+Math.round(Tw)+'°C';
+ $('b-v1').style.width=Math.min(100,v/220*100)+'%';$('b-v1t').textContent=v.toFixed(0)+' kPa';
+ $('b-v2').style.width=Math.min(100,P/220*100)+'%';$('b-v2t').textContent=P.toFixed(0)+' kPa';
+ const tx=(x,y,s,a,f,w)=>`<text x="${x}" y="${y}" text-anchor="${a}" style="font-size:${s}px;fill:${f};${w?'font-weight:700;':''}">`;
+ let s=`<line x1="50" y1="215" x2="362" y2="215" stroke="var(--muted)" stroke-width="0.8"/><line x1="50" y1="215" x2="50" y2="16" stroke="var(--muted)" stroke-width="0.8"/>`;
+ [20,40,60,80,100,120].forEach(T=>s+=tx(X(T),232,12,'middle','var(--muted)')+T+'</text>');
+ [0,50,100,150,200].forEach(p=>s+=tx(44,Y(p)+4,12,'end','var(--muted)')+p+'</text>');
+ s+=tx(362,248,12,'end','var(--muted)')+'水溫 °C</text>'+tx(56,14,12,'start','var(--muted)')+'蒸氣壓 kPa</text>';
+ const pts=[];for(let T=20;T<=130;T++){const p=pv(T);if(p>220)break;pts.push(X(T).toFixed(1)+','+Y(p).toFixed(1));}
+ s+=`<polyline points="${pts.join(' ')}" fill="none" stroke="var(--ice)" stroke-width="2.5"/>`;
+ s+=`<line x1="50" y1="${Y(P)}" x2="362" y2="${Y(P)}" stroke="var(--steam)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+ s+=`<line x1="${X(Tb)}" y1="${Y(P)}" x2="${X(Tb)}" y2="215" stroke="var(--plateau)" stroke-width="1" stroke-dasharray="3 3"/>`;
+ s+=`<circle cx="${X(Tb)}" cy="${Y(P)}" r="6" fill="var(--plateau)"/>`+tx(X(Tb)-10,Y(P)-9,13,'end','var(--ink)',1)+`滾點 ${Math.round(Tb)}°C</text>`;
+ s+=`<circle cx="${X(Tw)}" cy="${Y(v)}" r="5" fill="var(--ink)"/>`;
+ $('b-cur').innerHTML=s;
+ $('b-o').innerHTML=`<div>${boil?'<b style="color:var(--good)">滾緊。</b>泡入面推出去嘅力撐得住外面，泡可以喺水入面長大、浮上嚟。':'<b>未滾。</b>泡一形成就俾外面壓扁。水面仍然有分子一粒粒走，即係蒸發。'}</div><div>喺呢度，水最熱只可以去到 <b>${Math.round(Tb)}°C</b>。${Ts>Tb+1?'再大火都唔會再熱，只係滾得快啲。':''}</div><div class="muted">海平面煲 2 個鐘嘅牛腩，喺呢度大約要 <b style="color:var(--ink)">${fmt(hrs(P))}</b>。</div>`;
+ $('b-cook').innerHTML=COOK.map(([n,p])=>{const h=hrs(p);return `<div class="crow${Math.abs(p-P)<0.5?' on':''}"><span>${n}</span><div class="trk"><div style="width:${(h/maxH*100).toFixed(1)}%;background:${Math.abs(p-P)<0.5?'var(--plateau)':'var(--muted)'}"></div></div><span class="num">${fmt(h)}</span></div>`;}).join('');
+}
+t.addEventListener('input',update);update();
+const pot=$('b-pot');let Bb=[],Vv=[];
+function frame(){
+ const {boil,Ts,Tb,v}=st;
+ if(!reduceM){
+  if(boil&&Bb.length<40&&Math.random()<0.3+Math.min(0.5,(Ts-Tb)/30))Bb.push({x:70+Math.random()*240,y:156,r:2,life:0,k:1});
+  if(!boil&&v/P>0.45&&Bb.length<12&&Math.random()<0.06*v/P)Bb.push({x:70+Math.random()*240,y:156,r:1,life:0,k:0});
+  if(Vv.length<30&&Math.random()<Math.min(0.5,0.05+v/P*0.35))Vv.push({x:60+Math.random()*260,y:60,a:1});
+  Bb=Bb.filter(b=>{b.life++;if(b.k){b.y-=1.3+b.r*0.08;b.r=Math.min(9,b.r+0.09);return b.y>64;}b.r=b.life<20?b.r+0.18:b.r-0.25;return b.r>0.2;});
+  Vv=Vv.filter(d=>{d.y-=0.9;d.a-=0.016;return d.a>0;});
+ }
+ const fl=Math.max(0.15,(Ts-20)/110);
+ let s=`<rect x="52" y="60" width="276" height="98" fill="var(--ice)" fill-opacity="0.2"/><path d="M50 30 L50 150 Q50 160 60 160 L320 160 Q330 160 330 150 L330 30" fill="none" stroke="var(--muted)" stroke-width="2"/>`;
+ const aw=(1+P/101*1.6).toFixed(1);[110,190,270].forEach(x=>s+=`<line x1="${x}" y1="14" x2="${x}" y2="46" stroke="var(--steam)" stroke-width="${aw}"/><path d="M${x-5} 40 L${x} 48 L${x+5} 40" fill="none" stroke="var(--steam)" stroke-width="${aw}"/>`);
+ [120,160,200,240].forEach(x=>{const h=10+fl*18;s+=`<polygon points="${x-8},184 ${x},${(184-h).toFixed(1)} ${x+8},184" fill="var(--plateau)" fill-opacity="0.85"/>`;});
+ Bb.forEach(b=>s+=`<circle cx="${b.x.toFixed(1)}" cy="${b.y.toFixed(1)}" r="${b.r.toFixed(1)}" fill="var(--panel2)" fill-opacity="0.6" stroke="var(--ice)" stroke-width="1.2"/>`);
+ Vv.forEach(d=>s+=`<circle cx="${d.x.toFixed(1)}" cy="${d.y.toFixed(1)}" r="2" fill="var(--ice)" fill-opacity="${d.a.toFixed(2)}"/>`);
+ pot.innerHTML=s;
+ if(!reduceM)requestAnimationFrame(frame);
+}
+frame();
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

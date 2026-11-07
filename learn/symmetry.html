@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>宇宙對稱表</title>
+<meta name="description" content="規則幾乎全部對稱，世界嘅唔對稱大部分嚟自起點同破缺：時間、鏡像、物質同反物質、化學、生命，同埋錢點解一升一跌會蝕。">
+<meta property="og:title" content="宇宙對稱表">
+<meta property="og:description" content="規則幾乎全部對稱，世界嘅唔對稱大部分嚟自起點同破缺：時間、鏡像、物質同反物質、化學、生命，同埋錢點解一升一跌會蝕。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/symmetry.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/symmetry.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="宇宙對稱表">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/symmetry.html">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+/* Layout: a mirror. Each row is one theme; the symmetric rule sits left of a centre line, the asymmetric reality sits right, tagged with where the asymmetry comes from. Two small demos underneath. */
+:root{
+  --bg:#10141c; --panel:#181e29; --panel2:#131923; --line:#2a3445; --ink:#e9edf3; --muted:#949fb1;
+  --sym:#6ec3e6; --asym:#f08a6a; --rule:#f0708a; --start:#f0c14b; --brk:#b79cf0; --math:#7fb0ff; --on:#13110c;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#eef2f6; --panel:#ffffff; --panel2:#f5f8fb; --line:#d3dbe5; --ink:#152030; --muted:#56657a;
+    --sym:#1b77a3; --asym:#c4502e; --rule:#c23a5a; --start:#9a6b00; --brk:#6a46b8; --math:#2f62c4; --on:#ffffff; color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#eef2f6; --panel:#ffffff; --panel2:#f5f8fb; --line:#d3dbe5; --ink:#152030; --muted:#56657a;
+  --sym:#1b77a3; --asym:#c4502e; --rule:#c23a5a; --start:#9a6b00; --brk:#6a46b8; --math:#2f62c4; --on:#ffffff; color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:grid;gap:28px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(28px,5.5vw,44px);line-height:1.2;margin:0 0 8px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(20px,3.4vw,24px);line-height:1.3;margin:0;text-wrap:balance}
+p{margin:0}
+.lede{color:var(--muted);max-width:66ch}
+.thesis{font-family:var(--display);font-size:clamp(18px,3vw,22px);line-height:1.5;border-left:3px solid var(--start);padding:6px 0 6px 14px;max-width:44ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:13.5px;color:var(--muted)}
+.tag{display:inline-block;font-size:12.5px;font-weight:500;border:1px solid currentColor;border-radius:999px;padding:0 9px;line-height:1.7;white-space:nowrap}
+.t-rule{color:var(--rule)} .t-start{color:var(--start)} .t-brk{color:var(--brk)} .t-math{color:var(--math)}
+.mirror{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.mrow{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line)}
+.mrow.head{border-top:0;background:var(--panel2)}
+.mrow>div{padding:12px 16px;min-width:0}
+.mrow .th{font-weight:700}
+.mrow .s{border-right:2px solid var(--line)}
+.head .s,.head .a{font-family:var(--display);font-size:18px;font-weight:700}
+.head .s{color:var(--sym)} .head .a{color:var(--asym)}
+.mrow .a .tag{margin-left:6px}
+.mrow .ex{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+@media (max-width:720px){
+  .mrow{grid-template-columns:minmax(0,1fr)}
+  .mrow .s{border-right:0;border-left:3px solid var(--sym)}
+  .mrow .a{border-left:3px solid var(--asym)}
+  .mrow.head{display:none}
+  .mrow .th{padding-bottom:0}
+}
+.sym-l{color:var(--sym);font-size:12.5px;font-weight:500;display:none}
+.asym-l{color:var(--asym);font-size:12.5px;font-weight:500;display:none}
+@media (max-width:720px){.sym-l,.asym-l{display:block}}
+.demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.demo{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:10px;align-content:start;min-width:0}
+.demo svg{width:100%;height:auto;display:block}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:14px}
+.ctl input[type=range]{flex:1 1 160px;accent-color:var(--start);height:28px}
+.ctl .val{font-family:var(--mono);min-width:4em}
+.ctl button{font:inherit;font-size:14px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 14px;cursor:pointer}
+.ctl button.primary{background:var(--start);border-color:var(--start);color:var(--on)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--start);outline-offset:2px}
+.out{font-size:14.5px}
+.out b{font-family:var(--mono);font-weight:500;color:var(--start)}
+.foot{font-size:13px;color:var(--muted)}
+svg text{font-family:var(--body)}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;justify-self:start;font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+  <header>
+    <h1>宇宙對稱表</h1>
+    <p class="lede">左邊係宇宙嘅規則有幾對稱，右邊係實際世界點樣唔對稱。每一行講同一個主題。</p>
+  </header>
+  <p class="thesis">規則幾乎全部對稱。世界嘅唔對稱，大部分嚟自起點同「破缺」，真正嚟自規則本身嘅好少。</p>
+  <div class="tags" aria-label="唔對稱嘅來源">
+    <span><span class="tag t-rule">規則本身</span> 條規則真係分得出左右、正反</span>
+    <span><span class="tag t-start">起點</span> 規則對稱，但開局唔平均</span>
+    <span><span class="tag t-brk">自發破缺</span> 規則對稱，結果被迫揀一邊</span>
+    <span><span class="tag t-math">數學累積</span> 乘法本身唔對稱</span>
+  </div>
+
+  <section class="mirror" aria-label="對稱同唔對稱對照表">
+    <div class="mrow head"><div class="th">主題</div><div class="s">對稱</div><div class="a">唔對稱</div></div>
+
+    <div class="mrow"><div class="th">時間</div>
+      <div class="s"><span class="sym-l">對稱</span>基本定律倒帶播都成立。<span class="ex">兩粒波相撞，倒轉播一樣合理。<a href="ten-equations.html" style="color:inherit">十條式</a>左邊嗰啲全部係咁。</span></div>
+      <div class="a"><span class="asym-l">唔對稱</span>熵只會升。<span class="tag t-start">起點</span><span class="ex">杯打爛唔會自己砌返；你記得琴日，唔記得聽日。原因係宇宙由極低熵開始。</span></div></div>
+
+    <div class="mrow"><div class="th">左右（鏡像）</div>
+      <div class="s"><span class="sym-l">對稱</span>電磁力、強力、重力分唔到左右。<span class="ex">鏡入面嘅世界，用呢三種力照樣運作。</span></div>
+      <div class="a"><span class="asym-l">唔對稱</span>弱力只同左手粒子（同右手反粒子）作用。<span class="tag t-rule">規則本身</span><span class="ex">1956 年吳健雄用鈷-60 實驗證實：鏡入面嘅弱力唔成立。</span></div></div>
+
+    <div class="mrow"><div class="th">物質同反物質</div>
+      <div class="s"><span class="sym-l">對稱</span>規則差唔多一樣。<span class="ex">同樣質量、電荷相反，一撞埋就湮滅變成光。</span></div>
+      <div class="a"><span class="asym-l">唔對稱</span>大爆炸後，每十億對多咗一粒物質。<span class="tag t-rule">規則本身</span><span class="tag t-start">起點</span><span class="ex">其餘全部湮滅，剩低嗰一粒，就係所有星、所有人。點解會多一粒，而家仲未有完整答案。</span></div></div>
+
+    <div class="mrow"><div class="th">三樣一齊反</div>
+      <div class="s"><span class="sym-l">對稱</span>電荷、鏡像、時間同時反轉：完全對稱。<span class="ex">叫 CPT 對稱，至今未見過任何例外。</span></div>
+      <div class="a"><span class="asym-l">唔對稱</span>淨係反其中一兩樣，弱力就露底。<span class="tag t-rule">規則本身</span><span class="ex">1964 年喺 K 介子發現「電荷 + 鏡像」唔對稱，代表時間方向都有少少唔對稱。</span></div></div>
+
+    <div class="mrow"><div class="th">空間同方向</div>
+      <div class="s"><span class="sym-l">對稱</span>喺邊度、向邊個方向，規則都一樣。<span class="ex">所以動量、角動量守恆。</span></div>
+      <div class="a"><span class="asym-l">唔對稱</span>規則對稱，結果卻要揀一邊。<span class="tag t-brk">自發破缺</span><span class="ex">直企嘅筆總會跌向某一邊；水結冰揀咗晶體方向；磁鐵揀咗北極；早期宇宙嘅希格斯場揀定咗，粒子先有質量。</span></div></div>
+
+    <div class="mrow"><div class="th">化學</div>
+      <div class="s"><span class="sym-l">對稱</span>每個反應都有反方向，最後去到平衡。<span class="ex">微觀上，正反兩個方向都一直發生緊。</span></div>
+      <div class="a"><span class="asym-l">唔對稱</span>燒咗嘅木唔會自己變返；熱只由熱流去凍。<span class="tag t-start">起點</span><span class="ex">唔係規則禁止，係反方向嘅機會細到等於零。</span></div></div>
+
+    <div class="mrow"><div class="th">生命</div>
+      <div class="s"><span class="sym-l">對稱</span>身體外表大致左右對稱。<span class="ex">兩隻手、兩隻眼、兩邊肺。</span></div>
+      <div class="a"><span class="asym-l">唔對稱</span>生命只用左手氨基酸、右手糖；心偏左。進化係一程路。<span class="tag t-brk">自發破缺</span><span class="tag t-start">起點</span><span class="ex">突變大部分冇用或者有害，超過 99% 曾經出現嘅物種已經絕種。破壞易，建設難。</span></div></div>
+
+    <div class="mrow"><div class="th">錢同增長</div>
+      <div class="s"><span class="sym-l">對稱</span>加減對稱。<span class="ex">+10 再 −10，返返原位。</span></div>
+      <div class="a"><span class="asym-l">唔對稱</span>乘除唔對稱。<span class="tag t-math">數學累積</span><span class="ex">跌 50% 要升 100% 先返本；同樣幅度一升一跌，會越嚟越少。</span></div></div>
+  </section>
+
+  <section class="sec" style="display:grid;gap:12px">
+    <h2>兩個可以玩嘅例子</h2>
+    <div class="demos">
+      <div class="demo">
+        <h3 style="margin:0;font-size:16px">十億對多一粒：物質點樣贏</h3>
+        <svg id="mat" viewBox="0 0 640 260" role="img" aria-label="物質同反物質湮滅，剩低一粒物質"></svg>
+        <div class="ctl"><button type="button" class="primary" id="boom">湮滅</button><button type="button" id="again">重新開始</button></div>
+        <p class="out" id="mo">左邊 31 粒物質，右邊 30 粒反物質（真實比例係十億零一比十億）。</p>
+      </div>
+      <div class="demo">
+        <h3 style="margin:0;font-size:16px">一升一跌，點解會蝕</h3>
+        <svg id="cmp" viewBox="0 0 640 260" role="img" aria-label="同樣幅度一升一跌嘅資產變化"></svg>
+        <div class="ctl"><label for="p">每次上落</label><input type="range" id="p" min="5" max="60" step="5" value="30"><span class="val" id="pv"></span></div>
+        <p class="out" id="co"></p>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">「規則本身」嗰幾行全部同弱力有關；其餘嘅唔對稱，規則都係對稱嘅。</p>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* matter vs antimatter */
+let M=[],A=[],raf=0;
+function setupMat(){
+  cancelAnimationFrame(raf);M=[];A=[];
+  for(let i=0;i<31;i++)M.push({x:30+(i%6)*44,y:40+Math.floor(i/6)*36,alive:true});
+  for(let i=0;i<30;i++)A.push({x:390+(i%6)*44,y:40+Math.floor(i/6)*36,alive:true});
+  drawMat([],false);$('mo').textContent='左邊 31 粒物質，右邊 30 粒反物質（真實比例係十億零一比十億）。';
+}
+function drawMat(flashes,done){
+  let s=`<line x1="320" y1="20" x2="320" y2="240" stroke="var(--line)" stroke-dasharray="4 4"/>`;
+  s+=`<text x="150" y="18" font-size="12.5" text-anchor="middle" fill="var(--muted)">物質</text><text x="500" y="18" font-size="12.5" text-anchor="middle" fill="var(--muted)">反物質</text>`;
+  flashes.forEach(f=>{s+=`<circle cx="${f.x}" cy="${f.y}" r="${f.r}" fill="var(--start)" fill-opacity="${f.o}"/>`;});
+  M.forEach(p=>{if(p.alive)s+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="11" fill="var(--ink)"/>`;});
+  A.forEach(p=>{if(p.alive)s+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="11" fill="var(--start)"/>`;});
+  if(done)s+=`<text x="320" y="252" font-size="13" text-anchor="middle" fill="var(--ink)">剩低呢一粒 = 宇宙入面所有物質</text>`;
+  $('mat').innerHTML=s;
+}
+function boom(){
+  cancelAnimationFrame(raf);
+  if(reduce){M.forEach((p,i)=>{if(i<30)p.alive=false;});A.forEach(p=>p.alive=false);M[30].x=320;M[30].y=150;drawMat([],true);$('mo').textContent='30 對湮滅，變成光（今日嘅宇宙微波背景）。剩低 1 粒物質。';return;}
+  const t0=performance.now(),dur=60,flashes=[];
+  const start=M.map(p=>({x:p.x,y:p.y})),startA=A.map(p=>({x:p.x,y:p.y}));
+  const step=now=>{const t=now-t0;let active=false;
+    for(let i=0;i<30;i++){const k=(t-i*dur)/500;if(k<0){active=true;continue;}
+      if(k<1){active=true;const mx=320,my=start[i].y;M[i].x=start[i].x+(mx-8-start[i].x)*k;A[i].x=startA[i].x+(mx+8-startA[i].x)*k;M[i].y=start[i].y;A[i].y=startA[i].y+(my-startA[i].y)*k;}
+      else if(M[i].alive){M[i].alive=false;A[i].alive=false;flashes.push({x:320,y:start[i].y,r:6,o:0.9});}}
+    flashes.forEach(f=>{f.r+=1.2;f.o*=0.93;});
+    const live=flashes.filter(f=>f.o>0.03);flashes.length=0;flashes.push(...live);
+    const done=!active&&flashes.length===0;
+    if(!active){M[30].x+=(320-M[30].x)*0.08;M[30].y+=(150-M[30].y)*0.08;}
+    drawMat(flashes,done&&Math.abs(M[30].x-320)<2);
+    if(!(done&&Math.abs(M[30].x-320)<2))raf=requestAnimationFrame(step);
+    else $('mo').textContent='30 對湮滅，變成光（今日嘅宇宙微波背景）。剩低 1 粒物質。';};
+  raf=requestAnimationFrame(step);
+}
+$('boom').onclick=boom;$('again').onclick=setupMat;setupMat();
+
+/* compounding asymmetry */
+function drawCmp(){
+  const p=+$('p').value/100,N=20;let v=100,pts=[[0,100]];
+  for(let i=1;i<=N;i++){v*=(i%2?1+p:1-p);pts.push([i,v]);}
+  const top=Math.max(...pts.map(q=>q[1]))*1.08;
+  const L=74,R=590,X=i=>L+i/N*(R-L),Y=val=>230-val/top*205;
+  let s=`<line x1="${L}" y1="${Y(100)}" x2="${R}" y2="${Y(100)}" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="${L-8}" y="${Y(100)+4}" font-size="12.5" text-anchor="end" fill="var(--muted)">本金 100</text>`;
+  s+=`<line x1="${L}" y1="230" x2="${R}" y2="230" stroke="var(--line)"/><text x="${L-8}" y="234" font-size="12.5" text-anchor="end" fill="var(--muted)">0</text>`;
+  s+=`<path d="${pts.map((q,i)=>(i?'L':'M')+X(q[0]).toFixed(1)+','+Y(q[1]).toFixed(1)).join('')}" fill="none" stroke="var(--asym)" stroke-width="2.5" stroke-linejoin="round"/>`;
+  const last=pts[N];s+=`<circle cx="${X(N)}" cy="${Y(last[1])}" r="5" fill="var(--asym)"/><text x="${X(N)+10}" y="${Y(last[1])+5}" font-size="14" font-weight="700" fill="var(--asym)">${last[1].toFixed(0)}</text>`;
+  s+=`<text x="${R}" y="252" font-size="12.5" text-anchor="end" fill="var(--muted)">一升一跌 × 10 次 →</text>`;
+  $('cmp').innerHTML=s;$('pv').textContent='±'+Math.round(p*100)+'%';
+  $('co').innerHTML=`每次升 ${Math.round(p*100)}% 再跌 ${Math.round(p*100)}%，十個回合之後剩 <b>${last[1].toFixed(0)}</b>。跌 ${Math.round(p*100)}% 之後，要升 <b>${(p/(1-p)*100).toFixed(0)}%</b> 先返本。`;
+}
+$('p').addEventListener('input',drawCmp);drawCmp();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
