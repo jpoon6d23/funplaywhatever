@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>神嘅產品史</title>
+<meta name="description" content="神係人類第一代產品：解釋未知，同埋令陌生人肯合作。30 萬年、6 個時代，由萬物有靈去到一個神拆成法律、鏡頭同評分。">
+<meta property="og:title" content="神 = 產品">
+<meta property="og:description" content="神係人類第一代產品：解釋未知，同埋令陌生人肯合作。30 萬年、6 個時代，由萬物有靈去到一個神拆成法律、鏡頭同評分。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/god-product.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/god-product.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="神 = 產品">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/god-product.html">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one column of chapters. Each era owns a pigment (cave ochre, barley, lapis, ink-violet, gold leaf, screen cyan); the page accent follows the selected era. Dark by choice. */
+:root{
+  --bg:#131015; --panel:#1b171f; --panel2:#231e28; --line:#352d39; --ink:#efe7da; --muted:#a89e90; --dim:#6f6672;
+  --e1:#d4793c; --e2:#a3bf4f; --e3:#6a93ea; --e4:#a98ae4; --e5:#e9c460; --e6:#47c6d6;
+  --good:#5cc98f; --bad:#e5674f; --warn:#e9a64b;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --era:var(--e1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding-inline:clamp(16px,4vw,28px);padding-block:28px 72px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h1{font-size:clamp(44px,10vw,92px);font-weight:900;line-height:1.02;letter-spacing:-.01em}
+h1 .eq{color:var(--era);transition:color .4s}
+h2{font-size:clamp(25px,4.6vw,36px);font-weight:900;line-height:1.2;margin-bottom:6px}
+h3{font-size:18px;font-weight:700}
+p{margin:0}
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.lede{color:var(--muted);max-width:62ch;margin-bottom:18px}
+section{margin-top:72px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--era);outline-offset:2px}
+
+/* hero */
+.hero{display:grid;gap:18px;margin-bottom:26px}
+.needs{display:flex;flex-wrap:wrap;gap:10px}
+.need{display:flex;align-items:baseline;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.need b{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400}
+.need span{font-weight:700;font-size:16px}
+.thesis{max-width:60ch;font-size:16.5px}
+.thesis em{font-style:normal;color:var(--era);font-weight:700;transition:color .4s}
+
+/* time machine */
+.eras{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:10px}
+.era-b{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 8px 7px;text-align:left;display:grid;gap:1px;min-width:0}
+.era-b i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:1px}
+.era-b strong{font-size:14px;white-space:nowrap}
+.era-b small{font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.era-b[aria-pressed=true]{background:var(--panel2);border-color:var(--era)}
+.stage-box{border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  background:radial-gradient(ellipse 70% 60% at 50% 0%,color-mix(in srgb,var(--era) 16%,transparent),transparent 70%),var(--panel)}
+#stage{display:block;width:100%;height:clamp(330px,50vw,470px)}
+.scrub{padding:14px 16px 12px;border-top:1px solid var(--line);background:var(--panel)}
+.scrub-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.when{font-family:var(--mono);font-size:20px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--era);transition:color .4s}
+.play{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:13.5px;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--era);height:28px;margin:0}
+.realbar{margin-top:8px}
+.realbar .bar{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--panel2)}
+.realbar .bar span{display:block;min-width:3px}
+.realbar p{font-size:12.5px;color:var(--muted);margin-top:5px}
+.facts{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);border-top:1px solid var(--line)}
+.nums{display:grid;align-content:start;border-right:1px solid var(--line)}
+.num{padding:12px 16px;border-bottom:1px solid var(--line)}
+.num:last-child{border-bottom:0}
+.k{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.35;overflow-wrap:anywhere}
+.v.small{font-family:var(--body);font-size:16px;font-weight:700}
+.words{display:grid;align-content:start}
+.row{display:grid;grid-template-columns:86px minmax(0,1fr);gap:12px;padding:10px 16px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .k{padding-top:2px}
+.row .t{font-size:15px}
+.newthing{background:color-mix(in srgb,var(--era) 10%,var(--panel));}
+.newthing .t{font-weight:700}
+
+/* stranger machine */
+.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;min-width:0}
+#crowd{display:block;width:100%;height:250px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:0}
+.ctl{margin-bottom:12px}
+.ctl label{display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:14.5px}
+.ctl label span{font-family:var(--mono);color:var(--era);font-weight:600}
+.ctl .hint{font-size:12.5px;color:var(--muted);line-height:1.5}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.presets button{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:13px}
+.presets button:hover{border-color:var(--muted)}
+.meter{margin-top:10px}
+.meter .track{height:12px;border-radius:6px;background:var(--panel2);overflow:hidden}
+.meter .fill{height:100%;width:0;border-radius:6px;transition:width .25s,background .25s}
+.meter-top{display:flex;justify-content:space-between;align-items:baseline}
+.meter-top b{font-family:var(--mono);font-size:26px;font-variant-numeric:tabular-nums}
+.formula{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:12px;line-height:1.8;overflow-x:auto}
+.formula .def{font-family:var(--body);color:var(--muted);font-size:12.5px}
+.toy{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+/* unbundle */
+.ub-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;justify-content:space-between;margin-bottom:8px}
+.ub-year{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--e6);font-variant-numeric:tabular-nums}
+.ub-count{font-size:14px;color:var(--muted)}
+.ub-count b{color:var(--e5);font-family:var(--mono);font-size:18px}
+.ub{display:grid;gap:6px;margin-top:12px}
+.ub-row{display:grid;grid-template-columns:minmax(0,1.1fr) 70px minmax(0,1.3fr);gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:9px 12px;cursor:pointer;text-align:left;width:100%}
+.ub-row .fn{display:block;min-width:0}
+.ub-row .fn b{display:block;font-size:15px}
+.ub-row .fn small{color:var(--muted);font-size:12.5px;line-height:1.4;display:block}
+.wire{display:block;position:relative;height:18px}
+.wire::before{content:"";position:absolute;left:0;right:6px;top:8px;height:2px;background:var(--e5);transition:background .35s}
+.wire::after{content:"";position:absolute;right:0;top:4px;border:5px solid transparent;border-left:8px solid var(--e5);border-right:0;transition:border-color .35s}
+.prov{display:flex;align-items:center;gap:8px;min-width:0}
+.prov .who{font-weight:700;font-size:14.5px;transition:color .35s}
+.prov .yr{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:999px;padding:1px 7px;color:var(--muted);flex:none}
+.ub-row[data-on=false] .prov .who{color:var(--e5)}
+.ub-row[data-on=true] .wire::before{background:var(--e6)}
+.ub-row[data-on=true] .wire::after{border-left-color:var(--e6)}
+.ub-row[data-on=true] .prov .who{color:var(--e6)}
+.ub-row[data-on=gap] .prov .who{color:var(--bad)}
+.ub-row[data-on=gap] .wire::before{background:repeating-linear-gradient(90deg,var(--bad) 0 5px,transparent 5px 10px)}
+.ub-row[data-on=gap] .wire::after{border-left-color:var(--bad)}
+.ub-row .why{display:block;grid-column:1/-1;font-size:13.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:7px;margin-top:2px}
+.ub-row .why[hidden]{display:none}
+
+/* eye */
+.eyes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.eye{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;transition:border-color .3s,background .3s;cursor:pointer}
+.eye svg{width:100%;max-width:150px;height:auto;display:block;margin:0 auto 6px}
+.eye b{display:block;font-size:15.5px}
+.eye .who{font-size:13px;color:var(--muted)}
+.eye .tag{display:inline-block;font-family:var(--mono);font-size:11px;border-radius:999px;padding:1px 8px;margin-top:6px;border:1px solid var(--line);color:var(--muted)}
+.eye[aria-pressed=true]{border-color:var(--c);background:color-mix(in srgb,var(--c) 10%,var(--panel))}
+.eye-say{margin-top:12px;min-height:3.4em}
+.chip{font-family:var(--mono);font-size:11.5px;font-weight:600;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.chip.warn{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn)}
+.chip.bad{background:color-mix(in srgb,var(--bad) 22%,transparent);color:var(--bad)}
+.chip.good{background:color-mix(in srgb,var(--good) 22%,transparent);color:var(--good)}
+.chip.info{background:color-mix(in srgb,var(--e4) 22%,transparent);color:var(--e4)}
+
+.bottom{margin-top:56px;border-top:1px solid var(--line);padding-top:18px;font-size:13.5px;color:var(--muted)}
+.bottom ol{padding-left:20px;margin:6px 0 0}
+.bottom a{color:var(--muted)}
+.bottom a:hover{color:var(--ink)}
+
+@media (max-width:760px){
+  .eras{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .facts{grid-template-columns:1fr}
+  .nums{border-right:0;border-bottom:1px solid var(--line);grid-template-columns:repeat(3,minmax(0,1fr))}
+  .num{border-bottom:0;border-right:1px solid var(--line);padding:10px 10px}
+  .num:last-child{border-right:0}
+  .v{font-size:16px}
+  .lab{grid-template-columns:1fr}
+  .eyes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ub-row{grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)}
+}
+@media (max-width:420px){
+  .row{grid-template-columns:70px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0;margin-bottom:14px}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+
+  <header class="hero">
+    <div class="kick">一個假設 · 30 萬年 · 6 個時代</div>
+    <h1>神 <span class="eq">=</span> 產品</h1>
+    <div class="needs" aria-label="兩個需求">
+      <div class="need"><b>需求 1</b><span>解釋未知</span></div>
+      <div class="need"><b>需求 2</b><span>同陌生人合作</span></div>
+    </div>
+    <p class="thesis">人越多，陌生人越多。陌生人越多，越需要一樣嘢<em>睇住所有人</em>。神係第一代產品；法律、鏡頭、評分係第二代。</p>
+  </header>
+
+  <!-- TIME MACHINE -->
+  <div class="eras" id="eras" role="group" aria-label="揀時代"></div>
+  <div class="stage-box">
+    <canvas id="stage" aria-label="時代場景：上面係神嘅樣，下面每粒點係人，有顏色嘅係你識嘅人"></canvas>
+    <div class="scrub">
+      <div class="scrub-top">
+        <div class="when" id="when">約 30 萬年前</div>
+        <button class="play" id="play">▶ 由頭播到尾</button>
+      </div>
+      <label class="k" for="time">拉條桿：由 30 萬年前去到今日</label>
+      <input type="range" id="time" min="0" max="5.999" step="0.001" value="0.35">
+      <div class="realbar">
+        <div class="bar" id="realbar" aria-hidden="true"></div>
+        <p>條桿每個時代一樣闊。上面呢條先係真實時間：人類 97% 嘅歷史都係泛靈論，其他全部擠喺最後 3%。</p>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="nums">
+        <div class="num"><div class="k">最大合作圈</div><div class="v" id="fPop">150</div></div>
+        <div class="num"><div class="k">入面你唔識嘅人</div><div class="v" id="fStr">0%</div></div>
+        <div class="num"><div class="k">時代</div><div class="v small" id="fEra">泛靈論</div></div>
+      </div>
+      <div class="words">
+        <div class="row"><div class="k">神嘅樣</div><div class="t" id="fGod"></div></div>
+        <div class="row"><div class="k">神做咩</div><div class="t" id="fJob"></div></div>
+        <div class="row"><div class="k">點同神交易</div><div class="t" id="fDeal"></div></div>
+        <div class="row"><div class="k">道德邊個管</div><div class="t" id="fMoral"></div></div>
+        <div class="row newthing"><div class="k">新嘢</div><div class="t" id="fNew"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRANGER MACHINE -->
+  <section id="strangers">
+    <div class="kick">核心機制</div>
+    <h2>陌生人機：點解人多就要神</h2>
+    <p class="lede">每粒點係一個人。綠 = 守規矩，紅 = 呃人。佢哋呃唔呃，只睇一樣嘢：<b>會唔會被捉</b>。拉人數，再試吓加隻神。</p>
+    <div class="lab">
+      <div class="card">
+        <canvas id="crowd" aria-label="人群：綠色守規矩，紅色呃人"></canvas>
+        <div class="legend"><span><i style="background:var(--good)"></i>守規矩</span><span><i style="background:var(--bad)"></i>呃人</span></div>
+        <div class="meter">
+          <div class="meter-top"><span class="k">合作率</span><b id="coop">100%</b></div>
+          <div class="track"><div class="fill" id="coopFill"></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ctl">
+          <label for="nPop">人數 <span id="nPopV">150</span></label>
+          <input type="range" id="nPop" min="2.1761" max="9.903" step="0.001" value="2.1761">
+          <div class="hint">你個腦最多記到約 150 個人嘅底（Dunbar 數字）。</div>
+        </div>
+        <div class="ctl">
+          <label for="belief">信有全知神睇住 <span id="beliefV">0%</span></label>
+          <input type="range" id="belief" min="0" max="100" step="1" value="0">
+          <div class="hint">雨神唔計：佢只理天氣，唔理你呃唔呃人。</div>
+        </div>
+        <div class="ctl">
+          <label for="cam">鏡頭 + 評分覆蓋 <span id="camV">0%</span></label>
+          <input type="range" id="cam" min="0" max="100" step="1" value="0">
+          <div class="hint">現代版本：CCTV、信用分、Uber 評分。</div>
+        </div>
+        <div class="presets" id="presets"></div>
+        <p class="toy" id="preSay" style="color:var(--ink);min-height:1.6em">撳上面試吓。</p>
+        <div class="formula" id="formula"></div>
+        <p class="toy">玩具模型。數字係用嚟睇機制，唔係量度真實社會。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNBUNDLE -->
+  <section id="unbundle">
+    <div class="kick">1500 – 今日</div>
+    <h2>拆件：一個神，拆成九間公司</h2>
+    <p class="lede">以前神一個人包辦晒。拉年份，睇每個功能幾時俾專門供應商搶走。撳任何一行睇證據。</p>
+    <div class="ub-top">
+      <div class="ub-year" id="ubYear">1500</div>
+      <div class="ub-count">神仲包辦：<b id="ubLeft">9</b> / 9 項</div>
+      <button class="play" id="ubPlay">▶ 播</button>
+    </div>
+    <input type="range" id="ubSlider" min="1500" max="2026" step="1" value="1500" aria-label="年份">
+    <div class="ub" id="ub"></div>
+  </section>
+
+  <!-- EYE -->
+  <section id="eye">
+    <div class="kick">道德警察</div>
+    <h2>隻眼喺邊？</h2>
+    <p class="lede">懲罰由外面搬入心。但隻眼搬咗四次家，而且最後一次搬返出去。撳每格。</p>
+    <div class="eyes" id="eyes"></div>
+    <p class="eye-say" id="eyeSay"></p>
+  </section>
+
+  <footer class="bottom">
+    <b>來源</b>
+    <ol>
+      <li>Ara Norenzayan，《Big Gods》（2013）：「被睇住嘅人比較乖」。</li>
+      <li>Robin Dunbar：一個人大約只維持到 150 段關係。</li>
+      <li>Karl Jaspers：軸心時代（1949）。</li>
+      <li>Pippa Norris &amp; Ronald Inglehart，《Sacred and Secular》（2004）：國家福利越好，信神嘅人越少。</li>
+    </ol>
+    <p style="margin-top:10px">人口數字係學者估算，只啱數量級。陌生人機係玩具模型。</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+const FONT='"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const root=document.documentElement;
+const css=n=>getComputedStyle(root).getPropertyValue(n).trim();
+const COL=['--e1','--e2','--e3','--e4','--e5','--e6'].map(css);
+const INK=css('--ink'),MUTED=css('--muted'),DIM=css('--dim'),LINE=css('--line'),BG=css('--bg');
+
+const ERAS=[
+ {name:'泛靈論',short:'泛靈',date:'30萬年前',from:300000,to:10000,
+  god:'萬物有靈：樹、石、河、雷、病，全部有靈。神同你企喺同一個高度。',
+  job:'解釋未知：點解有病、有死、有雷、有雨。',
+  deal:'薩滿 + 儀式，同靈講數。',
+  moral:'八卦 + 名聲。神唔使管道德，因為人人都識人人。',
+  nw:'人人都識人人。今日呃人，聽日成個群都知。'},
+ {name:'農業神',short:'農業神',date:'1萬年前',from:10000,to:5000,
+  god:'雨神、穀神、地母：有用嘅神。',
+  job:'管天氣 = 管糧食。季節 + 日曆 = 神聖。唔播種冇得食 = 死。',
+  deal:'祭祀 = 交易：我獻祭，你落雨。',
+  moral:'仲係靠人管。但開始有上下。',
+  nw:'有剩餘 → 有人唔使耕田 → 地位 → 祭司。糧倉 = 神廟。'},
+ {name:'國家神',short:'國家神',date:'前3000',from:5000,to:2826,
+  god:'多神，有上下級。王 = 神，或者神授權嘅人。',
+  job:'授權：服從國家 = 服從神。',
+  deal:'稅 + 祭品，換保護。',
+  moral:'法典 + 王權（漢摩拉比法典，約公元前 1754）。',
+  nw:'陌生人越多 → 階級越多。神變成權力嘅印章。'},
+ {name:'軸心時代',short:'軸心',date:'前800',from:2826,to:2226,
+  god:'原則多過人格：道、法、仁、Logos、律法。',
+  job:'道德 > 儀式。普世 > 民族神。責任 > 交易。',
+  deal:'唔再係「我俾你嘢」，係「我做個好人」。',
+  moral:'開始搬入心：修身、良知。',
+  nw:'希臘哲學、希伯來先知、拜火教、佛陀、孔子、老子，幾百年內各自出現。'},
+ {name:'大哥神',short:'大哥神',date:'公元1',from:2226,to:526,
+  god:'一個全知神（基督教、伊斯蘭）；或者業力輪迴（佛教，同期傳遍亞洲）。',
+  job:'監察陌生人：你喺邊、做咩、諗咩，佢都知。',
+  deal:'今世守規矩，換死後獎罰。',
+  moral:'神 24 小時睇住，連諗都計數。',
+  nw:'普世會員制：唔理你係邊族，入咗會就係兄弟。跨洲網絡成立。'},
+ {name:'拆件',short:'拆件',date:'1500–今',from:526,to:0,
+  god:'一個神拆成好多間公司。',
+  job:'科學 → 解釋。法律 → 道德。國家 → 醫療福利。國族 → 身份。消費、自我實現、意識形態 → 意義。',
+  deal:'稅、錢、評分。',
+  moral:'法律 + 鏡頭 + 評分 + 內疚。',
+  nw:'每個功能都有專門供應商。淨係「死後」冇人接手。'}
+];
+const POP=[[300000,150],[12000,150],[10000,1000],[5000,1e5],[2826,1e6],[2026,5e7],[526,1e8],[200,1e9],[0,8e9]];
+
+const fmtN=n=>{if(n>=1e8){const v=n/1e8;return (v>=10?Math.round(v):v.toFixed(1).replace(/\.0$/,''))+' 億'}
+  if(n>=1e4){return Math.round(n/1e4).toLocaleString()+' 萬'} return Math.round(n).toLocaleString()};
+const fmtStr=n=>{if(n<=150)return '0%';const s=1-150/n;const d=Math.min(7,Math.max(1,Math.ceil(-Math.log10(1-s))-1));return (s*100).toFixed(d)+'%'};
+const lg=x=>Math.log10(x+1);
+function popAt(ya){for(let i=0;i<POP.length-1;i++){const [a,pa]=POP[i],[b,pb]=POP[i+1];
+  if(ya<=a&&ya>=b){const f=(lg(a)-lg(ya))/(lg(a)-lg(b)||1);const n=Math.pow(10,Math.log10(pa)+(Math.log10(pb)-Math.log10(pa))*f);return n<1e6?Math.round(n):n}}return 8e9}
+function yaAt(s){const i=Math.min(5,Math.floor(s)),f=s-i,E=ERAS[i];return Math.pow(10,lg(E.from)*(1-f)+lg(E.to)*f)-1}
+function fmtWhen(ya){if(ya>=10000)return '約 '+(ya>=100000?Math.round(ya/10000):(ya/10000).toFixed(1).replace(/\.0$/,''))+' 萬年前';
+  const y=2026-ya; if(y<1){let bc=1-y; bc=bc>1000?Math.round(bc/50)*50:Math.round(bc/10)*10; return '公元前 '+bc}
+  return '公元 '+(y>1900?Math.round(y):Math.round(y/10)*10)}
+
+/* ---------- era buttons + realbar ---------- */
+const erasEl=document.getElementById('eras');
+ERAS.forEach((E,i)=>{const b=document.createElement('button');b.className='era-b';b.setAttribute('aria-pressed','false');
+  b.innerHTML=`<strong><i style="background:${COL[i]}"></i>${E.short}</strong><small>${E.date}</small>`;
+  b.addEventListener('click',()=>{stopPlay();setS(i+0.5)});erasEl.appendChild(b)});
+const RB=[290000,5000,2174,600,1700,526];
+document.getElementById('realbar').innerHTML=RB.map((d,i)=>`<span style="width:${d/3000}%;background:${COL[i]}"></span>`).join('');
+
+/* ---------- stage ---------- */
+const cv=document.getElementById('stage'),g=cv.getContext('2d');
+let W=0,H=0;
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const R=rng(7);const PTS=[];for(let i=0;i<600;i++)PTS.push({fx:.05+.9*R(),fy:.66+.3*R(),ph:R()*6.28});
+const LINKS=[];for(let i=0;i<90;i++)LINKS.push([Math.floor(R()*600),Math.floor(R()*600),R()]);
+let order=[];
+function fit(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);g.setTransform(d,0,0,d,0,0);W=r.width;H=r.height;
+  const yx=W*.5,yy=H*.81;order=PTS.map((p,i)=>[i,Math.hypot(p.fx*W-yx,p.fy*H-yy)]).sort((a,b)=>a[1]-b[1]).map(a=>a[0]);draw()}
+
+let S=0.35,shownEra=0,prevEra=0,fade=1,T=0;
+function alpha(c,a){if(c.startsWith('#')){const n=parseInt(c.slice(1),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}return c}
+function txt(s,x,y,col,size,align,weight){g.fillStyle=col;g.font=`${weight||500} ${size||12}px ${FONT}`;g.textAlign=align||'center';g.textBaseline='middle';g.fillText(s,x,y)}
+function orb(x,y,r,col,blur){g.save();g.shadowColor=col;g.shadowBlur=blur||16;g.fillStyle=col;g.beginPath();g.arc(x,y,r,0,7);g.fill();g.restore()}
+function arrowHead(x,y,ang,col,s){g.fillStyle=col;g.beginPath();g.moveTo(x,y);g.lineTo(x-s*Math.cos(ang-.45),y-s*Math.sin(ang-.45));g.lineTo(x-s*Math.cos(ang+.45),y-s*Math.sin(ang+.45));g.closePath();g.fill()}
+const M=()=>Math.min(W,H);
+
+function scAnimism(t,c){
+  const y0=H*.52;g.strokeStyle=alpha(INK,.12);g.lineWidth=1;g.beginPath();g.moveTo(0,y0);g.lineTo(W,y0);g.stroke();
+  const u=M()/100;
+  // tree
+  let x=W*.13;g.fillStyle=alpha(INK,.18);g.fillRect(x-u*1.2,y0-u*12,u*2.4,u*12);
+  g.fillStyle=alpha(INK,.13);[[0,-20,8],[-6,-15,7],[6,-15,7],[0,-12,6]].forEach(([dx,dy,r])=>{g.beginPath();g.arc(x+dx*u,y0+dy*u,r*u,0,7);g.fill()});
+  // rock
+  x=W*.37;g.fillStyle=alpha(INK,.16);g.beginPath();g.ellipse(x,y0-u*4,u*9,u*5,0,Math.PI,0);g.fill();
+  // river
+  g.strokeStyle=alpha(COL[2],.5);g.lineWidth=2.4;g.beginPath();for(let i=0;i<=60;i++){const xx=W*.52+W*.18*i/60,yy=y0-u*2+Math.sin(i/4+t*2)*u*1.4;i?g.lineTo(xx,yy):g.moveTo(xx,yy)}g.stroke();
+  // cloud + lightning
+  const cx=W*.84,cy=H*.17;g.fillStyle=alpha(INK,.14);[[0,0,7],[-7,2,5.5],[7,2,5.5]].forEach(([dx,dy,r])=>{g.beginPath();g.arc(cx+dx*u,cy+dy*u,r*u,0,7);g.fill()});
+  if(Math.sin(t*1.7)>.82){g.strokeStyle=alpha('#fff4c8',.9);g.lineWidth=2;g.beginPath();g.moveTo(cx,cy+u*6);g.lineTo(cx-u*3,cy+u*14);g.lineTo(cx+u*1,cy+u*14);g.lineTo(cx-u*2,cy+u*23);g.stroke()}
+  const sp=[[W*.13,y0-u*19,'樹靈'],[W*.37,y0-u*6,'石靈'],[W*.62,y0-u*6,'河靈'],[cx,cy-u*9,'雷靈']];
+  sp.forEach(([sx,sy,l],i)=>{orb(sx,sy+Math.sin(t*1.3+i)*u*1.2,u*1.3+Math.sin(t*2+i)*u*.4+2,c,18)});
+  [[W*.13,'樹靈'],[W*.37,'石靈'],[W*.62,'河靈'],[cx,'雷靈']].forEach(([lx,l],i)=>txt(l,lx,i===3?cy+u*28:y0+14,alpha(c,.95),12,'center',700));
+  txt('神同你企喺同一個高度',W*.5,H*.07,alpha(INK,.55),12.5);
+}
+function scFarm(t,c){
+  const u=M()/100,fy0=H*.42,fy1=H*.56,fx0=W*.05,fx1=W*.42;
+  for(let i=0;i<6;i++){const y=fy0+(fy1-fy0)*i/5;g.strokeStyle=alpha(c,.55);g.lineWidth=2;g.beginPath();g.moveTo(fx0,y);g.lineTo(fx1,y);g.stroke();
+    for(let x=fx0+6;x<fx1;x+=11){g.beginPath();g.moveTo(x,y);g.lineTo(x+2,y-5);g.stroke()}}
+  const cx=W*.23,cy=H*.15;g.fillStyle=alpha(INK,.16);[[0,0,7],[-7,2,5.5],[7,2,5.5]].forEach(([dx,dy,r])=>{g.beginPath();g.arc(cx+dx*u,cy+dy*u,r*u,0,7);g.fill()});
+  g.strokeStyle=alpha(COL[2],.8);g.lineWidth=1.6;for(let i=0;i<14;i++){const x=cx-u*9+i*u*1.4,ph=(t*0.9+i*0.37)%1,y=cy+u*7+ph*(fy0-cy-u*7);g.beginPath();g.moveTo(x,y);g.lineTo(x-1,y+6);g.stroke()}
+  txt('雨神',cx,cy-u*10,alpha(c,1),12.5,'center',700);
+  const sx=W*.86,sy=H*.15,sr=u*5;orb(sx,sy,sr,'#f2c14e',22);
+  g.strokeStyle=alpha('#f2c14e',.6);g.lineWidth=1.5;for(let i=0;i<10;i++){const a=i/10*6.283+t*.3;g.beginPath();g.moveTo(sx+Math.cos(a)*sr*1.5,sy+Math.sin(a)*sr*1.5);g.lineTo(sx+Math.cos(a)*sr*2.2,sy+Math.sin(a)*sr*2.2);g.stroke()}
+  txt('穀神 · 地母',sx,sy+sr*2.9,alpha(c,1),12.5,'center',700);
+  const tx=W*.64,ty=H*.56,tw=Math.max(W*.11,70),th=H*.11;
+  g.fillStyle=alpha(INK,.10);g.strokeStyle=alpha(c,.9);g.lineWidth=1.6;g.fillRect(tx-tw/2,ty-th,tw,th);g.strokeRect(tx-tw/2,ty-th,tw,th);
+  g.beginPath();g.moveTo(tx-tw/2-6,ty-th);g.lineTo(tx,ty-th-th*.6);g.lineTo(tx+tw/2+6,ty-th);g.closePath();g.stroke();
+  for(let i=0;i<3;i++){g.fillStyle=alpha(c,.8);g.beginPath();g.ellipse(tx-tw/4+i*tw/4,ty-th*.35,3,6,0,0,7);g.fill()}
+  txt('糧倉 = 神廟',tx,ty+12,alpha(INK,.8),12,'center',700);
+  const curve=(x0,y0,x1,y1,k,col,lab,lx,ly)=>{const mx=(x0+x1)/2,my=Math.min(y0,y1)-k;g.setLineDash([4,5]);g.strokeStyle=alpha(col,.45);g.lineWidth=1.4;g.beginPath();g.moveTo(x0,y0);g.quadraticCurveTo(mx,my,x1,y1);g.stroke();g.setLineDash([]);
+    for(let j=0;j<3;j++){const p=(t*.25+j/3)%1,qx=(1-p)*(1-p)*x0+2*(1-p)*p*mx+p*p*x1,qy=(1-p)*(1-p)*y0+2*(1-p)*p*my+p*p*y1;orb(qx,qy,2.6,col,10)}
+    txt(lab,lx,ly,alpha(INK,.85),12,'center',500)};
+  curve(tx-tw*.2,ty-th*1.6,cx+u*8,cy+u*3,H*.05,c,'祭品 ↗',(tx+cx)/2,H*.22);
+  curve(tx+tw*.2,ty-th*1.6,sx-sr*1.4,sy+sr,H*.03,c,'祭品 ↗',(tx+sx)/2+10,H*.36);
+  txt('我獻祭，你落雨',W*.23,H*.37,alpha(INK,.9),13,'center',700);
+}
+function scState(t,c){
+  const ax=W*.5,ay=H*.07,by=H*.6,hw=Math.min(W*.27,250);
+  const tiers=['神 = 王','祭司','官','農民 + 奴隸'];
+  for(let i=0;i<4;i++){const y0=ay+(by-ay)*i/4,y1=ay+(by-ay)*(i+1)/4,w0=hw*i/4,w1=hw*(i+1)/4;
+    g.fillStyle=alpha(c,.55-i*.11);g.beginPath();g.moveTo(ax-w0,y0);g.lineTo(ax+w0,y0);g.lineTo(ax+w1,y1);g.lineTo(ax-w1,y1);g.closePath();g.fill();
+    g.strokeStyle=alpha(BG,.9);g.lineWidth=2;g.stroke();
+    if(i>0)txt(tiers[i],ax,(y0+y1)/2+2,alpha(INK,.95),12.5,'center',700)}
+  txt(tiers[0],ax,ay+(by-ay)*.17,'#131015',11,'center',900);
+  orb(ax,ay-4,M()*.035+Math.sin(t*2)*1.5,'#f2c14e',26);
+  const lx=ax-hw-Math.max(W*.07,26),rx=ax+hw+Math.max(W*.07,26);
+  g.strokeStyle=alpha(INK,.55);g.lineWidth=1.6;
+  g.beginPath();g.moveTo(lx,by-10);g.lineTo(lx,ay+30);g.stroke();arrowHead(lx,ay+26,-Math.PI/2,alpha(INK,.7),9);
+  g.beginPath();g.moveTo(rx,ay+30);g.lineTo(rx,by-10);g.stroke();arrowHead(rx,by-6,Math.PI/2,alpha(INK,.7),9);
+  const vlab=(s,x)=>{[...s].forEach((ch,k)=>txt(ch,x,ay+50+k*15,alpha(INK,.85),12,'center',500))};
+  vlab(W<520?'稅服從':'稅 + 服從',lx-(W<520?14:16));vlab(W<520?'保護授權':'保護 + 授權',rx+(W<520?14:16));
+}
+const AX_W=['道','法','仁','Logos','律法','善思'];
+const AX_P=['孔子','老子','佛陀','蘇格拉底','希伯來先知','瑣羅亞斯德'];
+function scAxial(t,c){
+  const cx=W*.5,cy=H*.29,r=M()*.09;
+  g.strokeStyle=alpha(c,.25);g.lineWidth=1;for(let i=0;i<24;i++){const a=i/24*6.283+t*.08;g.beginPath();g.moveTo(cx+Math.cos(a)*r*1.2,cy+Math.sin(a)*r*1.2);g.lineTo(cx+Math.cos(a)*r*2.3,cy+Math.sin(a)*r*2.3);g.stroke()}
+  orb(cx,cy,r,alpha(c,.9),30);
+  const k=Math.floor(t/1.4)%AX_W.length;txt(AX_W[k],cx,cy+1,'#131015',AX_W[k].length>2?14:22,'center',900);
+  const rx=Math.min(Math.max(W*.34,128),W/2-36),ry=H*.2;
+  AX_P.forEach((p,i)=>{const a=-Math.PI/2+i/AX_P.length*6.283+Math.PI/AX_P.length;const x=cx+Math.cos(a)*rx,y=cy+Math.sin(a)*ry;
+    g.strokeStyle=alpha(c,.3);g.beginPath();g.moveTo(cx+Math.cos(a)*r*1.1,cy+Math.sin(a)*r*1.1);g.lineTo(x,y);g.stroke();
+    txt(p,x,y,alpha(INK,.92),12,'center',700)});
+  txt('道德 > 儀式　普世 > 民族',cx,H*.06,alpha(INK,.6),12.5);
+}
+function scBig(t,c){
+  const cx=W*.5,cy=H*.27,ew=Math.min(W*.44,320),eh=ew*.4;
+  g.strokeStyle=alpha(c,.07);g.lineWidth=1;for(let i=0;i<=16;i++){g.beginPath();g.moveTo(cx,cy+eh*.3);g.lineTo(W*.04+W*.92*i/16,H*.97);g.stroke()}
+  g.save();g.shadowColor=c;g.shadowBlur=28;g.fillStyle='#0d0b0f';g.strokeStyle=c;g.lineWidth=2.5;
+  g.beginPath();g.moveTo(cx-ew/2,cy);g.quadraticCurveTo(cx,cy-eh,cx+ew/2,cy);g.quadraticCurveTo(cx,cy+eh,cx-ew/2,cy);g.closePath();g.fill();g.stroke();g.restore();
+  g.save();g.beginPath();g.moveTo(cx-ew/2,cy);g.quadraticCurveTo(cx,cy-eh,cx+ew/2,cy);g.quadraticCurveTo(cx,cy+eh,cx-ew/2,cy);g.clip();
+  const px=cx+Math.sin(t*.6)*ew*.2;g.fillStyle=c;g.beginPath();g.arc(px,cy,eh*.4,0,7);g.fill();g.fillStyle='#0d0b0f';g.beginPath();g.arc(px,cy,eh*.19,0,7);g.fill();
+  g.fillStyle=alpha('#ffffff',.7);g.beginPath();g.arc(px+eh*.1,cy-eh*.1,eh*.06,0,7);g.fill();g.restore();
+  const lx=Math.max(W*.11,44),rx=W-Math.max(W*.11,44),iy=H*.25;
+  g.strokeStyle=alpha(INK,.6);g.lineWidth=1.5;g.beginPath();g.moveTo(lx,iy-16);g.lineTo(lx,iy+14);g.moveTo(lx-18,iy-10);g.lineTo(lx+18,iy-10);g.stroke();
+  const tilt=Math.sin(t*.9)*4;[[-18,tilt],[18,-tilt]].forEach(([dx,dy])=>{g.beginPath();g.moveTo(lx+dx,iy-10);g.lineTo(lx+dx-7,iy+4+dy);g.lineTo(lx+dx+7,iy+4+dy);g.closePath();g.stroke()});
+  txt('死後審判',lx,iy+32,alpha(c,1),12,'center',700);
+  g.beginPath();g.arc(rx,iy,14,-.3,Math.PI*1.6);g.stroke();arrowHead(rx+14*Math.cos(Math.PI*1.6),iy+14*Math.sin(Math.PI*1.6),Math.PI*1.6+Math.PI/2,alpha(INK,.7),8);
+  txt('業力 · 來世',rx,iy+32,alpha(c,1),12,'center',700);
+  txt('全知：連你諗咩都知',cx,H*.06,alpha(INK,.6),12.5);
+}
+const MOD=['科學','法律','國家福利','國族','醫學','市場','自我','評分'];
+function scModern(t,c){
+  const cx=W*.5,cy=H*.29,ew=Math.min(W*.3,210),eh=ew*.4;
+  g.setLineDash([3,6]);g.strokeStyle=alpha(COL[4],.3);g.lineWidth=1.5;g.beginPath();g.moveTo(cx-ew/2,cy);g.quadraticCurveTo(cx,cy-eh,cx+ew/2,cy);g.quadraticCurveTo(cx,cy+eh,cx-ew/2,cy);g.stroke();g.setLineDash([]);
+  txt('死後 → ？',cx,cy,alpha(css('--bad'),.95),13,'center',700);
+  const rx=Math.min(Math.max(W*.36,138),W/2-38),ry=H*.205;
+  MOD.forEach((m,i)=>{const a=i/MOD.length*6.283+t*.12;const x=cx+Math.cos(a)*rx,y=cy+Math.sin(a)*ry;
+    g.font=`700 12px ${FONT}`;const w=g.measureText(m).width+16;
+    g.fillStyle=alpha(c,.14);g.strokeStyle=alpha(c,.85);g.lineWidth=1.2;g.beginPath();g.roundRect?g.roundRect(x-w/2,y-11,w,22,11):g.rect(x-w/2,y-11,w,22);g.fill();g.stroke();
+    txt(m,x,y+.5,INK,12,'center',700)});
+  txt('一個神 → 八間公司 + 一個空位',cx,H*.06,alpha(INK,.6),12.5);
+}
+const SC=[scAnimism,scFarm,scState,scAxial,scBig,scModern];
+
+function drawDots(t,era,N){
+  const c=COL[era],count=Math.min(600,Math.round(N)),known=Math.max(1,Math.min(count,Math.round(count*150/N)));
+  const r=count<=150?3:(N<=1500?2.3:1.7);
+  // pick known (closest to you, among first `count`)
+  const isK=new Uint8Array(600);let k=0,far=0;for(const i of order){if(i<count){if(k<known){isK[i]=1;k++;far=Math.max(far,Math.hypot(PTS[i].fx*W-W*.5,PTS[i].fy*H-H*.81))}else break}}
+  // web among known (animism)
+  if(era===0){g.strokeStyle=alpha(c,.16);g.lineWidth=.8;const ks=order.filter(i=>i<count&&isK[i]);
+    for(let a=0;a<ks.length;a++){for(const d of [1,3,7]){const b=ks[a+d];if(b===undefined)continue;const p=PTS[ks[a]],q=PTS[b];g.beginPath();g.moveTo(p.fx*W,p.fy*H);g.lineTo(q.fx*W,q.fy*H);g.stroke()}}}
+  // stranger links (axial onward)
+  if(era>=3){const nl=[0,0,0,10,24,60][era];let drawn=0;for(const [a,b,ph] of LINKS){if(drawn>=nl)break;if(a>=count||b>=count)continue;drawn++;
+    const p=PTS[a],q=PTS[b];g.strokeStyle=alpha(c,.18);g.lineWidth=.9;g.beginPath();g.moveTo(p.fx*W,p.fy*H);g.lineTo(q.fx*W,q.fy*H);g.stroke();
+    const f=(t*.35+ph)%1;orb(p.fx*W+(q.fx-p.fx)*W*f,p.fy*H+(q.fy-p.fy)*H*f,1.8,c,8)}}
+  for(let i=0;i<count;i++){const p=PTS[i];g.fillStyle=isK[i]?c:alpha(MUTED,.38);g.beginPath();g.arc(p.fx*W,p.fy*H+Math.sin(t+p.ph)*.6,r,0,7);g.fill()}
+  // halo
+  g.setLineDash([3,4]);g.strokeStyle=alpha(c,.7);g.lineWidth=1.2;g.beginPath();g.arc(W*.5,H*.81,Math.max(far+6,12),0,7);g.stroke();g.setLineDash([]);
+  orb(W*.5,H*.81,4.5,INK,10);txt('你',W*.5,H*.81-13,INK,12,'center',900);
+  g.fillStyle=c;g.beginPath();g.arc(14,H-13,4,0,7);g.fill();txt(N<=150?'你識晒全部人':'你識嘅 150 人',22,H-12,alpha(INK,.85),11.5,'left',500);
+  if(N>150){g.fillStyle=alpha(MUTED,.5);g.beginPath();g.arc(W-74,H-13,4,0,7);g.fill();txt('陌生人',W-66,H-12,alpha(INK,.85),11.5,'left',500)}
+}
+
+function draw(){
+  if(!W)return;g.clearRect(0,0,W,H);
+  const era=Math.min(5,Math.floor(S)),ya=yaAt(S),N=popAt(ya);
+  if(fade<1&&prevEra!==shownEra){g.save();g.globalAlpha=1-fade;SC[prevEra](T,COL[prevEra]);g.restore()}
+  g.save();g.globalAlpha=fade;SC[shownEra](T,COL[shownEra]);g.restore();
+  drawDots(T,era,N);
+}
+
+/* ---------- facts ---------- */
+const $=id=>document.getElementById(id);
+const timeEl=$('time');
+function setS(s){S=Math.max(0,Math.min(5.999,s));timeEl.value=S;update()}
+function update(){
+  const era=Math.min(5,Math.floor(S)),E=ERAS[era],ya=yaAt(S),N=popAt(ya);
+  if(era!==shownEra){prevEra=shownEra;shownEra=era;fade=reduced?1:0}
+  root.style.setProperty('--era',COL[era]);
+  [...erasEl.children].forEach((b,i)=>b.setAttribute('aria-pressed',i===era));
+  $('when').textContent=fmtWhen(ya);$('fPop').textContent=fmtN(N);$('fStr').textContent=fmtStr(N);$('fEra').textContent=E.name;
+  $('fGod').textContent=E.god;$('fJob').textContent=E.job;$('fDeal').textContent=E.deal;$('fMoral').textContent=E.moral;$('fNew').textContent=E.nw;
+  if(reduced)draw();
+}
+timeEl.addEventListener('input',()=>{stopPlay();S=+timeEl.value;update()});
+let playing=null;
+function stopPlay(){if(playing){cancelAnimationFrame(playing);playing=null;$('play').textContent='▶ 由頭播到尾'}}
+$('play').addEventListener('click',()=>{if(playing){stopPlay();return}
+  if(S>5.9)S=0;$('play').textContent='❚❚ 停';let last=performance.now();
+  const step=now=>{const dt=(now-last)/1000;last=now;S+=dt*0.42;if(S>=5.999){S=5.999;timeEl.value=S;update();stopPlay();return}timeEl.value=S;update();playing=requestAnimationFrame(step)};playing=requestAnimationFrame(step)});
+
+/* animation loop, only while visible */
+let vis=true,raf=null,lastT=performance.now();
+function loop(now){const dt=Math.min(.05,(now-lastT)/1000);lastT=now;if(!reduced){T+=dt;if(fade<1)fade=Math.min(1,fade+dt*2.2)}draw();if(vis&&!reduced)raf=requestAnimationFrame(loop);else raf=null}
+new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis&&!raf&&!reduced){lastT=performance.now();raf=requestAnimationFrame(loop)}}).observe(cv);
+addEventListener('resize',()=>{fit();fitCrowd()});
+
+/* ---------- stranger machine ---------- */
+const cc=$('crowd'),cg=cc.getContext('2d');let CW=0,CH=0;
+const CR=rng(42);const COLS=24,ROWS=12;const AG=[];for(let i=0;i<COLS*ROWS;i++)AG.push({g:CR()*2,s:0,ph:CR()*6.28});
+function fitCrowd(){const r=cc.getBoundingClientRect(),d=devicePixelRatio||1;cc.width=Math.round(r.width*d);cc.height=Math.round(r.height*d);cg.setTransform(d,0,0,d,0,0);CW=r.width;CH=r.height;drawCrowd()}
+let P=1;
+const GOOD=css('--good'),BAD=css('--bad');
+function mix(a,b,f){const A=parseInt(a.slice(1),16),B=parseInt(b.slice(1),16);const ch=s=>Math.round((A>>s&255)*(1-f)+(B>>s&255)*f);return `rgb(${ch(16)},${ch(8)},${ch(0)})`}
+let crowdAnim=null;
+function drawCrowd(){if(!CW)return;cg.clearRect(0,0,CW,CH);const gx=CW/COLS,gy=CH/ROWS,r=Math.min(gx,gy)*.32;let moving=false;
+  AG.forEach((a,i)=>{const target=a.g<=3*P?0:1;const d=target-a.s;if(Math.abs(d)>.01){a.s+=reduced?d:d*.18;moving=true}else a.s=target;
+    const x=(i%COLS+.5)*gx,y=(Math.floor(i/COLS)+.5)*gy;cg.fillStyle=mix(GOOD,BAD,a.s);cg.beginPath();cg.arc(x,y,r*(1+a.s*.15),0,7);cg.fill()});
+  if(moving&&!crowdAnim)crowdAnim=requestAnimationFrame(()=>{crowdAnim=null;drawCrowd()})}
+const nPop=$('nPop'),bel=$('belief'),cam=$('cam');
+function crowd(){const N=Math.pow(10,+nPop.value),b=+bel.value/100,s=+cam.value/100;
+  const gos=Math.min(1,150/N);const miss=(1-gos)*(1-b)*(1-s);P=1-miss;const coop=Math.min(1,1.5*P);
+  $('nPopV').textContent=fmtN(N);$('beliefV').textContent=Math.round(b*100)+'%';$('camV').textContent=Math.round(s*100)+'%';
+  $('coop').textContent=Math.round(coop*100)+'%';const f=$('coopFill');f.style.width=(coop*100)+'%';f.style.background=coop>.8?GOOD:coop>.45?css('--warn'):BAD;
+  const pc=v=>(v*100).toFixed(v<.01&&v>0?3:0)+'%';
+  $('formula').innerHTML=`<div class="def">八卦覆蓋 = 150 ÷ 人數</div>八卦 = 150 ÷ ${fmtN(N)} = <b>${pc(gos)}</b>
+  <div class="def" style="margin-top:6px">冇人睇到 = (1 − 八卦) × (1 − 神) × (1 − 鏡頭)</div>= ${pc(1-gos)} × ${pc(1-b)} × ${pc(1-s)} = <b>${pc(miss)}</b>
+  <div class="def" style="margin-top:6px">被捉機率 = 1 − 冇人睇到 = <b style="color:var(--ink)">${pc(P)}</b></div>
+  <div class="def" style="margin-top:6px">每人呃人可以賺 0 至 2 分（各人唔同），被捉罰 3 分。<br>賺嘅 &gt; 被捉機率 × 3 → 佢就呃。</div>`;
+  drawCrowd()}
+[nPop,bel,cam].forEach(el=>el.addEventListener('input',crowd));
+const PRE=[['部落',150,0,0,'150 人：八卦覆蓋 100%。唔使神。'],['條村，冇神',1000,0,0,'1,000 人：八卦只追到 15%。大部分人開始呃。'],['條村 + 雨神',1000,0,0,'結果同冇神一樣。雨神只理天氣，唔理你呃唔呃人。要等道德神。'],['帝國 + 大哥神',1e7,80,0,'一千萬人，八卦等於零。全靠天上隻眼。'],['今日（示意）',6.9e7,20,40,'信神嘅人少咗，鏡頭同評分補返上去。']];
+PRE.forEach(([l,n,b,s,say])=>{const x=document.createElement('button');x.textContent=l;x.addEventListener('click',()=>{nPop.value=Math.log10(n);bel.value=b;cam.value=s;crowd();$('preSay').textContent=say});$('presets').appendChild(x)});
+
+/* ---------- unbundle ---------- */
+const FN=[
+ ['解釋未知','雷、病、死點解會發生','科學',1687,'牛頓《原理》：天上地下用同一套定律。雷唔再係神發脾氣。'],
+ ['授權','點解佢做老闆','憲法 + 選舉',1789,'法國大革命：權力嚟自人民，唔係嚟自天。'],
+ ['管道德','做錯事有人罰','法律 + 警察',1829,'倫敦成立第一支現代警隊。罰你嘅唔再係神，係差人。'],
+ ['身份','我係邊個嘅人','國族',1848,'歐洲革命年：「我係德國人／意大利人」取代「我係基督徒」。'],
+ ['保險','病、老、意外有人救','國家福利',1883,'俾斯麥喺德國推第一個國家醫療保險。研究發現：國家福利越好，信神嘅人越少（Norris & Inglehart 2004）。'],
+ ['控制','求雨、求病好','科技 + 醫學',1928,'盤尼西林：唔使求，食藥。'],
+ ['意義','點解要活','自我實現 + 消費 + 意識形態',1950,'戰後消費社會；馬斯洛需求層次（1943）。'],
+ ['睇住陌生人','冇人睇都唔呃','評分 + 信用 + 鏡頭',2008,'Uber、Airbnb：陌生人互相打分。全知神嘅工作交俾數據庫。'],
+ ['死後','死咗之後點','冇人接手',null,'科學答唔到，國家唔包。呢個空位係宗教冇消失嘅一個原因（推論，唔係定論）。']
+];
+const ub=$('ub');
+FN.forEach((f,i)=>{const b=document.createElement('button');b.className='ub-row'+(f[3]?'':' gap');b.dataset.on='false';b.setAttribute('aria-expanded','false');
+  b.innerHTML=`<span class="fn"><b>${f[0]}</b><small>${f[1]}</small></span><span class="wire" aria-hidden="true"></span><span class="prov"><span class="who"></span><span class="yr">${f[3]||'—'}</span></span><span class="why" hidden>${f[4]}</span>`;
+  b.addEventListener('click',()=>{const w=b.querySelector('.why');w.hidden=!w.hidden;b.setAttribute('aria-expanded',!w.hidden)});ub.appendChild(b)});
+const ubS=$('ubSlider');
+function ubUpdate(){const y=+ubS.value;$('ubYear').textContent=y;let left=0;
+  [...ub.children].forEach((b,i)=>{const f=FN[i],on=!!(f[3]&&y>=f[3]);if(!on)left++;
+    b.dataset.on=on?'true':(!f[3]&&y>=2026?'gap':'false');
+    b.querySelector('.who').textContent=on?f[2]:(!f[3]&&y>=2026?'仲係神：冇人接手':'神')});$('ubLeft').textContent=left}
+ubS.addEventListener('input',()=>{stopUb();ubUpdate()});
+let ubRaf=null;function stopUb(){if(ubRaf){cancelAnimationFrame(ubRaf);ubRaf=null;$('ubPlay').textContent='▶ 播'}}
+$('ubPlay').addEventListener('click',()=>{if(ubRaf){stopUb();return}if(+ubS.value>=2026)ubS.value=1500;$('ubPlay').textContent='❚❚ 停';let last=performance.now();
+  const st=now=>{const v=Math.min(2026,+ubS.value+(now-last)/1000*95);last=now;ubS.value=v;ubUpdate();if(v>=2026){stopUb();return}ubRaf=requestAnimationFrame(st)};ubRaf=requestAnimationFrame(st)});
+ubS.value=2026;ubUpdate();
+
+/* ---------- eye ---------- */
+const EYE=(x,y,w,col,sw)=>`<path d="M${x-w/2},${y} Q${x},${y-w*.42} ${x+w/2},${y} Q${x},${y+w*.42} ${x-w/2},${y}Z" fill="none" stroke="${col}" stroke-width="${sw||2}"/><circle cx="${x}" cy="${y}" r="${w*.16}" fill="${col}"/>`;
+const PERSON=(x,y,s,col)=>`<circle cx="${x}" cy="${y}" r="${7*s}" fill="none" stroke="${col}" stroke-width="2"/><path d="M${x-13*s},${y+30*s} Q${x},${y+5*s} ${x+13*s},${y+30*s}" fill="none" stroke="${col}" stroke-width="2"/>`;
+const EYES=[
+ {c:COL[0],t:'羞恥 shame',w:'人哋睇到',era:'部落 · 村莊',svg:`${PERSON(60,44,1,INK)}${EYE(20,22,20,COL[0])}${EYE(100,22,20,COL[0])}${EYE(16,62,20,COL[0])}${EYE(104,62,20,COL[0])}${EYE(60,10,20,COL[0])}`,
+  say:'<b>第一格：人哋睇到。</b>150 人入面你呃人，第二日全村都知。懲罰係名聲：冇人同你分肉、冇人嫁俾你。呢個就係 shame。'},
+ {c:COL[4],t:'敬畏',w:'神睇到',era:'大哥神',svg:`${PERSON(60,52,.9,INK)}${EYE(60,20,46,COL[4],2.4)}<path d="M40,30 L30,44 M60,32 V44 M80,30 L90,44" stroke="${COL[4]}" stroke-opacity=".5" stroke-width="1.5"/>`,
+  say:'<b>第二格：神睇到。</b>陌生人太多，八卦追唔切，就裝一部全知 CCTV 喺天上。冇人睇嘅時候，神都睇緊。'},
+ {c:COL[3],t:'內疚 guilt',w:'自己睇到',era:'軸心 → 今日',svg:`${PERSON(60,26,1.5,INK)}${EYE(60,62,26,COL[3],2.2)}`,
+  say:'<b>第三格：自己睇到。</b>CCTV 裝咗入心，叫良知。最平嘅警察：唔使糧，24 小時開工。呢個先係 guilt。'},
+ {c:COL[5],t:'評分',w:'機器睇到',era:'2000 年後',svg:`<rect x="38" y="6" width="44" height="74" rx="7" fill="none" stroke="${INK}" stroke-width="2"/>${EYE(60,34,28,COL[5],2.2)}<text x="60" y="66" text-anchor="middle" font-size="11" fill="${COL[5]}">★★★★☆</text>`,
+  say:'<b>第四格：機器睇到。</b>評分、信用分、CCTV、網上留言。隻眼又搬返出去，即係村莊八卦 2.0，只係條村有 80 億人。'}
+];
+const eyesEl=$('eyes');
+EYES.forEach((e,i)=>{const b=document.createElement('button');b.className='eye';b.style.setProperty('--c',e.c);b.setAttribute('aria-pressed','false');
+  b.innerHTML=`<svg viewBox="0 0 120 90" aria-hidden="true">${e.svg}</svg><b>${e.t}</b><span class="who">${e.w}</span><br><span class="tag">${e.era}</span>`;
+  b.addEventListener('click',()=>{stopEye();setEye(i)});eyesEl.appendChild(b)});
+let eyeI=0,eyeTimer=null;
+function setEye(i){eyeI=i;[...eyesEl.children].forEach((b,j)=>b.setAttribute('aria-pressed',j===i));$('eyeSay').innerHTML=EYES[i].say}
+function stopEye(){clearInterval(eyeTimer);eyeTimer=null}
+setEye(0);if(!reduced)eyeTimer=setInterval(()=>setEye((eyeI+1)%4),3200);
+
+/* boot */
+fit();fitCrowd();crowd();update();
+if(reduced){draw()}
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
