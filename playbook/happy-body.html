@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Happy Body Playbook · 玩笑但</title>
+<meta name="description" content="老 = 脊椎 + 腳 退化。動：Power Tower、四個基本動作、爆發、平衡、日常小運動。靜：去到緊嘅位置，長長呼一啖氣。">
+<meta property="og:title" content="Happy Body Playbook">
+<meta property="og:description" content="老 = 脊椎 + 腳 退化。動：Power Tower、四個基本動作、爆發、平衡、日常小運動。靜：去到緊嘅位置，長長呼一啖氣。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/playbook/happy-body.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/happy-body.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Happy Body Playbook">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/playbook/happy-body.html">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Azeret+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: two halves of one practice. 動 = coral (load, effort), 靜 = teal (breath, release). Bone-white stick figures carry the content; text is captions only. Dark by choice. */
+:root{
+  --bg:#11161a; --panel:#182027; --panel2:#202a33; --line:#2c3843; --ink:#e8eef2; --muted:#93a4b2; --dim:#5e6d7a;
+  --move:#ef7c6b; --still:#4cc3b5; --breath:#7fb2ff; --bone:#e9e1d1; --warn:#e9b04b; --bad:#e86a5a;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"Azeret Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+.home{display:inline-block;margin-bottom:16px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--muted);text-decoration:none}
+.home:hover{color:var(--ink)}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding-inline:clamp(16px,4vw,28px);padding-block:30px 72px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-size:clamp(44px,10vw,92px);font-weight:900;letter-spacing:-.03em;line-height:.98}
+h2{font-size:clamp(24px,4.6vw,34px);font-weight:900;line-height:1.2}
+h3{font-size:17px;font-weight:700}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--still);outline-offset:2px}
+svg{display:block;width:100%;height:auto}
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.cap{color:var(--muted);max-width:60ch;margin-top:6px}
+section{margin-top:84px;scroll-margin-top:14px}
+.sub{margin-top:40px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}
+.pad{padding:14px 16px}
+.bt{border-top:1px solid var(--line)}
+.mini{font-size:13px;color:var(--muted);line-height:1.5}
+.btns{display:flex;flex-wrap:wrap;gap:6px}
+.btn{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700}
+.btn:hover{border-color:var(--muted)}
+.btn[aria-pressed=true]{background:var(--still);border-color:var(--still);color:var(--bg)}
+.btn.m[aria-pressed=true]{background:var(--move);border-color:var(--move)}
+input[type=range]{width:100%;accent-color:var(--move);height:26px;margin:0}
+.ctl label{display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:14px}
+.ctl label span{font-family:var(--mono);color:var(--move);font-weight:600;white-space:nowrap}
+.m-c{color:var(--move)} .s-c{color:var(--still)}
+
+/* hero */
+.motto{font-size:clamp(19px,3vw,26px);font-weight:900;margin-top:18px;max-width:22em;line-height:1.4}
+.split{display:grid;grid-template-columns:1fr 1fr;margin-top:26px;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.half{padding:18px 18px 16px;display:grid;gap:6px;align-content:start}
+.half.mv{background:color-mix(in srgb,var(--move) 10%,var(--panel))}
+.half.st{background:color-mix(in srgb,var(--still) 10%,var(--panel));border-left:1px solid var(--line)}
+.half .big{font-size:clamp(54px,11vw,96px);font-weight:900;line-height:1}
+.half svg{max-width:200px;margin:4px auto 0}
+.half p{font-size:15px;font-weight:700}
+.half small{color:var(--muted);font-size:13px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}
+.chain .nd{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-weight:700}
+.chain .nd.hot{border-color:var(--move);color:var(--move)}
+.chain .ar{font-family:var(--mono);color:var(--muted)}
+
+/* pain map */
+.pain{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr)}
+.pain .map{padding:12px 16px;border-right:1px solid var(--line)}
+.pain .map svg{max-width:230px;margin:0 auto}
+.hot{cursor:pointer}
+.ptxt{padding:16px 18px;display:grid;gap:10px;align-content:start}
+.ptabs{display:flex;flex-wrap:wrap;gap:6px}
+.badge{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:600;border-radius:999px;padding:2px 10px;background:color-mix(in srgb,var(--move) 22%,transparent);color:var(--move)}
+.pname{font-size:clamp(28px,5vw,40px);font-weight:900;line-height:1.1}
+.train{display:flex;flex-wrap:wrap;gap:6px}
+.train a{font-size:13.5px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:3px 11px;text-decoration:none}
+.train a:hover{border-color:var(--move)}
+
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.two>*{min-width:0}
+
+/* age posture */
+.age{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.age .stage{padding:10px 16px;border-right:1px solid var(--line)}
+.age .stage svg{max-width:300px;margin:0 auto}
+.age .info{padding:16px 18px;display:grid;gap:12px;align-content:start}
+.snum{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.sname{font-size:clamp(30px,5vw,42px);font-weight:900;line-height:1.1}
+.strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:10px}
+.strip button{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:4px 4px 6px;display:grid;gap:0;justify-items:center;font-size:12.5px;font-weight:700;min-width:0}
+.strip button svg{max-width:84px}
+.strip button[aria-pressed=true]{border-color:var(--move);background:color-mix(in srgb,var(--move) 12%,var(--panel))}
+.loop{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13.5px}
+.loop span{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-weight:700}
+.loop i{font-style:normal;font-family:var(--mono);color:var(--move)}
+.wallc{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:center}
+.wallc svg{width:84px}
+.tolink{display:inline-block;margin-top:12px;font-weight:700;color:var(--move);text-decoration:none}
+
+/* part banner */
+.part{display:flex;align-items:baseline;gap:16px;margin-top:96px;padding-bottom:10px;border-bottom:2px solid}
+.part b{font-size:clamp(60px,12vw,110px);font-weight:900;line-height:.9}
+.part span{font-size:clamp(16px,2.6vw,20px);font-weight:700;color:var(--muted)}
+.part.mv{border-color:var(--move)} .part.mv b{color:var(--move)}
+.part.st{border-color:var(--still)} .part.st b{color:var(--still)}
+
+/* move cards */
+.moves{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.mvc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:6px;align-content:start;scroll-margin-top:14px}
+.mvc .figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:4px}
+.mvc b{font-size:17px}
+.mvc .sub2{font-size:12.5px;color:var(--muted)}
+.lad{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:12.5px}
+.lad span{background:var(--panel2);border-radius:6px;padding:1px 7px}
+.lad i{font-style:normal;color:var(--dim);font-family:var(--mono)}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.trio div{text-align:center;font-size:13px;font-weight:700}
+
+/* lever */
+.lever{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.lever .r{padding:16px 18px;border-left:1px solid var(--line);display:grid;gap:12px;align-content:start}
+.kg{font-family:var(--mono);font-size:clamp(40px,7vw,58px);font-weight:600;line-height:1;color:var(--move)}
+
+/* power tower */
+.tw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.tw .l{padding:10px 16px;border-right:1px solid var(--line)}
+.tw .l svg{max-width:360px;margin:0 auto}
+.tw .r{padding:16px 18px;display:grid;gap:14px;align-content:start}
+.eq{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-weight:900;font-size:clamp(18px,2.8vw,22px)}
+.eq span{border-radius:10px;padding:3px 12px}
+.eq .f{background:color-mix(in srgb,var(--still) 18%,transparent);color:var(--still)}
+.eq .s{background:color-mix(in srgb,var(--move) 18%,transparent);color:var(--move)}
+.joints{display:grid;gap:7px}
+.jt{display:grid;grid-template-columns:58px auto minmax(0,1fr);gap:8px;font-size:14px;align-items:baseline}
+.jt b{font-size:15px}
+.jt .k{font-size:11px;font-weight:700;border-radius:999px;padding:0 7px;white-space:nowrap}
+.k.f{background:color-mix(in srgb,var(--still) 22%,transparent);color:var(--still)}
+.k.s{background:color-mix(in srgb,var(--move) 22%,transparent);color:var(--move)}
+.k.fs{background:var(--panel2);color:var(--ink)}
+.cue{display:flex;flex-wrap:wrap;gap:6px}
+.cue span{font-size:13px;background:var(--panel2);border-radius:999px;padding:2px 10px}
+.ladder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
+.ladder div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 8px 10px;text-align:center;font-size:13.5px;font-weight:700;display:grid;gap:0;justify-items:center}
+.ladder div svg{max-width:120px}
+.ladder div:last-child{border-color:var(--move);background:color-mix(in srgb,var(--move) 9%,var(--panel))}
+.ladder i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.three .mvc svg{max-width:140px;margin:0 auto}
+
+/* still */
+.venn{max-width:560px;margin:0 auto}
+.br2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.br2 .l{padding:14px 16px;border-right:1px solid var(--line);display:grid;gap:10px;align-content:start}
+.br2 .r{padding:14px 16px;display:grid;gap:10px;align-content:start;min-width:0}
+.steps2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.steps2 div{background:var(--panel2);border-radius:12px;padding:8px 8px 10px;text-align:center;font-weight:700;font-size:14.5px;display:grid;gap:2px;justify-items:center}
+.steps2 svg{max-width:130px}
+.big2{font-size:clamp(21px,3.4vw,28px);font-weight:900;line-height:1.3}
+.red{border:1px solid color-mix(in srgb,var(--bad) 40%,var(--line));background:color-mix(in srgb,var(--bad) 7%,var(--panel));border-radius:12px;padding:10px 14px;font-size:13.5px;margin-top:14px}
+.red b{color:var(--bad)}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding-top:16px;font-size:12.5px;color:var(--muted)}
+.foot ol{padding-left:18px;margin:6px 0 0}
+
+@media (max-width:820px){
+  .pain,.lever,.age,.tw,.br2{grid-template-columns:1fr}
+  .pain .map,.age .stage,.tw .l,.br2 .l{border-right:0;border-bottom:1px solid var(--line)}
+  .lever .r{border-left:0;border-top:1px solid var(--line)}
+  .moves{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .three>:last-child{grid-column:1/-1}
+  .two{grid-template-columns:1fr}
+  .strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:520px){
+  .three{grid-template-columns:1fr}
+  .ladder{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .jt{grid-template-columns:50px auto minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:.85}}
+.pulse{animation:pulse 2s ease-in-out infinite}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="home" href="../#body">← 玩笑但 · 身體</a>
+  <header>
+    <div class="kick">動 + 靜 · 針對痛症</div>
+    <h1>Happy Body<br>Playbook</h1>
+    <p class="motto">健康嘅人有一萬個慾望，病人只有一個。</p>
+    <div class="split">
+      <div class="half mv"><span class="big m-c">動</span><svg id="heroMove" viewBox="0 0 120 120" aria-hidden="true"></svg><p>練肌肉</p><small>唔用就退化。想唔痛，冇得揀：郁。</small></div>
+      <div class="half st"><span class="big s-c">靜</span><svg id="heroStill" viewBox="0 0 120 120" aria-hidden="true"></svg><p>呼吸</p><small>去到緊嘅位置，長長呼一啖氣。</small></div>
+    </div>
+    <div class="chain" aria-label="唔用就退化"><span class="nd">唔用</span><span class="ar">→</span><span class="nd">退化</span><span class="ar">→</span><span class="nd hot">痛</span></div>
+  </header>
+
+  <!-- PAIN MAP -->
+  <section id="pain">
+    <div class="kick">痛喺邊</div>
+    <h2>四個最多人痛嘅位</h2>
+    <div class="card pain" style="margin-top:14px">
+      <div class="map"><svg id="painSvg" viewBox="0 0 200 300" role="img" aria-label="身體背面，標出頭、頸、下背、膝四個痛點"></svg></div>
+      <div class="ptxt">
+        <div class="ptabs btns" id="painTabs"></div>
+        <div><span class="badge" id="pBadge"></span></div>
+        <div class="pname" id="pName"></div>
+        <p id="pLine"></p>
+        <div><div class="mini" style="margin-bottom:6px">練乜</div><div class="train" id="pTrain"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGE POSTURE -->
+  <section id="age">
+    <div class="kick">老化姿勢</div>
+    <h2>老 = 脊椎 + 腳 退化</h2>
+    <p class="cap">同幾多歲冇關。係一條路，睇你行咗去邊。拉條桿，或者撳 ▶。</p>
+    <div class="card age" style="margin-top:14px">
+      <div class="stage"><svg id="ageSvg" viewBox="0 0 220 240" role="img" aria-label="側面人形：由企直，到寒背、擰頭、屈膝、拐杖、輪椅"></svg></div>
+      <div class="info">
+        <div><span class="snum" id="aNum"></span><div class="sname" id="aName"></div></div>
+        <p id="aLine"></p>
+        <div class="ctl"><label for="ageR">退化 <span id="ageV"></span></label><input type="range" id="ageR" min="0" max="5" step="0.01" value="0"></div>
+        <div class="btns"><button class="btn m" id="agePlay" aria-pressed="false">▶ 播一次</button></div>
+        <p class="mini"><span style="color:var(--move)">■</span> 紅色 = 開始頂唔順：先係脊椎，跟住係腳。</p>
+      </div>
+    </div>
+    <div class="strip" id="ageStrip" role="group" aria-label="揀一格"></div>
+    <div class="two" style="margin-top:12px">
+      <div class="card pad"><div class="mini" style="margin-bottom:8px">脊椎同腳，一齊退</div>
+        <div class="loop"><span>脊椎冇力</span><i>→</i><span>身向前</span><i>→</i><span>屈膝嚟補</span><i>→</i><span>腳攰</span><i>→</i><span>更加企唔直</span><i>↺</i></div>
+        <p class="mini" style="margin-top:8px">年紀大流失嘅肌肉，主要喺下半身。</p></div>
+      <div class="card pad wallc"><svg id="wallSvg" viewBox="0 0 100 120" role="img" aria-label="靠牆檢查：頭、上背、屁股、腳跟四點貼牆"></svg>
+        <div><b>你喺第幾格？</b><p class="mini" style="color:var(--ink)">靠牆企：頭、上背、屁股、腳跟 4 點貼到牆 = 第 1 格。頭貼唔到，已經行緊落去。</p></div></div>
+    </div>
+    <a class="tolink" href="#tower">解藥：Power Tower ↓</a>
+  </section>
+
+  <!-- ===== 動 ===== -->
+  <div class="part mv"><b>動</b><span>練肌肉：痛症同姿勢</span></div>
+
+  <section id="tower" style="margin-top:36px">
+    <div class="kick">最強一個動作</div>
+    <h2>Power Tower：舉手深蹲</h2>
+    <p class="cap">柔軟度 + 力量一齊練。脊椎同腳一次過搞掂。</p>
+    <div class="card tw" style="margin-top:14px">
+      <div class="l"><svg id="towerSvg" viewBox="0 0 240 240" role="img" aria-label="雙手舉高深蹲，標出頸、上背、下背、髖、膝、腳眼"></svg></div>
+      <div class="r">
+        <div class="eq"><span class="f">柔軟度</span><span>+</span><span class="s">力量</span></div>
+        <div class="joints" id="joints"></div>
+        <p class="mini" style="color:var(--ink)">四個最多人痛嘅位，加埋腳眼，一個動作全部練到。</p>
+        <div><div class="mini" style="margin-bottom:6px">做法</div><div class="cue"><span>腳跟貼地</span><span>身唔好向前衝</span><span>手舉直，胸打開</span><span>慢慢落，慢慢起</span></div></div>
+      </div>
+    </div>
+    <div class="ladder" id="ladder"></div>
+  </section>
+
+  <section id="core">
+  <section id="core" style="margin-top:36px">
+    <div class="kick">Core</div>
+    <h2>四個基本動作</h2>
+    <div class="moves" id="moves" style="margin-top:14px"></div>
+  </section>
+
+  <section id="more" class="sub" style="margin-top:28px">
+    <div class="three">
+      <div class="mvc" id="power"><b class="m-c">爆發</b><svg id="figPower" viewBox="0 0 120 120" aria-hidden="true"></svg><div class="lad"><span>跳</span><span>衝刺</span><span>搬重嘢</span></div></div>
+      <div class="mvc" id="balance"><b class="m-c">平衡 = 旋轉 + 協調</b><div class="trio" id="balTrio"></div><div class="lad"><span>單腳企</span><span>擰身拋波</span><span>跳舞</span></div></div>
+      <div class="mvc" id="daily"><b class="m-c">日常</b><svg id="figDaily" viewBox="0 0 120 120" aria-hidden="true"></svg><span class="sub2">重訓以外，生活累積嘅小運動。坐 20 分鐘，郁 2 分鐘。</span><div class="lad"><span>行樓梯</span><span>深蹲坐住</span><span>吊單槓</span><span>擰身</span><span>單腳企刷牙</span></div></div>
+    </div>
+  </section>
+
+  <section id="gravity">
+    <div class="kick">Gravity is free</div>
+    <h2>唔使健身室：換角度就換重量</h2>
+    <div class="card lever" style="margin-top:14px">
+      <div class="pad"><svg id="leverSvg" viewBox="0 0 320 170" role="img" aria-label="掌上壓角度同負重"></svg></div>
+      <div class="r">
+        <div class="ctl"><label for="lev">掌上壓 <span id="levN"></span></label><input type="range" id="lev" min="0" max="5" step="1" value="3"></div>
+        <div class="ctl"><label for="bw">體重 <span id="bwV"></span></label><input type="range" id="bw" min="40" max="100" step="1" value="60"></div>
+        <div><span class="mini">雙手推起</span><div class="kg" id="levKg"></div><span class="mini" id="levPct"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 靜 ===== -->
+  <div class="part st"><b>靜</b><span>呼吸：練肌肉以外嘅止痛方法</span></div>
+
+  <section id="breath" style="margin-top:36px">
+    <div class="kick">兩套系統</div>
+    <h2>呼吸係唯一兩邊都撳得到嘅掣</h2>
+    <div class="card pad" style="margin-top:14px"><svg id="vennSvg" class="venn" viewBox="0 0 340 200" role="img" aria-label="隨意系統同自動系統，中間重疊係呼吸"></svg></div>
+    <p class="cap">長長呼氣 → 心跳慢落 → 個身鬆。呼吸係一個掣，唔係遙控器：佢推得郁，但唔係話乜就乜。</p>
+  </section>
+
+  <section id="reset">
+    <div class="kick">痛位 + 呼氣</div>
+    <h2>去到緊嘅位置，長長呼一啖氣</h2>
+    <div class="card br2" style="margin-top:14px">
+      <div class="l">
+        <div class="steps2"><div><svg id="stepGo" viewBox="0 0 120 120" aria-hidden="true"></svg><span>① 去到緊嘅位置</span></div><div><svg id="stepOut" viewBox="0 0 120 120" aria-hidden="true"></svg><span>② 長長呼一啖氣</span></div></div>
+        <p class="mini">吸氣自然會發生，唔使理。淨係理呼。</p>
+      </div>
+      <div class="r">
+        <svg id="breathSvg" viewBox="0 0 340 176" role="img" aria-label="吸氣短，心跳快少少；呼氣長，心跳慢落，個身鬆"></svg>
+        <p class="big2"><span style="color:var(--breath)">吸 = 收緊</span>　<span class="s-c">呼 = 放鬆</span></p>
+        <p>深深呼完一啖，個身一定鬆咗啲。想繼續嬲都難。</p>
+        <p class="mini">呼氣時心跳自然慢落。放鬆咁慢呼吸，實驗見到痛覺門檻提高（Busch 2012，16 人小型研究）。</p>
+      </div>
+    </div>
+    <div class="red"><b>以下情況先睇醫生：</b>麻痺或者無力、大小便失控、發燒、夜晚瞓定都痛、跌親撞親之後痛。</div>
+  </section>
+
+  <footer class="foot">
+    <b>來源</b>
+    <ol>
+      <li>Global Burden of Disease：下背痛係全球失能第一原因；頸痛排第四（GBD 2010）。</li>
+      <li>Janssen 等人（2000），J Appl Physiol：年紀大流失嘅肌肉主要喺下半身。</li>
+      <li>Jerzy Gregorek，<a href="https://www.youtube.com/watch?v=v39KG8wEHN8" target="_blank" rel="noopener">Keys to Youthful Living（Talks at Google）</a>：老化姿勢同 Power Tower。</li>
+      <li>Ebben 等人（2011）：掌上壓各角度承受體重百分比。</li>
+      <li>Dunstan 等人（2012），Diabetes Care：每坐 20 分鐘行 2 分鐘，飯後血糖反應低約四分一。</li>
+      <li>Busch 等人（2012），Pain Medicine：放鬆慢呼吸同痛覺。</li>
+    </ol>
+    <p style="margin-top:8px">唔係醫療建議。持續或者嚴重嘅痛，搵醫生或者物理治療師。</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const C={ink:css('--ink'),muted:css('--muted'),dim:css('--dim'),line:css('--line'),panel:css('--panel'),panel2:css('--panel2'),bg:css('--bg'),move:css('--move'),still:css('--still'),breath:css('--breath'),bone:css('--bone'),warn:css('--warn')};
+const FONT='"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+function pressed(g,el){[...g].forEach(b=>b.setAttribute('aria-pressed',b===el))}
+
+/* ---------- stick figures ---------- */
+function fig(p,col,o){o=o||{};const lw=o.leg||6,aw=o.arm||5,tw=o.torso||7;
+  const L=(a,b,w)=>`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/>`;
+  return L(p.n,p.hip,tw)+L(p.hip,p.kL,lw)+L(p.kL,p.fL,lw)+L(p.hip,p.kR,lw)+L(p.kR,p.fR,lw)+L(p.n,p.eL,aw)+L(p.eL,p.hL,aw)+L(p.n,p.eR,aw)+L(p.eR,p.hR,aw)+`<circle cx="${p.h[0]}" cy="${p.h[1]}" r="9" fill="${col}"/>`}
+const ground=(y,x0,x1)=>`<line x1="${x0||4}" y1="${y||114}" x2="${x1||116}" y2="${y||114}" stroke="${C.line}" stroke-width="2"/>`;
+const P={
+ stand:{h:[60,16],n:[60,30],hip:[60,62],kL:[55,86],fL:[53,110],kR:[65,86],fR:[67,110],eL:[50,46],hL:[48,64],eR:[70,46],hR:[72,64]},
+ press:{h:[60,18],n:[60,31],hip:[60,62],kL:[55,86],fL:[53,110],kR:[65,86],fR:[67,110],eL:[47,22],hL:[50,4],eR:[73,22],hR:[70,4]},
+ pushup:{h:[100,71],n:[90,77],hip:[52,91],kL:[30,99],fL:[10,106],kR:[30,99],fR:[10,106],eL:[89,93],hL:[90,110],eR:[91,93],hR:[92,110]},
+ pullup:{h:[60,30],n:[60,43],hip:[60,76],kL:[57,94],fL:[55,112],kR:[63,94],fR:[65,112],eL:[45,24],hL:[48,8],eR:[75,24],hR:[72,8]},
+ row:{h:[94,55],n:[84,63],hip:[48,88],kL:[30,100],fL:[14,110],kR:[30,100],fR:[14,110],eL:[96,48],hL:[90,36],eR:[98,50],hR:[92,36]},
+ squat:{h:[46,40],n:[50,52],hip:[36,82],kL:[64,80],fL:[58,110],kR:[66,82],fR:[60,110],eL:[68,58],hL:[86,58],eR:[70,60],hR:[88,60]},
+ hinge:{h:[86,42],n:[77,46],hip:[44,58],kL:[50,84],fL:[48,110],kR:[52,84],fR:[50,110],eL:[76,68],hL:[75,90],eR:[78,68],hR:[77,90]},
+ jump:{h:[60,12],n:[60,24],hip:[60,52],kL:[51,68],fL:[56,86],kR:[69,68],fR:[64,88],eL:[48,14],hL:[43,1],eR:[72,14],hR:[77,1]},
+ single:{h:[60,16],n:[60,30],hip:[60,62],kR:[61,86],fR:[61,110],kL:[45,70],fL:[51,92],eL:[44,36],hL:[27,34],eR:[76,36],hR:[93,34]},
+ rotate:{h:[57,16],n:[58,30],hip:[60,62],kL:[54,86],fL:[50,110],kR:[66,86],fR:[70,110],eL:[76,40],hL:[95,47],eR:[78,47],hR:[97,53]},
+ dance:{h:[63,16],n:[60,30],hip:[58,62],kL:[50,86],fL:[48,110],kR:[76,76],fR:[95,86],eL:[45,22],hL:[34,8],eR:[76,40],hR:[91,52]},
+ stairs:{h:[56,18],n:[58,31],hip:[60,62],kL:[78,70],fL:[76,92],kR:[56,84],fR:[50,102],eL:[68,46],hL:[74,60],eR:[50,46],hR:[44,60]},
+};
+const svgFig=(key,col,extra,o)=>(extra||'')+fig(P[key],col,o);
+const bar=(y,x0,x1)=>`<line x1="${x0}" y1="${y}" x2="${x1}" y2="${y}" stroke="${C.dim}" stroke-width="4" stroke-linecap="round"/>`;
+
+/* hero */
+$('heroMove').innerHTML=ground()+svgFig('jump',C.move,`<ellipse cx="60" cy="114" rx="18" ry="3" fill="${C.move}" opacity=".25"/><path d="M34 40 l-10 0 M32 52 l-12 0 M86 40 l10 0 M88 52 l12 0" stroke="${C.move}" stroke-width="2" opacity=".6"/>`);
+$('heroStill').innerHTML=ground()+`<circle cx="60" cy="58" r="34" fill="none" stroke="${C.still}" stroke-width="2" class="pulse"/>`+fig({h:[60,40],n:[60,52],hip:[60,82],kL:[38,100],fL:[78,108],kR:[82,100],fR:[42,108],eL:[44,72],hL:[40,92],eR:[76,72],hR:[80,92]},C.still);
+
+/* ---------- pain map ---------- */
+const PAIN=[
+ {k:'back',n:'下背',b:'全球第一',x:100,y:152,line:'下背痛係全世界失能第一原因。坐耐咗，屁股同腰冇用。',t:[['Power Tower','#tower'],['臀推 / 硬拉','#c-hinge'],['深蹲','#c-squat']]},
+ {k:'neck',n:'頸',b:'頭五',x:100,y:62,line:'頸痛喺全球失能排第四。低頭睇手機，頭一路向前。',t:[['Power Tower','#tower'],['拉','#c-pull'],['推','#c-push']]},
+ {k:'head',n:'頭',b:'最常見',x:100,y:28,line:'頭痛係全世界最常見嘅毛病之一，好多時同頸膊繃緊一齊出現。',t:[['Power Tower','#tower'],['拉','#c-pull'],['長呼氣','#reset']]},
+ {k:'knee',n:'膝頭',b:'50 歲後',x:0,y:238,line:'膝關節退化，年紀越大越多。大腿無力，膝頭就頂晒。',t:[['Power Tower','#tower'],['深蹲','#c-squat'],['單腳企','#balance']]}
+];
+let pSel=0;
+function painDraw(){const B=C.panel2,S=C.line;
+  let s=`<g fill="none" stroke="${B}" stroke-linecap="round">
+    <line x1="88" y1="172" x2="82" y2="238" stroke-width="26"/><line x1="82" y1="238" x2="80" y2="290" stroke-width="22"/>
+    <line x1="112" y1="172" x2="118" y2="238" stroke-width="26"/><line x1="118" y1="238" x2="120" y2="290" stroke-width="22"/>
+    <line x1="70" y1="76" x2="50" y2="130" stroke-width="17"/><line x1="50" y1="130" x2="44" y2="182" stroke-width="15"/>
+    <line x1="130" y1="76" x2="150" y2="130" stroke-width="17"/><line x1="150" y1="130" x2="156" y2="182" stroke-width="15"/>
+    <line x1="100" y1="46" x2="100" y2="66" stroke-width="20"/></g>
+    <rect x="66" y="64" width="68" height="114" rx="26" fill="${B}"/><circle cx="100" cy="30" r="22" fill="${B}"/>
+    <line x1="100" y1="72" x2="100" y2="170" stroke="${S}" stroke-width="2" stroke-dasharray="3 4"/>
+    <text x="100" y="298" text-anchor="middle" fill="${C.muted}" font-size="10" font-family='${FONT}'>背面</text>`;
+  PAIN.forEach((p,i)=>{const pts=p.k==='knee'?[[82,238],[118,238]]:[[p.x,p.y]];const on=i===pSel;
+    pts.forEach(([x,y])=>{s+=`<g class="hot" data-i="${i}" tabindex="0" role="button" aria-label="${p.n}"><circle cx="${x}" cy="${y}" r="${on?20:15}" fill="${C.move}" opacity="${on?.35:.18}" class="${on?'pulse':''}"/><circle cx="${x}" cy="${y}" r="${on?8:6}" fill="${C.move}"/></g>`})});
+  $('painSvg').innerHTML=s;
+  $('painSvg').querySelectorAll('.hot').forEach(g=>{const f=()=>{pSel=+g.dataset.i;painDraw()};g.addEventListener('click',f);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}})});
+  const p=PAIN[pSel];$('pBadge').textContent=p.b;$('pName').textContent=p.n;$('pLine').textContent=p.line;
+  $('pTrain').innerHTML=p.t.map(([n,h])=>`<a href="${h}">${n}</a>`).join('');
+  pressed($('painTabs').children,$('painTabs').children[pSel])}
+PAIN.forEach((p,i)=>{const b=document.createElement('button');b.className='btn m';b.textContent=p.n;b.onclick=()=>{pSel=i;painDraw()};$('painTabs').appendChild(b)});
+painDraw();
+
+/* ---------- side-view figure ---------- */
+function side(p,col,o){o=o||{};
+  const L=(a,b,w,c,op)=>`<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="${c||col}" stroke-width="${w}" stroke-linecap="round"${op!=null?` opacity="${op.toFixed(2)}"`:''}/>`;
+  const legs=(c,op)=>L(p.H,p.K,8,c,op)+L(p.K,p.A,7,c,op)+L(p.A,p.T,6,c,op);
+  const spine=(c,op)=>`<path d="M${p.H[0].toFixed(1)} ${p.H[1].toFixed(1)} Q${p.C[0].toFixed(1)} ${p.C[1].toFixed(1)} ${p.N[0].toFixed(1)} ${p.N[1].toFixed(1)}" fill="none" stroke="${c}" stroke-width="9" stroke-linecap="round"${op!=null?` opacity="${op.toFixed(2)}"`:''}/>`;
+  let s='';(p.arms||[[p.E,p.W]]).forEach(([e,w])=>s+=L(p.N,e,5)+L(e,w,5));
+  s+=legs(col)+spine(col);
+  if(o.legHot)s+=legs(C.move,o.legHot);
+  if(o.spineHot)s+=spine(C.move,o.spineHot);
+  s+=L(p.N,p.Hd,6)+`<circle cx="${p.Hd[0].toFixed(1)}" cy="${p.Hd[1].toFixed(1)}" r="12" fill="${col}"/>`;
+  return s}
+const clamp=(x,a,b)=>Math.max(a===undefined?0:a,Math.min(b===undefined?1:b,x));
+
+/* ---------- age posture ---------- */
+const AGEP=[
+ {A:[96,222],T:[114,224],K:[98,172],H:[96,122],C:[92,88],N:[98,56],Hd:[100,38],E:[98,92],W:[100,120],g:0},
+ {A:[96,222],T:[114,224],K:[99,172],H:[95,124],C:[84,86],N:[106,60],Hd:[116,46],E:[118,90],W:[140,92],g:-14},
+ {A:[96,222],T:[114,224],K:[100,172],H:[94,126],C:[78,90],N:[112,70],Hd:[127,58],E:[114,102],W:[120,128],g:0},
+ {A:[96,222],T:[114,224],K:[114,178],H:[88,136],C:[70,100],N:[110,84],Hd:[125,74],E:[114,114],W:[120,140],g:-16},
+ {A:[96,222],T:[114,224],K:[116,180],H:[86,140],C:[68,106],N:[106,92],Hd:[121,82],E:[124,120],W:[140,146],g:-22},
+ {A:[128,206],T:[142,208],K:[124,166],H:[84,168],C:[64,134],N:[94,110],Hd:[108,100],E:[100,146],W:[118,150],g:-30}
+];
+const AGE=[
+ ['企直','耳、膊、髖、膝、腳眼一條直線。Happy body。'],
+ ['寒背','手成日擺前面（keyboard、手機）。胸椎冇力挺胸，胸塌、頭向前。'],
+ ['擰頭','身向前傾，要望到前面，就要將個頭擰高。頸後面頂晒。'],
+ ['屈膝','再彎，擰頭都唔夠。要屈膝先企得住，大腿由朝做到晚。'],
+ ['拐杖','膝頭頂唔順，要多一隻腳。'],
+ ['輪椅','拐杖都唔掂。坐低之後，以後都唔使再起身。']
+];
+function agePose(s){const i=Math.min(4,Math.floor(s)),f=s-i,a=AGEP[i],b=AGEP[i+1],o={};
+  for(const k in a)o[k]=Array.isArray(a[k])?[a[k][0]+(b[k][0]-a[k][0])*f,a[k][1]+(b[k][1]-a[k][1])*f]:a[k]+(b[k]-a[k])*f;return o}
+function ageDraw(s,big){const p=agePose(s);let out='';
+  if(big)out+=`<line x1="96" y1="226" x2="96" y2="22" stroke="${C.dim}" stroke-width="1.5" stroke-dasharray="3 5"/>`;
+  out+=`<line x1="6" y1="226" x2="214" y2="226" stroke="${C.line}" stroke-width="2"/>`;
+  const kb=clamp(1-Math.abs(s-1)*1.4);
+  if(kb>0)out+=`<g opacity="${kb.toFixed(2)}"><rect x="${(p.W[0]-6).toFixed(1)}" y="${(p.W[1]+3).toFixed(1)}" width="40" height="6" rx="2" fill="${C.dim}"/><rect x="${(p.W[0]+26).toFixed(1)}" y="${(p.W[1]-26).toFixed(1)}" width="5" height="30" rx="2" fill="${C.dim}"/></g>`;
+  const wc=clamp((s-4.15)/.6);
+  if(wc>0)out+=`<g opacity="${wc.toFixed(2)}" fill="none" stroke="${C.muted}" stroke-width="4" stroke-linecap="round"><line x1="64" y1="116" x2="70" y2="176"/><line x1="70" y1="176" x2="132" y2="176"/><line x1="72" y1="150" x2="112" y2="150"/><line x1="130" y1="176" x2="140" y2="210"/><circle cx="90" cy="196" r="28"/><circle cx="90" cy="196" r="3" fill="${C.muted}"/><circle cx="140" cy="219" r="7"/></g>`;
+  const cane=s<3?0:s<4?s-3:s<4.3?1:clamp(1-(s-4.3)/.35);
+  if(cane>0)out+=`<g opacity="${cane.toFixed(2)}" stroke="${C.warn}" stroke-width="4" stroke-linecap="round" fill="none"><path d="M${(p.W[0]-8).toFixed(1)} ${(p.W[1]-2).toFixed(1)} Q${(p.W[0]-2).toFixed(1)} ${(p.W[1]-12).toFixed(1)} ${(p.W[0]+3).toFixed(1)} ${(p.W[1]).toFixed(1)}"/><line x1="${(p.W[0]+3).toFixed(1)}" y1="${p.W[1].toFixed(1)}" x2="${(p.W[0]+8).toFixed(1)}" y2="224"/></g>`;
+  out+=side(p,C.bone,{spineHot:clamp(s/1.8)*.95,legHot:clamp((s-2.2)/1.3)*.95});
+  const nk=clamp(s-1.3)*clamp((4.6-s)/.6);
+  if(nk>0)out+=`<path d="M${(p.N[0]-4).toFixed(1)} ${(p.N[1]-14).toFixed(1)} l-6 4 l6 4 l-6 4" fill="none" stroke="${C.move}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="${nk.toFixed(2)}"/>`;
+  const ex=p.Hd[0]+7,ey=p.Hd[1]-2,len=big?72:52,a=p.g*Math.PI/180,gx=ex+Math.cos(a)*len,gy=ey-Math.sin(a)*len;
+  out+=`<line x1="${ex.toFixed(1)}" y1="${ey.toFixed(1)}" x2="${gx.toFixed(1)}" y2="${gy.toFixed(1)}" stroke="${C.breath}" stroke-width="1.8" stroke-dasharray="4 4" opacity=".85"/>`;
+  if(big)out+=`<text x="${(ex+8).toFixed(1)}" y="${(ey-12).toFixed(1)}" fill="${C.breath}" font-size="11" font-family='${FONT}'>視線</text>`;
+  return out}
+const ageSvg=$('ageSvg'),ageR=$('ageR'),strip=$('ageStrip');
+AGE.forEach(([n],i)=>{const b=document.createElement('button');b.setAttribute('aria-pressed','false');b.setAttribute('aria-label',`第 ${i+1} 格：${n}`);
+  b.innerHTML=`<svg viewBox="10 14 200 216" aria-hidden="true">${ageDraw(i,false)}</svg><span>${i+1} ${n}</span>`;
+  b.onclick=()=>{stopAge();setAge(i)};strip.appendChild(b)});
+function setAge(s){s=clamp(s,0,5);ageR.value=s;ageSvg.innerHTML=ageDraw(s,true);const k=Math.round(s);
+  $('aNum').textContent=`第 ${k+1} / 6 格`;$('aName').textContent=AGE[k][0];$('aLine').textContent=AGE[k][1];$('ageV').textContent=AGE[k][0];
+  [...strip.children].forEach((b,i)=>b.setAttribute('aria-pressed',i===k))}
+let ageRaf=null;
+function stopAge(){if(ageRaf){cancelAnimationFrame(ageRaf);ageRaf=null}$('agePlay').textContent='▶ 播一次';$('agePlay').setAttribute('aria-pressed','false')}
+ageR.addEventListener('input',()=>{stopAge();setAge(+ageR.value)});
+$('agePlay').onclick=()=>{if(ageRaf){stopAge();return}
+  if(reduced){let k=0;setAge(0);const t=setInterval(()=>{k++;setAge(k);if(k>=5)clearInterval(t)},900);return}
+  let s0=+ageR.value>=4.99?0:+ageR.value,t0=performance.now();$('agePlay').textContent='❚❚ 停';$('agePlay').setAttribute('aria-pressed','true');
+  const st=now=>{const s=s0+(now-t0)/1000*.7;setAge(s);if(s>=5){stopAge();return}ageRaf=requestAnimationFrame(st)};ageRaf=requestAnimationFrame(st)};
+setAge(0);
+
+/* ---------- power tower ---------- */
+const TOWER={A:[112,222],T:[132,224],K:[146,180],H:[86,190],C:[90,152],N:[98,112],Hd:[111,96],arms:[[[93,76],[95,42]],[[98,77],[101,43]]]};
+(function(){let s=`<line x1="20" y1="226" x2="226" y2="226" stroke="${C.line}" stroke-width="2"/>`;
+  s+=`<path d="M${TOWER.A[0]} 226 l0 -4" stroke="${C.still}" stroke-width="3"/>`;
+  s+=side(TOWER,C.bone);
+  const J=[[[102,107],[28,98],'頸','f'],[[94,132],[28,134],'上背','fs'],[[88,171],[28,170],'下背','s'],[[86,190],[28,204],'髖','f'],[[146,180],[214,166],'膝','s'],[[114,221],[214,212],'腳眼','f']];
+  J.forEach(([t,l,n,k])=>{const col=k==='f'?C.still:k==='s'?C.move:C.ink;const right=l[0]>t[0];
+    s+=`<line x1="${t[0]}" y1="${t[1]}" x2="${right?l[0]-28:l[0]+22}" y2="${l[1]-4}" stroke="${col}" stroke-width="1.2" opacity=".7"/><circle cx="${t[0]}" cy="${t[1]}" r="4.5" fill="${col}"/>`;
+    s+=`<text x="${l[0]}" y="${l[1]}" fill="${col}" font-size="13" font-weight="900" text-anchor="${right?'end':'start'}" font-family='${FONT}'>${n}</text>`});
+  $('towerSvg').innerHTML=s})();
+$('joints').innerHTML=[['頸 · 頭','f','柔','胸椎打直，頭唔使擰高'],['上背','fs','柔 + 力','手舉直，胸椎打開'],['下背','s','力','背肌撐住，身唔塌'],['髖','f','柔','落到底，髖同大腿後面拉開'],['膝','s','力','全幅度屈膝 + 大腿力'],['腳眼','f','柔','腳跟貼地 = 腳眼柔軟度']]
+  .map(([n,k,t,d])=>`<div class="jt"><b>${n}</b><span class="k ${k}">${t}</span><span>${d}</span></div>`).join('');
+(function(){const base={A:[112,222],T:[132,224],K:[146,182],H:[88,192],C:[94,154]};
+  const L=[
+   ['扶住',Object.assign({},base,{N:[110,118],Hd:[122,104],arms:[[[140,132],[172,130]]]}),`<line x1="176" y1="64" x2="176" y2="226" stroke="${C.dim}" stroke-width="5" stroke-linecap="round"/>`],
+   ['手向前',Object.assign({},base,{N:[104,116],Hd:[115,100],arms:[[[130,124],[158,122]]]}),''],
+   ['單手舉高',Object.assign({},TOWER,{arms:[[[93,76],[95,42]],[[124,126],[150,128]]]}),''],
+   ['雙手舉高',TOWER,'']];
+  $('ladder').innerHTML=L.map(([n,p,ex],i)=>`<div><svg viewBox="30 30 180 200" aria-hidden="true"><line x1="40" y1="226" x2="200" y2="226" stroke="${C.line}" stroke-width="2"/>${ex}${side(p,i===3?C.move:C.bone)}</svg><i>${i+1}</i><span>${n}</span></div>`).join('')})();
+
+/* ---------- core moves ---------- */
+const MOVES=[
+ {id:'c-push',n:'推',s:'舉高推 · 掌上壓',f:[['press',''],['pushup',ground(112)]],lad:['推牆','跪膝','標準','腳墊高']},
+ {id:'c-pull',n:'拉',s:'吊單槓 · 枱底划船',f:[['pullup',bar(8,30,90)],['row',bar(36,72,116)+ground(112)]],lad:['吊住','慢慢落','引體上升']},
+ {id:'c-squat',n:'蹲',s:'深蹲',f:[['squat',ground()]],lad:['坐櫈企起','深蹲','分腿蹲','單腳']},
+ {id:'c-hinge',n:'臀推 / 硬拉',s:'屈髖，用屁股推',f:[['hinge',ground()+`<rect x="66" y="90" width="20" height="16" rx="5" fill="${C.move}" opacity=".85"/>`]],lad:['臀橋','單腳臀橋','硬拉（背囊）']}
+];
+$('moves').innerHTML=MOVES.map(m=>`<div class="mvc" id="${m.id}"><b class="m-c">${m.n}</b><div class="figs">${m.f.map(([k,ex])=>`<svg viewBox="0 0 120 120" aria-hidden="true">${ex}${fig(P[k],C.bone)}</svg>`).join('')}</div><span class="sub2">${m.s}</span><div class="lad">${m.lad.map(x=>`<span>${x}</span>`).join('<i>→</i>')}</div></div>`).join('');
+$('figPower').innerHTML=ground()+`<ellipse cx="60" cy="114" rx="18" ry="3" fill="${C.move}" opacity=".25"/><path d="M34 40 l-10 0 M32 52 l-12 0 M86 40 l10 0 M88 52 l12 0" stroke="${C.move}" stroke-width="2" opacity=".6"/>`+fig(P.jump,C.bone);
+$('balTrio').innerHTML=[['single','單腳'],['rotate','旋轉'],['dance','協調']].map(([k,l])=>`<div><svg viewBox="0 0 120 120" aria-hidden="true">${ground()}${k==='rotate'?`<path d="M38 64 Q60 80 84 62" fill="none" stroke="${C.move}" stroke-width="2.5"/><path d="M84 62 l-8 0 M84 62 l-3 7" stroke="${C.move}" stroke-width="2.5" stroke-linecap="round"/>`:''}${fig(P[k],C.bone)}</svg>${l}</div>`).join('');
+
+/* ---------- lever ---------- */
+const LEV=[['手墊高 61 cm',41,60,0,0],['跪膝',49,0,0,1],['手墊高 30 cm',55,30,0,0],['標準',64,0,0,0],['腳墊高 30 cm',70,0,30,0],['腳墊高 61 cm',74,0,60,0]];
+function lever(){const i=+$('lev').value,w=+$('bw').value,[n,pct,hH,fH,knee]=LEV[i];
+  $('levN').textContent=n;$('bwV').textContent=w+' kg';$('levKg').textContent=Math.round(pct*w/100)+' kg';$('levPct').textContent=`= 體重 ${pct}%`;
+  const gy=150,sc=.8,hx=246,hy=gy-hH*sc,S=[hx-2,hy-36],fx=knee?150:54,fy=gy-fH*sc-3;
+  let s=`<line x1="8" y1="${gy}" x2="312" y2="${gy}" stroke="${C.line}" stroke-width="2"/>`;
+  if(hH)s+=`<rect x="${hx-24}" y="${hy}" width="48" height="${hH*sc}" rx="4" fill="${C.panel2}" stroke="${C.line}"/>`;
+  if(fH)s+=`<rect x="${fx-26}" y="${gy-fH*sc}" width="52" height="${fH*sc}" rx="4" fill="${C.panel2}" stroke="${C.line}"/>`;
+  const dx=S[0]-fx,dy=S[1]-fy,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;
+  const hip=[fx+dx*.45,fy+dy*.45];
+  s+=`<line x1="${hx}" y1="${hy}" x2="${S[0]}" y2="${S[1]}" stroke="${C.bone}" stroke-width="6" stroke-linecap="round"/>`;
+  s+=`<line x1="${S[0]}" y1="${S[1]}" x2="${hip[0]}" y2="${hip[1]}" stroke="${C.bone}" stroke-width="8" stroke-linecap="round"/>`;
+  s+=`<line x1="${hip[0]}" y1="${hip[1]}" x2="${fx}" y2="${fy}" stroke="${C.bone}" stroke-width="7" stroke-linecap="round"/>`;
+  if(knee)s+=`<line x1="${fx}" y1="${fy}" x2="${fx-46}" y2="${fy-20}" stroke="${C.bone}" stroke-width="6" stroke-linecap="round"/>`;
+  s+=`<circle cx="${S[0]+ux*16}" cy="${S[1]+uy*16-6}" r="10" fill="${C.bone}"/>`;
+  const bh=pct*1.25;s+=`<rect x="${hx+36}" y="${gy-bh}" width="16" height="${bh}" rx="4" fill="${C.move}"/><text x="${hx+44}" y="${gy-bh-7}" fill="${C.move}" font-size="12" text-anchor="middle" font-family='${FONT}' font-weight="700">${pct}%</text>`;
+  $('leverSvg').innerHTML=s}
+$('lev').addEventListener('input',lever);$('bw').addEventListener('input',lever);lever();
+
+/* ---------- wall check + daily ---------- */
+(function(){const W=24;let s=`<rect x="0" y="0" width="${W}" height="118" fill="${C.panel2}"/><line x1="${W}" y1="0" x2="${W}" y2="116" stroke="${C.muted}" stroke-width="2"/><line x1="0" y1="116" x2="100" y2="116" stroke="${C.line}" stroke-width="2"/>`;
+  s+=`<path d="M34 34 Q30 48 33 64" fill="none" stroke="${C.bone}" stroke-width="7" stroke-linecap="round"/><line x1="34" y1="34" x2="38" y2="26" stroke="${C.bone}" stroke-width="5" stroke-linecap="round"/><circle cx="36" cy="16" r="9" fill="${C.bone}"/>`;
+  s+=`<path d="M33 64 L36 90 L33 112 L50 113" fill="none" stroke="${C.bone}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 36 L40 52 L42 68" fill="none" stroke="${C.bone}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+  [16,42,64,110].forEach(y=>s+=`<circle cx="${W}" cy="${y}" r="5" fill="${C.still}"/>`);
+  $('wallSvg').innerHTML=s})();
+$('figDaily').innerHTML=`<path d="M4 114 H40 V102 H62 V92 H84 V82 H116" fill="none" stroke="${C.line}" stroke-width="2"/>`+fig(P.stairs,C.bone);
+
+/* ---------- venn ---------- */
+(function(){let s=`<circle cx="125" cy="100" r="82" fill="${C.move}" fill-opacity=".14" stroke="${C.move}" stroke-width="2"/><circle cx="215" cy="100" r="82" fill="${C.still}" fill-opacity=".14" stroke="${C.still}" stroke-width="2"/>`;
+  s+=`<text x="88" y="58" text-anchor="middle" fill="${C.move}" font-size="15" font-weight="900" font-family='${FONT}'>隨意</text>`;
+  s+=`<text x="88" y="84" text-anchor="middle" fill="${C.ink}" font-size="13" font-family='${FONT}'>手</text><text x="88" y="104" text-anchor="middle" fill="${C.ink}" font-size="13" font-family='${FONT}'>腳</text><text x="88" y="124" text-anchor="middle" fill="${C.ink}" font-size="13" font-family='${FONT}'>肌肉</text>`;
+  s+=`<text x="252" y="58" text-anchor="middle" fill="${C.still}" font-size="15" font-weight="900" font-family='${FONT}'>自動</text>`;
+  s+=`<text x="252" y="84" text-anchor="middle" fill="${C.ink}" font-size="13" font-family='${FONT}'>心跳</text><text x="252" y="104" text-anchor="middle" fill="${C.ink}" font-size="13" font-family='${FONT}'>消化</text><text x="252" y="124" text-anchor="middle" fill="${C.ink}" font-size="13" font-family='${FONT}'>免疫</text>`;
+  s+=`<circle cx="170" cy="100" r="26" fill="${C.breath}" fill-opacity=".25" class="pulse"/><text x="170" y="96" text-anchor="middle" fill="${C.ink}" font-size="15" font-weight="900" font-family='${FONT}'>呼吸</text><text x="170" y="114" text-anchor="middle" fill="${C.muted}" font-size="10.5" font-family='${FONT}'>兩邊都係</text>`;
+  s+=`<text x="125" y="196" text-anchor="middle" fill="${C.muted}" font-size="11" font-family='${FONT}'>你話事</text><text x="215" y="196" text-anchor="middle" fill="${C.muted}" font-size="11" font-family='${FONT}'>自動波</text>`;
+  $('vennSvg').innerHTML=s})();
+
+/* ---------- tight spot + long exhale ---------- */
+(function(){const sm=(ex)=>`<line x1="30" y1="226" x2="226" y2="226" stroke="${C.line}" stroke-width="3"/>${side(TOWER,C.bone)}${ex||''}`;
+  const tight=`<g stroke="${C.move}" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M68 160 l-9 7 l9 7 l-9 7"/><path d="M104 206 l7 -9 l7 9 l7 -9"/><path d="M76 122 l-9 7 l9 7 l-9 7"/></g>`;
+  const out=`<g stroke="${C.still}" stroke-width="3.5" fill="none" stroke-linecap="round"><path d="M128 88 q10 -7 20 0 t20 0 t20 0 t20 0"/><path d="M130 102 q12 -7 24 0 t24 0 t24 0"/><path d="M128 116 q10 -7 20 0 t20 0"/></g>`;
+  ['stepGo','stepOut'].forEach(id=>$(id).setAttribute('viewBox','36 30 200 204'));$('stepGo').innerHTML=sm(tight);$('stepOut').innerHTML=sm(out)})();
+
+(function(){const el=$('breathSvg');const X0=58,X1=326,TOP=34,BASE=84,HB=146,IN=.27;
+  const e=u=>(1-Math.cos(u*Math.PI))/2;
+  const lung=t=>t<IN?BASE-(BASE-TOP)*e(t/IN):TOP+(BASE-TOP)*e((t-IN)/(1-IN));
+  const heart=t=>t<IN?HB+9-20*e(t/IN):HB-11+20*e((t-IN)/(1-IN));
+  const X=t=>X0+(X1-X0)*t;const xi=X(IN);
+  const path=f=>{let d='';for(let k=0;k<=100;k++){const t=k/100;d+=(k?'L':'M')+X(t).toFixed(1)+','+f(t).toFixed(1)}return d};
+  let base=`<rect x="${X0}" y="16" width="${xi-X0}" height="150" rx="6" fill="${C.breath}" fill-opacity=".09"/><rect x="${xi}" y="16" width="${X1-xi}" height="150" rx="6" fill="${C.still}" fill-opacity=".09"/>`;
+  base+=`<text x="${(X0+xi)/2}" y="30" text-anchor="middle" fill="${C.breath}" font-size="13" font-weight="700" font-family='${FONT}'>吸</text>`;
+  base+=`<text x="${(xi+X1)/2}" y="30" text-anchor="middle" fill="${C.still}" font-size="14" font-weight="900" font-family='${FONT}'>呼……（長長咁）</text>`;
+  base+=`<text x="8" y="${(TOP+BASE)/2+4}" fill="${C.muted}" font-size="12" font-family='${FONT}'>肺</text><text x="8" y="${HB+4}" fill="${C.muted}" font-size="12" font-family='${FONT}'>心跳</text>`;
+  base+=`<path d="${path(lung)}" fill="none" stroke="${C.ink}" stroke-width="3" stroke-linecap="round"/>`;
+  base+=`<path d="${path(heart)}" fill="none" stroke="${C.move}" stroke-width="2.5" stroke-linecap="round"/>`;
+  base+=`<text x="${(X0+xi)/2}" y="${HB-20}" text-anchor="middle" fill="${C.move}" font-size="11" font-family='${FONT}'>快少少</text>`;
+  base+=`<text x="${X1-6}" y="${HB+24}" text-anchor="end" fill="${C.move}" font-size="11.5" font-weight="700" font-family='${FONT}'>心跳慢落 → 鬆</text>`;
+  let t=0,last=0,raf=null,vis=false;
+  function draw(){const x=X(t);el.innerHTML=base+`<line x1="${x}" y1="38" x2="${x}" y2="${HB+14}" stroke="${t<IN?C.breath:C.still}" stroke-width="1.5" opacity=".6"/><circle cx="${x}" cy="${lung(t)}" r="6" fill="${t<IN?C.breath:C.still}"/><circle cx="${x}" cy="${heart(t)}" r="4.5" fill="${C.move}"/>`}
+  function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;t=(t+dt/9)%1;draw();raf=vis?requestAnimationFrame(loop):null}
+  if(reduced){t=.62;draw()}else{t=.62;draw();new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}}).observe(el)}
+})();
+})();
+</script>
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

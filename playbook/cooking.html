@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cooking Playbook · 玩笑但</title>
+<meta name="description" content="Food = fuel。健康 + 好味，同時平 + 易：每日食夠蛋白、週末 2 小時煮一星期、大火 + 乾 = 好味、當造平貨、焗嘢六條桿。">
+<meta property="og:title" content="Cooking Playbook">
+<meta property="og:description" content="Food = fuel。健康 + 好味，同時平 + 易：每日食夠蛋白、週末 2 小時煮一星期、大火 + 乾 = 好味、當造平貨、焗嘢六條桿。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/playbook/cooking.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/cooking.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cooking Playbook">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/playbook/cooking.html">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a cast-iron kitchen notebook. Macro colours are semantic everywhere (protein salmon, fat butter, carbs wheat, fibre leaf); heat colours only on the heat chart; copper is the one UI accent. Dark by choice. */
+:root{
+  --bg:#15120f; --panel:#1f1a16; --panel2:#29221d; --line:#3a3029; --ink:#f1e9dd; --muted:#a8998a; --dim:#6e6157;
+  --copper:#d8935c;
+  --prot:#e8836b; --fat:#e9c25a; --carb:#cdb88c; --fib:#86c26f; --sea:#6aaed6;
+  --good:#86c26f; --warn:#e9a64b; --bad:#e0604a; --cold:#5b8fd6;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+.home{display:inline-block;margin-bottom:16px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--muted);text-decoration:none}
+.home:hover{color:var(--ink)}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding-inline:clamp(16px,4vw,28px);padding-block:30px 72px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-size:clamp(44px,10vw,88px);font-weight:900;letter-spacing:-.025em;line-height:1}
+h2{font-size:clamp(23px,4.4vw,32px);font-weight:900;line-height:1.25;letter-spacing:-.01em}
+h3{font-size:16.5px;font-weight:700}
+h4{margin:0;font-size:15.5px;font-weight:700}
+.big3{font-size:clamp(19px,3.2vw,23px);font-weight:900}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:6px}
+.lede{color:var(--muted);max-width:64ch;margin:6px 0 16px}
+section{margin-top:76px;scroll-margin-top:14px}
+.sub{margin-top:36px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
+.pad{padding:14px 16px}
+.bt{border-top:1px solid var(--line)}
+.mini{font-size:13px;color:var(--muted);line-height:1.55}
+.mono{font-family:var(--mono)}
+.btns{display:flex;flex-wrap:wrap;gap:6px}
+.btn{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:13.5px;font-weight:700}
+.btn:hover{border-color:var(--muted)}
+.btn[aria-pressed=true]{background:var(--copper);border-color:var(--copper);color:var(--bg)}
+input[type=range]{width:100%;accent-color:var(--copper);height:26px;margin:0}
+.ctl label{display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:14px}
+.ctl label span{font-family:var(--mono);color:var(--copper);font-weight:500;white-space:nowrap}
+.ctl .hint{font-size:12px;color:var(--muted);line-height:1.45}
+.flag{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;border-radius:12px;padding:11px 14px;margin-top:12px;font-size:14.5px;border:1px solid var(--line)}
+.flag.warn{background:color-mix(in srgb,var(--warn) 8%,var(--panel));border-color:color-mix(in srgb,var(--warn) 40%,var(--line))}
+.flag.good{background:color-mix(in srgb,var(--good) 8%,var(--panel));border-color:color-mix(in srgb,var(--good) 40%,var(--line))}
+.chip{font-family:var(--mono);font-size:11.5px;font-weight:500;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.chip.warn{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn)}
+.chip.good{background:color-mix(in srgb,var(--good) 22%,transparent);color:var(--good)}
+.chip.bad{background:color-mix(in srgb,var(--bad) 22%,transparent);color:var(--bad)}
+
+/* hero */
+.motto{font-size:clamp(17px,2.6vw,21px);font-weight:700;margin-top:16px;max-width:30em}
+.motto span{color:var(--muted);font-weight:400;font-size:14px;display:block;margin-top:2px}
+.compass{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:22px}
+.obj{display:grid;gap:2px;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;transition:border-color .2s}
+.obj:hover{border-color:var(--copper)}
+.obj b{font-size:20px;font-weight:900}
+.obj small{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em}
+.obj span{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+/* fuel */
+.fuel{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:0}
+.inputs{padding:14px 16px;border-right:1px solid var(--line);display:grid;gap:12px;align-content:start}
+.inputs h3{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.06em;margin-top:4px}
+.toggle{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;cursor:pointer}
+.toggle input{accent-color:var(--copper);width:18px;height:18px}
+.outs{padding:14px 16px;display:grid;gap:16px;align-content:start;min-width:0}
+.bigs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.big{background:var(--panel2);border-radius:10px;padding:10px 12px;min-width:0}
+.big .k{font-size:12px;color:var(--muted)}
+.big .v{font-family:var(--mono);font-size:26px;line-height:1.2;font-variant-numeric:tabular-nums}
+.big .was{font-size:12px;color:var(--muted)}
+.big .was s{color:var(--dim)}
+.stack{display:flex;height:30px;border-radius:8px;overflow:hidden;background:var(--panel2);position:relative}
+.stack span{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11.5px;color:var(--bg);font-weight:500;white-space:nowrap;overflow:hidden;transition:flex-basis .25s;flex:0 0 auto}
+.slegend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;color:var(--muted);margin-top:6px}
+.slegend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:0}
+.rowlab{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13.5px;margin-bottom:5px}
+.rowlab b{font-weight:700}
+.rowlab span{font-family:var(--mono);color:var(--muted);font-size:12.5px}
+.bowls{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.bowl{width:26px;height:16px;border-radius:0 0 13px 13px;background:var(--carb);position:relative}
+.bowl.part{background:linear-gradient(90deg,var(--carb) var(--p),var(--panel2) var(--p))}
+
+/* roles + protein chart */
+.roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.role{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:6px;align-content:start}
+.role .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center}
+.role b{font-size:17px}
+.role .as{font-size:13.5px}
+.foods{display:flex;flex-wrap:wrap;gap:4px}
+.foods span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:0 8px;color:var(--muted)}
+.pbars{display:grid;gap:5px}
+.pbar{display:grid;grid-template-columns:132px minmax(0,1fr) 64px;gap:10px;align-items:center;font-size:13.5px}
+.pbar .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pbar .tr{height:16px;background:var(--panel2);border-radius:5px;overflow:hidden}
+.pbar .tr i{display:block;height:100%;border-radius:5px;transition:width .3s}
+.pbar .n{font-family:var(--mono);text-align:right;font-size:13px}
+.pbar input{width:64px;background:var(--bg);border:1px solid var(--line);border-radius:6px;color:var(--ink);font-family:var(--mono);font-size:12.5px;padding:2px 5px;text-align:right}
+.pbar.priced{grid-template-columns:132px minmax(0,1fr) 54px 72px}
+.src{font-size:11.5px;color:var(--dim)}
+
+/* budgets */
+.budgets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.meter{height:18px;background:var(--panel2);border-radius:9px;position:relative;overflow:visible;margin:8px 0 4px}
+.meter .fill{height:100%;border-radius:9px;transition:width .25s,background .25s}
+.meter .mark{position:absolute;top:-5px;bottom:-5px;width:0;border-left:2px dashed var(--ink)}
+.meter-top{display:flex;justify-content:space-between;align-items:baseline}
+.meter-top b{font-family:var(--mono);font-size:24px}
+.items{display:grid;gap:4px;margin-top:10px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) 46px 28px 22px 28px;gap:6px;align-items:center;font-size:13.5px}
+.item .g{font-family:var(--mono);color:var(--muted);font-size:12px;text-align:right}
+.item button{width:28px;height:28px;border-radius:8px;background:var(--panel2);border:1px solid var(--line);font-weight:700;line-height:1}
+.item .c{font-family:var(--mono);text-align:center}
+
+/* gantt */
+.gscroll{overflow-x:auto}
+.gantt{min-width:700px;padding:12px 16px 10px;position:relative}
+.gaxis{position:relative;height:18px;margin-left:92px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.gaxis span{position:absolute;transform:translateX(-50%)}
+.glane{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px;align-items:center;margin-top:5px}
+.glane .ln{font-size:12.5px;color:var(--muted);text-align:right;line-height:1.25}
+.gtrack{position:relative;height:38px;background:var(--panel2);border-radius:8px}
+.gb{position:absolute;top:3px;bottom:3px;border-radius:6px;padding:2px 6px;font-size:11.5px;line-height:1.25;overflow:hidden;text-align:left;border:1px solid transparent;color:var(--bg);font-weight:700;transition:filter .2s,outline-color .2s;outline:2px solid transparent}
+.gb.now{outline-color:var(--ink)}
+.gb.done{filter:saturate(.35) brightness(.7)}
+.gm{position:absolute;top:50%;width:15px;height:15px;transform:translate(-50%,-50%) rotate(45deg);border:2px solid var(--bg);border-radius:3px;padding:0;z-index:2;outline:2px solid transparent}
+.gm.now{outline-color:var(--ink)}
+.gm.done{filter:saturate(.35) brightness(.7)}
+.ghead{position:absolute;top:30px;bottom:10px;width:2px;background:var(--ink);pointer-events:none;transition:left .1s linear}
+.gstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.gstats div{padding:10px 14px;border-right:1px solid var(--line)}
+.gstats div:last-child{border-right:0}
+.gstats .v{font-family:var(--mono);font-size:19px}
+.now-list{min-height:3.2em}
+.now-list b{color:var(--copper)}
+.principles{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.principles span{font-size:12.5px;background:var(--panel2);border-radius:999px;padding:2px 10px}
+
+/* tasty */
+#heatCv{display:block;width:100%;height:280px}
+.hl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.hl div{padding:10px 14px;border-right:1px solid var(--line);border-top:1px solid var(--line)}
+.hl div:last-child{border-right:0}
+.hl .v{font-family:var(--mono);font-size:18px}
+.saltline{display:flex;height:34px;border-radius:8px;overflow:hidden;margin-top:8px;font-size:12px;font-weight:700;color:var(--bg)}
+.saltline span{display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15;padding:0 4px}
+.velvet{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr)}
+.velvet svg{width:100%;height:auto;display:block}
+.steps{display:grid;gap:6px;padding:14px 16px;border-left:1px solid var(--line);align-content:start}
+.st{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:14px}
+.st .n{font-family:var(--mono);color:var(--copper)}
+.st.x{color:var(--muted)}
+.st.x s{color:var(--dim)}
+.free{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tip{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;display:grid;gap:4px;align-content:start}
+.tip b{font-size:15px}
+
+/* cheap */
+.months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px}
+.months button{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:6px 0;font-family:var(--mono);font-size:12px}
+.months button[aria-pressed=true]{background:var(--copper);color:var(--bg);border-color:var(--copper)}
+.produce{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.produce span{background:color-mix(in srgb,var(--fib) 14%,var(--panel2));border:1px solid color-mix(in srgb,var(--fib) 35%,var(--line));border-radius:999px;padding:3px 11px;font-size:14px}
+.produce span.yr{background:var(--panel2);border-color:var(--line);color:var(--muted)}
+.loop{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.loop .nd{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:14px}
+.loop .ar{font-family:var(--mono);color:var(--copper)}
+
+/* fun */
+.fun{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.recipe{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px;align-content:start}
+.recipe .ing{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;font-size:14px}
+.recipe .ing span:nth-child(even){font-family:var(--mono);color:var(--copper);text-align:right}
+
+/* holes */
+.holes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.hole{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:6px;align-content:start;font-size:14.5px}
+.hole .you{font-size:13.5px;color:var(--muted)}
+.hole .you b{color:var(--ink);font-weight:500}
+.hole .fx{border-top:1px dashed var(--line);padding-top:6px}
+.hole .fx b{color:var(--copper)}
+.foot{margin-top:56px;border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+.foot ol{padding-left:20px;margin:6px 0 0}
+
+/* healthy v2 */
+.roles2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.role2{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:6px;align-content:start}
+.role2 svg{width:100%;height:auto;display:block;max-width:180px;margin:0 auto}
+.role2 b{font-size:19px;font-weight:900}
+.role2 .as{font-size:14px}
+.role2.key{border-color:color-mix(in srgb,var(--c) 55%,var(--line));background:color-mix(in srgb,var(--c) 7%,var(--panel))}
+.role2.dim{opacity:.72}
+.role2 .tagk{justify-self:start;font-size:11px;font-weight:700;border-radius:999px;padding:0 9px;background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--c)}
+.why2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:12px}
+.fflow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.fflow .nd{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-weight:700;font-size:14.5px}
+.fflow .nd.k{border-color:var(--fib);color:var(--fib)}
+.fflow .nd.p{border-color:var(--prot);color:var(--prot)}
+.fflow .ar{font-family:var(--mono);color:var(--muted)}
+.fout{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:10px}
+.fout div{background:color-mix(in srgb,var(--fib) 10%,var(--panel2));border-radius:10px;padding:8px 10px;font-size:13px;line-height:1.4}
+.fout b{display:block;font-size:14px;color:var(--fib)}
+.aware{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center;background:color-mix(in srgb,var(--copper) 8%,var(--panel));border:1px solid color-mix(in srgb,var(--copper) 40%,var(--line));border-radius:14px;padding:14px 16px}
+.aware svg{width:72px;height:72px}
+.aware b{font-size:18px;font-weight:900;display:block}
+
+/* bake */
+.bake{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
+.bk-out{padding:14px 16px;border-right:1px solid var(--line);display:grid;gap:12px;align-content:start}
+.bk-out svg{width:100%;height:auto;display:block}
+.bk-name b{display:block;font-size:clamp(24px,4vw,32px);font-weight:900;line-height:1.2}
+.bk-feel{font-size:14.5px}
+.bk-feel b{color:var(--copper)}
+.bm .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.bm .ends b{color:var(--ink);font-weight:700}
+.bm .tr{height:10px;border-radius:5px;background:var(--panel2);overflow:hidden;margin-top:2px}
+.bm .tr i{display:block;height:100%;border-radius:5px;transition:width .25s}
+.bk-meters{display:grid;gap:8px}
+.bk-warn{display:grid;gap:6px}
+.bk-warn div{font-size:13.5px;border-left:3px solid var(--warn);padding:4px 10px;background:color-mix(in srgb,var(--warn) 8%,transparent);border-radius:0 6px 6px 0}
+.grams{display:flex;flex-wrap:wrap;gap:6px}
+.grams span{font-size:13px;background:var(--panel2);border-radius:8px;padding:3px 9px}
+.grams b{font-family:var(--mono);font-weight:500;color:var(--copper)}
+.bk-in{padding:14px 16px;display:grid;gap:12px;align-content:start;min-width:0}
+.lev{display:grid;gap:2px}
+.lev-top{display:flex;align-items:center;gap:8px;font-size:14.5px}
+.lev-top b{font-weight:700}
+.lev-top .val{margin-left:auto;font-family:var(--mono);color:var(--copper);white-space:nowrap}
+.team{font-size:11px;font-weight:700;border-radius:999px;padding:0 8px;white-space:nowrap}
+.team.b{background:color-mix(in srgb,var(--good) 22%,transparent);color:var(--good)}
+.team.s{background:color-mix(in srgb,var(--bad) 22%,transparent);color:var(--bad)}
+.team.x{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn)}
+.lev .hint{font-size:12px;color:var(--muted);line-height:1.45}
+.ftb{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 2px}
+.ftb button{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:3px 10px;font-size:13px}
+.ftb button[aria-pressed=true]{background:var(--prot);border-color:var(--prot);color:var(--bg);font-weight:700}
+.want{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 14px;align-items:start}
+.bk-tw{overflow-x:auto}
+.bk-table{width:100%;min-width:620px;border-collapse:collapse;font-size:13.5px}
+.bk-table th,.bk-table td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);white-space:nowrap}
+.bk-table th{color:var(--muted);font-weight:500;font-size:12px}
+.bk-table td.n{font-family:var(--mono);text-align:right}
+.bk-table td:last-child{white-space:normal;color:var(--muted)}
+.bk-table tr.row{cursor:pointer}
+.bk-table tr.row:hover td{background:var(--panel2)}
+.bk-table tr.on td{background:color-mix(in srgb,var(--copper) 14%,transparent)}
+.bk-table tr.on td:first-child{color:var(--copper);font-weight:700}
+
+@media (max-width:820px){
+  .roles2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .why2{grid-template-columns:1fr}
+  .fout{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .compass{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bake{grid-template-columns:1fr}
+  .bk-out{border-right:0;border-bottom:1px solid var(--line)}
+  .fuel{grid-template-columns:1fr}
+  .inputs{border-right:0;border-bottom:1px solid var(--line)}
+  .roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .budgets,.holes,.fun,.free{grid-template-columns:1fr}
+  .velvet{grid-template-columns:1fr}
+  .steps{border-left:0;border-top:1px solid var(--line)}
+  .months{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .gstats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gstats div:nth-child(2){border-right:0}
+}
+@media (max-width:460px){
+  .bigs{grid-template-columns:1fr 1fr}
+  .bigs .big:last-child{grid-column:1/-1}
+  .big .v{font-size:22px}
+  .pbar,.pbar.priced{grid-template-columns:100px minmax(0,1fr) 58px}
+  .pbar.priced .n{display:none}
+  .hl{grid-template-columns:1fr}
+  .hl div{border-right:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="home" href="../#body">← 玩笑但 · 身體</a>
+  <header>
+    <div class="kick">Joshua · 一個人 · 65 kg · 英國</div>
+    <h1>Cooking<br>Playbook</h1>
+    <p class="motto">健康嘅人有一萬個慾望，病人只有一個。<span>Food = fuel。目標：健康 + 好味，同時平 + 易。</span></p>
+    <nav class="compass" aria-label="四個目標">
+      <a class="obj" href="#healthy"><small>HEALTHY</small><b>健康</b><span>單一原料。少能量、少鹽。</span></a>
+      <a class="obj" href="#easy"><small>EASY</small><b>易</b><span>BIG：週末一次過煮一星期。</span></a>
+      <a class="obj" href="#tasty"><small>TASTY</small><b>好味</b><span>大火 + 表面乾 = 褐色。</span></a>
+      <a class="obj" href="#cheap"><small>CHEAP</small><b>平</b><span>彈性：當造、特價、夜晚減價。</span></a>
+    </nav>
+  </header>
+
+  <!-- ================= HEALTHY ================= -->
+  <section id="healthy">
+    <div class="kick">Healthy · 四種燃料</div>
+    <h2>四種燃料，四個角色</h2>
+    <p class="lede">蛋白質同纖維要刻意食夠。脂肪同糖平時已經多，唔使刻意加。</p>
+      <div class="roles2">
+        <div class="role2 key" style="--c:var(--prot)"><span class="tagk">重點</span><svg viewBox="0 0 160 100" aria-hidden="true"><circle cx="48" cy="50" r="22" fill="none" stroke="var(--prot)" stroke-width="9" stroke-dasharray="7 5"/><circle cx="48" cy="50" r="9" fill="none" stroke="var(--prot)" stroke-width="4"/><circle cx="84" cy="36" r="15" fill="none" stroke="var(--prot)" stroke-width="7" stroke-dasharray="6 4"/><circle cx="84" cy="36" r="5" fill="var(--prot)"/><circle cx="128" cy="34" r="7" fill="var(--ink)"/><path d="M119 32 Q128 20 137 32 Z" fill="var(--prot)"/><path d="M128 41 L128 66 M128 66 L120 88 M128 66 L136 88 M128 48 L114 58 M128 48 L104 46" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M98 42 l8 6" stroke="var(--prot)" stroke-width="4" stroke-linecap="round"/></svg><b style="color:var(--prot)">蛋白質</b><div class="as">機器 + 工人。每日都要補。</div>
+          <div class="foods"><span>雞</span><span>豬</span><span>牛</span><span>蛋</span><span>三文魚</span><span>吞拿魚</span><span>羊</span><span>鴨</span><span>蝦</span><span>豆腐</span><span>豆</span><span>芝士</span><span>乳酪</span><span>牛奶</span></div></div>
+        <div class="role2 key" style="--c:var(--fib)"><span class="tagk">重點</span><svg viewBox="0 0 160 100" aria-hidden="true"><path d="M18 70 C18 36 44 14 74 14 C74 46 50 70 18 70 Z" fill="var(--fib)" fill-opacity=".85"/><path d="M18 70 L54 34" stroke="var(--bg)" stroke-width="3"/><path d="M84 30 C104 30 104 48 88 48 C70 48 70 66 92 66 C114 66 114 84 96 84" fill="none" stroke="var(--prot)" stroke-opacity=".7" stroke-width="10" stroke-linecap="round"/><g fill="var(--fib)"><rect x="86" y="26" width="10" height="5" rx="2.5"/><rect x="94" y="62" width="10" height="5" rx="2.5" transform="rotate(30 99 64)"/><circle cx="80" cy="47" r="3"/><circle cx="102" cy="80" r="3"/></g><g fill="#9a6a3e"><ellipse cx="136" cy="86" rx="16" ry="6"/><ellipse cx="136" cy="78" rx="11" ry="5"/><ellipse cx="136" cy="71" rx="6" ry="4"/></g></svg><b style="color:var(--fib)">纖維</b><div class="as">餵腸道細菌 + 屎。唔係燃料。</div>
+          <div class="foods"><span>番茄</span><span>洋蔥</span><span>紅蘿蔔</span><span>西芹</span><span>椒</span><span>茄子</span><span>椰菜</span><span>西蘭花</span><span>椰菜花</span><span>粟米</span><span>菇</span><span>芽菜</span><span>青豆</span><span>娃娃菜</span><span>豆</span><span>燕麥</span><span>種子</span><span>生果</span></div></div>
+        <div class="role2 dim" style="--c:var(--fat)"><span class="tagk">夠晒</span><svg viewBox="0 0 160 100" aria-hidden="true"><path d="M14 36 L50 16 L86 36 Z" fill="var(--fat)"/><g fill="var(--fat)"><rect x="20" y="40" width="8" height="34"/><rect x="36" y="40" width="8" height="34"/><rect x="56" y="40" width="8" height="34"/><rect x="72" y="40" width="8" height="34"/><rect x="14" y="76" width="72" height="8" rx="2"/></g><g fill="none" stroke="var(--fat)" stroke-width="3"><rect x="100" y="24" width="46" height="60" rx="3"/><path d="M100 39 H146 M100 54 H146 M100 69 H146 M123 24 V39 M112 39 V54 M134 39 V54 M123 54 V69 M112 69 V84 M134 69 V84"/></g></svg><b style="color:var(--fat)">脂肪</b><div class="as">銀行戶口 + 工廠牆。平時已經食夠，唔使刻意加。</div>
+          <div class="foods"><span>動物脂肪</span><span>橄欖油</span><span>果仁</span></div></div>
+        <div class="role2 dim" style="--c:var(--carb)"><span class="tagk">夠晒</span><svg viewBox="0 0 160 100" aria-hidden="true"><g fill="var(--carb)" stroke="var(--bg)" stroke-width="2"><ellipse cx="48" cy="82" rx="26" ry="8"/><ellipse cx="48" cy="72" rx="26" ry="8"/><ellipse cx="48" cy="62" rx="26" ry="8"/><ellipse cx="48" cy="52" rx="26" ry="8"/></g><rect x="88" y="30" width="58" height="34" rx="4" fill="none" stroke="var(--carb)" stroke-width="3" transform="rotate(-8 117 47)"/><circle cx="117" cy="47" r="9" fill="none" stroke="var(--carb)" stroke-width="3"/><text x="117" y="52" text-anchor="middle" fill="var(--carb)" font-size="13" font-weight="900">£</text></svg><b style="color:var(--carb)">糖（澱粉）</b><div class="as">現金。好用，爽，用唔晒就存入銀行。</div>
+          <div class="foods"><span>飯</span><span>麵</span><span>意粉</span><span>麵包</span><span>薯仔</span><span>番薯</span></div></div>
+      </div>
+
+    <div class="sub why2">
+      <div class="card pad"><h3 style="color:var(--prot)">蛋白質：最飽肚</h3>
+        <div class="fflow" style="margin-top:10px"><span class="nd p">食夠蛋白</span><span class="ar">→</span><span class="nd">最飽肚</span><span class="ar">→</span><span class="nd">冇位食零食</span></div>
+        <p class="mini" style="margin-top:10px">油、糖、熱量唔使逐樣計。</p></div>
+      <div class="card pad"><h3 style="color:var(--fib)">纖維：餵腸道細菌</h3>
+        <div class="fflow" style="margin-top:10px"><span class="nd k">纖維</span><span class="ar">→</span><span class="nd">細菌食</span><span class="ar">→</span><span class="nd">短鏈脂肪酸</span></div>
+        <div class="fout"><div><b>腸壁燃料</b>腸壁細胞嘅主要能量</div><div><b>腸壁實啲</b>壞嘢唔易入血</div><div><b>免疫冷靜</b>少啲亂咁發炎</div><div><b>飽肚荷爾蒙</b>GLP-1、PYY</div></div>
+        <div class="fflow" style="margin-top:10px"><span class="nd">細菌食唔晒嘅</span><span class="ar">→</span><span class="nd">屎有份量、順暢</span></div>
+        <p class="mini" style="margin-top:10px">食最多纖維嗰班人，心臟病死亡率低 15–30%，中風、二型糖尿病、大腸癌都少啲；每日 25–29 g 開始見效（Reynolds 2019，Lancet，觀察研究）。</p></div>
+    </div>
+
+    <div class="sub aware">
+      <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="10" y="44" width="52" height="16" rx="5" fill="none" stroke="var(--copper)" stroke-width="3"/><path d="M36 44 V34" stroke="var(--copper)" stroke-width="3"/><path d="M14 34 H58" stroke="var(--copper)" stroke-width="3" stroke-linecap="round"/><path d="M24 34 C24 22 48 22 48 34" fill="none" stroke="var(--copper)" stroke-width="3"/><path d="M36 30 L42 22" stroke="var(--copper)" stroke-width="3" stroke-linecap="round"/><text x="36" y="56" text-anchor="middle" fill="var(--copper)" font-size="10" font-family="monospace">g</text></svg>
+      <div><b>秤幾次就夠，唔使日日秤</b><span class="mini" style="color:var(--ink)">以下嘅計數同埋鹽、纖維都係一時嘅：秤幾次，知道一份肉、一碗飯、一湯匙豉油大概有幾多蛋白、油、鹽，有咗感覺就收工。日日秤住嚟食，焦慮過頭。</span></div>
+    </div>
+
+    <div class="sub">
+      <h3>每日食夠蛋白質</h3>
+      <div class="card fuel" style="margin-top:10px">
+        <div class="inputs">
+          <div class="ctl"><label for="fW">體重 <span id="fWv">65 kg</span></label><input type="range" id="fW" min="45" max="100" step="1" value="65"></div>
+          <div class="ctl"><label for="fPk">每 kg 幾多克蛋白 <span id="fPkv">1.85 g</span></label><input type="range" id="fPk" min="1.2" max="2.2" step="0.05" value="1.85"><div class="hint">增肌研究：大約 1.6 g/kg 之後效果就平咗。</div></div>
+          <h3>肉以外嘅蛋白（每日）</h3>
+          <div class="ctl"><label for="fEgg">雞蛋 <span id="fEggv">2 隻</span></label><input type="range" id="fEgg" min="0" max="5" step="1" value="2"></div>
+          <div class="ctl"><label for="fMilk">牛奶（半脂）<span id="fMilkv">300 ml</span></label><input type="range" id="fMilk" min="0" max="800" step="50" value="300"></div>
+          <div class="ctl"><label for="fBase">飯、麵包、燕麥入面嘅蛋白 <span id="fBasev">15 g</span></label><input type="range" id="fBase" min="0" max="35" step="1" value="15"><div class="hint">一碗飯約 5 g，兩片方包約 7 g，40 g 燕麥約 4 g。剩低嘅由肉補，肉當 20% 蛋白計。</div></div>
+        </div>
+        <div class="outs">
+          <div class="bigs">
+            <div class="big"><div class="k">每日蛋白</div><div class="v" id="oP" style="color:var(--prot)">120 g</div></div>
+            <div class="big"><div class="k">每日要食幾多肉</div><div class="v" id="oMeatD" style="color:var(--prot)">410 g</div></div>
+            <div class="big"><div class="k">週末 batch 肉（7 日）</div><div class="v" id="oWk">2.9 kg</div></div>
+          </div>
+          <div>
+            <div class="rowlab"><b>一日嘅蛋白從邊度嚟</b><span id="oPsum"></span></div>
+            <div class="stack" id="pStack" aria-label="蛋白來源"></div>
+            <div class="slegend" id="pLeg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>常見蛋白質，排排坐</h3>
+      <p class="mini" style="margin:2px 0 10px">「健康 = 少能量」→ 睇每 100 kcal 有幾多蛋白。「平」→ 睇每 10 g 蛋白幾錢（價錢可以改，記喺你部機）。</p>
+      <div class="card">
+        <div class="pad"><div class="btns" id="pMode"></div></div>
+        <div class="pad bt"><div class="pbars" id="pBars"></div><p class="src" id="pSrc" style="margin-top:10px"></p></div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>兩個預算：鹽要少過 6 g，纖維要多過 30 g</h3>
+      <p class="mini" style="margin:2px 0 10px">秤幾次有感覺就夠。示例日子已經揀咗，撳 + − 改。數字係大約，以包裝為準。英國包裝：每 100 g 鹽 &gt; 1.5 g = 紅燈（高），≤ 0.3 g = 綠燈（低）。</p>
+      <div class="budgets">
+        <div class="card pad"><div class="meter-top"><b id="saltT" style="color:var(--bad)">0 g</b><span class="mini">上限 6 g（約一茶匙）</span></div>
+          <div class="meter"><div class="fill" id="saltF"></div><div class="mark" style="left:75%"></div></div><div class="mini">虛線 = 6 g</div>
+          <div class="items" id="saltI"></div></div>
+        <div class="card pad"><div class="meter-top"><b id="fibT" style="color:var(--fib)">0 g</b><span class="mini">目標 30 g</span></div>
+          <div class="meter"><div class="fill" id="fibF"></div><div class="mark" style="left:75%"></div></div><div class="mini">虛線 = 30 g</div>
+          <div class="items" id="fibI"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EASY ================= -->
+  <section id="easy">
+    <div class="kick">Easy · BIG</div>
+    <h2>週末 batch：2 小時，煮一星期</h2>
+    <p class="lede"><b>0:00 三樣同時開：</b>湯、肉醬、air fryer。之後砧板一路切唔停，切好就掉落去。撳 ▶ 睇時間行，撳任何一格睇點解。◆ = 一下就搞掂嘅動作。</p>
+    <div class="card">
+      <div class="pad"><div class="btns"><button class="btn" id="gPlay">▶ 播</button><span class="mono" id="gClock" style="align-self:center;font-size:18px;margin-left:6px">0:00</span></div></div>
+      <div class="gscroll bt"><div class="gantt" id="gantt"></div></div>
+      <div class="pad bt now-list" id="gNow"></div>
+      <div class="gstats bt" id="gStats"></div>
+      <div class="pad bt"><b style="font-size:14px">出品：</b><span class="mini" style="color:var(--ink)">湯 6–8 碗 · 肉醬 6 份 · 雞髀 10 份 · 嫩肉 4 袋（凍）· 番薯 5 份 · 菜 4 份</span>
+        <div class="principles" id="gPr"></div></div>
+    </div>
+  </section>
+
+  <!-- ================= TASTY ================= -->
+  <section id="tasty">
+    <div class="kick">Tasty · 大火 + 乾</div>
+    <h2>點解濕肉煎唔燶</h2>
+    <p class="lede">水喺 100°C 滾。表面仲有水，溫度就卡死喺 100°C，只會蒸，唔會變褐色。褐色（梅納反應）大約 140°C 先快，焦糖化 160°C 以上。撳 ▶ 睇三塊肉同時落鑊。</p>
+    <div class="card">
+      <div class="pad"><div class="btns"><button class="btn" id="hPlay">▶ 落鑊</button><button class="btn" id="hMid" aria-pressed="false">中火 180°C</button><button class="btn" id="hHi" aria-pressed="true">大火 230°C</button></div></div>
+      <canvas id="heatCv" aria-label="肉表面溫度隨時間變化"></canvas>
+      <div class="hl" id="hLeg"></div>
+      <p class="pad bt mini">示意模型：數字係為咗睇形狀。真實情況濕肉仲會出水，將鑊都拉凍埋，所以差距仲大。</p>
+    </div>
+
+    <div class="sub">
+      <h3>落鹽之後幾耐煮？</h3>
+      <p class="mini" style="margin:2px 0 8px">鹽先抽水出嚟，大約 40 分鐘後鹽水再吸返入肉。中間嗰段最差。</p>
+      <div class="card pad">
+        <div class="ctl"><label for="sT">落鹽後 <span id="sTv">45 分鐘</span></label><input type="range" id="sT" min="0" max="100" step="1" value="62"></div>
+        <div class="saltline" aria-hidden="true"><span style="flex:3;background:var(--good)">即刻</span><span style="flex:33;background:var(--bad)">3–35 分鐘：表面一攤鹽水</span><span style="flex:44;background:var(--good)">40 分鐘以上</span><span style="flex:20;background:#5fa64a">過夜</span></div>
+        <p id="sSay" style="margin-top:10px;font-size:14.5px"></p>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>瘦肉嫩滑：橫切 + 醃</h3>
+      <div class="card velvet" style="margin-top:8px">
+        <div class="pad"><div class="btns" style="margin-bottom:8px"><button class="btn" id="cutW" aria-pressed="false">順紋切</button><button class="btn" id="cutX" aria-pressed="true">橫紋切</button></div><svg id="cutSvg" viewBox="0 0 360 170" role="img" aria-label="肉纖維同切法"></svg><p class="mini" id="cutSay"></p></div>
+        <div class="steps">
+          <div class="st"><span class="n">1</span><span><b>橫切</b>：刀同纖維成直角，每條纖維變短。</span></div>
+          <div class="st"><span class="n">2</span><span><b>少少梳打粉</b>（每 300 g 肉約 ¼ 茶匙）：鹼性令肉保水，係中式嫩肉嘅秘密。醃完沖一沖。</span></div>
+          <div class="st"><span class="n">3</span><span><b>鹽</b>：溶開肉蛋白，鎖水。</span></div>
+          <div class="st"><span class="n">4</span><span><b>粟粉 + 蛋白</b>：包一層衣，大火都唔會乾。</span></div>
+          <div class="st"><span class="n">5</span><span><b>油</b>：最後先落，封住，落鑊唔黐。</span></div>
+          <div class="st x"><span class="n">✗</span><span><s>酸</s>：醋、檸檬醃耐咗，肉面會變霉、變韌。要酸，煮完先加。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>免費嘅味道</h3>
+      <div class="free" style="margin-top:8px">
+        <div class="tip"><b>果皮</b><span>橙皮、檸檬皮磨碎凍起。香味喺皮，唔係汁。最後先加，一煮就散。</span></div>
+        <div class="tip"><b>鑊底</b><span>煎完肉黐喺鑊底嗰層褐色係味道。倒番茄、湯或者醬落去刮起：洗鑊兼加味。</span></div>
+        <div class="tip"><b>香料：分兩種</b><span>乾香料（八角、孜然、辣椒粉）早落油爆香先出味。新鮮香草（葱、芫茜、羅勒）同果皮先後落。</span></div>
+        <div class="tip"><b>湯好飲 = 少水</b><span>同一份材料，水少一半，味濃一倍。唔夠可以之後加水，太多就要滾到天光。</span></div>
+        <div class="tip"><b>糖後落</b><span>糖 160°C 開始焦糖化，再熱少少就燶。醬汁有糖（蜜糖、照燒）最後兩分鐘先掃。</span></div>
+        <div class="tip"><b>發粉抹皮</b><span>雞皮抹少少發粉：提高 pH，梅納反應快啲，皮脆啲。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHEAP ================= -->
+  <section id="cheap">
+    <div class="kick">Cheap · 彈性</div>
+    <h2>平 = 唔執著買邊樣</h2>
+    <p class="lede">價錢由季節、特價同時間決定，唔由你個餐單決定。</p>
+
+    <h3>雞：邊種最抵？Tesco 價（2026 年 10 月）</h3>
+    <div class="card" style="margin-top:8px">
+      <div class="pad"><div class="pbars" id="chk"></div></div>
+      <p class="mini" style="padding:0 16px 14px">平嘅係<b style="color:var(--ink)">連骨連皮</b>。去骨雞髀同雞胸差唔多價。</p>
+    </div>
+
+    <div class="sub">
+      <h3>英國當造：揀月份</h3>
+      <div class="card pad" style="margin-top:8px">
+        <div class="months" id="months"></div>
+        <div class="produce" id="produce"></div>
+        <p class="mini" style="margin-top:10px">灰色 = 全年平。急凍菜（青豆、西蘭花、菠菜）全年都平，營養唔輸新鮮。</p>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>減價貨 + 重用</h3>
+      <div class="free" style="margin-top:8px">
+        <div class="tip"><b>黃貼紙（夜晚減價）</b><span>買返嚟當日凍。英國食物安全局：use-by 日期當日之前凍都得。凍咗 3 個月內食，質素最好。</span></div>
+        <div class="tip"><b>特價買乜就煮乜</b><span>batch 計劃寫「500 g 白肉 + 1 kg 紅肉」，唔好寫「雞胸」。邊樣特價就買邊樣。</span></div>
+        <div class="tip"><b>一份錢用兩次</b><div class="loop" style="margin-top:4px"><span class="nd">醃料</span><span class="ar">→</span><span class="nd">滾熟做醬</span></div><div class="loop"><span class="nd">鑊底</span><span class="ar">→</span><span class="nd">汁</span></div><div class="loop"><span class="nd">湯</span><span class="ar">→</span><span class="nd">煮飯 / 麵</span></div><div class="loop"><span class="nd">肉油</span><span class="ar">→</span><span class="nd">炒菜</span></div><span class="mini">醃過生肉嘅醃料一定要滾起先用。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FUN ================= -->
+  <section id="fun">
+    <div class="kick">Fun · 有時間先玩</div>
+    <h2>三樣玩具</h2>
+    <p class="lede">健康、好味、平、快搞掂咗先玩。呢度啲嘢唔係燃料。</p>
+    <div class="fun" style="margin-top:12px">
+      <div class="recipe"><h3>Nice cream</h3>
+        <div class="ing"><span>急凍香蕉 / 莓</span><span>250 g</span><span>牛奶</span><span>50–80 ml</span><span>鹽</span><span>一撮（調味）</span></div>
+        <p class="mini" style="color:var(--ink)">攪拌機攪 1–2 分鐘，即食。</p>
+</div>
+      <div class="recipe"><h3>Basque 芝士蛋糕</h3>
+        <div class="ing"><span>Cream cheese</span><span>600 g</span><span>糖</span><span>150 g</span><span>雞蛋</span><span>4 隻</span><span>Double cream</span><span>300 ml</span><span>麵粉</span><span>1 湯匙</span></div>
+        <p class="mini" style="color:var(--ink)">全部攪勻，牛油紙鋪模，220°C 焗 25–30 分鐘，中間仲震就啱。攤凍，雪一晚。冇餅底，唔使隔水。</p>
+        <p class="mini">一件（1/8）約 460 kcal：玩具，唔係燃料。</p></div>
+    </div>
+  <div class="sub bake-zone" id="bake">
+    <h3 class="big3">第三樣：焗 · 六條桿</h3>
+    <p class="mini" style="color:var(--ink);font-weight:700;margin-top:2px">唔靠食譜：比例決定成品。</p>
+    <p class="lede">麵包、班戟、蛋糕、曲奇、意粉，全部係麵粉加同一堆嘢：水、蛋白質、糖、油、鹽，再加你攪幾耐。麵粉永遠當 100，其他全部係佢嘅重量百分比。郁桿，睇你做緊乜。</p>
+    <div class="card bake">
+      <div class="bk-out">
+        <svg id="bkSvg" viewBox="0 0 320 160" role="img" aria-label="麵團或麵糊嘅稠度同焗完嘅顏色"></svg>
+        <div class="bk-name"><span class="mini">你做緊</span><b id="bkName">歐式麵包</b><span class="mini" id="bkNext"></span></div>
+        <p class="bk-feel" id="bkFeel"></p>
+        <div class="bk-meters" id="bkMeters"></div>
+        <div class="bk-warn" id="bkWarn"></div>
+        <div><div class="ctl"><label for="bkFlour">麵粉重量 <span id="bkFlourV">500 g</span></label><input type="range" id="bkFlour" min="100" max="1000" step="50" value="500"></div>
+          <div class="grams" id="bkGrams" style="margin-top:6px"></div></div>
+      </div>
+      <div class="bk-in">
+        <div class="btns" id="bkPre" aria-label="成品預設"></div>
+        <div id="bkLev" style="display:grid;gap:12px"></div>
+        <p class="mini">結構、濕潤、上色係示意模型，用嚟睇方向，唔係實驗數據。</p>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top:12px"><b>第六條桿：攪 / 搓</b><span>唔係材料，但同一份配方，搓 10 分鐘係麵包，撈勻就停係班戟。家用烘焙最常見嘅失敗係攪過龍同焗過龍。</span></div>
+
+    <div class="sub">
+      <h4>兩隊人打仗</h4>
+      <div class="free" style="margin-top:8px;grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="tip"><b style="color:var(--good)">砌結構：有嚼勁、企得起</b><span>麵粉蛋白質（加水搓 → 麩質網）、蛋白（約 62–65°C 凝固）、澱粉（糊化後定型）、鹽（收緊麩質）、搓。</span></div>
+        <div class="tip"><b style="color:var(--bad)">拆結構：鬆化、濕潤、入口即散</b><span>油（包住麵粉，截斷麩質）、糖（搶水、拖慢澱粉糊化）、蛋黃（脂肪 + 卵磷脂）、酸、唔好攪。英文 shortening 就係油將麩質「截短」，所以叫 shortbread。</span></div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h4>我想要……應該改咩</h4>
+      <div class="card pad" style="margin-top:8px"><div class="btns" id="bkWant"></div><p id="bkWantSay" class="mini" style="margin-top:10px;color:var(--ink)">撳一個，上面啲桿會郁。</p></div>
+    </div>
+
+    <div class="sub">
+      <h4>對照表：同一堆材料，唔同比例</h4>
+      <p class="mini" style="margin:2px 0 8px">麵粉 = 100，全部係重量。撳任何一行，上面嘅桿會跳去嗰個配方。</p>
+      <div class="card"><div class="bk-tw"><table class="bk-table" id="bkTable"></table></div></div>
+    </div>
+  </div>
+  </section>
+
+  <footer class="foot">
+    <b>來源</b>
+    <ol>
+      <li>Tesco 價錢同營養標籤（2026 年 10 月 9 日查）：British Chicken Thighs 1 kg £2.99；Chicken Thigh Fillets 1 kg £7.25；Chicken Breast Fillets 650 g £4.90。</li>
+      <li>其他價錢係示例（mealprep.org.uk，2026 年 7 月嘅規劃價），唔係即時價。自己喺上面改。</li>
+      <li>鹽：NHS 成人每日上限 6 g；Action on Salt 2019 醬料調查（豉油每 100 g 最高 19.3 g 鹽，魚露 26.7 g）。</li>
+      <li>纖維 30 g/日：英國 SACN（2015）。蛋白 1.6 g/kg 平台：Morton 等人（2018）綜合分析。</li>
+      <li>營養數字取常用食物成分表，大約值，以包裝為準。</li>
+    </ol>
+  </footer>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const C={ink:css('--ink'),muted:css('--muted'),dim:css('--dim'),line:css('--line'),panel2:css('--panel2'),bg:css('--bg'),prot:css('--prot'),fat:css('--fat'),carb:css('--carb'),fib:css('--fib'),sea:css('--sea'),copper:css('--copper'),good:css('--good'),warn:css('--warn'),bad:css('--bad'),cold:css('--cold')};
+const FONT='"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif',MONO='"DM Mono",ui-monospace,monospace';
+const fmt=n=>Math.round(n).toLocaleString();
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function pressed(group,el){[...group].forEach(b=>b.setAttribute('aria-pressed',b===el))}
+
+/* ================= FUEL ================= */
+const F=['fW','fPk','fEgg','fMilk','fBase'];
+function fuel(){const v=Object.fromEntries(F.map(k=>[k,+$(k).value]));
+  $('fWv').textContent=v.fW+' kg';$('fPkv').textContent=v.fPk.toFixed(2)+' g';$('fEggv').textContent=v.fEgg+' 隻';$('fMilkv').textContent=v.fMilk+' ml';$('fBasev').textContent=v.fBase+' g';
+  const P=Math.round(v.fW*v.fPk);const src=[['雞蛋',v.fEgg*6.3,'#f3dca8'],['牛奶',v.fMilk*.035,'#d9d2c3'],['飯麵燕麥',v.fBase,C.carb]];
+  const other=src.reduce((a,s)=>a+s[1],0);const Pm=Math.max(0,P-other);const meat=Pm/.2;src.push(['肉',Pm,C.prot]);
+  $('oP').textContent=P+' g';$('oMeatD').textContent=fmt(meat)+' g';$('oWk').textContent=(meat*7/1000).toFixed(1)+' kg';
+  const tot=Math.max(P,other);$('oPsum').textContent='目標 '+P+' g';
+  $('pStack').innerHTML=src.filter(s=>s[1]>0.2).map(s=>`<span style="flex-basis:${s[1]/tot*100}%;background:${s[2]}" title="${s[0]} ${Math.round(s[1])} g">${s[1]/tot>.09?Math.round(s[1])+'g':''}</span>`).join('');
+  $('pLeg').innerHTML=src.map(s=>`<span><i style="background:${s[2]}"></i>${s[0]} ${Math.round(s[1])} g</span>`).join('')}
+F.forEach(k=>$(k).addEventListener('input',fuel));fuel();
+
+/* ================= PROTEIN CHART ================= */
+const FOOD=[['雞胸',21.5,3.3,0,'meat'],['雞髀（連皮）',18.5,12.5,0,'meat'],['去骨雞髀',18.3,9.8,0,'meat'],['瘦豬肉',21,5,0,'meat'],['免治牛 5%',21,5,0,'meat'],['免治牛 20%',17,20,0,'meat'],['羊肉碎',17,20,0,'meat'],['鴨（連皮）',11.5,39,0,'meat'],
+ ['三文魚',20,13,0,'sea'],['吞拿魚罐頭（水）',25,1,0,'sea'],['蝦',20,.5,0,'sea'],['雞蛋',12.5,10,0,'dairy'],['車打芝士',25,34,.1,'dairy'],['希臘乳酪 0%',10,.2,4,'dairy'],['牛奶（半脂）',3.5,1.7,4.8,'dairy'],
+ ['硬豆腐',12,7,1.5,'plant'],['紅扁豆（熟）',9,.4,20,'plant'],['鷹嘴豆罐頭',7,2.5,15,'plant'],['燕麥',11,8,60,'starch'],['白飯（熟）',2.7,.3,28,'starch']];
+const CAT={meat:C.prot,sea:C.sea,dairy:'#e8dcc0',plant:C.fib,starch:C.carb};
+const PRICE=[['紅扁豆（乾）',1.50,24,'500 g £0.75'],['急凍雞胸',3.50,23,'1 kg £3.50'],['脫脂奶',0.55,3.5,'2 L £1.10'],['連皮雞髀（扣骨）',3.99,18.5,'Tesco £2.99/kg，估 25% 係骨'],['希臘乳酪 0%',2.40,10,'500 g £1.20'],['吞拿魚罐頭',6.37,25,'145 g 罐 £0.65，瀝乾約 102 g'],['鷹嘴豆罐頭',2.29,7,'400 g £0.55，瀝乾約 240 g'],['新鮮雞胸',7.54,21.5,'Tesco 650 g £4.90'],['雞蛋',4.67,12.5,'12 隻 £2.80'],['去骨雞髀',7.25,18.3,'Tesco 1 kg £7.25']];
+const saved=store.get('cp-prices');if(saved&&Array.isArray(saved))saved.forEach((p,i)=>{if(PRICE[i]&&typeof p==='number'&&p>0)PRICE[i][1]=p});
+let pm='kcal';
+const kc=f=>f[1]*4+f[2]*9+f[3]*4;
+function pchart(){const el=$('pBars');
+  if(pm==='price'){const rows=PRICE.map((p,i)=>({i,n:p[0],v:p[1]*100/p[2],src:p[3]})).sort((a,b)=>a.v-b.v);const mx=Math.max(...rows.map(r=>r.v));
+    el.innerHTML=rows.map(r=>`<div class="pbar priced"><span class="nm" title="${r.src}">${r.n}</span><span class="tr"><i style="width:${r.v/mx*100}%;background:${r.v<20?C.good:r.v<32?C.warn:C.bad}"></i></span><span class="n">${r.v.toFixed(0)}p</span><input type="number" min="0.1" step="0.01" value="${PRICE[r.i][1].toFixed(2)}" data-i="${r.i}" aria-label="${r.n} 每 kg 價錢 £"></div>`).join('');
+    el.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{const x=+inp.value;if(x>0){PRICE[+inp.dataset.i][1]=x;store.set('cp-prices',PRICE.map(p=>p[1]));pchart()}}));
+    $('pSrc').innerHTML='每 10 g 蛋白幾多便士。右邊格仔 = 每 kg 價錢（£），撳入去改成你見到嘅價。綠 &lt; 20p，橙 &lt; 32p，紅 = 貴。Tesco 嘅係 2026 年 10 月價，其他係示例價。';return}
+  const val=f=>pm==='kcal'?f[1]/kc(f)*100:f[1];const rows=FOOD.map(f=>({n:f[0],v:val(f),c:CAT[f[4]],fat:f[2]*9/kc(f)})).sort((a,b)=>b.v-a.v);const mx=Math.max(...rows.map(r=>r.v));
+  el.innerHTML=rows.map(r=>`<div class="pbar"><span class="nm">${r.n}</span><span class="tr"><i style="width:${r.v/mx*100}%;background:${r.c}"></i></span><span class="n">${r.v.toFixed(1)} g</span></div>`).join('');
+  $('pSrc').innerHTML=(pm==='kcal'?'每 100 kcal 有幾多克蛋白。越長 = 越多蛋白、越少能量。鴨連皮同芝士其實係脂肪食物，順便有蛋白。':'每 100 g 有幾多克蛋白（生 / 包裝狀態）。肉大約 20%，芝士 25%、乳酪 10%、牛奶 3.5%。')+
+   ' <span style="color:'+C.prot+'">■</span> 肉 <span style="color:'+C.sea+'">■</span> 海鮮 <span style="color:#e8dcc0">■</span> 蛋奶 <span style="color:'+C.fib+'">■</span> 豆 <span style="color:'+C.carb+'">■</span> 澱粉'}
+const pmB=$('pMode');[['kcal','每 100 kcal（健康）'],['g','每 100 g'],['price','每 10 g 幾錢（平）']].forEach(([k,l])=>{const b=document.createElement('button');b.className='btn';b.textContent=l;b.setAttribute('aria-pressed',k===pm);b.onclick=()=>{pm=k;pressed(pmB.children,b);pchart()};pmB.appendChild(b)});pchart();
+
+/* ================= BUDGETS ================= */
+function budget(items,listId,totId,fillId,max,isSalt){const el=$(listId);
+  function draw(){const t=items.reduce((a,it)=>a+it[1]*it[2],0);$(totId).textContent=(Math.round(t*10)/10)+' g';const f=$(fillId);f.style.width=Math.min(100,t/(max/0.75)*100)+'%';
+    const col=isSalt?(t>max?C.bad:t>max*.8?C.warn:C.good):(t>=max?C.good:t>=max*.6?C.warn:C.bad);f.style.background=col;$(totId).style.color=col;
+    el.querySelectorAll('.c').forEach((c,i)=>c.textContent=items[i][2])}
+  el.innerHTML=items.map((it,i)=>`<div class="item"><span>${it[0]}</span><span class="g">${it[1]} g</span><button data-i="${i}" data-d="-1" aria-label="減 ${it[0]}">−</button><span class="c"></span><button data-i="${i}" data-d="1" aria-label="加 ${it[0]}">+</button></div>`).join('');
+  el.querySelectorAll('button').forEach(b=>b.onclick=()=>{const it=items[+b.dataset.i];it[2]=Math.max(0,Math.min(12,it[2]+ +b.dataset.d));draw()});draw()}
+budget([['1 湯匙豉油',2.5,1],['1 湯匙魚露',4,0],['醃肉：每 100 g 肉 1 g 鹽',1,3],['半樽意粉醬（約 250 g）',2,0],['3 片煙肉',2,0],['2 片方包',.8,1],['30 g 車打芝士',.5,0],['1 茶匙鹽',6,0]],'saltI','saltT','saltF',6,true);
+budget([['40 g 燕麥',4,1],['半罐豆（約 120 g）',7,0],['100 g 熟紅扁豆',8,0],['80 g 西蘭花',2,1],['80 g 急凍青豆',4.5,0],['80 g 紅蘿蔔',2,1],['200 g 薯仔連皮',4.5,0],['2 片全麥包',5,0],['1 個橙',3,0],['1 碗白飯',.7,2]],'fibI','fibT','fibF',30,false);
+
+/* ================= GANTT ================= */
+const LANES=[['砧板',C.copper],['爐 1：湯',C.bad],['爐 2：肉醬',C.warn],['Air fryer',C.fat],['微波爐',C.sea],['洗 + 收',C.muted]];
+const TASK=[
+ [0,0,4,'磨刀','鈍刀慢，仲易切親。三個爐 0:00 已經開咗，先磨刀。'],
+ [0,4,9,'雞髀抹乾 + 鹽 + 少少發粉','5 分鐘搞掂。醃 40 分鐘以上先入 air fryer，表面先乾、先脆。'],
+ [0,9,24,'切洋蔥、紅蘿蔔、西芹','湯同肉醬嘅菜一次過切，切好就掉落去。'],
+ [0,24,32,'切西蘭花、椰菜花','切完即刻入微波爐。'],
+ [0,32,46,'瘦肉橫切 + 醃，分袋凍','平日拎出嚟大火炒 3 分鐘。'],
+ [1,0,120,'大舊豬 / 牛成舊落煲 + 水，細火','唔使切，成舊掉落去。湯要時間，所以 0:00 就開。水少啲，湯先濃。'],
+ [1,24,24,'加菜 + 急凍粟米','切好嘅洋蔥、紅蘿蔔、西芹掉落去。半成品：急凍粟米、罐頭直接掉，唔使處理。'],
+ [2,0,12,'大火煎免治，唔好郁','0:00 就開火：大火 + 唔郁 = 焦化 = 味道。'],
+ [2,12,12,'倒罐頭番茄洗鑊','用料洗鑊：番茄汁刮起鑊底，唔使等。'],
+ [2,12,80,'慢煮肉醬','爐頭自己做嘢，你繼續切。'],
+ [2,24,24,'加切好嘅菜','倒落去，唔使時間。'],
+ [3,0,45,'番薯 / 薯仔','0:00 掉入去，唔使理。'],
+ [3,50,75,'雞髀第 1 轉 200°C','醃咗 40 幾分鐘，表面乾，先脆。'],
+ [3,75,100,'雞髀第 2 轉',''],
+ [4,32,40,'西蘭花、椰菜花','微波煮菜：少水、快，營養流失少過烚。'],
+ [5,46,56,'洗砧板、刀、碗','砧板用完先洗：邊煮邊洗。'],
+ [5,80,92,'肉醬攤凍、分盒','攤凍先入冰格，唔好熱住入。'],
+ [5,100,110,'洗鑊、洗 air fryer 籃',''],
+ [5,110,120,'分份、貼標籤、入冰格；掉垃圾','標籤寫日期。垃圾全日掉一次。']
+];
+const TMAX=120;const g=$('gantt');
+let gh=`<div class="gaxis">${[0,20,40,60,80,100,120].map(t=>`<span style="left:${t/TMAX*100}%">${Math.floor(t/60)}:${String(t%60).padStart(2,'0')}</span>`).join('')}</div>`;
+LANES.forEach(([ln,col],li)=>{gh+=`<div class="glane"><span class="ln">${ln}</span><div class="gtrack">${TASK.map((t,i)=>t[0]!==li?'':t[1]===t[2]?`<button class="gb gm" data-i="${i}" style="left:${t[1]/TMAX*100}%;background:${col}" title="${t[3]}" aria-label="${t[3]}"></button>`:`<button class="gb" data-i="${i}" style="left:${t[1]/TMAX*100}%;width:${(t[2]-t[1])/TMAX*100}%;background:${col}" title="${t[3]}">${t[3]}</button>`).join('')}</div></div>`});
+gh+=`<div class="ghead" id="gHead" style="left:92px"></div>`;g.innerHTML=gh;
+let gt=0,graf=null;
+function gUpdate(){const isNow=t=>t[1]===t[2]?Math.abs(gt-t[1])<2.5&&gt>0:gt>=t[1]&&gt<t[2];const now=TASK.filter(isNow);g.querySelectorAll('.gb').forEach(b=>{const t=TASK[+b.dataset.i];b.classList.toggle('now',isNow(t));b.classList.toggle('done',gt>=Math.max(t[2],t[1]+2.5)&&gt>0)});
+  const tr=g.querySelector('.gtrack');const x0=tr.offsetLeft,w=tr.offsetWidth;$('gHead').style.left=(x0+gt/TMAX*w)+'px';
+  $('gClock').textContent=Math.floor(gt/60)+':'+String(Math.floor(gt%60)).padStart(2,'0');
+  $('gNow').innerHTML=gt>0&&gt<TMAX?'<b>而家：</b>'+now.map(t=>LANES[t[0]][0]+' → '+t[3]).join('　·　'):'<span class="mini">撳 ▶，或者撳任何一格。</span>'}
+g.querySelectorAll('.gb').forEach(b=>b.addEventListener('click',()=>{const t=TASK[+b.dataset.i];stopG();gt=Math.max(.5,(t[1]+t[2])/2);gUpdate();$('gNow').innerHTML=`<b>${LANES[t[0]][0]} · ${t[3]}</b><br>${t[4]||'同上。'}`}));
+function stopG(){if(graf){cancelAnimationFrame(graf);graf=null;$('gPlay').textContent='▶ 播'}}
+$('gPlay').onclick=()=>{if(graf){stopG();return}if(gt>=TMAX)gt=0;$('gPlay').textContent='❚❚ 停';let last=performance.now();const st=now=>{gt=Math.min(TMAX,gt+(now-last)/1000*(reduced?40:9));last=now;gUpdate();if(gt>=TMAX){stopG();return}graf=requestAnimationFrame(st)};graf=requestAnimationFrame(st)};
+const busy=li=>TASK.filter(t=>t[0]===li).reduce((a,t)=>a+t[2]-t[1],0);
+$('gStats').innerHTML=[['總時間','2:00'],['爐頭 1 用緊',Math.round(busy(1)/TMAX*100)+'%'],['爐頭 2 用緊',Math.round(busy(2)/TMAX*100)+'%'],['掉垃圾','1 次']].map(([k,v])=>`<div><div class="mini">${k}</div><div class="v">${v}</div></div>`).join('');
+$('gPr').innerHTML=['0:00 三樣同時開','大舊肉唔使切','半成品：急凍、罐頭直接掉','磨刀','砧板唔停','微波爐煮菜','用料洗鑊','邊煮邊洗','只掉一次垃圾'].map(s=>`<span>${s}</span>`).join('');
+addEventListener('resize',gUpdate);gUpdate();
+
+/* ================= HEAT SIM ================= */
+const hc=$('heatCv'),hg=hc.getContext('2d');let HW=0,HH=0,pan=230,hT=200,hraf=null;
+const CASES=[['濕肉（直接由包裝落鑊）',1.0,C.cold],['抹乾',0.35,C.warn],['乾醃 40 分鐘以上',0.12,C.good]];
+function sim(m0){const out=[];let T=5,m=m0,brown=null;for(let i=0;i<=2000;i++){const t=i*.1;out.push(T);if(brown===null&&T>=140)brown=t;
+  if(T<100&&m>0)T+=.08*(pan-T)*.1;else if(m>0){T=100;m-=1/(60*130)*(pan-100)*.1}else T+=.02*(pan-T)*.1;}return{out,brown}}
+let SIM=[];
+function hfit(){const r=hc.getBoundingClientRect(),d=devicePixelRatio||1;hc.width=Math.round(r.width*d);hc.height=Math.round(r.height*d);hg.setTransform(d,0,0,d,0,0);HW=r.width;HH=r.height;hdraw()}
+function hdraw(){if(!HW)return;const L=40,R=HW-12,T=14,B=HH-28;const X=t=>L+(R-L)*t/200,Y=v=>B-(B-T)*(v-0)/250;hg.clearRect(0,0,HW,HH);
+  hg.fillStyle='rgba(224,96,74,.10)';hg.fillRect(L,Y(250),R-L,Y(190)-Y(250));hg.fillStyle='rgba(233,166,75,.10)';hg.fillRect(L,Y(190),R-L,Y(140)-Y(190));hg.fillStyle='rgba(91,143,214,.08)';hg.fillRect(L,Y(100),R-L,Y(0)-Y(100));
+  hg.font=`11px ${MONO}`;hg.textBaseline='middle';
+  [[100,'100°C 水滾：卡喺度'],[140,'140°C 梅納反應變快'],[160,'160°C 焦糖化'],[190,'190°C+ 開始燶']].forEach(([v,l])=>{hg.strokeStyle=C.line;hg.setLineDash([3,4]);hg.beginPath();hg.moveTo(L,Y(v));hg.lineTo(R,Y(v));hg.stroke();hg.setLineDash([]);hg.fillStyle=C.muted;hg.textAlign='right';hg.fillText(l,R-4,Y(v)-7)});
+  hg.textAlign='center';hg.fillStyle=C.muted;[0,50,100,150,200].forEach(t=>hg.fillText(t+'s',X(t),B+14));hg.textAlign='right';[0,100,200].forEach(v=>hg.fillText(v+'°',L-6,Y(v)));
+  SIM.forEach((s,i)=>{const col=CASES[i][2];hg.strokeStyle=col;hg.lineWidth=2.6;hg.beginPath();const n=Math.min(s.out.length-1,Math.floor(hT*10));for(let k=0;k<=n;k+=2){const x=X(k/10),y=Y(s.out[k]);k?hg.lineTo(x,y):hg.moveTo(x,y)}hg.stroke();
+    if(s.brown!==null&&s.brown<=hT){hg.fillStyle=col;hg.beginPath();hg.arc(X(s.brown),Y(140),4.5,0,7);hg.fill()}});
+  hg.strokeStyle=C.dim;hg.beginPath();hg.moveTo(L,T);hg.lineTo(L,B);hg.lineTo(R,B);hg.stroke()}
+function hrun(){SIM=CASES.map(c=>sim(c[1]));$('hLeg').innerHTML=CASES.map((c,i)=>`<div><div class="mini"><span style="color:${c[2]}">●</span> ${c[0]}</div><div class="v" style="color:${c[2]}">${SIM[i].brown===null?'200 秒內唔會':Math.round(SIM[i].brown)+' 秒'}</div><div class="mini">開始變褐色</div></div>`).join('')}
+function hplay(){cancelAnimationFrame(hraf);hT=0;let last=performance.now();const st=now=>{hT=Math.min(200,hT+(now-last)/1000*(reduced?400:40));last=now;hdraw();if(hT<200)hraf=requestAnimationFrame(st)};hraf=requestAnimationFrame(st)}
+$('hPlay').onclick=hplay;
+$('hMid').onclick=()=>{pan=180;pressed([$('hMid'),$('hHi')],$('hMid'));hrun();hplay()};$('hHi').onclick=()=>{pan=230;pressed([$('hMid'),$('hHi')],$('hHi'));hrun();hplay()};
+hrun();addEventListener('resize',hfit);hfit();
+
+/* salt timing */
+function saltT(){const v=+$('sT').value;let min,lab;if(v<=80){min=Math.round(v*0.72);lab=min+' 分鐘'}else{min=999;lab='過夜'}$('sTv').textContent=lab;
+  $('sSay').innerHTML=min<3?'<span class="chip good">OK</span> 即刻煎：鹽仲未抽到水，表面乾。但鹽只喺表面，入面冇味。':
+   min<36?'<span class="chip bad">最差</span> 鹽抽咗水出嚟，表面一攤鹽水。落鑊會蒸，卡喺 100°C，煎唔燶。要嘛即刻煎，要嘛等多陣。':
+   min<999?'<span class="chip good">好</span> 鹽水已經吸返入肉：表面乾，入面有味，肉仲保水啲。':
+   '<span class="chip good">最好</span> 放雪櫃唔包過夜：表面風乾，皮最脆，味最入。'}
+$('sT').addEventListener('input',saltT);saltT();
+
+/* velvet svg */
+function cut(cross){const s=$('cutSvg');let h='';const x0=20,y0=20,w=200,hgt=120;
+  h+=`<rect x="${x0}" y="${y0}" width="${w}" height="${hgt}" rx="14" fill="${C.prot}" fill-opacity=".18" stroke="${C.prot}"/>`;
+  for(let i=0;i<9;i++){const y=y0+12+i*12;h+=`<path d="M${x0+8},${y} C${x0+70},${y-4} ${x0+130},${y+4} ${x0+w-8},${y}" stroke="${C.prot}" stroke-opacity=".7" fill="none"/>`}
+  if(cross){for(let i=1;i<6;i++){const x=x0+i*w/6;h+=`<line x1="${x}" y1="${y0-6}" x2="${x}" y2="${y0+hgt+6}" stroke="${C.ink}" stroke-width="2" stroke-dasharray="5 4"/>`}
+    for(let i=0;i<4;i++){const x=250+i*24;h+=`<rect x="${x}" y="40" width="16" height="80" rx="4" fill="${C.prot}" fill-opacity=".25" stroke="${C.prot}"/>`;for(let k=0;k<6;k++)h+=`<line x1="${x+3}" y1="${48+k*12}" x2="${x+13}" y2="${48+k*12}" stroke="${C.prot}"/>`}
+    h+=`<text x="294" y="140" text-anchor="middle" fill="${C.good}" font-size="12" font-weight="700" font-family='${FONT}'>纖維好短：一咬就斷</text>`}
+  else{for(let i=1;i<6;i++){const y=y0+i*hgt/6;h+=`<line x1="${x0-6}" y1="${y}" x2="${x0+w+6}" y2="${y}" stroke="${C.ink}" stroke-width="2" stroke-dasharray="5 4"/>`}
+    for(let i=0;i<4;i++){const y=40+i*22;h+=`<rect x="244" y="${y}" width="104" height="14" rx="4" fill="${C.prot}" fill-opacity=".25" stroke="${C.prot}"/><line x1="250" y1="${y+7}" x2="342" y2="${y+7}" stroke="${C.prot}"/>`}
+    h+=`<text x="296" y="140" text-anchor="middle" fill="${C.bad}" font-size="12" font-weight="700" font-family='${FONT}'>纖維好長：咬極都唔斷</text>`}
+  h+=`<text x="${x0+w/2}" y="${y0+hgt+26}" text-anchor="middle" fill="${C.muted}" font-size="11.5" font-family='${FONT}'>虛線 = 刀路　橫線 = 纖維</text>`;
+  s.innerHTML=h;$('cutSay').textContent=cross?'刀同纖維成直角：每條纖維剩幾毫米。':'刀跟住纖維行：每條纖維成條咁長，嚼唔斷。'}
+$('cutW').onclick=()=>{pressed([$('cutW'),$('cutX')],$('cutW'));cut(false)};$('cutX').onclick=()=>{pressed([$('cutW'),$('cutX')],$('cutX'));cut(true)};cut(true);
+
+/* ================= CHEAP ================= */
+const CK=[['連皮雞髀（扣骨估算）',3.99,18.5,'£2.99/kg'],['雞胸',7.54,21.5,'£7.54/kg'],['去骨雞髀',7.25,18.3,'£7.25/kg']];
+const cmx=Math.max(...CK.map(c=>c[1]*100/c[2]));
+$('chk').innerHTML=CK.map(c=>{const v=c[1]*100/c[2];return `<div class="pbar priced"><span class="nm">${c[0]}</span><span class="tr"><i style="width:${v/cmx*100}%;background:${v<25?C.good:C.bad}"></i></span><span class="n">${v.toFixed(0)}p</span><span class="mono mini" style="text-align:right">${c[3]}</span></div>`}).join('')+'<p class="src" style="margin-top:6px">每 10 g 蛋白幾多便士。</p>';
+const SEASON={1:['韭蔥','椰菜','羽衣甘藍','防風草','蕪菁','椰菜花','椰菜仔','血橙（入口）'],2:['韭蔥','椰菜','羽衣甘藍','防風草','椰菜花','大黃'],3:['韭蔥','椰菜花','大黃','春菜'],4:['蘆筍（月尾）','春菜','大黃','紅蘿蔔仔','櫻桃蘿蔔'],5:['蘆筍','新薯','櫻桃蘿蔔','菠菜','大黃'],6:['士多啤梨','蘆筍','青豆','蠶豆','新薯','翠玉瓜'],7:['士多啤梨','紅莓','藍莓','車厘子','番茄','翠玉瓜','青豆','四季豆'],8:['番茄','粟米','翠玉瓜','黑莓','布冧','椒','茄子','紅花菜豆'],9:['蘋果','梨','黑莓','布冧','粟米','番茄','南瓜','菇'],10:['蘋果','梨','南瓜','菇','羽衣甘藍','紅菜頭','椰菜'],11:['南瓜','防風草','羽衣甘藍','椰菜','韭蔥','蘋果','椰菜花'],12:['椰菜仔','防風草','羽衣甘藍','椰菜','韭蔥','紫椰菜','蜜柑（入口）']};
+const YR=['洋蔥','紅蘿蔔','薯仔','椰菜','急凍菜','罐頭番茄','罐頭豆'];
+const mEl=$('months');const cur=new Date().getMonth()+1;
+function showM(m){$('produce').innerHTML=SEASON[m].map(s=>`<span>${s}</span>`).join('')+YR.map(s=>`<span class="yr">${s}</span>`).join('');}
+for(let m=1;m<=12;m++){const b=document.createElement('button');b.textContent=m+'月';b.setAttribute('aria-pressed',m===cur);b.onclick=()=>{pressed(mEl.children,b);showM(m)};mEl.appendChild(b)}showM(cur);
+
+/* ================= BAKE ================= */
+(function(){
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+// name, water, egg, sugar, fat, salt, flour type (1 低筋 2 中筋 3 高筋), mix 0–100, feel, key, yeast?
+const P=[
+ ['歐式麵包',65,0,1,2,2,3,100,'搓得起，微微黐手，搓落變光滑有彈性。','要搓，要麩質',1],
+ ['巧巴達 / 佛卡夏',80,0,0,3,2,3,60,'好黐，揸唔實，要用刮板。氣孔最大。','摺，唔搓',1],
+ ['吐司 / 奶包',60,10,10,10,1.8,3,100,'軟身，搓到拉得出薄膜。','搓到薄膜',1],
+ ['布里歐',15,55,12,60,2,3,100,'好軟好油，黐手，雪凍先易整。','先搓好麩質，後加牛油',1],
+ ['意粉 / 麵條',0,55,0,0,.5,3,100,'好硬，大力搓 10 分鐘，再靜置 30 分鐘。','只用蛋，唔加水',0],
+ ['司康',55,15,12,25,1.5,2,10,'似濕沙咁撳埋，表面唔光滑。','撳埋就停',0],
+ ['厚班戟',105,45,8,12,.8,2,10,'倒得出，但會堆起少少。','攪到啱啱撈勻，有粒都得',0],
+ ['可麗餅',225,75,5,10,.5,2,30,'好稀，似牛奶。','靜置 30 分鐘，等麵粉食飽水',0],
+ ['約克郡布丁',150,150,0,0,1,2,30,'稀，似忌廉。','油要燒到冒煙，靠蒸氣發起',0],
+ ['鬆餅 muffin',70,40,65,40,.8,2,10,'厚，舀得起，有粒。','有粒都唔好再攪',0],
+ ['磅蛋糕',0,100,100,100,.5,1,40,'厚身滑，靠打發牛油包住空氣。','1:1:1:1，先打發牛油同糖',0],
+ ['戚風 / 海綿',10,175,90,10,.3,1,30,'好輕，好多泡。','靠打發蛋，唔靠發粉',0],
+ ['曲奇',0,25,70,70,1,2,20,'搓得成波，唔黐手。','攪勻就停',0],
+ ['酥皮撻底',18,0,5,50,1,2,5,'似濕沙，撳得埋唔黐手。','冷牛油，唔好搓',0]
+];
+const FT=[null,['低筋',.08],['中筋',.10],['高筋',.125]];
+let st={W:65,ft:3,E:0,S:1,F:2,salt:2,mix:100,flour:500};
+const LEV=[
+ ['W','水 / 奶',0,250,5,'x','兩邊','麩質要水先起得到；太多就變糊、變漿。'],
+ ['P','蛋白質','','','','b','砌','麵粉筋度決定可以起幾多麩質。'],
+ ['E','　└ 蛋',0,200,5,'x','兩邊','蛋白砌結構，蛋黃拆結構。一隻蛋約 50 g，約 75% 係水。'],
+ ['S','糖',0,120,5,'s','拆','搶水、阻麩質、拖慢澱粉定型，表面易上色。'],
+ ['F','油 / 牛油',0,120,5,'s','拆','包住麵粉，截斷麩質。'],
+ ['salt','鹽',0,3,.1,'b','砌','收緊麩質。麵包約 2%，蛋糕班戟 0.5–1%。'],
+ ['mix','攪 / 搓',0,100,1,'b','砌','唔係材料，但一樣起麩質。']
+];
+const mixTxt=m=>m<15?'啱啱撈勻':m<40?'攪勻':m<70?'摺 / 攪幾分鐘':'搓 8–10 分鐘';
+const lev=$('bkLev');
+lev.innerHTML=LEV.map(([k,n,mn,mx,stp,t,tl,h])=>k==='P'?`<div class="lev"><div class="lev-top"><b>${n}</b><span class="team ${t}">${tl}</span><span class="val" id="bkPv"></span></div><div class="ftb" id="bkFt">${[1,2,3].map(i=>`<button data-f="${i}">${FT[i][0]} ${Math.round(FT[i][1]*1000)/10}%</button>`).join('')}</div><div class="hint">${h}</div></div>`:
+ `<div class="lev"><div class="lev-top"><b>${n}</b><span class="team ${t}">${tl}</span><span class="val" id="bk${k}v"></span></div><input type="range" id="bk${k}" min="${mn}" max="${mx}" step="${stp}" aria-label="${n.replace('　└ ','')}"><div class="hint">${h}</div></div>`).join('');
+LEV.forEach(([k])=>{if(k==='P')return;const el=$('bk'+k);el.addEventListener('input',()=>{st[k]=+el.value;render()})});
+$('bkFt').querySelectorAll('button').forEach(b=>b.onclick=()=>{st.ft=+b.dataset.f;render()});
+$('bkFlour').addEventListener('input',e=>{st.flour=+e.target.value;render()});
+function load(i){const p=P[i];Object.assign(st,{W:p[1],E:p[2],S:p[3],F:p[4],salt:p[5],ft:p[6],mix:p[7]});render()}
+const pre=$('bkPre');P.forEach((p,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=p[0];b.setAttribute('aria-pressed','false');b.onclick=()=>load(i);pre.appendChild(b)});
+$('bkTable').innerHTML='<tr><th>成品</th><th>水 / 奶</th><th>蛋</th><th>糖</th><th>油</th><th>鹽</th><th>麵粉</th><th>關鍵</th></tr>'+P.map((p,i)=>`<tr class="row" data-i="${i}"><td>${p[0]}</td><td class="n">${p[1]}</td><td class="n">${p[2]}</td><td class="n">${p[3]}</td><td class="n">${p[4]}</td><td class="n">${p[5]}</td><td>${FT[p[6]][0]}</td><td>${p[9]}</td></tr>`).join('');
+$('bkTable').querySelectorAll('tr.row').forEach(r=>r.onclick=()=>{load(+r.dataset.i);document.getElementById('bake').scrollIntoView({behavior:reduced?'auto':'smooth'})});
+function model(){const {W,E,S,F,salt,ft}=st,mix=st.mix/100,fp=FT[ft][1],Wt=W+E*.75;
+  const gp=(fp/.125)*Math.min(1,Wt/55)*(.25+.75*mix)*(1+.15*Math.min(salt,2)/2);
+  const gl=gp/(1+F/45+S/70);const eggSet=Math.min(1,E/150)*.3;const pen=Wt>150?(Wt-150)/600:0;
+  const near=P.map((p,i)=>[((W-p[1])/60)**2+((E-p[2])/50)**2+((S-p[3])/40)**2+((F-p[4])/40)**2+.5*((salt-p[5])/1.2)**2+.5*((ft-p[6])/1.5)**2+.5*((mix-p[7]/100)/.5)**2,i]).sort((a,b)=>a[0]-b[0]);
+  return{Wt,structure:clamp(gl*.95+eggSet-pen,0,1),moist:clamp(.15+Wt/400+F/180+S/200,0,1),brown:clamp(.3+S/80+E/300,0,1),sweet:clamp(S/100,0,1),near}}
+function mixc(a,b,f){const A=parseInt(a.slice(1),16),B=parseInt(b.slice(1),16);const ch=s=>Math.round((A>>s&255)*(1-f)+(B>>s&255)*f);return `rgb(${ch(16)},${ch(8)},${ch(0)})`}
+function render(){const m=model(),best=P[m.near[0][1]],second=P[m.near[1][1]],far=m.near[0][0]>2.5;
+  LEV.forEach(([k])=>{if(k==='P')return;$('bk'+k).value=st[k]});
+  $('bkWv').textContent=st.W+'%';$('bkEv').textContent=st.E+'%（約 '+(Math.round(st.E*st.flour/100/50*2)/2)+' 隻）';$('bkSv').textContent=st.S+'%';$('bkFv').textContent=st.F+'%';
+  $('bksaltv').textContent=st.salt.toFixed(1)+'%';$('bkmixv').textContent=mixTxt(st.mix);$('bkPv').textContent=FT[st.ft][0];
+  $('bkFt').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.f===st.ft));
+  $('bkName').textContent=(far?'唔似任何嘢，最近：':'')+best[0];$('bkNext').textContent='第二似：'+second[0];
+  $('bkFeel').innerHTML=`<b>手感：</b>${best[8]} <b>關鍵：</b>${best[9]}。`;
+  [...pre.children].forEach((b,i)=>b.setAttribute('aria-pressed',i===m.near[0][1]&&m.near[0][0]<.02));
+  $('bkTable').querySelectorAll('tr.row').forEach(r=>r.classList.toggle('on',+r.dataset.i===m.near[0][1]));
+  const M=[['結構','鬆化易散','有嚼勁',m.structure,C.good],['濕潤','乾','濕潤',m.moist,C.sea],['上色','白','金黃',m.brown,C.copper],['甜','唔甜','甜',m.sweet,C.carb]];
+  $('bkMeters').innerHTML=M.map(([n,a,b,v,col])=>`<div class="bm"><div class="ends"><span>${a}</span><b>${n}</b><span>${b}</span></div><div class="tr"><i style="width:${Math.max(3,v*100)}%;background:${col}"></i></div></div>`).join('');
+  const w=[];const isBread=best[10]===1;
+  if(st.salt>2.4)w.push('鹽太多：太鹹，酵母都會慢。麵包一般 1.8–2%。');
+  if(isBread&&st.salt<1)w.push('麵包冇鹽：麩質鬆散，發得太快，味寡。');
+  if(!isBread&&best[7]<=40&&st.mix>65)w.push('攪過龍：麩質起咗，蛋糕班戟會韌、入面有隧道窿。');
+  if(isBread&&st.mix<40&&best[0]!=='巧巴達 / 佛卡夏')w.push('麵團搓得唔夠：麩質未起，會實、發唔起。');
+  if(st.ft===1&&isBread)w.push('低筋粉做麵包：筋唔夠，撐唔起氣泡。');
+  $('bkWarn').innerHTML=w.map(x=>`<div>${x}</div>`).join('');
+  const f=st.flour,g=x=>Math.round(x*f/100);
+  $('bkFlourV').textContent=f+' g';
+  $('bkGrams').innerHTML=[['麵粉',f+' g'],['水 / 奶',g(st.W)+' g'],['蛋',g(st.E)+' g'],['糖',g(st.S)+' g'],['油',g(st.F)+' g'],['鹽',Math.round(st.salt*f/10)/10+' g']].concat(best[10]?[['即溶酵母',Math.round(f/100*10)/10+' g']]:[]).filter(([n,v])=>!/^0 g$/.test(v)).map(([n,v])=>`<span>${n} <b>${v}</b></span>`).join('');
+  const h=clamp(m.Wt+st.S*.2,15,250),t=(h-15)/235,rx=40+t*105,ry=48-t*38,gy=140,cy=gy-ry;
+  const raw='#d9c9a8',baked=mixc('#e6d3a6','#8a4b1e',m.brown);
+  let s=`<line x1="20" y1="${gy}" x2="300" y2="${gy}" stroke="${C.line}" stroke-width="2"/>`;
+  if(t>.62)s+=`<ellipse cx="${160-rx*.75}" cy="${gy+3}" rx="${18*t}" ry="4" fill="${raw}" opacity=".5"/><ellipse cx="${160+rx*.8}" cy="${gy+3}" rx="${14*t}" ry="3.5" fill="${raw}" opacity=".45"/>`;
+  s+=`<ellipse cx="160" cy="${cy}" rx="${rx}" ry="${ry}" fill="${raw}" stroke="${baked}" stroke-width="5"/>`;
+  s+=`<text x="160" y="${gy+16}" text-anchor="middle" fill="${C.muted}" font-size="11" font-family='${FONT}'>生嘅稠度（外圈 = 焗完大約嘅色）</text>`;
+  $('bkSvg').innerHTML=s}
+const WANT=[
+ ['鬆化易散',s=>{s.F+=15;s.S+=10;s.mix=Math.max(0,s.mix-30);s.ft=1},'加油、加糖、轉低筋粉、攪少啲。'],
+ ['有嚼勁',s=>{s.ft=3;s.mix=100;s.F=Math.round(s.F*.6);s.S=Math.round(s.S*.6);s.salt=Math.max(s.salt,1.8)},'高筋粉、搓耐啲、有鹽；減油減糖。'],
+ ['濕潤唔乾',s=>{s.S+=10;s.F+=10;s.W+=10},'加糖、加油（油比牛油更濕）、加液體。但最常見嘅原因係焗過龍，唔係配方。'],
+ ['上色靚',s=>{s.S+=10;s.E+=10},'加糖同蛋；再用奶代水（乳糖）、蛋液掃面、爐溫高啲。純水配方會白雪雪。'],
+ ['脆',s=>{s.W=Math.max(0,s.W-15);s.S+=10;s.F+=10},'少水、加糖加油、焗耐啲。焗完唔好用膠袋裝：糖會吸水回潮。'],
+ ['發得高',null,'唔喺六條桿入面：發粉或酵母要夠、稠度要啱（太稀走氣，太稠撐唔起）、爐溫要夠。']
+];
+const wEl=$('bkWant');WANT.forEach(([n,fn,say])=>{const b=document.createElement('button');b.className='btn';b.textContent=n;b.onclick=()=>{if(fn){fn(st);st.W=clamp(st.W,0,250);st.E=clamp(st.E,0,200);st.S=clamp(st.S,0,120);st.F=clamp(st.F,0,120);st.salt=clamp(st.salt,0,3);render()}pressed(wEl.children,b);$('bkWantSay').innerHTML=`<b style="color:var(--copper)">${n}：</b>${say}`};wEl.appendChild(b)});
+render();
+})();
+
+})();
+</script>
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
