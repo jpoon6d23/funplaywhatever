@@ -173,6 +173,14 @@ td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowra
     </div>
   </section>
 
+  <section id="sound">
+    <h2>聲波撞牆</h2>
+    <p class="lede">聲波係空氣入面嘅波：傳過去嘅只係「郁」呢個動作，冇一粒原子走過去。撞到牆，大部分彈返轉頭；低音穿得過多啲，所以隔籬淨係聽到「咚咚」，聽唔清講乜。</p>
+    <iframe src="sound-through-wall.html" title="聲波撞牆模擬" style="width:100%;height:640px;border:0;border-radius:14px;display:block;background:#10151e"></iframe>
+    <p class="muted" style="font-size:14px;margin:0"><a href="sound-through-wall.html" style="color:inherit">另開一頁睇</a></p>
+  </section>
+  <script>(function(){var f=document.querySelector('#sound iframe');if(!f)return;var ro=null;function fit(){try{var d=f.contentDocument;if(!d||!d.body)return;var w=d.querySelector('.wrap');f.style.height=Math.ceil((w?w.getBoundingClientRect().height:d.body.scrollHeight)+4)+'px';if(!ro&&window.ResizeObserver){ro=new ResizeObserver(fit);ro.observe(d.body);}}catch(e){}}f.addEventListener('load',function(){ro=null;fit();});if(f.contentDocument&&f.contentDocument.readyState==='complete')fit();[300,1000,2500].forEach(function(t){setTimeout(fit,t);});window.addEventListener('resize',fit);})();</script>
+
   <section>
     <h2>近場同遠場</h2>
     <p class="lede">常見講法：wave 似 radiation，去到無限遠；field 似 induction，有限遠。呢個分類係真嘅，叫近場同遠場。但兩樣都係場，而且分界唔係「去到幾遠」。</p>

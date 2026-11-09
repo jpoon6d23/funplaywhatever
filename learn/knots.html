@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>六個基本繩結</title>
+<meta name="description" content="單結、8 字結、平結、稱人結、雙套結、接繩結：逐步睇條繩點穿，幾時用邊個；仲有點解繞多幾圈，細細力就頂得住好重。">
+<meta property="og:title" content="六個基本繩結">
+<meta property="og:description" content="單結、8 字結、平結、稱人結、雙套結、接繩結：逐步睇條繩點穿，幾時用邊個；仲有點解繞多幾圈，細細力就頂得住好重。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/knots.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/knots.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="六個基本繩結">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/knots.html">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+/* Layout: rigging-manual card. Knot picker strip -> big diagram with a step rail beside it -> three fact tiles -> "which knot" table -> physics card */
+:root{
+  --bg:#eef1f4; --panel:#ffffff; --stage:#f5f7f9; --line:#d3d9e0; --ink:#17202a; --muted:#5a6672;
+  --accent:#b8650f; --accent-ink:#ffffff; --rope-a:#e09a32; --rope-b:#3a87d8; --edge:#1b2028;
+  --hl:rgba(255,255,255,.5); --post1:#8d5f36; --post2:#bf8a55; --halo:#f5f7f9; --warn:#b3412e;
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11151b; --panel:#192029; --stage:#141a22; --line:#2b3440; --ink:#e7ebef; --muted:#94a1ae;
+    --accent:#f0a443; --accent-ink:#15110a; --rope-a:#e8a845; --rope-b:#5ba3f0; --edge:#05080c;
+    --hl:rgba(255,255,255,.38); --post1:#5e3f24; --post2:#8f6440; --halo:#141a22; --warn:#ff8a73;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11151b; --panel:#192029; --stage:#141a22; --line:#2b3440; --ink:#e7ebef; --muted:#94a1ae;
+  --accent:#f0a443; --accent-ink:#15110a; --rope-a:#e8a845; --rope-b:#5ba3f0; --edge:#05080c;
+  --hl:rgba(255,255,255,.38); --post1:#5e3f24; --post2:#8f6440; --halo:#141a22; --warn:#ff8a73;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.7}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:grid;gap:22px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(30px,6vw,46px);line-height:1.15;margin:4px 0 6px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.3;margin:0;text-wrap:balance}
+.lede{color:var(--muted);margin:0;max-width:62ch}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px;text-align:left;display:grid;gap:0}
+.chip b{font-size:16px;font-weight:700}
+.chip span{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+.chip[aria-selected="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.chip[aria-selected="true"] b{color:var(--accent)}
+
+.stage-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);overflow:hidden}
+@media (max-width:780px){.stage-card{grid-template-columns:minmax(0,1fr)}}
+.stage{background:var(--stage);display:flex;align-items:center;justify-content:center;padding:10px;min-height:280px}
+.stage svg{width:100%;height:auto;max-height:72vh;display:block}
+.side{padding:18px 18px 16px;display:grid;gap:12px;align-content:start;min-width:0}
+.kh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.kh .en{color:var(--muted);font-size:14px}
+.kh .abok{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:0 6px;letter-spacing:.03em}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.steps button{width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:9px;padding:8px 10px;display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;color:var(--muted)}
+.steps .n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:13px;margin-top:1px}
+.steps button.done{color:var(--ink)}
+.steps button.done .n{border-color:var(--muted)}
+.steps button.on{color:var(--ink);background:var(--stage);border-color:var(--line)}
+.steps button.on .n{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ctrl{display:flex;gap:8px;flex-wrap:wrap}
+.ctrl button{border:1px solid var(--line);background:var(--stage);border-radius:999px;padding:7px 15px;font-size:14.5px;font-weight:500}
+.ctrl button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ctrl button:disabled{opacity:.4;cursor:default}
+.hint{font-size:13px;color:var(--muted);margin:0}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.fact{border-top:2px solid var(--line);padding-top:10px;min-width:0}
+.fact h3{font-size:13px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 4px;font-weight:500}
+.fact p{margin:0}
+.fact.warn{border-top-color:var(--warn)}
+.fact.warn h3{color:var(--warn)}
+.fact.ok{border-top-color:var(--accent)}
+.fact.ok h3{color:var(--accent)}
+
+.section{display:grid;gap:12px}
+.tablewrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+tr:last-child td{border-bottom:0}
+td .go{border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:999px;padding:2px 12px;font-weight:700;white-space:nowrap}
+td.no{color:var(--muted);font-size:14px}
+
+.phys{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+@media (max-width:780px){.phys{grid-template-columns:minmax(0,1fr)}}
+.phys p{margin:0}
+.eq{font-family:var(--mono);font-size:15px;background:var(--stage);border:1px solid var(--line);border-radius:8px;padding:10px 12px;overflow-x:auto}
+.vars{margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:14.5px}
+.vars b{font-family:var(--mono);color:var(--accent);font-weight:500;display:inline-block;min-width:4.5em}
+.capbox{background:var(--stage);border-radius:10px;padding:12px;display:grid;gap:10px;align-content:start}
+.capbox svg{width:100%;height:auto;display:block}
+.capbox label{display:flex;justify-content:space-between;font-weight:700;font-size:14.5px}
+.capbox label span{font-family:var(--mono);color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.big{font-size:20px;font-weight:700}
+.big em{font-style:normal;color:var(--accent);font-family:var(--mono);font-size:26px}
+.bar{height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:6px;transition:width .15s}
+.ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px}
+.safety{font-size:14px;color:var(--muted);border-left:3px solid var(--warn);padding:8px 12px;margin:0;max-width:75ch}
+
+svg text.lab{font-family:var(--body);font-size:12.5px;fill:var(--muted);paint-order:stroke;stroke:var(--halo);stroke-width:4px;stroke-linejoin:round}
+svg text.tiplab{font-family:var(--body);font-size:12.5px;font-weight:700;fill:var(--accent);paint-order:stroke;stroke:var(--halo);stroke-width:4px;stroke-linejoin:round}
+@media (prefers-reduced-motion: reduce){.bar i{transition:none}}
+</style>
+<style>
+.site-back{display:inline-flex;align-items:center;gap:6px;justify-self:start;font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="site-back" href="../#learn">← 玩笑但 · 學習</a>
+  <header>
+    <p class="eyebrow">繩結入門</p>
+    <h1>六個基本繩結</h1>
+    <p class="lede">揀一個結，逐步睇條繩點穿。發光嗰點係繩頭：跟住佢行，就打到。見到「壓過」即係喺上面行，「鑽底」即係喺下面行。</p>
+  </header>
+
+  <nav class="picker" id="picker" role="tablist" aria-label="揀繩結"></nav>
+
+  <section class="stage-card" aria-live="polite">
+    <div class="stage"><svg id="sv" role="img" aria-label="繩結圖解"></svg></div>
+    <div class="side">
+      <div class="kh"><h2 id="kname"></h2><span class="en" id="ken"></span><span class="abok" id="kabok" title="Ashley Book of Knots 編號"></span></div>
+      <ol class="steps" id="steps"></ol>
+      <div class="ctrl">
+        <button id="prev" type="button">上一步</button>
+        <button id="replay" type="button">重播</button>
+        <button id="next" type="button" class="primary">下一步</button>
+      </div>
+      <p class="hint">鍵盤：← → 轉步驟</p>
+    </div>
+  </section>
+
+  <section class="facts">
+    <div class="fact"><h3>用嚟做咩</h3><p id="fuse"></p></div>
+    <div class="fact warn"><h3>小心</h3><p id="fwarn"></p></div>
+    <div class="fact ok"><h3>打完點檢查</h3><p id="fcheck"></p></div>
+  </section>
+
+  <section class="section">
+    <h2>幾時用邊個</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>你想做</th><th>用</th><th>唔好用</th></tr></thead>
+        <tbody id="which"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>點解繩結拉得住？</h2>
+    <div class="phys">
+      <div style="display:grid;gap:12px;align-content:start">
+        <p>繩結唔係靠「綁實」，係靠摩擦。繩每繞柱多一圈，摩擦唔係<b>加</b>上去，係<b>乘</b>上去。所以繞兩三圈，細細力就頂得住好重。</p>
+        <div class="eq">T<sub>負重</sub> = T<sub>手</sub> × e<sup>μθ</sup></div>
+        <ul class="vars">
+          <li><b>T負重</b>重物嗰邊嘅拉力</li>
+          <li><b>T手</b>你手拉住嗰邊嘅力</li>
+          <li><b>μ</b>（讀 mu）摩擦系數：兩樣嘢有幾「澀」。呢度用 0.3，示意繩對木柱</li>
+          <li><b>θ</b>（讀 theta）繩繞咗幾多角度，用弧度計：一圈 = 2π ≈ 6.28</li>
+          <li><b>e</b>一個固定數，約 2.718</li>
+        </ul>
+        <p>繩結入面，受力嗰截繩會壓住另一截，等於自己繞住自己。拉得越大力，壓得越實。呢個壓住嘅位叫「夾位」(nip)。</p>
+      </div>
+      <div class="capbox">
+        <svg id="cap" viewBox="0 0 300 170" role="img" aria-label="繩繞柱俯視圖"></svg>
+        <label for="turns">繞柱圈數<span id="turnsv"></span></label>
+        <input type="range" id="turns" min="0" max="3" step="0.25" value="1">
+        <p class="big">你出 1 kg 力，拉得住約 <em id="ratio"></em> kg</p>
+        <div><div class="bar"><i id="barfill"></i></div><div class="ticks"><span>1</span><span>10</span><span>100</span><span>1000 kg</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="safety">所有繩結都會令條繩嘅強度跌，一般跌兩至五成。攀石、高空、拖車或者救人，要有識嘅人親身教同檢查，唔好只靠呢頁。練習可以用鞋帶或者充電線，每個結打十次，打到唔使望。</p>
+</main>
+
+<script>
+/* ---------- knot data ----------
+   ropes[].pts: [x,y,layer?,step?] — layer/step apply from this point onward (carried forward).
+   layer: 0 = passes under at a crossing, 5 = normal, 9 = passes over; 1 = behind a post, 4 = on post face but under another strand.
+*/
+const KN=[
+{id:'overhand',name:'單結',en:'Overhand knot',abok:'ABOK #514',vb:[400,290],
+ use:'喺繩尾打一粒「塞」，唔畀條繩甩出孔或者滑輪。好多其他結嘅第一步都係佢。',
+ warn:'受過大力之後好難解，而且會令條繩明顯變弱。要穩陣啲又易解，用 8 字結。',
+ check:'拉實之後係一粒圓粒，兩頭由相反方向出。三個交叉位，順住條繩行係「上、下、上」交替。',
+ steps:['打一個圈：繩頭壓過主繩。','繩頭兜返上嚟，喺個圈後面鑽入去。','喺圈上面壓過出嚟，拉兩頭收緊。'],
+ labels:[{x:16,y:262,t:'主繩',s:1}],
+ ropes:[{c:'a',w:10,pts:[[15,240,5,1],[90,238],[150,228],[172,220,0],[208,203,5],[244,181,9],[271,150,5],[274,124],[262,96],[240,78],[228,74,0],[198,70,5],[170,80],[150,104],[143,135],[152,168],[172,195,9],[206,226,5],
+   [236,246,5,2],[268,244],[288,222],[278,190,0],[242,148,5],[232,124],
+   [221,95,9,3],[208,52,5],[213,30],[250,20],[300,22],[385,30]]}]},
+
+{id:'eight',name:'8字結',en:'Figure-eight knot',abok:'ABOK #570',vb:[400,300],
+ use:'比單結大粒、更穩陣嘅繩尾塞，受過力都解得開。帆船、攀石都用佢做繩尾塞。',
+ warn:'繩尾要留長少少（最少三四倍繩嘅粗度），太短一拉就會鬆脫。',
+ check:'未拉實之前，望落係一個清楚嘅「8」字；拉實之後兩邊對稱。',
+ steps:['打一個圈：繩頭壓過主繩（同單結第一步一樣）。','繩頭兜到下面，喺主繩後面穿上嚟。','由前面穿入個圈，喺圈後面出。拉實。'],
+ labels:[{x:16,y:240,t:'主繩',s:1}],
+ ropes:[{c:'a',w:10,pts:[[10,215,5,1],[60,215],[76,215,9],[120,214,5],[160,216],[187,214,0],[223,199,5],[250,185],[268,165],[275,148,9],[279,108,5],[262,80],[225,62],[185,66],[156,88],[146,118,0],[151,164,5],[190,197,9],
+   [220,224,5,2],[245,255],[240,282],[200,290],[145,286],[110,268],[98,237,0],[99,193,5],[110,165],
+   [126,147,9,3],[168,138,5],[210,133],[240,130],[256,129,0],[298,127,5],[340,128],[390,132]]}]},
+
+{id:'reef',name:'平結',en:'Reef / square knot',abok:'ABOK #1204',vb:[400,300],
+ use:'同一條繩嘅兩頭打結：綁包裹、繃帶、袋口。鞋帶蝴蝶結就係兩邊做咗圈嘅平結。圖入面用兩隻顏色，只係方便睇。',
+ warn:'唔好用嚟接駁兩條要受力嘅繩：扯住其中一邊，佢會散。接繩用接繩結。',
+ check:'兩個 U 互相勾住，每條繩嘅兩截平排、喺同一邊出。繩頭打斜伸出嚟就係「祖母結」，會鬆。鞋帶蝴蝶結打完變直咗，通常就係打咗祖母結。日常口訣：右壓左，左壓右。',
+ steps:['橙繩對摺成一個 U。','藍繩由右邊壓過橙 U，再喺橙繩兩條腳底下兜個彎。','藍繩喺橙繩上面嗰條腳底下鑽出，壓過橙 U 出返右邊，同自己另一截平排。'],
+ labels:[],
+ ropes:[{c:'a',w:10,pts:[[8,134,5,1],[60,137],[106,138,9],[148,134,5],[181,121,9],[219,103,5],[248,90],[270,104],[276,118,0],[282,150],[276,182,5],[270,196],[248,210],[219,197,0],[181,179,5],[148,166,9],[106,162,5],[60,163],[8,166]]},
+        {c:'b',w:10,rot:true}]},
+
+{id:'bowline',name:'稱人結',en:'Bowline',abok:'ABOK #1010',vb:[400,400],
+ use:'做一個唔會收緊、唔會滑嘅固定圈：套柱、繫船、套住人拉上嚟。受過大力都易解：將繞住主繩嗰個「頸」向後屈就鬆。',
+ warn:'冇受力、俾人搖嚟搖去嗰陣會自己鬆，繩尾要留長。攀石做保護唔好用佢，用 8 字圈。',
+ check:'繩尾喺大圈入面。拉實之後，繩尾同大圈嗰邊平排，一齊夾喺細圈入面。',
+ steps:['喺主繩扭一個細圈（個「窿」），近繩頭嗰截壓喺上面。下面留一段做大圈。','兔仔出窿：繩頭由下面穿上個細圈。','繞樹：繩頭兜去主繩（棵樹）後面。','返窿：繩頭由上面穿返落細圈。揸住繩頭同大圈，拉主繩收緊。'],
+ labels:[{x:228,y:16,t:'主繩（樹）',s:1},{x:10,y:212,t:'細圈（窿）',s:1},{x:282,y:336,t:'大圈',s:1}],
+ ropes:[{c:'a',w:10,pts:[[215,3,5,1],[215,20,9],[215,60,5],[215,68,0],[215,108,5],[215,170,0],[214,210,5],[208,238],[186,258],[172,265,9],[134,264],[96,248,5],[84,212],[88,176],[98,158,0],[130,136],[168,150,5],[196,178,9],[234,202,5],[258,232],[268,280],[255,330],[218,362],[172,366],[134,340],
+   [120,302,5,2],[118,280,0],[118,238,5],[118,200],[118,166,9],[118,124,5],
+   [118,92,5,3],[128,58],[160,40],[194,40,0],[236,40,5],[256,48],[266,68],[256,84],[236,87,9],[194,91,5],
+   [168,100,5,4],[152,118,9],[149,165,5],[149,205],[150,245,0],[150,287,5],[151,318]]}]},
+
+{id:'clove',name:'雙套結',en:'Clove hitch',abok:'ABOK #1245',vb:[400,300],ghostL:1,
+ use:'最快將繩綁上柱、欄杆或者營釘，而且好易調位置、易解。',
+ warn:'條柱會轉，或者拉力時有時冇，佢會慢慢鬆。要綁耐啲，打完再喺主繩加兩個半結。',
+ check:'一條斜線壓住兩截差唔多平排嘅繩，兩截一截向左、一截向右出。',
+ steps:['繩由柱前面繞去後面，兜一圈返嚟。','斜斜壓過頭先嗰圈，再繞柱一圈。','繩尾喺斜線底下鑽過，向另一邊出。拉實。'],
+ labels:[{x:14,y:98,t:'主繩（受力）',s:1}],
+ props:[{L:3,svg:'<defs><linearGradient id="wood" x1="0" x2="1"><stop offset="0" stop-color="var(--post1)"/><stop offset=".45" stop-color="var(--post2)"/><stop offset="1" stop-color="var(--post1)"/></linearGradient><clipPath id="postclip"><rect x="175" y="12" width="50" height="280" rx="4"/></clipPath></defs><rect x="175" y="12" width="50" height="280" rx="4" fill="url(#wood)"/><path d="M188 20 V284 M211 30 V270" stroke="var(--edge)" stroke-opacity=".18" stroke-width="1.2" fill="none"/>'}],
+ ropes:[{c:'a',w:10,pts:[[10,112,5,1],[90,111],[150,110],[175,110,4],[200,110],[225,110,1],[229,104],[212,88],[188,77],[175,72],
+   [178,67,9,2],[200,116],[225,170,1],[229,164],[212,158],[188,154],[175,154],
+   [178,149,4,3],[208,137],[225,130,5],[262,124],[305,120],[345,122]]}]},
+
+{id:'sheet',name:'接繩結',en:'Sheet bend',abok:'ABOK #1431',vb:[400,400],
+ use:'將兩條繩駁埋，粗幼唔同都得：粗嗰條對摺做 U，幼嗰條穿。',
+ warn:'冇受力嗰陣會鬆。重要用途打「雙接繩結」：繞多一圈先塞。',
+ check:'兩條短尾要喺同一邊。如果一條向上一條向下，係錯手版本，較易鬆。',
+ steps:['粗嗰條（藍）對摺成一個 U。','幼嗰條（橙）由 U 後面穿過嚟。','兜去藍 U 兩條腳後面，繞一個圈。','繩尾喺自己底下鑽出（唔好穿返入 U）。拉實。'],
+ labels:[{x:228,y:16,t:'幼繩',s:2},{x:42,y:392,t:'粗繩',s:1}],
+ ropes:[{c:'b',w:13,pts:[[112,396,5,1],[116,340],[117,280,9],[118,238,5],[118,200],[118,166,0],[118,124,5],[118,92],[128,58],[160,40],[194,40,9],[236,40,5],[256,48],[266,68],[256,84],[236,87,0],[194,91,5],[168,100],[152,118,0],[149,165,5],[149,205],[150,245,9],[150,287,5],[151,330],[152,384]]},
+        {c:'a',w:8.5,pts:[[215,3,5,2],[215,20,0],[215,60,5],[215,68,9],[215,108,5],
+   [215,170,9,3],[214,210,5],[208,238],[186,258],[172,265,0],[134,264],[96,248,5],[84,212],[88,176],[98,158,9],[130,136],[168,150,5],
+   [196,178,0,4],[234,202,5],[258,226],[272,250]]}]}
+];
+// reef: blue rope is the orange rope rotated 180° about the centre; its steps are 2 then 3
+(function(){const k=KN.find(k=>k.id==='reef'), o=k.ropes[0].pts;
+  k.ropes[1].pts=o.map((p,i)=>{const q=[400-p[0],300-p[1]]; if(p.length>2)q.push(p[2]); if(i===0)q[3]=2; if(i===11){q[2]=q[2]??5;q[3]=3;} return q;});
+  // point 11 carries layer 5 in orange (inherited); make it explicit
+  k.ropes[1].pts[11]=[400-o[11][0],300-o[11][1],5,3];
+})();
+
+const WHICH=[
+ ['繩尾唔想甩出孔或者滑輪','eight','單結都得，但受力後好難解'],
+ ['綁包裹、繃帶，同一條繩兩頭打結','reef','唔好用嚟接兩條要受力嘅繩'],
+ ['一個唔會收緊嘅圈：套柱、繫船、救人','bowline','攀石保護（用 8 字圈）'],
+ ['快速綁上柱、欄杆、營釘','clove','長時間、會郁嘅位（要加兩個半結）'],
+ ['駁長兩條繩，粗幼唔同都得','sheet','平結']
+];
+
+/* ---------- engine ---------- */
+const NS='http://www.w3.org/2000/svg';
+const $=id=>document.getElementById(id);
+const sv=$('sv');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const f=n=>Math.round(n*10)/10;
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+let tok=0, cur=0, step=1, anim=0, strands=[], tipEls=null, labelEls=[];
+
+function parse(r){let L=5,S=1;return r.pts.map(p=>{if(p.length>2&&p[2]!=null)L=p[2];if(p.length>3&&p[3]!=null)S=p[3];return{x:p[0],y:p[1],L,S};});}
+function strandsOf(r,ri){
+  const P=parse(r),n=P.length,T=[],out=[],k=0.36;
+  for(let i=0;i<n;i++){const a=P[Math.max(i-1,0)],b=P[Math.min(i+1,n-1)];const dx=b.x-a.x,dy=b.y-a.y,m=Math.hypot(dx,dy)||1;T.push([dx/m,dy/m]);}
+  let s=null;
+  for(let i=0;i<n-1;i++){
+    const a=P[i],b=P[i+1],d=Math.hypot(b.x-a.x,b.y-a.y);
+    if(d<0.01)continue;
+    const c1=[a.x+T[i][0]*d*k,a.y+T[i][1]*d*k],c2=[b.x-T[i+1][0]*d*k,b.y-T[i+1][1]*d*k];
+    if(!s||s.L!==a.L||s.S!==a.S){const prev=s;s={L:a.L,S:a.S,d:`M${f(a.x)},${f(a.y)}`,rope:ri,ord:out.length,c:r.c,w:r.w||10};
+      if(prev)s.joint={x:a.x,y:a.y,tx:T[i][0],ty:T[i][1],L:Math.max(prev.L,a.L)+0.01};out.push(s);}
+    s.d+=`C${f(c1[0])},${f(c1[1])} ${f(c2[0])},${f(c2[1])} ${f(b.x)},${f(b.y)}`;
+  }
+  return out;
+}
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const a in attrs)e.setAttribute(a,attrs[a]);if(parent)parent.appendChild(e);return e;}
+
+function build(){
+  const k=KN[cur];
+  sv.setAttribute('viewBox',`0 0 ${k.vb[0]} ${k.vb[1]}`);
+  sv.setAttribute('aria-label',k.name+'('+k.en+')圖解');
+  sv.innerHTML='';
+  let items=[];
+  k.ropes.forEach((r,ri)=>strandsOf(r,ri).forEach(s=>items.push({type:'rope',...s})));
+  (k.props||[]).forEach(p=>items.push({type:'prop',L:p.L,svg:p.svg}));
+  if(k.ghostL!=null) items.push({type:'ghosts',L:3.5});
+  items.filter(it=>it.type==='rope'&&it.joint).forEach(it=>items.push({type:'patch',L:it.joint.L,owner:it}));
+  items.sort((a,b)=>a.L-b.L);
+  strands=[]; let ghostG=null;
+  items.forEach(it=>{
+    if(it.type==='prop'){const g=el('g',{},sv);g.innerHTML=it.svg;return;}
+    if(it.type==='ghosts'){ghostG=el('g',{'clip-path':'url(#postclip)'},sv);return;}
+    if(it.type==='patch'){const o=it.owner,j=o.joint,h=2.6,col=o.c==='b'?'var(--rope-b)':'var(--rope-a)';
+      const d=`M${f(j.x-j.tx*h)},${f(j.y-j.ty*h)}L${f(j.x+j.tx*h)},${f(j.y+j.ty*h)}`;
+      const g=el('g',{},sv);el('path',{d,stroke:col,'stroke-width':o.w,fill:'none'},g);el('path',{d,stroke:'var(--hl)','stroke-width':Math.max(2,o.w*0.26),fill:'none'},g);
+      o.patch=g;return;}
+    const g=el('g',{},sv), col=it.c==='b'?'var(--rope-b)':'var(--rope-a)';
+    const common={d:it.d,fill:'none','stroke-linecap':'butt','stroke-linejoin':'round'};
+    const p1=el('path',{...common,stroke:'var(--edge)','stroke-width':it.w+4.6},g);
+    const p2=el('path',{...common,stroke:col,'stroke-width':it.w},g);
+    const p3=el('path',{...common,stroke:'var(--hl)','stroke-width':Math.max(2,it.w*0.26)},g);
+    it.paths=[p1,p2,p3]; it.g=g; strands.push(it);
+  });
+  strands.forEach(s=>{s.len=s.paths[1].getTotalLength();});
+  if(ghostG){
+    strands.filter(s=>s.L===k.ghostL).forEach(s=>{
+      s.ghost=el('path',{d:s.d,fill:'none',stroke:s.c==='b'?'var(--rope-b)':'var(--rope-a)','stroke-width':3,'stroke-dasharray':'5 5','stroke-linecap':'round',opacity:0},ghostG);
+    });
+  }
+  labelEls=(k.labels||[]).map(l=>{const t=el('text',{x:l.x,y:l.y,class:'lab'},sv);t.textContent=l.t;t.dataset.s=l.s;return t;});
+  const tg=el('g',{opacity:0},sv);
+  const glow=el('circle',{r:13,fill:'var(--accent)',opacity:.22},tg);
+  const dot=el('circle',{r:5.5,fill:'var(--accent)',stroke:'var(--halo)','stroke-width':2},tg);
+  const tl=el('text',{class:'tiplab',x:12,y:-10},tg); tl.textContent='繩頭';
+  tipEls={g:tg};
+}
+function setVis(s,v){
+  const full=v>=s.len-0.05;
+  s.paths.forEach(p=>p.style.strokeDasharray=full?'none':`${Math.max(v,0)} ${s.len+40}`);
+  if(s.ghost)s.ghost.setAttribute('opacity',(v/s.len*0.75).toFixed(2));
+  if(s.patch)s.patch.style.display=v>2.6?'':'none';
+}
+function placeTip(s,v){
+  const pt=s.paths[1].getPointAtLength(clamp(v,0,s.len));
+  const k=KN[cur], flip=pt.x>k.vb[0]-60;
+  tipEls.g.setAttribute('transform',`translate(${f(pt.x)},${f(pt.y)})`);
+  const t=tipEls.g.querySelector('text'); t.setAttribute('x',flip?-12:12); t.setAttribute('text-anchor',flip?'end':'start');
+  tipEls.g.setAttribute('opacity',1);
+}
+const ease=p=>p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+function show(n,animate){
+  cancelAnimationFrame(anim);
+  const k=KN[cur]; step=n;
+  strands.forEach(s=>{if(s.S<n)setVis(s,s.len);else if(s.S>n)setVis(s,0);});
+  const act=strands.filter(s=>s.S===n).sort((a,b)=>a.rope-b.rope||a.ord-b.ord);
+  let total=0; act.forEach(s=>{s.start=total;total+=s.len;});
+  const dur=(animate&&!reduce)?clamp(total/260*1000,700,2600):0, t0=performance.now();
+  const frame=now=>{
+    const p=dur?Math.min((now-t0)/dur,1):1, t=ease(p)*total;
+    let tip=null,tv=0;
+    act.forEach(s=>{const v=clamp(t-s.start,0,s.len);setVis(s,v);if(v>0){tip=s;tv=v;}});
+    if(tip)placeTip(tip,tv);
+    if(p<1)anim=requestAnimationFrame(frame);
+  };
+  anim=requestAnimationFrame(frame);
+  labelEls.forEach(t=>t.style.display=(+t.dataset.s<=n)?'':'none');
+  [...$('steps').querySelectorAll('button')].forEach((b,i)=>{b.classList.toggle('on',i+1===n);b.classList.toggle('done',i+1<n);b.setAttribute('aria-current',i+1===n?'step':'false');});
+  $('prev').disabled=n<=1; $('next').disabled=n>=k.steps.length;
+}
+function pick(i,animate=true){
+  tok++; cur=i; const k=KN[i];
+  [...$('picker').children].forEach((b,j)=>b.setAttribute('aria-selected',j===i));
+  $('kname').textContent=k.name; $('ken').textContent=k.en; $('kabok').textContent=k.abok;
+  $('fuse').textContent=k.use; $('fwarn').textContent=k.warn; $('fcheck').textContent=k.check;
+  const ol=$('steps'); ol.innerHTML='';
+  k.steps.forEach((t,j)=>{const li=document.createElement('li');const b=document.createElement('button');b.type='button';
+    b.innerHTML=`<span class="n">${j+1}</span><span></span>`;b.lastChild.textContent=t;b.onclick=()=>{tok++;show(j+1,true);};li.appendChild(b);ol.appendChild(li);});
+  build(); show(1,animate);
+  try{history.replaceState(null,'','#'+k.id);}catch(e){}
+}
+KN.forEach((k,i)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.setAttribute('role','tab');
+  b.innerHTML=`<b></b><span></span>`;b.firstChild.textContent=k.name;b.lastChild.textContent=k.en;b.onclick=()=>pick(i);$('picker').appendChild(b);});
+$('prev').onclick=()=>{tok++;if(step>1)show(step-1,false);};
+$('next').onclick=()=>{tok++;if(step<KN[cur].steps.length)show(step+1,true);};
+$('replay').onclick=()=>{const my=++tok;show(1,true);let s=1;const k=KN[cur];const go=()=>{if(tok!==my||s>=k.steps.length)return;s++;show(s,true);setTimeout(go,reduce?400:2300);};setTimeout(go,reduce?400:2000);};
+addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.key==='ArrowRight')$('next').click();if(e.key==='ArrowLeft')$('prev').click();});
+
+/* which table */
+WHICH.forEach(([want,id,no])=>{const k=KN.find(x=>x.id===id),tr=document.createElement('tr');
+  tr.innerHTML='<td></td><td><button class="go" type="button"></button></td><td class="no"></td>';
+  tr.children[0].textContent=want; tr.querySelector('.go').textContent=k.name; tr.children[2].textContent=no;
+  tr.querySelector('.go').onclick=()=>{pick(KN.indexOf(k));document.querySelector('.stage-card').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});};
+  $('which').appendChild(tr);});
+
+/* capstan */
+function cap(){
+  const n=+$('turns').value, mu=0.3, th=2*Math.PI*n, ratio=Math.exp(mu*th);
+  $('turnsv').textContent=n+' 圈';
+  $('ratio').textContent=ratio<10?ratio.toFixed(1):Math.round(ratio).toLocaleString('en');
+  $('barfill').style.width=clamp(Math.log10(ratio)/3*100,1.5,100)+'%';
+  const svg=$('cap'), cx=150, cy=88, r0=30;
+  let d=`M10,${cy-r0-0} L${cx},${cy-r0}`;
+  const N=Math.max(2,Math.ceil(th/0.12)); let px=cx,py=cy-r0;
+  for(let i=1;i<=N;i++){const a=th*i/N, r=r0+5*(a/(2*Math.PI)); px=cx+r*Math.sin(a); py=cy-r*Math.cos(a); d+=` L${f(px)},${f(py)}`;}
+  const ae=th, re=r0+5*(ae/(2*Math.PI)), dx=Math.cos(ae), dy=Math.sin(ae);
+  const ex=px+dx*110, ey=py+dy*110;
+  d+=` L${f(ex)},${f(ey)}`;
+  const hx=px+dx*70, hy=py+dy*70;
+  svg.innerHTML=`<circle cx="${cx}" cy="${cy}" r="${r0-6}" fill="var(--post2)" stroke="var(--post1)" stroke-width="3"/>
+   <path d="${d}" fill="none" stroke="var(--edge)" stroke-width="10.5" stroke-linejoin="round"/>
+   <path d="${d}" fill="none" stroke="var(--rope-a)" stroke-width="6.5" stroke-linejoin="round"/>
+   <path d="M30,${cy-r0} l-14,-6 v12z" fill="var(--muted)"/>
+   <text x="12" y="${cy-r0-12}" class="lab">負重 ${ratio<10?ratio.toFixed(1):Math.round(ratio)} kg</text>
+   <circle cx="${f(hx)}" cy="${f(hy)}" r="6" fill="var(--accent)"/>
+   <text x="${f(hx+(dx>=0?10:-10))}" y="${f(hy+16)}" class="lab" text-anchor="${dx>=0?'start':'end'}">手 1 kg</text>`;
+}
+$('turns').addEventListener('input',cap); cap();
+
+/* start */
+const h=(location.hash||'').slice(1), hi=KN.findIndex(k=>k.id===h);
+pick(hi>=0?hi:0,true);
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

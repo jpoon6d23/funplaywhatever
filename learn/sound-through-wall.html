@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>聲波撞牆</title>
+<meta name="description" content="聲波撞到牆，大部分彈返轉頭：原子鏈模擬，低音同高音穿牆嘅分別。傳過去嘅只係「郁」，冇一粒原子走過去。">
+<meta property="og:title" content="聲波撞牆">
+<meta property="og:description" content="聲波撞到牆，大部分彈返轉頭：原子鏈模擬，低音同高音穿牆嘅分別。傳過去嘅只係「郁」，冇一粒原子走過去。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/sound-through-wall.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/sound-through-wall.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="聲波撞牆">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/sound-through-wall.html">
+<script>if(window.self!==window.top)document.documentElement.classList.add("embedded")</script>
+<style>
+  :root{--bg:#10151e;--panel:#18202c;--line:#2a3547;--ink:#eef1f6;--muted:#8e9ab0;
+    --air:#6fb6ff;--wall:#c48a5a;--acc:#ffd35a;--ref:#ff8a6b;--tr:#6fd3a0}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",-apple-system,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:22px 14px 48px}
+  h1{font-size:clamp(22px,5vw,30px);margin:0 0 6px;line-height:1.3}
+  .sub{color:var(--muted);font-size:15px;margin:0 0 12px;max-width:66ch}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px}
+  canvas{display:block;width:100%;height:240px}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+  button{background:#222c3d;color:var(--ink);border:1px solid var(--line);border-radius:999px;
+    padding:8px 14px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+  button[aria-pressed=true]{background:var(--acc);color:#10151e;border-color:var(--acc)}
+  button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .k{font-size:12px;color:var(--muted)} .v{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+  .note{margin-top:12px;border-left:3px solid var(--acc);background:#ffffff08;padding:12px 14px;border-radius:0 8px 8px 0;font-size:15px}
+  .site-back{display:inline-block;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:10px}
+  .site-back:hover{color:var(--ink)}
+  .embedded .site-back,.embedded [data-fpw-sub],.embedded h1{display:none!important}
+  .embedded .wrap{padding:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="site-back" href="field-wave-particle.html#sound">← 場、波、粒子</a>
+  <h1>聲波撞牆：大部分彈返轉頭</h1>
+  <p class="sub">一條原子鏈，每粒用彈弓連住隔籬。左右兩邊係「空氣」（輕），中間啡色係「牆」（每粒重八倍，而且硬好多）。為咗睇得清楚，將前後郁畫成上下郁。留意：冇任何一粒原子由左邊走去右邊 —— 走過去嘅只係「郁」呢個動作。</p>
+
+  <div class="panel"><canvas id="cv"></canvas></div>
+
+  <div class="btns" role="group" aria-label="聲音種類">
+    <button data-f="low" aria-pressed="true">低音（長波，好似隔籬嘅低音炮）</button>
+    <button data-f="high" aria-pressed="false">高音（短波，好似人講嘢）</button>
+    <button id="replay">重播</button>
+  </div>
+
+  <div class="grid">
+    <div class="box"><div class="k">彈返轉頭</div><div class="v" id="rf" style="color:var(--ref)">—</div></div>
+    <div class="box"><div class="k">仲喺牆入面</div><div class="v" id="wf" style="color:var(--wall)">—</div></div>
+    <div class="box"><div class="k">穿到過去</div><div class="v" id="tf" style="color:var(--tr)">—</div></div>
+  </div>
+  <p class="note" id="nt"></p>
+</div>
+<script>
+const N=420, W0=205, W1=215, mw=8, kw=200;
+const m=new Float64Array(N), k=new Float64Array(N-1), u=new Float64Array(N), v=new Float64Array(N), damp=new Float64Array(N);
+for(let i=0;i<N;i++){ m[i]=(i>=W0&&i<W1)?mw:1; }
+for(let i=0;i<N-1;i++){
+  const a=(i>=W0&&i<W1), b=(i+1>=W0&&i+1<W1);
+  k[i]= a&&b?kw : (a||b)? 2*kw/(1+kw) : 1;
+}
+for(let i=0;i<N;i++){ const e=Math.max(0,20-i, i-(N-21)); damp[i]=e>0?0.008*e:0; }
+let mode='low', E0=1, t=0;
+const cv=document.getElementById('cv'), g=cv.getContext('2d');
+let Wd=0,Hd=0;
+function resize(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;g.setTransform(d,0,0,d,0,0);Wd=r.width;Hd=r.height;}
+addEventListener('resize',resize);
+
+function launch(){
+  u.fill(0);v.fill(0);t=0;
+  const lam = mode==='low'?60:13, w = mode==='low'?38:18, x0=105, A=1;
+  const q=2*Math.PI/lam, om=2*Math.sin(q/2), vg=Math.cos(q/2);
+  for(let i=0;i<N;i++){
+    const s=i-x0, env=Math.exp(-(s*s)/(w*w)), denv=-2*s/(w*w)*env;
+    u[i]=A*env*Math.cos(q*s);
+    v[i]=A*(env*om*Math.sin(q*s) - vg*denv*Math.cos(q*s));
+  }
+  E0=energy(0,N);
+}
+function energy(a,b){
+  let e=0;
+  for(let i=a;i<b;i++){ e+=0.5*m[i]*v[i]*v[i]; if(i<N-1&&i+1<b) e+=0.5*k[i]*(u[i+1]-u[i])**2; }
+  return e;
+}
+function step(dt){
+  for(let i=0;i<N;i++){
+    let f=0;
+    if(i>0) f+=k[i-1]*(u[i-1]-u[i]);
+    if(i<N-1) f+=k[i]*(u[i+1]-u[i]);
+    v[i]+=dt*(f/m[i]) - damp[i]*v[i];
+  }
+  for(let i=0;i<N;i++) u[i]+=dt*v[i];
+}
+let refl=0, trans=0;
+function frame(){
+  for(let s=0;s<12;s++){ step(0.1); t+=0.1; }
+  // bookkeeping: once the pulse has interacted, measure regions (ignore absorbing ends by tracking peak values)
+  const eL=energy(20,W0-2)/E0, eW=energy(W0-2,W1+2)/E0, eR=energy(W1+2,N-20)/E0;
+  if(t>40){ refl=Math.max(refl*0.0+eL, 0); trans=Math.max(trans, eR); }
+  g.clearRect(0,0,Wd,Hd);
+  const X=i=>Wd*(i-20)/(N-40), mid=Hd/2, sc=Hd*0.32;
+  // wall band
+  g.fillStyle='#c48a5a22'; g.fillRect(X(W0),8,X(W1)-X(W0),Hd-16);
+  g.fillStyle='#c48a5a'; g.font='12px system-ui'; g.textAlign='center'; g.fillText('牆',(X(W0)+X(W1))/2,20);
+  g.fillStyle='#8e9ab0'; g.fillText('你呢邊（空氣）',X(90),20); g.fillText('隔籬（空氣）',X(320),20);
+  // baseline
+  g.strokeStyle='#2a3547'; g.beginPath(); g.moveTo(0,mid); g.lineTo(Wd,mid); g.stroke();
+  // chain
+  g.lineWidth=2; g.beginPath();
+  for(let i=20;i<N-20;i++){ const x=X(i), y=mid-u[i]*sc; i===20?g.moveTo(x,y):g.lineTo(x,y); }
+  g.strokeStyle='#6fb6ff'; g.stroke();
+  // wall atoms emphasized
+  for(let i=W0;i<W1;i++){ g.fillStyle='#c48a5a'; g.beginPath(); g.arc(X(i),mid-u[i]*sc,4,0,7); g.fill(); }
+  // amplified view of transmitted part
+  let maxR=0; for(let i=W1+2;i<N-20;i++) maxR=Math.max(maxR,Math.abs(u[i]));
+  document.getElementById('rf').textContent = t>40 ? Math.round(eL*100)+'%' : '—';
+  document.getElementById('wf').textContent = t>40 ? Math.round(eW*100)+'%' : '—';
+  document.getElementById('tf').textContent = t>40 ? (eR*100).toFixed(1)+'%' : '—';
+  const nt=document.getElementById('nt');
+  nt.innerHTML = mode==='low'
+    ? '<b>低音</b>：波長長過牆嘅厚度，成幅牆好似一嚿嘢咁被推住前後郁，所以穿得過多少少。呢個就係點解你聽到隔籬嘅「咚咚」聲，但聽唔清佢講乜。'
+    : '<b>高音</b>：波長短，幅牆要入面嘅原子各自快速郁，重嘅牆跟唔上 —— 差唔多全部彈返。講嘢聲大部分喺呢度被擋住。';
+  requestAnimationFrame(frame);
+}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{mode=b.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.setAttribute('aria-pressed',x===b));refl=0;trans=0;launch();});
+document.getElementById('replay').onclick=()=>{refl=0;trans=0;launch();};
+resize();launch();requestAnimationFrame(frame);
+</script>
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
