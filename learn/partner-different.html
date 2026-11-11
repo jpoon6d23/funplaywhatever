@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="性係為咗鬥變；擅長可以唔同，價值觀要近。紅皇后假說、互補、痛係鏡、解釋同明白對方嘅慾望，同男女平均差異。">
+<meta property="og:title" content="多謝另一半同你唔同">
+<meta property="og:description" content="性係為咗鬥變；擅長可以唔同，價值觀要近。紅皇后假說、互補、痛係鏡、解釋同明白對方嘅慾望，同男女平均差異。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/partner-different.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/partner-different.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="多謝另一半同你唔同">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/partner-different.html">
+<title>多謝另一半同你唔同</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 單一暗色主題：兩種互補色代表兩個人，青 = 理性、真相，玫瑰 = 同理、人；紅 = 寄生蟲／痛 */
+  --bg:#100f13;
+  --surface:#19181e;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  /* layout: 由生物學（點解有性）→ 互補 → 痛 → 價值觀 → 溝通 → 反駁 */
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.duo{width:clamp(170px,24vw,230px);height:auto}
+.hero h1{font-size:clamp(38px,6vw,62px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:32em}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;transform-origin:120px 100px;animation:orbit 18s linear infinite}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:4px 0 22px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:520px;height:auto;margin:0 auto;color:var(--ink)}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px;margin-bottom:20px}
+.qcard{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:14px 16px}
+.qcard .k{font-size:12.5px;letter-spacing:.1em;color:var(--b)}
+.qcard p{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.55;margin-top:2px}
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-muted{fill:var(--muted)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes probe{0%,100%{transform:translateX(0)}50%{transform:translateX(14px)}}
+.probe{animation:probe 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.probe,.spin{animation:none}}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+
+<header class="wrap hero">
+  <svg class="duo" viewBox="0 0 240 200" role="img" aria-label="兩個顏色唔同嘅圓圈圍住同一個中心轉。">
+    <circle cx="120" cy="100" r="62" class="f-none s-rule" stroke-width="1.5" stroke-dasharray="3 6"/>
+    <g class="spin">
+      <circle cx="58" cy="100" r="34" class="f-a-soft s-a" stroke-width="2.5"/>
+      <circle cx="182" cy="100" r="34" class="f-b-soft s-b" stroke-width="2.5"/>
+      <text x="58" y="106" text-anchor="middle" class="t-a" font-size="16" font-weight="700">真相</text>
+      <text x="182" y="106" text-anchor="middle" class="t-b" font-size="16" font-weight="700">同理</text>
+    </g>
+  </svg>
+  <div>
+    <h1>多謝另一半同你唔同</h1>
+    <p class="lede">性本身就係一個「唔同」嘅工具。伴侶同你唔同好正常，而且佢係你最好嘅鍛鍊場：每一次磨擦，都逼你睇清自己想要乜。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">點解要有性</div>
+    <h2>細菌鬥快，我哋鬥變</h2>
+    <p class="intro">細菌主要靠分裂，抄一個自己出嚟，玩嘅係鬥快。用性嚟繁殖嘅生物，每一代都將兩個人嘅基因洗牌，玩嘅係鬥變。點解要咁麻煩？因為病菌同寄生蟲一直進化，專攻最常見嘅款式。全部一樣，一條鎖匙開晒；人人唔同，佢就要逐個試。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 270" role="img" aria-label="上面一行係無性生殖，八個後代形狀一樣，寄生蟲一條鎖匙全部打中。下面一行係有性生殖，八個後代形狀唔同，寄生蟲只打中兩個。">
+        <text x="20" y="34" class="t" font-size="15" font-weight="700">無性：抄自己</text>
+        <text x="20" y="150" class="t" font-size="15" font-weight="700">有性：洗牌</text>
+        <g class="probe">
+          <rect x="20" y="58" width="58" height="34" rx="17" class="f-hit"/>
+          <text x="49" y="80" text-anchor="middle" class="t-bg" font-size="13" font-weight="700">病菌</text>
+          <rect x="20" y="174" width="58" height="34" rx="17" class="f-hit"/>
+          <text x="49" y="196" text-anchor="middle" class="t-bg" font-size="13" font-weight="700">病菌</text>
+        </g>
+        <g class="f-a-soft s-a" stroke-width="2">
+          <circle cx="150" cy="75" r="18"/><circle cx="210" cy="75" r="18"/><circle cx="270" cy="75" r="18"/><circle cx="330" cy="75" r="18"/>
+          <circle cx="390" cy="75" r="18"/><circle cx="450" cy="75" r="18"/><circle cx="510" cy="75" r="18"/><circle cx="570" cy="75" r="18"/>
+        </g>
+        <g class="s-hit" stroke-width="3" stroke-linecap="round">
+          <path d="M141,66 L159,84 M159,66 L141,84"/><path d="M201,66 L219,84 M219,66 L201,84"/><path d="M261,66 L279,84 M279,66 L261,84"/><path d="M321,66 L339,84 M339,66 L321,84"/>
+          <path d="M381,66 L399,84 M399,66 L381,84"/><path d="M441,66 L459,84 M459,66 L441,84"/><path d="M501,66 L519,84 M519,66 L501,84"/><path d="M561,66 L579,84 M579,66 L561,84"/>
+        </g>
+        <text x="610" y="80" class="t-hit" font-size="14" font-weight="700">全滅</text>
+
+        <g stroke-width="2">
+          <circle cx="150" cy="191" r="18" class="f-a-soft s-a"/>
+          <rect x="192" y="173" width="36" height="36" rx="4" class="f-b-soft s-b"/>
+          <polygon points="270,171 290,209 250,209" class="f-a-soft s-a"/>
+          <polygon points="330,171 350,191 330,211 310,191" class="f-b-soft s-b"/>
+          <rect x="372" y="173" width="36" height="36" rx="4" class="f-a-soft s-a"/>
+          <circle cx="450" cy="191" r="18" class="f-b-soft s-b"/>
+          <polygon points="510,171 530,209 490,209" class="f-b-soft s-b"/>
+          <polygon points="570,171 590,191 570,211 550,191" class="f-a-soft s-a"/>
+        </g>
+        <g class="s-hit" stroke-width="3" stroke-linecap="round">
+          <path d="M141,182 L159,200 M159,182 L141,200"/><path d="M441,182 L459,200 M459,182 L441,200"/>
+        </g>
+        <text x="610" y="196" class="t-a" font-size="14" font-weight="700">2/8 中招</text>
+        <text x="360" y="252" text-anchor="middle" class="t-muted" font-size="13">病菌專攻「圓形」：抄出嚟嘅全部係圓形，洗過牌嘅就唔係</text>
+      </svg>
+      <figcaption>呢個叫「紅皇后假說」。個名來自《愛麗絲鏡中奇緣》：要拼命跑，先至留得喺原地。</figcaption>
+    </figure>
+    <p class="note"><b>實驗證據：</b>2011 年《Science》研究將線蟲同會進化嘅致命細菌放埋一齊。只靠自己受精（即係抄自己）嘅線蟲族群，20 代之內全部滅絕；同其他個體交配嘅族群就撐得住。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">互補</div>
+    <h2>你擅長嘅，同佢擅長嘅</h2>
+    <p class="intro">我比較理性，面對真相；我老婆比較識面對人，有同理心。兩樣都係生存需要嘅嘢。細路喺呢個屋企長大，兩種榜樣都見到，就算唔係兩樣都學足，喺一個 diversify 咗嘅環境入面，生存機會都高啲。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 260" role="img" aria-label="文氏圖：左邊係理性、面對真相，右邊係同理、面對人，中間交疊嘅位係下一代喺屋企兩樣都見到。">
+        <circle cx="290" cy="130" r="108" class="f-a-soft s-a" stroke-width="2.5"/>
+        <circle cx="430" cy="130" r="108" class="f-b-soft s-b" stroke-width="2.5"/>
+        <text x="236" y="120" text-anchor="middle" class="t-a" font-size="18" font-weight="900" style="font-family:var(--display)">理性</text>
+        <text x="236" y="146" text-anchor="middle" class="t" font-size="14">面對真相</text>
+        <text x="236" y="168" text-anchor="middle" class="t" font-size="14">解決問題</text>
+        <text x="484" y="120" text-anchor="middle" class="t-b" font-size="18" font-weight="900" style="font-family:var(--display)">同理</text>
+        <text x="484" y="146" text-anchor="middle" class="t" font-size="14">面對人</text>
+        <text x="484" y="168" text-anchor="middle" class="t" font-size="14">令大家好過</text>
+        <text x="360" y="124" text-anchor="middle" class="t" font-size="15" font-weight="700">下一代</text>
+        <text x="360" y="146" text-anchor="middle" class="t-muted" font-size="13">兩樣</text>
+        <text x="360" y="164" text-anchor="middle" class="t-muted" font-size="13">都見到</text>
+      </svg>
+      <figcaption>互補唔係平均，係多一套工具。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">痛係鏡</div>
+    <h2>同你唔同嘅人，逼你知道自己要乜</h2>
+    <p class="intro">人要知道自己想要乜，其實唔容易。唔同一個咁唔同嘅人一齊，你唔會知有啲嘢原來咁痛；而痛，先至令你 aware 自己真正想要緊乜。身邊嘅人，就係最好嘅鍛鍊場。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 200" role="img" aria-label="循環：唔同帶嚟磨擦，磨擦帶嚟痛，痛令你知道自己要乜，你調整，兩個人行近一步平衡，然後再遇到下一個唔同。">
+        <defs><marker id="mp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker></defs>
+        <g font-size="15" font-weight="700" text-anchor="middle">
+          <rect x="16" y="50" width="120" height="50" rx="25" class="f-surface s-muted" stroke-width="1.5"/><text x="76" y="81" class="t">唔同</text>
+          <rect x="160" y="50" width="120" height="50" rx="25" class="f-surface s-hit" stroke-width="1.5"/><text x="220" y="81" class="t-hit">磨擦、痛</text>
+          <rect x="304" y="50" width="136" height="50" rx="25" class="f-surface s-a" stroke-width="1.5"/><text x="372" y="81" class="t-a">知道自己要乜</text>
+          <rect x="464" y="50" width="104" height="50" rx="25" class="f-surface s-muted" stroke-width="1.5"/><text x="516" y="81" class="t">調整</text>
+          <rect x="592" y="50" width="112" height="50" rx="25" class="f-surface s-b" stroke-width="1.5"/><text x="648" y="81" class="t-b">行近平衡</text>
+        </g>
+        <g class="s-muted" stroke-width="1.6">
+          <line x1="138" y1="75" x2="156" y2="75" marker-end="url(#mp)"/><line x1="282" y1="75" x2="300" y2="75" marker-end="url(#mp)"/>
+          <line x1="442" y1="75" x2="460" y2="75" marker-end="url(#mp)"/><line x1="570" y1="75" x2="588" y2="75" marker-end="url(#mp)"/>
+        </g>
+        <path d="M648,104 C648,170 76,170 76,108" class="f-none s-muted flow" stroke-width="1.6"/>
+        <path d="M77,116 L76,104" class="f-none s-muted" stroke-width="1.6" marker-end="url(#mp)"/>
+        <text x="362" y="186" text-anchor="middle" class="t-muted" font-size="13">下一個唔同又嚟</text>
+      </svg>
+      <figcaption>有潛力令大家變好，但唔保證。有啲伴侶真係會拉死你。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">價值觀</div>
+    <h2>擅長可以唔同，價值觀要近</h2>
+    <p class="intro">擅長嘅嘢唔同，係互補；但點睇政治、點睇人生、點睇錢、點睇父母，最好一致。數據亦係咁講：一個橫跨一百年、幾百萬對伴侶嘅研究發現，伴侶之間最似嘅係價值觀，最唔似嘅係性格。</p>
+    <div class="qs">
+      <div class="qcard"><span class="k">父母</span><p>阿爸阿媽病咗，接返屋企住，定送去老人院？</p></div>
+      <div class="qcard"><span class="k">細路</span><p>讀私立學校，定送去外國讀書？</p></div>
+      <div class="qcard"><span class="k">錢</span><p>攞嚟旅行、買嘢，定儲起買自由？</p></div>
+      <div class="qcard"><span class="k">政治</span><p>立場唔同，要唔要嗌交？接唔接受到對方唔一樣？</p></div>
+      <div class="qcard"><span class="k">親密</span><p>幾耐搞一次嘢先算 OK？</p></div>
+      <div class="qcard"><span class="k">屋企</span><p>要幾乾淨先算乾淨？</p></div>
+    </div>
+    <p class="punch">全部冇對錯。佢唔在乎你在乎嘅嘢，唔代表佢唔啱；調轉都一樣。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 250" role="img" aria-label="左邊：可以傾到中間嘅題目，例如屋企幾乾淨、幾耐一次、錢點分。右邊：好難分一半嘅題目，例如父母住屋企定老人院、細路讀私立定出國。底下：政治唔使同意，但要接受得對方唔一樣。">
+        <rect x="20" y="16" width="330" height="170" rx="14" class="f-a-soft s-a" stroke-width="1.5"/>
+        <rect x="370" y="16" width="330" height="170" rx="14" class="f-b-soft s-b" stroke-width="1.5"/>
+        <text x="185" y="48" text-anchor="middle" class="t-a" font-size="17" font-weight="900" style="font-family:var(--display)">傾得到中間</text>
+        <text x="535" y="48" text-anchor="middle" class="t-b" font-size="17" font-weight="900" style="font-family:var(--display)">好難分一半</text>
+        <g class="t" font-size="15" text-anchor="middle">
+          <text x="185" y="92">屋企幾乾淨</text><text x="185" y="124">幾耐搞一次嘢</text><text x="185" y="156">錢點分：旅行、買嘢、儲</text>
+          <text x="535" y="100">阿爸阿媽：屋企定老人院</text><text x="535" y="140">細路：私立定出國</text>
+        </g>
+        <text x="360" y="222" text-anchor="middle" class="t-muted" font-size="14">政治：分唔到一半，亦唔使分；要嘅係接受得對方唔一樣。</text>
+      </svg>
+      <figcaption>傾得到中間嘅，慢慢傾；分唔到一半嘅，價值觀唔近，最後只會有一個人讓。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">最重要嘅技能</div>
+    <h2>解釋你嘅慾望，明白佢嘅慾望</h2>
+    <p class="intro">冇咗呢個技能，好難想像兩個人行得埋一齊。唔止伴侶，朋友一樣，對自己都一樣。</p>
+    <div class="steps">
+      <div class="step"><h3>解釋自己</h3><p>你點解會有呢個慾望？講得出原因，對方先有得明。</p></div>
+      <div class="step"><h3>明白對方</h3><p>佢點解會有佢嘅慾望？問，唔好估。</p></div>
+      <div class="step"><h3>唔係批評</h3><p>兩邊都知道：講出嚟係為咗明白，唔係為咗判邊個啱。</p></div>
+    </div>
+    <p class="punch" style="margin-top:22px">改變自己都咁難，你憑咩覺得改變得到對方？</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">男女講緊兩種語言？</div>
+    <h2>平均有分別，個人好多重疊</h2>
+    <p class="intro">女人生育嘅投資大好多，所以揀伴侶更加慎重。45 個國家、14,399 人嘅研究：女人平均比男人更重視對方嘅經濟能力，男人平均比女人更重視外表同年輕。香港有句講法「有樓就有高潮」，粗俗，但同數據方向一致：先有安全感，先肯投資落一個男人度。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 640 250" role="img" aria-label="兩條鐘形曲線：女人平均較偏向對人有興趣，男人較偏向對物有興趣，差距係心理學入面最大之一，但兩條曲線仍然重疊約 64%。">
+        <line x1="40" y1="200" x2="600" y2="200" class="s-muted" stroke-width="1"/>
+        <path d="M40.0,199.1 L54.0,198.4 L68.0,197.3 L82.0,195.5 L96.0,192.8 L110.0,188.8 L124.0,183.3 L138.0,175.9 L152.0,166.3 L166.0,154.4 L180.0,140.5 L194.0,124.8 L208.0,108.1 L222.0,91.5 L236.0,76.0 L250.0,63.1 L264.0,53.7 L278.0,48.9 L292.0,49.1 L306.0,54.3 L320.0,63.9 L334.0,77.1 L348.0,92.7 L362.0,109.4 L376.0,126.0 L390.0,141.6 L404.0,155.4 L418.0,167.1 L432.0,176.5 L446.0,183.8 L460.0,189.2 L474.0,193.0 L488.0,195.6 L502.0,197.4 L516.0,198.5 L530.0,199.1 L544.0,199.5 L558.0,199.8 L572.0,199.9 L586.0,199.9 L600.0,200.0 Z" class="f-b-soft s-b" stroke-width="2.5"/>
+        <path d="M40.0,200.0 L54.0,199.9 L68.0,199.9 L82.0,199.8 L96.0,199.5 L110.0,199.1 L124.0,198.5 L138.0,197.4 L152.0,195.6 L166.0,193.0 L180.0,189.2 L194.0,183.8 L208.0,176.5 L222.0,167.1 L236.0,155.4 L250.0,141.6 L264.0,126.0 L278.0,109.4 L292.0,92.7 L306.0,77.1 L320.0,63.9 L334.0,54.3 L348.0,49.1 L362.0,48.9 L376.0,53.7 L390.0,63.1 L404.0,76.0 L418.0,91.5 L432.0,108.1 L446.0,124.8 L460.0,141.6 L474.0,154.4 L488.0,166.3 L502.0,175.9 L516.0,183.3 L530.0,188.8 L544.0,192.8 L558.0,195.5 L572.0,197.3 L586.0,198.4 L600.0,199.1 Z" class="f-a-soft s-a" stroke-width="2.5"/>
+        <text x="250" y="34" text-anchor="middle" class="t-b" font-size="15" font-weight="700">女人平均</text>
+        <text x="392" y="34" text-anchor="middle" class="t-a" font-size="15" font-weight="700">男人平均</text>
+        <text x="320" y="150" text-anchor="middle" class="t" font-size="15" font-weight="700">重疊約 64%</text>
+        <text x="40" y="226" class="t-muted" font-size="13">← 對「人」有興趣</text>
+        <text x="600" y="226" text-anchor="end" class="t-muted" font-size="13">對「物」有興趣 →</text>
+      </svg>
+      <figcaption>職業興趣嘅「人 vs 物」差異（d = 0.93），係心理學入面最大嘅男女差異之一。就算係咁大，兩條曲線都仲重疊大約 64%：好多女人比好多男人更「物」，反之亦然。</figcaption>
+    </figure>
+    <p class="punch">佢問你意見，唔代表佢想聽你意見。嗰句係問候語，唔係問題。</p>
+    <div class="steps">
+      <div class="step"><h3>先做樹窿</h3><p>佢呻嘅時候，先聽，唔好急住解決。好多人傾訴要嘅係被明白，唔係答案。</p></div>
+      <div class="step"><h3>問一句</h3><p>「你想我聽，定想我幫手諗？」一句話，慳返一場架。</p></div>
+      <div class="step"><h3>佢要答案先畀</h3><p>佢揀咗「幫手諗」，你嘅理性先至派到用場。</p></div>
+      <div class="step"><h3>真話揀時機，唔係唔講</h3><p>長期收埋真話，佢冇機會改，你就變咗演員。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">最強反駁</div>
+    <h2>畀反方打一次</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「異性相吸係神話。」</p>
+        <div><div class="tag">回應</div><p>呢篇講嘅互補係細節位：價值觀似，性格同擅長嘅嘢唔同。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>你覺得同另一半好唔同，可能只係同一類人入面嘅細微分別。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「下一代唔會兩樣都攞到。」</p>
+        <div><div class="tag">回應</div><p>主要係環境：屋企有兩種榜樣，細路兩種都見到。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>遺傳上，每個細路隨機攞父母各一半基因，性格受好多基因影響，唔會將爸爸嘅理性加媽媽嘅同理砌埋一齊。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「男人理性、女人感性，係定型。」</p>
+        <div><div class="tag">回應</div><p>呢篇講嘅係平均，唔係定律。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>大部分男女差異細過「人 vs 物」。用平均去估你面前嗰個人，好容易估錯。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「一直做樹窿就天下太平。」</p>
+        <div><div class="tag">回應</div><p>短期大家 feel good。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>長期冇人講真話，佢就冇得改，你都變咗扮出嚟嘅自己。互相令大家變好，靠嘅係磨擦，唔係迴避。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>同你唔同嘅人，係你<em>最貴嘅鏡</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Morran et al. (2011), Running with the Red Queen, Science。<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3402160">pmc.ncbi.nlm.nih.gov</a>、<a href="https://newsinfo.iu.edu/web/page/normal/18994.html">Indiana University</a></li>
+      <li>Horwitz et al. (2023), Nature Human Behaviour：伴侶相似度。<a href="https://sciencedaily.com/releases/2023/09/230905124922.htm">sciencedaily.com</a>、<a href="https://biomed.reviewer.ly/app/publication/6e8fd22f-3986-4660-88a6-5e39c49164f7">摘要</a>、<a href="https://pure.mpg.de/pubman/item/item_3506741_9/component/file_3565070/325%20Willems_Trait_2023_PP_final_SV.pdf">評論</a></li>
+      <li>Walter et al. (2020), Sex Differences in Mate Preferences Across 45 Countries, Psychological Science。<a href="https://spsp.org/news-center/character-context-blog/what-do-men-and-women-want-mate">spsp.org</a></li>
+      <li>Su, Rounds &amp; Armstrong (2009), Men and things, women and people, Psychological Bulletin。<a href="https://pubmed.ncbi.nlm.nih.gov/19883140/">pubmed</a>；效應量同重疊。<a href="https://nerd.wwnorton.com/ebooks/epub/psychwomen/EPUB/content/3.3-chapter03.xhtml">wwnorton.com</a></li>
+      <li>Robert Trivers (1972), Parental investment and sexual selection（親代投資理論）。</li>
+    </ol>
+  </div>
+</section>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

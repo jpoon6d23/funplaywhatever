@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Musk 嘅 idiot index：成品價 ÷ 材料價。火箭同英國雞髀一樣，貴嘅係「唔識做」。識做換返健康、連結同自由，仲有請人定自己做嘅計算機。">
+<meta property="og:title" content="Idiot Index：識做就平">
+<meta property="og:description" content="Musk 嘅 idiot index：成品價 ÷ 材料價。火箭同英國雞髀一樣，貴嘅係「唔識做」。識做換返健康、連結同自由，仲有請人定自己做嘅計算機。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/idiot-index.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/idiot-index.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Idiot Index：識做就平">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/idiot-index.html">
+<title>Idiot Index：識做就平</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 單一暗色主題：鋼灰底，火箭橙 = 被收嘅錢（idiot tax），鋼藍 = 原材料／自己搞掂，綠 = 換返嚟嘅嘢 */
+  --bg:#0e1013;
+  --surface:#171a1f;
+  --ink:#ebe9e4;
+  --muted:#9ca3ab;
+  --fire:#f07a3c;
+  --steel:#7fb0cf;
+  --life:#6cc39a;
+  --rule:rgba(235,233,228,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  /* layout: 公式 → 火箭同雞髀 → 真正慳到嘅（重點）→ 錢嘅圈 + 計算機 → 反駁 */
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--steel);text-underline-offset:3px}
+a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--steel);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(42px,6.6vw,68px);font-weight:900}
+.hero h1 span{display:block;font-size:.55em;color:var(--muted)}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:30em}
+.formula{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:24px;text-align:center}
+.formula .f{font-family:var(--display);font-weight:900;font-size:clamp(22px,3vw,30px);line-height:1.5}
+.formula .f .bar{display:block;border-top:3px solid var(--ink);margin:6px auto;width:70%}
+.formula .q{margin-top:12px;font-size:15px;color:var(--muted)}
+.formula .q b{color:var(--fire)}
+@media (max-width:760px){.hero{grid-template-columns:1fr;gap:20px;padding-top:36px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--fire);padding-left:14px;max-width:36em;margin:4px 0 22px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:520px;height:auto;margin:0 auto;color:var(--ink)}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-bottom:18px}
+.gain{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:20px;border-top:3px solid var(--life);display:flex;flex-direction:column;gap:8px}
+.gain h3{font-size:22px;color:var(--life)}
+.gain p{font-size:15.5px}
+.gain .data{font-size:14px;color:var(--muted);border-left:2px solid var(--life);padding-left:10px}
+
+.calc{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+.calc label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.field{margin-bottom:12px}
+.calc input[type=number],.calc select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:8px 10px;width:100%;font-variant-numeric:tabular-nums}
+.check{display:flex;align-items:center;gap:8px;font-size:15px}
+.out{display:flex;flex-direction:column;gap:12px}
+.bars{display:grid;gap:10px}
+.bar-row{display:grid;grid-template-columns:7.5em 1fr;gap:10px;align-items:center;font-size:15px}
+.bar-track{background:var(--bg);border-radius:6px;height:28px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;transition:width .35s ease;display:flex;align-items:center;padding-left:10px;font-weight:700;font-size:14px;color:var(--bg);white-space:nowrap}
+.bar-fill.f1{background:var(--fire)}.bar-fill.f2{background:var(--steel)}
+#verdict{font-family:var(--display);font-weight:900;font-size:21px;line-height:1.5}
+.math{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:19px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--fire)}
+.close p i{font-style:normal;color:var(--life)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-fire{fill:var(--fire)}.t-steel{fill:var(--steel)}.t-life{fill:var(--life)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-fire{fill:var(--fire)}.f-steel{fill:var(--steel)}.f-muted{fill:var(--muted)}.f-life{fill:var(--life)}
+.f-fire-soft{fill:var(--fire);fill-opacity:.15}.f-steel-soft{fill:var(--steel);fill-opacity:.14}.f-life-soft{fill:var(--life);fill-opacity:.16}
+.s-fire{stroke:var(--fire)}.s-steel{stroke:var(--steel)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}.s-life{stroke:var(--life)}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@media (prefers-reduced-motion:reduce){.flow{animation:none}.bar-fill{transition:none}}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+
+<header class="wrap hero">
+  <div>
+    <h1>Idiot Index<span>識做就平</span></h1>
+    <p class="lede">Musk 用佢嚟搵出邊啲火箭零件俾人呃緊錢。我用佢嚟搵出生活入面，邊啲錢係因為「唔識做」而白交。</p>
+  </div>
+  <div class="formula">
+    <div class="f">成品價<span class="bar"></span>原材料價</div>
+    <p class="q">個比率越高，你畀嘅錢越多係用嚟買<b>「唔識做」</b>，唔係買材料。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">火箭同雞髀</div>
+    <h2>材料好平，貴嘅係「唔識做」</h2>
+    <p class="intro">Musk 計過，火箭成品至少係材料價嘅 50 倍。英國都一樣：人工貴，雞髀好平，去咗骨就貴，再切片再貴，煮好擺上餐廳碟又係另一個價。材料冇變，變嘅只係有幾多雙手掂過佢。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 330" role="img" aria-label="上面：一件火箭噴嘴外殼成品 13,000 美元，入面嘅鋼只值 200 美元，idiot index 大約 65。下面：原隻雞髀、去骨、切片、餐廳一碟，每加一雙手價錢升一級。">
+        <defs><marker id="mk1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-fire"/></marker></defs>
+        <text x="20" y="24" class="t" font-size="15" font-weight="700">火箭噴嘴外殼（半件）</text>
+        <text x="20" y="58" class="t-steel" font-size="14" font-weight="700">鋼材</text>
+        <rect x="80" y="42" width="9" height="24" rx="2" class="f-steel"/>
+        <text x="98" y="59" class="t-steel" font-size="14" font-weight="700">US$200</text>
+        <text x="20" y="94" class="t-fire" font-size="14" font-weight="700">成品</text>
+        <rect x="80" y="78" width="580" height="24" rx="4" class="f-fire"/>
+        <text x="650" y="95" text-anchor="end" class="t-bg" font-size="14" font-weight="700">US$13,000：index ≈ 65</text>
+        <line x1="20" y1="124" x2="700" y2="124" class="s-rule" stroke-dasharray="4 5"/>
+        <text x="20" y="150" class="t" font-size="15" font-weight="700">英國雞髀</text>
+        <text x="700" y="150" text-anchor="end" class="t-muted" font-size="12.5">價錢 ↑（示意，唔係量度數據）</text>
+        <rect x="20" y="262" width="140" height="52" rx="10" class="f-steel-soft s-steel" stroke-width="1.5"/>
+        <text x="90" y="286" text-anchor="middle" class="t" font-size="16" font-weight="700">原隻雞髀</text>
+        <text x="90" y="305" text-anchor="middle" class="t-steel" font-size="13">材料</text>
+        <rect x="190" y="220" width="140" height="52" rx="10" class="f-surface s-muted" stroke-width="1.5"/>
+        <text x="260" y="244" text-anchor="middle" class="t" font-size="16" font-weight="700">去骨</text>
+        <text x="260" y="263" text-anchor="middle" class="t-muted" font-size="13">+1 雙手</text>
+        <rect x="360" y="178" width="140" height="52" rx="10" class="f-surface s-muted" stroke-width="1.5"/>
+        <text x="430" y="202" text-anchor="middle" class="t" font-size="16" font-weight="700">去骨再切片</text>
+        <text x="430" y="221" text-anchor="middle" class="t-muted" font-size="13">+2 雙手</text>
+        <rect x="530" y="164" width="170" height="58" rx="10" class="f-fire-soft s-fire" stroke-width="1.5"/>
+        <text x="615" y="188" text-anchor="middle" class="t" font-size="16" font-weight="700">餐廳一碟</text>
+        <text x="615" y="208" text-anchor="middle" class="t-fire" font-size="13">廚師、侍應、租、VAT</text>
+        <g class="s-fire" stroke-width="2" fill="none">
+          <path d="M160,276 C176,276 176,256 186,250" marker-end="url(#mk1)"/>
+          <path d="M330,234 C346,234 346,214 356,208" marker-end="url(#mk1)"/>
+          <path d="M500,200 C512,200 516,196 526,194" marker-end="url(#mk1)"/>
+        </g>
+      </svg>
+      <figcaption>你自己識去骨、切、煮，就可以喺最左嗰級買，享受最右嗰級嘅嘢。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">真正慳到嘅</div>
+    <h2>識做，換返三樣錢買唔到嘅嘢</h2>
+    <p class="intro">慾望唔使外判，自己搞得掂，就唔使用咁多時間搵錢。慳到嘅唔止係錢，係呢三樣：</p>
+    <div class="three">
+      <div class="gain">
+        <h3>健康</h3>
+        <p>健康唔係醫生畀你，係你嘅生活習慣畀你。好多時錢買唔到，甚至有反效果：以為有錢有得醫，就放縱自己。</p>
+        <p>用健康換錢係戇居：做到冇覺瞓、壓力爆煲，賺到嘅錢最後交畀醫生。放縱到病，再用錢買返，都係兜大圈。</p>
+        <p class="data">WHO 同 IARC 2026 年嘅研究：2022 年全球新癌症個案，大約四成同可以改變嘅風險因素有關，例如煙、酒、肥胖、空氣污染。</p>
+      </div>
+      <div class="gain">
+        <h3>連結</h3>
+        <p>你自己畀得到自己快樂，同人相處就唔再由慾望推動，係由你心入面自己發出嘅開心推動。</p>
+        <p>你唔使求人畀你嘢，亦唔使乞求認同，相處自然輕鬆。</p>
+      </div>
+      <div class="gain">
+        <h3>自由</h3>
+        <p>搵錢要用你嘅時間同努力。慾望少啲、識多啲，需要嘅錢就少啲，時間就返嚟。</p>
+        <p>你冇欠任何人，你嘅時間係你嘅。</p>
+      </div>
+    </div>
+    <figure class="panel">
+      <svg viewBox="0 0 720 200" role="img" aria-label="識做加上慾望少，帶嚟健康、連結、自由三樣，三樣一齊係比較容易孕育快樂嘅條件：期望值較高，但唔係必然。">
+        <defs><marker id="mk4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-life"/></marker></defs>
+        <rect x="20" y="70" width="150" height="60" rx="12" class="f-steel-soft s-steel" stroke-width="1.5"/>
+        <text x="95" y="96" text-anchor="middle" class="t" font-size="15" font-weight="700">識做</text>
+        <text x="95" y="117" text-anchor="middle" class="t-muted" font-size="13">＋慾望少</text>
+        <g font-size="15" font-weight="700" text-anchor="middle">
+          <rect x="250" y="18" width="150" height="44" rx="22" class="f-life-soft s-life" stroke-width="1.5"/><text x="325" y="45" class="t-life">健康</text>
+          <rect x="250" y="78" width="150" height="44" rx="22" class="f-life-soft s-life" stroke-width="1.5"/><text x="325" y="105" class="t-life">連結</text>
+          <rect x="250" y="138" width="150" height="44" rx="22" class="f-life-soft s-life" stroke-width="1.5"/><text x="325" y="165" class="t-life">自由</text>
+        </g>
+        <g class="s-life" stroke-width="1.6" fill="none">
+          <path d="M172,92 C210,92 214,40 246,40" marker-end="url(#mk4)"/>
+          <line x1="172" y1="100" x2="246" y2="100" marker-end="url(#mk4)"/>
+          <path d="M172,108 C210,108 214,160 246,160" marker-end="url(#mk4)"/>
+          <path d="M402,40 C440,40 446,92 486,96" marker-end="url(#mk4)"/>
+          <line x1="402" y1="100" x2="486" y2="100" marker-end="url(#mk4)"/>
+          <path d="M402,160 C440,160 446,108 486,104" marker-end="url(#mk4)"/>
+        </g>
+        <rect x="490" y="62" width="210" height="76" rx="12" class="f-surface s-ink" stroke-width="1.5"/>
+        <text x="595" y="92" text-anchor="middle" class="t" font-size="16" font-weight="700">快樂嘅條件</text>
+        <text x="595" y="116" text-anchor="middle" class="t-muted" font-size="13">期望值高啲，唔係必然</text>
+      </svg>
+      <figcaption>呢三樣唔保證你快樂，但令快樂更容易生出嚟。似交易：你控制唔到每一單結果，但可以令期望值變好。</figcaption>
+    </figure>
+    <p class="punch" style="margin-top:22px">用健康換錢，再用錢換返健康，係全世界最差嘅匯率。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">錢係一個圈</div>
+    <h2>識做，就係抄近路</h2>
+    <p class="intro">錢嘅本質好簡單：你滿足其他人嘅慾望，換到錢，再用錢請其他人滿足你嘅慾望。圈越長，沿途收傭嘅人越多：稅、VAT、中間人、對方嘅人工。</p>
+    <div class="stack">
+      <figure class="panel">
+        <svg viewBox="0 0 720 200" role="img" aria-label="錢嘅圈：滿足其他人嘅慾望，換到錢，再用錢滿足自己嘅慾望。沿途有稅同收傭。識做嘅人可以由自己直接滿足自己，唔使行成個圈。">
+          <defs><marker id="mk2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker>
+          <marker id="mk3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-life"/></marker></defs>
+          <g font-size="15" font-weight="700" text-anchor="middle">
+            <rect x="20" y="30" width="190" height="56" rx="12" class="f-surface s-ink" stroke-width="1.5"/><text x="115" y="64" class="t">滿足其他人嘅慾望</text>
+            <rect x="285" y="30" width="150" height="56" rx="12" class="f-surface s-muted" stroke-width="1.5"/><text x="360" y="64" class="t">錢</text>
+            <rect x="510" y="30" width="190" height="56" rx="12" class="f-surface s-ink" stroke-width="1.5"/><text x="605" y="64" class="t">滿足自己嘅慾望</text>
+          </g>
+          <g class="s-muted" stroke-width="1.6"><line x1="212" y1="58" x2="281" y2="58" marker-end="url(#mk2)"/><line x1="437" y1="58" x2="506" y2="58" marker-end="url(#mk2)"/></g>
+          <g font-size="12.5" font-weight="700" text-anchor="middle" class="t-fire">
+            <text x="247" y="22">入息稅</text><text x="472" y="22">VAT、收傭</text>
+          </g>
+          <path d="M115,90 C115,170 605,170 605,96" class="f-none s-life flow" stroke-width="2.5"/>
+          <path d="M604,104 L605,92" class="f-none s-life" stroke-width="2.5" marker-end="url(#mk3)"/>
+          <text x="360" y="186" text-anchor="middle" class="t-life" font-size="15" font-weight="700">識做：自己滿足自己，冇人收傭</text>
+        </svg>
+        <figcaption>例子：英格蘭基本稅率嘅人請個有 VAT 嘅師傅做 £100 嘢，要先賺 £166.67 稅前人工。用下面個計算機試吓你自己。</figcaption>
+      </figure>
+      <div class="calc" id="calc">
+        <div>
+          <div class="field"><label for="fee">請人收費（£）</label><input id="fee" type="number" min="0" step="5" value="100"></div>
+          <div class="field"><label class="check" for="vat"><input id="vat" type="checkbox" checked> 師傅有收 VAT（另加 20%）</label></div>
+          <div class="field"><label for="band">你嘅稅階（入息稅＋NI，英格蘭 2026/27）</label>
+            <select id="band"><option value="0.28">基本：28%</option><option value="0.42">高：42%</option><option value="0.47">最高：47%</option></select></div>
+          <div class="field"><label for="wage">你稅前時薪（£）</label><input id="wage" type="number" min="1" step="1" value="20"></div>
+          <div class="field"><label for="diy">自己做要幾多個鐘</label><input id="diy" type="number" min="0" step="0.5" value="3"></div>
+        </div>
+        <div class="out" aria-live="polite">
+          <p id="verdict">自己做，慳 5.3 個鐘。</p>
+          <div class="bars">
+            <div class="bar-row"><span>請人：返工</span><div class="bar-track"><div class="bar-fill f1" id="b1" style="width:100%">8.3 個鐘</div></div></div>
+            <div class="bar-row"><span>自己做</span><div class="bar-track"><div class="bar-fill f2" id="b2" style="width:36%">3 個鐘</div></div></div>
+          </div>
+          <p class="math" id="math">£100 × 1.2 ÷ (1 − 0.28) = £166.67 稅前人工 ÷ £20 = 8.3 個鐘。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">最強反駁</div>
+    <h2>畀反方打一次</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「分工先令人類變有錢。」</p>
+        <div><div class="tag">回應</div><p>所以唔係乜都自己做，係揀 index 高又易學嘅：煮飯、切肉、簡單維修。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>完全自給自足，係人類歷史上最窮嘅生活方式。自己起屋、自己搵乾淨水，通常更貴、更危險。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「材料價唔係全部成本。」</p>
+        <div><div class="tag">回應</div><p>Idiot index 係用嚟問「錢去咗邊」，唔係用嚟定價。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>人工、安全、機器、品質檢查都係真成本，有啲嘢貴係有原因。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「你嘅時間都值錢。」</p>
+        <div><div class="tag">回應</div><p>所以計算機有你嘅時薪同稅階：稅越重，請人越蝕。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>時薪高、又做得慢，請人可能真係抵。學嘅時間同工具錢都要計。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>唔識做嘅人，世界收佢 <em>idiot tax</em>；識做嘅人，換返<i>健康、連結同自由</i>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Walter Isaacson,《Elon Musk》傳記中 idiot index 嘅段落（摘錄）。<a href="https://www.indium.com/blog/elon-musk-biography-conclusion/">indium.com</a>、<a href="https://manassaloi.com/booksummaries/2023/10/12/musk-isaacson.html">書摘</a>；Eric Jorgenson,《The Book of Elon》。<a href="https://llm-book-kb.vercel.app/kb/concepts/first-principles-thinking">摘錄</a></li>
+      <li>噴嘴外殼 US$13,000 對 US$200 鋼材嘅例子。<a href="https://summify.io/discover/how-elon-musk-thinks-about-ai-wealth-and-multiplanetary-life-m9VzUr/">summify.io</a></li>
+      <li>WHO／IARC：可預防癌症比例（2026）。<a href="https://ground.news/article/four-out-of-every-10-cancer-cases-are-preventable-who">ground.news</a>；WHO 癌症預防。<a href="https://who.int/activities/preventing-cancer">who.int</a></li>
+      <li>英格蘭 2026/27 入息稅同國民保險稅率、VAT 20%。<a href="https://ibissandco.com/tax-tips/new-tax-year-key-changes/">ibissandco.com</a></li>
+      <li>對 idiot index 嘅批評。<a href="https://fi.linkedin.com/in/pavel-maksimov">linkedin.com</a></li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  function fmt(n){return (Math.round(n*10)/10).toString();}
+  function run(){
+    var fee=parseFloat($('fee').value)||0, vat=$('vat').checked?1.2:1, rate=parseFloat($('band').value),
+        wage=parseFloat($('wage').value)||0, diy=parseFloat($('diy').value)||0;
+    var gross=fee*vat/(1-rate), hrs=wage>0?gross/wage:0, max=Math.max(hrs,diy,0.0001);
+    $('b1').style.width=Math.max(hrs/max*100,6)+'%'; $('b1').textContent=fmt(hrs)+' 個鐘';
+    $('b2').style.width=Math.max(diy/max*100,6)+'%'; $('b2').textContent=fmt(diy)+' 個鐘';
+    var d=hrs-diy;
+    $('verdict').textContent = d>0.05 ? '自己做，慳 '+fmt(d)+' 個鐘。' : (d<-0.05 ? '請人抵，慳 '+fmt(-d)+' 個鐘。' : '差唔多，睇你鍾唔鍾意做。');
+    $('math').textContent='£'+fee+(vat>1?' × 1.2':'')+' ÷ (1 − '+rate+') = £'+gross.toFixed(2)+' 稅前人工 ÷ £'+wage+' = '+fmt(hrs)+' 個鐘。';
+  }
+  ['fee','vat','band','wage','diy'].forEach(function(id){ $(id).addEventListener('input',run); $(id).addEventListener('change',run); });
+  run();
+})();
+</script>
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
