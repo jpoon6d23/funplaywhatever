@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>創傷點樣形成，點樣解</title>
+<meta name="description" content="過去嘅創傷令你同自己斷開，唔係你錯；痛係你嘅朋友；覺察係你嘅責任。由呼吸重新連接：睇到 Should 放低，見到 Want 攞起。">
+<meta property="og:title" content="創傷點樣形成，點樣解">
+<meta property="og:description" content="過去嘅創傷令你同自己斷開，唔係你錯；痛係你嘅朋友；覺察係你嘅責任。由呼吸重新連接：睇到 Should 放低，見到 Want 攞起。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/trauma.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/trauma.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="創傷點樣形成，點樣解">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/trauma.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#4fb6b0;--b:#e07a9a;--hit:#e8b04a;--c:#7fb2ff}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一個圓裂開兩邊，中間一條線慢慢接返埋。">
+    <path d="M112,30 A75,75 0 0 0 112,180" class="f-none s-b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M128,30 A75,75 0 0 1 128,180" class="f-none s-a" stroke-width="5" stroke-linecap="round"/>
+    <path d="M112,30 L118,62 L108,96 L120,128 L110,160 L112,180" class="f-none s-muted" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <path d="M70,105 H170" class="f-none s-a flow" stroke-width="3"/>
+    <circle cx="70" cy="105" r="9" class="f-b"/>
+    <circle cx="170" cy="105" r="9" class="f-a"/>
+  </svg>
+  <div>
+    <h1>創傷點樣形成，點樣解</h1>
+    <p class="lede">三句先講，成頁都係呢三句。</p>
+  </div>
+</header>
+
+<section style="border-top:0;padding-top:0">
+  <div class="wrap">
+    <div class="steps">
+      <div class="step"><h3>唔係你錯</h3><p>過去嘅創傷令你同自己斷開。唔係你錯，因為嗰陣你<b class="cb">冇得控制</b>。</p></div>
+      <div class="step"><h3>痛係你嘅朋友</h3><p>痛係個警報。佢唔響，你唔會知要停。</p></div>
+      <div class="step"><h3>覺察係你嘅責任</h3><p>因為而家你<b class="ca">有得控制</b>。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">形成</div>
+    <h2>一代傳一代</h2>
+    <p class="intro">上一代有佢哋嘅創傷，佢哋嘅行為變成你嘅創傷。你童年要嘅嘢得唔到，就生出一個信念；信念再生出一套求生方法。之後每次撳到同一粒掣，你都會用同一個反應。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 340" role="img" aria-label="基因同原罪（問號）通去上一代嘅創傷，再到佢哋嘅行為，再到你童年嘅創傷。跟住慾望得唔到滿足，例如被遺棄；生出信念，例如我唔值得；再生出應該、生存機制、強迫行動。強迫行動嘅反應又返去慾望得唔到滿足。">
+        <rect x="20" y="22" width="90" height="34" rx="8" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="65" y="44" text-anchor="middle" class="t" font-size="14">基因</text>
+        <rect x="20" y="70" width="90" height="34" rx="8" class="f-surface2 s-muted" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="65" y="92" text-anchor="middle" class="t-muted" font-size="14">原罪？</text>
+        <path d="M110,39 C132,39 134,62 154,62" class="f-none s-muted" stroke-width="1.8"/>
+        <path d="M110,87 C132,87 134,64 154,64" class="f-none s-muted" stroke-width="1.8" marker-end="url(#ah)"/>
+        <rect x="158" y="40" width="130" height="46" rx="10" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="223" y="68" text-anchor="middle" class="t" font-size="15" font-weight="700">上一代嘅創傷</text>
+        <path d="M288,63 H326" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="330" y="40" width="130" height="46" rx="10" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="395" y="68" text-anchor="middle" class="t" font-size="15" font-weight="700">佢哋嘅行為</text>
+        <path d="M460,63 H498" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="502" y="36" width="198" height="54" rx="12" class="f-b-soft s-b" stroke-width="2"/>
+        <text x="601" y="60" text-anchor="middle" class="t-b" font-size="16" font-weight="700">你童年嘅創傷</text>
+        <text x="601" y="80" text-anchor="middle" class="t-muted" font-size="12.5">Past misgiving</text>
+        <path d="M601,90 V176" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+
+        <rect x="502" y="180" width="198" height="62" rx="12" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="601" y="205" text-anchor="middle" class="t" font-size="15" font-weight="700">慾望得唔到滿足</text>
+        <text x="601" y="228" text-anchor="middle" class="t-muted" font-size="13">例：被遺棄</text>
+        <path d="M502,211 H470" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="300" y="180" width="166" height="62" rx="12" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="383" y="205" text-anchor="middle" class="t" font-size="15" font-weight="700">信念</text>
+        <text x="383" y="228" text-anchor="middle" class="t-muted" font-size="13">例：我唔值得</text>
+        <path d="M300,211 H254" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="20" y="170" width="230" height="84" rx="12" class="f-b-soft s-b" stroke-width="2"/>
+        <text x="135" y="196" text-anchor="middle" class="t-b" font-size="15" font-weight="700">「應該」慾望</text>
+        <text x="135" y="218" text-anchor="middle" class="t" font-size="14">生存機制</text>
+        <text x="135" y="240" text-anchor="middle" class="t" font-size="14">強迫行動</text>
+        <path d="M135,254 V300 H601 V246" class="f-none s-b flow" stroke-width="2" marker-end="url(#ah-b)"/>
+        <text x="368" y="324" text-anchor="middle" class="t-muted" font-size="13.5">反應：每次撳到同一粒掣，都用返同一招</text>
+      </svg>
+      <figcaption>原罪打咗問號：係咪有，各有各信。基因點樣影響，下面「反駁」再講。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">兩條死路</div>
+    <h2>失敗會痛，成功都會卡住</h2>
+    <p class="intro">強迫行動有兩個結果。失敗：證明咗「我唔值得」，羞恥。成功：外面贏咗，入面嗰個信念冇郁過，所以卡住。兩條路，同一個終點。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 300" role="img" aria-label="強迫行動分兩條路：失敗，同現實同自己斷開，羞恥；成功，外在對內在，卡住。兩條路都去到積累嘅痛同斷開。">
+        <rect x="20" y="126" width="124" height="48" rx="12" class="f-b-soft s-b" stroke-width="2"/>
+        <text x="82" y="156" text-anchor="middle" class="t-b" font-size="15" font-weight="700">強迫行動</text>
+        <path d="M144,150 C170,150 168,60 190,60" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M144,150 C170,150 168,236 190,236" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="194" y="40" width="90" height="40" rx="10" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="239" y="65" text-anchor="middle" class="t" font-size="15" font-weight="700">失敗</text>
+        <path d="M284,60 H306" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="310" y="40" width="180" height="40" rx="10" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="400" y="65" text-anchor="middle" class="t" font-size="14">同現實、同自己斷開</text>
+        <path d="M490,60 H516" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="520" y="40" width="96" height="40" rx="10" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="568" y="65" text-anchor="middle" class="t-b" font-size="15" font-weight="700">羞恥</text>
+
+        <rect x="194" y="216" width="90" height="40" rx="10" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="239" y="241" text-anchor="middle" class="t" font-size="15" font-weight="700">成功</text>
+        <path d="M284,236 H306" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="310" y="216" width="180" height="40" rx="10" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="400" y="241" text-anchor="middle" class="t" font-size="14">外在贏咗，內在冇郁</text>
+        <path d="M490,236 H516" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="520" y="216" width="96" height="40" rx="10" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="568" y="241" text-anchor="middle" class="t-b" font-size="15" font-weight="700">卡住</text>
+
+        <path d="M568,80 V122" class="s-b" stroke-width="2" marker-end="url(#ah-b)"/>
+        <path d="M568,216 V178" class="s-b" stroke-width="2" marker-end="url(#ah-b)"/>
+        <rect x="470" y="126" width="230" height="48" rx="12" class="f-b-soft s-b" stroke-width="2"/>
+        <text x="585" y="156" text-anchor="middle" class="t-b" font-size="15" font-weight="700">積累嘅痛 · 斷開</text>
+      </svg>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 160" role="img" aria-label="積累嘅痛去到絕望，絕望逼出覺察。覺察之後問點解，返去睇上一代。">
+        <rect x="20" y="24" width="170" height="48" rx="12" class="f-b-soft s-b" stroke-width="2"/>
+        <text x="105" y="54" text-anchor="middle" class="t-b" font-size="15" font-weight="700">積累嘅痛</text>
+        <path d="M190,48 H246" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="250" y="24" width="120" height="48" rx="12" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="310" y="54" text-anchor="middle" class="t" font-size="15" font-weight="700">絕望</text>
+        <path d="M370,48 H436" class="s-a" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <text x="403" y="38" text-anchor="middle" class="t-a" font-size="12.5">痛逼出嚟</text>
+        <rect x="440" y="20" width="260" height="56" rx="12" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="570" y="54" text-anchor="middle" class="t-a" font-size="17" font-weight="700">覺察：見返自己</text>
+        <rect x="20" y="104" width="120" height="38" rx="10" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="80" y="128" text-anchor="middle" class="t" font-size="14">上一代</text>
+        <path d="M570,76 V123 H144" class="f-none s-a flow" stroke-width="2" marker-end="url(#ah-a)"/>
+        <text x="360" y="148" text-anchor="middle" class="t-muted" font-size="13.5">Why？點解佢哋會咁？返去睇佢哋嘅創傷</text>
+      </svg>
+      <figcaption>痛係朋友，就係喺呢度：唔痛到絕望，好少人會停低望返自己。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">唔係你一個</div>
+    <h2>差唔多每 3 個大人，就有 2 個</h2>
+    <p class="intro">美國疾病控制中心 2011 至 2020 年問咗全國成年人：63.9% 童年至少有一樣「不良經歷」，17.3% 有四樣或以上。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 270" role="img" aria-label="100 個美國成年人：64 個童年至少有一樣不良經歷，其中 17 個有四樣或以上。"><circle cx="28" cy="28" r="8" class="f-b"/><circle cx="50" cy="28" r="8" class="f-b"/><circle cx="72" cy="28" r="8" class="f-b"/><circle cx="94" cy="28" r="8" class="f-b"/><circle cx="116" cy="28" r="8" class="f-b"/><circle cx="138" cy="28" r="8" class="f-b"/><circle cx="160" cy="28" r="8" class="f-b"/><circle cx="182" cy="28" r="8" class="f-b"/><circle cx="204" cy="28" r="8" class="f-b"/><circle cx="226" cy="28" r="8" class="f-b"/><circle cx="28" cy="50" r="8" class="f-b"/><circle cx="50" cy="50" r="8" class="f-b"/><circle cx="72" cy="50" r="8" class="f-b"/><circle cx="94" cy="50" r="8" class="f-b"/><circle cx="116" cy="50" r="8" class="f-b"/><circle cx="138" cy="50" r="8" class="f-b"/><circle cx="160" cy="50" r="8" class="f-b"/><circle cx="182" cy="50" r="8" class="f-b" fill-opacity="0.42"/><circle cx="204" cy="50" r="8" class="f-b" fill-opacity="0.42"/><circle cx="226" cy="50" r="8" class="f-b" fill-opacity="0.42"/><circle cx="28" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="50" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="72" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="94" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="116" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="138" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="160" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="182" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="204" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="226" cy="72" r="8" class="f-b" fill-opacity="0.42"/><circle cx="28" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="50" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="72" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="94" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="116" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="138" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="160" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="182" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="204" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="226" cy="94" r="8" class="f-b" fill-opacity="0.42"/><circle cx="28" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="50" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="72" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="94" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="116" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="138" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="160" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="182" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="204" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="226" cy="116" r="8" class="f-b" fill-opacity="0.42"/><circle cx="28" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="50" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="72" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="94" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="116" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="138" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="160" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="182" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="204" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="226" cy="138" r="8" class="f-b" fill-opacity="0.42"/><circle cx="28" cy="160" r="8" class="f-b" fill-opacity="0.42"/><circle cx="50" cy="160" r="8" class="f-b" fill-opacity="0.42"/><circle cx="72" cy="160" r="8" class="f-b" fill-opacity="0.42"/><circle cx="94" cy="160" r="8" class="f-b" fill-opacity="0.42"/><circle cx="116" cy="160" r="8" class="f-muted-soft"/><circle cx="138" cy="160" r="8" class="f-muted-soft"/><circle cx="160" cy="160" r="8" class="f-muted-soft"/><circle cx="182" cy="160" r="8" class="f-muted-soft"/><circle cx="204" cy="160" r="8" class="f-muted-soft"/><circle cx="226" cy="160" r="8" class="f-muted-soft"/><circle cx="28" cy="182" r="8" class="f-muted-soft"/><circle cx="50" cy="182" r="8" class="f-muted-soft"/><circle cx="72" cy="182" r="8" class="f-muted-soft"/><circle cx="94" cy="182" r="8" class="f-muted-soft"/><circle cx="116" cy="182" r="8" class="f-muted-soft"/><circle cx="138" cy="182" r="8" class="f-muted-soft"/><circle cx="160" cy="182" r="8" class="f-muted-soft"/><circle cx="182" cy="182" r="8" class="f-muted-soft"/><circle cx="204" cy="182" r="8" class="f-muted-soft"/><circle cx="226" cy="182" r="8" class="f-muted-soft"/><circle cx="28" cy="204" r="8" class="f-muted-soft"/><circle cx="50" cy="204" r="8" class="f-muted-soft"/><circle cx="72" cy="204" r="8" class="f-muted-soft"/><circle cx="94" cy="204" r="8" class="f-muted-soft"/><circle cx="116" cy="204" r="8" class="f-muted-soft"/><circle cx="138" cy="204" r="8" class="f-muted-soft"/><circle cx="160" cy="204" r="8" class="f-muted-soft"/><circle cx="182" cy="204" r="8" class="f-muted-soft"/><circle cx="204" cy="204" r="8" class="f-muted-soft"/><circle cx="226" cy="204" r="8" class="f-muted-soft"/><circle cx="28" cy="226" r="8" class="f-muted-soft"/><circle cx="50" cy="226" r="8" class="f-muted-soft"/><circle cx="72" cy="226" r="8" class="f-muted-soft"/><circle cx="94" cy="226" r="8" class="f-muted-soft"/><circle cx="116" cy="226" r="8" class="f-muted-soft"/><circle cx="138" cy="226" r="8" class="f-muted-soft"/><circle cx="160" cy="226" r="8" class="f-muted-soft"/><circle cx="182" cy="226" r="8" class="f-muted-soft"/><circle cx="204" cy="226" r="8" class="f-muted-soft"/><circle cx="226" cy="226" r="8" class="f-muted-soft"/><rect x="300" y="44" width="16" height="16" rx="8" class="f-b"/><text x="326" y="58" class="t" font-size="15"><tspan font-weight="700" class="t-b">17 個</tspan>：四樣或以上</text><rect x="300" y="84" width="16" height="16" rx="8" class="f-b" fill-opacity=".42"/><text x="326" y="98" class="t" font-size="15"><tspan font-weight="700">再加 47 個</tspan>：一至三樣</text><rect x="300" y="124" width="16" height="16" rx="8" class="f-muted-soft"/><text x="326" y="138" class="t-muted" font-size="15">36 個：冇</text><text x="300" y="190" class="t" font-size="17" font-weight="700">即係每 3 個大人，差唔多 2 個有。</text><text x="300" y="214" class="t-muted" font-size="13.5">美國 2011–2020 年調查，童年不良經歷包括虐待、</text><text x="300" y="232" class="t-muted" font-size="13.5">父母離婚、屋企有人酗酒或吸毒等八類。</text></svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">解</div>
+    <h2>重新連接：由呼吸開始</h2>
+    <p class="intro">唔使分內外。覺察由呼吸著手，全部都係由呼吸嗰度出嚟。由呼吸，你清楚見到呢個世界嘅三條規則：你控制唔到；生命係不斷交易；同埋只有活在當下，你先真正同自己連接。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 96" role="img" aria-label="呼吸、覺察、清晰、接受、重新連接。">
+        <rect x="20" y="24" width="110" height="46" rx="23" class="f-a s-a" stroke-width="2"/>
+        <text x="75" y="53" text-anchor="middle" class="t-bg" font-size="15" font-weight="700">呼吸</text>
+        <path d="M130,47 H160" class="s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+        <rect x="164" y="24" width="110" height="46" rx="23" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="219" y="53" text-anchor="middle" class="t-a" font-size="15" font-weight="700">覺察</text>
+        <path d="M274,47 H304" class="s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+        <rect x="308" y="24" width="110" height="46" rx="23" class="f-surface2 s-a" stroke-width="1.5"/>
+        <text x="363" y="53" text-anchor="middle" class="t" font-size="15" font-weight="700">清晰</text>
+        <path d="M418,47 H448" class="s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+        <rect x="452" y="24" width="110" height="46" rx="23" class="f-surface2 s-a" stroke-width="1.5"/>
+        <text x="507" y="53" text-anchor="middle" class="t" font-size="15" font-weight="700">接受</text>
+        <path d="M562,47 H592" class="s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+        <rect x="596" y="24" width="110" height="46" rx="23" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="651" y="53" text-anchor="middle" class="t-a" font-size="15" font-weight="700">重新連接</text>
+      </svg>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 240" role="img" aria-label="中間一個會漲大縮細嘅圓叫呼吸，分出三條路：一、控制唔到；二、一吸一呼係交易；三、活在當下。">
+        <style>@keyframes breathe{0%,100%{transform:scale(.72)}50%{transform:scale(1)}}.breathe{transform-box:fill-box;transform-origin:center;animation:breathe 6s ease-in-out infinite}@media (prefers-reduced-motion:reduce){.breathe{animation:none}}</style>
+        <circle cx="360" cy="84" r="64" class="f-a-soft s-a breathe" stroke-width="2"/>
+        <text x="360" y="84" text-anchor="middle" class="t" font-size="20" font-weight="700">呼吸</text>
+        <text x="360" y="106" text-anchor="middle" class="t-muted" font-size="12.5">覺察由呢度開始</text>
+        <path d="M314,128 C260,170 180,170 140,190" class="f-none s-b" stroke-width="2" marker-end="url(#ah-b)"/>
+        <path d="M360,150 V190" class="s-hit" stroke-width="2" marker-end="url(#ah-hit)"/>
+        <path d="M406,128 C460,170 540,170 580,190" class="f-none s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+        <text x="120" y="216" text-anchor="middle" class="t-b" font-size="15.5" font-weight="700">一、控制唔到</text>
+        <text x="360" y="216" text-anchor="middle" class="t-hit" font-size="15.5" font-weight="700">二、一吸一呼 = 交易</text>
+        <text x="600" y="216" text-anchor="middle" class="t-a" font-size="15.5" font-weight="700">三、活在當下</text>
+      </svg>
+    </figure>
+    <div class="grid3 mt">
+      <div class="mini" style="--k:var(--b)">
+        <div class="k">一 · 控制唔到</div>
+        <h3>唔控制，原來都 OK</h3>
+        <p>你可以閉氣幾十秒，但停唔到佢；你唔理佢，佢都照行。你唔使強迫自己呼吸。</p>
+        <ul class="vchain" style="--k:var(--b)">
+          <li>放開控制</li>
+          <li>放低 Should<small>「我應該點樣」</small></li>
+          <li>唔再強迫自己</li>
+          <li><b>平靜</b></li>
+        </ul>
+      </div>
+      <div class="mini" style="--k:var(--hit)">
+        <div class="k">二 · 交易</div>
+        <h3>吸完，一定要呼</h3>
+        <p>冇呼吸，你生存唔到。你同呢個世界係一個交易嘅關係：吸入嚟嘅，唔能夠唔付出去。呢個就係生命嘅 cycle。</p>
+        <ul class="vchain" style="--k:var(--hit)">
+          <li>攞嘅時候，感恩</li>
+          <li>俾嘅時候，開心</li>
+          <li>識接受，識給予</li>
+          <li>合作 → <b>社群</b></li>
+        </ul>
+      </div>
+      <div class="mini" style="--k:var(--a)">
+        <div class="k">三 · 當下</div>
+        <h3>眯埋眼，淨係呼吸</h3>
+        <p>注意力全部返到自己度，你感受到存在嘅本質，聽得到自己，唔再係人哋俾你嘅聲音。</p>
+        <ul class="vchain" style="--k:var(--a)">
+          <li>聽到自己</li>
+          <li>見到真正嘅 Want</li>
+          <li>用自己嘅慾望行動</li>
+          <li><b>快樂</b></li>
+        </ul>
+      </div>
+    </div>
+    <p class="punch">抄人哋想要嘅嘢，即係搶咗人哋嘅嘢俾自己，然後問自己點解唔開心。因為嗰啲嘢係人哋嘅，未必係你想要嘅。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Should 同 Want</div>
+    <h2>解咗創傷，你只係返到 0</h2>
+    <p class="intro"><b>Should 係人哋俾你嘅；Want 係你自己想要嘅。</b>放低 Should 只係解除痛，叫 debuff；攞起 Want 先係加分，叫 buff。兩段路，兩種方法。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 230" role="img" aria-label="一條數線由負一百到正一百。Should 由負一百去零，方法係唔做，得到平靜。Want 由零去一百，方法係行動，得到快樂。">
+        <line x1="40" y1="130" x2="680" y2="130" class="s-muted" stroke-width="2"/>
+        <g class="s-muted" stroke-width="2"><line x1="40" y1="122" x2="40" y2="138"/><line x1="200" y1="125" x2="200" y2="135"/><line x1="360" y1="118" x2="360" y2="142"/><line x1="520" y1="125" x2="520" y2="135"/><line x1="680" y1="122" x2="680" y2="138"/></g>
+        <text x="40" y="160" text-anchor="middle" class="t-b" font-size="15" font-weight="700">−100</text>
+        <text x="40" y="180" text-anchor="middle" class="t-muted" font-size="13">痛</text>
+        <text x="360" y="162" text-anchor="middle" class="t" font-size="16" font-weight="700">0</text>
+        <text x="360" y="182" text-anchor="middle" class="t-muted" font-size="13">平靜</text>
+        <text x="680" y="160" text-anchor="middle" class="t-a" font-size="15" font-weight="700">+100</text>
+        <text x="680" y="180" text-anchor="middle" class="t-muted" font-size="13">快樂</text>
+        <path d="M46,92 H352" class="s-b" stroke-width="5" stroke-linecap="round" marker-end="url(#ah-b)"/>
+        <path d="M368,92 H672" class="s-a" stroke-width="5" stroke-linecap="round" marker-end="url(#ah-a)"/>
+        <text x="200" y="40" text-anchor="middle" class="t-b" font-size="17" font-weight="700">Should · debuff</text>
+        <text x="200" y="66" text-anchor="middle" class="t" font-size="14">方法：唔做、放低 → 平靜</text>
+        <text x="520" y="40" text-anchor="middle" class="t-a" font-size="17" font-weight="700">Want · buff</text>
+        <text x="520" y="66" text-anchor="middle" class="t" font-size="14">方法：行動 → 快樂</text>
+        <text x="360" y="218" text-anchor="middle" class="t-muted" font-size="13.5">右邊嗰段，唔會因為你搞掂咗左邊就自動出現。</text>
+      </svg>
+    </figure>
+    <p class="punch">睇到 Should，然後放低；見到 Want，然後攞起。0 叫平靜，唔叫快樂：開心係另外一段路，要自己行。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「咁即係怪晒父母？」</p>
+        <div><div class="tag">回應</div><p>正正相反。條鏈話俾你知：佢哋都係由佢哋嘅上一代嚟。問 Why，係為咗明白，唔係為咗定罪。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>明白唔等於要原諒、要親近。有啲人，明白完都係要保持距離。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「創傷會經基因遺傳？」</p>
+        <div><div class="tag">回應</div><p>基因會影響你對壓力有幾敏感。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>「創傷本身經基因傳落去」，喺人類身上證據仲好弱。傳得最清楚嘅，係行為：點湊仔、點鬧人、點樣唔講嘢。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「自己諗通就得？」</p>
+        <div><div class="tag">回應</div><p>輕嘅，覺察加時間，好多人自己行得出嚟。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>重嘅（例如創傷後壓力症），有實證嘅治療，例如針對創傷嘅認知行為治療同 EMDR。搵受過訓練嘅人一齊行，快好多。覺察係你嘅責任，唔代表要自己一個做。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>唔係你錯，但係<em>你嘅事</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Swedo et al. (2023), Prevalence of Adverse Childhood Experiences Among U.S. Adults, BRFSS 2011–2020, CDC MMWR 72(26)。<a href="https://www.cdc.gov/mmwr/volumes/72/wr/mm7226a2.htm">cdc.gov</a></li>
+      <li>NICE (2018), Post-traumatic stress disorder, guideline NG116：建議針對創傷嘅認知行為治療同 EMDR。</li>
+    </ol>
+  </div>
+</section>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

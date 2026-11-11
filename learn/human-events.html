@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>人類嘅大事件</title>
+<meta name="description" content="由火到 AI：十六件大事點樣一路疊上去。如果人類史係 24 小時，所有你識嘅嘢都喺最後一分鐘發生。">
+<meta property="og:title" content="人類嘅大事件">
+<meta property="og:description" content="由火到 AI：十六件大事點樣一路疊上去。如果人類史係 24 小時，所有你識嘅嘢都喺最後一分鐘發生。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/human-events.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/human-events.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="人類嘅大事件">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/human-events.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#4fb6b0;--b:#e86a5a;--hit:#e8b04a;--c:#7fb2ff}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<style>
+.tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.ev{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--k);border-radius:12px;padding:14px 16px}
+.ev svg{width:52px;height:52px;color:var(--k)}
+.ev .yr{font-size:12.5px;letter-spacing:.06em;color:var(--k)}
+.ev h3{font-size:18px;margin:0 0 4px}
+.ev p{font-size:14.5px;color:var(--muted);line-height:1.65}
+.ev p b{color:var(--ink);font-weight:500}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted);margin:0 0 16px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--k);margin-right:6px;vertical-align:1px}
+.ic{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一條向上嘅曲線，由火、麥、書、晶片一路上升。">
+    <path d="M20,190 C120,188 170,170 200,30" class="f-none s-muted flow" stroke-width="2"/>
+    <g transform="translate(14,150)" style="color:var(--hit)"><path class="ic" d="M24 6c3 8 12 12 12 22a12 12 0 0 1-24 0c0-6 4-9 6-14 2 4 4 5 6 5-1-5 0-9 0-13z"/></g>
+    <g transform="translate(92,140)" style="color:var(--a)"><path class="ic" d="M24 42V10M24 18c-5-1-8-4-8-9 5 0 8 3 8 9zM24 18c5-1 8-4 8-9-5 0-8 3-8 9zM24 28c-5-1-8-4-8-9 5 0 8 3 8 9zM24 28c5-1 8-4 8-9-5 0-8 3-8 9z"/></g>
+    <g transform="translate(150,98)" style="color:var(--c)"><path class="ic" d="M24 12c-4-3-10-4-16-3v26c6-1 12 0 16 3 4-3 10-4 16-3V9c-6-1-12 0-16 3zM24 12v26"/></g>
+    <g transform="translate(172,22)" style="color:var(--b)" class="bob"><path class="ic" d="M14 14h20v20H14zM18 14V8M24 14V8M30 14V8M18 40v-6M24 40v-6M30 40v-6M14 18H8M14 24H8M14 30H8M40 18h-6M40 24h-6M40 30h-6"/></g>
+  </svg>
+  <div>
+    <h1>人類嘅大事件</h1>
+    <p class="lede">由第一堆火到 AI。每一件大事，都係人類多咗一種力量；每一種力量，都打開一堆新問題。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">比例</div>
+    <h2>如果人類史係 24 小時</h2>
+    <p class="intro">火喺凌晨 12 點。語言要到晚上 10 點幾先出現，農業 11 點 42 分。由印刷機到 AI，全部擠喺最後 51 秒。</p>
+    <figure class="panel"><div class="stack">
+<svg viewBox="0 0 720 112" role="img" aria-label="成個人類史 = 24 小時（火 = 凌晨 12 點）">
+<text x="40" y="18" class="t" font-size="15" font-weight="700">成個人類史 = 24 小時（火 = 凌晨 12 點）</text>
+<rect x="40" y="69" width="640" height="10" rx="5" class="f-surface2 s-rule"/>
+<rect x="671.1" y="65" width="8.9" height="18" rx="4" class="f-hit-soft s-hit" stroke-width="1.5"/>
+<text x="680" y="104" text-anchor="end" class="t-hit" font-size="12.5" font-weight="700">最後 20 分鐘 ↓ 放大</text>
+<line x1="40.0" y1="68" x2="40.0" y2="69" class="s-hit" stroke-width="1.2" opacity=".7"/>
+<circle cx="40.0" cy="74" r="5" class="f-hit"/>
+<text x="34.0" y="38" text-anchor="start" class="t-hit" font-size="13.5" font-weight="700">火</text>
+<text x="34.0" y="52" text-anchor="start" class="t-muted" font-size="11.5">00:00:00</text>
+<line x1="633.9" y1="68" x2="633.9" y2="69" class="s-c" stroke-width="1.2" opacity=".7"/>
+<circle cx="633.9" cy="74" r="5" class="f-c"/>
+<text x="633.9" y="38" text-anchor="middle" class="t-c" font-size="13.5" font-weight="700">語言</text>
+<text x="633.9" y="52" text-anchor="middle" class="t-muted" font-size="11.5">22:16:17</text>
+</svg>
+<svg viewBox="0 0 720 144" role="img" aria-label="最後 20 分鐘">
+<text x="40" y="18" class="t" font-size="15" font-weight="700">最後 20 分鐘</text>
+<rect x="40" y="69" width="640" height="10" rx="5" class="f-surface2 s-rule"/>
+<rect x="648.0" y="65" width="32.0" height="18" rx="4" class="f-hit-soft s-hit" stroke-width="1.5"/>
+<text x="680" y="136" text-anchor="end" class="t-hit" font-size="12.5" font-weight="700">最後 60 秒 ↓ 放大</text>
+<line x1="125.9" y1="68" x2="125.9" y2="69" class="s-a" stroke-width="1.2" opacity=".7"/>
+<circle cx="125.9" cy="74" r="5" class="f-a"/>
+<text x="125.9" y="38" text-anchor="middle" class="t-a" font-size="13.5" font-weight="700">農業</text>
+<text x="125.9" y="52" text-anchor="middle" class="t-muted" font-size="11.5">23:42:41</text>
+<line x1="439.2" y1="68" x2="439.2" y2="69" class="s-c" stroke-width="1.2" opacity=".7"/>
+<circle cx="439.2" cy="74" r="5" class="f-c"/>
+<text x="439.2" y="38" text-anchor="middle" class="t-c" font-size="13.5" font-weight="700">文字</text>
+<text x="439.2" y="52" text-anchor="middle" class="t-muted" font-size="11.5">23:52:28</text>
+<line x1="549.8" y1="68" x2="549.8" y2="69" class="s-a" stroke-width="1.2" opacity=".7"/>
+<circle cx="549.8" cy="74" r="5" class="f-a"/>
+<text x="549.8" y="38" text-anchor="middle" class="t-a" font-size="13.5" font-weight="700">軸心</text>
+<text x="549.8" y="52" text-anchor="middle" class="t-muted" font-size="11.5">23:55:55</text>
+<line x1="559.0" y1="80" x2="559.0" y2="87" class="s-a" stroke-width="1.2" opacity=".7"/>
+<circle cx="559.0" cy="74" r="5" class="f-a"/>
+<text x="559.0" y="100" text-anchor="middle" class="t-a" font-size="13.5" font-weight="700">錢幣</text>
+<text x="559.0" y="114" text-anchor="middle" class="t-muted" font-size="11.5">23:56:13</text>
+<line x1="637.3" y1="68" x2="637.3" y2="69" class="s-c" stroke-width="1.2" opacity=".7"/>
+<circle cx="637.3" cy="74" r="5" class="f-c"/>
+<text x="637.3" y="38" text-anchor="middle" class="t-c" font-size="13.5" font-weight="700">大學</text>
+<text x="637.3" y="52" text-anchor="middle" class="t-muted" font-size="11.5">23:58:39</text>
+</svg>
+<svg viewBox="0 0 720 162" role="img" aria-label="最後 60 秒">
+<text x="40" y="18" class="t" font-size="15" font-weight="700">最後 60 秒</text>
+<rect x="40" y="99" width="640" height="10" rx="5" class="f-surface2 s-rule"/>
+<line x1="139.9" y1="98" x2="139.9" y2="99" class="s-c" stroke-width="1.2" opacity=".7"/>
+<circle cx="139.9" cy="104" r="5" class="f-c"/>
+<text x="139.9" y="68" text-anchor="middle" class="t-c" font-size="13.5" font-weight="700">印刷</text>
+<text x="139.9" y="82" text-anchor="middle" class="t-muted" font-size="11.5">23:59:09</text>
+<line x1="187.9" y1="110" x2="187.9" y2="117" class="s-a" stroke-width="1.2" opacity=".7"/>
+<circle cx="187.9" cy="104" r="5" class="f-a"/>
+<text x="187.9" y="130" text-anchor="middle" class="t-a" font-size="13.5" font-weight="700">哥倫布</text>
+<text x="187.9" y="144" text-anchor="middle" class="t-muted" font-size="11.5">23:59:13</text>
+<line x1="333.5" y1="98" x2="333.5" y2="99" class="s-c" stroke-width="1.2" opacity=".7"/>
+<circle cx="333.5" cy="104" r="5" class="f-c"/>
+<text x="333.5" y="68" text-anchor="middle" class="t-c" font-size="13.5" font-weight="700">啟蒙</text>
+<text x="333.5" y="82" text-anchor="middle" class="t-muted" font-size="11.5">23:59:27</text>
+<line x1="434.9" y1="98" x2="434.9" y2="99" class="s-hit" stroke-width="1.2" opacity=".7"/>
+<circle cx="434.9" cy="104" r="5" class="f-hit"/>
+<text x="434.9" y="68" text-anchor="middle" class="t-hit" font-size="13.5" font-weight="700">蒸汽</text>
+<text x="434.9" y="82" text-anchor="middle" class="t-muted" font-size="11.5">23:59:37</text>
+<line x1="471.7" y1="110" x2="471.7" y2="117" class="s-hit" stroke-width="1.2" opacity=".7"/>
+<circle cx="471.7" cy="104" r="5" class="f-hit"/>
+<text x="471.7" y="130" text-anchor="middle" class="t-hit" font-size="13.5" font-weight="700">電</text>
+<text x="471.7" y="144" text-anchor="middle" class="t-muted" font-size="11.5">23:59:40</text>
+<line x1="527.0" y1="98" x2="527.0" y2="99" class="s-c" stroke-width="1.2" opacity=".7"/>
+<circle cx="527.0" cy="104" r="5" class="f-c"/>
+<text x="527.0" y="68" text-anchor="middle" class="t-c" font-size="13.5" font-weight="700">細菌</text>
+<text x="527.0" y="82" text-anchor="middle" class="t-muted" font-size="11.5">23:59:45</text>
+<line x1="605.4" y1="98" x2="605.4" y2="99" class="s-b" stroke-width="1.2" opacity=".7"/>
+<circle cx="605.4" cy="104" r="5" class="f-b"/>
+<text x="605.4" y="68" text-anchor="middle" class="t-b" font-size="13.5" font-weight="700">核武</text>
+<text x="605.4" y="82" text-anchor="middle" class="t-muted" font-size="11.5">23:59:53</text>
+<line x1="646.8" y1="110" x2="646.8" y2="117" class="s-c" stroke-width="1.2" opacity=".7"/>
+<circle cx="646.8" cy="104" r="5" class="f-c"/>
+<text x="646.8" y="130" text-anchor="middle" class="t-c" font-size="13.5" font-weight="700">互聯網</text>
+<text x="646.8" y="144" text-anchor="middle" class="t-muted" font-size="11.5">23:59:56</text>
+<line x1="676.3" y1="98" x2="676.3" y2="69" class="s-b" stroke-width="1.2" opacity=".7"/>
+<circle cx="676.3" cy="104" r="5" class="f-b"/>
+<text x="682.3" y="38" text-anchor="end" class="t-b" font-size="13.5" font-weight="700">AI</text>
+<text x="682.3" y="52" text-anchor="end" class="t-muted" font-size="11.5">23:59:59.7</text>
+</svg>
+</div><figcaption>由第一堆火（約 100 萬年前）計到 2026 年，壓落一日 24 小時。AI 用 2022 年計。</figcaption></figure>
+    <p class="punch">人類 99% 嘅時間喺度烤火。你識嘅所有嘢，都係最後一分鐘嘅事。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">十六件事</div>
+    <h2>一件疊一件</h2>
+    <div class="legend">
+      <span style="--k:var(--hit)">能量</span><span style="--k:var(--c)">知識</span><span style="--k:var(--a)">合作</span><span style="--k:var(--b)">自毀</span>
+    </div>
+    <div class="tl">
+      <div class="ev" style="--k:var(--hit)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M24 6c3 8 12 12 12 22a12 12 0 0 1-24 0c0-6 4-9 6-14 2 4 4 5 6 5-1-5 0-9 0-13z"/></svg>
+        <div><div class="yr">約 100 萬年前</div><h3>火</h3><p>煮熟食物 → <b>營養好咗</b><br>暖 → 圍埋一齊 → <b>社交</b></p></div></div>
+      <div class="ev" style="--k:var(--c)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M8 10h26a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H20l-9 7v-7H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z"/><circle cx="14" cy="20" r="1.6" fill="currentColor"/><circle cx="21" cy="20" r="1.6" fill="currentColor"/><circle cx="28" cy="20" r="1.6" fill="currentColor"/></svg>
+        <div><div class="yr">約 7 萬年前</div><h3>語言</h3><p>知識可以由一個腦傳去另一個腦 → <b>知識傳承</b></p></div></div>
+      <div class="ev" style="--k:var(--a)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M24 44V10M24 18c-5-1-8-4-8-9 5 0 8 3 8 9zM24 18c5-1 8-4 8-9-5 0-8 3-8 9zM24 28c-5-1-8-4-8-9 5 0 8 3 8 9zM24 28c5-1 8-4 8-9-5 0-8 3-8 9zM24 38c-5-1-8-4-8-9 5 0 8 3 8 9zM24 38c5-1 8-4 8-9-5 0-8 3-8 9z"/></svg>
+        <div><div class="yr">約公元前 1 萬年</div><h3>農業</h3><p>定居 → <b>文明</b><br>糧食有剩 → <b>人口多咗</b></p></div></div>
+      <div class="ev" style="--k:var(--c)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect class="ic" x="10" y="6" width="28" height="36" rx="3"/><path class="ic" d="M16 14h6M27 14h5M16 21h10M30 21h2M16 28h4M24 28h8M16 35h12"/></svg>
+        <div><div class="yr">公元前 3200 年</div><h3>文字</h3><p>知識保存得落 → 跨時間、跨空間溝通 → <b>歷史</b></p></div></div>
+      <div class="ev" style="--k:var(--a)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M8 30h32c0 6-7 10-16 10S8 36 8 30zM24 10c2 4 4 6 4 9a4 4 0 0 1-8 0c0-3 2-5 4-9zM24 26v4"/></svg>
+        <div><div class="yr">公元前 800 年起</div><h3>第一次啟蒙？宗教</h3><p>邏輯 → <b>普世道德</b> → 將人連埋，亦將人分開<br>邏輯 → <b>個人責任</b></p></div></div>
+      <div class="ev" style="--k:var(--a)"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="ic" cx="24" cy="24" r="17"/><rect class="ic" x="19" y="19" width="10" height="10"/></svg>
+        <div><div class="yr">公元前 600 年</div><h3>錢幣</h3><p>唔使再靠身份換嘢 → <b>由地位遊戲解放</b></p></div></div>
+      <div class="ev" style="--k:var(--c)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M6 18L24 8l18 10zM10 18v18M18 18v18M30 18v18M38 18v18M6 40h36"/></svg>
+        <div><div class="yr">約 1100 年</div><h3>大學</h3><p><b>有組織嘅知識</b></p></div></div>
+      <div class="ev" style="--k:var(--c)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M24 12c-4-3-10-4-16-3v28c6-1 12 0 16 3 4-3 10-4 16-3V9c-6-1-12 0-16 3zM24 12v28"/></svg>
+        <div><div class="yr">1440 年</div><h3>印刷機</h3><p><b>打破知識壟斷</b>：書唔再係教會同貴族專利</p></div></div>
+      <div class="ev" style="--k:var(--a)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M6 32h36l-6 8H12zM24 32V6M24 8l13 18H24zM24 12l-9 14h9"/></svg>
+        <div><div class="yr">1492 年</div><h3>哥倫布</h3><p><b>全球化</b>：世界第一次連埋一齊</p></div></div>
+      <div class="ev" style="--k:var(--c)"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="ic" cx="20" cy="20" r="11"/><path class="ic" d="M28 28l12 12"/></svg>
+        <div><div class="yr">約 1650 年</div><h3>啟蒙</h3><p>科學 → 搵真相嘅方法 → 乜都搞得清 → <b>上帝已死</b><br>個人主義 → 人權 → <b>民主</b></p></div></div>
+      <div class="ev" style="--k:var(--hit)"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="ic" cx="24" cy="24" r="8"/><path class="ic" d="M24 6v6M24 36v6M6 24h6M36 24h6M11.3 11.3l4.2 4.2M32.5 32.5l4.2 4.2M11.3 36.7l4.2-4.2M32.5 15.5l4.2-4.2"/></svg>
+        <div><div class="yr">約 1760 年</div><h3>蒸汽機</h3><p>化石燃料 → 工業化 → 量產 → <b>資本主義</b></p></div></div>
+      <div class="ev" style="--k:var(--hit)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M27 4L12 27h10l-3 17 17-25H26z"/></svg>
+        <div><div class="yr">約 1800 年</div><h3>電</h3><p>燈、交通、通訊、電腦、家電 → <b>慳時間</b></p></div></div>
+      <div class="ev" style="--k:var(--c)"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="ic" cx="24" cy="24" r="10"/><path class="ic" d="M24 6v6M24 36v6M6 24h6M36 24h6M12 12l4 4M32 32l4 4M12 36l4-4M32 16l4-4"/><circle cx="21" cy="21" r="1.8" fill="currentColor"/><circle cx="27" cy="26" r="1.8" fill="currentColor"/></svg>
+        <div><div class="yr">約 1860 年</div><h3>細菌學說</h3><p>抗生素 → <b>壽命長咗</b>（<a href="https://jpoon6d23.github.io/funplaywhatever/learn/antibiotics.html">抗生素只識打細菌</a>）</p></div></div>
+      <div class="ev" style="--k:var(--b)"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic" d="M10 24c0-9 6-15 14-15s14 6 14 15c-4 2-24 2-28 0zM20 26v12h8V26M12 41h24"/></svg>
+        <div><div class="yr">1945 年</div><h3>核武</h3><p>人類第一次有能力<b>自己攞自己命</b></p></div></div>
+      <div class="ev" style="--k:var(--c)"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="ic" cx="24" cy="24" r="17"/><ellipse class="ic" cx="24" cy="24" rx="7" ry="17"/><path class="ic" d="M7 24h34M10 15h28M10 33h28"/></svg>
+        <div><div class="yr">約 1990 年</div><h3>互聯網</h3><p>即時全球通訊<br>上面所有知識，<b>一撳就有</b></p></div></div>
+      <div class="ev" style="--k:var(--b)"><svg viewBox="0 0 48 48" aria-hidden="true"><rect class="ic" x="13" y="13" width="22" height="22" rx="3"/><path class="ic" d="M18 13V7M24 13V7M30 13V7M18 41v-6M24 41v-6M30 41v-6M13 18H7M13 24H7M13 30H7M41 18h-6M41 24h-6M41 30h-6"/><text x="24" y="28.5" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="sans-serif">AI</text></svg>
+        <div><div class="yr">而家</div><h3>AI</h3><p>自己攞自己命，<b>可以再快啲</b></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">進步</div>
+    <h2>疊完之後，世界變成點</h2>
+    <p class="intro">最易睇到進步嘅，係細路仔。1800 年，全世界大約 43% 嘅細路捱唔到 5 歲；2023 年，唔夠 4%。2019 年，極度貧窮嘅人口比例跌咗落 10% 以下。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 300" role="img" aria-label="左邊 1800 年，100 個細路有 43 個五歲前死；右邊 2023 年，100 個唔夠 4 個。"><text x="60" y="22" class="t" font-size="16" font-weight="700">1800 年</text><text x="60" y="44" class="t-b" font-size="14">100 個細路，43 個捱唔到 5 歲</text><circle cx="68" cy="70" r="8" class="f-b"/><circle cx="90" cy="70" r="8" class="f-b"/><circle cx="112" cy="70" r="8" class="f-b"/><circle cx="134" cy="70" r="8" class="f-b"/><circle cx="156" cy="70" r="8" class="f-b"/><circle cx="178" cy="70" r="8" class="f-b"/><circle cx="200" cy="70" r="8" class="f-b"/><circle cx="222" cy="70" r="8" class="f-b"/><circle cx="244" cy="70" r="8" class="f-b"/><circle cx="266" cy="70" r="8" class="f-b"/><circle cx="68" cy="92" r="8" class="f-b"/><circle cx="90" cy="92" r="8" class="f-b"/><circle cx="112" cy="92" r="8" class="f-b"/><circle cx="134" cy="92" r="8" class="f-b"/><circle cx="156" cy="92" r="8" class="f-b"/><circle cx="178" cy="92" r="8" class="f-b"/><circle cx="200" cy="92" r="8" class="f-b"/><circle cx="222" cy="92" r="8" class="f-b"/><circle cx="244" cy="92" r="8" class="f-b"/><circle cx="266" cy="92" r="8" class="f-b"/><circle cx="68" cy="114" r="8" class="f-b"/><circle cx="90" cy="114" r="8" class="f-b"/><circle cx="112" cy="114" r="8" class="f-b"/><circle cx="134" cy="114" r="8" class="f-b"/><circle cx="156" cy="114" r="8" class="f-b"/><circle cx="178" cy="114" r="8" class="f-b"/><circle cx="200" cy="114" r="8" class="f-b"/><circle cx="222" cy="114" r="8" class="f-b"/><circle cx="244" cy="114" r="8" class="f-b"/><circle cx="266" cy="114" r="8" class="f-b"/><circle cx="68" cy="136" r="8" class="f-b"/><circle cx="90" cy="136" r="8" class="f-b"/><circle cx="112" cy="136" r="8" class="f-b"/><circle cx="134" cy="136" r="8" class="f-b"/><circle cx="156" cy="136" r="8" class="f-b"/><circle cx="178" cy="136" r="8" class="f-b"/><circle cx="200" cy="136" r="8" class="f-b"/><circle cx="222" cy="136" r="8" class="f-b"/><circle cx="244" cy="136" r="8" class="f-b"/><circle cx="266" cy="136" r="8" class="f-b"/><circle cx="68" cy="158" r="8" class="f-b"/><circle cx="90" cy="158" r="8" class="f-b"/><circle cx="112" cy="158" r="8" class="f-b"/><circle cx="134" cy="158" r="8" class="f-muted-soft"/><circle cx="156" cy="158" r="8" class="f-muted-soft"/><circle cx="178" cy="158" r="8" class="f-muted-soft"/><circle cx="200" cy="158" r="8" class="f-muted-soft"/><circle cx="222" cy="158" r="8" class="f-muted-soft"/><circle cx="244" cy="158" r="8" class="f-muted-soft"/><circle cx="266" cy="158" r="8" class="f-muted-soft"/><circle cx="68" cy="180" r="8" class="f-muted-soft"/><circle cx="90" cy="180" r="8" class="f-muted-soft"/><circle cx="112" cy="180" r="8" class="f-muted-soft"/><circle cx="134" cy="180" r="8" class="f-muted-soft"/><circle cx="156" cy="180" r="8" class="f-muted-soft"/><circle cx="178" cy="180" r="8" class="f-muted-soft"/><circle cx="200" cy="180" r="8" class="f-muted-soft"/><circle cx="222" cy="180" r="8" class="f-muted-soft"/><circle cx="244" cy="180" r="8" class="f-muted-soft"/><circle cx="266" cy="180" r="8" class="f-muted-soft"/><circle cx="68" cy="202" r="8" class="f-muted-soft"/><circle cx="90" cy="202" r="8" class="f-muted-soft"/><circle cx="112" cy="202" r="8" class="f-muted-soft"/><circle cx="134" cy="202" r="8" class="f-muted-soft"/><circle cx="156" cy="202" r="8" class="f-muted-soft"/><circle cx="178" cy="202" r="8" class="f-muted-soft"/><circle cx="200" cy="202" r="8" class="f-muted-soft"/><circle cx="222" cy="202" r="8" class="f-muted-soft"/><circle cx="244" cy="202" r="8" class="f-muted-soft"/><circle cx="266" cy="202" r="8" class="f-muted-soft"/><circle cx="68" cy="224" r="8" class="f-muted-soft"/><circle cx="90" cy="224" r="8" class="f-muted-soft"/><circle cx="112" cy="224" r="8" class="f-muted-soft"/><circle cx="134" cy="224" r="8" class="f-muted-soft"/><circle cx="156" cy="224" r="8" class="f-muted-soft"/><circle cx="178" cy="224" r="8" class="f-muted-soft"/><circle cx="200" cy="224" r="8" class="f-muted-soft"/><circle cx="222" cy="224" r="8" class="f-muted-soft"/><circle cx="244" cy="224" r="8" class="f-muted-soft"/><circle cx="266" cy="224" r="8" class="f-muted-soft"/><circle cx="68" cy="246" r="8" class="f-muted-soft"/><circle cx="90" cy="246" r="8" class="f-muted-soft"/><circle cx="112" cy="246" r="8" class="f-muted-soft"/><circle cx="134" cy="246" r="8" class="f-muted-soft"/><circle cx="156" cy="246" r="8" class="f-muted-soft"/><circle cx="178" cy="246" r="8" class="f-muted-soft"/><circle cx="200" cy="246" r="8" class="f-muted-soft"/><circle cx="222" cy="246" r="8" class="f-muted-soft"/><circle cx="244" cy="246" r="8" class="f-muted-soft"/><circle cx="266" cy="246" r="8" class="f-muted-soft"/><circle cx="68" cy="268" r="8" class="f-muted-soft"/><circle cx="90" cy="268" r="8" class="f-muted-soft"/><circle cx="112" cy="268" r="8" class="f-muted-soft"/><circle cx="134" cy="268" r="8" class="f-muted-soft"/><circle cx="156" cy="268" r="8" class="f-muted-soft"/><circle cx="178" cy="268" r="8" class="f-muted-soft"/><circle cx="200" cy="268" r="8" class="f-muted-soft"/><circle cx="222" cy="268" r="8" class="f-muted-soft"/><circle cx="244" cy="268" r="8" class="f-muted-soft"/><circle cx="266" cy="268" r="8" class="f-muted-soft"/><text x="420" y="22" class="t" font-size="16" font-weight="700">2023 年</text><text x="420" y="44" class="t-a" font-size="14">100 個細路，唔夠 4 個</text><circle cx="428" cy="70" r="8" class="f-b"/><circle cx="450" cy="70" r="8" class="f-b"/><circle cx="472" cy="70" r="8" class="f-b"/><circle cx="494" cy="70" r="8" class="f-b" fill-opacity="0.55"/><circle cx="516" cy="70" r="8" class="f-a-soft"/><circle cx="538" cy="70" r="8" class="f-a-soft"/><circle cx="560" cy="70" r="8" class="f-a-soft"/><circle cx="582" cy="70" r="8" class="f-a-soft"/><circle cx="604" cy="70" r="8" class="f-a-soft"/><circle cx="626" cy="70" r="8" class="f-a-soft"/><circle cx="428" cy="92" r="8" class="f-a-soft"/><circle cx="450" cy="92" r="8" class="f-a-soft"/><circle cx="472" cy="92" r="8" class="f-a-soft"/><circle cx="494" cy="92" r="8" class="f-a-soft"/><circle cx="516" cy="92" r="8" class="f-a-soft"/><circle cx="538" cy="92" r="8" class="f-a-soft"/><circle cx="560" cy="92" r="8" class="f-a-soft"/><circle cx="582" cy="92" r="8" class="f-a-soft"/><circle cx="604" cy="92" r="8" class="f-a-soft"/><circle cx="626" cy="92" r="8" class="f-a-soft"/><circle cx="428" cy="114" r="8" class="f-a-soft"/><circle cx="450" cy="114" r="8" class="f-a-soft"/><circle cx="472" cy="114" r="8" class="f-a-soft"/><circle cx="494" cy="114" r="8" class="f-a-soft"/><circle cx="516" cy="114" r="8" class="f-a-soft"/><circle cx="538" cy="114" r="8" class="f-a-soft"/><circle cx="560" cy="114" r="8" class="f-a-soft"/><circle cx="582" cy="114" r="8" class="f-a-soft"/><circle cx="604" cy="114" r="8" class="f-a-soft"/><circle cx="626" cy="114" r="8" class="f-a-soft"/><circle cx="428" cy="136" r="8" class="f-a-soft"/><circle cx="450" cy="136" r="8" class="f-a-soft"/><circle cx="472" cy="136" r="8" class="f-a-soft"/><circle cx="494" cy="136" r="8" class="f-a-soft"/><circle cx="516" cy="136" r="8" class="f-a-soft"/><circle cx="538" cy="136" r="8" class="f-a-soft"/><circle cx="560" cy="136" r="8" class="f-a-soft"/><circle cx="582" cy="136" r="8" class="f-a-soft"/><circle cx="604" cy="136" r="8" class="f-a-soft"/><circle cx="626" cy="136" r="8" class="f-a-soft"/><circle cx="428" cy="158" r="8" class="f-a-soft"/><circle cx="450" cy="158" r="8" class="f-a-soft"/><circle cx="472" cy="158" r="8" class="f-a-soft"/><circle cx="494" cy="158" r="8" class="f-a-soft"/><circle cx="516" cy="158" r="8" class="f-a-soft"/><circle cx="538" cy="158" r="8" class="f-a-soft"/><circle cx="560" cy="158" r="8" class="f-a-soft"/><circle cx="582" cy="158" r="8" class="f-a-soft"/><circle cx="604" cy="158" r="8" class="f-a-soft"/><circle cx="626" cy="158" r="8" class="f-a-soft"/><circle cx="428" cy="180" r="8" class="f-a-soft"/><circle cx="450" cy="180" r="8" class="f-a-soft"/><circle cx="472" cy="180" r="8" class="f-a-soft"/><circle cx="494" cy="180" r="8" class="f-a-soft"/><circle cx="516" cy="180" r="8" class="f-a-soft"/><circle cx="538" cy="180" r="8" class="f-a-soft"/><circle cx="560" cy="180" r="8" class="f-a-soft"/><circle cx="582" cy="180" r="8" class="f-a-soft"/><circle cx="604" cy="180" r="8" class="f-a-soft"/><circle cx="626" cy="180" r="8" class="f-a-soft"/><circle cx="428" cy="202" r="8" class="f-a-soft"/><circle cx="450" cy="202" r="8" class="f-a-soft"/><circle cx="472" cy="202" r="8" class="f-a-soft"/><circle cx="494" cy="202" r="8" class="f-a-soft"/><circle cx="516" cy="202" r="8" class="f-a-soft"/><circle cx="538" cy="202" r="8" class="f-a-soft"/><circle cx="560" cy="202" r="8" class="f-a-soft"/><circle cx="582" cy="202" r="8" class="f-a-soft"/><circle cx="604" cy="202" r="8" class="f-a-soft"/><circle cx="626" cy="202" r="8" class="f-a-soft"/><circle cx="428" cy="224" r="8" class="f-a-soft"/><circle cx="450" cy="224" r="8" class="f-a-soft"/><circle cx="472" cy="224" r="8" class="f-a-soft"/><circle cx="494" cy="224" r="8" class="f-a-soft"/><circle cx="516" cy="224" r="8" class="f-a-soft"/><circle cx="538" cy="224" r="8" class="f-a-soft"/><circle cx="560" cy="224" r="8" class="f-a-soft"/><circle cx="582" cy="224" r="8" class="f-a-soft"/><circle cx="604" cy="224" r="8" class="f-a-soft"/><circle cx="626" cy="224" r="8" class="f-a-soft"/><circle cx="428" cy="246" r="8" class="f-a-soft"/><circle cx="450" cy="246" r="8" class="f-a-soft"/><circle cx="472" cy="246" r="8" class="f-a-soft"/><circle cx="494" cy="246" r="8" class="f-a-soft"/><circle cx="516" cy="246" r="8" class="f-a-soft"/><circle cx="538" cy="246" r="8" class="f-a-soft"/><circle cx="560" cy="246" r="8" class="f-a-soft"/><circle cx="582" cy="246" r="8" class="f-a-soft"/><circle cx="604" cy="246" r="8" class="f-a-soft"/><circle cx="626" cy="246" r="8" class="f-a-soft"/><circle cx="428" cy="268" r="8" class="f-a-soft"/><circle cx="450" cy="268" r="8" class="f-a-soft"/><circle cx="472" cy="268" r="8" class="f-a-soft"/><circle cx="494" cy="268" r="8" class="f-a-soft"/><circle cx="516" cy="268" r="8" class="f-a-soft"/><circle cx="538" cy="268" r="8" class="f-a-soft"/><circle cx="560" cy="268" r="8" class="f-a-soft"/><circle cx="582" cy="268" r="8" class="f-a-soft"/><circle cx="604" cy="268" r="8" class="f-a-soft"/><circle cx="626" cy="268" r="8" class="f-a-soft"/></svg>
+      <figcaption>每粒點 = 1 個細路。紅色 = 五歲前死。</figcaption>
+    </figure>
+    <p class="punch">1800 年嘅阿媽，平均要送走兩三個仔女。今日佢會覺得我哋活喺天堂，而我哋覺得自己好慘。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">規律</div>
+    <h2>四種力量</h2>
+    <div class="grid2">
+      <div class="mini" style="--k:var(--hit)"><div class="k">能量</div><h3>火 → 蒸汽 → 電</h3><p>每一次，同一個人做到嘅嘢多咗十倍。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">知識</div><h3>語言 → 文字 → 印刷 → 互聯網</h3><p>每一次，知識傳得快啲、平啲、遠啲。科學再教識我哋點樣搵錯。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">合作</div><h3>農業 → 宗教 → 錢 → 全球化</h3><p>每一次，可以合作嘅陌生人多咗。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">自毀</div><h3>核武 → AI</h3><p>力量大到，第一次可以反過嚟對付自己。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「進步咗咁多，點解大家都唔開心？」</p>
+        <div><div class="tag">回應</div><p>人比較嘅係隔籬，唔係 1800 年。你唔會因為冇死仔而開心，只會因為人哋有架新車而唔開心。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>平均好咗，唔等於每個人都好咗。有啲地方、有啲人，仲停喺上一個時代。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「AI 會唔會玩完我哋？」</p>
+        <div><div class="tag">回應</div><p>冇人知。核武出咗 80 年，到今日都未玩完，靠嘅係規則、制衡同運氣。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>「以前冇事」唔代表「以後冇事」。呢個正正係歸納法嘅陷阱。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>火陪咗我哋一百萬年。燒得死全人類嘅火，先出現咗 <em>八十年</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Our World in Data：A history of global living conditions（1800 年 43% 細路五歲前死；2019 年極度貧窮跌穿 10%）。<a href="https://ourworldindata.org/a-history-of-global-living-conditions">ourworldindata.org</a></li>
+      <li>Our World in Data：全球五歲以下死亡率長期數據（2023 年唔夠 4%）。<a href="https://ourworldindata.org/grapher/child-mortality">ourworldindata.org</a></li>
+      <li>年份係大概：火（有控制咁用火，約 100 萬年前嘅證據）、語言（有爭議，常引約 7 萬年前）、軸心時代（Karl Jaspers，公元前 800–200 年）、最早錢幣（呂底亞，約公元前 600 年）。</li>
+    </ol>
+  </div>
+</section>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

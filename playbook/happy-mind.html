@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Happy Mind</title>
+<meta name="description" content="Happy Body 嘅續集：明白（你有責任）、行動（爭取你想要嘅）、停低（接受，建立關係）、身體，同養心嘅 Why、How、What。">
+<meta property="og:title" content="Happy Mind">
+<meta property="og:description" content="Happy Body 嘅續集：明白（你有責任）、行動（爭取你想要嘅）、停低（接受，建立關係）、身體，同養心嘅 Why、How、What。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/playbook/happy-mind.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/happy-mind.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Happy Mind">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/playbook/happy-mind.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#4cc3b5;--b:#ef7c6b;--hit:#7fb2ff;--c:#7fb2ff;--d:#e9b04b}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#body">← 玩笑但 · 身體</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="四個重疊嘅圓：明白、行動、停低、身體，中間係心。">
+    <circle cx="88" cy="72" r="50" class="f-c-soft s-c" stroke-width="2"/>
+    <circle cx="152" cy="72" r="50" class="f-b-soft s-b" stroke-width="2"/>
+    <circle cx="88" cy="138" r="50" class="f-a-soft s-a" stroke-width="2"/>
+    <circle cx="152" cy="138" r="50" class="f-d-soft s-d" stroke-width="2"/>
+    <text x="70" y="58" text-anchor="middle" class="t-c" font-size="16" font-weight="700">明白</text>
+    <text x="170" y="58" text-anchor="middle" class="t-b" font-size="16" font-weight="700">行動</text>
+    <text x="70" y="164" text-anchor="middle" class="t-a" font-size="16" font-weight="700">停低</text>
+    <text x="170" y="164" text-anchor="middle" class="t-d" font-size="16" font-weight="700">身體</text>
+    <circle cx="120" cy="105" r="20" class="f-bg s-ink" stroke-width="1.5"/>
+    <text x="120" y="111" text-anchor="middle" class="t" font-size="16" font-weight="700">心</text>
+  </svg>
+  <div>
+    <div class="kicker">HAPPY BODY 嘅續集</div>
+    <h1>Happy Mind</h1>
+    <p class="said">明白，你有責任。用行動，得到你想要嘅嘢。用停低接受，建立關係：同自己、同朋友、同世界。同埋，身體要健康。</p>
+    <p class="lede">身體要識動、識靜；個心都係。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">地圖</div>
+    <h2>四條枝</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 380" role="img" aria-label="Happy Mind 分四條枝：明白（你就係神等於真相）通去你有責任；行動（賺你嘅尊重，有用）通去爭取你想要嘅；停低（愛等於包容，一體）通去接受同建立關係；身體通去動同靜。">
+        <path d="M170,190 C210,190 210,47 246,47" class="f-none s-c" stroke-width="3"/>
+        <path d="M170,190 C210,190 210,139 246,139" class="f-none s-b" stroke-width="3"/>
+        <path d="M170,190 C210,190 210,231 246,231" class="f-none s-a" stroke-width="3"/>
+        <path d="M170,190 C210,190 210,323 246,323" class="f-none s-d" stroke-width="3"/>
+        <rect x="20" y="166" width="150" height="48" rx="24" class="f-surface2 s-ink" stroke-width="2"/>
+        <text x="95" y="196" text-anchor="middle" class="t" font-size="17" font-weight="700">Happy Mind</text>
+
+        <rect x="250" y="18" width="210" height="58" rx="12" class="f-surface2 s-c" stroke-width="2"/>
+        <text x="264" y="42" class="t-c" font-size="17" font-weight="700">明白</text>
+        <text x="264" y="64" class="t-muted" font-size="13">You are God = truth</text>
+        <rect x="250" y="110" width="210" height="58" rx="12" class="f-surface2 s-b" stroke-width="2"/>
+        <text x="264" y="134" class="t-b" font-size="17" font-weight="700">行動</text>
+        <text x="264" y="156" class="t-muted" font-size="13">Earn your respect · Utility</text>
+        <rect x="250" y="202" width="210" height="58" rx="12" class="f-surface2 s-a" stroke-width="2"/>
+        <text x="264" y="226" class="t-a" font-size="17" font-weight="700">停低</text>
+        <text x="264" y="248" class="t-muted" font-size="13">Love = include · Oneness</text>
+        <rect x="250" y="294" width="210" height="58" rx="12" class="f-surface2 s-d" stroke-width="2"/>
+        <text x="264" y="318" class="t-d" font-size="17" font-weight="700">身體</text>
+        <text x="264" y="340" class="t-muted" font-size="13">Happy body</text>
+
+        <path d="M460,47 H486" class="s-c" stroke-width="2" marker-end="url(#ah-c)"/>
+        <path d="M460,139 H486" class="s-b" stroke-width="2" marker-end="url(#ah-b)"/>
+        <path d="M460,231 H486" class="s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+        <path d="M460,323 H486" class="s-d" stroke-width="2" marker-end="url(#ah-d)"/>
+        <text x="494" y="53" class="t" font-size="16" font-weight="700">你有責任</text>
+        <text x="494" y="145" class="t" font-size="16" font-weight="700">爭取你想要嘅</text>
+        <text x="494" y="237" class="t" font-size="16" font-weight="700">接受，建立關係</text>
+        <text x="494" y="329" class="t" font-size="16" font-weight="700">動 + 靜</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">一 · 明白</div>
+    <h2>你就係神 = 真相，所以你有責任</h2>
+    <p class="intro"><b>因果</b>：你種乜，就收乜。冇人幫你負責，所以責任係你嘅。<b>Take no one's word for it</b>：唔好因為邊個講就信。<b>What's right &gt; who's right</b>：講得啱唔啱，大過邊個講。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 250" role="img" aria-label="一個天秤：左邊放「邊個講」，好輕，翹高；右邊放「講得啱唔啱」，有證據，沉落去。">
+        <rect x="310" y="214" width="100" height="10" rx="3" class="f-muted" opacity=".6"/>
+        <line x1="360" y1="112" x2="360" y2="214" class="s-muted" stroke-width="4"/>
+        <line x1="170" y1="92" x2="550" y2="128" class="s-ink" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="360" cy="110" r="7" class="f-ink"/>
+        <path d="M170,92 L132,140 M170,92 L208,140" class="s-muted" stroke-width="1.5"/>
+        <path d="M118,140 H222 Q170,172 118,140 Z" class="f-b-soft s-b" stroke-width="2"/>
+        <rect x="158" y="122" width="24" height="18" rx="3" class="f-b" opacity=".7"/>
+        <text x="170" y="136" text-anchor="middle" class="t-bg" font-size="11" font-weight="700">名</text>
+        <text x="170" y="196" text-anchor="middle" class="t-b" font-size="16" font-weight="700">邊個講</text>
+        <text x="170" y="216" text-anchor="middle" class="t-muted" font-size="13">專家？阿爸？好有錢？</text>
+        <path d="M550,128 L512,176 M550,128 L588,176" class="s-muted" stroke-width="1.5"/>
+        <path d="M498,176 H602 Q550,208 498,176 Z" class="f-c-soft s-c" stroke-width="2"/>
+        <rect x="522" y="140" width="56" height="36" rx="4" class="f-c"/>
+        <text x="550" y="163" text-anchor="middle" class="t-bg" font-size="14" font-weight="700">證據</text>
+        <text x="550" y="232" text-anchor="middle" class="t-c" font-size="16" font-weight="700">講得啱唔啱</text>
+        <text x="360" y="30" text-anchor="middle" class="t" font-size="15" font-weight="700">What's right &gt; who's right</text>
+      </svg>
+      <figcaption>英國皇家學會 1660 年成立，會訓係 Nullius in verba：唔好靠任何人把口。科學就係由呢句開始。</figcaption>
+    </figure>
+    <p class="note">「你就係神」嘅完整版本，喺另一頁：<a href="https://jpoon6d23.github.io/funplaywhatever/learn/you-are-god.html">你就係神</a>。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">二 · 行動</div>
+    <h2>Earn your respect：用行動攞你想要嘅</h2>
+    <p class="intro">尊重唔係要返嚟，係賺返嚟。點賺？對人有用（utility）。點樣攞先長久？<b>皆大歡喜，先長做長有。</b></p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 290" role="img" aria-label="二乘二格：我贏你輸係做一次；我贏你贏係皆大歡喜、長做長有；我輸你贏做唔長；雙輸。">
+        <text x="290" y="30" text-anchor="middle" class="t-muted" font-size="14">對方輸</text>
+        <text x="500" y="30" text-anchor="middle" class="t-muted" font-size="14">對方贏</text>
+        <text x="172" y="102" text-anchor="end" class="t-muted" font-size="14">我贏</text>
+        <text x="172" y="212" text-anchor="end" class="t-muted" font-size="14">我輸</text>
+        <rect x="185" y="42" width="205" height="108" rx="10" class="f-surface2 s-rule"/>
+        <rect x="398" y="42" width="205" height="108" rx="10" class="f-b-soft s-b" stroke-width="2"/>
+        <rect x="185" y="156" width="205" height="108" rx="10" class="f-surface2 s-rule"/>
+        <rect x="398" y="156" width="205" height="108" rx="10" class="f-surface2 s-rule"/>
+        <text x="288" y="92" text-anchor="middle" class="t" font-size="17" font-weight="700">做一次</text>
+        <text x="288" y="116" text-anchor="middle" class="t-muted" font-size="13.5">呃到一次，冇下次</text>
+        <text x="500" y="92" text-anchor="middle" class="t-b" font-size="18" font-weight="700">皆大歡喜</text>
+        <text x="500" y="118" text-anchor="middle" class="t" font-size="15">長做長有</text>
+        <text x="288" y="206" text-anchor="middle" class="t" font-size="17" font-weight="700">雙輸</text>
+        <text x="288" y="230" text-anchor="middle" class="t-muted" font-size="13.5">咁都做？</text>
+        <text x="500" y="206" text-anchor="middle" class="t" font-size="17" font-weight="700">做唔長</text>
+        <text x="500" y="230" text-anchor="middle" class="t-muted" font-size="13.5">蝕到冇得再蝕</text>
+      </svg>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 270" role="img" aria-label="皆大歡喜、長做長有分兩條：止惡，己所不欲勿施於人；行善，但行好事莫問前程、天生我材必有用。行善再生出去玩、誠信招財、謙厚立福。">
+        <rect x="20" y="108" width="176" height="56" rx="12" class="f-b-soft s-b" stroke-width="2"/>
+        <text x="108" y="132" text-anchor="middle" class="t-b" font-size="16" font-weight="700">皆大歡喜</text>
+        <text x="108" y="153" text-anchor="middle" class="t" font-size="14">長做長有</text>
+        <path d="M196,136 C224,136 224,68 248,68" class="f-none s-b" stroke-width="2.5"/>
+        <path d="M196,136 C224,136 224,196 248,196" class="f-none s-b" stroke-width="2.5"/>
+        <rect x="250" y="40" width="236" height="56" rx="12" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="264" y="63" class="t" font-size="16" font-weight="700">止惡</text>
+        <text x="264" y="85" class="t-muted" font-size="13.5">己所不欲，勿施於人</text>
+        <rect x="250" y="156" width="236" height="80" rx="12" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="264" y="180" class="t" font-size="16" font-weight="700">行善</text>
+        <text x="264" y="202" class="t-muted" font-size="13.5">但行好事，莫問前程</text>
+        <text x="264" y="222" class="t-muted" font-size="13.5">天生我材必有用</text>
+        <path d="M486,196 C512,196 512,146 536,146" class="f-none s-b" stroke-width="2"/>
+        <path d="M486,196 H536" class="f-none s-b" stroke-width="2"/>
+        <path d="M486,196 C512,196 512,246 536,246" class="f-none s-b" stroke-width="2"/>
+        <rect x="538" y="128" width="160" height="36" rx="18" class="f-b-soft s-b" stroke-width="1.5"/>
+        <text x="618" y="151" text-anchor="middle" class="t" font-size="15" font-weight="700">去玩</text>
+        <rect x="538" y="178" width="160" height="36" rx="18" class="f-b-soft s-b" stroke-width="1.5"/>
+        <text x="618" y="201" text-anchor="middle" class="t" font-size="15" font-weight="700">誠信招財</text>
+        <rect x="538" y="228" width="160" height="36" rx="18" class="f-b-soft s-b" stroke-width="1.5"/>
+        <text x="618" y="251" text-anchor="middle" class="t" font-size="15" font-weight="700">謙厚立福</text>
+      </svg>
+      <figcaption>止惡係唔扣分，行善係加分。兩樣都做，人哋先會一直想同你玩。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">三 · 停低</div>
+    <h2>Love = include：用停低接受</h2>
+    <p class="intro">愛係包容，個圈畫得越大，入面嘅人越多。由自己開始，到朋友，到世界。<b>You don't have to do anything for my love</b>：你唔使做任何嘢，都值得愛。對人係咁，對自己都係。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 310" role="img" aria-label="三個同心圓：自己、朋友、世界，個圈一路擴大。">
+        <circle cx="360" cy="160" r="140" class="f-a-soft s-a" stroke-width="1.5" fill-opacity=".06"/>
+        <circle cx="360" cy="160" r="90" class="f-a-soft s-a" stroke-width="1.5" fill-opacity=".1"/>
+        <circle cx="360" cy="160" r="40" class="f-a-soft s-a" stroke-width="2"/>
+        <circle cx="360" cy="160" r="140" class="f-none s-a pulse" stroke-width="2"/>
+        <text x="360" y="166" text-anchor="middle" class="t" font-size="16" font-weight="700">自己</text>
+        <text x="360" y="98" text-anchor="middle" class="t-a" font-size="15" font-weight="700">朋友</text>
+        <text x="360" y="44" text-anchor="middle" class="t-a" font-size="15" font-weight="700">世界</text>
+        <text x="40" y="140" class="t" font-size="16" font-weight="700">Include</text>
+        <text x="40" y="164" class="t-muted" font-size="14">個圈越畫越大</text>
+        <text x="540" y="140" class="t" font-size="16" font-weight="700">Oneness 無我</text>
+        <text x="540" y="164" class="t-muted" font-size="14">你同世界</text>
+        <text x="540" y="184" class="t-muted" font-size="14">唔係兩樣嘢</text>
+      </svg>
+    </figure>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--a)">
+        <div class="k">INACTION → 接受</div>
+        <h3>知足常樂</h3>
+        <p>想要嘅少過有嘅，就開心。唔使再加，只係唔再追。</p>
+      </div>
+      <div class="mini" style="--k:var(--a)">
+        <div class="k">INACTION → 接受</div>
+        <h3>感恩改運</h3>
+        <p>感恩唔會改骰仔嘅點數。改嘅係你睇骰仔嘅角度，同你下一步點揀。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">四 · 身體</div>
+    <h2>身同心，同一套嘢</h2>
+    <p class="intro">Happy Body 講身體要動、要靜。Happy Mind 講個心都係：動叫行動，靜叫接受。</p>
+    <div class="tablewrap">
+      <table class="cmp">
+        <tr><th></th><th>動</th><th>靜</th></tr>
+        <tr><td class="cd">身</td><td>運動、四個基本動作</td><td>呼吸、瞓覺</td></tr>
+        <tr><td class="cb">心</td><td>行動：爭取你想要嘅</td><td>停低：接受你控制唔到嘅</td></tr>
+      </table>
+    </div>
+    <p class="note">身體嗰半：<a href="https://jpoon6d23.github.io/funplaywhatever/playbook/happy-body.html">Happy Body Playbook</a>。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">養心</div>
+    <h2>養心：Why、How、What</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--c)">
+        <div class="k">WHY</div>
+        <h3>點解要養</h3>
+        <ul><li><b>Nothing else matters</b></li><li><b>Experience all happens within</b>：所有經歷，都喺你入面發生</li></ul>
+      </div>
+      <div class="mini" style="--k:var(--d)">
+        <div class="k">HOW</div>
+        <h3>點樣養</h3>
+        <ul><li><b>Balance</b>：動同靜，兩邊都要</li></ul>
+      </div>
+      <div class="mini" style="--k:var(--b)">
+        <div class="k">WHAT</div>
+        <h3>養乜</h3>
+        <ul><li><b>Mindset</b>：做自己最好嘅朋友、控制你控制到嘅、感恩</li><li><b>Action</b>：冥想、俾、學</li></ul>
+      </div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 240" role="img" aria-label="兩個圓：控制到嘅，用行動；控制唔到嘅，用接受。">
+        <circle cx="240" cy="120" r="96" class="f-b-soft s-b" stroke-width="2"/>
+        <circle cx="480" cy="120" r="96" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="240" y="110" text-anchor="middle" class="t" font-size="18" font-weight="700">控制到</text>
+        <text x="240" y="138" text-anchor="middle" class="t-b" font-size="16" font-weight="700">→ 行動</text>
+        <text x="480" y="110" text-anchor="middle" class="t" font-size="18" font-weight="700">控制唔到</text>
+        <text x="480" y="138" text-anchor="middle" class="t-a" font-size="16" font-weight="700">→ 接受</text>
+        <text x="360" y="232" text-anchor="middle" class="t-muted" font-size="13.5">Control what you can control</text>
+      </svg>
+      <figcaption>分界清楚，行動同停低就唔會打交：唔會為控制唔到嘅嘢做到死，亦唔會將控制到嘅嘢當命水。</figcaption>
+    </figure>
+    <div class="traces mt">
+      <div class="trace head"><span>養心嘅 What</span><span></span><span>屬於邊條枝</span></div>
+      <div class="trace"><span class="busy">做自己最好嘅朋友</span><span class="arr">→</span><span class="ca"><b>停低</b>：同自己嘅關係</span></div>
+      <div class="trace"><span class="busy">控制你控制到嘅</span><span class="arr">→</span><span><b class="cb">行動</b> 同 <b class="ca">停低</b> 嘅分界</span></div>
+      <div class="trace"><span class="busy">感恩</span><span class="arr">→</span><span class="ca"><b>停低</b>：感恩改運</span></div>
+      <div class="trace"><span class="busy">冥想</span><span class="arr">→</span><span class="ca"><b>停低</b></span></div>
+      <div class="trace"><span class="busy">俾</span><span class="arr">→</span><span class="cb"><b>行動</b>：行善</span></div>
+      <div class="trace"><span class="busy">學</span><span class="arr">→</span><span class="cc"><b>明白</b></span></div>
+    </div>
+    <p class="note"><b>數據：</b>冥想課程對焦慮、抑鬱同痛有中度證據，幫到少少到中等（Goyal 等，2014）。隨機分配人用錢喺人哋身上，比用喺自己身上嘅人更開心（Dunn 等，2008）。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「又叫我行動，又叫我停低，咪矛盾？」</p>
+        <div><div class="tag">回應</div><p>唔矛盾，分界係控制到定控制唔到。控制到就做，控制唔到就接受。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>現實好多嘢係一半半。條界要自己劃，劃錯咗，就係攬住唔放，或者太早放棄。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「『你就係神』，咁咪好自大？」</p>
+        <div><div class="tag">回應</div><p>呢度講嘅神 = 真相 + 責任，唔係話你最大。正正因為冇人幫你，所以要自己負責。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>「What's right &gt; who's right」都適用喺你自己：你都唔係因為係你講就啱。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>身要練，心都要練：<em>識郁，識停</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>The Royal Society：會訓 Nullius in verba（1660 年成立）。</li>
+      <li>Goyal et al. (2014), Meditation Programs for Psychological Stress and Well-being, JAMA Internal Medicine。</li>
+      <li>Dunn, Aknin &amp; Norton (2008), Spending Money on Others Promotes Happiness, Science。</li>
+    </ol>
+  </div>
+</section>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

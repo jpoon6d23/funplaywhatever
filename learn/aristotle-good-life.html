@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>阿里士多德：點樣先叫活得好</title>
+<meta name="description" content="Eudaimonia：好 = 卓越。德性靠習慣變技能；中庸唔係中間係啱位；朋友有三種；沉思追真相，再返去學。">
+<meta property="og:title" content="阿里士多德：點樣先叫活得好">
+<meta property="og:description" content="Eudaimonia：好 = 卓越。德性靠習慣變技能；中庸唔係中間係啱位；朋友有三種；沉思追真相，再返去學。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/aristotle-good-life.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/aristotle-good-life.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="阿里士多德：點樣先叫活得好">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/aristotle-good-life.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#7fb2ff;--b:#e07a9a;--hit:#e8b04a;--c:#4fb6b0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一個箭靶，一支箭射中正中。">
+    <circle cx="110" cy="110" r="84" class="f-none s-muted" stroke-width="2"/>
+    <circle cx="110" cy="110" r="60" class="f-none s-muted" stroke-width="2"/>
+    <circle cx="110" cy="110" r="36" class="f-hit-soft s-hit" stroke-width="2"/>
+    <circle cx="110" cy="110" r="12" class="f-hit"/>
+    <g class="bob">
+      <line x1="112" y1="108" x2="214" y2="34" class="s-ink" stroke-width="3" stroke-linecap="round"/>
+      <path d="M214,34 l14,-4 l-6,12 z M206,40 l12,-3 M210,46 l10,-9" class="f-ink s-ink" stroke-width="2"/>
+    </g>
+  </svg>
+  <div>
+    <div class="kicker">ARISTOTLE · 尼各馬可倫理學</div>
+    <h1>阿里士多德：點樣先叫活得好</h1>
+    <p class="said">Eudaimonia：好 = 卓越。</p>
+    <p class="lede">活得好唔係感覺爽，係將你做人嘅嘢做到最好。好似射箭：有個靶，先知自己射得準唔準。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">地圖</div>
+    <h2>三條路：德性、友誼、沉思</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 390" role="img" aria-label="Eudaimonia（好等於卓越）分三條：德性（習慣變技能），再分智德（知同明白，通去學：思考同教，再到精通）同品德（關係等於快樂，通去中庸：怕死、勇氣、魯莽）；品德又通去友誼（德大過樂同用）；沉思（追求真相）通返去學。">
+        <path d="M170,204 C200,204 200,86 218,86" class="f-none s-a" stroke-width="2.5"/>
+        <path d="M170,204 C200,204 200,226 218,226" class="f-none s-b" stroke-width="2.5"/>
+        <path d="M170,204 C200,204 200,342 218,342" class="f-none s-hit" stroke-width="2.5"/>
+        <rect x="20" y="176" width="150" height="56" rx="14" class="f-surface2 s-ink" stroke-width="2"/>
+        <text x="95" y="200" text-anchor="middle" class="t" font-size="16" font-weight="700">Eudaimonia</text>
+        <text x="95" y="221" text-anchor="middle" class="t-muted" font-size="13.5">好 = 卓越</text>
+
+        <rect x="220" y="60" width="150" height="52" rx="12" class="f-surface2 s-a" stroke-width="2"/>
+        <text x="234" y="82" class="t-a" font-size="15.5" font-weight="700">德性 Virtue</text>
+        <text x="234" y="102" class="t-muted" font-size="13">習慣 → 技能</text>
+        <rect x="220" y="200" width="170" height="52" rx="12" class="f-surface2 s-b" stroke-width="2"/>
+        <text x="234" y="222" class="t-b" font-size="15.5" font-weight="700">友誼 Friendship</text>
+        <text x="234" y="242" class="t-muted" font-size="13">德 &gt; 樂、用</text>
+        <rect x="220" y="316" width="170" height="52" rx="12" class="f-surface2 s-hit" stroke-width="2"/>
+        <text x="234" y="338" class="t-hit" font-size="15.5" font-weight="700">沉思 Contemplation</text>
+        <text x="234" y="358" class="t-muted" font-size="13">追求真相</text>
+
+        <path d="M370,86 C396,86 396,55 418,55" class="f-none s-a" stroke-width="2"/>
+        <path d="M370,86 C396,86 396,175 418,175" class="f-none s-a" stroke-width="2"/>
+        <rect x="420" y="30" width="130" height="50" rx="12" class="f-surface2 s-a" stroke-width="1.5"/>
+        <text x="432" y="51" class="t" font-size="15" font-weight="700">智德</text>
+        <text x="432" y="70" class="t-muted" font-size="12.5">知、明白</text>
+        <rect x="420" y="150" width="130" height="50" rx="12" class="f-surface2 s-a" stroke-width="1.5"/>
+        <text x="432" y="171" class="t" font-size="15" font-weight="700">品德</text>
+        <text x="432" y="190" class="t-muted" font-size="12.5">關係 = 快樂</text>
+
+        <path d="M550,55 H566" class="s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+        <path d="M550,175 H566" class="s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+        <rect x="570" y="30" width="130" height="50" rx="12" class="f-a-soft s-a" stroke-width="1.5"/>
+        <text x="582" y="51" class="t" font-size="14.5" font-weight="700">學：思考、教</text>
+        <text x="582" y="70" class="t-muted" font-size="12.5">→ 精通</text>
+        <rect x="570" y="150" width="130" height="50" rx="12" class="f-a-soft s-a" stroke-width="1.5"/>
+        <text x="582" y="171" class="t" font-size="14.5" font-weight="700">中庸</text>
+        <text x="582" y="190" class="t-muted" font-size="11.5">怕死 &lt; 勇氣 &gt; 魯莽</text>
+
+        <path d="M485,200 V226 H394" class="f-none s-b" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah-b)"/>
+        <path d="M390,342 H712 V55 H704" class="f-none s-hit flow" stroke-width="2" marker-end="url(#ah-hit)"/>
+      </svg>
+      <figcaption>虛線：品德（點同人相處）通去友誼。流動線：沉思一路餵返學。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">德性</div>
+    <h2>習慣 → 技能</h2>
+    <p class="intro">德性唔係天生嘅性格，係練返嚟嘅技能。阿里士多德：我哋做公義嘅事，先變成公義；做勇敢嘅事，先變成勇敢。好似彈琴，彈得多先識彈。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 210" role="img" aria-label="樓梯：做一次、做多次、習慣、技能、性格，一級高過一級。">
+        <g stroke-width="2">
+          <rect x="30" y="150" width="130" height="40" rx="6" class="f-surface2 s-a"/>
+          <rect x="160" y="120" width="130" height="70" rx="6" class="f-surface2 s-a"/>
+          <rect x="290" y="90" width="130" height="100" rx="6" class="f-a-soft s-a"/>
+          <rect x="420" y="60" width="130" height="130" rx="6" class="f-a-soft s-a"/>
+          <rect x="550" y="30" width="140" height="160" rx="6" class="f-a s-a"/>
+        </g>
+        <text x="95" y="176" text-anchor="middle" class="t" font-size="15" font-weight="700">做一次</text>
+        <text x="225" y="146" text-anchor="middle" class="t" font-size="15" font-weight="700">做多次</text>
+        <text x="355" y="116" text-anchor="middle" class="t" font-size="15" font-weight="700">習慣</text>
+        <text x="485" y="86" text-anchor="middle" class="t" font-size="15" font-weight="700">技能</text>
+        <text x="620" y="56" text-anchor="middle" class="t-bg" font-size="15" font-weight="700">性格</text>
+      </svg>
+    </figure>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--a)"><div class="k">INTELLECTUAL</div><h3>智德：知、明白</h3><p>阿里士多德話主要靠<b>教同時間</b>。所以通去「學：思考、教」，學到精通。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">MORAL</div><h3>品德：關係 = 快樂</h3><p>靠<b>習慣</b>。人係群居動物，品德就係同人相處嘅技能，核心係中庸。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">中庸 · GOLDEN MEAN</div>
+    <h2>中庸唔係中間，係啱位</h2>
+    <p class="intro">每種德性都夾喺兩個極端中間：太少係一種錯，太多係另一種錯。揀一樣，拉一拉。</p>
+    <div class="tool">
+      <div class="seg" role="group" aria-label="揀德性">
+        <button type="button" data-v="0" aria-pressed="true">勇氣</button>
+        <button type="button" data-v="1" aria-pressed="false">慷慨</button>
+        <button type="button" data-v="2" aria-pressed="false">幽默</button>
+        <button type="button" data-v="3" aria-pressed="false">講自己</button>
+      </div>
+      <svg viewBox="0 -6 720 78" style="width:100%;height:auto" aria-hidden="true">
+        <rect x="10" y="26" width="230" height="18" rx="9" class="f-b" opacity=".35"/>
+        <rect x="245" y="26" width="230" height="18" rx="9" class="f-hit"/>
+        <rect x="480" y="26" width="230" height="18" rx="9" class="f-b" opacity=".35"/>
+        <text id="lo" x="10" y="16" class="t-b" font-size="15" font-weight="700">怕死</text>
+        <text id="mid" x="360" y="16" text-anchor="middle" class="t-hit" font-size="15" font-weight="700">勇氣</text>
+        <text id="hi" x="710" y="16" text-anchor="end" class="t-b" font-size="15" font-weight="700">魯莽</text>
+        <text x="125" y="64" text-anchor="middle" class="t-muted" font-size="12.5">太少</text>
+        <text x="360" y="64" text-anchor="middle" class="t-muted" font-size="12.5">啱位</text>
+        <text x="595" y="64" text-anchor="middle" class="t-muted" font-size="12.5">太多</text>
+      </svg>
+      <label for="gm">拉：</label>
+      <input type="range" id="gm" min="0" max="100" value="50" style="accent-color:var(--hit)">
+      <p class="out" id="gmo"></p>
+    </div>
+    <p class="note"><b>注意：</b>阿里士多德話嘅中間係「相對你」：摔跤冠軍同初學者，「食得啱」唔係同一個份量。仲有，有啲嘢冇中庸：偷嘢、殺人，冇「啱啱好」。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">友誼</div>
+    <h2>三種朋友：德 &gt; 樂、用</h2>
+    <p class="intro">阿里士多德話：冇朋友，就算擁有晒其他好嘢，都冇人會揀咁樣活。但朋友有三種，壽命差好遠。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 220" role="img" aria-label="三條時間線：因為有用嘅朋友，去到冇用嗰日就散；因為好玩嘅朋友，去到唔好玩嗰日就散；因為德嘅朋友，欣賞對方本身，一直去落去。">
+        <text x="20" y="52" class="t" font-size="15" font-weight="700">有用（Utility）</text>
+        <rect x="190" y="38" width="200" height="20" rx="10" class="f-muted" opacity=".5"/>
+        <path d="M396,36 l12,24 M408,36 l-12,24" class="s-b" stroke-width="2.5"/>
+        <text x="420" y="54" class="t-muted" font-size="13.5">冇用嗰日就散</text>
+
+        <text x="20" y="112" class="t" font-size="15" font-weight="700">好玩（Pleasure）</text>
+        <rect x="190" y="98" width="290" height="20" rx="10" class="f-b" opacity=".5"/>
+        <path d="M486,96 l12,24 M498,96 l-12,24" class="s-b" stroke-width="2.5"/>
+        <text x="510" y="114" class="t-muted" font-size="13.5">唔好玩嗰日就散</text>
+
+        <text x="20" y="172" class="t-b" font-size="15" font-weight="700">德（Virtue）</text>
+        <rect x="190" y="158" width="490" height="20" rx="10" class="f-b"/>
+        <path d="M680,168 H704" class="s-b" stroke-width="3" marker-end="url(#ah-b)"/>
+        <text x="190" y="206" class="t" font-size="13.5">欣賞對方本身，唔係佢俾到你乜，所以最長</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">沉思</div>
+    <h2>沉思：追真相，再返去學</h2>
+    <p class="intro">阿里士多德話沉思係最高嘅快樂：最自足，唔使靠人；最持久，可以一直做。沉思令你想學，學到精通，又令你沉思得更深。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 210" role="img" aria-label="三個位一個圈：沉思、學（思考同教）、精通。">
+        <path d="M250,105 C250,30 470,30 470,105" class="f-none s-hit flow" stroke-width="2.5"/>
+        <path d="M470,105 C470,180 250,180 250,105" class="f-none s-hit flow" stroke-width="2.5"/>
+        <rect x="180" y="82" width="140" height="46" rx="23" class="f-hit-soft s-hit" stroke-width="2"/>
+        <text x="250" y="111" text-anchor="middle" class="t-hit" font-size="16" font-weight="700">沉思</text>
+        <rect x="400" y="82" width="140" height="46" rx="23" class="f-surface2 s-a" stroke-width="2"/>
+        <text x="470" y="111" text-anchor="middle" class="t" font-size="16" font-weight="700">學：思考、教</text>
+        <rect x="300" y="14" width="120" height="36" rx="18" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="360" y="37" text-anchor="middle" class="t-muted" font-size="14">好奇</text>
+        <rect x="300" y="160" width="120" height="36" rx="18" class="f-a-soft s-a" stroke-width="1.5"/>
+        <text x="360" y="183" text-anchor="middle" class="t" font-size="14" font-weight="700">精通</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「又話快樂靠關係，又話沉思最高，咪矛盾？」</p>
+        <div><div class="tag">回應</div><p>阿里士多德自己都冇完全拉埋，學者吵咗二千幾年。一個講法：沉思最高，但人唔係神，要喺人群入面活，所以兩樣都要。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>佢嘅沉思生活，要有奴隸同家人幫佢做晒其他嘢先得閒。今日嘅你，要自己煲飯。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「中庸 = 和稀泥？」</p>
+        <div><div class="tag">回應</div><p>唔係。中庸係「啱位」，唔係「兩邊各讓一半」。面對惡霸，啱位可能係好硬。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>「啱位」喺邊，佢冇俾公式，只係話要靠經驗同判斷。所以先要練。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>活得好唔係一種感覺，係<em>一種做法</em>。日日做。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Aristotle，《尼各馬可倫理學》（Nicomachean Ethics）：第一卷（eudaimonia、射箭比喻）、第二卷（德性靠習慣、智德靠教、中庸、冇中庸嘅行為）、第八至九卷（三種友誼）、第十卷（沉思）。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var V=[
+    ['怕死','勇氣','魯莽',['見到曱甴都要叫人。','驚，但照做該做嘅。','唔識驚，叫膽大，其實係蠢。']],
+    ['孤寒','慷慨','揮霍',['AA 制計到一蚊。','俾得起、俾啱人、俾啱時候。','請晒成條街，月尾食公仔麵。']],
+    ['木口木面','機智','小丑',['成晚冇笑過，人哋講笑你問點解好笑。','知幾時笑、笑乜、同邊個笑。','為咗個笑位，連阿媽都出賣。']],
+    ['扮謙','真誠','吹水',['明明叻都話自己唔得，等人讚。','有幾多講幾多。','識少少，扮代表。']]
+  ];
+  var cur=0, $=function(id){return document.getElementById(id);};
+  var btns=document.querySelectorAll('.seg button');
+  function run(){
+    var v=V[cur], x=+$('gm').value, k=x<33?0:(x>67?2:1);
+    $('lo').textContent=v[0]; $('mid').textContent=v[1]; $('hi').textContent=v[2];
+    $('gmo').textContent=v[k]+'：'+v[3][k];
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    cur=+b.dataset.v; btns.forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');}); run();
+  });});
+  $('gm').addEventListener('input',run); run();
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

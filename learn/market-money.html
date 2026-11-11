@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>市場係點嚟：錢、故事、價錢</title>
+<meta name="description" content="錢 = 人造嘅將來。由錢講到上市，再講炒家：趨勢先，唔蝕錢，再賺錢；預期破壞者、3 bar break 同 RS。">
+<meta property="og:title" content="市場係點嚟：錢、故事、價錢">
+<meta property="og:description" content="錢 = 人造嘅將來。由錢講到上市，再講炒家：趨勢先，唔蝕錢，再賺錢；預期破壞者、3 bar break 同 RS。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/market-money.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/market-money.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="市場係點嚟：錢、故事、價錢">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/market-money.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#5fc48a;--b:#e86a5a;--hit:#e8b04a;--c:#7fb2ff}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 200" role="img" aria-label="一條價錢線上上落落，整體向上。">
+    <g class="s-rule" stroke-width="1"><line x1="20" y1="50" x2="220" y2="50"/><line x1="20" y1="100" x2="220" y2="100"/><line x1="20" y1="150" x2="220" y2="150"/></g>
+    <polyline points="20,170 45,150 62,160 85,120 100,132 122,96 138,108 160,70 175,82 198,44 220,30" class="f-none s-a flow" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    <g stroke-width="2">
+      <line x1="62" y1="146" x2="62" y2="172" class="s-b"/><rect x="57" y="152" width="10" height="14" class="f-b"/>
+      <line x1="122" y1="84" x2="122" y2="112" class="s-a"/><rect x="117" y="90" width="10" height="16" class="f-a"/>
+      <line x1="175" y1="68" x2="175" y2="94" class="s-b"/><rect x="170" y="74" width="10" height="14" class="f-b"/>
+    </g>
+  </svg>
+  <div>
+    <h1>市場係點嚟</h1>
+    <p class="said">Money = future = man made。<br>Big money ← you HAVE something the society NEED。</p>
+    <p class="lede">由錢講起，講到市場點樣出現，再講你想喺市場做咩角色、點樣賺錢。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">錢</div>
+    <h2>錢係一張人造嘅「將來」</h2>
+    <p class="intro">你創造價值，滿足咗其他人而家嘅慾望。社會冇嘢即刻還你，就寫低一張 IOU（欠條）：錢。你聽日拎住佢，去換人哋滿足你嘅慾望。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 280" role="img" aria-label="錢：創造價值，滿足其他人而家嘅慾望，換你嘅技能同知識同一張將來嘅欠條，欠條再滿足你嘅慾望。">
+        <rect x="20" y="104" width="90" height="46" rx="23" class="f-hit-soft s-hit" stroke-width="2"/>
+        <text x="65" y="133" text-anchor="middle" class="t-hit" font-size="17" font-weight="700">錢</text>
+        <path d="M110,127 H146" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="150" y="104" width="120" height="46" rx="12" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="210" y="133" text-anchor="middle" class="t" font-size="15" font-weight="700">創造價值</text>
+        <path d="M270,127 H306" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="310" y="96" width="180" height="62" rx="12" class="f-surface2 s-c" stroke-width="1.8"/>
+        <text x="400" y="122" text-anchor="middle" class="t" font-size="15" font-weight="700">滿足其他人嘅慾望</text>
+        <text x="400" y="144" text-anchor="middle" class="t-c" font-size="13.5" font-weight="700">NOW · 而家</text>
+        <path d="M490,127 C512,127 512,52 532,52" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M490,127 C512,127 512,182 532,182" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="536" y="30" width="170" height="44" rx="12" class="f-surface2 s-a" stroke-width="1.8"/>
+        <text x="621" y="57" text-anchor="middle" class="t" font-size="14.5" font-weight="700">你嘅技能同知識</text>
+        <rect x="536" y="160" width="170" height="44" rx="12" class="f-hit-soft s-hit" stroke-width="1.8"/>
+        <text x="621" y="182" text-anchor="middle" class="t" font-size="14.5" font-weight="700">IOU 欠條</text>
+        <text x="621" y="198" text-anchor="middle" class="t-hit" font-size="12">FUTURE · 將來</text>
+        <path d="M621,78 V156" class="s-muted" stroke-width="1.8" marker-start="url(#ah)" marker-end="url(#ah)"/>
+        <text x="630" y="121" class="t-muted" font-size="12.5">互相換</text>
+        <path d="M621,204 V226" class="s-hit" stroke-width="2" marker-end="url(#ah-hit)"/>
+        <rect x="536" y="230" width="170" height="40" rx="12" class="f-surface2 s-hit" stroke-width="1.8"/>
+        <text x="621" y="255" text-anchor="middle" class="t" font-size="14.5" font-weight="700">滿足你嘅慾望</text>
+      </svg>
+      <figcaption>你嘅技能同知識越係社會需要、越少人有，張欠條就越大。</figcaption>
+    </figure>
+    <p class="note">同一個圈嘅另一個講法：<a href="https://jpoon6d23.github.io/funplaywhatever/learn/idiot-index.html">Idiot Index：識做就平</a>、<a href="https://jpoon6d23.github.io/funplaywhatever/learn/money.html">錢點樣嚟搵你</a>。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">市場</div>
+    <h2>上市：公司用故事換錢</h2>
+    <p class="intro">個人用技能換欠條；公司用故事。上市（IPO）嗰陣，公司話：我哋創造價值，有使命、有連結，請俾資源我哋去做。你俾而家嘅錢，佢俾你一份將來：股票。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 210" role="img" aria-label="公司上市：創造價值，用故事滿足其他人嘅慾望，我哋有使命有連結，請俾資源我哋去做。下面：你俾而家嘅錢，公司俾你股票，即係將來嘅一份。">
+        <rect x="20" y="26" width="110" height="46" rx="23" class="f-c-soft s-c" stroke-width="2"/>
+        <text x="75" y="55" text-anchor="middle" class="t-c" font-size="15" font-weight="700">公司上市</text>
+        <path d="M130,49 H156" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="160" y="26" width="110" height="46" rx="12" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="215" y="55" text-anchor="middle" class="t" font-size="14.5" font-weight="700">創造價值</text>
+        <path d="M270,49 H296" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="300" y="18" width="220" height="62" rx="12" class="f-surface2 s-c" stroke-width="1.8"/>
+        <text x="410" y="43" text-anchor="middle" class="t" font-size="14.5" font-weight="700">用故事滿足人嘅慾望</text>
+        <text x="410" y="65" text-anchor="middle" class="t-muted" font-size="12.5">我哋有使命、有連結</text>
+        <path d="M520,49 H546" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="550" y="18" width="150" height="62" rx="12" class="f-surface2 s-hit" stroke-width="1.8"/>
+        <text x="625" y="43" text-anchor="middle" class="t" font-size="14" font-weight="700">請俾資源我哋</text>
+        <text x="625" y="65" text-anchor="middle" class="t" font-size="14" font-weight="700">去做</text>
+
+        <rect x="120" y="128" width="150" height="50" rx="12" class="f-hit-soft s-hit" stroke-width="1.8"/>
+        <text x="195" y="151" text-anchor="middle" class="t" font-size="15" font-weight="700">你</text>
+        <text x="195" y="170" text-anchor="middle" class="t-muted" font-size="12.5">俾而家嘅錢</text>
+        <rect x="450" y="128" width="150" height="50" rx="12" class="f-c-soft s-c" stroke-width="1.8"/>
+        <text x="525" y="151" text-anchor="middle" class="t" font-size="15" font-weight="700">公司</text>
+        <text x="525" y="170" text-anchor="middle" class="t-muted" font-size="12.5">俾股票 = 將來一份</text>
+        <path d="M272,144 H446" class="s-hit" stroke-width="2" marker-end="url(#ah-hit)"/>
+        <path d="M446,164 H274" class="s-c" stroke-width="2" marker-end="url(#ah-c)"/>
+        <text x="360" y="136" text-anchor="middle" class="t-hit" font-size="12.5">$ 錢</text>
+        <text x="360" y="186" text-anchor="middle" class="t-c" font-size="12.5">股票</text>
+      </svg>
+      <figcaption>股票 = 公司版嘅 IOU。佢唔應承還錢，佢應承將來分你。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">角色</div>
+    <h2>你想喺市場做咩角色？</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--c)"><div class="k">講故事</div><h3>公司</h3><p>創造價值，講故事，攞資源。賺嘅係<b>生意</b>嘅錢。</p></div>
+      <div class="mini" style="--k:var(--hit)"><div class="k">買故事</div><h3>投資者</h3><p>買故事，等將來兌現。賺嘅係<b>公司成長</b>嘅錢。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">跟價錢</div><h3>炒家</h3><p>唔問故事，跟價錢。賺嘅係<b>人嘅預期改變</b>嘅錢。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">價錢</div>
+    <h2>點解價錢會郁？</h2>
+    <p class="intro">價錢郁，因為有人買、有人賣。人買賣，因為有預期：價錢係由人嘅預期推動，呢句冇錯。但炒家唔關心佢預期乜，只關心佢撳咗咩掣。因為你賺錢係靠價格波動，唔係靠佢信乜。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 96" role="img" aria-label="價錢波動，因為人買賣，因為人嘅預期；佢點解咁預期，炒家唔關心。">
+        <rect x="20" y="26" width="140" height="44" rx="12" class="f-surface2 s-a" stroke-width="1.8"/>
+        <text x="90" y="54" text-anchor="middle" class="t" font-size="15" font-weight="700">價錢波動</text>
+        <path d="M196,48 H164" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="200" y="26" width="140" height="44" rx="12" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="270" y="54" text-anchor="middle" class="t" font-size="15" font-weight="700">人買、人賣</text>
+        <path d="M376,48 H344" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="380" y="26" width="140" height="44" rx="12" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="450" y="54" text-anchor="middle" class="t" font-size="15" font-weight="700">人嘅預期</text>
+        <path d="M556,48 H524" class="s-muted" stroke-width="2" marker-end="url(#ah)" stroke-dasharray="4 4"/>
+        <rect x="560" y="26" width="140" height="44" rx="12" class="f-none s-muted" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <text x="630" y="47" text-anchor="middle" class="t-muted" font-size="14.5">點解咁預期？</text>
+        <text x="630" y="64" text-anchor="middle" class="t-muted" font-size="12">炒家唔關心</text>
+      </svg>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 250" role="img" aria-label="三個時間：過去係營業額同盈利，已實現，係真；而家係價錢，係慾望，係真，係共識；將來係故事同指引，未實現，係意見。外力：稅同按揭。">
+        <line x1="30" y1="150" x2="690" y2="150" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <line x1="250" y1="142" x2="250" y2="158" class="s-muted" stroke-width="2"/>
+        <line x1="470" y1="142" x2="470" y2="158" class="s-muted" stroke-width="2"/>
+        <text x="140" y="178" text-anchor="middle" class="t-muted" font-size="14">過去</text>
+        <text x="360" y="178" text-anchor="middle" class="t-a" font-size="15" font-weight="700">而家</text>
+        <text x="580" y="178" text-anchor="middle" class="t-muted" font-size="14">將來</text>
+        <rect x="40" y="30" width="200" height="96" rx="12" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="140" y="58" text-anchor="middle" class="t" font-size="15" font-weight="700">營業額 → 盈利</text>
+        <text x="140" y="84" text-anchor="middle" class="t-muted" font-size="13.5">已實現</text>
+        <text x="140" y="108" text-anchor="middle" class="t" font-size="14" font-weight="700">真（Truth）</text>
+        <rect x="260" y="22" width="200" height="112" rx="12" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="360" y="52" text-anchor="middle" class="t-a" font-size="18" font-weight="700">價錢</text>
+        <text x="360" y="78" text-anchor="middle" class="t" font-size="13.5">而家 = 慾望</text>
+        <text x="360" y="100" text-anchor="middle" class="t" font-size="14" font-weight="700">真（Truth）</text>
+        <text x="360" y="121" text-anchor="middle" class="t-muted" font-size="12.5">→ 共識</text>
+        <rect x="480" y="30" width="200" height="96" rx="12" class="f-surface2 s-muted" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <text x="580" y="58" text-anchor="middle" class="t" font-size="15" font-weight="700">故事、指引</text>
+        <text x="580" y="84" text-anchor="middle" class="t-muted" font-size="13.5">未實現</text>
+        <text x="580" y="108" text-anchor="middle" class="t-muted" font-size="14">意見（Opinion）</text>
+        <text x="360" y="222" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">外力：稅、按揭（利率）</text>
+        <path d="M360,206 V186" class="s-hit" stroke-width="2" marker-end="url(#ah-hit)"/>
+      </svg>
+      <figcaption>過去嘅真，大家早已知；將來嘅只係意見；而家嘅價錢，係所有人慾望加埋嘅結果。</figcaption>
+    </figure>
+    <p class="punch">價錢郁得最勁，係預期被打破嗰下。所以最好嘅買賣點，叫「Expectation breaker」：預期破壞者。預期反轉嗰陣，越多人郁手，成交量就越大。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">炒家</div>
+    <h2>趨勢先，然後唔蝕錢，再賺錢</h2>
+    <p class="intro">揀時機，就係要 aware 你喺上升趨勢定下降趨勢。下降趨勢，你買乜都唔方好；上升趨勢，你 short 乜都唔方好。趨勢決定你應該做乜。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 262" role="img" aria-label="頂部問：趨勢係上升定下降？左邊上升趨勢：做多，short 乜都唔方好。右邊下降趨勢：買乜都唔方好。">
+        <rect x="240" y="12" width="240" height="46" rx="23" class="f-hit-soft s-hit" stroke-width="2"/>
+        <text x="360" y="41" text-anchor="middle" class="t-hit" font-size="16" font-weight="700">趨勢：上升定下降？</text>
+        <path d="M310,58 C310,74 180,70 180,82" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M410,58 C410,74 540,70 540,82" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="20" y="86" width="320" height="168" rx="12" class="f-surface2 s-a" stroke-width="1.5"/>
+        <rect x="380" y="86" width="320" height="168" rx="12" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="36" y="112" class="t-a" font-size="16" font-weight="700">上升趨勢</text>
+        <text x="36" y="134" class="t" font-size="13.5">✓ 做多　✗ short 乜都唔方好</text>
+        <polyline points="40,236 86,206 112,220 160,180 188,194 236,152 262,166 318,124" class="f-none s-a" stroke-width="3" stroke-linejoin="round"/>
+        <text x="396" y="112" class="t-b" font-size="16" font-weight="700">下降趨勢</text>
+        <text x="396" y="134" class="t" font-size="13.5">✗ 買乜都唔方好</text>
+        <polyline points="400,150 446,180 472,166 520,206 548,192 596,224 622,212 680,240" class="f-none s-b" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+    </figure>
+    <p class="punch">趨勢錯咗，下面嗰啲嘢全部都錯。</p>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--b)">
+        <div class="k">唔蝕錢 · RISK 第一</div>
+        <h3>先守</h3>
+        <ul class="vchain" style="--k:var(--b)">
+          <li>止蝕<small>動作要緊，唔好等</small></li>
+          <li>流動性<small>入得去，要出得返嚟</small></li>
+        </ul>
+      </div>
+      <div class="mini" style="--k:var(--a)">
+        <div class="k">賺錢 · PRICE 第一</div>
+        <h3>再攻</h3>
+        <p>做炒家，你關心嘅係價格嘅波幅。唔需要關心佢點解買，佢升就得。</p>
+        <ul class="vchain" style="--k:var(--a)">
+          <li>預期破壞者：最好嘅買賣點
+            <small>Oops：支持／阻力穿咗，再反轉</small>
+            <small>未補嘅缺口：冇耐性嘅人追咗</small>
+            <small>OEL／OEH：開市價 = 當日最低／最高</small>
+            <small>3BB：3 bar break（下面有圖）</small></li>
+          <li>成交量<small>預期反轉嗰陣，越多人郁手，成交量就越大</small></li>
+          <li>相對強度 RS<small>跑贏指數</small></li>
+          <li>龍頭 → 龍頭行業 → 指數</li>
+        </ul>
+      </div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 290" role="img" aria-label="左邊：向上 3 bar break，三條細燭之後，一條陽燭升穿前面三條嘅最高位，成交量大。右邊：向下 3 bar break，一條陰燭跌穿前面三條嘅最低位，成交量大。">
+        <text x="20" y="24" class="t-a" font-size="15" font-weight="700">向上 3 bar break</text>
+        <line x1="50" y1="120" x2="300" y2="120" class="s-muted" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <text x="52" y="112" class="t-muted" font-size="12">前 3 條最高位</text>
+        <g stroke-width="2">
+          <line x1="70" y1="120" x2="70" y2="160" class="s-a"/><rect x="59" y="130" width="22" height="20" class="f-a s-a"/>
+          <line x1="120" y1="125" x2="120" y2="158" class="s-b"/><rect x="109" y="135" width="22" height="15" class="f-b s-b"/>
+          <line x1="170" y1="122" x2="170" y2="155" class="s-a"/><rect x="159" y="132" width="22" height="16" class="f-a s-a"/>
+          <line x1="250" y1="86" x2="250" y2="150" class="s-a"/><rect x="239" y="92" width="22" height="53" class="f-a s-a"/>
+        </g>
+        <text x="272" y="100" class="t-a" font-size="13.5" font-weight="700">升穿</text>
+        <text x="20" y="218" class="t-muted" font-size="12">成交量</text>
+        <line x1="50" y1="272" x2="300" y2="272" class="s-rule" stroke-width="1.5"/>
+        <g class="f-muted" opacity=".55"><rect x="59" y="258" width="22" height="14"/><rect x="109" y="260" width="22" height="12"/><rect x="159" y="262" width="22" height="10"/></g>
+        <rect x="239" y="230" width="22" height="42" class="f-a"/>
+
+        <line x1="360" y1="12" x2="360" y2="280" class="s-rule" stroke-width="1.5"/>
+        <text x="380" y="24" class="t-b" font-size="15" font-weight="700">向下 3 bar break</text>
+        <line x1="410" y1="160" x2="660" y2="160" class="s-muted" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <text x="412" y="176" class="t-muted" font-size="12">前 3 條最低位</text>
+        <g stroke-width="2">
+          <line x1="430" y1="110" x2="430" y2="148" class="s-b"/><rect x="419" y="118" width="22" height="20" class="f-b s-b"/>
+          <line x1="480" y1="112" x2="480" y2="150" class="s-a"/><rect x="469" y="122" width="22" height="18" class="f-a s-a"/>
+          <line x1="530" y1="115" x2="530" y2="160" class="s-b"/><rect x="519" y="125" width="22" height="20" class="f-b s-b"/>
+          <line x1="610" y1="120" x2="610" y2="200" class="s-b"/><rect x="599" y="126" width="22" height="68" class="f-b s-b"/>
+        </g>
+        <text x="632" y="200" class="t-b" font-size="13.5" font-weight="700">跌穿</text>
+        <line x1="410" y1="272" x2="660" y2="272" class="s-rule" stroke-width="1.5"/>
+        <g class="f-muted" opacity=".55"><rect x="419" y="258" width="22" height="14"/><rect x="469" y="261" width="22" height="11"/><rect x="519" y="259" width="22" height="13"/></g>
+        <rect x="599" y="226" width="22" height="46" class="f-b"/>
+      </svg>
+      <figcaption>3 bar break：一條陽燭或者陰燭，超過咗前面 3 條燭。通常成交量都大：大家嘅預期反轉，越多人郁手。</figcaption>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 272" role="img" aria-label="大圓係指數，箭頭去其中一個行業，再去行業入面嘅龍頭。下面一條線反方向：相對強度由下而上，由龍頭睇到行業同指數。">
+        <circle cx="120" cy="110" r="84" class="f-c-soft s-c" stroke-width="2"/>
+        <text x="120" y="116" text-anchor="middle" class="t-c" font-size="18" font-weight="700">指數</text>
+        <g class="f-surface2 s-muted" stroke-width="1.5">
+          <circle cx="350" cy="34" r="16"/><circle cx="350" cy="74" r="16"/><circle cx="350" cy="154" r="16"/><circle cx="350" cy="194" r="16"/>
+        </g>
+        <circle cx="350" cy="114" r="22" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="350" y="119" text-anchor="middle" class="t-a" font-size="13" font-weight="700">行業</text>
+        <g class="f-surface2 s-muted" stroke-width="1.5">
+          <circle cx="560" cy="60" r="10"/><circle cx="560" cy="90" r="10"/><circle cx="560" cy="150" r="10"/><circle cx="560" cy="180" r="10"/>
+        </g>
+        <circle cx="560" cy="120" r="16" class="f-a"/>
+        <text x="586" y="125" class="t-a" font-size="15" font-weight="700">龍頭</text>
+        <path d="M206,104 H322" class="s-a" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <path d="M374,114 H538" class="s-a" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <text x="264" y="96" text-anchor="middle" class="t-muted" font-size="12.5">由上而下搵</text>
+        <path d="M578,128 C650,170 650,238 380,238 C240,238 170,226 136,196" class="f-none s-hit flow" stroke-width="2" marker-end="url(#ah-hit)"/>
+        <text x="400" y="262" text-anchor="middle" class="t-hit" font-size="13">RS 由下而上：龍頭 → 龍頭行業 → 指數</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">三句</div>
+    <h2>記住呢三句</h2>
+    <div class="stack">
+      <div class="mini" style="--k:var(--a)"><h3>All stocks are bad unless they go UP.</h3><p>所有股票都係垃圾，除非佢升。</p></div>
+      <div class="mini" style="--k:var(--hit)"><h3>Price tells story, why so curious.</h3><p>價錢已經講晒個故事，唔使咁好奇。</p></div>
+      <div class="mini" style="--k:var(--c)"><h3>Human don't change → market don't change.</h3><p>人唔變，市場就唔變。熱完會凍，凍完會熱。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「炒股 = 賭博？」</p>
+        <div><div class="tag">回應</div><p>賭場嘅數學係你長期一定輸。有止蝕、有規則嘅炒家，賭嘅係自己套規則有冇正期望值。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>大部分散戶炒家長期跑輸。美國一項研究：交易最頻密嗰兩成家庭，每年回報 11.4%，大市 17.9%。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「唔睇基本面，點知買緊乜？」</p>
+        <div><div class="tag">回應</div><p>盈利係過去嘅真，價錢係而家嘅真。價錢已經包埋大家對盈利嘅睇法。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>公佈業績嗰下，過去嘅真會打破預期。唔理基本面，起碼都要知幾時公佈。</p></div>
+      </div>
+    </div>
+    <p class="fine">呢頁講點樣理解市場，唔係投資建議。</p>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>人唔變，<em>市場就唔變</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Barber &amp; Odean (2000), Trading Is Hazardous to Your Wealth, Journal of Finance 55(2)。</li>
+      <li>Oops 形態：Larry Williams。相關：<a href="https://jpoon6d23.github.io/funplaywhatever/learn/sectors.html">錢會搬屋</a>（週期同行業輪動）。</li>
+    </ol>
+  </div>
+</section>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

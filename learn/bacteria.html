@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>細菌：冇佢哋，就冇你</title>
+<meta name="description" content="生命點樣一層層疊上嚟：氧氣係細菌嘅副產品，粒線體係搬咗入嚟唔走嘅細菌。食纖維佢哋係伙伴，食加工食物佢哋就食你。">
+<meta property="og:title" content="細菌：冇佢哋，就冇你">
+<meta property="og:description" content="生命點樣一層層疊上嚟：氧氣係細菌嘅副產品，粒線體係搬咗入嚟唔走嘅細菌。食纖維佢哋係伙伴，食加工食物佢哋就食你。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/bacteria.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/bacteria.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="細菌：冇佢哋，就冇你">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/bacteria.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#5fc48a;--b:#e86a5a;--hit:#e8b04a;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="幾條棒狀細菌，拖住尾巴游緊。">
+    <g class="bob"><rect x="30" y="40" width="90" height="34" rx="17" class="f-a-soft s-a" stroke-width="2.5"/><path d="M30,57 c-8,-6 -14,6 -22,0 c-6,-5 -10,4 -14,0" class="f-none s-a" stroke-width="2"/><circle cx="62" cy="57" r="4" class="f-a"/><circle cx="88" cy="52" r="3" class="f-a"/></g>
+    <g class="bob" style="animation-delay:-.9s"><rect x="110" y="100" width="100" height="34" rx="17" class="f-c-soft s-c" stroke-width="2.5"/><path d="M210,117 c8,-6 14,6 22,0" class="f-none s-c" stroke-width="2"/><circle cx="150" cy="116" r="4" class="f-c"/><circle cx="178" cy="121" r="3" class="f-c"/></g>
+    <g class="bob" style="animation-delay:-1.6s"><rect x="40" y="150" width="80" height="30" rx="15" class="f-hit-soft s-hit" stroke-width="2.5"/><path d="M40,165 c-8,-6 -14,6 -22,0" class="f-none s-hit" stroke-width="2"/><circle cx="72" cy="165" r="3.5" class="f-hit"/></g>
+  </svg>
+  <div>
+    <h1>細菌：冇佢哋，就冇你</h1>
+    <p class="said">Life enabler。藍綠菌學識咗光合作用，氧氣就係佢嘅副產品。</p>
+    <p class="lede">生命點樣一層層疊上嚟？我哋同細菌點樣互相影響？你食嘅纖維點樣令佢哋做你伙伴，食錯嘢又點樣令佢哋變成你敵人。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">一層層</div>
+    <h2>生命史 35 億年，細菌獨自做咗 30 億年</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 470" role="img" aria-label="由下而上嘅地層：45 億年前地球形成；約 35 億年前第一批細菌；約 24 億年前藍綠菌光合作用，氧氣係副產品；約 20 億年前細胞吞咗細菌變粒線體；約 15 億年前吞咗藍綠菌變葉綠體；約 6 億年前多細胞動物；約 5.4 億年前寒武紀大爆發；約 30 萬年前智人。">
+        <g stroke-width="1.5">
+          <rect x="170" y="420" width="530" height="44" class="f-muted-soft s-rule"/>
+          <rect x="170" y="364" width="530" height="56" class="f-a-soft s-a"/>
+          <rect x="170" y="300" width="530" height="64" class="f-c-soft s-c"/>
+          <rect x="170" y="240" width="530" height="60" class="f-d-soft s-d"/>
+          <rect x="170" y="180" width="530" height="60" class="f-a-soft s-a"/>
+          <rect x="170" y="128" width="530" height="52" class="f-hit-soft s-hit"/>
+          <rect x="170" y="76" width="530" height="52" class="f-hit-soft s-hit"/>
+          <rect x="170" y="24" width="530" height="52" class="f-b-soft s-b"/>
+        </g>
+        <g class="t-muted" font-size="13.5" text-anchor="end">
+          <text x="158" y="447">45 億年前</text><text x="158" y="397">約 35 億年前</text><text x="158" y="337">約 24 億年前</text><text x="158" y="275">約 20 億年前</text>
+          <text x="158" y="215">約 15 億年前</text><text x="158" y="159">約 6 億年前</text><text x="158" y="107">約 5.4 億年前</text><text x="158" y="55">約 30 萬年前</text>
+        </g>
+        <text x="186" y="447" class="t-muted" font-size="15">地球形成：得石頭同水</text>
+        <text x="186" y="390" class="t" font-size="15" font-weight="700">第一批細菌</text>
+        <text x="186" y="409" class="t-muted" font-size="13">單細胞，喺水入面</text>
+        <text x="186" y="327" class="t" font-size="15" font-weight="700">藍綠菌識光合作用 → 氧氣</text>
+        <text x="186" y="348" class="t-c" font-size="13.5">佢要嘅係糖，氧氣只係副產品（大氧化事件）</text>
+        <text x="186" y="266" class="t" font-size="15" font-weight="700">細胞吞咗細菌，冇消化</text>
+        <text x="186" y="286" class="t-d" font-size="13.5">→ 粒線體：真核細胞（動物、真菌嘅祖先）</text>
+        <text x="186" y="206" class="t" font-size="15" font-weight="700">再吞咗藍綠菌</text>
+        <text x="186" y="226" class="t-a" font-size="13.5">→ 葉綠體：植物嘅祖先</text>
+        <text x="186" y="159" class="t" font-size="15" font-weight="700">多細胞動物</text>
+        <text x="186" y="107" class="t" font-size="15" font-weight="700">寒武紀大爆發：動物款式爆晒出嚟</text>
+        <text x="186" y="55" class="t-b" font-size="15" font-weight="700">智人</text>
+        <path d="M690,410 V140" class="s-a" stroke-width="3" marker-end="url(#ah-a)"/>
+        <text x="680" y="262" text-anchor="end" class="t-a" font-size="12.5" font-weight="700">細菌獨自</text>
+        <text x="680" y="280" text-anchor="end" class="t-a" font-size="12.5" font-weight="700">約 30 億年</text>
+      </svg>
+      <figcaption>年份係大概，學界仲有爭論。每一層都疊喺下一層上面：冇氧氣，就冇用氧發電嘅細胞；冇呢啲細胞，就冇你。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">你入面嘅細菌</div>
+    <h2>粒線體 = 搬咗入嚟唔走嘅細菌</h2>
+    <p class="intro">大約 20 億年前，一粒細胞吞咗一隻識用氧氣發電嘅細菌，冇消化到。兩個住埋一齊，細菌幫手發電，細胞俾佢地方住。今日你每粒細胞入面嘅粒線體，就係佢嘅後代，仲有自己一套 DNA。植物嘅葉綠體亦一樣，係以前嘅藍綠菌。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 200" role="img" aria-label="四格：大細胞同細菌；大細胞吞咗細菌；冇消化，住埋一齊；細菌變成粒線體，幫細胞發電。">
+        <g stroke-width="2">
+          <circle cx="80" cy="100" r="54" class="f-c-soft s-c"/>
+          <rect x="130" y="40" width="36" height="20" rx="10" class="f-hit-soft s-hit"/>
+          <circle cx="260" cy="100" r="58" class="f-c-soft s-c"/>
+          <rect x="268" y="56" width="36" height="20" rx="10" class="f-hit-soft s-hit"/>
+          <path d="M296,62 q24,-10 20,22" class="f-none s-c" stroke-dasharray="3 4"/>
+          <circle cx="440" cy="100" r="58" class="f-c-soft s-c"/>
+          <rect x="420" y="90" width="40" height="22" rx="11" class="f-hit-soft s-hit"/>
+          <circle cx="620" cy="100" r="58" class="f-c-soft s-c"/>
+          <ellipse cx="600" cy="84" rx="20" ry="11" class="f-hit s-hit"/>
+          <ellipse cx="640" cy="116" rx="20" ry="11" class="f-hit s-hit"/>
+          <ellipse cx="606" cy="124" rx="16" ry="9" class="f-hit s-hit"/>
+        </g>
+        <path d="M586,84 h28 M626,116 h28" class="s-bg" stroke-width="1.5" style="stroke:var(--bg)"/>
+        <g class="s-muted" stroke-width="2"><path d="M152,100 H190" marker-end="url(#ah)"/><path d="M332,100 H370" marker-end="url(#ah)"/><path d="M512,100 H550" marker-end="url(#ah)"/></g>
+        <g class="t" font-size="13.5" font-weight="700" text-anchor="middle">
+          <text x="80" y="180">細胞 + 細菌</text><text x="260" y="180">吞咗</text><text x="440" y="180">冇消化，住埋一齊</text><text x="620" y="180">細菌 → 粒線體</text>
+        </g>
+        <text x="620" y="196" text-anchor="middle" class="t-muted" font-size="12">幫細胞發電，有自己嘅 DNA</text>
+      </svg>
+    </figure>
+    <p class="punch">你唔係「一個」生物。你係一隊二十億年前簽咗長約嘅合夥人。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">細菌養起成個地球</div>
+    <h2>氮：空氣有 78%，但冇細菌你食唔到</h2>
+    <p class="intro">空氣入面嘅氮（N₂）有三條鍵扣住（N≡N），好難拆。固氮菌識拆，拆完植物先用得。人類 1909 年學識用高溫、高壓同鐵去拆（哈伯法），做出化肥，今日大約一半人口靠佢食飯。用完之後，又係細菌將佢送返上天。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 420" role="img" aria-label="氮循環：空氣中的氮，被固氮菌或哈伯法拆成氨同化肥，變成植物、動物同人嘅蛋白質，排出屎尿，細菌分解成氨，硝化細菌變成硝酸鹽，植物再食；反硝化細菌將硝酸鹽變返氮氣返空氣。太多硝酸鹽流落海，藻類爆，缺氧，變死區。">
+        <circle cx="400" cy="205" r="140" class="f-none s-rule" stroke-width="8"/>
+        <circle cx="400" cy="205" r="140" class="f-none s-a flow" stroke-width="2.5"/>
+        <g class="f-a">
+          <path d="M-7,-6 L7,0 L-7,6 z" transform="translate(470,83.8) rotate(30)"/>
+          <path d="M-7,-6 L7,0 L-7,6 z" transform="translate(540,205) rotate(90)"/>
+          <path d="M-7,-6 L7,0 L-7,6 z" transform="translate(470,326.2) rotate(150)"/>
+          <path d="M-7,-6 L7,0 L-7,6 z" transform="translate(330,326.2) rotate(210)"/>
+          <path d="M-7,-6 L7,0 L-7,6 z" transform="translate(260,205) rotate(270)"/>
+          <path d="M-7,-6 L7,0 L-7,6 z" transform="translate(330,83.8) rotate(330)"/>
+        </g>
+        <rect x="330" y="40" width="140" height="50" rx="12" class="f-surface2 s-c" stroke-width="2"/>
+        <text x="400" y="62" text-anchor="middle" class="t-c" font-size="15" font-weight="700">空氣 N₂</text>
+        <text x="400" y="80" text-anchor="middle" class="t-muted" font-size="12">N≡N 好難拆</text>
+        <rect x="452" y="108" width="160" height="50" rx="12" class="f-surface2 s-a" stroke-width="2"/>
+        <text x="532" y="130" text-anchor="middle" class="t" font-size="14" font-weight="700">固氮菌 · 哈伯法</text>
+        <text x="532" y="148" text-anchor="middle" class="t-muted" font-size="12">→ 氨 NH₃、化肥</text>
+        <rect x="452" y="252" width="160" height="50" rx="12" class="f-surface2 s-a" stroke-width="2"/>
+        <text x="532" y="274" text-anchor="middle" class="t" font-size="14" font-weight="700">植物 → 動物 → 人</text>
+        <text x="532" y="292" text-anchor="middle" class="t-muted" font-size="12">變蛋白質</text>
+        <rect x="330" y="320" width="140" height="50" rx="12" class="f-surface2 s-hit" stroke-width="2"/>
+        <text x="400" y="342" text-anchor="middle" class="t" font-size="14" font-weight="700">屎尿 → 細菌食</text>
+        <text x="400" y="360" text-anchor="middle" class="t-muted" font-size="12">→ 氨 NH₃</text>
+        <rect x="188" y="252" width="160" height="50" rx="12" class="f-surface2 s-a" stroke-width="2"/>
+        <text x="268" y="274" text-anchor="middle" class="t" font-size="14" font-weight="700">硝化細菌</text>
+        <text x="268" y="292" text-anchor="middle" class="t-muted" font-size="12">→ 硝酸鹽</text>
+        <rect x="188" y="108" width="160" height="50" rx="12" class="f-surface2 s-c" stroke-width="2"/>
+        <text x="268" y="130" text-anchor="middle" class="t" font-size="14" font-weight="700">反硝化細菌</text>
+        <text x="268" y="148" text-anchor="middle" class="t-muted" font-size="12">→ N₂ 返上天</text>
+        <path d="M348,277 H448" class="s-a" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah-a)"/>
+        <text x="398" y="268" text-anchor="middle" class="t-a" font-size="12.5">植物食</text>
+        <path d="M188,290 C140,300 110,320 110,344" class="f-none s-b" stroke-width="2" marker-end="url(#ah-b)"/>
+        <rect x="14" y="348" width="200" height="62" rx="12" class="f-b-soft s-b" stroke-width="2"/>
+        <text x="114" y="372" text-anchor="middle" class="t-b" font-size="13.5" font-weight="700">太多流落海</text>
+        <text x="114" y="394" text-anchor="middle" class="t" font-size="12.5">藻類爆 → 缺氧 → 死區</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">你同佢哋嘅交易</div>
+    <h2>你食咩，決定佢哋；佢哋，又影響你</h2>
+    <p class="intro">你個腸入面住咗大約 38 萬億隻細菌，你自己大約 30 萬億粒細胞，一比一左右（以前講嘅「十比一」係誤傳）。佢哋同你係一個圈。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 200" role="img" aria-label="一個圈：腸道細菌影響你嘅免疫、代謝同腦；你食咩，決定佢哋。">
+        <rect x="60" y="66" width="200" height="64" rx="32" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="160" y="104" text-anchor="middle" class="t-a" font-size="17" font-weight="700">腸道細菌</text>
+        <rect x="460" y="66" width="200" height="64" rx="32" class="f-surface2 s-ink" stroke-width="2"/>
+        <text x="560" y="104" text-anchor="middle" class="t" font-size="17" font-weight="700">你</text>
+        <path d="M200,66 C260,30 460,30 520,66" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <path d="M520,130 C460,166 260,166 200,130" class="f-none s-hit flow" stroke-width="2.5" marker-end="url(#ah-hit)"/>
+        <text x="360" y="22" text-anchor="middle" class="t" font-size="14.5" font-weight="700">影響你：免疫、代謝、腦</text>
+        <text x="360" y="190" text-anchor="middle" class="t" font-size="14.5" font-weight="700">你食咩，決定佢哋</text>
+      </svg>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 300" role="img" aria-label="上面：纖維，小腸消化唔到，去到大腸，細菌發酵，出短鏈脂肪酸，餵大腸細胞、保護腸壁、減炎，伙伴。下面：高度加工食物，小腸已經吸收晒，大腸細菌冇嘢食，改食你腸壁嘅黏液，腸壁薄咗，發炎，敵人。">
+        <text x="20" y="28" class="t-a" font-size="15" font-weight="700">伙伴</text>
+        <g stroke-width="1.8">
+          <rect x="20" y="40" width="130" height="58" rx="10" class="f-a-soft s-a"/>
+          <rect x="176" y="40" width="120" height="58" rx="10" class="f-surface2 s-a"/>
+          <rect x="322" y="40" width="120" height="58" rx="10" class="f-surface2 s-a"/>
+          <rect x="468" y="40" width="232" height="58" rx="10" class="f-a-soft s-a"/>
+        </g>
+        <text x="85" y="64" text-anchor="middle" class="t" font-size="14" font-weight="700">纖維</text>
+        <text x="85" y="84" text-anchor="middle" class="t-muted" font-size="12">菜、豆、全穀</text>
+        <text x="236" y="64" text-anchor="middle" class="t" font-size="13.5" font-weight="700">小腸消化唔到</text>
+        <text x="236" y="84" text-anchor="middle" class="t-muted" font-size="12">原封不動落去</text>
+        <text x="382" y="64" text-anchor="middle" class="t" font-size="13.5" font-weight="700">大腸細菌食</text>
+        <text x="382" y="84" text-anchor="middle" class="t-muted" font-size="12">發酵</text>
+        <text x="584" y="64" text-anchor="middle" class="t-a" font-size="13.5" font-weight="700">出短鏈脂肪酸（丁酸）</text>
+        <text x="584" y="84" text-anchor="middle" class="t" font-size="12">餵大腸細胞、保護腸壁、減炎</text>
+        <g class="s-a" stroke-width="2"><path d="M150,69 H172" marker-end="url(#ah-a)"/><path d="M296,69 H318" marker-end="url(#ah-a)"/><path d="M442,69 H464" marker-end="url(#ah-a)"/></g>
+
+        <text x="20" y="168" class="t-b" font-size="15" font-weight="700">敵人</text>
+        <g stroke-width="1.8">
+          <rect x="20" y="180" width="130" height="58" rx="10" class="f-b-soft s-b"/>
+          <rect x="176" y="180" width="120" height="58" rx="10" class="f-surface2 s-b"/>
+          <rect x="322" y="180" width="120" height="58" rx="10" class="f-surface2 s-b"/>
+          <rect x="468" y="180" width="232" height="58" rx="10" class="f-b-soft s-b"/>
+        </g>
+        <text x="85" y="204" text-anchor="middle" class="t" font-size="14" font-weight="700">高度加工食物</text>
+        <text x="85" y="224" text-anchor="middle" class="t-muted" font-size="12">精製糖、白粉、乳化劑</text>
+        <text x="236" y="204" text-anchor="middle" class="t" font-size="13.5" font-weight="700">小腸吸收晒</text>
+        <text x="236" y="224" text-anchor="middle" class="t-muted" font-size="12">大腸冇嘢落到</text>
+        <text x="382" y="204" text-anchor="middle" class="t" font-size="13.5" font-weight="700">細菌餓</text>
+        <text x="382" y="224" text-anchor="middle" class="t-muted" font-size="12">改食你腸壁黏液</text>
+        <text x="584" y="204" text-anchor="middle" class="t-b" font-size="13.5" font-weight="700">腸壁薄咗</text>
+        <text x="584" y="224" text-anchor="middle" class="t" font-size="12">發炎、病菌易入</text>
+        <g class="s-b" stroke-width="2"><path d="M150,209 H172" marker-end="url(#ah-b)"/><path d="M296,209 H318" marker-end="url(#ah-b)"/><path d="M442,209 H464" marker-end="url(#ah-b)"/></g>
+        <text x="20" y="276" class="t-muted" font-size="12.5">「食腸壁黏液」同「乳化劑令腸壁變薄」主要係老鼠實驗嘅結果；人身上嘅證據仲喺度累積。</text>
+      </svg>
+    </figure>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--hit)"><div class="k">英國</div><h3>得 4% 成年人食夠纖維</h3><p>建議每日 30 克，大部分人只係食大約 16 至 20 克。即係你嘅伙伴，大部分時間都喺度捱餓。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">史丹福試驗，2021</div><h3>發酵食物：細菌多樣咗，發炎少咗</h3><p>36 個健康成年人隨機分組 10 星期。食多發酵食物（乳酪、泡菜、kombucha）嗰組，腸道細菌種類多咗，19 個發炎指標跌咗。高纖維組嘅細菌多咗消化纖維嘅工具，但種類喺短時間內冇變。</p></div>
+    </div>
+    <p class="note"><b>腦：</b>腸道細菌影響情緒同行為，大部分證據嚟自老鼠；喺人身上，仲係早期研究。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">由你識嘅嘢搭過去</div>
+    <h2>由你識嘅嘢搭過去</h2>
+    <div class="tablewrap">
+      <table class="cmp">
+        <tr><th>你識嘅</th><th>背後嘅細菌</th></tr>
+        <tr><td>乳酪、芝士、泡菜、酸忌廉</td><td>乳酸菌：將乳糖、糖變乳酸</td></tr>
+        <tr><td>醋</td><td>酵母先整酒精，醋酸菌再將酒精變醋</td></tr>
+        <tr><td>發燒</td><td>將身體變熱，對細菌係敵對環境</td></tr>
+        <tr><td>化肥</td><td>哈伯法：人工版嘅固氮菌</td></tr>
+        <tr><td>食抗生素</td><td>好菌壞菌一齊殺（<a href="https://jpoon6d23.github.io/funplaywhatever/learn/antibiotics.html">抗生素只識打細菌</a>）</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「食益生菌補充劑咪得囉？」</p>
+        <div><div class="tag">回應</div><p>大部分係過客：食嗰陣喺度，停咗就走。長住嘅細菌要有嘢食，即係纖維。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>某啲情況，例如食抗生素引起嘅肚瀉，益生菌有一定證據。唔係冇用，係唔係萬能。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「細菌 = 污糟，殺得幾多得幾多。」</p>
+        <div><div class="tag">回應</div><p>令你病嘅只係少數。殺晒好菌，壞菌（例如艱難梭菌）就有位坐。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>洗手、煮熟食物、消毒傷口，一樣救命。要殺嘅係病菌，唔係所有細菌。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>你唔係一個人食飯。你食咩，就<em>決定你同邊個做朋友</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Sender, Fuchs &amp; Milo (2016), Revised Estimates for the Number of Human and Bacteria Cells in the Body, PLoS Biology（約 38 萬億個細菌，對 30 萬億粒人體細胞）。</li>
+      <li>Erisman et al. (2008), How a century of ammonia synthesis changed the world, Nature Geoscience（哈伯法化肥養活大約一半人口）。</li>
+      <li>Desai et al. (2016), A Dietary Fiber-Deprived Gut Microbiota Degrades the Colonic Mucus Barrier, Cell（老鼠）。Chassaing et al. (2015), Dietary emulsifiers impact the mouse gut microbiota promoting colitis, Nature。</li>
+      <li>Wastyk et al. (2021), Gut-microbiota-targeted diets modulate human immune status, Cell。<a href="https://www.sciencedaily.com/releases/2021/07/210712122151.htm">sciencedaily.com</a></li>
+      <li>British Nutrition Foundation（2026）：英國成年人只有 4% 食夠每日 30 克纖維。<a href="https://www.nutrition.org.uk/nutritional-information/fibre">nutrition.org.uk</a></li>
+    </ol>
+  </div>
+</section>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

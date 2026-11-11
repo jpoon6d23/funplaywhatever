@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Blockchain 嘅本質：一本冇人擁有嘅數簿</title>
+<meta name="description" content="用計算力代替政府建立信任，防止同一筆錢使兩次。簽名、hash 指紋、挖礦、串鏈，自己撳下就明。">
+<meta property="og:title" content="Blockchain 嘅本質：一本冇人擁有嘅數簿">
+<meta property="og:description" content="用計算力代替政府建立信任，防止同一筆錢使兩次。簽名、hash 指紋、挖礦、串鏈，自己撳下就明。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/blockchain.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/blockchain.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Blockchain 嘅本質：一本冇人擁有嘅數簿">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/blockchain.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#e8b04a;--b:#e86a5a;--hit:#5fc48a;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<style>
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:13.5px;word-break:break-all}
+.tool textarea,.tool input[type=text],.tool input[type=number]{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:8px 10px;width:100%}
+.tool textarea{min-height:56px;resize:vertical}
+.hashout{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:8px 10px}
+.hashout b{color:var(--hit)}
+.btn{font:inherit;font-weight:700;color:var(--bg);background:var(--a);border:0;border-radius:999px;padding:6px 18px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+.chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.blk{background:var(--surface);border:2px solid var(--hit);border-radius:14px;padding:14px;display:grid;gap:8px;position:relative}
+.blk.bad{border-color:var(--b);background:color-mix(in srgb,var(--b) 8%,var(--surface))}
+.blk .h{font-weight:700}
+.blk .lab{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.blk .st{font-size:13px;font-weight:700;color:var(--hit)}
+.blk.bad .st{color:var(--b)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+</style>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 200" role="img" aria-label="三個方塊用鏈連住，第二個指住第一個，第三個指住第二個。">
+    <g stroke-width="2.5">
+      <rect x="10" y="70" width="60" height="60" rx="10" class="f-a-soft s-a"/>
+      <rect x="90" y="70" width="60" height="60" rx="10" class="f-a-soft s-a"/>
+      <rect x="170" y="70" width="60" height="60" rx="10" class="f-a-soft s-a"/>
+    </g>
+    <path d="M70,100 H90 M150,100 H170" class="s-a flow" stroke-width="4"/>
+    <g class="t" font-size="12" text-anchor="middle" style="font-family:ui-monospace,monospace">
+      <text x="40" y="96">#1</text><text x="120" y="96">#2</text><text x="200" y="96">#3</text>
+      <text x="40" y="116" class="t-hit">000a…</text><text x="120" y="116" class="t-hit">000f…</text><text x="200" y="116" class="t-hit">0003…</text>
+    </g>
+    <text x="120" y="170" text-anchor="middle" class="t-muted" font-size="13">冇人擁有，人人有一本</text>
+  </svg>
+  <div>
+    <h1>Blockchain 嘅本質：一本冇人擁有嘅數簿</h1>
+    <p class="said">Mining = 收集交易，砌一個 block，好似猜數字（蠻力 + 運氣）。解到嘅人挖到幣，將交易永久、公開咁記低 = chain。</p>
+    <p class="lede">用計算力，而唔係政府，去建立陌生人之間嘅信任，防止 double spending：同一筆錢使兩次。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">問題</div>
+    <h2>數碼嘢可以 copy：一個幣，點樣唔使兩次？</h2>
+    <p class="intro">傳統答案：搵銀行做中間人，大家信佢本數簿。Blockchain 嘅答案：人人都有同一本數簿，冇中間人。咁就要解決兩樣嘢：邊個有權寫下一頁？點樣防止有人呃？</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 230" role="img" aria-label="左邊：銀行模式，一本數簿喺中間，所有人都要信佢。右邊：區塊鏈模式，五個人每人一本一樣嘅數簿。">
+        <text x="180" y="26" text-anchor="middle" class="t" font-size="15" font-weight="700">銀行模式：信中間人</text>
+        <rect x="140" y="90" width="80" height="56" rx="8" class="f-c-soft s-c" stroke-width="2"/>
+        <text x="180" y="124" text-anchor="middle" class="t-c" font-size="14" font-weight="700">銀行</text>
+        <g class="s-muted" stroke-width="1.5">
+          <line x1="60" y1="60" x2="140" y2="100"/><line x1="300" y1="60" x2="220" y2="100"/><line x1="60" y1="180" x2="140" y2="140"/><line x1="300" y1="180" x2="220" y2="140"/>
+        </g>
+        <g class="f-surface2 s-ink" stroke-width="1.5"><circle cx="50" cy="55" r="16"/><circle cx="310" cy="55" r="16"/><circle cx="50" cy="185" r="16"/><circle cx="310" cy="185" r="16"/></g>
+        <line x1="360" y1="14" x2="360" y2="220" class="s-rule" stroke-width="1.5"/>
+        <text x="540" y="26" text-anchor="middle" class="t" font-size="15" font-weight="700">區塊鏈：人人一本</text>
+        <g class="s-a" stroke-width="1.5" stroke-dasharray="3 5">
+          <line x1="540" y1="70" x2="440" y2="130"/><line x1="540" y1="70" x2="640" y2="130"/><line x1="440" y1="130" x2="480" y2="200"/><line x1="640" y1="130" x2="600" y2="200"/><line x1="480" y1="200" x2="600" y2="200"/><line x1="540" y1="70" x2="480" y2="200"/><line x1="540" y1="70" x2="600" y2="200"/><line x1="440" y1="130" x2="640" y2="130"/>
+        </g>
+        <g stroke-width="1.5">
+          <rect x="522" y="56" width="36" height="28" rx="4" class="f-surface2 s-a"/><rect x="422" y="116" width="36" height="28" rx="4" class="f-surface2 s-a"/><rect x="622" y="116" width="36" height="28" rx="4" class="f-surface2 s-a"/><rect x="462" y="186" width="36" height="28" rx="4" class="f-surface2 s-a"/><rect x="582" y="186" width="36" height="28" rx="4" class="f-surface2 s-a"/>
+        </g>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">工具一 · 簽名</div>
+    <h2>Sign 同 Verify：證明係你批准</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--b)"><div class="k">sk · SECRET KEY</div><h3>私鑰</h3><p>得你自己知，好似你嘅印章。一串 256 個 0 同 1。</p></div>
+      <div class="mini" style="--k:var(--hit)"><div class="k">pk · PUBLIC KEY</div><h3>公鑰</h3><p>由私鑰計出嚟，人人都知，好似你印章嘅樣本。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">MESSAGE · SIGNATURE</div><h3>內容同簽名</h3><p>內容例如「Alice 俾 Bob 1 個幣」。簽名係一串數字，同內容綁死。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 240" role="img" aria-label="上面：內容加私鑰，經過 Sign，出簽名。下面：內容、簽名加公鑰，經過 Verify，出真或者假。改咗內容，就出假。">
+        <rect x="20" y="30" width="150" height="44" rx="10" class="f-surface2 s-c" stroke-width="1.8"/>
+        <text x="95" y="57" text-anchor="middle" class="t" font-size="13.5" font-weight="700">內容：Alice→Bob 1</text>
+        <rect x="190" y="30" width="80" height="44" rx="10" class="f-b-soft s-b" stroke-width="1.8"/>
+        <text x="230" y="57" text-anchor="middle" class="t-b" font-size="14" font-weight="700">sk</text>
+        <path d="M270,52 H316" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="320" y="30" width="100" height="44" rx="22" class="f-surface2 s-ink" stroke-width="2"/>
+        <text x="370" y="57" text-anchor="middle" class="t" font-size="15" font-weight="700">Sign</text>
+        <path d="M420,52 H466" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="470" y="30" width="200" height="44" rx="10" class="f-a-soft s-a" stroke-width="1.8"/>
+        <text x="570" y="57" text-anchor="middle" class="t" font-size="14" font-weight="700">簽名 10110000…</text>
+
+        <rect x="20" y="130" width="150" height="44" rx="10" class="f-surface2 s-c" stroke-width="1.8"/>
+        <text x="95" y="157" text-anchor="middle" class="t" font-size="13.5" font-weight="700">內容 + 簽名</text>
+        <rect x="190" y="130" width="80" height="44" rx="10" class="f-hit-soft s-hit" stroke-width="1.8"/>
+        <text x="230" y="157" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">pk</text>
+        <path d="M270,152 H316" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="320" y="130" width="100" height="44" rx="22" class="f-surface2 s-ink" stroke-width="2"/>
+        <text x="370" y="157" text-anchor="middle" class="t" font-size="15" font-weight="700">Verify</text>
+        <path d="M420,152 H466" class="s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="470" y="130" width="95" height="44" rx="10" class="f-hit-soft s-hit" stroke-width="1.8"/>
+        <text x="517" y="157" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">T 真</text>
+        <rect x="575" y="130" width="95" height="44" rx="10" class="f-b-soft s-b" stroke-width="1.8"/>
+        <text x="622" y="157" text-anchor="middle" class="t-b" font-size="14" font-weight="700">F 假</text>
+        <text x="622" y="196" text-anchor="middle" class="t-muted" font-size="12.5">「1」改做「100」</text>
+        <text x="622" y="214" text-anchor="middle" class="t-muted" font-size="12.5">簽名就對唔上</text>
+        <text x="20" y="112" class="t-muted" font-size="12.5">Sign(Message, sk) = Signature</text>
+        <text x="20" y="214" class="t-muted" font-size="12.5">Verify(Message, Signature, pk) = T / F</text>
+      </svg>
+      <figcaption>簽名用嘅係一種叫橢圓曲線嘅數學：由公鑰倒計私鑰，計到宇宙完都計唔到。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">工具二 · HASH</div>
+    <h2>SHA-256：一份嘢一個指紋</h2>
+    <p class="intro">Hash 將任何內容變成一個固定長度嘅「指紋」（256 個 0/1，寫出嚟係 64 個字）。同一份嘢永遠出同一個指紋；改一個字，成個指紋變晒；有指紋，都倒推唔返原文。自己試：</p>
+    <div class="tool">
+      <label for="hin">內容</label>
+      <textarea id="hin">Alice 俾 Bob 1 個幣</textarea>
+      <div class="lab" style="font-size:13px;color:var(--muted)">SHA-256 指紋</div>
+      <div class="hashout mono" id="hout"></div>
+      <p class="fine" style="margin:0">試下將「1」改做「2」，或者加多個空格。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">工具三 · 挖礦</div>
+    <h2>挖礦 = 估數字，估到指紋前面有幾多個 0</h2>
+    <p class="intro">礦工將一堆交易加一個數字（叫 nonce）一齊 hash，要搵到一個 nonce，令個指紋以指定數量嘅 0 開頭。冇技巧，冇捷徑，只可以 0、1、2、3… 咁逐個試：蠻力 + 運氣。每多要一個 0，平均就要試多 16 倍。</p>
+    <div class="tool">
+      <label for="min">Block 內容</label>
+      <input type="text" id="min" value="Alice→Bob 1；Bob→Charlie 0.5">
+      <div class="row">
+        <span style="font-size:14px;color:var(--muted)">要幾多個 0 開頭：</span>
+        <div class="seg" id="diff" role="group" aria-label="難度"></div>
+      </div>
+      <div class="row"><button type="button" class="btn" id="mgo">開始挖</button><span id="mstat" style="font-size:14px;color:var(--muted)"></span></div>
+      <div class="hashout mono" id="mout">nonce = –</div>
+    </div>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--a)">
+        <div class="k">真嘅比特幣，慢慢計</div>
+        <h3>每 10 分鐘，全世界試 6 × 10²³ 次</h3>
+        <ul>
+          <li><b>EH/s</b>：每秒 10¹⁸ 次（1 後面 18 個 0）</li>
+          <li>2026 年全網大約 <b>1,000 EH/s</b> = 每秒 10²¹ 次</li>
+          <li>平均 <b>10 分鐘</b>出一個 block = 600 秒</li>
+          <li>10²¹ × 600 = <b>6 × 10²³ 次</b>，先有一個人中</li>
+        </ul>
+      </div>
+      <div class="mini" style="--k:var(--hit)">
+        <div class="k">中咗有乜</div>
+        <h3>獎 3.125 個 BTC，加手續費</h3>
+        <ul>
+          <li>中咗嘅人寫低下一頁，攞獎</li>
+          <li>難度每 2,016 個 block（大約兩星期）自動調，令佢維持大約 10 分鐘一個</li>
+          <li>獎金大約每四年減半</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">工具四 · 串埋</div>
+    <h2>每一頁都寫住上一頁嘅指紋：改舊帳，後面全部斷</h2>
+    <p class="intro">每個 block 入面都抄低上一個 block 嘅指紋。你改舊帳，嗰個 block 嘅指紋變咗，下一個 block 抄嘅就對唔上，一路斷落去。自己試：改第一個 block 嘅內容。</p>
+    <div class="chain" id="chain"></div>
+    <p class="punch">想改舊帳，就要由嗰頁開始，重新挖晒後面每一頁，仲要挖得快過全世界其他人。呢個就係「用計算力建立信任」。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">點解估唔到，慢慢計</div>
+    <h2>2²⁵⁶：大到冇意義</h2>
+    <div class="steps">
+      <div class="step"><h3>bit</h3><p>一個位，得兩個可能：0 或者 1。</p></div>
+      <div class="step"><h3>256 bit</h3><p>256 個位排埋一齊。每多一個位，可能性乘 2：2 × 2 × 2 …… 乘 256 次 = 2²⁵⁶。</p></div>
+      <div class="step"><h3>2²⁵⁶ ≈ 1.16 × 10⁷⁷</h3><p>即係 1 後面 77 個 0。成個可觀測宇宙大約得 10⁸⁰ 粒原子。</p></div>
+      <div class="step"><h3>用全網速度去估</h3><p>每秒 10²¹ 次：10⁷⁷ ÷ 10²¹ = 10⁵⁶ 秒。宇宙年齡大約 4 × 10¹⁷ 秒，即係要估宇宙年齡嘅大約 10³⁸ 倍咁耐。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 250" role="img" aria-label="用指數比較長度：宇宙年齡秒數十的十七次方；全網每秒十的二十一次方；估中一條私鑰要十的五十六次方秒；私鑰可能性十的七十七次方；宇宙原子十的八十次方。">
+        <text x="20" y="22" class="t-muted" font-size="12.5">條長度 = 10 嘅幾多次方（即係「1 後面幾多個 0」）</text>
+        <g font-size="13.5">
+          <text x="20" y="56" class="t">宇宙年齡（秒）</text><rect x="210" y="42" width="95" height="20" rx="4" class="f-c"/><text x="312" y="57" class="t-c" font-weight="700">10¹⁷</text>
+          <text x="20" y="96" class="t">全網每秒試幾多次</text><rect x="210" y="82" width="118" height="20" rx="4" class="f-a"/><text x="335" y="97" class="t-a" font-weight="700">10²¹</text>
+          <text x="20" y="136" class="t">估中私鑰要幾多秒</text><rect x="210" y="122" width="314" height="20" rx="4" class="f-b"/><text x="531" y="137" class="t-b" font-weight="700">10⁵⁶</text>
+          <text x="20" y="176" class="t">私鑰有幾多種可能</text><rect x="210" y="162" width="431" height="20" rx="4" class="f-d"/><text x="648" y="177" class="t-d" font-weight="700">10⁷⁷</text>
+          <text x="20" y="216" class="t">宇宙有幾多粒原子</text><rect x="210" y="202" width="448" height="20" rx="4" class="f-muted"/><text x="665" y="217" class="t" font-weight="700">10⁸⁰</text>
+        </g>
+      </svg>
+      <figcaption>注意：呢條係「幾多個 0」嘅長度，唔係數值本身。10⁵⁶ 唔係 10¹⁷ 嘅三倍，係大 10³⁹ 倍。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">信任由邊度嚟</div>
+    <h2>大家跟最長嗰條鏈：呃人要快過全世界</h2>
+    <p class="intro">如果有兩個版本，大家跟累積計算量最多（最長）嗰條。想呃人，例如將俾咗 Bob 嘅錢改返俾自己，你就要自己開一條支鏈，挖得快過全網其他人加埋。即係要控制超過一半計算力，叫 51% 攻擊。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 200" role="img" aria-label="上面嘅誠實鏈有六個 block，一路加長；下面嘅呃人支鏈由第三個 block 分出嚟，得兩個 block，追唔上。">
+        <g stroke-width="2">
+          <rect x="20" y="50" width="70" height="44" rx="8" class="f-hit-soft s-hit"/><rect x="120" y="50" width="70" height="44" rx="8" class="f-hit-soft s-hit"/><rect x="220" y="50" width="70" height="44" rx="8" class="f-hit-soft s-hit"/>
+          <rect x="320" y="50" width="70" height="44" rx="8" class="f-hit-soft s-hit"/><rect x="420" y="50" width="70" height="44" rx="8" class="f-hit-soft s-hit"/><rect x="520" y="50" width="70" height="44" rx="8" class="f-hit-soft s-hit"/>
+          <rect x="620" y="50" width="70" height="44" rx="8" class="f-none s-hit" stroke-dasharray="4 4"/>
+          <rect x="320" y="140" width="70" height="44" rx="8" class="f-b-soft s-b"/><rect x="420" y="140" width="70" height="44" rx="8" class="f-b-soft s-b"/>
+        </g>
+        <g class="s-hit" stroke-width="2"><path d="M90,72 H120 M190,72 H220 M290,72 H320 M390,72 H420 M490,72 H520"/><path d="M590,72 H620" class="flow"/></g>
+        <path d="M255,94 C255,130 290,162 320,162 M390,162 H420" class="f-none s-b" stroke-width="2"/>
+        <text x="20" y="34" class="t-hit" font-size="14" font-weight="700">誠實鏈：全世界一齊挖</text>
+        <text x="510" y="166" class="t-b" font-size="14" font-weight="700">呃人支鏈：追唔上</text>
+      </svg>
+    </figure>
+    <p class="note"><b>成本：</b>劍橋大學估計，比特幣挖礦每年用電大約 138 TWh，約全球用電 0.5%（2025 年報告）；2025 年 12 月嘅初步數字升到大約 190 TWh。呢啲電，就係「呃人要燒更多電」嘅保安費。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">之後</div>
+    <h2>ETH 同 DeFi：數簿上面加程式</h2>
+    <div class="grid2">
+      <div class="mini" style="--k:var(--d)"><div class="k">ETHEREUM</div><h3>Smart contract = 自動販賣機</h3><p>入錢，條件啱，自動出貨，冇人睇舖。規則寫死喺條鏈度，冇人改到。</p></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">DEFI</div><h3>Decentralized finance = 冇銀行嘅金融</h3><p>借錢、換幣、收息，全部由合約自動做。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「有 blockchain，咪冇得呃？」</p>
+        <div><div class="tag">回應</div><p>條鏈本身好難改。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>人會呃。交易所可以倒閉（2022 年 FTX），私鑰俾人呃咗就冇得追，合約有 bug 會俾人爆。條鏈防到改帳，防唔到人蠢。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「挖礦咪嘥電？」</p>
+        <div><div class="tag">回應</div><p>支持者話：嗰啲電就係保安費。冇呢個成本，呃人就好平。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>批評者話：用電同挪威成個國家差唔多，大部分日常交易根本唔需要咁高嘅保安。以太坊 2022 年已經轉咗唔使挖礦嘅方法（Proof of Stake）。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>Blockchain 唔係叫你信人，係叫你信<em>數學同成本</em>：呃你嘅代價，大過呃你嘅好處。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Satoshi Nakamoto (2008), Bitcoin: A Peer-to-Peer Electronic Cash System。</li>
+      <li>3Blue1Brown, But how does bitcoin actually work?（簽名、數簿、工作量證明嘅講法）。</li>
+      <li>Hashrate Index (2026)：全網算力大約 1,000 EH/s。<a href="https://hashrateindex.com/blog/global-hashrate-heatmap-update-q2-2026/">hashrateindex.com</a></li>
+      <li>Cambridge Centre for Alternative Finance (2025), Cambridge Digital Mining Industry Report：每年約 138 TWh。<a href="https://www.jbs.cam.ac.uk/2025/cambridge-study-sustainable-energy-rising-in-bitcoin-mining/">jbs.cam.ac.uk</a>；2025 年 12 月初步更新約 190 TWh。<a href="https://www.theenergymag.com/news/market-news/bitcoin-energy-consumption-mix-cambridge-eif">theenergymag.com</a></li>
+    </ol>
+  </div>
+</section>
+
+<script>
+var sha256=(function(){
+  var K=[],H0=[],n=2,c=0;
+  function frac(x){return ((x-Math.floor(x))*4294967296)|0;}
+  while(c<64){var p=true;for(var f=2;f*f<=n;f++)if(n%f===0){p=false;break;}
+    if(p){if(c<8)H0[c]=frac(Math.pow(n,1/2));K[c]=frac(Math.pow(n,1/3));c++;}n++;}
+  function rr(v,a){return (v>>>a)|(v<<(32-a));}
+  return function(str){
+    var b=new TextEncoder().encode(str),l=b.length,tot=Math.ceil((l+9)/64)*64,m=new Uint8Array(tot);
+    m.set(b);m[l]=0x80;var dv=new DataView(m.buffer),bits=l*8;
+    dv.setUint32(tot-8,Math.floor(bits/4294967296));dv.setUint32(tot-4,bits>>>0);
+    var H=H0.slice(),w=new Int32Array(64);
+    for(var i=0;i<tot;i+=64){
+      for(var t=0;t<16;t++)w[t]=dv.getInt32(i+t*4);
+      for(t=16;t<64;t++){var x=w[t-15],y=w[t-2];
+        w[t]=(w[t-16]+(rr(x,7)^rr(x,18)^(x>>>3))+w[t-7]+(rr(y,17)^rr(y,19)^(y>>>10)))|0;}
+      var a=H[0],bb=H[1],cc=H[2],d=H[3],e=H[4],ff=H[5],g=H[6],h=H[7];
+      for(t=0;t<64;t++){
+        var t1=(h+(rr(e,6)^rr(e,11)^rr(e,25))+((e&ff)^(~e&g))+K[t]+w[t])|0;
+        var t2=((rr(a,2)^rr(a,13)^rr(a,22))+((a&bb)^(a&cc)^(bb&cc)))|0;
+        h=g;g=ff;ff=e;e=(d+t1)|0;d=cc;cc=bb;bb=a;a=(t1+t2)|0;}
+      H[0]=(H[0]+a)|0;H[1]=(H[1]+bb)|0;H[2]=(H[2]+cc)|0;H[3]=(H[3]+d)|0;H[4]=(H[4]+e)|0;H[5]=(H[5]+ff)|0;H[6]=(H[6]+g)|0;H[7]=(H[7]+h)|0;}
+    return H.map(function(v){return ('00000000'+(v>>>0).toString(16)).slice(-8);}).join('');
+  };
+})();
+
+
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  // hash demo
+  function showHash(){ $('hout').textContent=sha256($('hin').value); }
+  $('hin').addEventListener('input',showHash); showHash();
+
+  // mining demo
+  var diff=3, mining=false;
+  [1,2,3,4,5].forEach(function(n){
+    var b=document.createElement('button'); b.type='button'; b.textContent=n+' 個'; b.setAttribute('aria-pressed',n===diff?'true':'false');
+    b.addEventListener('click',function(){diff=n; $('diff').querySelectorAll('button').forEach(function(x,i){x.setAttribute('aria-pressed',i+1===n?'true':'false');});});
+    $('diff').appendChild(b);
+  });
+  function fmtHash(h,n){return '<b>'+h.slice(0,n)+'</b>'+h.slice(n);}
+  $('mgo').addEventListener('click',function(){
+    if(mining) return; mining=true;
+    var data=$('min').value, target='0'.repeat(diff), nonce=0, t0=performance.now();
+    $('mgo').textContent='挖緊…';
+    (function step(){
+      var end=nonce+20000, h;
+      for(;nonce<end;nonce++){ h=sha256(data+'|'+nonce); if(h.slice(0,diff)===target) break; }
+      if(h.slice(0,diff)===target){
+        var s=((performance.now()-t0)/1000).toFixed(2);
+        $('mout').innerHTML='nonce = '+nonce+'<br>'+fmtHash(h,diff);
+        $('mstat').textContent='試咗 '+(nonce+1).toLocaleString()+' 次，用咗 '+s+' 秒。平均要試 '+Math.pow(16,diff).toLocaleString()+' 次。';
+        $('mgo').textContent='再挖一次'; mining=false; return;
+      }
+      $('mstat').textContent='試緊第 '+nonce.toLocaleString()+' 次…';
+      setTimeout(step,0);
+    })();
+  });
+
+  // chain demo
+  var D=3, T='0'.repeat(D);
+  var blocks=[{d:'Alice→Bob 1'},{d:'Bob→Charlie 0.5'},{d:'Charlie→Alice 0.2'}];
+  function hashOf(i){var b=blocks[i];return sha256(i+'|'+b.prev+'|'+b.d+'|'+b.n);}
+  function mine(i){var b=blocks[i];b.n=0;while(true){var h=hashOf(i);if(h.slice(0,D)===T){b.h=h;return;}b.n++;}}
+  function recompute(){
+    for(var i=0;i<blocks.length;i++){
+      var b=blocks[i]; b.prev=i===0?'0'.repeat(64):blocks[i-1].h; b.h=hashOf(i);
+    }
+  }
+  // initial mine
+  for(var i=0;i<blocks.length;i++){ blocks[i].prev=i===0?'0'.repeat(64):blocks[i-1].h; mine(i); }
+  var box=$('chain');
+  function render(){
+    box.innerHTML='';
+    blocks.forEach(function(b,i){
+      var ok=b.h.slice(0,D)===T && (i===0 || b.prev===blocks[i-1].h);
+      var el=document.createElement('div'); el.className='blk'+(ok?'':' bad');
+      el.innerHTML='<div class="h">Block #'+(i+1)+'</div>'+
+        '<div><div class="lab">上一頁指紋</div><div class="mono">'+b.prev.slice(0,16)+'…</div></div>'+
+        '<div><div class="lab">內容（可以改）</div></div>'+
+        '<div><div class="lab">nonce</div><div class="mono">'+b.n+'</div></div>'+
+        '<div><div class="lab">呢頁指紋</div><div class="mono">'+fmtHash(b.h.slice(0,16),D)+'…</div></div>'+
+        '<div class="row"><span class="st">'+(ok?'✓ 有效':'✗ 斷咗')+'</span></div>';
+      var inp=document.createElement('input'); inp.type='text'; inp.value=b.d; inp.setAttribute('aria-label','Block '+(i+1)+' 內容');
+      inp.style.cssText='font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:6px 8px;width:100%';
+      inp.addEventListener('input',function(){ b.d=inp.value; recompute(); refresh(); });
+      el.children[2].appendChild(inp);
+      var btn=document.createElement('button'); btn.type='button'; btn.className='btn ghost'; btn.textContent='重挖呢頁';
+      btn.addEventListener('click',function(){ recompute(); mine(i); for(var k=i+1;k<blocks.length;k++){blocks[k].prev=blocks[k-1].h; blocks[k].h=hashOf(k);} render(); });
+      el.querySelector('.row').appendChild(btn);
+      box.appendChild(el);
+    });
+  }
+  function refresh(){
+    // update without rebuilding inputs (keep focus)
+    var els=box.querySelectorAll('.blk');
+    blocks.forEach(function(b,i){
+      var ok=b.h.slice(0,D)===T && (i===0 || b.prev===blocks[i-1].h), el=els[i];
+      el.className='blk'+(ok?'':' bad');
+      var monos=el.querySelectorAll('.mono');
+      monos[0].textContent=b.prev.slice(0,16)+'…';
+      monos[1].textContent=b.n;
+      monos[2].innerHTML=fmtHash(b.h.slice(0,16),D)+'…';
+      el.querySelector('.st').textContent=ok?'✓ 有效':'✗ 斷咗';
+    });
+  }
+  render();
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

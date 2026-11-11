@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>艇仔係攞嚟過河，唔係攞嚟孭</title>
+<meta name="description" content="學到嘅嘢係工具：幾時用、幾時抌低，就係智慧。誠實同做戲、自私同無私，當佢哋係工具，矛盾就消失。">
+<meta property="og:title" content="艇仔係攞嚟過河，唔係攞嚟孭">
+<meta property="og:description" content="學到嘅嘢係工具：幾時用、幾時抌低，就係智慧。誠實同做戲、自私同無私，當佢哋係工具，矛盾就消失。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/raft-tools.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/raft-tools.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="艇仔係攞嚟過河，唔係攞嚟孭">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/raft-tools.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#4fb6b0;--b:#e8b04a;--hit:#e86a5a;--c:#7fb2ff;--d:#e07a9a}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一條河，一隻細艇泊喺岸邊，一個人放低隻艇，行上岸。">
+    <path d="M0,120 C40,110 80,130 120,120 C160,110 200,130 240,120 V170 C200,180 160,160 120,170 C80,180 40,160 0,170 Z" class="f-c-soft"/>
+    <path d="M0,135 C40,125 80,145 120,135 C160,125 200,145 240,135" class="f-none s-c flow" stroke-width="1.5"/>
+    <path d="M150,180 L240,180 L240,200 L150,200 Z" class="f-surface2"/>
+    <g class="bob"><path d="M40,118 H112 L100,134 H52 Z" class="f-b-soft s-b" stroke-width="2.5" stroke-linejoin="round"/></g>
+    <circle cx="190" cy="108" r="10" class="f-none s-ink" stroke-width="3"/>
+    <path d="M190,118 V150 M190,150 L178,178 M190,150 L204,176 M190,128 L174,140 M190,128 L208,120" class="f-none s-ink" stroke-width="3" stroke-linecap="round"/>
+    <text x="170" y="60" class="t-a" font-size="15" font-weight="700">放低，行</text>
+  </svg>
+  <div>
+    <h1>艇仔係攞嚟過河，唔係攞嚟孭</h1>
+    <p class="said">學到嘅嘢係工具。有用嘅嘢要睇場景：一把刀好有用，攞嚟切嘢，但你唔會攬住佢瞓覺。</p>
+    <p class="lede">學習一個好大嘅課題：喺適當嘅時候用適當嘅工具，同埋識得抌低。抌低往往更難。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">佛陀嘅筏</div>
+    <h2>過咗河，就放低隻艇</h2>
+    <p class="quote">知我說法，如筏喻者；法尚應捨，何況非法。<small>《金剛經》</small></p>
+    <p class="intro">佛陀講過一個故仔：有人整咗隻木筏過河，上岸之後覺得「呢隻筏幫咗我好多」，於是成世孭住佢周圍行。佛陀話：連佢講嘅道理都係一隻筏，過咗河，都要放低。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 230" role="img" aria-label="三格：喺河邊整筏；坐筏過河；上咗岸，一個人放低隻筏輕鬆行，另一個人孭住隻筏出晒汗。">
+        <path d="M0,150 C60,140 120,160 180,150 C240,140 300,160 360,150 V200 H0 Z" class="f-c-soft"/>
+        <g stroke-width="2.5" stroke-linecap="round">
+          <path d="M40,140 H140" class="s-b"/><path d="M40,132 H140" class="s-b"/><path d="M40,124 H140" class="s-b" opacity=".6"/>
+          <circle cx="160" cy="80" r="10" class="f-none s-ink"/>
+          <path d="M160,90 V120 M160,120 L150,146 M160,120 L172,146 M160,100 L140,112" class="f-none s-ink"/>
+        </g>
+        <text x="100" y="222" text-anchor="middle" class="t" font-size="14" font-weight="700">一、整筏</text>
+        <g class="bob" stroke-width="2.5" stroke-linecap="round">
+          <path d="M210,150 H320 L310,162 H220 Z" class="f-b-soft s-b"/>
+          <circle cx="265" cy="110" r="10" class="f-none s-ink"/>
+          <path d="M265,120 V146 M265,128 L282,118" class="f-none s-ink"/>
+        </g>
+        <text x="265" y="222" text-anchor="middle" class="t" font-size="14" font-weight="700">二、過河</text>
+        <line x1="380" y1="20" x2="380" y2="210" class="s-rule" stroke-width="1.5"/>
+        <rect x="390" y="170" width="330" height="20" class="f-surface2"/>
+        <g stroke-width="2.5" stroke-linecap="round">
+          <path d="M400,168 H470 L462,160 H408 Z" class="f-b-soft s-b"/>
+          <circle cx="500" cy="96" r="10" class="f-none s-a"/>
+          <path d="M500,106 V136 M500,136 L488,166 M500,136 L514,164 M500,116 L486,128 M500,116 L516,108" class="f-none s-a"/>
+          <circle cx="640" cy="104" r="10" class="f-none s-hit"/>
+          <path d="M640,114 V140 M640,140 L630,168 M640,140 L652,168 M640,120 L622,96 M640,120 L660,96" class="f-none s-hit"/>
+          <path d="M596,92 H690 L682,80 H604 Z" class="f-b-soft s-b"/>
+        </g>
+        <g class="bob"><path d="M616,112 q-3,6 0,8 q3,-2 0,-8z M664,118 q-3,6 0,8 q3,-2 0,-8z" class="f-c"/></g>
+        <text x="500" y="222" text-anchor="middle" class="t-a" font-size="14" font-weight="700">三A、放低，行</text>
+        <text x="640" y="222" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">三B、孭住，攰死</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">點解抌低更難</div>
+    <h2>以前 work，唔代表幾時都 work</h2>
+    <p class="intro">你之前用佢嗰陣好 work，所以你覺得佢幾時都 work。但係場景變咗，工具嘅用處跌咗，你對佢嘅信心冇跌。中間嗰條罅，就叫執著。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 260" role="img" aria-label="兩條線：工具嘅實際用處，場景一變就跌；你對佢嘅信心，一直企喺高位。中間嘅空間叫執著。">
+        <line x1="60" y1="210" x2="690" y2="210" class="s-muted" stroke-width="1.5" marker-end="url(#ah)"/>
+        <line x1="60" y1="210" x2="60" y2="24" class="s-muted" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="50" y="40" text-anchor="end" class="t-muted" font-size="12.5">高</text>
+        <text x="680" y="234" text-anchor="end" class="t-muted" font-size="12.5">時間 →</text>
+        <rect x="60" y="24" width="300" height="186" class="f-a-soft" fill-opacity=".05"/>
+        <text x="210" y="234" text-anchor="middle" class="t-muted" font-size="13">場景 A</text>
+        <text x="520" y="234" text-anchor="middle" class="t-muted" font-size="13">場景 B</text>
+        <line x1="360" y1="24" x2="360" y2="210" class="s-rule" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <path d="M360,62 C420,64 460,170 520,178 L680,182 L680,64 L360,62 Z" class="f-hit-soft"/>
+        <path d="M70,70 C150,60 280,60 360,62 C420,64 460,170 520,178 L680,182" class="f-none s-a" stroke-width="3"/>
+        <path d="M70,70 C150,62 280,62 360,62 L680,64" class="f-none s-b" stroke-width="3" stroke-dasharray="7 6"/>
+        <text x="120" y="52" class="t-b" font-size="13.5" font-weight="700">你對佢嘅信心</text>
+        <text x="120" y="96" class="t-a" font-size="13.5" font-weight="700">工具嘅實際用處</text>
+        <text x="600" y="130" text-anchor="middle" class="t-hit" font-size="16" font-weight="700">執著</text>
+      </svg>
+    </figure>
+    <div class="grid3 mt">
+      <div class="mini" style="--k:var(--b)"><div class="k">細個 → 大個</div><h3>聽話</h3><p>細個聽話保護你；大個咗仲淨係識聽話，就冇主見。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">升市 → 跌市</div><h3>撈底</h3><p>升市撈底次次贏；跌市照撈，越撈越深。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">讀書 → 返工</div><h3>背書</h3><p>考試背得多分高；返工冇人問你背咗乜，問你解決到乜。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">矛盾一：誠實同做戲</div>
+    <h2>兩樣都係工具</h2>
+    <p class="intro">好多睇落矛盾嘅嘢，當佢哋係工具，就唔再矛盾。</p>
+    <div class="grid2">
+      <div class="mini" style="--k:var(--c)"><div class="k">誠實</div><h3>令你睇到真實</h3><ul><li>睇到真實，先有正確嘅判斷</li><li>唔使講大話，因為大話好嘥精力：你要記住你講過乜</li></ul></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">做戲、講故仔</div><h3>令你喺人群入面行得通</h3><ul><li>你冇理由對老婆、仔女、老細、陌生人都係同一個樣</li><li>講事實往往吸引唔到人；人鍾意估唔到嘅嘢</li></ul></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 270" role="img" aria-label="中間係你，四邊係四個角色：對老婆、對仔女、對老細、對陌生人，同一個人四個面。">
+        <circle cx="360" cy="135" r="46" class="f-surface2 s-ink" stroke-width="2"/>
+        <text x="360" y="142" text-anchor="middle" class="t" font-size="18" font-weight="700">你</text>
+        <g class="s-muted" stroke-width="1.5" stroke-dasharray="4 5">
+          <line x1="320" y1="112" x2="230" y2="70"/><line x1="400" y1="112" x2="490" y2="70"/><line x1="320" y1="158" x2="230" y2="200"/><line x1="400" y1="158" x2="490" y2="200"/>
+        </g>
+        <g stroke-width="2">
+          <rect x="70" y="40" width="170" height="60" rx="30" class="f-d-soft s-d"/>
+          <rect x="480" y="40" width="170" height="60" rx="30" class="f-b-soft s-b"/>
+          <rect x="70" y="170" width="170" height="60" rx="30" class="f-c-soft s-c"/>
+          <rect x="480" y="170" width="170" height="60" rx="30" class="f-a-soft s-a"/>
+        </g>
+        <text x="155" y="66" text-anchor="middle" class="t" font-size="15" font-weight="700">對老婆</text>
+        <text x="155" y="86" text-anchor="middle" class="t-muted" font-size="12.5">溫柔、讓步</text>
+        <text x="565" y="66" text-anchor="middle" class="t" font-size="15" font-weight="700">對仔女</text>
+        <text x="565" y="86" text-anchor="middle" class="t-muted" font-size="12.5">扮唔驚、扮識晒</text>
+        <text x="155" y="196" text-anchor="middle" class="t" font-size="15" font-weight="700">對老細</text>
+        <text x="155" y="216" text-anchor="middle" class="t-muted" font-size="12.5">專業、冇脾氣</text>
+        <text x="565" y="196" text-anchor="middle" class="t" font-size="15" font-weight="700">對陌生人</text>
+        <text x="565" y="216" text-anchor="middle" class="t-muted" font-size="12.5">禮貌、保留</text>
+      </svg>
+      <figcaption>社會學家 Goffman（1959）：日常生活就係一場戲，有前台，有後台。研究亦發現，大部分人每日都講一兩個大話。</figcaption>
+    </figure>
+    <div class="mini mt" style="--k:var(--hit);max-width:760px">
+      <div class="k">如果廣告講晒事實</div>
+      <h3>「可樂：一罐令你易啲有糖尿病嘅糖水。」</h3>
+      <p>老實，但冇人睇。所以廣告講故仔，女人化妝，我哋揀字講嘢。偽裝都係我哋想要嘅嘢。點樣用、幾時用，就係智慧。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">矛盾二：自私同無私</div>
+    <h2>呼吸已經話咗俾你知</h2>
+    <div class="grid2">
+      <div class="mini" style="--k:var(--b)"><div class="k">自私</div><h3>我哋係獨立個體</h3><p>冇人能夠完全理解你。人哋食嘢，你唔會飽。所以要滿足自己嘅身體同心靈。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">無私</div><h3>我哋係一體</h3><p>你要食其他生命先生存到，要呼吸，要飲水。冇咗其他嘢，你一定會死。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 230" role="img" aria-label="一個會漲大縮細嘅圓：吸係攞，呼係還。">
+        <style>@keyframes breathe{0%,100%{transform:scale(.7)}50%{transform:scale(1)}}.breathe{transform-box:fill-box;transform-origin:center;animation:breathe 6s ease-in-out infinite}@media (prefers-reduced-motion:reduce){.breathe{animation:none}}</style>
+        <circle cx="360" cy="115" r="90" class="f-a-soft s-a breathe" stroke-width="2"/>
+        <text x="360" y="110" text-anchor="middle" class="t" font-size="20" font-weight="700">先吸，再呼</text>
+        <text x="360" y="136" text-anchor="middle" class="t-muted" font-size="14">先攞，再還</text>
+        <text x="110" y="100" text-anchor="middle" class="t-b" font-size="17" font-weight="700">吸 = 攞</text>
+        <text x="110" y="124" text-anchor="middle" class="t-muted" font-size="13">由世界攞氧氣</text>
+        <text x="610" y="100" text-anchor="middle" class="t-a" font-size="17" font-weight="700">呼 = 還</text>
+        <text x="610" y="124" text-anchor="middle" class="t-muted" font-size="13">將二氧化碳還俾植物</text>
+        <path d="M180,112 H250" class="s-b" stroke-width="2" marker-end="url(#ah-b)"/>
+        <path d="M470,112 H540" class="s-a" stroke-width="2" marker-end="url(#ah-a)"/>
+      </svg>
+      <figcaption>出世第一件事就係呼吸。個詞「呼」字行先，但第一下係「吸」。喺呢個世界攞咗嘢，唔還係唔得。</figcaption>
+    </figure>
+    <p class="punch">因為你係獨立個體，有啲嘢你控制到；因為你冇辦法獨立生存，有啲嘢你控制唔到。兩樣係矛盾，但同時存在。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">智慧</div>
+    <h2>揀一個場景，用乜工具？</h2>
+    <p class="intro">智慧就係喺睇落矛盾嘅嘢中間生存，識得點樣用佢哋，而唔係俾佢哋玩。</p>
+    <div class="tool">
+      <div class="seg" role="group" aria-label="揀場景" id="scenes"></div>
+      <p class="out" id="sc-tool"></p>
+      <p id="sc-why" style="color:var(--muted)"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「乜都係工具，咁即係冇原則？」</p>
+        <div><div class="tag">回應</div><p>原則都係工具，但有啲工具放低咗就攞唔返，例如信用。呃得人一次，佢就唔會再信你。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>邊啲要守死、邊啲可以放，冇公式，要自己判斷，亦會判斷錯。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「化妝、廣告，咪又係講大話？」</p>
+        <div><div class="tag">回應</div><p>化妝冇講假嘢，係揀俾你睇邊一面。做戲同講故仔係揀講法；講大話係講假嘢。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>條界好幼。做戲做得耐，連自己都會唔記得自己係邊個；廣告講到「可樂好健康」，就由包裝變成呃人。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>艇係用嚟過河。上咗岸，<em>記得放低</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>《金剛經》：「知我說法，如筏喻者；法尚應捨，何況非法。」巴利文《中部・蛇喻經》（MN 22）：筏喻。</li>
+      <li>Erving Goffman (1959), The Presentation of Self in Everyday Life。</li>
+      <li>DePaulo et al. (1996), Lying in everyday life, Journal of Personality and Social Psychology：大學生平均每日大約兩個大話，社區成年人大約一個。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var S=[
+    ['檢討點解蝕錢','誠實','對自己講大話，下次照蝕。'],
+    ['朋友煮咗餐好難食嘅飯','做戲','「好特別喎。」佢下次唔會再煮，你又唔使食，兩個都開心。'],
+    ['寫廣告','講故仔','冇人想聽成份表。'],
+    ['醫生講病情','誠實','呃病人，等於推佢做錯決定。'],
+    ['見工','包裝','講事實，但揀講邊啲。'],
+    ['病咗都照返工','自私','照顧自己唔係罪。你倒下，冇人幫你瞓。'],
+    ['有能力，見人有難','無私','你攞過世界咁多嘢，係時候還。'],
+    ['另一半問「我係咪肥咗？」','智慧','呢題冇工具救到你。']
+  ];
+  var box=document.getElementById('scenes'), t=document.getElementById('sc-tool'), w=document.getElementById('sc-why');
+  S.forEach(function(s,i){
+    var b=document.createElement('button'); b.type='button'; b.textContent=s[0]; b.setAttribute('aria-pressed',i===0?'true':'false');
+    b.addEventListener('click',function(){pick(i);}); box.appendChild(b);
+  });
+  function pick(i){
+    box.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false');});
+    t.textContent='工具：'+S[i][1]; w.textContent=S[i][2];
+  }
+  pick(0);
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
