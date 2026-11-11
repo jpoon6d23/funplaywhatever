@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="超市減價係著數，市場減價係冇人要。價格係天氣預報、係全人類嘅投票。用彩池模擬器睇共識點樣令回報變差，同埋錢同意見分歧嘅時候點樣睇。">
+<meta property="og:title" content="金融市場唔係超級市場">
+<meta property="og:description" content="超市減價係著數，市場減價係冇人要。價格係天氣預報、係全人類嘅投票。用彩池模擬器睇共識點樣令回報變差，同埋錢同意見分歧嘅時候點樣睇。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/market-not-supermarket.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/market-not-supermarket.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="金融市場唔係超級市場">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/market-not-supermarket.html">
+<title>金融市場唔係超級市場</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column, interactive panels full column width; motif = handwritten market price tags vs a tote/odds board */
+:root{
+  --bg:#0F151B; --surface:#161F27; --surface-2:#1E2A34; --line:#2C3B48;
+  --fg:#E7ECF0; --muted:#94A3B0; --tag:#F2C94C; --on-tag:#2A2204;
+  --up:#4CC38A; --down:#EB6D5F; --horse2:#6FA3C8; --horse3:#A08FD6;
+  --display:"LXGW WenKai TC","Noto Serif TC","Songti TC",serif;
+  --body:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#F3F5F6;--surface:#FFFFFF;--surface-2:#E8EEF2;--line:#D2DBE1;--fg:#14212B;--muted:#56687A;--tag:#F2C94C;--on-tag:#2A2204;--up:#17804F;--down:#C23F2E;--horse2:#3D78A6;--horse3:#6B57AE;color-scheme:light}
+}
+:root[data-theme="light"]{--bg:#F3F5F6;--surface:#FFFFFF;--surface-2:#E8EEF2;--line:#D2DBE1;--fg:#14212B;--muted:#56687A;--tag:#F2C94C;--on-tag:#2A2204;--up:#17804F;--down:#C23F2E;--horse2:#3D78A6;--horse3:#6B57AE;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75}
+.wrap{max-width:880px;margin:0 auto;padding-block:40px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:72px}
+section{display:flex;flex-direction:column;gap:20px;min-width:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(40px,8vw,68px)}
+h2{font-size:clamp(28px,5vw,38px)}
+h3{font-size:21px}
+p{margin:0;max-width:40em}
+.lede{font-size:19px}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;min-width:0}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid > .span{grid-column:1/-1}
+.card h3{margin-bottom:6px}
+.card p{font-size:16px}
+mark{background:var(--tag);color:var(--on-tag);padding:0 4px;border-radius:3px}
+.big{font-family:var(--display);font-size:clamp(22px,4vw,28px);line-height:1.5;max-width:30em}
+
+/* hero tags */
+.hero{gap:18px}
+.tags{display:flex;flex-wrap:wrap;gap:28px;margin-top:18px}
+.tag{position:relative;flex:1 1 280px;min-width:0;padding:22px 26px 24px 52px;clip-path:polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%);border-radius:4px}
+.tag::before{content:"";position:absolute;left:24px;top:50%;width:11px;height:11px;border-radius:50%;background:var(--bg);transform:translateY(-50%)}
+.tag.shop{background:var(--tag);color:var(--on-tag);transform:rotate(-1.6deg)}
+.tag.mkt{background:var(--surface-2);color:var(--fg);transform:rotate(1.2deg)}
+.tag .where{font-family:var(--mono);font-size:12px;letter-spacing:.12em;opacity:.75}
+.tag .item{font-family:var(--display);font-size:26px;line-height:1.35;margin-top:4px}
+.tag .item s{opacity:.6}
+.stamp{display:inline-block;margin-top:10px;font-family:var(--display);font-size:20px;font-weight:700;padding:2px 12px;border:2.5px solid currentColor;border-radius:6px;transform:rotate(-4deg)}
+.tag.shop .stamp{color:#B4261A}
+.tag.mkt .stamp{color:var(--tag)}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:16px;min-width:520px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+th{font-weight:500;color:var(--muted);font-size:14px;background:var(--surface-2)}
+td:first-child{color:var(--muted);white-space:nowrap}
+.col-boss{font-weight:500}
+table.compact{min-width:0;font-size:15px}
+table.compact th,table.compact td{padding:10px 8px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+th.num{text-align:right}
+
+/* weather */
+.wx{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.wx .card{display:flex;flex-direction:column;gap:8px}
+.wx .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted)}
+.wx .card.now{border-color:var(--tag)}
+.wx ul{margin:0;padding-left:20px;font-size:16px}
+
+/* vote flow */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.flow .step{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:16px;line-height:1.4}
+.flow .step small{display:block;font-size:13px;color:var(--muted)}
+.flow .step.end{background:var(--tag);color:var(--on-tag);border-color:var(--tag)}
+.flow .step.end small{color:var(--on-tag);opacity:.75}
+.flow .arr{color:var(--muted);font-family:var(--mono)}
+
+/* pool steps + sim */
+.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px;max-width:40em}
+.sim{display:flex;flex-direction:column;gap:14px}
+.sim label{font-size:15px;color:var(--muted)}
+.row-ctl{display:flex;align-items:center;gap:14px}
+.row-ctl input{flex:1}
+.row-ctl b{font-family:var(--mono);font-variant-numeric:tabular-nums;min-width:48px;text-align:right}
+input[type=range]{accent-color:var(--tag)}
+.bars{display:flex;height:30px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.bars span{display:flex;align-items:center;justify-content:center;font-size:13px;white-space:nowrap;overflow:hidden;transition:width .2s}
+.b1{background:var(--tag);color:var(--on-tag)} .b2{background:var(--horse2);color:#0E1A24} .b3{background:var(--horse3);color:#160F2A}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.pos{color:var(--up)} .neg{color:var(--down)}
+.calc{font-family:var(--mono);font-size:14px;color:var(--muted);line-height:1.6}
+.zone{padding:12px 14px;border-radius:10px;background:var(--surface-2);font-size:16px}
+
+/* track */
+.track{display:flex;flex-direction:column;gap:12px}
+.track input[type=number]{width:100%;max-width:280px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);color:var(--fg);font-family:var(--mono);font-size:16px}
+.lane{position:relative;height:18px;border-radius:9px;background:var(--surface-2);border:1px solid var(--line)}
+.lane i{position:absolute;left:0;top:-4px;bottom:-4px;width:2px;background:var(--down)}
+.lane-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.err{font-size:14px;color:var(--down);min-height:20px}
+
+/* matrix */
+.mx{display:grid;grid-template-columns:minmax(64px,auto) 1fr 1fr;gap:8px}
+.mx .h{font-size:14px;color:var(--muted);display:flex;align-items:center;justify-content:center;text-align:center;padding:6px}
+.mx .c{border-radius:12px;padding:14px;border:1px solid var(--line);background:var(--surface);min-width:0;font-size:15px;line-height:1.55}
+.mx .c b{display:block;font-family:var(--display);font-size:18px;margin-bottom:4px}
+.mx .c.div{border:2px solid var(--tag);background:var(--surface-2)}
+
+/* rings */
+.rings svg{width:100%;height:auto;max-width:560px;display:block;margin:0 auto}
+
+/* cycle */
+.cycle svg{width:100%;height:auto;display:block}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font:inherit;font-size:15px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg);cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--tag);color:var(--on-tag);border-color:var(--tag)}
+.pill:focus-visible,input:focus-visible{outline:2px solid var(--tag);outline-offset:2px}
+.facts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.fact{background:var(--surface-2);border-radius:10px;padding:12px 14px;min-width:0}
+.fact .k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted)}
+.fact .v{font-size:16px;margin-top:4px}
+blockquote{margin:0;font-family:var(--display);font-size:22px;line-height:1.5;padding-left:18px;border-left:3px solid var(--tag);border-radius:0;max-width:34em}
+blockquote cite{display:block;font-family:var(--body);font-style:normal;font-size:14px;color:var(--muted);margin-top:6px}
+
+/* timeline */
+.tl{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.ev{position:relative;padding:0 0 22px 24px;display:flex;flex-direction:column;gap:4px}
+.ev::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.ev.top::before{border-color:var(--down)}
+.ev.bottom::before{border-color:var(--up)}
+.ev .yr{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.ev h3{font-size:19px}
+.ev p{font-size:16px}
+.tagline{font-family:var(--mono);font-size:12px;padding:1px 8px;border-radius:999px;margin-left:8px;vertical-align:2px}
+.tagline.top{color:var(--down);border:1px solid var(--down)}
+.tagline.bottom{color:var(--up);border:1px solid var(--up)}
+
+/* signals */
+.sig ul{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.sig h3 .dotc{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:3px}
+footer{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+.topbar{max-width:880px;margin:0 auto;padding-top:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--fg)}
+.wrap{padding-top:24px}
+</style>
+</head>
+<body>
+<div class="topbar"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<div class="wrap">
+
+<section class="hero">
+  <div class="eyebrow">市場心理 · discount mechanism</div>
+  <h1>金融市場唔係超級市場</h1>
+  <p class="lede">喺超市，discount 即係減價。喺金融市場，discount 即係「大家知道嘅嘢，已經計咗入價錢」。當一件事人人都覺得好合理，佢通常已經喺價入面，剩低嘅只係風險。</p>
+  <div class="tags" aria-hidden="true">
+    <div class="tag shop">
+      <div class="where">超市</div>
+      <div class="item">蘋果 <s>$3.00</s> $2.00</div>
+      <span class="stamp">減價</span>
+    </div>
+    <div class="tag mkt">
+      <div class="where">股票市場</div>
+      <div class="item">「記憶體 2027 都唔夠貨」</div>
+      <span class="stamp">已計入價</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">角色</div>
+  <h2>你係顧客，定係老細？</h2>
+  <p>大部分人入金融市場，用嘅係超市腦：平咗就係著數。問題係，你喺超市係顧客，買個蘋果返屋企就食咗佢。喺市場你係老細，入咗貨要再賣出去，賺嘅係下一個買家肯畀嘅價錢。</p>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th></th><th>顧客（超市）</th><th>老細（市場）</th></tr>
+      <tr><td>買嚟做乜</td><td>自己用</td><td class="col-boss">再賣出去</td></tr>
+      <tr><td>想個價點</td><td>越平越好</td><td class="col-boss">買完之後升</td></tr>
+      <tr><td>減價代表</td><td>著數</td><td class="col-boss">冇人要，大家掉緊貨</td></tr>
+      <tr><td>買完之後</td><td>完咗</td><td class="col-boss">先開始</td></tr>
+      <tr><td>最關心</td><td>而家幾錢</td><td class="col-boss">下一個買家係邊個</td></tr>
+    </table>
+  </div>
+  <p>老細都分兩種，兩種都唔係因為「平」而入貨：</p>
+  <div class="grid two">
+    <div class="card">
+      <h3>補貨型老細</h3>
+      <p>邊樣貨賣得快，就入多啲邊樣。貨架上搶手嘅嘢，就算入貨價貴咗，都仲有人接。呢個就係趨勢跟隨：跟住已經有人買嘅方向。</p>
+    </div>
+    <div class="card">
+      <h3>執平貨型老細</h3>
+      <p>春天平價掃冬季大褸，等冬天再賣。佢敢咁做，係因為肯定冬天會返嚟。如果唔知冬天會唔會返嚟，平貨就係死貨。呢個就係逆向投資。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">時間</div>
+  <h2>價格係天氣預報，唔係天氣重溫</h2>
+  <p>細個睇香港電視，有一段叫「天氣重溫」，話你知今日落咗幾多雨、最高幾多度。邊個會睇？今日場雨，你頭先已經淋過。</p>
+  <p>市場一樣。冇人會為已經發生咗嘅事畀錢。業績、新聞、經濟數據，一公佈就變咗歷史。價格永遠喺度估緊未來。</p>
+  <div class="wx">
+    <div class="card">
+      <div class="lbl">天氣重溫 · 已經發生</div>
+      <ul>
+        <li>上季業績幾好</li>
+        <li>琴日嘅新聞</li>
+        <li>過去一年升咗幾多</li>
+      </ul>
+      <p class="muted">人人都知，冇人會為佢再畀錢。</p>
+    </div>
+    <div class="card now">
+      <div class="lbl">天氣預報 · 價格</div>
+      <ul>
+        <li>下季會唔會更好</li>
+        <li>聽日有冇意外</li>
+        <li>其他人之後會唔會再買</li>
+      </ul>
+      <p class="muted">價格喺度估緊呢啲。</p>
+    </div>
+  </div>
+  <p>預報本身都會入價。全城都知聽日落雨，今晚啲遮已經起咗價。你今晚入貨，聽日賣唔到更高價。要賺錢，要估中預報錯咗喺邊。</p>
+</section>
+
+<section>
+  <div class="eyebrow">投票</div>
+  <h2>價格係全人類嘅投票</h2>
+  <p>Benjamin Graham 講過：短期嚟講，市場係一部投票機。每一張買單、每一張賣單都係一票，價格就係點票結果。</p>
+  <div class="flow" aria-label="價格點樣形成">
+    <div class="step">慾望<small>想發達、唔想蝕、唔想輸畀人</small></div>
+    <span class="arr" aria-hidden="true">→</span>
+    <div class="step">想像未來<small>即係預期</small></div>
+    <span class="arr" aria-hidden="true">→</span>
+    <div class="step">落單<small>用錢投票</small></div>
+    <span class="arr" aria-hidden="true">→</span>
+    <div class="step end">價格<small>全世界嘅點票結果</small></div>
+  </div>
+  <p>每一票背後，係一個人對未來嘅想像。而想像嘅底層，就係慾望。</p>
+  <p class="big">當所有人，同埋所有人嘅阿媽都已經買咗，仲有邊個可以再推高個價？</p>
+  <p>共識越強，願意買嘅人已經買晒，剩低嘅升幅越少，跌嘅風險越大。下面個彩池可以睇到點解。</p>
+</section>
+
+<section>
+  <div class="eyebrow">本質</div>
+  <h2>市場係投注站，唔係超市</h2>
+  <p>超市個價由老闆定。馬會個賠率唔係馬會定，係全場投注者用錢砌出嚟。呢種玩法叫彩池（pari-mutuel）：</p>
+  <ol class="steps">
+    <li>所有人嘅注碼放入同一個彩池。</li>
+    <li>馬會先扣起一部分，獨贏彩池大約係 17.5%（稅加佣金）。</li>
+    <li>剩低嘅錢，由買中嗰隻馬嘅人按注碼分。</li>
+  </ol>
+  <p>所以一隻馬越多人買，分錢嘅人越多，每人分得越少，賠率就越低。大熱門賠率低，係因為太多人買。大冷門賠率高，係因為冇乜人買。</p>
+  <div class="card sim">
+    <div>
+      <label for="favShare">全場有幾多錢落咗喺「大熱門」</label>
+      <div class="row-ctl"><input id="favShare" type="range" min="20" max="90" step="1" value="75"><b id="favPct">75%</b></div>
+    </div>
+    <div class="bars" aria-hidden="true"><span class="b1" id="bar1"></span><span class="b2" id="bar2"></span><span class="b3" id="bar3"></span></div>
+    <div class="tbl-wrap">
+      <table class="compact">
+        <tr><th>馬</th><th class="num">勝率*</th><th class="num">落注</th><th class="num">賠率</th><th class="num">每 $10</th></tr>
+        <tr><td><span class="sw b1"></span>大熱門</td><td class="num">50%</td><td class="num" id="s1"></td><td class="num" id="o1"></td><td class="num" id="e1"></td></tr>
+        <tr><td><span class="sw b2"></span>中游</td><td class="num">30%</td><td class="num" id="s2"></td><td class="num" id="o2"></td><td class="num" id="e2"></td></tr>
+        <tr><td><span class="sw b3"></span>冷門</td><td class="num">20%</td><td class="num" id="s3"></td><td class="num" id="o3"></td><td class="num" id="e3"></td></tr>
+      </table>
+    </div>
+    <div class="calc" id="calc"></div>
+    <div class="calc">* 勝率係假設喺真實機會。「每 $10」係長遠平均每次賺或蝕幾多。</div>
+    <div class="zone" id="poolMsg"></div>
+  </div>
+  <p>拉到 90% 睇吓：九成人揀大熱門嘅時候，買冷門嘅長遠回報最高。共識越極端，反方向嘅期望值越大。不過有兩個代價。第一，冷門嘅勝率仍然只有兩成，你大部分時間都係輸，要細注、要做好多次，先食到呢個期望值。第二，呢度個勝率係假設知道嘅，現實市場冇人知真實勝率，所以要等價格同意見出現分歧先落手。</p>
+  <p>大熱門一直都係最大機會贏嘅馬，佢冇變差。變咗嘅係賠率。<mark>好馬唔等於好注，好公司唔等於好股票。</mark>股市冇一個固定嘅彩池，但道理一樣：你出嘅價，已經包咗所有人對呢間公司嘅期望。</p>
+  <p>Keynes 喺 1936 年用過另一個比喻：報紙選美比賽，揀中最多人揀嗰個就有獎。聰明嘅參加者唔會揀自己覺得最靚嗰個，佢會估其他人會揀邊個。市場一樣，價格反映嘅係大家點估大家。</p>
+</section>
+
+<section>
+  <div class="eyebrow">人性</div>
+  <h2>跟風係求生本能</h2>
+  <p>幾萬年前，人要成群先生存到。唔同大家埋堆、唔肯遷就，就會被趕出群體。一個人喺荒野，冇人分食物、冇人守夜，好難活落去。社交上死亡，同真正死亡差唔多係同一件事。</p>
+  <p>呢套基因留到今日。所以我哋鍾意聽好故仔，見到身邊人都信同一個故仔就安心。有研究發現，被人排擠嘅時候，大腦活躍嘅區域同感受身體痛楚嘅有重疊。跟風唔係蠢，係好人性。</p>
+  <div class="grid two">
+    <div class="card"><h3>幾萬年前</h3><p>唔跟大隊 → 冇人保護、冇嘢食 → 死。跟大隊係啱嘅。</p></div>
+    <div class="card"><h3>今日嘅市場</h3><p>跟晒大隊 → 人人都買咗，冇人接貨 → 蝕。最安心嘅時候，通常係最貴嘅時候。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">錢同意見</div>
+  <h2>錢唔會講大話，意見會</h2>
+  <p>一個人講嘅同佢做嘅，可以係兩回事。電視上嘅分析員話睇好，佢個基金可能沽緊。朋友話唔驚，佢可能已經清咗倉。意見唔使本錢，落單就要用真錢。</p>
+  <p>就算你身邊人講到做到，佢哋都只係一細撮人。價格係全世界嘅共識，唔係你同你朋友圈嘅共識。你哋有幾多錢？</p>
+  <div class="card track">
+    <label for="circle" class="muted" style="font-size:15px">你同身邊人加埋有幾多錢（美金）</label>
+    <input id="circle" type="number" min="1" step="any" value="10000000" inputmode="decimal">
+    <div class="err" id="circleErr" role="alert"></div>
+    <div class="lane" aria-hidden="true"><i></i></div>
+    <div class="lane-lbl"><span>0 米</span><span>100 米</span></div>
+    <p id="trackOut"></p>
+  </div>
+  <p>你信你自己、或者你朋友圈嘅 idea，即係用你哋幾個人去對抗全世界，唔係好實際。真係要埋堆，就埋啱嘅堆：<mark>價格本身就係最大嗰個堆。</mark></p>
+  <h3>意見只係參考，分歧先係訊號</h3>
+  <p>新聞同身邊人嘅意見，只係部分人嘅共識。價格係全世界嘅共識。兩者一致，冇問題，跟價格行。兩者唔一致，先值得留意。</p>
+  <div class="mx" role="table" aria-label="新聞同價格嘅四種組合">
+    <div class="h" role="columnheader"></div>
+    <div class="h" role="columnheader">價格升</div>
+    <div class="h" role="columnheader">價格跌</div>
+    <div class="h" role="rowheader">新聞叫好</div>
+    <div class="c" role="cell"><b>一致</b>跟價格，冇問題。</div>
+    <div class="c div" role="cell"><b>分歧：頂部警號</b>好消息都唔升，即係想買嘅人已經買晒。</div>
+    <div class="h" role="rowheader">新聞叫衰</div>
+    <div class="c div" role="cell"><b>分歧：底部線索</b>壞消息都唔跌，即係想賣嘅人已經賣晒。</div>
+    <div class="c" role="cell"><b>一致</b>跟價格，唔好撈底。</div>
+  </div>
+</section>
+
+<section class="cycle">
+  <div class="eyebrow">週期</div>
+  <h2>同一條路，每次都行一次</h2>
+  <blockquote>牛市喺悲觀中出世，喺懷疑中成長，喺樂觀中成熟，喺狂熱中死亡。<cite>John Templeton</cite></blockquote>
+  <div class="card">
+    <svg id="cyc" viewBox="0 0 720 250" role="img" aria-labelledby="cycT cycD">
+      <title id="cycT">市場情緒週期</title>
+      <desc id="cycD">價格由絕望嘅底部，經過懷疑、樂觀、興奮，去到狂熱嘅頂部，之後轉入恐懼回落。</desc>
+      <path id="cycPath" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round"/>
+      <g id="cycDots"></g>
+      <text id="cycLbl" text-anchor="middle" font-size="15" fill="var(--fg)" font-family="var(--body)"></text>
+    </svg>
+    <div class="pills" id="pills" role="group" aria-label="揀一個階段"></div>
+    <div class="facts" id="facts" style="margin-top:14px"></div>
+  </div>
+  <h3>點解每次都會去到極端</h3>
+  <div class="grid two">
+    <div class="card"><h3>消息一圈圈傳出去</h3><p>由內行人傳到基金，再到財經新聞、散戶，最後到唔玩股票嘅朋友。傳到最外圈，已經冇下一圈可以再買。</p></div>
+    <div class="card"><h3>價格只對意外有反應</h3><p>大家已經知嘅消息，已經入咗價。價格郁，係因為實際結果同預期唔同。所以好消息出咗都可以跌。</p></div>
+    <div class="card"><h3>故事跟住價格走</h3><p>升咗先有人解釋點解升。故事最動聽、最合理嘅時候，通常價已經走咗一大段。</p></div>
+    <div class="card"><h3>最後一批係被迫嘅</h3><p>頂部有人借錢追，底部有人被斬倉。最後一批買家同最後一批賣家，好多都唔係自願，所以先會去到極端。</p></div>
+  </div>
+  <div class="card rings">
+    <svg viewBox="0 0 560 330" role="img" aria-labelledby="ringT ringD">
+      <title id="ringT">消息擴散圈</title>
+      <desc id="ringD">由中心嘅內行人，向外傳到基金、財經新聞、散戶，最外圈係唔玩股票嘅朋友。傳到最外圈即係冇新買家。</desc>
+      <ellipse cx="280" cy="170" rx="270" ry="150" fill="var(--surface-2)" stroke="var(--line)"/>
+      <ellipse cx="280" cy="185" rx="215" ry="118" fill="var(--surface)" stroke="var(--line)"/>
+      <ellipse cx="280" cy="200" rx="160" ry="88" fill="var(--surface-2)" stroke="var(--line)"/>
+      <ellipse cx="280" cy="215" rx="105" ry="58" fill="var(--surface)" stroke="var(--line)"/>
+      <ellipse cx="280" cy="230" rx="52" ry="30" fill="var(--tag)"/>
+      <text x="280" y="236" text-anchor="middle" font-size="15" fill="var(--on-tag)" font-family="var(--body)">內行人</text>
+      <text x="280" y="180" text-anchor="middle" font-size="14" fill="var(--fg)" font-family="var(--body)">基金</text>
+      <text x="280" y="134" text-anchor="middle" font-size="14" fill="var(--fg)" font-family="var(--body)">財經新聞</text>
+      <text x="280" y="88" text-anchor="middle" font-size="14" fill="var(--fg)" font-family="var(--body)">散戶</text>
+      <text x="280" y="42" text-anchor="middle" font-size="14" fill="var(--down)" font-family="var(--body)">唔玩股票嘅朋友：最後一圈</text>
+    </svg>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">歷史</div>
+  <h2>真實例子</h2>
+  <div class="tl">
+    <div class="ev top"><span class="yr">1929</span><h3>擦鞋童都畀貼士<span class="tagline top">頂</span></h3><p>傳說 Joseph Kennedy 聽到擦鞋童同佢講股票貼士，決定沽貨，避過咗大崩盤。故事真偽有爭議，但流傳到今日，因為個道理成立。</p></div>
+    <div class="ev bottom"><span class="yr">1979</span><h3>《BusinessWeek》封面：股票已死<span class="tagline bottom">底</span></h3><p>封面標題係「The Death of Equities」。三年後，美股開始一個長達 18 年嘅大牛市。</p></div>
+    <div class="ev top"><span class="yr">1997</span><h3>香港排隊買樓<span class="tagline top">頂</span></h3><p>新盤排長龍、炒樓花。之後樓價跌咗大約六至七成，跌到 2003 年。</p></div>
+    <div class="ev top"><span class="yr">2000</span><h3>「新經濟，今次唔同」<span class="tagline top">頂</span></h3><p>科網股人人講。Nasdaq 喺 2000 年 3 月見頂，之後跌咗大約 78%。</p></div>
+    <div class="ev bottom"><span class="yr">2003</span><h3>SARS：人人話香港玩完<span class="tagline bottom">底</span></h3><p>恒指 2003 年 4 月見底，樓市同年見底。最多人話唔會再起嘅時候，就係起點。</p></div>
+    <div class="ev bottom"><span class="yr">2009</span><h3>「大蕭條重臨」<span class="tagline bottom">底</span></h3><p>S&amp;P 500 喺 2009 年 3 月見底，之後係十年牛市。</p></div>
+    <div class="ev top"><span class="yr">2017</span><h3>人人問點買 Bitcoin<span class="tagline top">頂</span></h3><p>12 月 Google 搜尋「bitcoin」去到高峰，價格同月見頂，大約 19,800 美元，一年內跌咗八成幾。</p></div>
+    <div class="ev top"><span class="yr">2018</span><h3>記憶體「超級週期」<span class="tagline top">頂</span></h3><p>Micron 業績破紀錄，市場講超級週期。股價 2018 年年中見頂，半年內跌咗大約一半，嗰陣盈利仲係創新高。股價提早計咗之後會差。</p></div>
+    <div class="ev bottom"><span class="yr">2020</span><h3>新冠：朋友問你有冇事<span class="tagline bottom">底</span></h3><p>S&amp;P 500 喺 3 月 23 日見底，五個月後創新高。</p></div>
+    <div class="ev top"><span class="yr">2022</span><h3>Super Bowl 加密貨幣廣告<span class="tagline top">頂</span></h3><p>FTX 喺 Super Bowl 賣廣告，笑人錯過加密貨幣。同年 11 月 FTX 破產。廣告最貴、最多名人代言嘅時候，通常已經過咗高峰。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">用法</div>
+  <h2>點樣用呢個機制</h2>
+  <div class="grid two">
+    <div class="card"><h3>情緒話你知喺邊，價格話你知幾時</h3><p>身邊人嘅反應只係地圖，唔係入市訊號。極端情緒可以維持好耐。等價格自己確認，例如底部要見到領導股先企返起身，先至落手。</p></div>
+    <div class="card"><h3>中間跟大隊，兩頭先反向</h3><p>趨勢中段，大家同意係正常，跟住行就得。只有去到極端，連唔玩股票嘅人都講緊，而且價格開始唔聽新聞話，先開始諗反方向。</p></div>
+    <div class="card"><h3>覺得好合理嗰陣，問三條問題</h3><p>邊個仲未買？呢個故事幾時開始傳？價格有冇已經反映咗？三條都答唔到，你可能就係最外圈嗰個。</p></div>
+    <div class="card"><h3>太早反向，等於接刀</h3><p>「市場保持唔理性嘅時間，可以長過你保持有錢嘅時間。」呢句常被認為係 Keynes 講。反向一定要細注試、設止蝕。</p></div>
+  </div>
+  <div class="grid two sig">
+    <div class="card">
+      <h3><span class="dotc" style="background:var(--down)"></span>頂部嘅味道</h3>
+      <ul>
+        <li>唔玩股票嘅朋友主動問你點開戶</li>
+        <li>「今次唔同」、「2027 都唔夠貨」</li>
+        <li>雜誌封面、Super Bowl 廣告、名人代言</li>
+        <li>身邊人借錢、玩槓桿</li>
+        <li>好消息出咗都唔升</li>
+        <li>你自己覺得「肯定」</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="dotc" style="background:var(--up)"></span>底部嘅味道</h3>
+      <ul>
+        <li>朋友打嚟問你「有冇事」</li>
+        <li>「股票即係賭博，唔好玩」</li>
+        <li>頭條寫崩盤、大蕭條</li>
+        <li>斬倉、強制平倉嘅新聞</li>
+        <li>壞消息出咗都唔跌</li>
+        <li>你自己唔想開個 app 睇</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>教育用途，唔係投資建議。歷史數字為約數。彩池例子嘅勝率係假設數字。</footer>
+</div>
+
+<script>
+(function(){
+  /* pari-mutuel pool */
+  var TAKE=0.175, POOL=1000000, P=[0.5,0.3,0.2];
+  var fs=document.getElementById('favShare');
+  function pct(x){return Math.round(x*100)+'%'}
+  function money(x){return '$'+Math.round(x).toLocaleString('en-US')}
+  function pool(){
+    var a=+fs.value/100, rest=1-a, sh=[a,rest*0.6,rest*0.4];
+    document.getElementById('favPct').textContent=pct(a);
+    for(var i=0;i<3;i++){
+      var odds=(1-TAKE)/sh[i], ev=10*(P[i]*odds-1);
+      var bar=document.getElementById('bar'+(i+1)); bar.style.width=(sh[i]*100)+'%'; bar.textContent=sh[i]>0.12?pct(sh[i]):'';
+      document.getElementById('s'+(i+1)).textContent=pct(sh[i]);
+      document.getElementById('o'+(i+1)).textContent=odds.toFixed(2);
+      var e=document.getElementById('e'+(i+1)); e.textContent=(ev>=0?'+':'−')+'$'+Math.abs(ev).toFixed(2); e.className='num '+(ev>=0?'pos':'neg');
+    }
+    var oddsA=(1-TAKE)/a;
+    document.getElementById('calc').textContent='賠率點計：彩池 '+money(POOL)+' → 扣 17.5% 剩 '+money(POOL*(1-TAKE))+' → 大熱門有 '+money(POOL*a)+' 注 → 每 $1 派 $'+oddsA.toFixed(2);
+    var m=document.getElementById('poolMsg');
+    var evC=10*(P[2]*(1-TAKE)/sh[2]-1);
+    if(P[0]*oddsA<1){m.textContent='太多人買大熱門。佢仍然有一半機會贏，但賠率太低，長遠每買 $10 蝕 $'+Math.abs(10*(P[0]*oddsA-1)).toFixed(2)+'。反方向就調轉：買冷門長遠每 $10 '+(evC>=0?'賺':'蝕')+' $'+Math.abs(evC).toFixed(2)+'。共識越極端，反方向嘅期望值越高。';}
+    else{m.textContent='買大熱門嘅錢未去到佢應有嘅份量，賠率仲夠高，長遠買佢有著數。呢個時候跟大隊冇問題，買冷門反而長遠每 $10 蝕 $'+Math.abs(evC).toFixed(2)+'。';}
+  }
+  fs.addEventListener('input',pool); pool();
+
+  /* 100 m track */
+  var WORLD=1e14, ci=document.getElementById('circle'), out=document.getElementById('trackOut'), err=document.getElementById('circleErr');
+  function track(){
+    var v=parseFloat(ci.value);
+    if(!(v>0)){err.textContent='請輸入一個大過 0 嘅金額';out.textContent='';return}
+    err.textContent='';
+    if(v>=WORLD){out.textContent='你哋嘅錢已經多過全球股票市值，呢個應該唔係真數。';return}
+    var mm=v/WORLD*100000, s;
+    if(mm<0.07)s=mm.toPrecision(2)+' 毫米，仲幼過一條頭髮（大約 0.07 毫米）';
+    else if(mm<1)s=mm.toFixed(2)+' 毫米，唔夠 1 毫米';
+    else if(mm<1000)s=mm.toFixed(1)+' 毫米';
+    else s=(mm/1000).toFixed(2)+' 米';
+    out.textContent='全球股票市值超過 100 萬億美元。如果佢係一條 100 米跑道，你哋佔 '+s+'。上面條紅線，已經畫到最幼都仲係太粗。';
+  }
+  ci.addEventListener('input',track); track();
+
+  /* sentiment cycle */
+  var pts=[[20,178],[95,212],[205,166],[322,114],[432,64],[522,30],[620,104],[700,196]];
+  function path(p){var d='M'+p[0][0]+' '+p[0][1];for(var i=0;i<p.length-1;i++){var p0=p[i-1]||p[i],p1=p[i],p2=p[i+1],p3=p[i+2]||p2;var c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6,c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;d+=' C'+c1x.toFixed(1)+' '+c1y.toFixed(1)+' '+c2x.toFixed(1)+' '+c2y.toFixed(1)+' '+p2[0]+' '+p2[1]}return d}
+  document.getElementById('cycPath').setAttribute('d',path(pts));
+  var phases=[
+    {n:'絕望',i:1,price:'跌咗一大段，開始唔再創新低',talk:'「你有冇事呀？」「股票即係賭博」',news:'「崩盤」「大蕭條重臨」',act:'準備名單，睇邊隻最早企返起身'},
+    {n:'懷疑',i:2,price:'由底反彈，好多人話係死貓彈',talk:'冇人提股票',news:'「小心二次探底」',act:'價格確認就細注試，跟領導股'},
+    {n:'樂觀',i:3,price:'穩步向上',talk:'開始有人問你買緊乜',news:'「經濟軟著陸」',act:'揸住，跟趨勢'},
+    {n:'興奮',i:4,price:'加速上升',talk:'朋友曬賺錢截圖',news:'「新時代」「超級週期」',act:'揸住，但收緊止賺'},
+    {n:'狂熱',i:5,price:'近乎垂直',talk:'唔玩股票嘅人問點開戶；「2027 都唔夠貨」',news:'封面故事、名人代言、「今次唔同」',act:'留意好消息唔升，分段減倉'},
+    {n:'恐懼',i:6,price:'第一下大跌，之後彈唔返高位',talk:'「回調啫，溝多啲」',news:'「健康調整」',act:'跟止蝕走，唔好溝淡'}
+  ];
+  var g=document.getElementById('cycDots'),pills=document.getElementById('pills'),facts=document.getElementById('facts'),lbl=document.getElementById('cycLbl');
+  var NS='http://www.w3.org/2000/svg';
+  phases.forEach(function(ph,k){
+    var c=document.createElementNS(NS,'circle');c.setAttribute('cx',pts[ph.i][0]);c.setAttribute('cy',pts[ph.i][1]);c.setAttribute('r',7);c.setAttribute('fill','var(--surface)');c.setAttribute('stroke','var(--muted)');c.setAttribute('stroke-width','2');c.style.cursor='pointer';c.addEventListener('click',function(){sel(k)});g.appendChild(c);ph.c=c;
+    var b=document.createElement('button');b.type='button';b.className='pill';b.id='ph'+k;b.textContent=ph.n;b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){sel(k)});pills.appendChild(b);ph.b=b;
+  });
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+  function sel(k){
+    phases.forEach(function(ph,j){var on=j===k;ph.b.setAttribute('aria-pressed',on?'true':'false');ph.c.setAttribute('r',on?10:7);ph.c.setAttribute('fill',on?'var(--tag)':'var(--surface)');ph.c.setAttribute('stroke',on?'var(--tag)':'var(--muted)')});
+    var ph=phases[k],x=pts[ph.i][0],y=pts[ph.i][1];
+    lbl.textContent=ph.n;lbl.setAttribute('x',x);lbl.setAttribute('y',y<60?y+34:y-18);
+    facts.innerHTML=[['價格',ph.price],['身邊人講',ph.talk],['新聞標題',ph.news],['你做乜',ph.act]].map(function(f){return '<div class="fact"><div class="k">'+f[0]+'</div><div class="v">'+esc(f[1])+'</div></div>'}).join('');
+  }
+  sel(4);
+})();
+</script>
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
