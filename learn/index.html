@@ -52,6 +52,10 @@ h1{font:700 clamp(34px,6vw,48px)/1.2 var(--display);margin:24px 0 6px}
 .nd{grid-column:1;font-size:14px;line-height:1.6;color:var(--ink-2)}
 .na{grid-column:2;grid-row:1/span 3;font:500 18px var(--mono);color:var(--work)}
 .empty{color:var(--ink-2);font-size:14px}
+.pin{color:var(--heat);border:1px solid var(--heat);border-radius:999px;padding:0 8px}
+.note-list li[data-pin] a{border-color:rgba(255,123,71,.45)}
+.fn{margin-left:6px;font:500 12px/1 var(--mono);color:var(--ink-2);opacity:.85}
+.fc[aria-pressed="true"] .fn{color:var(--work)}
 </style>
 </head>
 <body>
@@ -60,12 +64,13 @@ h1{font:700 clamp(34px,6vw,48px)/1.2 var(--display);margin:24px 0 6px}
   <h1>學習筆記</h1>
   <div class="filters" role="group" aria-label="揀類別"><button type="button" class="fc" data-f="all" aria-pressed="true">全部</button><button type="button" class="fc" data-f="sci" aria-pressed="false">科學</button><button type="button" class="fc" data-f="money" aria-pressed="false">錢</button><button type="button" class="fc" data-f="body" aria-pressed="false">健康</button><button type="button" class="fc" data-f="hist" aria-pressed="false">歷史同社會</button><button type="button" class="fc" data-f="life" aria-pressed="false">生活</button><button type="button" class="fc" data-f="philo" aria-pressed="false">哲學</button></div>
   <ul class="note-list" id="list">
+      <li data-c="philo"><a href="aot-forest.html"><span class="meta"><span class="ct">哲學</span><span class="dt">2026-11-12</span></span><span class="nt">走出森林：莎夏、佢老豆，同仇恨嘅循環</span><span class="nd">進擊的巨人：由莎夏肚餓開始，佢老豆睇到成條線。森林就係弱肉強食、殺同被殺嘅循環；世界冇真正嘅惡魔。至少，讓小朋友離開森林。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="money"><a href="blockchain.html"><span class="meta"><span class="ct">錢</span><span class="dt">2026-11-11</span></span><span class="nt">Blockchain 嘅本質：一本冇人擁有嘅數簿</span><span class="nd">用計算力代替政府建立信任，防止同一筆錢使兩次。簽名、hash 指紋、挖礦、串鏈，自己撳下就明。</span><span class="na" aria-hidden="true">→</span></a></li>
-      <li data-c="philo"><a href="raft-tools.html"><span class="meta"><span class="ct">哲學</span><span class="dt">2026-11-11</span></span><span class="nt">艇仔係攞嚟過河，唔係攞嚟孭</span><span class="nd">學到嘅嘢係工具：幾時用、幾時抌低，就係智慧。誠實同做戲、自私同無私，當佢哋係工具，矛盾就消失。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="philo" data-pin="5"><a href="raft-tools.html"><span class="meta"><span class="pin">置頂</span><span class="ct">哲學</span><span class="dt">2026-11-11</span></span><span class="nt">艇仔係攞嚟過河，唔係攞嚟孭</span><span class="nd">學到嘅嘢係工具：幾時用、幾時抌低，就係智慧。誠實同做戲、自私同無私，當佢哋係工具，矛盾就消失。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="sci"><a href="bacteria.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-11-11</span></span><span class="nt">細菌：冇佢哋，就冇你</span><span class="nd">生命點樣一層層疊上嚟：氧氣係細菌嘅副產品，粒線體係搬咗入嚟唔走嘅細菌。食纖維佢哋係伙伴，食加工食物佢哋就食你。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="philo"><a href="work-fd.html"><span class="meta"><span class="ct">哲學</span><span class="dt">2026-11-11</span></span><span class="nt">W = Fd：祈禱同科學，擺啱位先有用</span><span class="nd">宗教處理 d = 0：接受、合作、照樣行動；科學處理點樣郁到 d。祈禱同錢擺錯位，就係推牆。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="body"><a href="huangdi-neijing.html"><span class="meta"><span class="ct">健康</span><span class="dt">2026-11-11</span></span><span class="nt">黃帝內經點樣理解健康</span><span class="nd">健康 = 氣；道 = 天人合一；五行循環；平衡靠食、動靜、情緒、環境；預防大過治療。再同現代醫學對一對。</span><span class="na" aria-hidden="true">→</span></a></li>
-      <li data-c="money"><a href="market-money.html"><span class="meta"><span class="ct">錢</span><span class="dt">2026-11-11</span></span><span class="nt">市場係點嚟：錢、故事、價錢</span><span class="nd">錢 = 人造嘅將來。由錢講到上市，再講炒家：趨勢先，唔蝕錢，再賺錢；預期破壞者、3 bar break 同 RS。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="money" data-pin="1"><a href="market-money.html"><span class="meta"><span class="pin">置頂</span><span class="ct">錢</span><span class="dt">2026-11-11</span></span><span class="nt">市場係點嚟：錢、故事、價錢</span><span class="nd">錢 = 人造嘅將來。由錢講到上市，再講炒家：趨勢先，唔蝕錢，再賺錢；預期破壞者、3 bar break 同 RS。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="philo"><a href="aristotle-good-life.html"><span class="meta"><span class="ct">哲學</span><span class="dt">2026-11-11</span></span><span class="nt">阿里士多德：點樣先叫活得好</span><span class="nd">Eudaimonia：好 = 卓越。德性靠習慣變技能；中庸唔係中間係啱位；朋友有三種；沉思追真相，再返去學。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="philo"><a href="beginning-of-infinity.html"><span class="meta"><span class="ct">哲學</span><span class="dt">2026-11-11</span></span><span class="nt">我最中意嘅一本書：The Beginning of Infinity</span><span class="nd">David Deutsch：問題避唔到，問題解決得到。問題 → 想像 → 可錯 → 解答；好解釋 = 難改；知識唔係由感官嚟。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="life"><a href="trauma.html"><span class="meta"><span class="ct">生活</span><span class="dt">2026-11-11</span></span><span class="nt">創傷點樣形成，點樣解</span><span class="nd">過去嘅創傷令你同自己斷開，唔係你錯；痛係你嘅朋友；覺察係你嘅責任。由呼吸重新連接：睇到 Should 放低，見到 Want 攞起。</span><span class="na" aria-hidden="true">→</span></a></li>
@@ -76,7 +81,7 @@ h1{font:700 clamp(34px,6vw,48px)/1.2 var(--display);margin:24px 0 6px}
       <li data-c="money"><a href="idiot-index.html"><span class="meta"><span class="ct">錢</span><span class="dt">2026-11-11</span></span><span class="nt">Idiot Index：識做就平</span><span class="nd">Musk 嘅 idiot index：成品價 ÷ 材料價。火箭同英國雞髀一樣，貴嘅係「唔識做」。識做換返健康、連結同自由，仲有請人定自己做嘅計算機。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="life"><a href="poor-benefits.html"><span class="meta"><span class="ct">生活</span><span class="dt">2026-11-11</span></span><span class="nt">窮人嘅好處</span><span class="nd">錢少唔等於窮；想要大過能力先係窮。同大部分人啱 key、睇少啲面色、有錢人買唔到嘅時間，同埋知足：絕對值，唔係相對值。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="life"><a href="uk-pros-cons.html"><span class="meta"><span class="ct">生活</span><span class="dt">2026-11-10</span></span><span class="nt">盤點英國利弊</span><span class="nd">英國物平人貴，香港人平物貴。買食住行、22 樣好壞、日照同稅嘅數字，同埋一個幫你揀邊度嘅指針。冇絕對啱錯，只有 trade-off。</span><span class="na" aria-hidden="true">→</span></a></li>
-      <li data-c="philo"><a href="you-are-god.html"><span class="meta"><span class="ct">哲學</span><span class="dt">2026-11-10</span></span><span class="nt">你就係神</span><span class="nd">I am，I am aware。自有永有、冇限制、只有一個：全宇宙最符合神嘅規格嘅，就係知道緊自己存在嘅你。仲有六個最強反駁。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="philo" data-pin="4"><a href="you-are-god.html"><span class="meta"><span class="pin">置頂</span><span class="ct">哲學</span><span class="dt">2026-11-10</span></span><span class="nt">你就係神</span><span class="nd">I am，I am aware。自有永有、冇限制、只有一個：全宇宙最符合神嘅規格嘅，就係知道緊自己存在嘅你。仲有六個最強反駁。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="philo"><a href="xiao-shun.html"><span class="meta"><span class="ct">哲學</span><span class="dt">2026-11-10</span></span><span class="nt">孝順嘅代價</span><span class="nd">「孝」係關心，「順」係服從。要人聽話，父母要做一世監工，子女學識睇面色多過睇世界：兩個人一齊輸。加埋 Popper、TCS 同最強反駁。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="hist"><a href="god-product.html"><span class="meta"><span class="ct">歷史同社會</span><span class="dt">2026-11-07</span></span><span class="nt">神 = 產品</span><span class="nd">神係人類第一代產品：解釋未知，同埋令陌生人肯合作。30 萬年、6 個時代，由萬物有靈去到一個神拆成法律、鏡頭同評分。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="hist"><a href="cycle.html"><span class="meta"><span class="ct">歷史同社會</span><span class="dt">2026-11-07</span></span><span class="nt">你活喺自己個 cycle 入面</span><span class="nd">每代人都以為自己見到嘅係永恆真理：100 年美股、大蕭條到 QE 一代、中國、香港、戰後重建。改變唔到個潮，就改變你個位。</span><span class="na" aria-hidden="true">→</span></a></li>
@@ -87,8 +92,8 @@ h1{font:700 clamp(34px,6vw,48px)/1.2 var(--display);margin:24px 0 6px}
       <li data-c="money"><a href="active-passive.html"><span class="meta"><span class="ct">錢</span><span class="dt">2026-11-02</span></span><span class="nt">揀邊種痛</span><span class="nd">主動同被動投資：被動痛喺大熊市，主動痛喺上落市。揀咗好處，就要食埋壞處。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="body"><a href="antibiotics.html"><span class="meta"><span class="ct">健康</span><span class="dt">2026-11-02</span></span><span class="nt">抗生素只識打細菌</span><span class="nd">細菌、真菌、病毒有咩分別；點解抗生素醫唔到流感，亂食點樣養出惡菌。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="sci"><a href="information.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-11-02</span></span><span class="nt">估錯先有資訊</span><span class="nd">由一個 bit 講到相片壓縮、和弦、笑話同啊哈：個腦估、估錯、再壓縮。</span><span class="na" aria-hidden="true">→</span></a></li>
-      <li data-c="sci"><a href="balls.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-11-02</span></span><span class="nt">全部都係波波</span><span class="nd">原子有幾細、能量點樣由太陽傳到你拍個波、熱、風、蒸發、聲音、金屬：全部都係波波撞嚟撞去。</span><span class="na" aria-hidden="true">→</span></a></li>
-      <li data-c="sci"><a href="em.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-10-30</span></span><span class="nt">全部都係電</span><span class="nd">遠場、發電、化學、近場：由光、WiFi 到八達通，你摸到睇到用到嘅嘢，背後都係電磁力。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="sci" data-pin="2"><a href="balls.html"><span class="meta"><span class="pin">置頂</span><span class="ct">科學</span><span class="dt">2026-11-02</span></span><span class="nt">全部都係波波</span><span class="nd">原子有幾細、能量點樣由太陽傳到你拍個波、熱、風、蒸發、聲音、金屬：全部都係波波撞嚟撞去。</span><span class="na" aria-hidden="true">→</span></a></li>
+      <li data-c="sci" data-pin="3"><a href="em.html"><span class="meta"><span class="pin">置頂</span><span class="ct">科學</span><span class="dt">2026-10-30</span></span><span class="nt">全部都係電</span><span class="nd">遠場、發電、化學、近場：由光、WiFi 到八達通，你摸到睇到用到嘅嘢，背後都係電磁力。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="sci"><a href="boiling.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-10-26</span></span><span class="nt">點解大火煲湯係嘥氣？</span><span class="nd">蒸發同滾、氣壓同滾點、活化能：煲牛腩點解唔使開大火，壓力煲點解快咁多。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="sci"><a href="ice-water-steam.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-10-22</span></span><span class="nt">冰水蒸氣 ΔG</span><span class="nd">冰加熱到蒸氣，曲線點解有平台：ΔG = ΔH − TΔS，熔點同沸點就係兩條線交叉嘅位置。仲有水點樣滾、點解山頂煮唔腍。</span><span class="na" aria-hidden="true">→</span></a></li>
       <li data-c="sci"><a href="field-wave-particle.html"><span class="meta"><span class="ct">科學</span><span class="dt">2026-10-22</span></span><span class="nt">場、波、粒子</span><span class="nd">場係底，波係場嘅變化向外跑，一粒粒子就係場最細嘅一下波動。近場同遠場、17 種場、雙縫實驗，同埋點解質子 99% 嘅重量係場嘅能量。</span><span class="na" aria-hidden="true">→</span></a></li>
@@ -99,8 +104,12 @@ h1{font:700 clamp(34px,6vw,48px)/1.2 var(--display);margin:24px 0 6px}
   </ul>
 </div>
 <script>
-(function(){var bs=document.querySelectorAll('.fc'),li=document.querySelectorAll('#list li');
-bs.forEach(function(b){b.addEventListener('click',function(){var f=b.getAttribute('data-f'),n=0;bs.forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});li.forEach(function(l){var on=f==='all'||l.getAttribute('data-c')===f;l.hidden=!on;if(on)n++})})});})();
+(function(){var ul=document.getElementById('list'),bs=document.querySelectorAll('.fc');
+var pins=[].slice.call(ul.querySelectorAll('li[data-pin]')).sort(function(a,b){return b.getAttribute('data-pin')-a.getAttribute('data-pin')});
+pins.forEach(function(l){ul.insertBefore(l,ul.firstChild)});
+var li=ul.querySelectorAll('li');
+bs.forEach(function(b){var f=b.getAttribute('data-f'),n=0;li.forEach(function(l){if(f==='all'||l.getAttribute('data-c')===f)n++});var s=document.createElement('span');s.className='fn';s.textContent=n;b.appendChild(s);
+b.addEventListener('click',function(){bs.forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});li.forEach(function(l){l.hidden=!(f==='all'||l.getAttribute('data-c')===f)})})});})();
 </script>
 <div data-fpw-sub></div>
 <script src="../sub.js" defer></script>
