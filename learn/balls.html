@@ -151,7 +151,9 @@ canvas.cv{width:100%;display:block;background:var(--surface2);border-radius:12px
   <h3>蒸發：最快嗰啲走咗，剩低嘅就凍</h3>
   <div class="lab">
     <div class="btns" id="evBtns" role="group" aria-label="揀場景"></div>
-    <canvas class="cv" id="evCv" role="img" aria-label="水入面最快嘅分子衝出水面飛走，剩低嘅平均慢咗，所以溫度跌；吹走上面嘅水氣，佢哋唔會跌返落嚟，凍得更快"></canvas>
+    <canvas class="cv" id="evCv" role="img" aria-label="左邊：水入面最快嘅分子衝出水面。冇吹，水氣積喺水面，好多跌返落嚟；吹，水氣俾風帶走。右上：水分子速度分佈，大部分中等，少數好快，條尾好長，走甩嘅就係條尾。右下：剩低嘅平均能量隨時間跌，吹嘅時候跌得快好多"></canvas>
+    <p class="note">大部分水分子速度中等，少數好快，條尾拖得好長。呢個形狀叫麥克斯韋–玻爾茲曼分佈（Maxwell–Boltzmann distribution）。蒸發拎走嘅就係條尾：最快嗰批走咗，剩低嘅平均就慢咗，即係凍咗。</p>
+    <p class="note">先睇「冇吹」，再撳「吹」：兩條線會留喺同一幅圖度比較。冇吹，走咗嘅水氣大部分跌返落嚟，連能量都帶返嚟；吹，佢哋返唔到嚟，所以凍得快好多。</p>
   </div>
   <h3>凝結：倒返轉</h3>
   <div class="lab">
@@ -362,37 +364,58 @@ function drawWind(t){var cv=document.getElementById('windCv');if(!WD.ctx)WD.ctx=
   txt(c,'出面街：凍、密',L+4,T-14,C['--cold'],13,'left','500');txt(c,'地鐵站入面：熱、疏',R-4,T-14,C['--hot'],13,'right','500');txt(c,'入口',mid,h-12,C['--muted'],12,'center')}
 
 /* evaporation: fastest leave, the rest cool */
-var EV={ctx:null,mode:'soup',wind:false,P:[],V:[],hist:[],E0:1,last:null,tAcc:0,init:false};
-var EVB=[['soup','熱湯'],['swim','游完水'],['wind','吹']];
-(function(){var box=document.getElementById('evBtns');EVB.forEach(function(b){var e=document.createElement('button');e.type='button';e.className='chip';e.textContent=b[1];e.dataset.k=b[0];e.addEventListener('click',function(){if(b[0]==='wind')EV.wind=!EV.wind;else{EV.mode=b[0];EV.init=false}evUpd();if(reduce)drawEv(2)});box.appendChild(e)})})();
-function evUpd(){[].forEach.call(document.getElementById('evBtns').children,function(b){var on=b.dataset.k==='wind'?EV.wind:b.dataset.k===EV.mode;b.setAttribute('aria-pressed',on?'true':'false')})}
-function evGeo(w,h){return EV.mode==='soup'?{x0:w*0.08,x1:w*0.6,ys:h*0.52,yb:h-34}:{x0:w*0.06,x1:w*0.62,ys:h-92,yb:h-58}}
-function evInit(w,h){var G=evGeo(w,h),N=EV.mode==='soup'?64:34,s0=60;EV.P=[];EV.V=[];EV.hist=[];EV.E0=2*s0*s0;EV.W2=Math.pow(2.1*s0,2);
+var EV={ctx:null,mode:'soup',wind:false,P:[],V:[],E0:1,last:null,tAcc:0,init:false,curves:{still:[],wind:[]},hb:null,out:0,back:0,time:0,N0:1};
+var EVB=[['soup','熱湯'],['swim','游完水'],['wind','吹']],EV_T=40,EV_S0=60,EV_K=1.7,EV_BINS=12,EV_VMAX=3.6;
+(function(){var box=document.getElementById('evBtns');EVB.forEach(function(b){var e=document.createElement('button');e.type='button';e.className='chip';e.textContent=b[1];e.dataset.k=b[0];e.addEventListener('click',function(){if(b[0]==='wind')EV.wind=!EV.wind;else{EV.mode=b[0];EV.curves={still:[],wind:[]}}EV.init=false;evUpd();if(reduce)drawEv(2)});box.appendChild(e)})})();
+function evUpd(){[].forEach.call(document.getElementById('evBtns').children,function(b){var on=b.dataset.k==='wind'?EV.wind:b.dataset.k===EV.mode;b.setAttribute('aria-pressed',on?'true':'false');if(b.dataset.k==='wind')b.textContent=EV.wind?'吹緊（撳嚟停）':'吹'})}
+function evLay(w,h){var nar=w<560,sw=nar?w:w*0.58,sh=nar?270:h;return {nar:nar,sw:sw,sh:sh}}
+function evGeo(w,h){var L=evLay(w,h),sw=L.sw,sh=L.sh;return EV.mode==='soup'?{x0:sw*0.1,x1:sw*0.86,ys:sh*0.56,yb:sh-34,top:sh*0.56-42}:{x0:sw*0.07,x1:sw*0.9,ys:sh-92,yb:sh-58,top:sh-92-42}}
+function evInit(w,h){var G=evGeo(w,h),N=EV.mode==='soup'?70:40,s0=EV_S0;EV.P=[];EV.V=[];EV.E0=2*s0*s0;EV.W2=Math.pow(EV_K*s0,2);EV.N0=N;EV.out=0;EV.back=0;EV.time=0;EV.hb=null;EV.curves[EV.wind?'wind':'still']=[];
   function g(){return Math.sqrt(-2*Math.log(Math.random()||1e-9))*Math.cos(6.2832*Math.random())}
   for(var i=0;i<N;i++)EV.P.push({x:lerp(G.x0+6,G.x1-6,Math.random()),y:lerp(G.ys+5,G.yb-5,Math.random()),vx:g()*s0,vy:g()*s0});EV.init=true;EV.tAcc=0;EV.Ts=1}
-function evStep(dt,w,h){var G=evGeo(w,h),P=EV.P,V=EV.V,i;
+function evStep(dt,w,h){var G=evGeo(w,h),L=evLay(w,h),P=EV.P,V=EV.V,i;
   for(var k=0;k<Math.ceil(P.length/4);k++){var a=P[(Math.random()*P.length)|0],b=P[(Math.random()*P.length)|0];if(!a||!b||a===b)continue;var E=a.vx*a.vx+a.vy*a.vy+b.vx*b.vx+b.vy*b.vy,r=Math.random(),sa=Math.sqrt(E*r),sb=Math.sqrt(E*(1-r)),t1=Math.random()*6.2832,t2=Math.random()*6.2832;a.vx=sa*Math.cos(t1);a.vy=sa*Math.sin(t1);b.vx=sb*Math.cos(t2);b.vy=sb*Math.sin(t2)}
   for(i=P.length-1;i>=0;i--){var p=P[i];p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.x<G.x0+4){p.x=G.x0+4;p.vx=Math.abs(p.vx)}if(p.x>G.x1-4){p.x=G.x1-4;p.vx=-Math.abs(p.vx)}if(p.y>G.yb-4){p.y=G.yb-4;p.vy=-Math.abs(p.vy)}
-    if(p.y<G.ys){if(p.vy*p.vy>EV.W2&&p.vy<0){p.vy=-Math.sqrt(p.vy*p.vy-EV.W2);p.esc=1.2;V.push(p);P.splice(i,1)}else{p.y=G.ys;p.vy=Math.abs(p.vy)}}}
-  for(i=V.length-1;i>=0;i--){var q=V[i];if(Math.random()<dt*1.2){var sp=Math.hypot(q.vx,q.vy),an=Math.random()*6.2832;q.vx=sp*Math.cos(an);q.vy=sp*Math.sin(an)}if(EV.wind){q.vx+=260*dt;if(q.vx>220)q.vx=220}
+    if(p.y<G.ys){if(p.vy*p.vy>EV.W2&&p.vy<0){p.vy=-Math.sqrt(p.vy*p.vy-EV.W2);p.e=p.vx*p.vx+p.vy*p.vy;if(p.vy>-40)p.vy=-40;p.esc=1.2;V.push(p);P.splice(i,1)}else{p.y=G.ys;p.vy=Math.abs(p.vy)}}}
+  var xl=Math.max(4,G.x0-14),xr=Math.min(L.sw-4,G.x1+14);
+  for(i=V.length-1;i>=0;i--){var q=V[i];if(EV.wind){q.vx+=520*dt;if(q.vx>300)q.vx=300;q.vy-=160*dt}else if(Math.random()<dt*4){var sp=Math.max(45,Math.hypot(q.vx,q.vy)),an=Math.random()*6.2832;q.vx=sp*Math.cos(an);q.vy=sp*Math.sin(an)}
     q.x+=q.vx*dt;q.y+=q.vy*dt;if(q.esc>0)q.esc-=dt;
-    if(q.y>G.ys&&q.x>G.x0&&q.x<G.x1){q.vy=Math.sqrt(q.vy*q.vy+EV.W2);q.y=G.ys+2;q.esc=0;P.push(q);V.splice(i,1);continue}
-    if(q.y<-6||q.x>w*0.66||q.x<-6||(q.y>G.ys&&(q.x<=G.x0||q.x>=G.x1)))V.splice(i,1)}
-  EV.Ts+=(evTemp()-EV.Ts)*Math.min(1,dt*0.8);EV.tAcc+=dt;if(EV.tAcc>0.25){EV.tAcc=0;EV.hist.push(EV.Ts);if(EV.hist.length>60)EV.hist.shift()}}
+    if(!EV.wind){if(q.x<xl){q.x=xl;q.vx=Math.abs(q.vx)}if(q.x>xr){q.x=xr;q.vx=-Math.abs(q.vx)}if(q.y<G.top){if(Math.random()<0.95){q.y=G.top;q.vy=Math.abs(q.vy)}else{V.splice(i,1);EV.out++;continue}}}
+    if(q.y>G.ys){if(q.x>G.x0&&q.x<G.x1){var re=Math.sqrt(q.e+EV.W2),ra=(0.15+0.7*Math.random())*Math.PI;q.vx=re*Math.cos(ra);q.vy=re*Math.sin(ra);q.y=G.ys+2;q.esc=0;q.ret=0.8;P.push(q);V.splice(i,1);EV.back++;continue}else{q.y=G.ys;q.vy=-Math.abs(q.vy)}}
+    if(q.y<-8||q.x>L.sw+8||q.x<-8){V.splice(i,1);EV.out++}}
+  P.forEach(function(p){if(p.ret>0)p.ret-=dt});
+  EV.time+=dt;EV.Ts+=(evTemp()-EV.Ts)*Math.min(1,dt*0.8);EV.tAcc+=dt;if(EV.tAcc>0.5){EV.tAcc=0;EV.curves[EV.wind?'wind':'still'].push(EV.Ts)}
+  var hb=[];for(i=0;i<EV_BINS;i++)hb.push(0);P.forEach(function(p){var s=Math.hypot(p.vx,p.vy)/EV_S0,bi=Math.min(EV_BINS-1,Math.floor(s/EV_VMAX*EV_BINS));hb[bi]++});
+  if(!EV.hb)EV.hb=hb;else for(i=0;i<EV_BINS;i++)EV.hb[i]+=(hb[i]-EV.hb[i])*Math.min(1,dt*1.5)}
 function evTemp(){var P=EV.P;if(!P.length)return 0;var s=0;P.forEach(function(p){s+=p.vx*p.vx+p.vy*p.vy});return s/P.length/EV.E0}
-function drawEv(t){var cv=document.getElementById('evCv');if(!EV.ctx)EV.ctx=fitCanvas(cv,300);var c=EV.ctx.x,w=EV.ctx.w,h=EV.ctx.h;if(!EV.init){evInit(w,h);if(reduce){for(var r=0;r<400;r++)evStep(1/60,w,h)}}
-  var dt=EV.last===null?0:Math.min(0.033,t-EV.last);EV.last=t;if(!reduce)evStep(dt,w,h);var Tn=EV.Ts;if(!reduce&&(Tn<0.5||EV.P.length<10))EV.init=false;
-  c.clearRect(0,0,w,h);var G=evGeo(w,h);
-  if(EV.mode==='soup'){c.strokeStyle=C['--fg'];c.lineWidth=3;c.beginPath();c.moveTo(G.x0-10,G.ys-22);c.lineTo(G.x0-10,G.yb-14);c.quadraticCurveTo(G.x0-10,G.yb+8,G.x0+14,G.yb+8);c.lineTo(G.x1-14,G.yb+8);c.quadraticCurveTo(G.x1+10,G.yb+8,G.x1+10,G.yb-14);c.lineTo(G.x1+10,G.ys-22);c.stroke();txt(c,'熱湯',(G.x0+G.x1)/2,h-8,C['--muted'],12,'center')}
-  else{c.fillStyle='#d9a47c';c.fillRect(G.x0-8,G.yb,G.x1-G.x0+16,h-G.yb);txt(c,'皮膚',(G.x0+G.x1)/2,G.yb+20,'#3b2a1e',13,'center','500')}
+function drawEv(t){var cv=document.getElementById('evCv');if(!EV.ctx){var nw=(cv.clientWidth||640)<560;EV.ctx=fitCanvas(cv,nw?470:380);EV.init=false}var c=EV.ctx.x,w=EV.ctx.w,h=EV.ctx.h;
+  if(!EV.init){evInit(w,h);if(reduce){for(var r=0;r<1500;r++)evStep(1/60,w,h)}}
+  var dt=EV.last===null?0:Math.min(0.033,t-EV.last);EV.last=t;if(!reduce){evStep(dt,w,h);evStep(dt,w,h)}var Tn=EV.Ts;if(!reduce&&(EV.time>EV_T||EV.P.length<10))EV.init=false;
+  c.clearRect(0,0,w,h);var G=evGeo(w,h),L=evLay(w,h);
+  if(EV.mode==='soup'){c.strokeStyle=C['--fg'];c.lineWidth=3;c.beginPath();c.moveTo(G.x0-10,G.ys-22);c.lineTo(G.x0-10,G.yb-14);c.quadraticCurveTo(G.x0-10,G.yb+8,G.x0+14,G.yb+8);c.lineTo(G.x1-14,G.yb+8);c.quadraticCurveTo(G.x1+10,G.yb+8,G.x1+10,G.yb-14);c.lineTo(G.x1+10,G.ys-22);c.stroke();txt(c,'熱湯',(G.x0+G.x1)/2,L.sh-10,C['--muted'],12,'center')}
+  else{c.fillStyle='#d9a47c';c.fillRect(G.x0-8,G.yb,G.x1-G.x0+16,L.sh-G.yb);txt(c,'皮膚',(G.x0+G.x1)/2,G.yb+20,'#3b2a1e',13,'center','500')}
   c.fillStyle=C['--field'];c.globalAlpha=0.13;c.fillRect(G.x0,G.ys,G.x1-G.x0,G.yb-G.ys);c.globalAlpha=1;c.strokeStyle=C['--field'];c.lineWidth=1.5;c.beginPath();c.moveTo(G.x0,G.ys);c.lineTo(G.x1,G.ys);c.stroke();
-  EV.P.forEach(function(p){dot(c,p.x,p.y,4.2,heatCol((p.vx*p.vx+p.vy*p.vy)/(EV.E0*2.2)))});
-  EV.V.forEach(function(q){dot(c,q.x,q.y,4.2,heatCol((q.vx*q.vx+q.vy*q.vy)/(EV.E0*2.2)),0.85);if(q.esc>0){c.strokeStyle=C['--warn'];c.globalAlpha=cl(q.esc);c.lineWidth=1.5;c.beginPath();c.arc(q.x,q.y,8,0,6.2832);c.stroke();c.globalAlpha=1}});
-  if(EV.wind){for(var wl=0;wl<4;wl++){var wq=((t*0.9+wl/4)%1),wx=G.x0+wq*(w*0.62-G.x0),wy=G.ys-30-wl*22;c.strokeStyle=C['--muted'];c.globalAlpha=Math.sin(Math.PI*wq)*0.7;c.lineWidth=2;c.beginPath();c.moveTo(wx,wy);c.quadraticCurveTo(wx+20,wy-8,wx+40,wy);c.stroke()}c.globalAlpha=1}
-  txt(c,'最快嘅衝出水面',G.x0,G.ys-40,C['--warn'],13,'left','500');arrow(c,G.x0+8,G.ys-26,G.x0+8,G.ys-6,C['--warn'],1.5);
-  var px0=w*0.68,px1=w-14,py0=40,py1=h-70;txt(c,'剩低嘅平均速度',px0,22,C['--fg'],12.5,'left','500');c.strokeStyle=C['--line'];c.lineWidth=1;c.strokeRect(px0,py0,px1-px0,py1-py0);
-  if(EV.hist.length>1){c.strokeStyle=heatCol(Tn);c.lineWidth=2.5;c.beginPath();EV.hist.forEach(function(v,i){var x=px0+i/59*(px1-px0),y=py1-cl(v/1.15)*(py1-py0);i?c.lineTo(x,y):c.moveTo(x,y)});c.stroke()}
-  txt(c,'時間 →',px1,py1+14,C['--muted'],11,'right');dot(c,px0+10,py1+40,8,heatCol(Tn));txt(c,Tn>0.8?'仲熱':Tn>0.62?'凍緊':'凍咗',px0+24,py1+40,C['--fg'],14,'left','500')}
+  if(!EV.wind){c.fillStyle=C['--field'];c.globalAlpha=Math.min(0.16,EV.V.length*0.012);c.fillRect(Math.max(4,G.x0-14),G.top,Math.min(L.sw-4,G.x1+14)-Math.max(4,G.x0-14),G.ys-G.top);c.globalAlpha=1}
+  EV.P.forEach(function(p){dot(c,p.x,p.y,4.2,heatCol((p.vx*p.vx+p.vy*p.vy)/(EV.E0*2.2)));if(p.ret>0){c.strokeStyle=C['--field'];c.globalAlpha=cl(p.ret);c.lineWidth=1.5;c.beginPath();c.arc(p.x,p.y,8,0,6.2832);c.stroke();c.globalAlpha=1}});
+  EV.V.forEach(function(q){dot(c,q.x,q.y,4.2,C['--hot'],0.9);if(q.esc>0){c.strokeStyle=C['--warn'];c.globalAlpha=cl(q.esc);c.lineWidth=1.5;c.beginPath();c.arc(q.x,q.y,8,0,6.2832);c.stroke();c.globalAlpha=1}});
+  if(EV.wind){for(var wl=0;wl<5;wl++){var wq=((t*1.4+wl/5)%1),wx=wq*L.sw,wy=G.ys-22-wl*((G.ys-50)/5);c.strokeStyle=C['--fg'];c.globalAlpha=Math.sin(Math.PI*wq)*0.55;c.lineWidth=2;c.beginPath();c.moveTo(wx-46,wy);c.lineTo(wx,wy);c.stroke();arrow(c,wx-10,wy,wx,wy,C['--fg'],2)}c.globalAlpha=1}
+  var tl=EV.wind?'吹：水氣一出嚟就俾風帶走':'冇吹：水氣積喺水面，好多跌返落嚟';txt(c,tl,8,12,EV.wind?C['--warn']:C['--field'],13,'left','500');
+  txt(c,'走咗 '+EV.out+'　跌返落嚟 '+EV.back,8,L.sh-10-(EV.mode==='soup'?0:-0),C['--fg'],12.5,'left','500');
+  /* plots */
+  var A,B;if(L.nar){var pw=(w-36)/2;A={x0:12,x1:12+pw,y0:L.sh+30,y1:h-26};B={x0:24+pw,x1:w-12,y0:L.sh+30,y1:h-26}}else{var px0=L.sw+26,px1=w-12;A={x0:px0,x1:px1,y0:30,y1:h*0.5-22};B={x0:px0,x1:px1,y0:h*0.5+34,y1:h-26}}
+  /* A: speed distribution */
+  txt(c,'水分子嘅速度分佈',A.x0,A.y0-16,C['--fg'],12.5,'left','500');c.strokeStyle=C['--line'];c.lineWidth=1;c.beginPath();c.moveTo(A.x0,A.y1);c.lineTo(A.x1,A.y1);c.stroke();
+  var bw=(A.x1-A.x0)/EV_BINS,exp=[],mx=1,i;for(i=0;i<EV_BINS;i++){var v0=i*EV_VMAX/EV_BINS,v1=(i+1)*EV_VMAX/EV_BINS,e=EV.N0*(Math.exp(-v0*v0/2)-Math.exp(-v1*v1/2));exp.push(e);if(e>mx)mx=e}mx*=1.25;
+  var thx=A.x0+EV_K/EV_VMAX*(A.x1-A.x0);
+  if(EV.hb)for(i=0;i<EV_BINS;i++){var bh=cl(EV.hb[i]/mx)*(A.y1-A.y0),bx=A.x0+i*bw,fast=(i+0.5)*EV_VMAX/EV_BINS>=EV_K;c.fillStyle=fast?C['--hot']:C['--field'];c.globalAlpha=fast?0.95:0.6;c.fillRect(bx+1,A.y1-bh,bw-2,bh)}c.globalAlpha=1;
+  c.strokeStyle=C['--muted'];c.lineWidth=1.5;c.setLineDash([4,3]);c.beginPath();for(i=0;i<EV_BINS;i++){var ex=A.x0+(i+0.5)*bw,ey=A.y1-cl(exp[i]/mx)*(A.y1-A.y0);i?c.lineTo(ex,ey):c.moveTo(ex,ey)}c.stroke();
+  c.strokeStyle=C['--warn'];c.beginPath();c.moveTo(thx,A.y0);c.lineTo(thx,A.y1);c.stroke();c.setLineDash([]);
+  txt(c,'夠快先走得甩 →',thx+4,A.y0+6,C['--warn'],11,'left','500');txt(c,'虛線 = 開頭',A.x1,A.y0+22,C['--muted'],11,'right');
+  txt(c,'慢',A.x0,A.y1+12,C['--muted'],11,'left');txt(c,'快',A.x1,A.y1+12,C['--muted'],11,'right');
+  /* B: temperature over time */
+  txt(c,'剩低嘅平均能量（溫度）',B.x0,B.y0-16,C['--fg'],12.5,'left','500');c.strokeStyle=C['--line'];c.lineWidth=1;c.strokeRect(B.x0,B.y0,B.x1-B.x0,B.y1-B.y0);
+  var n=EV_T/0.5,cur=EV.wind?'wind':'still';['still','wind'].forEach(function(kk){var H=EV.curves[kk];if(H.length<2)return;var on=kk===cur,col=kk==='wind'?C['--warn']:C['--field'];c.strokeStyle=col;c.globalAlpha=on?1:0.45;c.lineWidth=on?2.5:1.5;c.beginPath();var lx=0,ly=0;H.forEach(function(v,j){lx=B.x0+Math.min(1,j/n)*(B.x1-B.x0);ly=B.y1-cl((v-0.15)/0.95)*(B.y1-B.y0);j?c.lineTo(lx,ly):c.moveTo(lx,ly)});c.stroke();c.globalAlpha=1;txt(c,kk==='wind'?'吹':'冇吹',Math.min(lx+4,B.x1-4),ly+(kk==='wind'?10:-9),col,11.5,lx+30>B.x1?'right':'left','500')});
+  txt(c,'時間 →',B.x1,B.y1+12,C['--muted'],11,'right');txt(c,Tn>0.9?'仲熱':Tn>0.72?'凍緊':'凍咗',B.x0,B.y1+12,heatCol(Tn),12,'left','500')}
 
 /* condensation: fast vapour slows in cold air and clumps */
 var CD={ctx:null,mode:'breath',V:[],D:[],A:[],acc:0,last:null};
