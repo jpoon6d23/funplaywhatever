@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>全部都係碳</title>
+<meta name="description" content="碳有 4 隻手，所以砌得出生命。糖、油、蛋白、火、汽油、DNA、鑽石、鋼，全部都係碳，只係排法唔同。">
+<meta property="og:title" content="全部都係碳">
+<meta property="og:description" content="碳有 4 隻手，所以砌得出生命。糖、油、蛋白、火、汽油、DNA、鑽石、鋼，全部都係碳，只係排法唔同。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/carbon.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/carbon.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="全部都係碳">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/carbon.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#e8b04a;--b:#e8707e;--hit:#5fc4b4;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一粒碳原子，四隻手分別拉住氫、氧、氮同另一粒碳。">
+    <circle cx="120" cy="105" r="62" class="f-none s-muted" stroke-width="1" stroke-dasharray="3 6"/>
+    <g class="spin" style="transform-origin:120px 105px"><circle cx="120" cy="43" r="4" class="f-a"/><circle cx="182" cy="105" r="4" class="f-a"/><circle cx="120" cy="167" r="4" class="f-a"/><circle cx="58" cy="105" r="4" class="f-a"/></g>
+    <path d="M120,105 L120,22 M120,105 L210,105 M120,105 L120,190 M120,105 L30,105" class="f-none s-ink" stroke-width="3"/>
+    <circle cx="120" cy="105" r="24" class="f-surface2 s-ink" stroke-width="2.5"/>
+    <text x="120" y="113" text-anchor="middle" class="t" font-size="22" font-weight="700">C</text>
+    <circle cx="120" cy="20" r="13" class="f-surface2 s-c" stroke-width="2"/><text x="120" y="25" text-anchor="middle" class="t-c" font-size="13" font-weight="700">H</text>
+    <circle cx="214" cy="105" r="13" class="f-surface2 s-b" stroke-width="2"/><text x="214" y="110" text-anchor="middle" class="t-b" font-size="13" font-weight="700">O</text>
+    <circle cx="120" cy="192" r="13" class="f-surface2 s-d" stroke-width="2"/><text x="120" y="197" text-anchor="middle" class="t-d" font-size="13" font-weight="700">N</text>
+    <circle cx="26" cy="105" r="13" class="f-surface2 s-ink" stroke-width="2"/><text x="26" y="110" text-anchor="middle" class="t" font-size="13" font-weight="700">C</text>
+  </svg>
+  <div>
+    <h1>全部都係碳</h1>
+    <p class="said">有機化學，基本上就係研究所有同碳有關嘅嘢。因為碳就係建立生命最根本嘅粒子。</p>
+    <p class="lede">Structural backbone of complex molecules → protein、fat、sugar、DNA → life。糖、油、火、汽油、DNA、鑽石、鋼，都係碳喺度郁嚟郁去。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">點解係碳</div>
+    <h2>4 隻手，砌乜都得</h2>
+    <div class="grid2">
+      <div class="mini" style="--k:var(--a)"><div class="k">Abundance</div><h3>宇宙第四多</h3><p>得氫、氦、氧多過佢。人體重量大約 18.5% 係碳，淨係輸俾氧。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">4 outer electron</div><h3>4 粒外層電子</h3><p>唔搶又唔送，同人<b>分享</b>。4 隻手 → complex structure，stable connection。</p></div>
+      <div class="mini" style="--k:var(--hit)"><div class="k">Bond strength</div><h3>啱啱好嘅鍵</h3><p>夠實，唔會自己散；又唔係實到拆唔開。Break & form flexibility：生命就係不停拆、不停砌。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">CO₂</div><h3>同氧夾埋變氣</h3><p>碳燒完變 CO₂，係氣體，周圍飛，植物食得返。Flexibility。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 170" role="img" aria-label="碳嘅四種砌法：直鏈、分叉、環、雙鍵。">
+        <polyline points="30,90 58,74 86,90 114,74 142,90" class="f-none s-ink" stroke-width="2.5" stroke-linejoin="round"/>
+        <g class="f-ink"><circle cx="30" cy="90" r="5"/><circle cx="58" cy="74" r="5"/><circle cx="86" cy="90" r="5"/><circle cx="114" cy="74" r="5"/><circle cx="142" cy="90" r="5"/></g>
+        <text x="86" y="150" text-anchor="middle" class="t" font-size="14" font-weight="700">直鏈</text>
+        <polyline points="210,90 238,74 266,90 294,74 322,90" class="f-none s-ink" stroke-width="2.5" stroke-linejoin="round"/>
+        <polyline points="266,90 266,120" class="f-none s-ink" stroke-width="2.5"/>
+        <polyline points="238,74 238,44" class="f-none s-ink" stroke-width="2.5"/>
+        <g class="f-ink"><circle cx="210" cy="90" r="5"/><circle cx="238" cy="74" r="5"/><circle cx="266" cy="90" r="5"/><circle cx="294" cy="74" r="5"/><circle cx="322" cy="90" r="5"/><circle cx="266" cy="120" r="5"/><circle cx="238" cy="44" r="5"/></g>
+        <text x="266" y="150" text-anchor="middle" class="t" font-size="14" font-weight="700">分叉</text>
+        <polygon points="446,48 478,66 478,102 446,120 414,102 414,66" class="f-none s-ink" stroke-width="2.5"/>
+        <g class="f-ink"><circle cx="446" cy="48" r="5"/><circle cx="478" cy="66" r="5"/><circle cx="478" cy="102" r="5"/><circle cx="446" cy="120" r="5"/><circle cx="414" cy="102" r="5"/><circle cx="414" cy="66" r="5"/></g>
+        <text x="446" y="150" text-anchor="middle" class="t" font-size="14" font-weight="700">環</text>
+        <path d="M595,81 H635 M595,89 H635 M645,85 H665 M672,88 L696,70 M668,82 L692,64" class="f-none s-ink" stroke-width="2.5"/>
+        <g><circle cx="590" cy="85" r="5" class="f-ink"/><circle cx="640" cy="85" r="5" class="f-ink"/><circle cx="670" cy="85" r="5" class="f-ink"/><circle cx="700" cy="62" r="7" class="f-b"/></g>
+        <text x="636" y="150" text-anchor="middle" class="t" font-size="14" font-weight="700">雙鍵（C=C、C=O）</text>
+      </svg>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 200" role="img" aria-label="碳加氧變二氧化碳，係氣體周圍飛。矽加氧變二氧化矽，係沙同石頭，困死。">
+        <text x="180" y="30" text-anchor="middle" class="t" font-size="16" font-weight="700">C + O₂ → CO₂</text>
+        <g class="bob">
+          <g><circle cx="110" cy="80" r="7" class="f-b"/><circle cx="126" cy="80" r="8" class="f-ink"/><circle cx="142" cy="80" r="7" class="f-b"/></g>
+          <g><circle cx="200" cy="110" r="7" class="f-b"/><circle cx="216" cy="110" r="8" class="f-ink"/><circle cx="232" cy="110" r="7" class="f-b"/></g>
+          <g><circle cx="140" cy="140" r="7" class="f-b"/><circle cx="156" cy="140" r="8" class="f-ink"/><circle cx="172" cy="140" r="7" class="f-b"/></g>
+          <g><circle cx="230" cy="64" r="7" class="f-b"/><circle cx="246" cy="64" r="8" class="f-ink"/><circle cx="262" cy="64" r="7" class="f-b"/></g>
+        </g>
+        <text x="180" y="186" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">氣體：周圍飛，植物食得返</text>
+        <line x1="360" y1="16" x2="360" y2="190" class="s-rule" stroke-width="1.5"/>
+        <text x="540" y="30" text-anchor="middle" class="t" font-size="16" font-weight="700">Si + O₂ → SiO₂</text>
+        <g class="f-muted-soft s-muted" stroke-width="1">
+          <rect x="460" y="54" width="160" height="104" rx="6"/>
+        </g>
+        <g class="s-muted" stroke-width="1.5">
+          <path d="M470,70 H610 M470,94 H610 M470,118 H610 M470,142 H610 M486,60 V152 M518,60 V152 M550,60 V152 M582,60 V152"/>
+        </g>
+        <text x="540" y="186" text-anchor="middle" class="t-muted" font-size="14" font-weight="700">沙、石頭：困死</text>
+      </svg>
+      <figcaption>矽都有 4 粒外層電子，但佢一見到氧就黐實，變 Si–O 石頭，好少自己同自己連成鏈。碳燒完仲識飛，所以可以一路循環。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">食物三大支柱</div>
+    <h2>糖、油、蛋白：骨架全部係碳</h2>
+    <p class="intro">我哋食嘅嘢，本質都係由碳嗰度出嚟。分別係碳旁邊掛咗乜嘢。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 250" role="img" aria-label="三個結構：糖係一個六角環；油係三條長碳氫鏈；蛋白係一條有氮嘅長鏈掛住側鏈。">
+        <polygon points="120,62 153,81 153,119 120,138 87,119 87,81" class="f-none s-ink" stroke-width="2.5"/>
+        <circle cx="153" cy="81" r="8" class="f-b"/>
+        <path d="M87,81 L66,68 M87,119 L66,132 M120,138 V160 M153,119 L174,132" class="f-none s-b" stroke-width="2"/>
+        <text x="120" y="192" text-anchor="middle" class="t" font-size="16" font-weight="700">糖</text>
+        <text x="120" y="212" text-anchor="middle" class="t-muted" font-size="13">C · H · O，好多 O</text>
+        <text x="120" y="234" text-anchor="middle" class="t-a" font-size="14" font-weight="700">4 kcal/g</text>
+        <line x1="300" y1="62" x2="300" y2="158" class="s-b" stroke-width="3" stroke-linecap="round"/><polyline points="300,70 314,61 328,70 342,61 356,70 370,61 384,70 398,61 412,70 426,61 440,70 454,61" class="f-none s-a" stroke-width="2.5" stroke-linejoin="round"/><polyline points="300,110 314,101 328,110 342,101 356,110 370,101 384,110 398,101 412,110 426,101 440,110 454,101" class="f-none s-a" stroke-width="2.5" stroke-linejoin="round"/><polyline points="300,150 314,141 328,150 342,141 356,150 370,141 384,150 398,141 412,150 426,141 440,150 454,141" class="f-none s-a" stroke-width="2.5" stroke-linejoin="round"/>
+        <text x="378" y="192" text-anchor="middle" class="t" font-size="16" font-weight="700">油（脂肪）</text>
+        <text x="378" y="212" text-anchor="middle" class="t-muted" font-size="13">幾乎全部係 C-H</text>
+        <text x="378" y="234" text-anchor="middle" class="t-a" font-size="14" font-weight="700">9 kcal/g</text>
+        <polyline points="532,110 550,100 568,110 586,100 604,110 622,100 640,110 658,100 676,110" class="f-none s-muted" stroke-width="2.5" stroke-linejoin="round"/><circle cx="532" cy="110" r="5.5" class="f-c"/><line x1="550" y1="100" x2="550" y2="74" class="s-d" stroke-width="2"/><circle cx="550" cy="74" r="6" class="f-d"/><circle cx="586" cy="100" r="5.5" class="f-c"/><line x1="604" y1="110" x2="604" y2="136" class="s-d" stroke-width="2"/><circle cx="604" cy="136" r="6" class="f-d"/><circle cx="640" cy="110" r="5.5" class="f-c"/><line x1="658" y1="100" x2="658" y2="74" class="s-d" stroke-width="2"/><circle cx="658" cy="74" r="6" class="f-d"/>
+        <text x="612" y="192" text-anchor="middle" class="t" font-size="16" font-weight="700">蛋白</text>
+        <text x="612" y="212" text-anchor="middle" class="t-muted" font-size="13">C · H · O · N</text>
+        <text x="612" y="234" text-anchor="middle" class="t-a" font-size="14" font-weight="700">4 kcal/g</text>
+      </svg>
+      <figcaption>粉紅 = 氧，藍 = 氮，紫 = 每粒胺基酸唔同嘅側鏈。油嘅 C-H 最多、氧最少，即係「最滿電」，所以每克能量差唔多係糖同蛋白嘅兩倍。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Carbon cycle</div>
+    <h2>碳 = 充電池，太陽 = 充電器</h2>
+    <p class="intro">C = rechargeable battery，sun = charger，life = user。C-H（碳氫）= 充咗電；CO₂ 同 H₂O = 用完。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 320" role="img" aria-label="太陽幫植物將二氧化碳同水充電，變成碳氫同氧；動物將碳氫同氧放電，變返二氧化碳同水，得到 ATP 能量。">
+        <circle cx="360" cy="40" r="24" class="f-a pulse"/>
+        <circle cx="360" cy="40" r="22" class="f-a"/>
+        <text x="410" y="36" class="t-a" font-size="14" font-weight="700">太陽 = 充電器</text>
+        <path d="M360,66 V96" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <rect x="30" y="190" width="200" height="60" rx="12" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <text x="130" y="216" text-anchor="middle" class="t" font-size="17" font-weight="700">CO₂ + H₂O</text>
+        <text x="130" y="238" text-anchor="middle" class="t-muted" font-size="13">用完嘅電池</text>
+        <rect x="490" y="190" width="200" height="60" rx="12" class="f-a-soft s-a" stroke-width="1.5"/>
+        <text x="590" y="216" text-anchor="middle" class="t" font-size="17" font-weight="700">C-H + O₂</text>
+        <text x="590" y="238" text-anchor="middle" class="t-a" font-size="13">充滿電</text>
+        <path d="M130,188 Q360,30 588,186" class="f-none s-hit flow" stroke-width="2.5" marker-end="url(#ah-hit)"/>
+        <text x="360" y="142" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">光合作用（植物）：充電</text>
+        <path d="M590,252 Q360,352 132,254" class="f-none s-b flow" stroke-width="2.5" marker-end="url(#ah-b)"/>
+        <text x="360" y="272" text-anchor="middle" class="t-b" font-size="14" font-weight="700">消化、呼吸（動物）：放電 → ATP → life</text>
+      </svg>
+      <figcaption>Photosynthesis：sun + CO₂ + H₂O → C-H + O₂。Animal digestion：O₂ + C-H → CO₂ + H₂O + ATP energy → life。太陽令地球局部 reverse entropy：地球入面越嚟越有秩序，代價係散更多熱返去太空。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Fire</div>
+    <h2>火 = 碳氫 + 熱 + 氧</h2>
+    <p class="intro">Fuel（hydrocarbon／liquid hydrogen）+ heat + O₂。冇咗其中一樣，火就熄。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 250" role="img" aria-label="火三角：燃料、熱、氧氣，中間係火。">
+        <polygon points="360,34 170,220 550,220" class="f-none s-muted" stroke-width="1.5"/>
+        <path d="M360,96 C384,124 396,148 386,170 C378,188 342,188 334,170 C324,148 340,130 350,116 C352,134 362,140 366,132 C370,120 364,108 360,96 Z" class="f-a-soft s-a" stroke-width="2"/>
+        <path d="M360,140 C370,152 372,164 366,174 C360,182 350,180 348,172 C346,162 354,154 360,140 Z" class="f-c-soft"/>
+        <rect x="290" y="16" width="140" height="34" rx="17" class="f-surface2 s-a" stroke-width="1.5"/>
+        <text x="360" y="38" text-anchor="middle" class="t" font-size="14" font-weight="700">燃料：C-H</text>
+        <rect x="110" y="204" width="120" height="34" rx="17" class="f-surface2 s-b" stroke-width="1.5"/>
+        <text x="170" y="226" text-anchor="middle" class="t" font-size="14" font-weight="700">熱</text>
+        <rect x="490" y="204" width="120" height="34" rx="17" class="f-surface2 s-c" stroke-width="1.5"/>
+        <text x="550" y="226" text-anchor="middle" class="t" font-size="14" font-weight="700">O₂</text>
+        <text x="600" y="110" class="t-a" font-size="13" font-weight="700">黃色 = 碳粒</text>
+        <text x="600" y="130" class="t-muted" font-size="12.5">未燒晒嘅煙灰</text>
+        <text x="600" y="148" class="t-muted" font-size="12.5">燒到發光</text>
+        <path d="M596,124 L396,138" class="f-none s-muted" stroke-width="1" stroke-dasharray="3 4"/>
+      </svg>
+    </figure>
+    <h3 class="mt" style="font-size:22px;margin-bottom:10px">C&amp;H dancing，music stop，dancer still here</h3>
+    <figure class="panel">
+      <svg viewBox="0 0 720 220" role="img" aria-label="甲烷同兩粒氧氣，加熱之後變成二氧化碳同兩粒水。原子一粒都冇少，只係換咗舞伴。">
+        <path d="M110,110 L110,66 M110,110 L154,110 M110,110 L110,154 M110,110 L66,110" class="f-none s-ink" stroke-width="2"/>
+        <circle cx="110" cy="110" r="15" class="f-ink"/><text x="110" y="115" text-anchor="middle" class="t-bg" font-size="13" font-weight="700">C</text>
+        <g class="f-c"><circle cx="110" cy="62" r="9"/><circle cx="158" cy="110" r="9"/><circle cx="110" cy="158" r="9"/><circle cx="62" cy="110" r="9"/></g>
+        <g class="f-b"><circle cx="210" cy="80" r="11"/><circle cx="236" cy="80" r="11"/><circle cx="210" cy="140" r="11"/><circle cx="236" cy="140" r="11"/></g>
+        <text x="110" y="200" text-anchor="middle" class="t" font-size="14" font-weight="700">CH₄</text>
+        <text x="223" y="200" text-anchor="middle" class="t" font-size="14" font-weight="700">2 O₂</text>
+        <path d="M280,110 H426" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <text x="353" y="96" text-anchor="middle" class="t-a" font-size="13" font-weight="700">熱（音樂）</text>
+        <text x="353" y="134" text-anchor="middle" class="t-muted" font-size="12.5">放出能量</text>
+        <g><circle cx="474" cy="70" r="11" class="f-b"/><circle cx="500" cy="70" r="13" class="f-ink"/><circle cx="526" cy="70" r="11" class="f-b"/></g>
+        <text x="500" y="75" text-anchor="middle" class="t-bg" font-size="12" font-weight="700">C</text>
+        <g><circle cx="490" cy="146" r="11" class="f-b"/><circle cx="474" cy="162" r="8" class="f-c"/><circle cx="506" cy="162" r="8" class="f-c"/></g>
+        <g><circle cx="610" cy="146" r="11" class="f-b"/><circle cx="594" cy="162" r="8" class="f-c"/><circle cx="626" cy="162" r="8" class="f-c"/></g>
+        <text x="500" y="40" text-anchor="middle" class="t" font-size="14" font-weight="700">CO₂</text>
+        <text x="550" y="200" text-anchor="middle" class="t" font-size="14" font-weight="700">2 H₂O</text>
+      </svg>
+      <figcaption>音樂停咗（能量放咗出嚟），舞者仲喺度：之前 1 粒 C、4 粒 H、4 粒 O，之後都係 1、4、4，一粒都冇少，只係換咗舞伴。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Hydrocarbon</div>
+    <h2>汽油、飛機油、柴油、瀝青：同一樣嘢，唔同長度</h2>
+    <p class="intro">都係碳氫，都係攞嚟燒。分別只係排法同數量。拉下條 bar，睇下條鏈越長變成乜。</p>
+    <div class="tool">
+      <label for="cn">碳數：<b id="cn-v">8</b> 粒</label>
+      <input type="range" id="cn" min="1" max="70" value="8">
+      <svg viewBox="0 0 720 120" style="width:100%;height:auto" role="img" aria-label="一條碳氫鏈，長度跟住你揀嘅碳數。">
+        <polyline id="chain" points="" class="f-none s-a" stroke-width="3" stroke-linejoin="round"/>
+        <g id="chain-dots" class="f-ink"></g>
+        <text id="chain-more" x="690" y="66" text-anchor="end" class="t-muted" font-size="14"></text>
+      </svg>
+      <p class="out" id="cn-name"></p>
+      <p id="cn-why" style="color:var(--muted)"></p>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 150" role="img" aria-label="兩條短鏈接觸點少；兩條長鏈接觸點多，所以黐啲、沸點高啲。">
+        <polyline points="70,46 86,38 102,46 118,38 134,46 150,38" class="f-none s-a" stroke-width="2.5" stroke-linejoin="round"/><polyline points="70,96 86,88 102,96 118,88 134,96 150,88" class="f-none s-a" stroke-width="2.5" stroke-linejoin="round"/><line x1="70" y1="52" x2="70" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="102" y1="52" x2="102" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="134" y1="52" x2="134" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><polyline points="380,46 396,38 412,46 428,38 444,46 460,38 476,46 492,38 508,46 524,38 540,46 556,38 572,46 588,38 604,46 620,38 636,46 652,38" class="f-none s-a" stroke-width="2.5" stroke-linejoin="round"/><polyline points="380,96 396,88 412,96 428,88 444,96 460,88 476,96 492,88 508,96 524,88 540,96 556,88 572,96 588,88 604,96 620,88 636,96 652,88" class="f-none s-a" stroke-width="2.5" stroke-linejoin="round"/><line x1="380" y1="52" x2="380" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="412" y1="52" x2="412" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="444" y1="52" x2="444" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="476" y1="52" x2="476" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="508" y1="52" x2="508" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="540" y1="52" x2="540" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="572" y1="52" x2="572" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="604" y1="52" x2="604" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/><line x1="636" y1="52" x2="636" y2="84" class="s-hit" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <text x="110" y="132" text-anchor="middle" class="t" font-size="14" font-weight="700">短：接觸點少 → 易散 → 沸點低</text>
+        <text x="520" y="132" text-anchor="middle" class="t" font-size="14" font-weight="700">長：接觸點多 → 黐 → 沸點高</text>
+      </svg>
+      <figcaption>Nonpolar → 冇 charge、冇氫鍵，淨係得 van der Waals force。碳喺條鏈度越多 → contact point 越多 → 越黐 → boiling point 越高。</figcaption>
+    </figure>
+    <p class="note"><b>食油都係呢類</b>三條大約 16–18 粒碳嘅長碳氫鏈，掛喺一個含氧嘅頭度。C 主導，所以 energy dense。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Functional group</div>
+    <h2>碳旁邊掛咩，就變咩</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--b)"><div class="k">C=O · carbonyl</div><h3>→ 糖</h3><p>碳同氧雙鍵，糖嘅標誌。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">C-H · CH₃ methyl</div><h3>→ 碳氫</h3><p>油、燃料、蠟。冇電荷，唔溶於水。</p></div>
+      <div class="mini" style="--k:var(--hit)"><div class="k">C-F</div><h3>→ 易潔鑊</h3><p>F 係 max electronegativity = max separation → max inert。乜都黐唔住佢。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Aromatic ring</div>
+    <h2>6 粒碳一齊分享電子，最穩陣</h2>
+    <p class="intro">6 粒碳唔係單鍵、雙鍵輪流咁拉，而係 6 粒電子喺成個環上面游，大家共用。能量更低，extreme stable → DNA、木質素。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 220" role="img" aria-label="左邊：六角環單雙鍵輪流。右邊：六粒電子喺環上面游，大家共用，更穩定。">
+        <polygon points="180,40 232,70 232,130 180,160 128,130 128,70" class="f-none s-ink" stroke-width="2.5"/>
+        <path d="M186,52 L224,74 M224,124 L186,146 M136,124 L136,76" class="f-none s-ink" stroke-width="2.5"/>
+        <text x="180" y="196" text-anchor="middle" class="t-muted" font-size="14">單、雙鍵輪流（教科書畫法）</text>
+        <path d="M290,100 H420" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <text x="355" y="88" text-anchor="middle" class="t-muted" font-size="13">其實係</text>
+        <polygon points="540,40 592,70 592,130 540,160 488,130 488,70" class="f-d-soft s-d" stroke-width="2.5"/>
+        <circle cx="540" cy="100" r="34" class="f-none s-d flow" stroke-width="2"/>
+        <g class="spin" style="transform-origin:540px 100px"><circle cx="540" cy="66" r="4.5" class="f-a"/><circle cx="569" cy="83" r="4.5" class="f-a"/><circle cx="569" cy="117" r="4.5" class="f-a"/><circle cx="540" cy="134" r="4.5" class="f-a"/><circle cx="511" cy="117" r="4.5" class="f-a"/><circle cx="511" cy="83" r="4.5" class="f-a"/></g>
+        <text x="540" y="196" text-anchor="middle" class="t-d" font-size="14" font-weight="700">6 粒電子大家共用 → 更穩、能量更低</text>
+      </svg>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 230" role="img" aria-label="DNA 好似一條梯：兩邊扶手係糖同磷酸，中間梯級係芳香環鹼基，一級疊一級。">
+        <path d="M80,40 C200,40 200,190 320,190 C440,190 440,40 560,40 C620,40 640,90 660,110" class="f-none s-b" stroke-width="4"/>
+        <path d="M80,190 C200,190 200,40 320,40 C440,40 440,190 560,190 C620,190 640,130 660,110" class="f-none s-b" stroke-width="4"/>
+        <g class="s-d" stroke-width="3">
+          <line x1="110" y1="44" x2="110" y2="186"/><line x1="140" y1="54" x2="140" y2="176"/><line x1="170" y1="76" x2="170" y2="154"/>
+          <line x1="230" y1="154" x2="230" y2="76"/><line x1="260" y1="176" x2="260" y2="54"/><line x1="290" y1="186" x2="290" y2="44"/>
+          <line x1="350" y1="186" x2="350" y2="44"/><line x1="380" y1="176" x2="380" y2="54"/><line x1="410" y1="154" x2="410" y2="76"/>
+          <line x1="470" y1="76" x2="470" y2="154"/><line x1="500" y1="54" x2="500" y2="176"/><line x1="530" y1="44" x2="530" y2="186"/>
+        </g>
+        <text x="80" y="24" class="t-b" font-size="14" font-weight="700">扶手（骨架）：糖 + 磷酸</text>
+        <text x="420" y="222" class="t-d" font-size="14" font-weight="700">梯級：A、T、C、G（芳香環）</text>
+      </svg>
+      <figcaption>DNA 嘅骨架（扶手）係糖同磷酸；芳香環係中間嘅梯級，即係 A、T、C、G 四隻鹼基。佢哋一級疊一級，好似一疊碟咁穩。木質素都係一大堆芳香環，所以木頭夠硬。</figcaption>
+    </figure>
+    <h3 class="mt" style="font-size:22px;margin-bottom:10px">鏈越長，顏色越出</h3>
+    <p class="intro">單雙鍵輪流（共軛）嘅鏈越長 → 能階越近 → 能量差越細 → 食得落嘅 photon 能量越低，跌入可見光。冇食嘅光，就係你見到嘅顏色。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 240" role="img" aria-label="四種色素食咗邊段光：胡蘿蔔素食藍光變橙；葉綠素食藍同紅變綠；血紅素食藍綠變紅；番茄紅素食藍綠變紅。">
+        <defs><linearGradient id="spec" x1="0" x2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset=".2" stop-color="#2563eb"/><stop offset=".38" stop-color="#06b6d4"/><stop offset=".5" stop-color="#22c55e"/><stop offset=".64" stop-color="#eab308"/><stop offset=".78" stop-color="#f97316"/><stop offset="1" stop-color="#dc2626"/></linearGradient></defs>
+        <g font-size="14" text-anchor="end">
+          <text x="150" y="46" class="t">β-胡蘿蔔素</text><text x="150" y="96" class="t">葉綠素</text><text x="150" y="146" class="t">血紅素</text><text x="150" y="196" class="t">番茄紅素</text>
+        </g>
+        <g>
+          <rect x="160" y="30" width="400" height="22" rx="4" fill="url(#spec)"/>
+          <rect x="185" y="30" width="125" height="22" class="f-bg" fill-opacity=".85"/>
+          <rect x="160" y="80" width="400" height="22" rx="4" fill="url(#spec)"/>
+          <rect x="185" y="80" width="100" height="22" class="f-bg" fill-opacity=".85"/><rect x="485" y="80" width="63" height="22" class="f-bg" fill-opacity=".85"/>
+          <rect x="160" y="130" width="400" height="22" rx="4" fill="url(#spec)"/>
+          <rect x="185" y="130" width="50" height="22" class="f-bg" fill-opacity=".85"/><rect x="347" y="130" width="63" height="22" class="f-bg" fill-opacity=".85"/>
+          <rect x="160" y="180" width="400" height="22" rx="4" fill="url(#spec)"/>
+          <rect x="235" y="180" width="90" height="22" class="f-bg" fill-opacity=".85"/>
+        </g>
+        <circle cx="610" cy="41" r="13" fill="#f97316"/><text x="632" y="46" class="t" font-size="14">橙</text>
+        <circle cx="610" cy="91" r="13" fill="#22c55e"/><text x="632" y="96" class="t" font-size="14">綠</text>
+        <circle cx="610" cy="141" r="13" fill="#dc2626"/><text x="632" y="146" class="t" font-size="14">紅</text>
+        <circle cx="610" cy="191" r="13" fill="#ef4444"/><text x="632" y="196" class="t" font-size="14">紅</text>
+        <g font-size="12.5" text-anchor="middle" class="t-muted"><text x="247" y="226">藍</text><text x="347" y="226">綠</text><text x="410" y="226">黃</text><text x="497" y="226">紅</text></g>
+      </svg>
+      <figcaption>黑格 = 被食咗嘅光。胡蘿蔔素：11 個共軛雙鍵串 → 食藍光 → 橙。葉綠素：一個大環 + 中心鎂 → 食紅同藍 → 綠。血紅素：同類大環 + 中心鐵 → 紅。番茄紅素：更長嘅共軛 → 紅。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">同一堆碳</div>
+    <h2>鑽石 vs 石墨：排法唔同，世界唔同</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 250" role="img" aria-label="左邊鑽石：每粒碳拉住四粒，成個網鎖死。右邊石墨：一層層六角網，層與層之間好鬆。">
+        <line x1="70" y1="46" x2="94" y2="70" class="s-c" stroke-width="2"/><line x1="70" y1="94" x2="94" y2="118" class="s-c" stroke-width="2"/><line x1="70" y1="94" x2="94" y2="70" class="s-c" stroke-width="2"/><line x1="70" y1="142" x2="94" y2="166" class="s-c" stroke-width="2"/><line x1="70" y1="142" x2="94" y2="118" class="s-c" stroke-width="2"/><line x1="70" y1="190" x2="94" y2="166" class="s-c" stroke-width="2"/><line x1="94" y1="70" x2="118" y2="94" class="s-c" stroke-width="2"/><line x1="94" y1="70" x2="118" y2="46" class="s-c" stroke-width="2"/><line x1="94" y1="118" x2="118" y2="142" class="s-c" stroke-width="2"/><line x1="94" y1="118" x2="118" y2="94" class="s-c" stroke-width="2"/><line x1="94" y1="166" x2="118" y2="190" class="s-c" stroke-width="2"/><line x1="94" y1="166" x2="118" y2="142" class="s-c" stroke-width="2"/><line x1="118" y1="46" x2="142" y2="70" class="s-c" stroke-width="2"/><line x1="118" y1="94" x2="142" y2="118" class="s-c" stroke-width="2"/><line x1="118" y1="94" x2="142" y2="70" class="s-c" stroke-width="2"/><line x1="118" y1="142" x2="142" y2="166" class="s-c" stroke-width="2"/><line x1="118" y1="142" x2="142" y2="118" class="s-c" stroke-width="2"/><line x1="118" y1="190" x2="142" y2="166" class="s-c" stroke-width="2"/><line x1="142" y1="70" x2="166" y2="94" class="s-c" stroke-width="2"/><line x1="142" y1="70" x2="166" y2="46" class="s-c" stroke-width="2"/><line x1="142" y1="118" x2="166" y2="142" class="s-c" stroke-width="2"/><line x1="142" y1="118" x2="166" y2="94" class="s-c" stroke-width="2"/><line x1="142" y1="166" x2="166" y2="190" class="s-c" stroke-width="2"/><line x1="142" y1="166" x2="166" y2="142" class="s-c" stroke-width="2"/><line x1="166" y1="46" x2="190" y2="70" class="s-c" stroke-width="2"/><line x1="166" y1="94" x2="190" y2="118" class="s-c" stroke-width="2"/><line x1="166" y1="94" x2="190" y2="70" class="s-c" stroke-width="2"/><line x1="166" y1="142" x2="190" y2="166" class="s-c" stroke-width="2"/><line x1="166" y1="142" x2="190" y2="118" class="s-c" stroke-width="2"/><line x1="166" y1="190" x2="190" y2="166" class="s-c" stroke-width="2"/><line x1="190" y1="70" x2="214" y2="94" class="s-c" stroke-width="2"/><line x1="190" y1="70" x2="214" y2="46" class="s-c" stroke-width="2"/><line x1="190" y1="118" x2="214" y2="142" class="s-c" stroke-width="2"/><line x1="190" y1="118" x2="214" y2="94" class="s-c" stroke-width="2"/><line x1="190" y1="166" x2="214" y2="190" class="s-c" stroke-width="2"/><line x1="190" y1="166" x2="214" y2="142" class="s-c" stroke-width="2"/><line x1="214" y1="46" x2="238" y2="70" class="s-c" stroke-width="2"/><line x1="214" y1="94" x2="238" y2="118" class="s-c" stroke-width="2"/><line x1="214" y1="94" x2="238" y2="70" class="s-c" stroke-width="2"/><line x1="214" y1="142" x2="238" y2="166" class="s-c" stroke-width="2"/><line x1="214" y1="142" x2="238" y2="118" class="s-c" stroke-width="2"/><line x1="214" y1="190" x2="238" y2="166" class="s-c" stroke-width="2"/><line x1="238" y1="70" x2="262" y2="94" class="s-c" stroke-width="2"/><line x1="238" y1="70" x2="262" y2="46" class="s-c" stroke-width="2"/><line x1="238" y1="118" x2="262" y2="142" class="s-c" stroke-width="2"/><line x1="238" y1="118" x2="262" y2="94" class="s-c" stroke-width="2"/><line x1="238" y1="166" x2="262" y2="190" class="s-c" stroke-width="2"/><line x1="238" y1="166" x2="262" y2="142" class="s-c" stroke-width="2"/><circle cx="70" cy="46" r="5" class="f-ink"/><circle cx="70" cy="94" r="5" class="f-ink"/><circle cx="70" cy="142" r="5" class="f-ink"/><circle cx="70" cy="190" r="5" class="f-ink"/><circle cx="94" cy="70" r="5" class="f-ink"/><circle cx="94" cy="118" r="5" class="f-ink"/><circle cx="94" cy="166" r="5" class="f-ink"/><circle cx="118" cy="46" r="5" class="f-ink"/><circle cx="118" cy="94" r="5" class="f-ink"/><circle cx="118" cy="142" r="5" class="f-ink"/><circle cx="118" cy="190" r="5" class="f-ink"/><circle cx="142" cy="70" r="5" class="f-ink"/><circle cx="142" cy="118" r="5" class="f-ink"/><circle cx="142" cy="166" r="5" class="f-ink"/><circle cx="166" cy="46" r="5" class="f-ink"/><circle cx="166" cy="94" r="5" class="f-ink"/><circle cx="166" cy="142" r="5" class="f-ink"/><circle cx="166" cy="190" r="5" class="f-ink"/><circle cx="190" cy="70" r="5" class="f-ink"/><circle cx="190" cy="118" r="5" class="f-ink"/><circle cx="190" cy="166" r="5" class="f-ink"/><circle cx="214" cy="46" r="5" class="f-ink"/><circle cx="214" cy="94" r="5" class="f-ink"/><circle cx="214" cy="142" r="5" class="f-ink"/><circle cx="214" cy="190" r="5" class="f-ink"/><circle cx="238" cy="70" r="5" class="f-ink"/><circle cx="238" cy="118" r="5" class="f-ink"/><circle cx="238" cy="166" r="5" class="f-ink"/><circle cx="262" cy="46" r="5" class="f-ink"/><circle cx="262" cy="94" r="5" class="f-ink"/><circle cx="262" cy="142" r="5" class="f-ink"/><circle cx="262" cy="190" r="5" class="f-ink"/>
+        <path d="M462.3,74.5 L445.0,79.0 L427.7,74.5 L427.7,65.5 L445.0,61.0 L462.3,65.5 Z M497.0,74.5 L479.6,79.0 L462.3,74.5 L462.3,65.5 L479.6,61.0 L497.0,65.5 Z M531.6,74.5 L514.3,79.0 L497.0,74.5 L497.0,65.5 L514.3,61.0 L531.6,65.5 Z M566.2,74.5 L548.9,79.0 L531.6,74.5 L531.6,65.5 L548.9,61.0 L566.2,65.5 Z M600.9,74.5 L583.6,79.0 L566.2,74.5 L566.2,65.5 L583.6,61.0 L600.9,65.5 Z " class="f-none s-hit" stroke-width="1.8"/><path d="M479.6,129.5 L462.3,134.0 L445.0,129.5 L445.0,120.5 L462.3,116.0 L479.6,120.5 Z M514.3,129.5 L497.0,134.0 L479.6,129.5 L479.6,120.5 L497.0,116.0 L514.3,120.5 Z M548.9,129.5 L531.6,134.0 L514.3,129.5 L514.3,120.5 L531.6,116.0 L548.9,120.5 Z M583.6,129.5 L566.2,134.0 L548.9,129.5 L548.9,120.5 L566.2,116.0 L583.6,120.5 Z M618.2,129.5 L600.9,134.0 L583.6,129.5 L583.6,120.5 L600.9,116.0 L618.2,120.5 Z " class="f-none s-hit" stroke-width="1.8"/><path d="M462.3,184.5 L445.0,189.0 L427.7,184.5 L427.7,175.5 L445.0,171.0 L462.3,175.5 Z M497.0,184.5 L479.6,189.0 L462.3,184.5 L462.3,175.5 L479.6,171.0 L497.0,175.5 Z M531.6,184.5 L514.3,189.0 L497.0,184.5 L497.0,175.5 L514.3,171.0 L531.6,175.5 Z M566.2,184.5 L548.9,189.0 L531.6,184.5 L531.6,175.5 L548.9,171.0 L566.2,175.5 Z M600.9,184.5 L583.6,189.0 L566.2,184.5 L566.2,175.5 L583.6,171.0 L600.9,175.5 Z " class="f-none s-hit" stroke-width="1.8"/><line x1="480" y1="80" x2="480" y2="170" class="s-muted" stroke-width="1" stroke-dasharray="3 5"/><line x1="535" y1="80" x2="535" y2="170" class="s-muted" stroke-width="1" stroke-dasharray="3 5"/><line x1="590" y1="80" x2="590" y2="170" class="s-muted" stroke-width="1" stroke-dasharray="3 5"/>
+        <text x="166" y="216" text-anchor="middle" class="t-c" font-size="16" font-weight="700">鑽石</text>
+        <text x="166" y="238" text-anchor="middle" class="t-muted" font-size="13">每粒碳拉住 4 粒 · 鎖死</text>
+        <text x="535" y="216" text-anchor="middle" class="t-hit" font-size="16" font-weight="700">石墨</text>
+        <text x="535" y="238" text-anchor="middle" class="t-muted" font-size="13">每粒拉住 3 粒 · 層與層好鬆</text>
+      </svg>
+    </figure>
+    <div class="tablewrap mt">
+      <table class="cmp">
+        <thead><tr><th></th><th>鑽石</th><th>石墨</th></tr></thead>
+        <tbody>
+          <tr><td>每粒碳拉住</td><td>4 粒</td><td>3 粒，剩 1 粒電子周圍走</td></tr>
+          <tr><td>硬度</td><td>最硬</td><td>軟、滑（鉛筆）</td></tr>
+          <tr><td>導電</td><td>唔導</td><td>導電</td></tr>
+          <tr><td>樣</td><td>透明</td><td>黑</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="punch">同一粒碳，排法唔同：一個戴喺手指上，一個喺鉛筆入面。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Bonus</div>
+    <h2>鋼 = 鐵 + 碳：friction = connection</h2>
+    <p class="intro">純鐵啲原子一層層排得好整齊，一推就滑走，所以軟。加少少碳，細細粒碳塞喺啲罅度，卡住唔俾佢滑，就變硬。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 220" role="img" aria-label="左邊純鐵，原子層一推就滑。右邊鐵加少少碳，碳粒塞喺罅度，滑唔到。">
+        <circle cx="70" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="98" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="126" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="154" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="182" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="210" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="238" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="266" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="70" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="98" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="126" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="154" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="182" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="210" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="238" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="266" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="70" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="98" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="126" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="154" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="182" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="210" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="238" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="266" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="70" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="98" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="126" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="154" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="182" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="210" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="238" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="266" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/>
+        <circle cx="430" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="458" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="486" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="514" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="542" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="570" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="598" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="626" cy="70" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="430" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="458" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="486" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="514" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="542" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="570" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="598" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="626" cy="98" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="430" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="458" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="486" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="514" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="542" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="570" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="598" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="626" cy="126" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="430" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="458" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="486" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="514" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="542" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="570" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="598" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="626" cy="154" r="11" class="f-muted-soft s-muted" stroke-width="1"/><circle cx="444" cy="84" r="5" class="f-a"/><circle cx="500" cy="112" r="5" class="f-a"/><circle cx="556" cy="84" r="5" class="f-a"/><circle cx="612" cy="112" r="5" class="f-a"/><circle cx="472" cy="140" r="5" class="f-a"/><circle cx="584" cy="140" r="5" class="f-a"/><circle cx="528" cy="112" r="5" class="f-a"/><circle cx="612" cy="140" r="5" class="f-a"/>
+        <path d="M76,40 H270" class="f-none s-hit" stroke-width="2.5" marker-end="url(#ah-hit)"/>
+        <text x="170" y="30" text-anchor="middle" class="t-hit" font-size="13" font-weight="700">一推就滑</text>
+        <path d="M436,40 H520" class="f-none s-b" stroke-width="2.5"/>
+        <path d="M512,32 L528,48 M528,32 L512,48" class="f-none s-b" stroke-width="2.5"/>
+        <text x="560" y="45" class="t-b" font-size="13" font-weight="700">卡住</text>
+        <text x="168" y="196" text-anchor="middle" class="t" font-size="15" font-weight="700">純鐵：軟</text>
+        <text x="528" y="196" text-anchor="middle" class="t" font-size="15" font-weight="700">鋼：碳塞住罅 → 硬</text>
+      </svg>
+    </figure>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 130" role="img" aria-label="碳嘅比例：0.02% 到 2.14% 係鋼，大部分鋼少過 0.35%；多過 2.14% 係鑄鐵，硬但脆。">
+        <rect x="63" y="44" width="282" height="26" rx="4" class="f-hit-soft s-hit" stroke-width="1.5"/>
+        <rect x="345" y="44" width="315" height="26" rx="4" class="f-b-soft s-b" stroke-width="1.5"/>
+        <text x="204" y="34" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">鋼：0.02%–2.14%</text>
+        <text x="502" y="34" text-anchor="middle" class="t-b" font-size="14" font-weight="700">鑄鐵：硬但脆，一撞就裂</text>
+        <path d="M63,76 V84 H107 V76" class="f-none s-a" stroke-width="1.5"/>
+        <text x="66" y="102" class="t-a" font-size="12.5">大部分鋼 &lt; 0.35%</text>
+        <g class="t-muted" font-size="12" text-anchor="middle">
+          <text x="60" y="124">0%</text><text x="193" y="124">1%</text><text x="327" y="124">2%</text><text x="460" y="124">3%</text><text x="593" y="124">4%</text>
+        </g>
+      </svg>
+      <figcaption>太少碳：軟。太多碳：脆。中間：鋼。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「矽都有 4 粒外層電子，點解生命唔用矽？」</p>
+        <div><div class="tag">回應</div><p>矽同氧太夾，變成 Si–O 石頭，好少自己連成長鏈。CO₂ 係氣，SiO₂ 係沙。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>呢個講緊有水、地球溫度嘅情況。Carl Sagan 叫「生命一定係碳」做 carbon chauvinism：未見過，唔代表冇。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「燒油，即係將舊時嘅太陽能攞返出嚟？」</p>
+        <div><div class="tag">回應</div><p>係。石油係好耐以前嘅浮游生物同植物，用太陽充咗電，再埋喺地底幾百萬年。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>充電用咗幾百萬年，放電用咗百幾年。CO₂ 返去大氣快過植物收得返，所以大氣入面嘅 CO₂ 一路升。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>糖、油、火、汽油、DNA、鑽石、鋼，全部都係碳，<em>只係排法唔同</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Bay Path University, Biology I（OpenStax）：碳係宇宙第四多嘅元素，人體重量約 18.5%：<a href="https://open.baypath.edu/bsc109/chapter/kp-1-1a/">open.baypath.edu</a>。</li>
+      <li>Wikipedia, Carbon-based life：碳 4 個鍵、矽多數形成 Si–O 而唔係 Si–Si、carbon chauvinism：<a href="https://en.wikipedia.org/wiki/Carbon-based_life">wikipedia.org</a>。</li>
+      <li>Wikipedia, Steel：鋼含碳 0.02%–2.14%，碳阻止位錯移動：<a href="https://en.wikipedia.org/wiki/Steel">wikipedia.org</a>。The Fabricator：大部分鋼含碳少過 0.35%，鑄鐵 2.1% 或以上：<a href="https://www.thefabricator.com/article/metalsmaterials/carbon-content-steel-classifications-and-alloy-steels">thefabricator.com</a>。</li>
+      <li>Britannica, Diesel engine：壓縮空氣溫度通常超過 526°C：<a href="https://www.britannica.com/technology/diesel-engine">britannica.com</a>。</li>
+      <li>Atwater 系數：脂肪約 9 kcal/g，碳水化合物同蛋白質約 4 kcal/g。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var s=document.getElementById('cn'), v=document.getElementById('cn-v'), nm=document.getElementById('cn-name'), why=document.getElementById('cn-why');
+  var pl=document.getElementById('chain'), dots=document.getElementById('chain-dots'), more=document.getElementById('chain-more'), ns='http://www.w3.org/2000/svg';
+  var R=[[4,'天然氣、石油氣','甲烷、丙烷、丁烷。條鏈短到黐唔住，室溫已經係氣。'],
+         [10,'汽油 · petrol（5–10 C）','Vaporise & resist spontaneous ignition：好易變氣，但唔會自己著，等火嘴點。'],
+         [16,'飛機油 · jet fuel / kerosene（10–16 C）','Needs to not freeze：飛機喺 −50°C 或者更凍嘅高空飛。High energy density。'],
+         [20,'柴油 · diesel（15–20 C）','同汽油相反：將空氣壓縮到大約 700°C，噴油落去自己著。分子密啲 → 能量密度高啲。'],
+         [35,'潤滑油 · lubricating oil（20–35 C）','受壓都保持液體、唔蒸發。條條鏈互相滑過 = lubrication。'],
+         [70,'瀝青 · bitumen / asphalt（35–70+ C）','會慢慢流嘅固體：防水、黐、耐用。']];
+  function draw(){
+    var n=+s.value; v.textContent=n;
+    var shown=Math.min(n,40), stp=Math.min(32,(640)/Math.max(shown,2)), pts=[], x0=40;
+    dots.innerHTML='';
+    for(var i=0;i<shown;i++){var x=x0+i*stp, y=i%2?52:72; pts.push(x+','+y); var c=document.createElementNS(ns,'circle'); c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',n>25?3.5:5); dots.appendChild(c);}
+    pl.setAttribute('points',pts.join(' '));
+    more.textContent=n>40?'… 仲有 '+(n-40)+' 粒':'';
+    for(var k=0;k<R.length;k++){ if(n<=R[k][0]){ nm.textContent=R[k][1]; why.textContent=R[k][2]; break; } }
+  }
+  s.addEventListener('input',draw); draw();
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

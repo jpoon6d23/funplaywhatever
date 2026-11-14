@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>複利：前面乜都冇，最後乜都有</title>
+<meta name="description" content="Compounding 好難想像，要畫出嚟先見到。最大嘅 gain 喺晒最後。錢、生意、信任、引力、颱風、原子彈，背後係同一條數。">
+<meta property="og:title" content="複利：前面乜都冇，最後乜都有">
+<meta property="og:description" content="Compounding 好難想像，要畫出嚟先見到。最大嘅 gain 喺晒最後。錢、生意、信任、引力、颱風、原子彈，背後係同一條數。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/compounding.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/compounding.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="複利：前面乜都冇，最後乜都有">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/compounding.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#e8b04a;--b:#e8707e;--hit:#5fc4b4;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一條線，好耐都貼住地下，去到最尾先直插上天。">
+    <line x1="20" y1="186" x2="226" y2="186" class="s-muted" stroke-width="1.5"/>
+    <path d="M20,184 C120,182 170,176 196,120 C208,90 214,50 218,14" class="f-none s-a" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="218" cy="14" r="5" class="f-a pulse"/>
+    <text x="96" y="170" text-anchor="middle" class="t-muted" font-size="13">睇落乜都冇</text>
+    <text x="180" y="60" text-anchor="end" class="t-a" font-size="14" font-weight="700">gain 喺晒呢度</text>
+  </svg>
+  <div>
+    <h1>複利：前面乜都冇，最後乜都有</h1>
+    <p class="said">More get more，less get less。Compounding 我哋好難想像，要俾個數字、圖表，先睇到嗰條線。</p>
+    <p class="lede">最大嘅 gain 喺晒最後，前面睇落係乜都冇。生意、信任、錢、引力、原子彈，都係咁。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">睇條數</div>
+    <h2>一蚊，日日變兩倍，30 日</h2>
+    <p class="intro">每條柱係嗰日你有幾多錢。頭 20 日你會覺得自己喺度嘥時間。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 260" role="img" aria-label="三十條柱，頭二十幾條矮到睇唔到，最後三四條先突然好高。第 30 日約 5.4 億。">
+        <line x1="40" y1="220" x2="700" y2="220" class="s-muted" stroke-width="1.5"/>
+        <g id="dbl"></g>
+        <text x="60" y="244" class="t-muted" font-size="12.5">第 1 日：$1</text>
+        <text x="445" y="204" text-anchor="end" class="t-muted" font-size="12.5">第 20 日：約 52 萬</text>
+        <text x="670" y="26" text-anchor="end" class="t-a" font-size="14" font-weight="700">第 30 日：約 5.4 億</text>
+      </svg>
+      <figcaption>第 20 日得 52 萬，係終點嘅千分之一。最後一日賺嘅，等於之前 29 日加埋。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">自己試</div>
+    <h2>每日好少少，或者差少少</h2>
+    <div class="tool">
+      <label for="rate">每日變幾多：<b id="rate-v"></b></label>
+      <input type="range" id="rate" min="-1" max="1" step="0.1" value="1">
+      <svg viewBox="0 0 720 260" style="width:100%;height:auto" role="img" aria-label="365 日嘅曲線：複利同埋每日加固定數嘅直線比較。">
+        <line x1="50" y1="226" x2="700" y2="226" class="s-muted" stroke-width="1.5"/>
+        <line x1="50" y1="226" x2="50" y2="20" class="s-muted" stroke-width="1.5"/>
+        <rect id="half" x="0" y="20" width="0" height="206" class="f-a-soft" fill-opacity=".1"/>
+        <polyline id="lin" points="" class="f-none s-muted" stroke-width="2" stroke-dasharray="5 5"/>
+        <polyline id="cmp" points="" class="f-none s-a" stroke-width="3" stroke-linejoin="round"/>
+        <text x="50" y="246" class="t-muted" font-size="12.5">第 0 日</text><text x="700" y="246" text-anchor="end" class="t-muted" font-size="12.5">第 365 日</text>
+        <text id="top" x="56" y="18" class="t-muted" font-size="12.5"></text>
+        <text id="halft" x="0" y="40" text-anchor="middle" class="t-a" font-size="12.5" font-weight="700"></text>
+      </svg>
+      <p class="out" id="rate-out"></p>
+      <p id="rate-why" style="color:var(--muted)"></p>
+    </div>
+    <p class="note"><b>點解難想像</b>個腦識得諗直線：做多一日，多一份。複利係做多一日，多「而家有嘅」一份，所以越後越快。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">個 loop</div>
+    <h2>Move → compound → imbalance → move more</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 200" role="img" aria-label="循環：有少少多過人，吸到更多，差距拉大，贏家通吃，再吸更多。">
+        <g font-size="14" font-weight="700" text-anchor="middle">
+          <rect x="30" y="76" width="140" height="48" rx="12" class="f-c-soft s-c" stroke-width="1.5"/><text x="100" y="105" class="t">有少少多過人</text>
+          <rect x="210" y="76" width="140" height="48" rx="12" class="f-hit-soft s-hit" stroke-width="1.5"/><text x="280" y="105" class="t">吸到更多</text>
+          <rect x="390" y="76" width="140" height="48" rx="12" class="f-a-soft s-a" stroke-width="1.5"/><text x="460" y="105" class="t">差距拉大</text>
+          <rect x="570" y="76" width="130" height="48" rx="12" class="f-b-soft s-b" stroke-width="1.5"/><text x="635" y="105" class="t">贏家通吃</text>
+        </g>
+        <path d="M172,100 H206" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M352,100 H386" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M532,100 H566" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M635,128 C635,186 280,186 280,130" class="f-none s-b flow" stroke-width="2.5" marker-end="url(#ah-b)"/>
+        <text x="458" y="194" text-anchor="middle" class="t-b" font-size="13" font-weight="700">結果返轉頭變成原因</text>
+        <text x="360" y="40" text-anchor="middle" class="t" font-size="15" font-weight="700">More get more，less get less</text>
+      </svg>
+      <figcaption>複利嘅條件：出嚟嘅嘢，會返去做下一輪嘅本錢。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">周圍都係</div>
+    <h2>同一條數，唔同嘅嘢</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--a)"><div class="k">錢</div><h3>利息生利息</h3><p>每年 7%，40 年變 15 倍。頭 10 年得 2 倍，最後 10 年由 7.6 倍去到 15 倍。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">生意</div><h3>客帶客</h3><p>頭幾年冇人識。每個滿意嘅客帶多個客，network effect：越多人用，對每個人越有用。</p></div>
+      <div class="mini" style="--k:var(--hit)"><div class="k">信任</div><h3>次次守信</h3><p>每次講得出做得到，下次人哋肯俾你大啲嘅嘢。Selfless：短期蝕，長期複利。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">引力 · 造星</div><h3>Mass attract mass</h3><p>一團氣體密少少，引力大少少，吸多啲氣，更加密。吸到夠重夠熱，就著咗，變成星。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">颱風</div><h3>Latent heat &amp; pull</h3><p>暖海水蒸發，水氣上升凝結放熱，空氣升得更快，扯入更多濕空氣。</p></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">同性相吸</div><h3>Same attract same</h3><p>水黐水、油黐油、人搵同類。聚得越多，吸力越大。</p></div>
+    </div>
+    <h3 class="mt" style="font-size:22px;margin-bottom:10px">最快嘅複利：原子彈</h3>
+    <p class="intro">一粒中子撞開一粒鈾核，放出能量，同時放出 2 至 3 粒新中子。每粒新中子又去撞開第二粒核。每一代變兩倍。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 250" role="img" aria-label="連鎖反應：1 變 2，2 變 4，4 變 8。大約 80 代之後，數目係 1 後面 24 個零。">
+        <g id="chain" class="s-b" stroke-width="1.5"></g>
+        <g id="chain-n"></g>
+        <text x="520" y="70" class="t" font-size="15" font-weight="700">1 → 2 → 4 → 8 → …</text>
+        <text x="520" y="100" class="t-muted" font-size="13.5">約 80 代：1 後面 24 個零</text>
+        <text x="520" y="124" class="t-muted" font-size="13.5">全程：約一百萬分之一秒</text>
+        <text x="520" y="164" class="t-b" font-size="15" font-weight="700">99% 嘅能量</text>
+        <text x="520" y="186" class="t-b" font-size="15" font-weight="700">喺最後 7 代先放出嚟</text>
+        <text x="520" y="214" class="t-muted" font-size="13">頭 73 代：連 1% 都唔夠</text>
+      </svg>
+      <figcaption>最後 7 次翻倍係 128 倍，所以之前全部加埋都唔夠百分之一。同嗰一蚊嘅故仔係同一條數，只係快咗好多。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">習慣</div>
+    <h2>Hard choices，easy life。Easy choices，hard life。</h2>
+    <p class="intro">每日嘅選擇好細，細到睇唔到分別。但佢哋會複利。習慣決定結果，背後係數學。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 240" role="img" aria-label="兩條線由同一點出發。難嘅選擇開頭低過易嘅選擇，之後向上彎。易嘅選擇開頭舒服，之後向下跌。">
+        <line x1="50" y1="120" x2="690" y2="120" class="s-rule" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <path d="M50,120 C200,140 380,150 500,110 C580,82 640,50 690,22" class="f-none s-hit" stroke-width="3"/>
+        <path d="M50,120 C200,100 380,96 500,130 C580,156 640,188 690,216" class="f-none s-b" stroke-width="3"/>
+        <text x="230" y="170" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">Hard choices：開頭辛苦</text>
+        <text x="230" y="84" text-anchor="middle" class="t-b" font-size="14" font-weight="700">Easy choices：開頭舒服</text>
+        <text x="610" y="40" text-anchor="end" class="t-hit" font-size="14" font-weight="700">easy life</text>
+        <text x="610" y="206" text-anchor="end" class="t-b" font-size="14" font-weight="700">hard life</text>
+        <text x="60" y="234" class="t-muted" font-size="12.5">時間 →</text>
+      </svg>
+    </figure>
+    <p class="punch">冇人一朝變肥，冇人一朝破產，亦冇人一朝變叻。全部都係一日一日 compound 出嚟。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「咁咪可以無限升？」</p>
+        <div><div class="tag">回應</div><p>只要個 loop 仲轉，就會繼續升。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>現實入面冇嘢無限複利。颱風上咗岸冇水氣就散；星燒晒燃料就死；原子彈炸開自己，反應就停；市場會飽和。真實條線係 S 形，尾段會平。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「每日進步 1%，一年 37 倍？」</p>
+        <div><div class="tag">回應</div><p>條數冇錯：1.01 自乘 365 次約等於 37.8。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>冇人可以日日進步 1%。呢個數係用嚟睇方向，唔係預測。真實嘅技能越練越難進步。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「信任都係複利？」</p>
+        <div><div class="tag">回應</div><p>累積嗰邊係：一次一次加上去。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>落嚟嗰邊唔係慢慢跌。信任儲十年，一次出賣就歸零。上樓梯，落𨋢。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>前面嗰段平線唔係嘥咗，係<em>條曲線嘅一部分</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">條數點計</div>
+    <ol>
+      <li>翻倍 30 日：2 自乘 29 次 = 536,870,912。第 20 日：2 自乘 19 次 = 524,288。</li>
+      <li>每年 7%：1.07 自乘 10 次約 1.97；30 次約 7.61；40 次約 14.97。</li>
+      <li>每日 1%：1.01 自乘 365 次約 37.8；0.99 自乘 365 次約 0.026。</li>
+      <li>連鎖反應：每次裂變放出約 2 至 3 粒中子；2 自乘 80 次約 1.2 × 10²⁴；最後 7 代佔 1 − 1/128，約 99.2%。</li>
+      <li>「Hard choices, easy life. Easy choices, hard life.」：Jerzy Gregorek。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var ns='http://www.w3.org/2000/svg',g=document.getElementById('dbl');
+  for(var i=0;i<30;i++){var h=Math.max(1.5,190*Math.pow(2,i-29));var r=document.createElementNS(ns,'rect');r.setAttribute('x',48+i*21.6);r.setAttribute('y',220-h);r.setAttribute('width',16);r.setAttribute('height',h);r.setAttribute('rx',2);r.setAttribute('class',i>=26?'f-a':'f-muted');g.appendChild(r);}
+})();
+(function(){
+  var s=document.getElementById('rate'),v=document.getElementById('rate-v'),cmp=document.getElementById('cmp'),lin=document.getElementById('lin'),out=document.getElementById('rate-out'),why=document.getElementById('rate-why'),top=document.getElementById('top'),half=document.getElementById('half'),ht=document.getElementById('halft');
+  function draw(){
+    var r=+s.value/100,end=Math.pow(1+r,365),le=1+r*365,mx=Math.max(end,le,1),mn=0;
+    v.textContent=(r>=0?'+':'')+(r*100).toFixed(1)+'%';
+    var X=function(d){return 50+d*650/365},Y=function(y){return 226-(y-mn)/(mx-mn)*200};
+    var a=[],b=[];for(var d=0;d<=365;d+=5){a.push(X(d).toFixed(1)+','+Y(Math.pow(1+r,d)).toFixed(1));b.push(X(d).toFixed(1)+','+Y(Math.max(0,1+r*d)).toFixed(1));}
+    cmp.setAttribute('points',a.join(' '));lin.setAttribute('points',b.join(' '));
+    top.textContent='最高：'+mx.toFixed(mx<10?2:1)+' 倍';
+    if(r>0.001){var hd=365-Math.log(2)/Math.log(1+r);hd=Math.max(0,hd);half.setAttribute('x',X(hd));half.setAttribute('width',X(365)-X(hd));ht.setAttribute('x',(X(hd)+X(365))/2);ht.textContent=hd>0?'最後 '+Math.round(365-hd)+' 日':'';
+      out.textContent='一年後：'+end.toFixed(end<10?2:1)+' 倍。直線諗法以為得 '+le.toFixed(2)+' 倍。';
+      why.textContent=hd>0?'成個結果有一半，係最後 '+Math.round(365-hd)+' 日先出現（黃色嗰格）。':'升得太慢，一年內未翻到一倍。';}
+    else{half.setAttribute('width',0);ht.textContent='';
+      if(Math.abs(r)<=0.001){out.textContent='一年後：1 倍。原地踏步。';why.textContent='零就真係冇複利。';}
+      else{out.textContent='一年後：淨返 '+(end*100).toFixed(1)+'%。';why.textContent='差少少都會複利，只係方向相反。';}}
+  }
+  s.addEventListener('input',draw);draw();
+})();
+(function(){
+  var ns='http://www.w3.org/2000/svg',L=document.getElementById('chain'),N=document.getElementById('chain-n');
+  var xs=[60,150,250,360,470];
+  function ys(k){var n=Math.pow(2,k),a=[];for(var i=0;i<n;i++)a.push(125+(i-(n-1)/2)*(190/Math.max(n,2)));return a;}
+  for(var k=0;k<4;k++){var A=ys(k),B=ys(k+1);
+    A.forEach(function(y,i){[0,1].forEach(function(j){var l=document.createElementNS(ns,'line');l.setAttribute('x1',xs[k]);l.setAttribute('y1',y);l.setAttribute('x2',xs[k+1]);l.setAttribute('y2',B[i*2+j]);L.appendChild(l);});});}
+  for(var k=0;k<5;k++){ys(k).forEach(function(y){var c=document.createElementNS(ns,'circle');c.setAttribute('cx',xs[k]);c.setAttribute('cy',y);c.setAttribute('r',k<3?8:(k<4?5.5:4));c.setAttribute('class','f-a');N.appendChild(c);});}
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

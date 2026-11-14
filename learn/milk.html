@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>奶：水、油、蛋白、糖</title>
+<meta name="description" content="奶有 87% 係水。所有奶製品，本質上係揀其中一樣嚟集中：油變忌廉、牛油、ghee；蛋白變芝士；糖俾細菌食變乳酪。">
+<meta property="og:title" content="奶：水、油、蛋白、糖">
+<meta property="og:description" content="奶有 87% 係水。所有奶製品，本質上係揀其中一樣嚟集中：油變忌廉、牛油、ghee；蛋白變芝士；糖俾細菌食變乳酪。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/milk.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/milk.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="奶：水、油、蛋白、糖">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/milk.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#e8b04a;--b:#e8707e;--hit:#5fc4b4;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一杯奶，入面分成四層：好多水、少少油、少少蛋白、少少糖。">
+    <path d="M70,24 H170 L158,196 H82 Z" class="f-none s-ink" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M73,60 H167 L158.5,186 H81.5 Z" class="f-c-soft"/>
+    <rect x="74" y="44" width="92" height="8" class="f-a"/>
+    <rect x="73.5" y="52" width="93" height="7" class="f-b"/>
+    <rect x="73" y="59" width="94" height="9" class="f-d"/>
+    <g font-size="12.5" font-weight="700"><text x="178" y="52" class="t-a">油</text><text x="196" y="58" class="t-b">蛋白</text><text x="178" y="72" class="t-d">糖</text><text x="120" y="134" text-anchor="middle" class="t-c" font-size="20">水 87%</text></g>
+  </svg>
+  <div>
+    <h1>奶：水、油、蛋白、糖</h1>
+    <p class="said">奶有 87% 係水。所有奶製品，都係揀剩低嗰 13% 其中一樣，集中佢。</p>
+    <p class="lede">油嗰邊：忌廉、牛油、ghee。蛋白嗰邊：芝士。糖嗰邊：俾細菌食，變乳酪。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">本質</div>
+    <h2>一杯奶入面有乜</h2>
+    <p class="intro">撳一格，睇下嗰樣嘢會變成乜。</p>
+    <div class="tool">
+      <svg viewBox="0 0 720 70" style="width:100%;height:auto" role="img" aria-label="奶嘅成份：水 87%、糖 4.8%、油 4%、蛋白 3.4%、礦物質 0.8%。">
+        <rect x="10" y="14" width="609" height="42" class="f-c-soft s-c" stroke-width="1.5"/>
+        <rect x="619" y="14" width="34" height="42" class="f-d"/><rect x="653" y="14" width="28" height="42" class="f-a"/><rect x="681" y="14" width="24" height="42" class="f-b"/><rect x="705" y="14" width="5" height="42" class="f-muted"/>
+        <text x="314" y="41" text-anchor="middle" class="t-c" font-size="16" font-weight="700">水 87%</text>
+      </svg>
+      <div class="seg" role="group" aria-label="揀成份" id="comp"></div>
+      <p class="out" id="comp-t"></p>
+      <p id="comp-d" style="color:var(--muted)"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">油嗰邊</div>
+    <h2>忌廉 → 牛油 → ghee：油越嚟越濃</h2>
+    <p class="intro">油輕過水，會浮面。一步一步將油同水分開。拉條 bar。</p>
+    <div class="tool">
+      <label for="fat">油佔幾多：<b id="fat-v"></b></label>
+      <input type="range" id="fat" min="4" max="100" value="4">
+      <svg viewBox="0 0 720 60" style="width:100%;height:auto" role="img" aria-label="成份條：黃色係油，藍色係水，灰色係其他。">
+        <rect id="f-fat" x="10" y="12" height="36" class="f-a"/><rect id="f-wat" y="12" height="36" class="f-c-soft s-c" stroke-width="1"/><rect id="f-oth" y="12" height="36" class="f-muted"/>
+        <text id="f-fl" y="36" text-anchor="middle" class="t-bg" font-size="14" font-weight="700"></text>
+        <text id="f-wl" y="36" text-anchor="middle" class="t-c" font-size="14" font-weight="700"></text>
+      </svg>
+      <p class="out" id="fat-n"></p>
+      <p id="fat-how" style="color:var(--muted)"></p>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 210" role="img" aria-label="三步：靜置或者離心，油浮上面變忌廉；攪拌，油粒撞穿層膜黐埋一齊，變牛油同酪乳；慢火煮，蒸發埋剩低嘅水，隔走奶渣，變 ghee。">
+        <g text-anchor="middle" font-size="14">
+          <rect x="30" y="50" width="70" height="100" rx="6" class="f-c-soft s-ink" stroke-width="2"/><rect x="31" y="51" width="68" height="16" class="f-a"/>
+          <text x="65" y="176" class="t" font-weight="700">1. 分開</text><text x="65" y="196" class="t-muted" font-size="12.5">油浮面 = 忌廉</text>
+          <path d="M112,100 H178" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/><text x="145" y="90" class="t-muted" font-size="12.5">攪</text>
+          <rect x="190" y="50" width="130" height="100" rx="6" class="f-surface2 s-ink" stroke-width="2"/>
+          <g class="f-a"><circle cx="216" cy="78" r="7"/><circle cx="246" cy="120" r="7"/><circle cx="290" cy="84" r="7"/><circle cx="270" cy="128" r="7"/></g>
+          <path d="M224,82 L240,96 M284,90 L262,100 M250,114 L254,106 M266,122 L260,108" class="f-none s-a flow" stroke-width="1.5"/>
+          <circle cx="254" cy="100" r="14" class="f-a"/>
+          <text x="255" y="176" class="t" font-weight="700">2. 攪到黐埋</text><text x="255" y="196" class="t-muted" font-size="12.5">油粒撞穿層膜 = 牛油</text>
+          <path d="M332,100 H398" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/><text x="365" y="90" class="t-muted" font-size="12.5">慢火煮</text>
+          <rect x="410" y="80" width="120" height="70" rx="6" class="f-a-soft s-ink" stroke-width="2"/>
+          <g class="bob"><path d="M440,70 q-6,-12 0,-22 M470,70 q-6,-12 0,-22 M500,70 q-6,-12 0,-22" class="f-none s-c" stroke-width="2"/></g>
+          <g class="f-muted"><circle cx="440" cy="142" r="3"/><circle cx="462" cy="144" r="3"/><circle cx="490" cy="142" r="3"/></g>
+          <text x="470" y="176" class="t" font-weight="700">3. 蒸發埋啲水</text><text x="470" y="196" class="t-muted" font-size="12.5">隔走奶渣 = ghee</text>
+          <path d="M542,115 H608" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+          <rect x="620" y="80" width="80" height="70" rx="6" class="f-a s-ink" stroke-width="2"/>
+          <text x="660" y="176" class="t-a" font-weight="700">99.8% 油</text><text x="660" y="196" class="t-muted" font-size="12.5">唔使雪、唔易燶</text>
+        </g>
+      </svg>
+      <figcaption>牛油仲有大約 16% 水同少少奶蛋白，所以一熱就燶、要雪。Ghee 冇晒水同蛋白，煎嘢唔燶，擺喺室溫都得。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">水嗰邊</div>
+    <h2>淨係抽走水</h2>
+    <div class="tool">
+      <label for="wat">抽走咗幾多水：<b id="wat-v"></b></label>
+      <input type="range" id="wat" min="0" max="97" value="0">
+      <svg viewBox="0 0 720 130" style="width:100%;height:auto" role="img" aria-label="一個罐，水位跟住你抽走幾多水而降低。">
+        <rect x="300" y="10" width="120" height="110" rx="8" class="f-surface2 s-ink" stroke-width="2"/>
+        <rect id="w-lv" x="302" width="116" class="f-c-soft"/>
+        <rect x="302" y="106" width="116" height="12" class="f-a"/>
+        <g class="bob" id="w-st"><path d="M330,4 q-6,-10 0,-18 M360,4 q-6,-10 0,-18 M390,4 q-6,-10 0,-18" class="f-none s-c" stroke-width="2" transform="translate(0,16)"/></g>
+      </svg>
+      <p class="out" id="wat-n"></p>
+      <p id="wat-how" style="color:var(--muted)"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">蛋白嗰邊</div>
+    <h2>芝士：令蛋白黐埋，再榨走水</h2>
+    <p class="intro">奶入面 80% 嘅蛋白係 casein，佢哋每粒都帶負電，互相推開，所以奶係液體。攞走嗰啲負電，佢哋就黐埋一齊。</p>
+    <div class="tool">
+      <div class="seg" role="group" aria-label="點樣令蛋白黐埋" id="curd-b"></div>
+      <svg viewBox="0 0 720 200" style="width:100%;height:auto" role="img" aria-label="蛋白粒喺奶入面浮緊。加酸或者凝乳酵素之後，蛋白粒黐埋一嚿，同乳清分開。">
+        <rect x="160" y="10" width="400" height="180" rx="10" class="f-c-soft s-ink" stroke-width="2" fill-opacity=".1"/>
+        <g id="curd" class="f-b"></g>
+        <text id="curd-l1" x="360" y="34" text-anchor="middle" class="t-muted" font-size="13"></text>
+      </svg>
+      <p class="out" id="curd-o"></p>
+      <label for="press">榨走幾多乳清（whey）：<b id="press-v"></b></label>
+      <input type="range" id="press" min="0" max="100" value="0">
+      <p class="out" id="press-n"></p>
+      <p id="press-how" style="color:var(--muted)"></p>
+    </div>
+    <p class="note"><b>大約 10 公升奶，先整到 1 公斤硬芝士。</b>剩低嗰九成係乳清。乳清入面仲有 20% 嘅蛋白（whey），健身嗰啲蛋白粉就係佢。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">糖嗰邊</div>
+    <h2>乳酪：細菌食糖，屙酸</h2>
+    <p class="intro">Microbe eat sugar → energy + acid。細菌食咗乳糖，放出乳酸。酸到某個位，蛋白自己黐埋，奶就變杰。拉條 bar 睇 8 個鐘。</p>
+    <div class="tool">
+      <label for="yo">過咗幾耐（約 43°C）：<b id="yo-v"></b></label>
+      <input type="range" id="yo" min="0" max="8" step="0.25" value="0">
+      <svg viewBox="0 0 720 220" style="width:100%;height:auto" role="img" aria-label="三條線隨時間變化：細菌越嚟越多，乳糖慢慢減少，酸度由 pH 6.7 跌到 4.5。跌穿 4.6 嗰刻，奶凝固。">
+        <line x1="60" y1="190" x2="690" y2="190" class="s-muted" stroke-width="1.5"/>
+        <line x1="60" y1="190" x2="60" y2="20" class="s-muted" stroke-width="1.5"/>
+        <line x1="60" y1="148" x2="690" y2="148" class="s-hit" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <text x="686" y="142" text-anchor="end" class="t-hit" font-size="12.5" font-weight="700">pH 4.6：蛋白黐埋，凝固</text>
+        <polyline id="y-ph" points="" class="f-none s-b" stroke-width="3"/>
+        <polyline id="y-bac" points="" class="f-none s-a" stroke-width="3"/>
+        <line id="y-cur" y1="20" y2="190" class="s-ink" stroke-width="1.5"/>
+        <text x="70" y="84" class="t-b" font-size="13" font-weight="700">酸度 pH（高 = 唔酸）</text>
+        <text x="686" y="72" text-anchor="end" class="t-a" font-size="13" font-weight="700">細菌數量</text>
+        <text x="60" y="210" class="t-muted" font-size="12.5">0 個鐘</text><text x="690" y="210" text-anchor="end" class="t-muted" font-size="12.5">8 個鐘</text>
+      </svg>
+      <div class="bars">
+        <span>pH</span><b id="y-phv"></b>
+        <span>乳糖剩低</span><div class="meter b"><i id="y-lac"></i></div>
+        <span>有幾杰</span><div class="meter a"><i id="y-th"></i></div>
+      </div>
+      <p class="out" id="yo-o"></p>
+    </div>
+    <div class="grid3 mt">
+      <div class="mini" style="--k:var(--d)"><div class="k">奶 + 細菌</div><h3>乳酪</h3><p>隔走乳清就係希臘乳酪：同一樣嘢，少咗水。</p></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">奶 + 細菌 + 酵母</div><h3>Kefir</h3><p>酵母加多少少氣同好少酒精，所以飲落有啲「篤」。</p></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">忌廉 + 細菌</div><h3>Sour cream、crème fraîche</h3><p>同乳酪同一個原理，只係起點係忌廉，所以肥啲、滑啲。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Fermentation</div>
+    <h2>發酵：俾微生物食先</h2>
+    <p class="intro">Discovered by accident：人只係將啲嘢擺喺度，發現擺得耐咗、仲好味咗。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 230" role="img" aria-label="糖俾細菌食，變乳酸：乳酪、芝士、泡菜。糖俾酵母食，變酒精同二氧化碳：酒、麵包。酒精再俾醋酸菌食，變醋。">
+        <rect x="20" y="90" width="100" height="50" rx="10" class="f-d-soft s-d" stroke-width="1.5"/><text x="70" y="121" text-anchor="middle" class="t-d" font-size="17" font-weight="700">糖</text>
+        <path d="M124,104 L196,58" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M124,126 L196,172" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <text x="150" y="66" text-anchor="middle" class="t-hit" font-size="13" font-weight="700">細菌</text>
+        <text x="150" y="174" text-anchor="middle" class="t-a" font-size="13" font-weight="700">酵母</text>
+        <rect x="200" y="30" width="130" height="50" rx="10" class="f-hit-soft s-hit" stroke-width="1.5"/><text x="265" y="61" text-anchor="middle" class="t" font-size="15" font-weight="700">乳酸</text>
+        <text x="350" y="50" class="t" font-size="14">乳酪、芝士、泡菜、酸菜</text><text x="350" y="72" class="t-muted" font-size="12.5">酸到其他菌住唔落</text>
+        <rect x="200" y="150" width="130" height="50" rx="10" class="f-a-soft s-a" stroke-width="1.5"/><text x="265" y="181" text-anchor="middle" class="t" font-size="15" font-weight="700">酒精 + CO₂</text>
+        <text x="350" y="170" class="t" font-size="14">酒、啤酒、麵包（CO₂ 發大）</text>
+        <path d="M334,186 C400,214 470,214 520,196" class="f-none s-b flow" stroke-width="2" marker-end="url(#ah-b)"/>
+        <text x="430" y="226" text-anchor="middle" class="t-b" font-size="12.5" font-weight="700">再俾醋酸菌食（要有氧氣）</text>
+        <rect x="524" y="170" width="176" height="44" rx="10" class="f-b-soft s-b" stroke-width="1.5"/><text x="612" y="198" text-anchor="middle" class="t" font-size="14" font-weight="700">醋、酒醋、黑醋</text>
+      </svg>
+    </figure>
+    <div class="grid3 mt">
+      <div class="mini" style="--k:var(--c)"><div class="k">2–5% 鹽</div><h3>揀客</h3><p>鹽越多，滲透壓越大，壞菌越乾、越難生，越安全。乳酸菌頂得住。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">冇氧氣、冇陽光</div><h3>浸喺水下面</h3><p>發霉要氧氣。浸住、封住，大約 5 日。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">睇氣泡</div><h3>有氣泡 = 好</h3><p>即係微生物食緊嘢。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「咁多人飲奶肚痛，點解？」</p>
+        <div><div class="tag">回應</div><p>乳糖要一種酵素（lactase）先拆得開。大部分人斷奶之後，身體慢慢停產呢種酵素。</p></div>
+        <div class="honest"><div class="tag">補充</div><p>乳酪同硬芝士容易頂啲：乳酪入面啲細菌已經食咗一部分乳糖，硬芝士嘅乳糖大部分跟乳清走咗。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「自己發酵，安全咩？」</p>
+        <div><div class="tag">回應</div><p>夠鹽、夠酸、冇氧氣，壞菌好難生。人類咁做咗幾千年。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>「有氣泡 = 好」只係話有嘢生緊，唔保證係好菌。有霉、有臭味、黏立立，就倒咗佢。鹽落得唔夠係最常見嘅出事原因。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>一杯奶，四樣嘢。<em>集中邊一樣，就變成邊樣產品</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">數字</div>
+    <ol>
+      <li>牛奶成份（約數）：水 87%、乳糖 4.8%、脂肪 4%、蛋白質 3.4%（casein 約 80%、whey 約 20%）、礦物質約 0.8%。</li>
+      <li>脂肪：英國 single cream 約 18%、whipping cream 約 35%、double cream 約 48%、牛油約 82%、ghee 約 99.8%。</li>
+      <li>水份：cottage cheese 約 80%、mozzarella 約 55%、brie 約 50%、cheddar 約 37%、parmesan 約 30%；奶粉約 3%。</li>
+      <li>Casein 嘅等電點約 pH 4.6；鮮奶約 pH 6.7。</li>
+      <li>Harold McGee (2004), On Food and Cooking, 第一章。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var C=[['水 87%','抽走佢','淡奶（抽走約六成水）、煉奶（再加糖）、奶粉（抽到剩 3%）。'],['油 4%','集中佢','忌廉 → 牛油 → ghee。加細菌：sour cream、crème fraîche。'],['蛋白 3.4%','令佢黐埋','80% casein 變芝士嘅凝乳；20% whey 留喺乳清，可以整 ricotta 同蛋白粉。'],['糖 4.8%','俾細菌食','乳糖 → 乳酸：乳酪、kefir、酪乳、sour cream。']];
+  var box=document.getElementById('comp'),t=document.getElementById('comp-t'),d=document.getElementById('comp-d');
+  C.forEach(function(c,i){var b=document.createElement('button');b.type='button';b.textContent=c[0];b.addEventListener('click',function(){pick(i)});box.appendChild(b);});
+  function pick(i){box.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false')});t.textContent=C[i][0]+'：'+C[i][1];d.textContent=C[i][2];}
+  pick(0);
+})();
+(function(){
+  var R=[[10,'全脂奶','原裝。油粒細到睇唔到，散喺水入面。'],[26,'Single cream（約 18%）','擺喺度等油浮面，或者用離心機甩出嚟。冇蒸發過。'],[42,'Whipping cream（約 35%）','甩多啲水走。油夠多，打得起。'],[65,'Double cream（約 48%）','再濃啲。'],[92,'牛油（約 82%）','攪到油粒黐埋一嚿，倒走酪乳（buttermilk）。仲有約 16% 水。'],[100,'Ghee（約 99.8%）','慢火煮牛油：水蒸發晒，奶渣沉底，隔走。得返純油。']];
+  var s=document.getElementById('fat'),v=document.getElementById('fat-v'),n=document.getElementById('fat-n'),h=document.getElementById('fat-how');
+  var F=document.getElementById('f-fat'),W=document.getElementById('f-wat'),O=document.getElementById('f-oth'),fl=document.getElementById('f-fl'),wl=document.getElementById('f-wl');
+  function draw(){var f=+s.value;if(f>=99)f=99.8;var oth=f<83?Math.max(1.5,9-f*0.09):Math.max(0.2,(99.8-f)*0.1),w=Math.max(0,100-f-oth);v.textContent=f+'%';
+    var fw=f*7,ww=w*7,ow=oth*7;F.setAttribute('width',fw);W.setAttribute('x',10+fw);W.setAttribute('width',ww);O.setAttribute('x',10+fw+ww);O.setAttribute('width',ow);
+    fl.setAttribute('x',10+fw/2);fl.textContent=fw>60?'油':'';wl.setAttribute('x',10+fw+ww/2);wl.textContent=ww>60?'水':'';
+    for(var i=0;i<R.length;i++)if(f<=R[i][0]){n.textContent=R[i][1];h.textContent=R[i][2];break;}}
+  s.addEventListener('input',draw);draw();
+})();
+(function(){
+  var s=document.getElementById('wat'),v=document.getElementById('wat-v'),n=document.getElementById('wat-n'),h=document.getElementById('wat-how'),lv=document.getElementById('w-lv'),st=document.getElementById('w-st');
+  function draw(){var p=+s.value;v.textContent=p+'%';var hh=94*(1-p/100);lv.setAttribute('y',106-hh);lv.setAttribute('height',hh);st.style.opacity=p>0&&p<97?1:0;
+    if(p<20){n.textContent='鮮奶';h.textContent='87% 係水。';}
+    else if(p<75){n.textContent='淡奶（evaporated milk）';h.textContent='煮走大約六成水。濃、帶少少焦糖味。再加大量糖就係煉奶，糖多到細菌生唔到。';}
+    else if(p<95){n.textContent='好濃嘅奶漿';h.textContent='再抽落去就要噴成霧、用熱風吹乾。';}
+    else{n.textContent='奶粉';h.textContent='淨返大約 3% 水。冇水，細菌生唔到，擺得成年。加返水就係奶。';}}
+  s.addEventListener('input',draw);draw();
+})();
+(function(){
+  var ns='http://www.w3.org/2000/svg',g=document.getElementById('curd'),P=[],mode=0;
+  for(var i=0;i<60;i++){var x=180+((i*137+i*i*31)%360),y=28+((i*89+i*i*17)%150);var c=document.createElementNS(ns,'circle');c.setAttribute('r',6);c.style.transition='cx 1.2s ease, cy 1.2s ease';g.appendChild(c);P.push([x,y,360+((i%10)-4.5)*13,96+(Math.floor(i/10)-2.5)*13]);}
+  var box=document.getElementById('curd-b'),o=document.getElementById('curd-o'),l1=document.getElementById('curd-l1');
+  var M=[['鮮奶','蛋白粒帶負電，互相推開，浮喺水度。',''],['加酸（檸檬汁、醋）','酸中和咗負電，蛋白粒黐埋。又快又簡單，但凝乳碎濕：paneer、ricotta、cottage cheese。','黃色嘅水 = 乳清'],['加凝乳酵素（rennet）','酵素剪走蛋白粒表面嗰層「毛」，佢哋就扣埋一齊，成一大嚿有彈性嘅凝乳。大部分芝士用呢個方法。','黃色嘅水 = 乳清']];
+  M.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.textContent=m[0];b.addEventListener('click',function(){mode=i;draw();});box.appendChild(b);});
+  function draw(){box.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===mode?'true':'false')});
+    P.forEach(function(p,i){g.children[i].setAttribute('cx',mode?p[2]:p[0]);g.children[i].setAttribute('cy',mode?p[3]:p[1]);});
+    o.textContent=M[mode][1];l1.textContent=M[mode][2];}
+  draw();
+  var R=[[15,'Cottage cheese、ricotta（約 80% 水）','幾乎冇榨。軟、濕，幾日就要食。'],[40,'Mozzarella（約 55% 水）','喺熱水入面拉扯，蛋白排成一條條，所以拉到絲。'],[55,'Brie、camembert（約 50% 水）','輕輕瀝水，表面種白霉，由外面熟入去。'],[80,'Cheddar（約 37% 水）','切碎、疊起、壓實。擺幾個月到幾年。'],[100,'Parmesan（約 30% 水）','切到米咁細、煮過、重壓。擺兩年以上。水越少，擺得越耐，味越濃。']];
+  var s=document.getElementById('press'),v=document.getElementById('press-v'),n=document.getElementById('press-n'),h=document.getElementById('press-how');
+  function d2(){var p=+s.value;v.textContent=p+'%';for(var i=0;i<R.length;i++)if(p<=R[i][0]){n.textContent=R[i][1];h.textContent=R[i][2];break;}}
+  s.addEventListener('input',d2);d2();
+})();
+(function(){
+  var s=document.getElementById('yo'),v=document.getElementById('yo-v'),o=document.getElementById('yo-o');
+  function ph(t){return 4.45+2.25/(1+Math.exp((t-3.2)*1.3));}
+  function bac(t){return 1/(1+Math.exp(-(t-2.6)*1.5));}
+  var X=function(t){return 60+t*630/8},Yp=function(p){return 190-(p-4)*(170/3)},Yb=function(b){return 190-b*150};
+  var a=[],b=[];for(var t=0;t<=8;t+=0.25){a.push(X(t)+','+Yp(ph(t)).toFixed(1));b.push(X(t)+','+Yb(bac(t)).toFixed(1));}
+  document.getElementById('y-ph').setAttribute('points',a.join(' '));document.getElementById('y-bac').setAttribute('points',b.join(' '));
+  function draw(){var t=+s.value,p=ph(t);v.textContent=t+' 個鐘';document.getElementById('y-cur').setAttribute('x1',X(t));document.getElementById('y-cur').setAttribute('x2',X(t));
+    document.getElementById('y-phv').textContent=p.toFixed(1);document.getElementById('y-lac').style.width=(100-28*bac(t))+'%';
+    var th=p>4.75?5:Math.min(100,(4.75-p)/0.3*100);document.getElementById('y-th').style.width=th+'%';
+    o.textContent=t<1.5?'細菌啱啱醒，未見到分別。仲係奶。':p>4.75?'細菌以倍數增加，越嚟越酸，但仲係液體。':p>4.55?'跌到 pH 4.6 附近：蛋白冇晒負電，成杯突然凝固。':'凝固咗，越擺越酸。夠酸就放入雪櫃，叫停啲細菌。';}
+  s.addEventListener('input',draw);draw();
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

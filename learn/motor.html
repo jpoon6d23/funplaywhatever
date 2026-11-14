@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>摩打：一嚿永遠追唔到嘅磁石</title>
+<meta name="description" content="電動摩打就係調轉嘅發電機。線圈通電變磁石，俾永久磁石推同吸；每轉半個圈就調轉電流一次，所以佢永遠追唔到，永遠喺度轉。">
+<meta property="og:title" content="摩打：一嚿永遠追唔到嘅磁石">
+<meta property="og:description" content="電動摩打就係調轉嘅發電機。線圈通電變磁石，俾永久磁石推同吸；每轉半個圈就調轉電流一次，所以佢永遠追唔到，永遠喺度轉。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/motor.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/motor.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="摩打：一嚿永遠追唔到嘅磁石">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/motor.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#7fb2ff;--b:#e8707e;--hit:#e8b04a;--c:#5fc4b4;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="兩塊彎嘅磁石中間有一條轉緊嘅磁石。">
+    <path d="M56,160 A80,80 0 0 1 56,50" class="f-none s-b" stroke-width="16" stroke-linecap="round"/>
+    <path d="M184,50 A80,80 0 0 1 184,160" class="f-none s-a" stroke-width="16" stroke-linecap="round"/>
+    <g class="spin" style="transform-origin:120px 105px"><rect x="120" y="93" width="56" height="24" rx="4" class="f-b"/><rect x="64" y="93" width="56" height="24" rx="4" class="f-a"/><circle cx="120" cy="105" r="13" class="f-bg s-hit" stroke-width="5"/></g>
+    <text x="22" y="110" text-anchor="middle" class="t-b" font-size="15" font-weight="700">N</text>
+    <text x="218" y="110" text-anchor="middle" class="t-a" font-size="15" font-weight="700">S</text>
+    <text x="120" y="200" text-anchor="middle" class="t-muted" font-size="13">追，調轉，再追</text>
+  </svg>
+  <div>
+    <h1>摩打：一嚿永遠追唔到嘅磁石</h1>
+    <p class="said">摩打基本上就係一個 reverse 嘅發電機。發電機係動力郁電子，摩打係電子變動力。</p>
+    <p class="lede">Battery on → 線圈變電磁石 → 俾兩塊永久磁石推同吸 → 轉。每轉半個圈調轉 polarity 一次，佢就停唔到。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">先講 DC 同 AC</div>
+    <h2>電流向一邊行，定係嚟嚟回回</h2>
+    <div class="grid2">
+      <div class="mini" style="--k:var(--hit)"><div class="k">DC · 直流電</div><h3>永遠向同一個方向</h3><p>電池、USB、太陽能板。正極出，負極入，唔會變。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">AC · 交流電</div><h3>不停調轉方向</h3><p>牆身插蘇。英國同香港每秒嚟回 50 次（50 Hz）。發電廠部機一路轉，出嚟嘅電自然係咁。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 210" role="img" aria-label="左邊 DC：電流對時間係一條平嘅線，永遠喺上面。右邊 AC：一條波浪線，一陣喺上面一陣喺下面，即係方向不停調轉。">
+        <text x="180" y="22" text-anchor="middle" class="t-hit" font-size="15" font-weight="700">DC</text>
+        <line x1="40" y1="110" x2="320" y2="110" class="s-rule" stroke-width="1.5"/>
+        <path d="M40,60 H320" class="f-none s-hit" stroke-width="3.5"/>
+        <text x="40" y="50" class="t-muted" font-size="12.5">向前</text><text x="40" y="176" class="t-muted" font-size="12.5">向後</text>
+        <path d="M60,196 H300" class="f-none s-hit flow" stroke-width="2.5" marker-end="url(#ah-hit)"/>
+        <line x1="360" y1="14" x2="360" y2="200" class="s-rule" stroke-width="1.5"/>
+        <text x="540" y="22" text-anchor="middle" class="t-c" font-size="15" font-weight="700">AC</text>
+        <line x1="400" y1="110" x2="680" y2="110" class="s-rule" stroke-width="1.5"/>
+        <path d="M400,110 C423,30 447,30 470,110 S517,190 540,110 S587,30 610,110 S657,190 680,110" class="f-none s-c" stroke-width="3.5"/>
+        <text x="400" y="50" class="t-muted" font-size="12.5">向前</text><text x="400" y="176" class="t-muted" font-size="12.5">向後</text>
+        <path d="M545,196 H660" class="f-none s-c" stroke-width="2.5" marker-end="url(#ah-c)"/><path d="M535,196 H420" class="f-none s-c" stroke-width="2.5" marker-end="url(#ah-c)"/>
+        <text x="320" y="130" text-anchor="end" class="t-muted" font-size="12.5">時間 →</text>
+      </svg>
+    </figure>
+    <p class="note"><b>摩打要嘅係：喺啱嘅時候調轉電流。</b>AC 天生識調轉。DC 唔識，所以用電池嘅摩打要加一件嘢幫佢調轉。嗰件嘢就係 commutator。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">點解會轉</div>
+    <h2>開電，再試下拎走個 commutator</h2>
+    <p class="intro">中間嗰條係線圈。通電之後佢係一嚿磁石，一頭 N 一頭 S。左邊塊永久磁石係 N，右邊係 S。同極相拒，異極相吸。</p>
+    <div class="tool">
+      <div style="display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center">
+        <div class="seg" role="group" aria-label="電池"><button type="button" id="m-on" aria-pressed="true">電池：開</button></div>
+        <div class="seg" role="group" aria-label="Commutator" id="m-cm"><button type="button" aria-pressed="true">有 commutator</button><button type="button" aria-pressed="false">冇 commutator</button></div>
+      </div>
+      <label for="m-v" style="margin-top:12px">電壓：<b id="m-vv"></b></label>
+      <input type="range" id="m-v" min="1" max="10" value="4">
+      <svg viewBox="0 0 720 380" style="width:100%;height:auto" role="img" aria-label="摩打正面圖。左邊一塊彎嘅 N 極永久磁石，右邊一塊 S 極。中間一條會轉嘅電磁石，中心有一個分開兩半嘅銅環叫 commutator，左右各有一粒碳刷掂住佢，碳刷駁去下面嘅電池。">
+        <g id="p-st"><path d="M263.6,294.9 A150,150 0 0 1 263.6,65.1" class="f-none s-b" stroke-width="26"/>
+        <path d="M456.4,65.1 A150,150 0 0 1 456.4,294.9" class="f-none s-a" stroke-width="26"/>
+        <text x="176" y="188" text-anchor="middle" class="t-b" font-size="26" font-weight="700">N</text>
+        <text x="544" y="188" text-anchor="middle" class="t-a" font-size="26" font-weight="700">S</text></g>
+        <g id="p-bat"><path d="M319,198 V330 H336" class="f-none s-muted" stroke-width="2"/><path d="M401,198 V330 H384" class="f-none s-muted" stroke-width="2"/>
+        <rect x="336" y="316" width="48" height="28" rx="5" class="f-surface2 s-ink" stroke-width="2"/><text x="360" y="335" text-anchor="middle" class="t" font-size="12" font-weight="700">電池</text>
+        <text x="306" y="318" text-anchor="end" class="t" font-size="15" font-weight="700">＋</text><text x="414" y="318" class="t" font-size="15" font-weight="700">－</text></g>
+        <g id="m-rot">
+          <g id="p-arm"><rect id="m-ra" x="360" y="158" width="112" height="44" rx="6"/>
+          <rect id="m-rb" x="248" y="158" width="112" height="44" rx="6"/>
+          <g class="s-hit" stroke-width="3" opacity=".8"><path d="M400,156 V204"/><path d="M414,156 V204"/><path d="M428,156 V204"/><path d="M442,156 V204"/><path d="M278,156 V204"/><path d="M292,156 V204"/><path d="M306,156 V204"/><path d="M320,156 V204"/></g></g>
+          <circle cx="360" cy="180" r="37" class="f-bg"/>
+          <g id="p-com"><g id="m-ring" class="f-none s-hit" stroke-width="11"><path d="M330.5,174.8 A30,30 0 0 1 389.5,174.8"/><path d="M389.5,185.2 A30,30 0 0 1 330.5,185.2"/></g></g>
+          <circle id="p-sh" cx="360" cy="180" r="6" class="f-muted"/>
+        </g>
+        <g id="p-br"><rect x="312" y="170" width="13" height="28" rx="2" class="f-ink"/><rect x="395" y="170" width="13" height="28" rx="2" class="f-ink"/></g>
+        <text id="m-la" text-anchor="middle" class="t-bg" font-size="18" font-weight="700"></text>
+        <text id="m-lb" text-anchor="middle" class="t-bg" font-size="18" font-weight="700"></text>
+        <text id="m-rpm" x="360" y="368" text-anchor="middle" class="t-c" font-size="14" font-weight="700"></text>
+      </svg>
+      <p style="margin:6px 0 8px;color:var(--muted);font-size:14px">撳一件，睇佢喺邊、做乜：</p>
+      <div class="seg" role="group" aria-label="揀一件 component" id="m-pt"></div>
+      <div class="mini" style="--k:var(--hit);margin:12px 0 18px"><div class="k" id="m-pk"></div><h3 id="m-ph"></h3><p id="m-pd"></p></div>
+      <svg viewBox="0 0 720 150" style="width:100%;height:auto" role="img" aria-label="推力對角度嘅圖。有 commutator：推力永遠同一個方向。冇 commutator：轉過半個圈之後，推力調轉方向將佢拉返轉頭。">
+        <line x1="60" y1="80" x2="680" y2="80" class="s-rule" stroke-width="1.5"/>
+        <path id="m-tq" class="f-none s-c" stroke-width="3"/>
+        <circle id="m-td" r="7" class="f-hit"/>
+        <text x="52" y="34" text-anchor="end" class="t-c" font-size="12.5">順推</text><text x="52" y="132" text-anchor="end" class="t-b" font-size="12.5">反拉</text>
+        <text x="60" y="146" class="t-muted" font-size="12.5">0°</text><text x="370" y="146" text-anchor="middle" class="t-muted" font-size="12.5">半個圈</text><text x="680" y="146" text-anchor="end" class="t-muted" font-size="12.5">一個圈</text>
+      </svg>
+      <p class="out" id="m-o"></p>
+    </div>
+    <p class="note"><b>冇 commutator：</b>條線圈轉到 N 對住 S 就滿足，停喺度。<b>有 commutator：</b>佢啱啱到位嗰一刻，電流調轉，佢變咗 N 對住 N，又俾人推走。永遠差半個圈。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">DC 變 AC</div>
+    <h2>電池冇變，係線圈自己轉咗去另一粒碳刷</h2>
+    <p class="intro">電池一路都係 DC。但每轉半個圈，銅環嗰兩半就同兩粒碳刷對調。對線圈嚟講，電流一陣由呢頭入，一陣由嗰頭入：佢食緊嘅係 AC。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 230" role="img" aria-label="左邊：前半個圈，銅環 A 半掂住正極碳刷。右邊：後半個圈，A 半轉咗去負極碳刷，線圈入面嘅電流方向調轉。">
+        <g font-size="14" font-weight="700" text-anchor="middle"><text x="190" y="24" class="t">前半個圈</text><text x="530" y="24" class="t">後半個圈</text></g>
+        <g class="f-none" stroke-width="12"><path d="M150.5,104.8 A40,40 0 0 1 229.5,104.8" class="s-hit"/><path d="M229.5,115.2 A40,40 0 0 1 150.5,115.2" class="s-d"/>
+        <path d="M490.5,104.8 A40,40 0 0 1 569.5,104.8" class="s-d"/><path d="M569.5,115.2 A40,40 0 0 1 490.5,115.2" class="s-hit"/></g>
+        <g font-size="14" font-weight="700" text-anchor="middle"><text x="190" y="62" class="t-hit">A 半</text><text x="190" y="170" class="t-d">B 半</text><text x="530" y="62" class="t-d">B 半</text><text x="530" y="170" class="t-hit">A 半</text></g>
+        <g class="f-ink"><rect x="128" y="96" width="12" height="28" rx="2"/><rect x="240" y="96" width="12" height="28" rx="2"/><rect x="468" y="96" width="12" height="28" rx="2"/><rect x="580" y="96" width="12" height="28" rx="2"/></g>
+        <g font-size="16" font-weight="700" class="t" text-anchor="middle"><text x="112" y="116">＋</text><text x="268" y="116">－</text><text x="452" y="116">＋</text><text x="608" y="116">－</text></g>
+        <text x="190" y="206" text-anchor="middle" class="t-muted" font-size="13">電由 A 入，B 出</text>
+        <text x="530" y="206" text-anchor="middle" class="t-muted" font-size="13">電由 B 入，A 出</text>
+        <path d="M300,110 H410" class="f-none s-muted flow" stroke-width="2.5" marker-end="url(#ah)"/>
+        <text x="355" y="98" text-anchor="middle" class="t-muted" font-size="13">轉半個圈</text>
+      </svg>
+      <figcaption>個罅啱啱經過碳刷嗰一刻就調轉。Commutator 係一個用轉動嚟撳嘅開關。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Reverse</div>
+    <h2>同一部機，兩個方向</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 210" role="img" aria-label="上面：摩打，電入，轉動出。下面：發電機，轉動入，電出。中間係同一部機。">
+        <rect x="270" y="30" width="180" height="150" rx="16" class="f-surface2 s-muted" stroke-width="2"/>
+        <text x="360" y="100" text-anchor="middle" class="t" font-size="16" font-weight="700">線圈 + 磁石</text><text x="360" y="124" text-anchor="middle" class="t-muted" font-size="13">同一部機</text>
+        <text x="60" y="70" class="t-hit" font-size="16" font-weight="700">電</text><path d="M96,64 H262" class="f-none s-hit flow" stroke-width="2.5" marker-end="url(#ah-hit)"/>
+        <path d="M458,64 H624" class="f-none s-c flow" stroke-width="2.5" marker-end="url(#ah-c)"/><text x="636" y="70" class="t-c" font-size="16" font-weight="700">轉動</text>
+        <text x="180" y="52" text-anchor="middle" class="t-muted" font-size="13">摩打</text>
+        <text x="636" y="152" class="t-c" font-size="16" font-weight="700">轉動</text><path d="M624,146 H458" class="f-none s-c flow" stroke-width="2.5" marker-end="url(#ah-c)"/>
+        <path d="M262,146 H96" class="f-none s-hit flow" stroke-width="2.5" marker-end="url(#ah-hit)"/><text x="60" y="152" class="t-hit" font-size="16" font-weight="700">電</text>
+        <text x="180" y="170" text-anchor="middle" class="t-muted" font-size="13">發電機</text>
+      </svg>
+      <figcaption>電動車踩 brake，摩打就調轉做發電機，將車嘅動力變返做電入返電池。</figcaption>
+    </figure>
+    <p class="note">摩打一轉，佢自己同時係一部發電機，發出一個頂住電池嘅電壓。轉得越快，頂得越勁，入到嘅電流越少。所以摩打俾嘢卡住唔轉先最易燒：冇嘢頂住，電流去到最大。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">同一樣嘢</div>
+    <h2>本質一樣，分別係邊個負責調轉</h2>
+    <p class="intro">全部摩打都係：磁石追磁石，喺追到之前調轉。唔同嘅係邊個撳嗰個開關。</p>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--hit)"><div class="k">碳刷 + commutator</div><h3>有刷 DC 摩打</h3><p>用轉動自己撳開關。平，但碳刷會磨蝕、有火花。玩具車、舊式電鑽、車窗、轉頭嗰種電動牙刷。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">牆身嘅 AC</div><h3>AC 感應摩打</h3><p>牆電本身每秒調轉 50 次，唔使開關。冇碳刷，冇永久磁石，用到爛。舊式風扇、洗衣機、雪櫃壓縮機。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">晶片</div><h3>無刷摩打</h3><p>調轉位置：永久磁石喺中間轉，線圈喺外面唔郁。晶片睇住磁石轉到邊，逐組線圈開關。電動車、drone、電腦風扇、新式風扇。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「全部摩打都係同一樣嘢？」</p>
+        <div><div class="tag">回應</div><p>原理一樣：通電嘅線圈喺磁場入面受力。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>上面嗰個有碳刷嘅版本，電動車同風扇都冇用。電動車靠晶片調轉，風扇靠牆電。聲波牙刷更加唔係轉嘅摩打，係一嚿磁石俾電磁石左右扯，每秒震幾百次。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「轉速唔同，係靠齒輪？」</p>
+        <div><div class="tag">回應</div><p>電鑽、轉頭牙刷，係。齒輪將快而冇力變成慢而大力。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>大部份時候唔係。風扇冇齒輪，三段風速係改電。電動車得一組固定齒輪，快慢全靠晶片改電流嘅頻率同大細。齒輪定咗個比例之後就唔變，日常變速靠電。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「得一個線圈夠唔夠？」</p>
+        <div><div class="tag">回應</div><p>夠轉，上面個模擬就係得一個。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>有死位。線圈打橫嗰一刻推力係零，如果啱啱停喺嗰度，開電都唔郁。真嘅摩打最少三組線圈，任何時候總有一組受力。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>磁石追磁石。<em>喺佢追到之前調轉</em>，佢就會一直轉落去。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">延伸</div>
+    <ol>
+      <li>Ørsted (1820)：電流會令指南針郁，電生磁。</li>
+      <li>Faraday (1821)：第一個用電令嘢不停轉嘅裝置；(1831)：磁生電，發電機嘅原理。</li>
+      <li>Tesla (1887–88)：AC 感應摩打。</li>
+      <li>Jared Owen, How does an Electric Motor work? (DC Motor)，YouTube。</li>
+      <li>年份憑記憶，未逐項查證。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var T=[['全部','','成部摩打','六件嘢：兩塊磁石、一個線圈、一個銅環、兩粒碳刷、一粒電池、一條軸。',null],
+   ['Stator','Stator','兩塊彎嘅永久磁石','唔郁。左邊 N 向入，右邊 S 向入，中間就有一個固定方向嘅磁場。','p-st'],
+   ['Armature','Armature','線圈','會轉嗰件。一圈圈銅線，通電先至係磁石，冇電就乜都唔係。電流調轉，N 同 S 就對調。','p-arm'],
+   ['Commutator','Commutator','有兩個罅嘅銅環','跟住線圈一齊轉。線圈兩個線頭，各自焊喺一半度。佢負責每半個圈調轉電流一次。','p-com'],
+   ['碳刷','Brushes','兩粒碳刷','唔郁，用彈弓頂住個銅環。一粒駁電池正極，一粒駁負極。電就係經佢哋入去轉緊嘅線圈。','p-br'],
+   ['電池','Battery','電池','DC：電流永遠同一個方向。','p-bat'],
+   ['軸','Shaft','軸','穿過線圈中心，將個轉動帶出去俾風扇葉、車轆、鑽咀。','p-sh']],ids=['p-st','p-arm','p-com','p-br','p-bat','p-sh'],box=document.getElementById('m-pt');
+  T.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.textContent=t[0];b.addEventListener('click',function(){pick(i)});box.appendChild(b);});
+  function pick(i){box.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false')});var t=T[i];
+    document.getElementById('m-pk').textContent=t[1];document.getElementById('m-ph').textContent=t[2];document.getElementById('m-pd').textContent=t[3];
+    ids.forEach(function(id){var e=document.getElementById(id);e.style.opacity=(!t[4]||t[4]===id)?1:.18;});
+    var sh=document.getElementById('p-sh');sh.setAttribute('r',t[4]==='p-sh'?11:6);sh.setAttribute('class',t[4]==='p-sh'?'f-d':'f-muted');}
+  pick(0);
+})();
+(function(){
+  var th=5.2,w=0,on=true,comm=true,last=0,$=function(i){return document.getElementById(i)},V=$('m-v'),red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function tq(){var s=Math.sin(th);return on?(comm?Math.abs(s):-s):0;}
+  function curve(){var p='';for(var i=0;i<=90;i++){var a=i/90*6.2832,s=Math.sin(a),t=comm?Math.abs(s):-s;p+=(i?'L':'M')+(60+i*620/90).toFixed(1)+','+(80-t*50).toFixed(1);}$('m-tq').setAttribute('d',p);}
+  function draw(){var d=th*180/Math.PI,s=Math.sin(th),aN=comm?s<0:true;
+    $('m-rot').setAttribute('transform','rotate('+d.toFixed(1)+' 360 180)');
+    $('m-ra').setAttribute('class',on?(aN?'f-b':'f-a'):'f-surface2');$('m-rb').setAttribute('class',on?(aN?'f-a':'f-b'):'f-surface2');
+    $('m-ring').style.opacity=comm?1:.15;
+    var ax=360+84*Math.cos(th),ay=186+84*Math.sin(th),bx=360-84*Math.cos(th),by=186-84*Math.sin(th);
+    $('m-la').setAttribute('x',ax);$('m-la').setAttribute('y',ay);$('m-lb').setAttribute('x',bx);$('m-lb').setAttribute('y',by);
+    $('m-la').textContent=on?(aN?'N':'S'):'';$('m-lb').textContent=on?(aN?'S':'N'):'';
+    var a=((th%6.2832)+6.2832)%6.2832;$('m-td').setAttribute('cx',60+a/6.2832*620);$('m-td').setAttribute('cy',80-tq()*50);
+    $('m-rpm').textContent='轉速：'+Math.round(Math.abs(w)*60/6.2832)+' 轉 / 分鐘';
+    $('m-o').textContent=!on?'冇電：線圈唔係磁石，靠慣性轉多陣就停。':comm?'每過半個圈，N 同 S 對調一次。推力永遠向同一邊，所以越轉越快，去到同阻力打和為止。':(Math.abs(w)<.15&&Math.abs(s)<.1?'停咗。線圈嘅 N 對住右邊嘅 S，佢已經去到想去嘅位。':'轉過咗位，推力調轉將佢拉返轉頭。左搖右擺幾下就停。');}
+  function step(dt){var al=+V.value*2.5*tq()-1.2*w-(w>0?.3:w<0?-.3:0);w+=al*dt;if(!on&&Math.abs(w)<.02)w=0;th+=w*dt;}
+  function loop(t){var dt=Math.min(.04,(t-last)/1000||0);last=t;step(dt/2);step(dt/2);draw();requestAnimationFrame(loop);}
+  $('m-on').addEventListener('click',function(){on=!on;this.setAttribute('aria-pressed',on?'true':'false');this.textContent='電池：'+(on?'開':'熄');if(on&&Math.abs(Math.sin(th))<.05)th+=.3;draw();});
+  var cb=$('m-cm').querySelectorAll('button');cb.forEach(function(b,i){b.addEventListener('click',function(){comm=i===0;cb.forEach(function(x,j){x.setAttribute('aria-pressed',j===i?'true':'false')});curve();if(comm&&Math.abs(Math.sin(th))<.05)th+=.3;draw();});});
+  V.addEventListener('input',function(){$('m-vv').textContent=V.value+' V';});$('m-vv').textContent=V.value+' V';
+  curve();draw();if(!red)requestAnimationFrame(loop);
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

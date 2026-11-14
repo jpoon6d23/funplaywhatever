@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>五種 bond：電子點樣擺</title>
+<meta name="description" content="送、分享、全體共用、借正負極吸住、暫時歪一歪。五種 bond、polarity，同埋 bond strength 受咩影響。">
+<meta property="og:title" content="五種 bond：電子點樣擺">
+<meta property="og:description" content="送、分享、全體共用、借正負極吸住、暫時歪一歪。五種 bond、polarity，同埋 bond strength 受咩影響。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/five-bonds.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/five-bonds.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="五種 bond：電子點樣擺">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/five-bonds.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#e8b04a;--b:#e8707e;--hit:#5fc4b4;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="兩粒原子核，中間有兩粒電子，兩邊都拉住。">
+    <circle cx="70" cy="105" r="34" class="f-b-soft s-b" stroke-width="2"/>
+    <circle cx="170" cy="105" r="34" class="f-b-soft s-b" stroke-width="2"/>
+    <text x="70" y="113" text-anchor="middle" class="t-b" font-size="24" font-weight="700">+</text>
+    <text x="170" y="113" text-anchor="middle" class="t-b" font-size="24" font-weight="700">+</text>
+    <g class="bob"><circle cx="120" cy="92" r="8" class="f-c"/><circle cx="120" cy="120" r="8" class="f-c"/></g>
+    <path d="M102,100 H84 M138,100 H156" class="f-none s-c flow" stroke-width="2"/>
+    <text x="120" y="182" text-anchor="middle" class="t-c" font-size="14" font-weight="700">負電子黐住兩粒正核</text>
+  </svg>
+  <div>
+    <h1>五種 bond：電子點樣擺</h1>
+    <p class="said">所有 bond 都係同一樣嘢：正電同負電互相吸。分別只係電子擺喺邊。</p>
+    <p class="lede">送俾人、同人分享、全體共用、借正負極吸住隔籬、或者暫時歪一歪。然後睇下 bond strength 受咩影響。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">五種</div>
+    <h2>電子擺喺邊，就係邊種 bond</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 420" role="img" aria-label="五種 bond 嘅圖：ionic 送電子；covalent 分享電子；metallic 電子海；hydrogen bond 水分子正負極互吸；van der Waals 電子雲暫時歪咗。">
+        <g font-size="13">
+          <text x="20" y="48" class="t-b" font-size="16" font-weight="700">Ionic · 送</text>
+          <text x="20" y="68" class="t-muted">鹽 NaCl</text>
+          <circle cx="250" cy="50" r="24" class="f-b-soft s-b" stroke-width="1.5"/><text x="250" y="55" text-anchor="middle" class="t">Na⁺</text>
+          <circle cx="340" cy="50" r="30" class="f-c-soft s-c" stroke-width="1.5"/><text x="340" y="55" text-anchor="middle" class="t">Cl⁻</text>
+          <path d="M262,22 Q295,2 326,20" class="f-none s-a flow" stroke-width="2" marker-end="url(#ah-a)"/>
+          <text x="420" y="46" class="t">Na 成粒電子送俾 Cl</text><text x="420" y="66" class="t-muted">一正一負，互相吸實</text>
+
+          <line x1="20" y1="92" x2="700" y2="92" class="s-rule"/>
+          <text x="20" y="130" class="t-hit" font-size="16" font-weight="700">Covalent · 分享</text>
+          <text x="20" y="150" class="t-muted">水 H–O、油 C–H</text>
+          <circle cx="262" cy="134" r="26" class="f-hit-soft s-hit" stroke-width="1.5"/><circle cx="318" cy="134" r="26" class="f-hit-soft s-hit" stroke-width="1.5"/>
+          <circle cx="290" cy="126" r="5" class="f-a"/><circle cx="290" cy="142" r="5" class="f-a"/>
+          <text x="420" y="130" class="t">兩粒原子共用一對電子</text><text x="420" y="150" class="t-muted">分得平均唔平均 → polarity</text>
+
+          <line x1="20" y1="176" x2="700" y2="176" class="s-rule"/>
+          <text x="20" y="214" class="t-a" font-size="16" font-weight="700">Metallic · 全體共用</text>
+          <text x="20" y="234" class="t-muted">銅、鐵</text>
+          <rect x="222" y="190" width="150" height="56" rx="8" class="f-a-soft"/>
+          <g class="f-b"><circle cx="246" cy="206" r="8"/><circle cx="284" cy="206" r="8"/><circle cx="322" cy="206" r="8"/><circle cx="352" cy="206" r="8"/><circle cx="246" cy="232" r="8"/><circle cx="284" cy="232" r="8"/><circle cx="322" cy="232" r="8"/><circle cx="352" cy="232" r="8"/></g>
+          <g class="f-a bob"><circle cx="265" cy="219" r="3.5"/><circle cx="303" cy="214" r="3.5"/><circle cx="337" cy="222" r="3.5"/><circle cx="268" cy="240" r="3.5"/><circle cx="305" cy="198" r="3.5"/></g>
+          <text x="420" y="214" class="t">電子唔屬於任何一粒核，周圍游</text><text x="420" y="234" class="t-muted">好似芳香環，但係成嚿金屬咁大</text>
+
+          <line x1="20" y1="260" x2="700" y2="260" class="s-rule"/>
+          <text x="20" y="298" class="t-c" font-size="16" font-weight="700">Hydrogen bond</text>
+          <text x="20" y="318" class="t-muted">水同水之間 · H + N/O/F</text>
+          <circle cx="240" cy="296" r="15" class="f-b"/><circle cx="262" cy="310" r="8" class="f-ink"/><circle cx="222" cy="312" r="8" class="f-ink"/>
+          <circle cx="346" cy="304" r="15" class="f-b"/><circle cx="366" cy="290" r="8" class="f-ink"/><circle cx="364" cy="320" r="8" class="f-ink"/>
+          <path d="M272,309 H328" class="f-none s-c" stroke-width="2" stroke-dasharray="4 5"/>
+          <text x="262" y="336" text-anchor="middle" class="t-muted" font-size="11">δ+</text><text x="330" y="290" text-anchor="middle" class="t-muted" font-size="11">δ−</text>
+          <text x="420" y="298" class="t">H 嘅少少正，吸住隔籬 O 嘅少少負</text><text x="420" y="318" class="t-muted">分子同分子之間</text>
+
+          <line x1="20" y1="344" x2="700" y2="344" class="s-rule"/>
+          <text x="20" y="382" class="t-d" font-size="16" font-weight="700">Van der Waals</text>
+          <text x="20" y="402" class="t-muted">油同油之間 · temporary</text>
+          <ellipse cx="258" cy="384" rx="34" ry="20" class="f-d-soft s-d" stroke-width="1.5"/><ellipse cx="344" cy="384" rx="34" ry="20" class="f-d-soft s-d" stroke-width="1.5"/>
+          <g class="f-a bob"><circle cx="276" cy="380" r="3.5"/><circle cx="282" cy="390" r="3.5"/><circle cx="362" cy="380" r="3.5"/><circle cx="368" cy="390" r="3.5"/></g>
+          <text x="234" y="389" text-anchor="middle" class="t-muted" font-size="11">δ+</text><text x="320" y="389" text-anchor="middle" class="t-muted" font-size="11">δ+</text>
+          <text x="420" y="382" class="t">電子雲啱啱歪咗一邊，暫時有正負</text><text x="420" y="402" class="t-muted">By %：電子喺邊係機會率</text>
+        </g>
+      </svg>
+    </figure>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--hit)"><div class="k">頭三種</div><h3>原子同原子之間</h3><p>Ionic、covalent、metallic。拆開佢，嚿嘢就變咗第二樣嘢。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">後兩種 · IMF</div><h3>分子同分子之間</h3><p>Hydrogen bond、van der Waals。拆開佢，水仲係水，只係由液體變咗氣。</p></div>
+    </div>
+    <p class="note"><b>金屬嗰片電子海</b>推一推就成片郁，就係電流。詳細喺 <a href="https://jpoon6d23.github.io/funplaywhatever/learn/em.html">全部都係電</a>。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Polarity</div>
+    <h2>分享得平均唔平均</h2>
+    <p class="intro">每粒原子搶電子嘅力唔同，叫 electronegativity。兩邊差得越遠，電子越偏埋一邊。差到盡，就唔係分享，係送：ionic 同 covalent 其實係同一條尺嘅兩頭。</p>
+    <div class="tool">
+      <div class="seg" role="group" aria-label="揀例子" id="pol-ex"></div>
+      <label for="pol">搶電子力嘅差距：<b id="pol-v">0</b></label>
+      <input type="range" id="pol" min="0" max="3.3" step="0.01" value="0.35">
+      <svg viewBox="0 0 720 170" style="width:100%;height:auto" role="img" aria-label="兩粒原子同中間嘅電子雲。差距越大，電子雲越偏去右邊。">
+        <circle cx="270" cy="80" r="34" class="f-surface2 s-ink" stroke-width="2"/>
+        <circle cx="450" cy="80" r="40" class="f-surface2 s-ink" stroke-width="2"/>
+        <ellipse id="cloud" cx="360" cy="80" rx="70" ry="24" class="f-a-soft s-a" stroke-width="1.5"/>
+        <text id="pl" x="270" y="87" text-anchor="middle" class="t" font-size="18" font-weight="700"></text>
+        <text id="pr" x="450" y="87" text-anchor="middle" class="t" font-size="18" font-weight="700"></text>
+        <text id="dl" x="270" y="150" text-anchor="middle" class="t-b" font-size="16" font-weight="700"></text>
+        <text id="dr" x="450" y="150" text-anchor="middle" class="t-c" font-size="16" font-weight="700"></text>
+      </svg>
+      <p class="out" id="pol-out"></p>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 220" role="img" aria-label="水分子有正負兩極，所以水同水黐、亦溶到鹽。油冇正負極，水唔理佢，所以油水分離。">
+        <text x="180" y="28" text-anchor="middle" class="t-c" font-size="16" font-weight="700">水：polar</text>
+        <circle cx="180" cy="90" r="26" class="f-b"/><circle cx="148" cy="120" r="14" class="f-ink"/><circle cx="212" cy="120" r="14" class="f-ink"/>
+        <text x="180" y="58" text-anchor="middle" class="t-c" font-size="14" font-weight="700">δ−</text>
+        <text x="180" y="156" text-anchor="middle" class="t-b" font-size="14" font-weight="700">δ+　　　δ+</text>
+        <text x="180" y="190" text-anchor="middle" class="t" font-size="13.5">有正負極 → 黐、溶到鹽同糖</text>
+        <line x1="360" y1="16" x2="360" y2="204" class="s-rule" stroke-width="1.5"/>
+        <text x="540" y="28" text-anchor="middle" class="t-a" font-size="16" font-weight="700">油：nonpolar</text>
+        <polyline points="440,104 465,88 490,104 515,88 540,104 565,88 590,104 615,88 640,104" class="f-none s-a" stroke-width="3" stroke-linejoin="round"/>
+        <text x="540" y="150" text-anchor="middle" class="t-muted" font-size="14">冇正負極</text>
+        <text x="540" y="190" text-anchor="middle" class="t" font-size="13.5">水寧願黐返水 → 油水分離</text>
+      </svg>
+      <figcaption>Like dissolves like：有極嘅溶有極嘅，冇極嘅溶冇極嘅。洗潔精一頭似水、一頭似油，所以兩邊都拉得住。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">邊種最實</div>
+    <h2>頭三種同後兩種，差十倍到一千倍</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 250" role="img" aria-label="拆開一摩爾要幾多能量：covalent 約 150 至 1000，ionic 鹽 約 787，metallic 約 100 至 850，hydrogen bond 約 5 至 30，van der Waals 約 0.4 至 4 千焦。">
+        <g font-size="14">
+          <text x="150" y="42" text-anchor="end" class="t">Covalent</text><rect x="246" y="28" width="454" height="20" rx="4" class="f-hit"/>
+          <text x="150" y="82" text-anchor="end" class="t">Ionic（鹽）</text><rect x="644" y="68" width="8" height="20" rx="3" class="f-b"/>
+          <text x="140" y="122" text-anchor="end" class="t">Metallic</text><rect x="204" y="108" width="478" height="20" rx="4" class="f-a"/>
+          <text x="150" y="162" text-anchor="end" class="t">Hydrogen bond</text><rect x="165" y="148" width="14" height="20" rx="3" class="f-c"/>
+          <text x="150" y="202" text-anchor="end" class="t">Van der Waals</text><rect x="160" y="188" width="4" height="20" rx="2" class="f-d"/>
+        </g>
+        <g font-size="12.5" class="t-muted">
+          <text x="240" y="42" text-anchor="end">150–1000</text><text x="636" y="82" text-anchor="end">787</text><text x="198" y="122" text-anchor="end">107–849</text>
+          <text x="186" y="162">5–30</text><text x="172" y="202">0.4–4</text>
+        </g>
+        <line x1="160" y1="20" x2="160" y2="216" class="s-muted" stroke-width="1"/>
+        <g font-size="12" class="t-muted" text-anchor="middle"><text x="160" y="234">0</text><text x="430" y="234">500</text><text x="676" y="234">1000 kJ/mol</text></g>
+      </svg>
+      <figcaption>數字係拆開一摩爾（6 後面 23 個零咁多粒）要幾多千焦能量。Metallic：鈉 107，鎢 849。一條 hydrogen bond 好弱，但水入面有極多條，所以水要 100°C 先滾。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Bond strength</div>
+    <h2>一條 bond 有幾實，睇五樣嘢</h2>
+
+    <h3 class="mt" style="font-size:21px;margin-bottom:8px">一、分享幾多粒電子</h3>
+    <figure class="panel">
+      <svg viewBox="0 0 720 150" role="img" aria-label="碳碳單鍵 347，雙鍵 614，三鍵 839；氮氮三鍵 945。">
+        <g font-size="14">
+          <text x="110" y="34" text-anchor="end" class="t">C–C</text><rect x="120" y="20" width="194" height="18" rx="4" class="f-hit"/><text x="322" y="34" class="t-muted">347</text>
+          <text x="110" y="66" text-anchor="end" class="t">C=C</text><rect x="120" y="52" width="344" height="18" rx="4" class="f-hit"/><text x="472" y="66" class="t-muted">614</text>
+          <text x="110" y="98" text-anchor="end" class="t">C≡C</text><rect x="120" y="84" width="470" height="18" rx="4" class="f-hit"/><text x="598" y="98" class="t-muted">839</text>
+          <text x="110" y="130" text-anchor="end" class="t">N≡N</text><rect x="120" y="116" width="529" height="18" rx="4" class="f-a"/><text x="657" y="130" class="t-muted">945</text>
+        </g>
+      </svg>
+      <figcaption>分享越多對電子，拉得越實。空氣入面嘅 N₂ 係三鍵，所以佢乜都唔想反應。</figcaption>
+    </figure>
+
+    <h3 class="mt" style="font-size:21px;margin-bottom:8px">二、原子大細</h3>
+    <figure class="panel">
+      <svg viewBox="0 0 720 150" role="img" aria-label="氫同鹵素嘅鍵：H-F 567，H-Cl 431，H-Br 366，H-I 299。原子越大，鍵越弱。">
+        <g font-size="14">
+          <text x="110" y="34" text-anchor="end" class="t">H–F</text><circle cx="140" cy="29" r="7" class="f-c"/><rect x="160" y="20" width="318" height="18" rx="4" class="f-c"/><text x="486" y="34" class="t-muted">567</text>
+          <text x="110" y="66" text-anchor="end" class="t">H–Cl</text><circle cx="140" cy="61" r="9" class="f-c"/><rect x="160" y="52" width="241" height="18" rx="4" class="f-c"/><text x="409" y="66" class="t-muted">431</text>
+          <text x="110" y="98" text-anchor="end" class="t">H–Br</text><circle cx="140" cy="93" r="11" class="f-c"/><rect x="160" y="84" width="205" height="18" rx="4" class="f-c"/><text x="373" y="98" class="t-muted">366</text>
+          <text x="110" y="130" text-anchor="end" class="t">H–I</text><circle cx="140" cy="125" r="13" class="f-c"/><rect x="160" y="116" width="167" height="18" rx="4" class="f-c"/><text x="335" y="130" class="t-muted">299</text>
+        </g>
+      </svg>
+      <figcaption>原子越大，共用嗰對電子離個核越遠，核拉佢冇咁實。</figcaption>
+    </figure>
+
+    <h3 class="mt" style="font-size:21px;margin-bottom:8px">三、Lone pair：有電子，但冇同人分享</h3>
+    <figure class="panel">
+      <svg viewBox="0 0 720 180" role="img" aria-label="C-C 347 冇孤對；N-N 163；O-O 146；F-F 159；Cl-Cl 243。孤對電子互相推，令鍵變弱。">
+        <g font-size="14">
+          <text x="110" y="34" text-anchor="end" class="t">C–C</text><rect x="120" y="20" width="347" height="18" rx="4" class="f-hit"/><text x="475" y="34" class="t-muted">347 · 冇 lone pair</text>
+          <text x="110" y="66" text-anchor="end" class="t">N–N</text><rect x="120" y="52" width="163" height="18" rx="4" class="f-b"/><text x="291" y="66" class="t-muted">163 · 每邊 1 對</text>
+          <text x="110" y="98" text-anchor="end" class="t">O–O</text><rect x="120" y="84" width="146" height="18" rx="4" class="f-b"/><text x="274" y="98" class="t-muted">146 · 每邊 2 對</text>
+          <text x="110" y="130" text-anchor="end" class="t">F–F</text><rect x="120" y="116" width="159" height="18" rx="4" class="f-b"/><text x="287" y="130" class="t-muted">159 · 每邊 3 對</text>
+          <text x="110" y="162" text-anchor="end" class="t">Cl–Cl</text><rect x="120" y="148" width="243" height="18" rx="4" class="f-a"/><text x="371" y="162" class="t-muted">243 · 3 對，但原子大，推得冇咁勁</text>
+        </g>
+      </svg>
+      <figcaption>兩邊嘅 lone pair 都係負電，企得近就互相推，條 bond 就弱。O–O 咁弱，所以雙氧水好易散。</figcaption>
+    </figure>
+
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--a)"><div class="k">四、Bond per atom · structure</div><h3>每粒拉住幾多粒</h3><p>鑽石每粒碳拉住 4 粒，成個網鎖死，要 3,600°C 以上先散。石墨每粒拉 3 粒，層同層之間只係 van der Waals，一擦就甩。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">五、Heat added</div><h3>熱 = 原子震</h3><p>越熱震得越勁，震到大過條 bond 頂得住，就斷。熱冇改變條 bond 有幾實，只係加大咗拉扯。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 200" role="img" aria-label="要幾熱先拆得開：甲烷零下 162 度滾，水 100 度滾，鹽 801 度熔，鐵 1538 度熔，碳 3642 度昇華。">
+        <line x1="60" y1="150" x2="690" y2="150" class="s-muted" stroke-width="1.5" marker-end="url(#ah)"/>
+        <g font-size="13" text-anchor="middle">
+          <circle cx="88" cy="150" r="7" class="f-d"/><text x="88" y="128" class="t-d" font-weight="700">−162°C</text><text x="88" y="176" class="t">甲烷滾</text><text x="88" y="194" class="t-muted" font-size="12">vdW</text>
+          <circle cx="130" cy="150" r="7" class="f-c"/><text x="150" y="108" class="t-c" font-weight="700">100°C</text><text x="160" y="176" class="t">水滾</text><text x="160" y="194" class="t-muted" font-size="12">H bond</text>
+          <path d="M132,144 L146,114" class="f-none s-c" stroke-width="1"/>
+          <circle cx="244" cy="150" r="7" class="f-b"/><text x="244" y="128" class="t-b" font-weight="700">801°C</text><text x="244" y="176" class="t">鹽熔</text><text x="244" y="194" class="t-muted" font-size="12">ionic</text>
+          <circle cx="359" cy="150" r="7" class="f-a"/><text x="359" y="128" class="t-a" font-weight="700">1538°C</text><text x="359" y="176" class="t">鐵熔</text><text x="359" y="194" class="t-muted" font-size="12">metallic</text>
+          <circle cx="670" cy="150" r="7" class="f-hit"/><text x="652" y="128" class="t-hit" font-weight="700">3642°C</text><text x="652" y="176" class="t">碳變氣</text><text x="652" y="194" class="t-muted" font-size="12">covalent 網</text>
+        </g>
+        <text x="60" y="40" class="t-muted" font-size="13">要幾熱，先震得散？</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「Hydrogen bond 都叫 bond，點解唔算？」</p>
+        <div><div class="tag">回應</div><p>叫五種 bond 冇問題，本質都係正負相吸。但後兩種冇交換或者共用電子，強度差十倍以上。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>條界唔係咁清。強嘅 hydrogen bond 有少少 covalent 成份；ionic 同 covalent 亦係一條連續嘅尺，冇一個數字係硬界線。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「實嘅 bond = 多能量？」</p>
+        <div><div class="tag">回應</div><p>相反。越實嘅 bond 越穩陣、能量越低。拆 bond 要俾能量，砌 bond 先放能量。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>汽油有能量，唔係因為佢啲 bond 實，係因為燒完砌出嚟嘅 CO₂ 同 H₂O 嘅 bond 更加實，差額就係放出嚟嘅熱。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>五種 bond，一個原理：<em>正負相吸</em>，只係電子擺位唔同。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>CSU East Bay, Average Bond Enthalpies：H–F 567、H–Cl 431、H–Br 366、H–I 299、C–C 347、C=C 614、C≡C 839、N≡N 945、N–N 163、O–O 146、F–F 159、Cl–Cl 243：<a href="https://chemistry.csueastbay.edu/~pfleming/chem/351/chap03/Bond_Enthalpies.htm">csueastbay.edu</a>。</li>
+      <li>Hydrogen bond 約 5–30 kJ/mol、van der Waals 約 0.4–4 kJ/mol：<a href="https://vectree.io/pdf/c/intermolecular-force-analysis">vectree.io</a>；covalent 約 150–1000 kJ/mol：<a href="https://internal.varsitytutors.com/practice/subjects/biochemistry/lessons/noncovalent-interactions">Varsity Tutors</a>。</li>
+      <li>CRC Handbook of Chemistry and Physics：NaCl 晶格能約 787 kJ/mol；金屬原子化熱（鈉 107、鎢 849 kJ/mol）；Pauling electronegativity（H 2.20、C 2.55、O 3.44、Na 0.93、Cl 3.16）；熔點同沸點。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var EX=[['油 C–H',0.35,'C','H'],['水 O–H',1.24,'H','O'],['鹽 Na–Cl',2.23,'Na','Cl']];
+  var s=document.getElementById('pol'),v=document.getElementById('pol-v'),c=document.getElementById('cloud'),out=document.getElementById('pol-out');
+  var pl=document.getElementById('pl'),pr=document.getElementById('pr'),dl=document.getElementById('dl'),dr=document.getElementById('dr'),box=document.getElementById('pol-ex');
+  EX.forEach(function(e,i){var b=document.createElement('button');b.type='button';b.textContent=e[0];b.addEventListener('click',function(){s.value=e[1];pl.textContent=e[2];pr.textContent=e[3];draw(i);});box.appendChild(b);});
+  function draw(sel){
+    var d=+s.value,t=Math.min(d/2,1);v.textContent=d.toFixed(2);
+    c.setAttribute('cx',360+t*90);c.setAttribute('rx',70-t*28);c.setAttribute('ry',24+t*14);
+    box.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===sel?'true':'false')});
+    if(d<0.4){dl.textContent='';dr.textContent='';out.textContent='Nonpolar covalent：分得差唔多平均，冇正負極。例如油。';}
+    else if(d<1.8){dl.textContent='δ+';dr.textContent='δ−';out.textContent='Polar covalent：仲係分享，但電子偏埋一邊，有少少正、少少負。例如水。';}
+    else{dl.textContent='+';dr.textContent='−';out.textContent='Ionic：差得太遠，電子成粒過咗去。一正一負。例如鹽。';}
+  }
+  s.addEventListener('input',function(){pl.textContent='A';pr.textContent='B';draw(-1);});
+  pl.textContent='C';pr.textContent='H';draw(0);
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

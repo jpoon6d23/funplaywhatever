@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>電腦：一堆開關</title>
+<meta name="description" content="一個 bit 係一條 yes/no 問題。電腦就係幾百億條問題疊埋一齊。由真空管到晶片、CPU、GPU、RAM、SSD、點樣砌機，一路疊到 AI。">
+<meta property="og:title" content="電腦：一堆開關">
+<meta property="og:description" content="一個 bit 係一條 yes/no 問題。電腦就係幾百億條問題疊埋一齊。由真空管到晶片、CPU、GPU、RAM、SSD、點樣砌機，一路疊到 AI。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/computer.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/computer.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="電腦：一堆開關">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/computer.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#e8b04a;--b:#e8707e;--hit:#5fc4b4;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一格格開關，有啲著有啲熄。">
+    <g id="hero-sw"></g>
+    <text x="120" y="200" text-anchor="middle" class="t-a" font-size="14" font-weight="700">著 = 1　熄 = 0</text>
+  </svg>
+  <div>
+    <h1>電腦：一堆開關</h1>
+    <p class="said">Pile of switch（bit）→ colour、text、all other things。</p>
+    <p class="lede">一個開關係一條 yes/no 問題。電腦本質上，就係好多好多條 yes/no 問題疊埋一齊。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">本質</div>
+    <h2>8 個開關，可以係數字、係字、係顏色</h2>
+    <p class="intro">撳下面嘅開關。同一組著熄，睇你點樣讀佢：當數字讀、當字母讀、當光暗讀。</p>
+    <div class="tool">
+      <div class="seg" role="group" aria-label="8 個開關" id="bits"></div>
+      <div class="grid3">
+        <div class="mini" style="--k:var(--a)"><div class="k">當數字</div><h3 id="b-num"></h3></div>
+        <div class="mini" style="--k:var(--c)"><div class="k">當字</div><h3 id="b-chr"></h3></div>
+        <div class="mini" style="--k:var(--d)"><div class="k">當光暗</div><h3><span id="b-col" style="display:inline-block;width:64px;height:28px;border-radius:6px;border:1px solid var(--rule);vertical-align:middle"></span></h3></div>
+      </div>
+      <p class="out" id="b-out"></p>
+    </div>
+    <p class="note"><b>8 個開關有 256 種著熄組合。</b>三組 8 個開關（紅、綠、藍）就有 1,600 萬種顏色。你個芒每一點都係咁。</p>
+    <h3 class="mt" style="font-size:22px;margin-bottom:10px">開關駁開關，就識計數</h3>
+    <div class="tool">
+      <div class="seg" role="group" aria-label="兩個輸入" id="gin"></div>
+      <div class="bars">
+        <span>AND（兩個都著先著）</span><b id="g-and"></b>
+        <span>OR（有一個著就著）</span><b id="g-or"></b>
+        <span>XOR（唔同先著）</span><b id="g-xor"></b>
+      </div>
+      <p id="g-out" style="color:var(--muted)"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">邊個諗先</div>
+    <h2>冇一個人發明電腦，係一個疊一個</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--d)"><div class="k">1703 · 萊布尼茲</div><h3>二進制</h3><p>淨係用 0 同 1，已經寫得晒所有數。</p></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">1843 · Babbage、Ada Lovelace</div><h3>可以寫程式嘅機器</h3><p>Babbage 設計咗部機（冇砌成）。Lovelace 為佢寫咗第一個程式，仲睇到佢唔止識計數。</p></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">1854 · George Boole</div><h3>邏輯變成數學</h3><p>「真、假」可以好似數字咁計：AND、OR、NOT。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">1936 · Alan Turing</div><h3>一部機做晒所有嘢</h3><p>證明咗：一部夠簡單嘅機器，只要換程式，就計到任何計得到嘅嘢。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">1937 · Claude Shannon</div><h3>開關 = 邏輯</h3><p>佢嘅碩士論文：電路嘅開關，啱啱好就係 Boole 嘅真假。成版嘅核心係佢呢句。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">1945 · John von Neumann</div><h3>程式同數據擺埋一齊</h3><p>程式都只係記憶入面嘅數字。今日所有電腦都係呢個架構。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">1947 · Bardeen、Brattain、Shockley</div><h3>Transistor</h3><p>Bell Labs。三個人 1956 年攞諾貝爾獎。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">1958–59 · Kilby、Noyce</div><h3>Integrated circuit</h3><p>兩個人喺兩間公司，差唔多同時諗到。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">2012 · Hinton 同學生</div><h3>GPU + 神經網絡</h3><p>用打機嘅顯示卡訓練神經網絡，一下拋離所有對手。AI 由呢度起飛。</p></div>
+    </div>
+    <div class="grid2 mt">
+      <figure class="panel fit"><svg viewBox="0 0 340 200" role="img" aria-label="Turing 嘅機器：一條好長嘅紙帶，一個讀寫頭，每次只睇一格，跟住規則改寫、左移或者右移。">
+        <text x="170" y="22" text-anchor="middle" class="t-c" font-size="14" font-weight="700">Turing 1936：一條紙帶 + 一本規則</text>
+        <g class="f-surface2 s-muted" stroke-width="1.5"><rect x="20" y="80" width="42" height="42"/><rect x="62" y="80" width="42" height="42"/><rect x="104" y="80" width="42" height="42"/><rect x="146" y="80" width="42" height="42" class="f-c-soft s-c"/><rect x="188" y="80" width="42" height="42"/><rect x="230" y="80" width="42" height="42"/><rect x="272" y="80" width="42" height="42"/></g>
+        <g class="t" font-size="16" text-anchor="middle"><text x="41" y="107">0</text><text x="83" y="107">1</text><text x="125" y="107">1</text><text x="167" y="107" font-weight="700">0</text><text x="209" y="107">1</text><text x="251" y="107">0</text><text x="293" y="107">0</text></g>
+        <path d="M167,46 V74" class="f-none s-c" stroke-width="2.5" marker-end="url(#ah-c)"/><text x="167" y="42" text-anchor="middle" class="t-c" font-size="12.5">讀寫頭</text>
+        <text x="170" y="150" text-anchor="middle" class="t-muted" font-size="12.5">睇一格 → 查規則 → 改寫 → 左或右移一格</text>
+        <text x="170" y="174" text-anchor="middle" class="t-muted" font-size="12.5">換本規則（程式），同一部機就做第二樣嘢</text>
+      </svg></figure>
+      <figure class="panel fit"><svg viewBox="0 0 340 200" role="img" aria-label="von Neumann 架構：同一個記憶體入面，上面幾格放程式，下面幾格放數據，CPU 逐格攞嚟做。">
+        <text x="170" y="22" text-anchor="middle" class="t-c" font-size="14" font-weight="700">von Neumann 1945：程式都係數字</text>
+        <rect x="30" y="40" width="130" height="140" rx="8" class="f-surface2 s-muted" stroke-width="1.5"/>
+        <g font-size="12.5"><rect x="38" y="48" width="114" height="24" rx="4" class="f-a-soft"/><text x="95" y="65" text-anchor="middle" class="t">攞 5</text><rect x="38" y="76" width="114" height="24" rx="4" class="f-a-soft"/><text x="95" y="93" text-anchor="middle" class="t">加 3</text><rect x="38" y="104" width="114" height="24" rx="4" class="f-a-soft"/><text x="95" y="121" text-anchor="middle" class="t">存低</text><rect x="38" y="140" width="114" height="32" rx="4" class="f-c-soft"/><text x="95" y="161" text-anchor="middle" class="t">數據：5、3、?</text></g>
+        <text x="95" y="196" text-anchor="middle" class="t-muted" font-size="12">同一個記憶體</text>
+        <path d="M164,100 H216" class="f-none s-a flow" stroke-width="2" marker-end="url(#ah-a)"/><path d="M216,124 H164" class="f-none s-c flow" stroke-width="2" marker-end="url(#ah-c)"/>
+        <rect x="222" y="80" width="90" height="64" rx="8" class="f-a-soft s-a" stroke-width="1.5"/><text x="267" y="117" text-anchor="middle" class="t-a" font-size="16" font-weight="700">CPU</text>
+        <text x="267" y="166" text-anchor="middle" class="t-muted" font-size="12">逐條攞、逐條做</text>
+      </svg></figure>
+      <figure class="panel fit"><svg viewBox="0 0 340 220" role="img" aria-label="Transistor 橫切面：閘極冇電，源極同汲極之間冇路，電過唔到。閘極有電，下面吸出一條通道，電就過到。">
+        <text x="170" y="22" text-anchor="middle" class="t-a" font-size="14" font-weight="700">Transistor 1947：用電控制電</text>
+        <g>
+          <rect x="16" y="110" width="140" height="56" rx="4" class="f-surface2 s-muted" stroke-width="1.5"/>
+          <rect x="24" y="110" width="34" height="22" class="f-c"/><rect x="114" y="110" width="34" height="22" class="f-c"/>
+          <rect x="62" y="96" width="48" height="6" class="f-muted"/><rect x="62" y="78" width="48" height="18" rx="3" class="f-surface2 s-muted" stroke-width="1.5"/>
+          <text x="86" y="70" text-anchor="middle" class="t-muted" font-size="12">閘極：冇電</text>
+          <text x="41" y="150" text-anchor="middle" class="t-muted" font-size="11">源</text><text x="131" y="150" text-anchor="middle" class="t-muted" font-size="11">汲</text>
+          <path d="M72,121 L100,121 M80,113 L92,129 M92,113 L80,129" class="f-none s-b" stroke-width="2"/>
+          <text x="86" y="190" text-anchor="middle" class="t-b" font-size="13" font-weight="700">冇路 = 0</text>
+        </g>
+        <g>
+          <rect x="184" y="110" width="140" height="56" rx="4" class="f-surface2 s-muted" stroke-width="1.5"/>
+          <rect x="192" y="110" width="34" height="22" class="f-c"/><rect x="282" y="110" width="34" height="22" class="f-c"/>
+          <rect x="226" y="110" width="56" height="9" class="f-c"/>
+          <rect x="230" y="96" width="48" height="6" class="f-muted"/><rect x="230" y="78" width="48" height="18" rx="3" class="f-a s-a" stroke-width="1.5"/>
+          <text x="254" y="70" text-anchor="middle" class="t-a" font-size="12" font-weight="700">閘極：有電</text>
+          <path d="M200,126 H306" class="f-none s-a flow" stroke-width="2" marker-end="url(#ah-a)"/>
+          <text x="209" y="150" text-anchor="middle" class="t-muted" font-size="11">源</text><text x="299" y="150" text-anchor="middle" class="t-muted" font-size="11">汲</text>
+          <text x="254" y="190" text-anchor="middle" class="t-hit" font-size="13" font-weight="700">吸出一條通道 = 1</text>
+        </g>
+        <text x="170" y="212" text-anchor="middle" class="t-muted" font-size="12">一個開關嘅輸出，可以做下一個開關嘅閘極</text>
+      </svg></figure>
+      <figure class="panel fit"><svg viewBox="0 0 340 220" role="img" aria-label="Integrated circuit：以前逐粒零件用手焊線駁埋；之後成個電路一次過印喺一塊矽上面。">
+        <text x="170" y="22" text-anchor="middle" class="t-a" font-size="14" font-weight="700">Integrated circuit 1958：由焊變印</text>
+        <g class="f-surface2 s-muted" stroke-width="1.5"><rect x="26" y="60" width="26" height="26" rx="4"/><rect x="96" y="50" width="26" height="26" rx="4"/><rect x="60" y="112" width="26" height="26" rx="4"/><rect x="120" y="120" width="26" height="26" rx="4"/></g>
+        <path d="M52,73 C70,60 80,70 96,63 M39,86 C40,110 50,118 60,125 M86,125 C100,110 108,140 120,133 M109,76 C112,96 128,100 133,120" class="f-none s-b" stroke-width="1.5"/>
+        <text x="86" y="176" text-anchor="middle" class="t" font-size="13" font-weight="700">之前：逐粒焊</text><text x="86" y="194" text-anchor="middle" class="t-muted" font-size="12">越多越易壞</text>
+        <path d="M160,100 H186" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="198" y="46" width="116" height="110" rx="6" class="f-a-soft s-a" stroke-width="2"/>
+        <g class="f-a" id="ic-dots"></g>
+        <path d="M198,62 H314 M198,78 H314 M198,94 H314 M198,110 H314 M198,126 H314 M198,142 H314 M214,46 V156 M230,46 V156 M246,46 V156 M262,46 V156 M278,46 V156 M294,46 V156" class="f-none s-a" stroke-width=".6" opacity=".6"/>
+        <text x="256" y="176" text-anchor="middle" class="t" font-size="13" font-weight="700">之後：一次過印</text><text x="256" y="194" text-anchor="middle" class="t-muted" font-size="12">好似曬相：用光照出線路</text>
+      </svg></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">點樣演變</div>
+    <h2>同一樣嘢，越整越細</h2>
+    <p class="intro">由頭到尾都係開關。變嘅只係個開關用乜嘢整、有幾細、有幾快。</p>
+    <div class="steps">
+      <div class="step"><h3>繼電器</h3><p>用電磁鐵扯一塊金屬片。會郁，所以慢，會壞。</p></div>
+      <div class="step"><h3>真空管</h3><p>冇嘢郁，快咗千倍。但好似燈膽，又熱又燒。1945 年 ENIAC 用咗大約 18,000 支，塞滿一間房。</p></div>
+      <div class="step"><h3>Transistor · 1947</h3><p>用一粒矽做開關。唔熱、唔燒、可以整到好細。</p></div>
+      <div class="step"><h3>Integrated circuit · 1958</h3><p>唔再逐粒焊。將好多 transistor 一次過「印」喺同一塊矽上面。</p></div>
+      <div class="step"><h3>Microprocessor · 1971</h3><p>成個 CPU 放落一粒晶片。Intel 4004：2,300 個 transistor。</p></div>
+      <div class="step"><h3>今日</h3><p>一粒手指甲咁大嘅晶片，有幾百億個 transistor。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 200" role="img" aria-label="一部機有幾多個開關：1945 年 ENIAC 一萬八千；1971 年 Intel 4004 二千三百（但只係一粒晶片）；1993 年 Pentium 三百一十萬；今日幾百億。每格係十倍。">
+        <g font-size="14">
+          <text x="170" y="38" text-anchor="end" class="t">1945 ENIAC（一間房）</text><rect x="180" y="24" width="213" height="18" rx="4" class="f-muted"/><text x="401" y="38" class="t-muted">18,000</text>
+          <text x="170" y="78" text-anchor="end" class="t">1971 Intel 4004（一粒）</text><rect x="180" y="64" width="168" height="18" rx="4" class="f-c"/><text x="356" y="78" class="t-muted">2,300</text>
+          <text x="170" y="118" text-anchor="end" class="t">1993 Pentium</text><rect x="180" y="104" width="325" height="18" rx="4" class="f-c"/><text x="513" y="118" class="t-muted">310 萬</text>
+          <text x="170" y="158" text-anchor="end" class="t">今日</text><rect x="180" y="144" width="520" height="18" rx="4" class="f-a"/><text x="692" y="138" text-anchor="end" class="t-a" font-weight="700">幾百億</text>
+        </g>
+        <text x="180" y="190" class="t-muted" font-size="12.5">條柱每長 50 格 = 多 10 倍</text>
+      </svg>
+      <figcaption>50 年入面，一粒晶片上面嘅開關多咗大約一千萬倍。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">而家嘅電腦</div>
+    <h2>一部機入面有乜</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 330" role="img" aria-label="一塊主機板，上面插住 CPU、RAM、SSD 同 GPU，旁邊係火牛供電。">
+        <rect x="150" y="20" width="420" height="290" rx="12" class="f-surface2 s-hit" stroke-width="2"/>
+        <text x="166" y="42" class="t-hit" font-size="13" font-weight="700">Motherboard · 主機板</text>
+        <rect x="250" y="64" width="110" height="90" rx="8" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="305" y="104" text-anchor="middle" class="t-a" font-size="18" font-weight="700">CPU</text>
+        <text x="305" y="126" text-anchor="middle" class="t-muted" font-size="12">上面壓住散熱器</text>
+        <g class="f-c-soft s-c" stroke-width="1.5"><rect x="390" y="56" width="16" height="110" rx="3"/><rect x="414" y="56" width="16" height="110" rx="3"/><rect x="438" y="56" width="16" height="110" rx="3"/><rect x="462" y="56" width="16" height="110" rx="3"/></g>
+        <rect x="414" y="56" width="16" height="110" rx="3" class="f-c"/><rect x="462" y="56" width="16" height="110" rx="3" class="f-c"/>
+        <text x="434" y="184" text-anchor="middle" class="t-c" font-size="13" font-weight="700">RAM（插第 2、4 槽）</text>
+        <rect x="250" y="176" width="110" height="22" rx="4" class="f-d-soft s-d" stroke-width="1.5"/>
+        <text x="305" y="192" text-anchor="middle" class="t-d" font-size="12.5" font-weight="700">SSD（NVMe）</text>
+        <rect x="180" y="226" width="340" height="56" rx="8" class="f-b-soft s-b" stroke-width="2"/>
+        <text x="350" y="252" text-anchor="middle" class="t-b" font-size="18" font-weight="700">GPU</text>
+        <text x="350" y="272" text-anchor="middle" class="t-muted" font-size="12">一塊獨立嘅卡，自己有 VRAM</text>
+        <rect x="20" y="210" width="100" height="90" rx="10" class="f-surface2 s-ink" stroke-width="1.5"/>
+        <text x="70" y="250" text-anchor="middle" class="t" font-size="16" font-weight="700">PSU</text>
+        <text x="70" y="272" text-anchor="middle" class="t-muted" font-size="12">火牛</text>
+        <path d="M120,240 H176" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <path d="M120,262 C150,262 150,254 176,254" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <path d="M70,210 V110 H146" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <text x="600" y="110" class="t-muted" font-size="13">全部嘢插喺</text><text x="600" y="130" class="t-muted" font-size="13">主機板上面，</text><text x="600" y="150" class="t-muted" font-size="13">經佢互相傾偈</text>
+      </svg>
+    </figure>
+    <div class="tablewrap mt">
+      <table class="cmp">
+        <thead><tr><th>零件</th><th>做乜</th><th>似廚房嘅</th><th>似人嘅</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--a)">CPU</td><td>Captain：做難嘅、要判斷嘅嘢，好 flexible。得幾粒至十幾粒核心。</td><td>幾個大廚</td><td>腦</td></tr>
+          <tr><td style="color:var(--b)">GPU</td><td>幾千個簡單工人一齊做同一樣嘢：畫面、AI。自己有記憶叫 VRAM。</td><td>成個球場嘅切菜工</td><td>腦（唔使諗嗰部分）</td></tr>
+          <tr><td style="color:var(--c)">RAM</td><td>短期記憶。開緊嘅嘢擺喺度。熄機就冇。</td><td>砧板</td><td>而家諗緊嘅嘢</td></tr>
+          <tr><td style="color:var(--d)">SSD</td><td>長期記憶。熄機都喺度。</td><td>雪櫃、貨倉</td><td>潛意識、過去</td></tr>
+          <tr><td style="color:var(--hit)">Motherboard</td><td>將所有嘢連埋一齊。</td><td>廚房本身</td><td>身體</td></tr>
+          <tr><td>PSU</td><td>將牆嘅電變成零件用到嘅電。「80+ Bronze」係講佢嘥幾少電。</td><td>煤氣</td><td>食物</td></tr>
+          <tr><td>散熱器</td><td>開關每郁一次都出熱。唔吹走，CPU 會自己減速。</td><td>抽油煙機</td><td>出汗</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Memory</div>
+    <h2>越近 = 越快 = 越細 = 越貴</h2>
+    <figure class="panel">
+      <svg viewBox="0 0 720 270" role="img" aria-label="記憶金字塔：最頂 Register，然後 Cache，RAM，最底 SSD。越上越快越細越貴。">
+        <polygon points="360,20 420,74 300,74" class="f-a-soft s-a" stroke-width="1.5"/>
+        <polygon points="296,80 424,80 484,134 236,134" class="f-hit-soft s-hit" stroke-width="1.5"/>
+        <polygon points="232,140 488,140 548,194 172,194" class="f-c-soft s-c" stroke-width="1.5"/>
+        <polygon points="168,200 552,200 612,254 108,254" class="f-d-soft s-d" stroke-width="1.5"/>
+        <g text-anchor="middle" font-size="14" font-weight="700">
+          <text x="360" y="64" class="t" font-size="12">Register</text>
+          <text x="360" y="113" class="t">Cache L1 · L2 · L3</text>
+          <text x="360" y="173" class="t">RAM（DDR5）</text>
+          <text x="360" y="233" class="t">Storage（NVMe SSD）</text>
+        </g>
+        <g font-size="13" class="t-muted">
+          <text x="440" y="52">CPU 入面，「呢一刻」· 幾十個數</text>
+          <text x="500" y="113">CPU 入面，遠少少 · MB</text>
+          <text x="562" y="173">短期記憶 · GB</text>
+          <text x="624" y="233">長期 · TB</text>
+        </g>
+        <path d="M60,250 V30" class="f-none s-muted" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="50" y="140" text-anchor="middle" class="t-muted" font-size="13" transform="rotate(-90 50 140)">越快、越貴</text>
+      </svg>
+    </figure>
+    <div class="tablewrap mt">
+      <table class="cmp">
+        <thead><tr><th>攞一次嘢要幾耐</th><th>真實</th><th>如果 Register = 1 秒</th></tr></thead>
+        <tbody>
+          <tr><td>Register</td><td>約 0.3 納秒</td><td>1 秒：喺你手上</td></tr>
+          <tr><td>Cache</td><td>約 1–20 納秒</td><td>幾秒到 1 分鐘：喺枱面</td></tr>
+          <tr><td>RAM</td><td>約 100 納秒</td><td>約 5 分鐘：行去隔籬房</td></tr>
+          <tr><td>SSD</td><td>約 10 萬納秒</td><td>約 4 日：寄信去外國</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine">1 納秒 = 十億分之一秒。數字係數量級，唔同型號會差幾倍。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Build PC</div>
+    <h2>點樣砌機</h2>
+    <div class="steps">
+      <div class="step"><h3>主機板擺喺枱面</h3><p>喺機箱出面砌頭幾步，易落手。</p></div>
+      <div class="step"><h3>裝 CPU</h3><p>對準個三角角，放落去，唔好撳，扣實。</p></div>
+      <div class="step"><h3>裝散熱器</h3><p>有啲 CPU 唔包散熱器，要另外買。記得搽散熱膏、插風扇線。</p></div>
+      <div class="step"><h3>插 RAM</h3><p>兩條就插第 2、第 4 槽。撳到「嗒」一聲。</p></div>
+      <div class="step"><h3>裝 SSD</h3><p>NVMe 斜斜插入，撳低，上螺絲。</p></div>
+      <div class="step"><h3>主機板入機箱</h3><p>對準銅柱，上螺絲。</p></div>
+      <div class="step"><h3>裝 PSU、駁線</h3><p>主機板大條嗰條（24 pin）、CPU 供電（左上角）、機箱開關線。</p></div>
+      <div class="step"><h3>最後先插 GPU</h3><p>佢最大舊，早插會阻住。插入長槽，再駁 PSU 嘅電。</p></div>
+      <div class="step"><h3>開機</h3><p>Mon 線插 GPU，唔係插主機板。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">由 1 同 0 去到 AI</div>
+    <h2>9 層：每一層都只係用下面一層砌出嚟</h2>
+    <p class="intro">冇一層有魔法。撳上面嘅格，或者用下面兩粒掣，一層一層行上去。每層都有嘢俾你玩。</p>
+    <div class="tool">
+      <div class="seg" role="group" aria-label="揀一層" id="lay-tabs"></div>
+      <h3 id="lay-h" style="font-size:22px"></h3>
+      <p id="lay-d" style="color:var(--muted)"></p>
+      <div id="lay-demo" style="display:grid;gap:10px"></div>
+      <p id="lay-from" style="color:var(--muted)"></p>
+      <div style="display:flex;justify-content:space-between;gap:8px" class="seg"><button type="button" id="lay-prev">← 下面一層</button><button type="button" id="lay-next">上面一層 →</button></div>
+    </div>
+    <p class="punch">由 1 同 0 去到 AI，每一層都只係用下面一層砌出嚟，冇一層有魔法。去到最頂，你同 AI 傾偈，底下仍然只係幾千億粒開關不停開開閂閂。人類花咗七十年，將一粒開關變成一部識講廣東話嘅機器，然後第一件事就係叫佢寫 email。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「只係開關，點解識寫文、畫畫？」</p>
+        <div><div class="tag">回應</div><p>每一層將下面嗰層包埋，俾上面嗰層當積木用。疊夠多層，就出現下面嗰層冇嘅能力。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>「疊夠多就會出現」只係描述，唔係解釋。點解一大堆調好嘅數字會識推理，研究嘅人自己都未完全明。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「人腦都係一堆神經元開關，咁人腦 = 電腦？」</p>
+        <div><div class="tag">回應</div><p>似嘅位：都係好多簡單單位連埋，產生複雜行為。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>神經元唔係淨係著同熄，佢有強弱、有化學、會自己改線路。人腦用大約 20 瓦；訓練一個大模型用嘅電可以供一個小鎮。似，唔等於一樣。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>一條 yes/no 問題乜都做唔到。<em>幾百億條疊埋一齊</em>，就乜都做得。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">數字出處</div>
+    <ol>
+      <li>ENIAC（1945）：約 18,000 支真空管。Transistor：Bell Labs，1947。Integrated circuit：Jack Kilby，1958。Intel 4004（1971）：2,300 個 transistor。Pentium（1993）：約 310 萬。</li>
+      <li>記憶層級嘅存取時間係常用嘅數量級估算（L1 約 1 納秒、RAM 約 100 納秒、SSD 約 0.1 毫秒）。</li>
+      <li>Transformer：Vaswani et al. (2017), Attention Is All You Need。深度學習用 GPU 起飛：AlexNet，2012。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var ns='http://www.w3.org/2000/svg',g=document.getElementById('hero-sw'),pat='1011001001101101110010110100111001011010';
+  for(var i=0;i<40;i++){var r=document.createElementNS(ns,'rect');r.setAttribute('x',22+(i%8)*25);r.setAttribute('y',20+Math.floor(i/8)*32);r.setAttribute('width',20);r.setAttribute('height',26);r.setAttribute('rx',4);r.setAttribute('class',pat[i]==='1'?'f-a':'f-surface2');g.appendChild(r);}
+})();
+(function(){
+  var b=[0,1,0,0,0,0,0,1],box=document.getElementById('bits'),num=document.getElementById('b-num'),chr=document.getElementById('b-chr'),col=document.getElementById('b-col'),out=document.getElementById('b-out');
+  b.forEach(function(_,i){var bt=document.createElement('button');bt.type='button';bt.addEventListener('click',function(){b[i]=1-b[i];draw();});box.appendChild(bt);});
+  function draw(){var n=0;b.forEach(function(v,i){n=n*2+v;box.children[i].textContent=v;box.children[i].setAttribute('aria-pressed',v?'true':'false');});
+    num.textContent=n;chr.textContent=(n>=33&&n<=126)?String.fromCharCode(n):'（呢個數冇對應嘅字）';col.style.background='rgb('+n+','+n+','+n+')';
+    out.textContent='8 條 yes/no 問題嘅答案：'+b.join(' ')+'。';}
+  draw();
+})();
+(function(){
+  var v=[1,0],box=document.getElementById('gin');
+  ['A','B'].forEach(function(n,i){var bt=document.createElement('button');bt.type='button';bt.addEventListener('click',function(){v[i]=1-v[i];draw();});box.appendChild(bt);});
+  function draw(){['A','B'].forEach(function(n,i){box.children[i].textContent=n+' = '+v[i];box.children[i].setAttribute('aria-pressed',v[i]?'true':'false');});
+    document.getElementById('g-and').textContent=v[0]&v[1];document.getElementById('g-or').textContent=v[0]|v[1];document.getElementById('g-xor').textContent=v[0]^v[1];
+    document.getElementById('g-out').textContent='加數：'+v[0]+' + '+v[1]+' = '+(v[0]&v[1])+''+(v[0]^v[1])+'（二進制）。XOR 俾個位，AND 俾進位。兩個閘就識加數，其他運算都係咁疊上去。';}
+  draw();
+})();
+(function(){
+  var d=document.getElementById('ic-dots'),ns='http://www.w3.org/2000/svg';
+  for(var i=0;i<7;i++)for(var j=0;j<7;j++){var c=document.createElementNS(ns,'rect');c.setAttribute('x',202+i*16);c.setAttribute('y',50+j*16);c.setAttribute('width',8);c.setAttribute('height',8);c.setAttribute('rx',1.5);d.appendChild(c);}
+})();
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function btn(t,f){var b=document.createElement('button');b.type='button';b.textContent=t;b.addEventListener('click',f);return b;}
+  function row(){var r=document.createElement('div');r.className='seg';return r;}
+  function txt(big){var p=document.createElement('p');if(big)p.className='out';else p.style.color='var(--muted)';return p;}
+  function el(t,css,txtc){var x=document.createElement(t);if(css)x.style.cssText=css;if(txtc!=null)x.textContent=txtc;return x;}
+  function lampRow(label){var r=el('div','display:flex;align-items:center;gap:12px');var l=el('span','min-width:230px',label);var c=el('span','width:20px;height:20px;border-radius:50%;border:1.5px solid var(--rule);display:inline-block');var n=el('b','font-family:ui-monospace,monospace');r.appendChild(l);r.appendChild(c);r.appendChild(n);r.set=function(v){c.style.background=v?'var(--hit)':'transparent';n.textContent=v;};return r;}
+  function slider(label,min,max,val,step,cb){var r=el('div','display:grid;grid-template-columns:90px 1fr 130px;gap:12px;align-items:center');var i=document.createElement('input');i.type='range';i.min=min;i.max=max;i.value=val;i.step=step||1;i.setAttribute('aria-label',label);var o=el('b','font-family:ui-monospace,monospace;text-align:right');r.appendChild(el('span','',label));r.appendChild(i);r.appendChild(o);i.addEventListener('input',function(){cb(+i.value,o);});r.input=i;r.out=o;return r;}
+  var mono='font-family:ui-monospace,Consolas,monospace;font-size:17px;white-space:pre;line-height:1.7';
+  var NS='http://www.w3.org/2000/svg';
+  var L=[
+   ['開關','開關 = 1 同 0','一粒 MOSFET：閘極有電就開（1），冇電就閂（0）。一粒最新嘅 AI 晶片有成二千億粒。','由：矽 + 摻雜（半導體）',function(box){var v=0,r=row(),lr=lampRow('通唔通電');lr.firstChild.style.minWidth='90px';r.appendChild(btn('撳閘極',function(){v=1-v;lr.set(v);}));box.appendChild(r);box.appendChild(lr);lr.set(0);}],
+   ['邏輯閘','邏輯閘','幾粒開關串聯、並聯，就變成「同埋」（AND）、「或者」（OR）、「唔係」（NOT）。之後所有運算都係由呢幾樣砌出嚟。','由：開關。串聯 = 兩個都開先通；並聯 = 一個開就通',function(box){var v=[0,0],r=row(),R=[lampRow('A AND B（兩個都係 1）'),lampRow('A OR B（有一個係 1）'),lampRow('NOT A（反轉）'),lampRow('A XOR B（唔同先係 1）')];
+     function d(){r.children[0].textContent='A = '+v[0];r.children[1].textContent='B = '+v[1];r.children[0].setAttribute('aria-pressed',!!v[0]);r.children[1].setAttribute('aria-pressed',!!v[1]);R[0].set(v[0]&v[1]);R[1].set(v[0]|v[1]);R[2].set(1-v[0]);R[3].set(v[0]^v[1]);}
+     r.appendChild(btn('',function(){v[0]=1-v[0];d();}));r.appendChild(btn('',function(){v[1]=1-v[1];d();}));box.appendChild(r);R.forEach(function(x){box.appendChild(x);});d();}],
+   ['加數','用閘做加數','數字寫成 1 同 0，叫二進制：13 = 8 + 4 + 1 = 1101。加數只係一堆邏輯閘：XOR 出嗰一位，AND 出「進位」。','由：邏輯閘',function(box){var a=13,b=6,o=el('div',mono);function bin(n,l){var s=n.toString(2);while(s.length<l)s='0'+s;return s;}
+     function sp(s){return s.split('').join(' ');}
+     function d(){A.out.textContent=a+' = '+bin(a,4);B.out.textContent=b+' = '+bin(b,4);var c=0,car='';for(var i=0;i<4;i++){var x=(a>>i)&1,y=(b>>i)&1;c=(x&y)|(x&c)|(y&c);car=(c?'1':' ')+car;}
+       o.textContent='進位 '+sp(car)+'\n       '+sp(bin(a,4))+'\n  +    '+sp(bin(b,4))+'\n  ─────────────\n  =  '+sp(bin(a+b,5))+'  = '+(a+b);}
+     var A=slider('A',0,15,a,1,function(v){a=v;d();}),B=slider('B',0,15,b,1,function(v){b=v;d();});box.appendChild(A);box.appendChild(B);box.appendChild(o);d();}],
+   ['記憶','兩個閘頭尾駁埋，就記得嘢','將一個閘嘅輸出駁返去另一個閘嘅輸入，個訊號會自己兜圈。你放手，佢都記住。','由：邏輯閘，駁成一個圈',function(box){var q=0,r=row(),lr=lampRow('記住嘅數'),w=txt();lr.firstChild.style.minWidth='90px';function d(m){lr.set(q);w.textContent=m;}
+     r.appendChild(btn('寫入 1',function(){q=1;d('你撳完放手，佢仲係 1。');}));r.appendChild(btn('寫入 0',function(){q=0;d('你撳完放手，佢仲係 0。');}));r.appendChild(btn('乜都唔做',function(){d('冇人掂佢，個數照樣喺度。呢個就係 1 bit 記憶。');}));box.appendChild(r);box.appendChild(lr);box.appendChild(w);d('8 個呢樣嘢 = 1 byte。你部機有幾百億個。');}],
+   ['CPU','CPU 跑程式','程式就係一串指令，指令本身都係 1 同 0。CPU 每秒做幾十億次：攞指令、做、跳去下一條。','由：加數 + 記憶 + 一個時鐘不停咁打拍子',function(box){var P=[['將 3 放入 A','0001 0011'],['將 4 放入 B','0010 0100'],['A + B 放入 C','0011 0000'],['顯示 C','0100 0000']],pc=0,A=0,B=0,C=null,shown='',list=el('div',mono),r=row(),st=el('b','font-family:ui-monospace,monospace;align-self:center');
+     function d(){list.innerHTML='';P.forEach(function(x,i){var ln=el('div','padding:0 10px;border-radius:6px;'+(i===pc?'background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--c)':''),(i===pc?'▶ ':'  ')+x[0]+' '.repeat(Math.max(1,10-x[0].length))+'  '+x[1]);list.appendChild(ln);});
+       st.textContent='A='+A+' B='+B+' C='+(C==null?'–':C)+(shown?'　螢幕：'+shown:'');}
+     r.appendChild(btn('行一步',function(){if(pc>=4)return;if(pc===0)A=3;if(pc===1)B=4;if(pc===2)C=A+B;if(pc===3)shown=String(C);pc++;d();}));r.appendChild(btn('重新',function(){pc=0;A=0;B=0;C=null;shown='';d();}));r.appendChild(st);box.appendChild(list);box.appendChild(r);d();}],
+   ['變數字','乜都變成數字','CPU 淨係識計數。所以字、圖、聲，全部要先變做數字。字有編號，圖係一格格光暗，聲係一秒幾萬個高低。','由：CPU 識處理數字，所以要將世界變成數字',function(box){var i=document.createElement('input');i.type='text';i.value='你好 AI';i.setAttribute('aria-label','打啲字');i.style.cssText='font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);max-width:320px';var o=el('div',mono+';white-space:normal');
+     function d(){o.textContent=Array.from(i.value).map(function(c){return c.codePointAt(0)}).join('  ')||'（打啲字）';}i.addEventListener('input',d);box.appendChild(i);box.appendChild(o);d();}],
+   ['學習','唔寫規則，俾例子','以前要人逐條寫規則。機器學習就係俾例子部機睇，等佢自己調啲數字：估錯就改少少。下面條線想分開綠點同橙點。','由：電腦嘅加同乘 + 大量例子',function(box){var svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox','0 0 600 360');svg.setAttribute('role','img');svg.setAttribute('aria-label','綠點同橙點，同埋一條想將佢哋分開嘅線');svg.style.cssText='width:100%;max-width:600px;height:auto;border:1px solid var(--rule);border-radius:8px;background:var(--bg)';
+     var pts=[],seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+     for(var i=0;i<14;i++)pts.push([90+rnd()*130,50+rnd()*120,1]);for(var j=0;j<14;j++)pts.push([350+rnd()*170,210+rnd()*100,-1]);
+     var w,n,line=document.createElementNS(NS,'line'),cs=[];line.setAttribute('stroke','var(--d)');line.setAttribute('stroke-width','4');
+     pts.forEach(function(p){var c=document.createElementNS(NS,'circle');c.setAttribute('cx',p[0]);c.setAttribute('cy',p[1]);c.setAttribute('r',9);c.setAttribute('fill',p[2]>0?'var(--hit)':'var(--a)');c.setAttribute('stroke-width','3');svg.appendChild(c);cs.push(c);});svg.appendChild(line);
+     function f(p){return w[0]*(p[0]-300)/300+w[1]*(p[1]-180)/180+w[2];}
+     function wrong(){return pts.filter(function(p){return f(p)*p[2]<=0;});}
+     var r=row(),st=el('span','align-self:center;color:var(--muted)');
+     function d(){var x0=0,x1=600,Y=function(x){return Math.abs(w[1])<1e-6?-999:180-180*(w[0]*(x-300)/300+w[2])/w[1];};line.setAttribute('x1',x0);line.setAttribute('y1',Y(x0));line.setAttribute('x2',x1);line.setAttribute('y2',Y(x1));
+       var bad=wrong();pts.forEach(function(p,i){cs[i].setAttribute('stroke',bad.indexOf(p)>-1?'var(--ink)':'none');});st.textContent='改咗 '+n+' 次，'+(bad.length?'仲錯 '+bad.length+' 粒（圈住嗰啲）':'全部分啱晒');}
+     function step(){var bad=wrong();if(!bad.length)return false;var p=bad[n%bad.length];w[0]+=0.25*p[2]*(p[0]-300)/300;w[1]+=0.25*p[2]*(p[1]-180)/180;w[2]+=0.25*p[2];n++;return true;}
+     function reset(){w=[0.15,1,-0.95];n=0;d();}
+     r.appendChild(btn('學一步',function(){step();d();}));r.appendChild(btn('學到冇錯',function(){var k=0;while(step()&&k++<500);d();}));r.appendChild(btn('重新',reset));r.appendChild(st);box.appendChild(svg);box.appendChild(r);reset();}],
+   ['神經網絡','一層疊一層嘅神經網絡','將好多個上一步嗰種「調數字」單位疊成好多層。每條連線就係一個數字，叫參數。GPU 專門同一時間做大量乘同加。','由：學習（第 7 步）× 好多層 + GPU',function(box){var Lr=12,W=768,o1=el('p'),o2=el('p'),nt=txt();o1.className='out';o2.className='out';
+     function fmt(x){return x>=1e8?(x/1e8).toFixed(x>=1e10?0:1)+' 億':Math.round(x/1e4)+' 萬';}
+     function d(){A.out.textContent=Lr;B.out.textContent=W;var pm=12*W*W*Lr;o1.textContent='參數（要調嘅數字）：'+fmt(pm);o2.textContent='估一個字要做嘅乘同加：'+fmt(pm*2)+' 次';}
+     var A=slider('層數',1,128,Lr,1,function(v){Lr=v;d();}),B=slider('每層闊度',64,16384,W,64,function(v){W=v;d();}),r=row();
+     r.appendChild(btn('跳去 GPT-3（2020）',function(){Lr=96;W=12288;A.input.value=96;B.input.value=12288;d();}));box.appendChild(A);box.appendChild(B);box.appendChild(r);box.appendChild(o1);box.appendChild(o2);nt.textContent='粗算：每層大約 12 × 闊度² 個參數。人腦大約有 100 萬億條神經連結，用嚟比較，唔係話一樣。';box.appendChild(nt);d();}],
+   ['語言模型','大語言模型：估下一個字','讀晒網上同書入面幾萬億個字，只學一件事：估下一個字。要估得準，就要學識文法、事實，甚至少少推理。之後再用人嘅回饋教佢點樣傾偈。','由：神經網絡 + Transformer（2017）+ 海量文字 + 人類回饋',function(box){var start='我今日好開心，',T={'，':[['想',35],['因為',30],['但係',20],['所以',15]],'想':[['去',40],['食',30],['同你',20],['瞓覺',10]],'因為':[['天氣好',40],['放假',30],['賺咗錢',20],['見到你',10]],'但係':[['好攰',40],['冇錢',30],['要返工',20],['肚餓',10]],'所以':[['請你',35],['想',30],['唱歌',20],['早啲瞓',15]],'去':[['行山',40],['飲茶',30],['海邊',20],['旅行',10]],'食':[['點心',40],['雪糕',30],['火鍋',20],['燒鵝',10]],'同你':[['講',40],['飲茶',35],['慶祝',25]],'請你':[['食飯',50],['飲茶',30],['睇戲',20]],'講':[['聲',60],['個秘密',40]]},
+       cur,last,temp=1,head=el('p'),bars=el('div','display:grid;gap:8px'),r=row(),nt=txt();head.className='out';
+     function probs(){var c=T[last];if(!c)return null;var a=c.map(function(k){return Math.pow(k[1],1/Math.max(temp,0.05));}),s=a.reduce(function(x,y){return x+y},0);return c.map(function(k,i){return [k[0],a[i]/s];});}
+     function d(){head.textContent=cur+' ▌';bars.innerHTML='';var pr=probs();if(!pr){bars.appendChild(el('p','color:var(--muted)','。（玩具模型去到盡頭。真嘅模型會一路估落去。撳「重新」。）'));return;}
+       pr.forEach(function(k){var line=el('div','display:grid;grid-template-columns:90px 1fr 54px;gap:12px;align-items:center');var m=el('div');m.className='meter';var ii=el('i','background:var(--d);width:'+(k[1]*100).toFixed(0)+'%');m.appendChild(ii);line.appendChild(el('span','',k[0]));line.appendChild(m);line.appendChild(el('b','font-family:ui-monospace,monospace;text-align:right',(k[1]*100).toFixed(0)+'%'));bars.appendChild(line);});}
+     function add(w){cur+=w;last=w;d();}
+     var S=slider('隨機度',0.1,2,1,0.1,function(v,o){temp=v;o.textContent=v.toFixed(1);d();});S.out.textContent='1.0';
+     r.appendChild(btn('抽下一個字',function(){var pr=probs();if(!pr)return;var x=Math.random(),acc=0;for(var i=0;i<pr.length;i++){acc+=pr[i][1];if(x<=acc){add(pr[i][0]);return;}}add(pr[pr.length-1][0]);}));
+     r.appendChild(btn('揀最高',function(){var pr=probs();if(!pr)return;pr.sort(function(a,b){return b[1]-a[1]});add(pr[0][0]);}));
+     r.appendChild(btn('重新',function(){cur=start;last='，';d();}));
+     nt.textContent='機率係示意用嘅玩具數字。真嘅模型每一步要喺十幾萬個字詞入面揀。隨機度低 = 次次揀最穩陣嗰個；高 = 多啲驚喜，亦多啲亂嚟。';
+     box.appendChild(head);box.appendChild(S);box.appendChild(bars);box.appendChild(r);box.appendChild(nt);cur=start;last='，';d();}]
+  ];
+  var tabs=$('lay-tabs'),cur=0;
+  L.forEach(function(l,i){tabs.appendChild(btn((i+1)+' '+l[0],function(){go(i);}));});
+  function go(i){cur=i;tabs.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false')});
+    $('lay-h').textContent=(i+1)+'. '+L[i][1];$('lay-d').textContent=L[i][2];$('lay-from').textContent=L[i][3];var box=$('lay-demo');box.innerHTML='';L[i][4](box);
+    $('lay-prev').disabled=i===0;$('lay-next').disabled=i===L.length-1;}
+  $('lay-prev').addEventListener('click',function(){if(cur>0)go(cur-1);});$('lay-next').addEventListener('click',function(){if(cur<L.length-1)go(cur+1);});
+  go(0);
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

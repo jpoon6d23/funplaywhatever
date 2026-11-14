@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>道：唔好夾硬嚟</title>
+<meta name="description" content="道家同道教：老子、莊子，點樣由一本五千字嘅書變成一個宗教，點樣分裂；同埋《道德經》入面九句最深刻嘅說話。">
+<meta property="og:title" content="道：唔好夾硬嚟">
+<meta property="og:description" content="道家同道教：老子、莊子，點樣由一本五千字嘅書變成一個宗教，點樣分裂；同埋《道德經》入面九句最深刻嘅說話。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/daoist.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/daoist.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="道：唔好夾硬嚟">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/daoist.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#5fc4b4;--b:#e8707e;--hit:#e8b04a;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一條水流遇到一嚿石，冇撞上去，兜過佢繼續流。">
+    <circle cx="120" cy="105" r="30" class="f-surface2 s-muted" stroke-width="2"/>
+    <text x="120" y="110" text-anchor="middle" class="t-muted" font-size="13">石</text>
+    <path d="M10,80 C60,80 70,50 120,56 S190,80 232,76" class="f-none s-a flow" stroke-width="3"/>
+    <path d="M10,105 C50,105 70,150 120,154 S190,128 232,130" class="f-none s-a flow" stroke-width="3"/>
+    <path d="M10,130 C50,134 60,180 120,182 S190,160 232,160" class="f-none s-a flow" stroke-width="3" opacity=".6"/>
+    <text x="120" y="204" text-anchor="middle" class="t-muted" font-size="13">水唔撞石，水兜過去</text>
+  </svg>
+  <div>
+    <h1>道：唔好夾硬嚟</h1>
+    <p class="said">Act with truth。道 = natural laws，冇名。德 = 跟住 natural laws 去做。無為 = non-forcing。</p>
+    <p class="lede">一本五千字嘅書，二千幾年。先係哲學，後來變咗宗教。下面係佢點嚟、點變、點分，同埋《道德經》入面我最深刻嘅九句。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">先分清</div>
+    <h2>道家同道教，係兩樣嘢</h2>
+    <div class="grid2">
+      <div class="mini" style="--k:var(--a)"><div class="k">道家 · 哲學</div><h3>老子、莊子</h3><p>戰國時代嘅一套諗法：點樣睇世界，點樣做人，點樣管國家。冇神，冇廟，冇儀式。</p></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">道教 · 宗教</div><h3>張道陵之後</h3><p>東漢先出現。有神、有道士、有符、有煉丹、想長生。老子變咗做神：太上老君。</p></div>
+    </div>
+    <p class="note">老子講「死而不亡者壽」，冇叫人煉丹。道教借咗老子個名同本書，加咗好多老子冇講過嘅嘢。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">人物</div>
+    <h2>邊個重要</h2>
+    <p class="intro">撳一個名。</p>
+    <div class="tool">
+      <div class="seg" role="group" aria-label="揀人物" id="ppl"></div>
+      <div class="k" id="ppl-w" style="color:var(--muted);margin-top:14px"></div>
+      <h3 id="ppl-h" style="font-size:22px"></h3>
+      <p id="ppl-d"></p>
+      <p class="out" id="ppl-o"></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">演變</div>
+    <h2>由一本書，到一個宗教</h2>
+    <div class="steps">
+      <div class="step"><h3>戰國 · 哲學</h3><p>《老子》同《莊子》成書。諸子百家其中一家。</p></div>
+      <div class="step"><h3>西漢初 · 治國</h3><p>黃老之術：無為而治，少啲管，俾人休養。文景之治。漢武帝之後，儒家做咗官方，道家退場。</p></div>
+      <div class="step"><h3>東漢 142 年 · 變宗教</h3><p>張道陵喺四川創天師道（五斗米道）。184 年，太平道嘅張角搞黃巾起義。</p></div>
+      <div class="step"><h3>魏晉 · 兩條路</h3><p>讀書人行玄學：王弼注《老子》，郭象注《莊子》。另一邊，葛洪寫《抱朴子》講煉丹成仙。</p></div>
+      <div class="step"><h3>南北朝 · 同佛教鬥</h3><p>上清派、靈寶派出現，抄咗好多佛教嘅制度同經典格式。北魏寇謙之令道教做過國教。陸修靜整理經書。</p></div>
+      <div class="step"><h3>唐 · 最風光</h3><p>皇帝姓李，認老子做祖先。《道德經》入科舉。幾個皇帝食丹藥中毒死。煉丹嘅副產品：火藥。</p></div>
+      <div class="step"><h3>宋金元 · 向內</h3><p>外丹食死人，轉做內丹：喺身體入面煉。王重陽創全真道，徒弟丘處機去見成吉思汗。</p></div>
+      <div class="step"><h3>明至今</h3><p>1445 年編成《正統道藏》。之後剩低兩大派：正一同全真。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 300" role="img" aria-label="分裂圖：道家分出玄學同道教。道教喺煉丹上面由外丹轉內丹，喺門派上面分成正一同全真。">
+        <rect x="20" y="120" width="130" height="60" rx="12" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="85" y="146" text-anchor="middle" class="t-a" font-size="16" font-weight="700">道家</text>
+        <text x="85" y="166" text-anchor="middle" class="t-muted" font-size="12.5">老子、莊子</text>
+        <path d="M152,136 C190,110 200,60 236,56" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M152,164 C190,190 200,236 236,240" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="240" y="26" width="150" height="60" rx="12" class="f-surface2 s-c" stroke-width="2"/>
+        <text x="315" y="52" text-anchor="middle" class="t-c" font-size="15" font-weight="700">玄學</text>
+        <text x="315" y="72" text-anchor="middle" class="t-muted" font-size="12.5">留喺哲學：王弼、郭象</text>
+        <rect x="240" y="210" width="150" height="60" rx="12" class="f-d-soft s-d" stroke-width="2"/>
+        <text x="315" y="236" text-anchor="middle" class="t-d" font-size="15" font-weight="700">道教</text>
+        <text x="315" y="256" text-anchor="middle" class="t-muted" font-size="12.5">142 年，張道陵</text>
+        <path d="M392,226 C430,200 440,160 476,156" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M392,254 C430,262 440,268 476,268" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="480" y="126" width="220" height="60" rx="12" class="f-hit-soft s-hit" stroke-width="2"/>
+        <text x="590" y="152" text-anchor="middle" class="t-hit" font-size="15" font-weight="700">正一</text>
+        <text x="590" y="172" text-anchor="middle" class="t" font-size="12.5">可以結婚，做法事，畫符</text>
+        <rect x="480" y="226" width="220" height="60" rx="12" class="f-a-soft s-a" stroke-width="2"/>
+        <text x="590" y="252" text-anchor="middle" class="t-a" font-size="15" font-weight="700">全真</text>
+        <text x="590" y="272" text-anchor="middle" class="t" font-size="12.5">出家，食齋，打坐煉內丹</text>
+        <text x="590" y="60" text-anchor="middle" class="t-muted" font-size="13">另一條裂縫：外丹（食金丹）</text>
+        <text x="590" y="82" text-anchor="middle" class="t-muted" font-size="13">→ 內丹（喺身體入面煉）</text>
+      </svg>
+      <figcaption>最大嘅一次分裂唔係派同派之間，係哲學同宗教之間。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 1 章</div>
+    <h2>道可道，非常道；名可名，非常名</h2>
+    <p class="intro">基本上就係維根斯坦嗰個論點：語言唔係實相。講得出嘅道，已經唔係嗰個道。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 170" role="img" aria-label="左邊一個方格入面寫住個水字，右邊係真嘅水波，中間一個不等號。">
+        <rect x="120" y="30" width="150" height="100" rx="12" class="f-surface2 s-muted" stroke-width="2"/>
+        <text x="195" y="94" text-anchor="middle" class="t" font-size="44" font-weight="700">水</text>
+        <text x="195" y="156" text-anchor="middle" class="t-muted" font-size="13">個名</text>
+        <text x="360" y="96" text-anchor="middle" class="t-b" font-size="40" font-weight="700">≠</text>
+        <path d="M450,60 C480,40 510,80 540,60 S600,40 630,60" class="f-none s-a flow" stroke-width="3"/>
+        <path d="M450,85 C480,65 510,105 540,85 S600,65 630,85" class="f-none s-a flow" stroke-width="3"/>
+        <path d="M450,110 C480,90 510,130 540,110 S600,90 630,110" class="f-none s-a flow" stroke-width="3"/>
+        <text x="540" y="156" text-anchor="middle" class="t-muted" font-size="13">嗰樣嘢</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 7 章</div>
+    <h2>天長地久：以其不自生，故能長生</h2>
+    <p class="intro">No force → ease → sustainable。你輕鬆，先至能夠 keep 住做。同 compounding 一樣：人哋當係做嘢，你當係玩嘢，久而久之你咪贏人。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 8 章</div>
+    <h2>上善若水。水善利萬物而不爭</h2>
+    <p class="intro">水賜予生命，但佢冇嘢要問你攞。同 contract 係一個強烈嘅對比：你聽我話，我就俾嘢你。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 220" role="img" aria-label="左邊：水，單向俾萬物，冇回頭箭嘴。右邊：契約，神同人之間有兩條箭嘴，你聽話，我俾嘢。">
+        <text x="180" y="24" text-anchor="middle" class="t-a" font-size="15" font-weight="700">水</text>
+        <path d="M180,40 C160,70 150,84 150,100 A30,30 0 0 0 210,100 C210,84 200,70 180,40Z" class="f-a-soft s-a" stroke-width="2"/>
+        <path d="M150,136 L100,176" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <path d="M180,140 V176" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <path d="M210,136 L260,176" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <text x="90" y="200" text-anchor="middle" class="t" font-size="13">草</text><text x="180" y="200" text-anchor="middle" class="t" font-size="13">人</text><text x="270" y="200" text-anchor="middle" class="t" font-size="13">魚</text>
+        <text x="300" y="100" class="t-muted" font-size="13">冇回頭箭嘴</text>
+        <line x1="400" y1="20" x2="400" y2="205" class="s-rule" stroke-width="1.5"/>
+        <text x="560" y="24" text-anchor="middle" class="t-d" font-size="15" font-weight="700">Contract</text>
+        <rect x="500" y="44" width="120" height="44" rx="10" class="f-d-soft s-d" stroke-width="2"/><text x="560" y="72" text-anchor="middle" class="t" font-size="15" font-weight="700">神</text>
+        <rect x="500" y="160" width="120" height="44" rx="10" class="f-surface2 s-muted" stroke-width="2"/><text x="560" y="188" text-anchor="middle" class="t" font-size="15" font-weight="700">人</text>
+        <path d="M540,158 V94" class="f-none s-muted" stroke-width="2.5" marker-end="url(#ah)"/>
+        <path d="M580,90 V154" class="f-none s-d" stroke-width="2.5" marker-end="url(#ah-d)"/>
+        <text x="528" y="130" text-anchor="end" class="t-muted" font-size="13">聽話</text>
+        <text x="592" y="130" class="t-d" font-size="13">俾嘢</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 9 章</div>
+    <h2>持而盈之，不如其已</h2>
+    <p class="intro">Balance。More &lt;&gt; better。拉條 bar 斟水。</p>
+    <div class="tool">
+      <label for="cup">斟幾多：<b id="cup-v"></b></label>
+      <input type="range" id="cup" min="0" max="100" value="35">
+      <svg viewBox="0 0 720 230" style="width:100%;height:auto" role="img" aria-label="左邊一個杯，水位跟住條 bar 升。右邊一條先升後跌嘅曲線：斟得越多，唔代表越好。">
+        <path d="M70,40 L84,200 H176 L190,40" class="f-none s-ink" stroke-width="3"/>
+        <rect id="cup-w" x="84" y="200" width="92" height="0" class="f-a" opacity=".7"/>
+        <g id="cup-s" style="display:none" class="f-a"><circle cx="60" cy="120" r="5"/><circle cx="52" cy="160" r="4"/><circle cx="202" cy="130" r="5"/><circle cx="210" cy="170" r="4"/></g>
+        <line x1="290" y1="195" x2="690" y2="195" class="s-rule" stroke-width="1.5"/>
+        <path d="M290,195 Q490,-115 690,195" class="f-none s-hit" stroke-width="3"/>
+        <circle id="cup-d" cx="290" cy="195" r="8" class="f-b"/>
+        <text x="290" y="218" class="t-muted" font-size="13">少</text><text x="690" y="218" text-anchor="end" class="t-muted" font-size="13">多</text>
+        <text x="490" y="24" text-anchor="middle" class="t-hit" font-size="13.5" font-weight="700">好處</text>
+      </svg>
+      <p class="out" id="cup-o"></p>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 190" role="img" aria-label="一條中線，一條曲線衝得太高會被拉返落嚟，跌得太低會被拉返上去。">
+        <line x1="40" y1="95" x2="680" y2="95" class="s-muted" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <path d="M40,95 C120,-20 200,-20 280,95 S440,210 520,95 S640,30 680,60" class="f-none s-a" stroke-width="3"/>
+        <path d="M160,22 V70" class="f-none s-b" stroke-width="2.5" marker-end="url(#ah-b)"/>
+        <path d="M400,168 V120" class="f-none s-b" stroke-width="2.5" marker-end="url(#ah-b)"/>
+        <text x="290" y="40" class="t-b" font-size="13" font-weight="700">去到盡，就返轉頭</text>
+        <text x="536" y="166" class="t-b" font-size="13" font-weight="700">跌到盡，又返上嚟</text>
+        <text x="676" y="116" text-anchor="end" class="t-muted" font-size="13">中</text>
+      </svg>
+      <figcaption>Mean reversion。老子嘅原話喺第 40 章：「反者道之動」。第 77 章：「天之道，損有餘而補不足」。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 17 章</div>
+    <h2>太上，下知有之</h2>
+    <p class="intro">最好嘅領導者就好似唔喺度咁。你製造個環境，下面嘅人自動跌入你嘅價值觀。假設你嘅價值觀係正確，人哋睇到就自然會埋嚟，唔使一日到黑嘈喧巴閉講一大堆嘢。人哋跟嘅係好處，好處喺真理嗰度嚟。作為父母，呢句對我係好好嘅啟發。</p>
+    <div class="grid2">
+      <div class="mini" style="--k:var(--a)"><div class="k">最好</div><h3>下知有之</h3><p>下面嘅人淨係知有佢。事成之後，人人都話：係我哋自己做嘅。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">其次</div><h3>親而譽之</h3><p>人人鍾意佢、讚佢。</p></div>
+      <div class="mini" style="--k:var(--hit)"><div class="k">再其次</div><h3>畏之</h3><p>人人驚佢。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">最差</div><h3>侮之</h3><p>人人睇佢唔起。</p></div>
+    </div>
+    <p class="note">原文結尾：<b>功成事遂，百姓皆謂：我自然。</b></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 27 章</div>
+    <h2>善人者，不善人之師；不善人者，善人之資</h2>
+    <p class="intro">聰明人同蠢人其實係互相利用。你睇自己，得一個 input。你見到多啲人做錯，你就 potential 學到多啲，因為人係從錯誤中學習。蠢人又可以喺聰明人度學：follow the leaders，有人做得好過我，係咪應該抄下？去到最尾，邊個叻邊個蠢，其實講唔清。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 200" role="img" aria-label="兩個方格：識嘅人同唔識嘅人。上面箭嘴：示範，俾你抄。下面箭嘴：錯誤，俾你睇。">
+        <rect x="60" y="70" width="180" height="60" rx="12" class="f-a-soft s-a" stroke-width="2"/><text x="150" y="106" text-anchor="middle" class="t" font-size="16" font-weight="700">識嘅人</text>
+        <rect x="480" y="70" width="180" height="60" rx="12" class="f-hit-soft s-hit" stroke-width="2"/><text x="570" y="106" text-anchor="middle" class="t" font-size="16" font-weight="700">唔識嘅人</text>
+        <path d="M246,78 C320,30 400,30 474,78" class="f-none s-a flow" stroke-width="2.5" marker-end="url(#ah-a)"/>
+        <path d="M474,122 C400,170 320,170 246,122" class="f-none s-hit flow" stroke-width="2.5" marker-end="url(#ah-hit)"/>
+        <text x="360" y="30" text-anchor="middle" class="t-a" font-size="14" font-weight="700">師：示範，俾你抄</text>
+        <text x="360" y="184" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">資：錯誤，俾你睇</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 48 章</div>
+    <h2>為道日損。損之又損，以至於無為</h2>
+    <p class="intro">你識嘢，就會越做越少嘢，因為你做嘅嘢 leverage 更大。你甚至意識到人需要嘅嘢真係好少。Leverage 咁大，基本上就越嚟越得閒。</p>
+    <div class="tool">
+      <label for="sun">你識幾多：<b id="sun-v"></b></label>
+      <input type="range" id="sun" min="0" max="100" value="20">
+      <svg viewBox="0 0 720 190" style="width:100%;height:auto" role="img" aria-label="三條橫 bar：做幾多嘢越嚟越短，每樣嘢嘅 leverage 越嚟越長，結果冇縮。">
+        <g font-size="14" font-weight="700" class="t"><text x="20" y="48">做幾多嘢</text><text x="20" y="100">Leverage</text><text x="20" y="152">結果</text></g>
+        <g class="f-surface2"><rect x="130" y="30" width="560" height="26" rx="6"/><rect x="130" y="82" width="560" height="26" rx="6"/><rect x="130" y="134" width="560" height="26" rx="6"/></g>
+        <rect id="sun-a" x="130" y="30" width="0" height="26" rx="6" class="f-b"/>
+        <rect id="sun-b" x="130" y="82" width="0" height="26" rx="6" class="f-a"/>
+        <rect id="sun-c" x="130" y="134" width="0" height="26" rx="6" class="f-hit"/>
+      </svg>
+      <p class="out" id="sun-o"></p>
+    </div>
+    <p class="note">同一章嘅上半句：<b>為學日益</b>。學嘢係日日加，行道係日日減。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 54 章</div>
+    <h2>修之於身，其德乃真</h2>
+    <p class="intro">改變由自己開始，再到外面。自己都搞唔掂，搞笑咩。學急救第一句：現場環境安全。你自己都唔安全，做埋第二個傷者，就真係搞笑。首先照顧自己，有能力再照顧其他人。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 340" role="img" aria-label="五個同心圓，由入到出：身、家、鄉、國、天下。">
+        <circle cx="360" cy="175" r="155" class="f-a-soft s-a" stroke-width="1.5" fill-opacity=".05"/>
+        <circle cx="360" cy="175" r="124" class="f-a-soft s-a" stroke-width="1.5" fill-opacity=".08"/>
+        <circle cx="360" cy="175" r="93" class="f-a-soft s-a" stroke-width="1.5" fill-opacity=".12"/>
+        <circle cx="360" cy="175" r="62" class="f-a-soft s-a" stroke-width="1.5" fill-opacity=".2"/>
+        <circle cx="360" cy="175" r="31" class="f-a pulse" opacity=".5"/><circle cx="360" cy="175" r="29" class="f-a"/>
+        <text x="360" y="181" text-anchor="middle" class="t-bg" font-size="17" font-weight="700">身</text>
+        <g text-anchor="middle" class="t" font-size="14" font-weight="700"><text x="360" y="134">家</text><text x="360" y="103">鄉</text><text x="360" y="72">國</text><text x="360" y="41">天下</text></g>
+        <g class="t-muted" font-size="13"><text x="540" y="120">身 → 真</text><text x="540" y="142">家 → 餘</text><text x="540" y="164">鄉 → 長</text><text x="540" y="186">國 → 豐</text><text x="540" y="208">天下 → 普</text></g>
+      </svg>
+      <figcaption>入面嗰圈未掂，出面嗰圈唔使諗。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">第 67 章</div>
+    <h2>我有三寶</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--a)"><div class="k">一曰慈</div><h3>Kind</h3><p>友善。</p></div>
+      <div class="mini" style="--k:var(--hit)"><div class="k">二曰儉</div><h3>Frugal</h3><p>使嘅少過你賺嘅。幾大個頭就戴幾大頂帽，你就輕鬆。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">三曰不敢為天下先</div><h3>Quit competition</h3><p>唔好妒忌，唔好去爭，咁就輕鬆。</p></div>
+    </div>
+    <p class="intro mt">好耐之前聽過一個故事（同《道德經》冇關）。有個和尚出去化緣，每次返到廟都乜都冇。有人跟住佢睇：原來佢化完之後行去第二度，將得到嘅嘢送晒俾人。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 190" role="img" aria-label="和尚化緣得到嘢，送晒俾人，返到廟乜都冇。旁人只睇到最後一格。">
+        <rect x="30" y="60" width="180" height="60" rx="12" class="f-a-soft s-a" stroke-width="2"/><text x="120" y="86" text-anchor="middle" class="t" font-size="15" font-weight="700">化緣</text><text x="120" y="106" text-anchor="middle" class="t-a" font-size="13">攞到</text>
+        <rect x="270" y="60" width="180" height="60" rx="12" class="f-hit-soft s-hit" stroke-width="2"/><text x="360" y="86" text-anchor="middle" class="t" font-size="15" font-weight="700">送晒俾人</text><text x="360" y="106" text-anchor="middle" class="t-hit" font-size="13">俾出去</text>
+        <rect x="510" y="60" width="180" height="60" rx="12" class="f-surface2 s-muted" stroke-width="2" stroke-dasharray="5 5"/><text x="600" y="86" text-anchor="middle" class="t" font-size="15" font-weight="700">返到廟</text><text x="600" y="106" text-anchor="middle" class="t-muted" font-size="13">乜都冇</text>
+        <path d="M214,90 H264" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/><path d="M454,90 H504" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M600,26 V52" class="f-none s-b" stroke-width="2" marker-end="url(#ah-b)"/>
+        <text x="600" y="18" text-anchor="middle" class="t-b" font-size="13" font-weight="700">人淨係睇到呢格</text>
+        <text x="240" y="162" text-anchor="middle" class="t-muted" font-size="13">佢做咗嘅嘢喺呢兩格</text>
+        <path d="M120,146 V126" class="f-none s-muted" stroke-width="1.5"/><path d="M360,146 V126" class="f-none s-muted" stroke-width="1.5"/><path d="M120,146 H360" class="f-none s-muted" stroke-width="1.5"/>
+      </svg>
+      <figcaption>人生都係咁。攞到幾多都好，最尾死乜都帶唔走。人淨係睇結果，覺得佢冇價值、乜都冇做到。但事實上佢做咗嘢：give and take。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">補充</div>
+    <h2>仲有幾個 core idea</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--a)"><div class="k">老子 · 25 章</div><h3>道法自然</h3><p>自然 = 自己如此，唔係指大自然。冇人推，佢自己係咁。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">老子 · 78 章</div><h3>柔弱勝剛強</h3><p>天下最軟係水，但攻堅嘅嘢冇樣贏到佢。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">老子 · 44 章</div><h3>知足不辱，知止不殆</h3><p>知道夠，知道停。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">莊子 · 人間世</div><h3>無用之用</h3><p>棵樹因為冇用，冇人斬，先至生到咁大。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">莊子 · 養生主</div><h3>庖丁解牛</h3><p>把刀用咗十九年仲係新，因為佢順住骨縫落刀，從來唔劈骨。無為嘅最好示範。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">莊子 · 齊物論</div><h3>齊物、蝴蝶夢</h3><p>大細、是非、生死，都係企喺邊度睇嘅問題。我發夢做蝴蝶，定係蝴蝶發夢做我？</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「無為，咪即係躺平？」</p>
+        <div><div class="tag">回應</div><p>無為係唔夾硬嚟，唔係唔做。庖丁日日劏牛，佢只係唔劈骨。原文：無為而無不為。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>「順住嚟」同「懶」喺外面睇一模一樣。分得出嘅只有你自己，而人最叻就係呃自己。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「講唔出嘅嘢，佢寫咗五千字？」</p>
+        <div><div class="tag">回應</div><p>啲字係手指，唔係月光。指完你要自己望。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>一句「講唔出」可以擋晒所有質疑。講唔出嘅嘢，都驗證唔到。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「老子同知識進步夾唔夾？」</p>
+        <div><div class="tag">回應</div><p>損嘅係多餘嘅動作同慾望，唔係損知識。識多咗先做少咗。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>老子自己唔係咁講。第 19 章：絕聖棄智。第 80 章：小國寡民，有工具都唔用，返去結繩記事。佢想嘅係返轉頭，唔係向前。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「最好嘅領導者好似唔喺度？」</p>
+        <div><div class="tag">回應</div><p>整好個環境，好處自己會講嘢。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>「讓人自動跌入你嘅價值觀」係設計，仲係有為，只係睇唔到隻手。而成件事靠一個「假設你啱」。錯嘅價值觀用同一招，一樣得。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>水冇計劃，但佢去到海。<em>唔好夾硬嚟</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">延伸</div>
+    <ol>
+      <li>《老子》（道德經）通行本，王弼注；1973 年馬王堆帛書本；1993 年郭店楚簡本。</li>
+      <li>《莊子》：逍遙遊、齊物論、養生主、人間世。</li>
+      <li>Wittgenstein (1921), Tractatus Logico-Philosophicus，第 7 句。</li>
+      <li>年份同人物係通行講法，未逐項查證。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var P=[['老子','傳說公元前 6 世紀','寫《道德經》，五千字','姓李名耳，周朝管書嘅官。傳說佢出關之前，守關嘅人叫佢留低啲嘢，佢就寫咗呢本書。','有冇呢個人，學者到而家都未有定論。本書更似係幾代人編成，最早嘅竹簡本大約公元前 300 年。'],
+         ['莊子','約公元前 369–286 年','將道變成故事','莊周。楚王請佢做宰相，佢話寧願做隻喺泥度拖住條尾嘅龜。老子講治國，莊子講個人自由。','《莊子》得內七篇多數認為係佢自己寫，其餘係後人加。'],
+         ['黃老','西漢初','將無為用嚟管國家','借黃帝同老子個名。打完仗，政府少啲管、少啲收稅，俾人休養。','漢武帝獨尊儒術之後退場。'],
+         ['張道陵','東漢，142 年','將哲學變成宗教','喺四川創天師道。入教交五斗米，所以又叫五斗米道。有組織、有儀式、醫病、畫符。','老子喺呢度變咗做神。天師呢個位一代傳一代，傳到而家。'],
+         ['王弼','226–249 年','寫咗最通行嘅《老子》注','二十三歲就死。我哋今日讀嘅《道德經》版本，就係佢注嗰本。玄學代表。','佢行嘅係哲學嗰條路，同道士冇關。'],
+         ['葛洪','約 283–343 年','煉丹','寫《抱朴子》，講點樣煉金丹成仙。順手記低咗好多化學同醫藥。','外丹之後食死咗唔少人，包括皇帝。'],
+         ['寇謙之 · 陸修靜','5 世紀','改革、整理','北邊寇謙之清理天師道，令北魏立道教做國教。南邊陸修靜將經書分類，定咗儀式。','呢段時間道教大量借用佛教嘅制度。'],
+         ['王重陽 · 丘處機','12–13 世紀','創全真道','王重陽主張儒、釋、道三教合一，道士要出家。徒弟丘處機七十幾歲行去中亞見成吉思汗。','全真喺元朝初年最盛。北京白雲觀係佢哋嘅祖庭。']],box=document.getElementById('ppl');
+  P.forEach(function(p,i){var b=document.createElement('button');b.type='button';b.textContent=p[0];b.addEventListener('click',function(){pick(i)});box.appendChild(b);});
+  function pick(i){box.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false')});var p=P[i];document.getElementById('ppl-w').textContent=p[1];document.getElementById('ppl-h').textContent=p[0]+'：'+p[2];document.getElementById('ppl-d').textContent=p[3];document.getElementById('ppl-o').textContent=p[4];}
+  pick(0);
+})();
+(function(){
+  var s=document.getElementById('cup');
+  function d(){var v=+s.value,t=v/100,h=Math.min(v,90)/90*160;document.getElementById('cup-v').textContent=v+'%';var w=document.getElementById('cup-w');w.setAttribute('y',200-h);w.setAttribute('height',h);document.getElementById('cup-s').style.display=v>90?'':'none';
+    var dot=document.getElementById('cup-d');dot.setAttribute('cx',290+400*t);dot.setAttribute('cy',195-155*4*t*(1-t));
+    document.getElementById('cup-o').textContent=v<35?'未夠。加多啲有用。':v<=65?'啱啱好。再加，好處開始跌。':v<=90?'多咗。多 ≠ 好。':'瀉晒。持而盈之，不如其已。';}
+  s.addEventListener('input',d);d();
+})();
+(function(){
+  var s=document.getElementById('sun');
+  function d(){var k=+s.value,a=1-0.8*k/100,b=0.15+0.85*k/100,c=Math.min(1,a*(1+6*k/100)/2.2);document.getElementById('sun-v').textContent=k+'%';document.getElementById('sun-a').setAttribute('width',560*a);document.getElementById('sun-b').setAttribute('width',560*b);document.getElementById('sun-c').setAttribute('width',560*c);
+    document.getElementById('sun-o').textContent=k<30?'唔識：乜都做，樣樣都細。':k<70?'識多咗：做少咗，每樣大咗。':'損之又損：做好少嘢，結果冇少到。越嚟越得閒。';}
+  s.addEventListener('input',d);d();
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

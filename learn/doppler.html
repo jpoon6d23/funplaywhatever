@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Doppler effect：波冇變，係你同佢之間變咗</title>
+<meta name="description" content="消防車、自動門、蝙蝠、快相機、星系紅移，全部係同一樣嘢：波源同你之間有相對移動，你每秒收到嘅波就多咗或者少咗。">
+<meta property="og:title" content="Doppler effect：波冇變，係你同佢之間變咗">
+<meta property="og:description" content="消防車、自動門、蝙蝠、快相機、星系紅移，全部係同一樣嘢：波源同你之間有相對移動，你每秒收到嘅波就多咗或者少咗。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/doppler.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/doppler.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Doppler effect：波冇變，係你同佢之間變咗">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/doppler.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#7fb2ff;--b:#e8707e;--hit:#e8b04a;--c:#5fc4b4;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一個向右行嘅波源，前面嘅波逼埋一齊，後面嘅波拉開。">
+    <g class="f-none" stroke-width="2">
+      <circle cx="150" cy="100" r="14" class="s-hit"/>
+      <circle cx="136" cy="100" r="34" class="s-hit" opacity=".85"/>
+      <circle cx="122" cy="100" r="54" class="s-hit" opacity=".7"/>
+      <circle cx="108" cy="100" r="74" class="s-hit" opacity=".5"/>
+      <circle cx="94" cy="100" r="94" class="s-hit" opacity=".3"/>
+    </g>
+    <circle cx="158" cy="100" r="6" class="f-ink"/>
+    <path d="M168,100 H196" class="f-none s-ink" stroke-width="2.5" marker-end="url(#ah)"/>
+    <text x="214" y="70" text-anchor="middle" class="t-a" font-size="13" font-weight="700">逼</text>
+    <text x="22" y="70" text-anchor="middle" class="t-b" font-size="13" font-weight="700">疏</text>
+  </svg>
+  <div>
+    <h1>Doppler effect：波冇變，係你同佢之間變咗</h1>
+    <p class="said">行近波源 → 波長短咗 → frequency 高咗 → pitch 高咗，blue shift。行遠 → 波長長咗 → frequency 低咗 → pitch 低咗，red shift。</p>
+    <p class="lede">消防車、自動門、蝙蝠、快相機，全部都係同一樣嘢。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">本質</div>
+    <h2>每個波喺唔同嘅位置放出嚟</h2>
+    <p class="intro">波源每隔一陣放一個圈出嚟，個圈以固定速度向外擴。波源自己郁嘅話，下一個圈就喺前少少嘅位置放。結果：前面啲圈逼埋，後面啲圈拉開。拉條 bar 改波源速度。</p>
+    <div class="tool">
+      <label for="dv">波源速度：<b id="dv-v"></b></label>
+      <input type="range" id="dv" min="0" max="130" value="40">
+      <canvas id="dc" width="1440" height="560" style="width:100%;height:auto;display:block;border-radius:12px" role="img" aria-label="動畫：一粒向右行嘅波源不斷放出圓形嘅波。前面嘅波逼埋一齊，後面嘅波拉開。"></canvas>
+      <div class="grid2 mt">
+        <div class="mini" style="--k:var(--b)"><div class="k">企喺後面聽</div><h3 id="d-back"></h3><p>波疏咗，每秒收少咗。低音。</p></div>
+        <div class="mini" style="--k:var(--a)"><div class="k">企喺前面聽</div><h3 id="d-front"></h3><p>波逼咗，每秒收多咗。高音。</p></div>
+      </div>
+      <p class="out" id="dv-o"></p>
+    </div>
+    <p class="note"><b>波嘅速度冇變，波源發出嘅 frequency 都冇變。</b>變嘅只係：你嗰個位每秒有幾多個波到。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">慢慢計</div>
+    <h2>唔使公式，用一秒鐘計</h2>
+    <p class="intro">先定三個數。<b>Frequency</b>（頻率）= 每秒幾多個波，單位 Hz。<b>Wavelength</b>（波長）= 兩個波之間隔幾遠。<b>聲速</b> = 聲喺空氣每秒行 340 米。</p>
+    <div class="steps">
+      <div class="step"><h3>1. 架車唔郁</h3><p>警號每秒放 700 個波（700 Hz）。一秒之後，第一個波行咗 340 米。即係 700 個波排喺 340 米入面。<br>波長 = 340 ÷ 700 = <b>0.486 米</b>。</p></div>
+      <div class="step"><h3>2. 架車每秒行 30 米，向住你</h3><p>一秒之後，第一個波照樣行咗 340 米，但架車自己都向前行咗 30 米。前面嗰 700 個波，逼咗喺 340 − 30 = 310 米入面。<br>波長 = 310 ÷ 700 = <b>0.443 米</b>。</p></div>
+      <div class="step"><h3>3. 你聽到幾多 Hz</h3><p>啲波仲係每秒行 340 米過你隻耳。每個波短咗，所以一秒過多咗個。<br>340 ÷ 0.443 = <b>768 Hz</b>。高咗。</p></div>
+      <div class="step"><h3>4. 架車離開你</h3><p>後面嗰 700 個波，拉開咗喺 340 + 30 = 370 米入面。波長 = 370 ÷ 700 = 0.529 米。<br>340 ÷ 0.529 = <b>643 Hz</b>。低咗。</p></div>
+    </div>
+    <figure class="panel mt">
+      <svg viewBox="0 0 720 150" role="img" aria-label="公式：你聽到嘅頻率等於原本頻率乘聲速，除以聲速減車速。">
+        <text x="360" y="56" text-anchor="middle" class="t" font-size="24" font-weight="700">聽到嘅 Hz = 原本嘅 Hz × 聲速 ÷（聲速 − 車速）</text>
+        <text x="360" y="100" text-anchor="middle" class="t-a" font-size="17" font-weight="700">700 × 340 ÷ (340 − 30) = 768</text>
+        <text x="360" y="132" text-anchor="middle" class="t-muted" font-size="13.5">架車離開你：車速變負數，減變加。700 × 340 ÷ (340 + 30) = 643</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">消防車</div>
+    <h2>把聲喺邊一刻跌？</h2>
+    <p class="intro">架車以 108 km/h 喺你面前駛過。拉條 bar 改你企得離條路幾遠，再撳掣聽。</p>
+    <div class="tool">
+      <label for="pd">你離條路：<b id="pd-v"></b></label>
+      <input type="range" id="pd" min="2" max="80" value="10">
+      <svg viewBox="0 0 720 270" style="width:100%;height:auto" role="img" aria-label="圖：橫軸係時間，直軸係你聽到嘅頻率。架車嚟緊嗰陣停喺 768，經過你嗰刻跌落去，走咗之後停喺 643。">
+        <line x1="70" y1="52" x2="690" y2="52" class="s-a" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <line x1="70" y1="126" x2="690" y2="126" class="s-muted" stroke-width="1.5" stroke-dasharray="2 6"/>
+        <line x1="70" y1="200" x2="690" y2="200" class="s-b" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <line x1="380" y1="30" x2="380" y2="222" class="s-rule" stroke-width="1.5"/>
+        <g font-size="13" font-weight="700"><text x="62" y="57" text-anchor="end" class="t-a">768</text><text x="62" y="131" text-anchor="end" class="t-muted">700</text><text x="62" y="205" text-anchor="end" class="t-b">643</text></g>
+        <path id="pd-p" class="f-none s-hit" stroke-width="3.5"/>
+        <text x="380" y="244" text-anchor="middle" class="t" font-size="13" font-weight="700">經過你</text>
+        <text x="70" y="244" class="t-muted" font-size="13">嚟緊</text><text x="690" y="244" text-anchor="end" class="t-muted" font-size="13">走緊</text>
+        <text x="18" y="22" class="t-muted" font-size="12.5">Hz</text>
+      </svg>
+      <div class="seg" style="margin-top:8px"><button type="button" id="pd-b" aria-pressed="false">▶ 聽下</button></div>
+      <p class="out" id="pd-o"></p>
+    </div>
+    <p class="note"><b>架車嚟緊嗰陣，把聲冇越嚟越高。</b>佢一路都係 768 Hz，只係越嚟越大聲。跌嗰下，淨係發生喺佢經過你嗰一刻：因為嗰刻佢「向住你」嘅速度，由 +30 變成 −30。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">快相機</div>
+    <h2>射個波出去，睇佢返嚟變咗幾多</h2>
+    <p class="intro">雷達射微波去架車，波反彈返嚟。架車向住你行，返嚟嘅波就逼咗。逼兩次：去一次，返一次。</p>
+    <div class="tool">
+      <label for="rv">車速：<b id="rv-v"></b></label>
+      <input type="range" id="rv" min="0" max="200" value="113">
+      <svg viewBox="0 0 720 190" style="width:100%;height:auto" role="img" aria-label="雷達射出疏嘅波去架車，反彈返嚟嘅波比較密。">
+        <rect x="30" y="70" width="70" height="50" rx="8" class="f-surface2 s-muted" stroke-width="2"/><text x="65" y="100" text-anchor="middle" class="t" font-size="13" font-weight="700">雷達</text>
+        <g class="f-none s-muted" stroke-width="2"><path d="M130,50 Q142,62 130,74"/><path d="M190,50 Q202,62 190,74"/><path d="M250,50 Q262,62 250,74"/><path d="M310,50 Q322,62 310,74"/><path d="M370,50 Q382,62 370,74"/><path d="M430,50 Q442,62 430,74"/><path d="M490,50 Q502,62 490,74"/></g>
+        <text x="310" y="34" text-anchor="middle" class="t-muted" font-size="13">去：24,000,000,000 Hz</text>
+        <path d="M120,62 H540" class="f-none s-muted" stroke-width="1" marker-end="url(#ah)" opacity=".5"/>
+        <g class="f-none s-a" stroke-width="2.5" id="rv-w"></g>
+        <path d="M540,128 H120" class="f-none s-a" stroke-width="1" marker-end="url(#ah-a)" opacity=".6"/>
+        <text x="310" y="168" text-anchor="middle" class="t-a" font-size="13" font-weight="700" id="rv-t"></text>
+        <rect x="570" y="70" width="110" height="46" rx="12" class="f-b-soft s-b" stroke-width="2"/><circle cx="596" cy="120" r="9" class="f-ink"/><circle cx="654" cy="120" r="9" class="f-ink"/>
+        <path d="M566,93 H548" class="f-none s-b" stroke-width="2.5" marker-end="url(#ah-b)"/>
+      </svg>
+      <p class="out" id="rv-o"></p>
+    </div>
+    <p class="note">變化好細：大約一千萬分之二。但兩個波疊埋，個差會變成一個聽得到嘅「拍」，電路數嗰個拍就得。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">同一樣嘢</div>
+    <h2>邊度用緊</h2>
+    <div class="grid3">
+      <div class="mini" style="--k:var(--a)"><div class="k">微波</div><h3>自動感應門</h3><p>門頂個感應器不停射微波落地。有嘢行近，返嚟嘅波頻率變咗，就開門。所以你企定定，佢唔理你。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">超聲波</div><h3>蝙蝠</h3><p>叫一聲，聽回音。回音高咗 = 隻蟲飛埋嚟。菊頭蝠仲會自己降低叫聲，等回音啱啱好落喺佢對耳最靈敏嗰個頻率。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">微波</div><h3>快相機、測速槍</h3><p>上面嗰個。球速槍、網球發球速度都係同一部機。</p></div>
+      <div class="mini" style="--k:var(--c)"><div class="k">超聲波</div><h3>照血流</h3><p>超聲波撞落紅血球度反彈。血向探頭流就高咗，流走就低咗。睇心瓣、睇 BB 心跳。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">微波</div><h3>天氣雷達</h3><p>雨點向雷達飄定係飄走，睇得出風向。龍捲風就係一邊嚟、一邊走，貼住一齊。</p></div>
+      <div class="mini" style="--k:var(--d)"><div class="k">光</div><h3>搵行星</h3><p>行星兜住粒星轉，粒星俾佢扯到前後擺。星光一陣偏藍、一陣偏紅。1995 年第一粒太陽系外行星就係咁搵到。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">光</div>
+    <h2>Red shift，blue shift</h2>
+    <p class="intro">光都係波。光源行近，波長短咗，向藍嗰邊移；行遠，波長長咗，向紅嗰邊移。每種原子吸收固定顏色嘅光，喺光譜留低固定位置嘅黑線。黑線成組移咗位，就知粒星郁緊。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 230" role="img" aria-label="三條光譜。中間：實驗室，黑線喺原位。上面：行近，黑線移向藍。下面：行遠，黑線移向紅。">
+        <defs><linearGradient id="spec" x1="0" x2="1"><stop offset="0" stop-color="#6a4bd8"/><stop offset=".2" stop-color="#3f7fe8"/><stop offset=".42" stop-color="#3fbf7a"/><stop offset=".62" stop-color="#e8d24a"/><stop offset=".8" stop-color="#e88a3a"/><stop offset="1" stop-color="#d83a3a"/></linearGradient></defs>
+        <g><rect x="170" y="24" width="500" height="40" rx="6" fill="url(#spec)"/><rect x="170" y="94" width="500" height="40" rx="6" fill="url(#spec)"/><rect x="170" y="164" width="500" height="40" rx="6" fill="url(#spec)"/></g>
+        <g class="f-bg"><rect x="290" y="24" width="5" height="40"/><rect x="390" y="24" width="5" height="40"/><rect x="520" y="24" width="5" height="40"/>
+        <rect x="320" y="94" width="5" height="40"/><rect x="420" y="94" width="5" height="40"/><rect x="550" y="94" width="5" height="40"/>
+        <rect x="350" y="164" width="5" height="40"/><rect x="450" y="164" width="5" height="40"/><rect x="580" y="164" width="5" height="40"/></g>
+        <g font-size="14" font-weight="700"><text x="156" y="49" text-anchor="end" class="t-a">行近：blue shift</text><text x="156" y="119" text-anchor="end" class="t">唔郁</text><text x="156" y="189" text-anchor="end" class="t-b">行遠：red shift</text></g>
+        <text x="170" y="224" class="t-muted" font-size="12.5">藍：波長短</text><text x="670" y="224" text-anchor="end" class="t-muted" font-size="12.5">紅：波長長</text>
+      </svg>
+      <figcaption>1929 年 Hubble 發現：差唔多所有星系都係 red shift，越遠嘅越紅。宇宙膨脹緊。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「全部都係同一樣嘢？」</p>
+        <div><div class="tag">回應</div><p>聲、微波、超聲波、光，原理一樣：相對移動改變你每秒收到幾多個波。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>聲同光有一個分別。聲要靠空氣傳，所以「車郁」同「你郁」計出嚟有少少唔同。光唔使靠嘢傳，淨係計你同佢之間嘅相對速度，仲要加相對論。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「星系 red shift = 佢哋飛緊走？」</p>
+        <div><div class="tag">回應</div><p>近嘅星系，當係 Doppler 計，啱。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>遠嘅唔係。星系冇喺空間入面飛，係空間本身拉長緊，啲光喺路上跟住俾人拉長。結果一樣係紅咗，原因唔同。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「自動門、快相機、蝙蝠，全部靠 Doppler？」</p>
+        <div><div class="tag">回應</div><p>微波感應門、雷達測速、菊頭蝠，係。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>唔係全部。有啲門用紅外線。有啲測速用激光，計嘅係一去一返嘅時間；區間測速淨係影兩次車牌計時間。大部份蝙蝠量距離都係靠回音嘅時間，唔係靠 Doppler。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>架消防車由頭到尾都係叫同一個音。<em>變咗嘅係你同佢之間</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">延伸</div>
+    <ol>
+      <li>Christian Doppler (1842)：提出呢個效應。佢本來想用嚟解釋雙星嘅顏色，嗰個應用錯咗，原理啱。</li>
+      <li>Buys Ballot (1845)：搵一班號手坐火車吹同一個音，路邊嘅樂師聽佢高咗定低咗。第一次驗證。</li>
+      <li>Edwin Hubble (1929)：星系距離同 red shift 嘅關係。</li>
+      <li>Mayor &amp; Queloz (1995)：用星光嘅 Doppler 擺動搵到 51 Pegasi b。</li>
+      <li>數字用聲速 340 m/s、雷達 24 GHz 計。年份憑記憶，未逐項查證。</li>
+    </ol>
+  </div>
+</section>
+
+<script>
+(function(){
+  var cv=document.getElementById('dc'),x=cv.getContext('2d'),s=document.getElementById('dv'),W=1440,H=560,c=240,rings=[],sx=200,last=0,acc=0,cs=getComputedStyle(document.documentElement),red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function col(n,f){var v=cs.getPropertyValue(n).trim();return v||f;}
+  var CH=col('--hit','#e8b04a'),CI=col('--ink','#eee'),CS='#15151b';
+  function step(dt){var m=+s.value/100;sx+=m*c*dt;acc+=dt;while(acc>=0.22){acc-=0.22;rings.push({x:sx-m*c*acc,r:c*acc});}
+    for(var i=0;i<rings.length;i++)rings[i].r+=c*dt;rings=rings.filter(function(r){return r.r<1500});
+    if(sx>W+300){sx=-100;rings=[];}}
+  function draw(){x.fillStyle=CS;x.fillRect(0,0,W,H);x.lineWidth=3;x.strokeStyle=CH;
+    rings.forEach(function(r){x.globalAlpha=Math.max(.08,1-r.r/900);x.beginPath();x.arc(r.x,H/2,r.r,0,6.283);x.stroke();});
+    x.globalAlpha=1;x.fillStyle=CI;x.beginPath();x.arc(sx,H/2,12,0,6.283);x.fill();}
+  function lab(){var m=+s.value/100,f=700;document.getElementById('dv-v').textContent=(m*100).toFixed(0)+'% 波速';
+    document.getElementById('d-back').textContent=Math.round(f/(1+m))+' Hz';
+    document.getElementById('d-front').textContent=m<1?Math.round(f/(1-m))+' Hz':'∞';
+    document.getElementById('dv-o').textContent=m===0?'唔郁：前後一樣，700 Hz。':m<0.9?'前面逼，後面疏。越快差得越遠。':m<1?'就嚟追到自己啲波。前面逼到實一實。':m<1.02?'同波一樣快：所有波疊埋喺波源前面，變成一道牆。呢個就係音障。':'快過自己嘅波：啲波喺後面拖成一個錐形。個錐掃過你，就係音爆。';}
+  function loop(t){var dt=Math.min(.05,(t-last)/1000||0);last=t;step(dt);draw();requestAnimationFrame(loop);}
+  s.addEventListener('input',function(){lab();if(red){rings=[];sx=200;acc=0;for(var i=0;i<150;i++)step(.02);draw();}});lab();
+  if(red){for(var i=0;i<150;i++)step(.02);draw();}else requestAnimationFrame(loop);
+})();
+(function(){
+  var s=document.getElementById('pd'),b=document.getElementById('pd-b'),v=340,vs=30,f0=700,ac=null,playing=false;
+  function f(t,d){var xx=vs*t,r=Math.sqrt(xx*xx+d*d);return f0/(1+(vs/v)*(xx/r));}
+  function d(){var D=+s.value,p='';for(var i=0;i<=120;i++){var t=-5+i*10/120,y=126-(f(t,D)-700)*74/67.7;p+=(i?'L':'M')+(70+i*620/120).toFixed(1)+','+y.toFixed(1);}
+    document.getElementById('pd-p').setAttribute('d',p);document.getElementById('pd-v').textContent=D+' 米';
+    document.getElementById('pd-o').textContent=D<6?'貼住條路：把聲好似跳掣咁，一下跌落去。':D<30?'一般行人路：一兩秒內滑落去。呢個就係你聽慣嗰下「咿～嗚」。':'企得遠：慢慢滑落去，冇咁戲劇化。';}
+  s.addEventListener('input',d);d();
+  b.addEventListener('click',function(){if(playing)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();var o=ac.createOscillator(),g=ac.createGain(),D=+s.value,t0=ac.currentTime+.05;o.type='triangle';o.connect(g);g.connect(ac.destination);
+      for(var i=0;i<=100;i++){var t=-4+i*8/100,xx=vs*t,r=Math.sqrt(xx*xx+D*D);o.frequency.setValueAtTime(f(t,D),t0+i*.05);g.gain.setValueAtTime(Math.min(.2,.2*Math.max(D,8)/r),t0+i*.05);}
+      g.gain.setValueAtTime(0,t0+5.05);o.start(t0);o.stop(t0+5.1);playing=true;b.setAttribute('aria-pressed','true');b.textContent='播緊…';o.onended=function(){playing=false;b.setAttribute('aria-pressed','false');b.textContent='▶ 聽下';};
+    }catch(e){b.textContent='呢度播唔到聲';}});
+})();
+(function(){
+  var s=document.getElementById('rv'),g=document.getElementById('rv-w'),ns='http://www.w3.org/2000/svg';
+  function d(){var k=+s.value,df=k/3.6*160,gap=60-k*0.15;g.innerHTML='';for(var xx=500;xx>120;xx-=gap){var p=document.createElementNS(ns,'path');p.setAttribute('d','M'+xx.toFixed(1)+',116 Q'+(xx-12).toFixed(1)+',128 '+xx.toFixed(1)+',140');g.appendChild(p);}
+    document.getElementById('rv-v').textContent=k+' km/h（'+Math.round(k/1.609)+' mph）';
+    document.getElementById('rv-t').textContent='返：多咗 '+Math.round(df).toLocaleString()+' Hz';
+    document.getElementById('rv-o').textContent=k===0?'架車唔郁：返嚟嘅波同去嘅一樣。':'返嚟嘅波每秒多咗 '+Math.round(df).toLocaleString()+' 個。雷達由呢個數反推車速。';}
+  s.addEventListener('input',d);d();
+})();
+</script>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>

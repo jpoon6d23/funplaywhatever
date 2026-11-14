@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>知識：一步一步行近真相</title>
+<meta name="description" content="知識唔係真理，只係經驗過實證嘅解釋。永遠保持警惕，同時保持樂觀，由石器一步一步行到今日。自由生創新，創新生繁榮。">
+<meta property="og:title" content="知識：一步一步行近真相">
+<meta property="og:description" content="知識唔係真理，只係經驗過實證嘅解釋。永遠保持警惕，同時保持樂觀，由石器一步一步行到今日。自由生創新，創新生繁榮。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/knowledge.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/knowledge.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="知識：一步一步行近真相">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/knowledge.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100f13;
+  --surface:#19181e;
+  --surface2:#211f27;
+  --ink:#ece9e6;
+  --muted:#a09ca6;
+  --a:#4fb6b0;
+  --b:#e07a9a;
+  --hit:#e8b04a;
+  --c:#7fb2ff;
+  --d:#b98bf0;
+  --rule:rgba(236,233,230,.12);
+  --display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:var(--a);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.ca{color:var(--a)}.cb{color:var(--b)}.ch{color:var(--hit)}.cc{color:var(--c)}.cd{color:var(--d)}
+
+.hero{padding-top:56px;padding-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.hero-art{width:clamp(170px,24vw,230px);height:auto}
+.hero .kicker{font-size:14px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.hero h1{font-size:clamp(36px,6vw,60px);font-weight:900}
+.hero .lede{margin-top:14px;font-size:18.5px;max-width:34em}
+.hero .said{margin-top:14px;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.65;max-width:30em;border-left:3px solid var(--b);padding-left:14px}
+@media (max-width:720px){.hero{grid-template-columns:1fr;gap:16px;padding-top:32px}}
+
+section{padding:36px 0;border-top:1px solid var(--rule)}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+section > .wrap > h2{font-size:clamp(26px,3.6vw,34px);font-weight:900;margin-bottom:12px}
+.intro{color:var(--muted);max-width:42em;margin-bottom:20px}
+.intro b,.intro strong{color:var(--ink)}
+.punch{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--b);padding-left:14px;max-width:36em;margin:22px 0 4px}
+.note{font-size:15px;background:color-mix(in srgb,var(--a) 9%,transparent);border-left:3px solid var(--a);padding:10px 14px;border-radius:0 8px 8px 0;max-width:46em;margin-top:16px}
+.note b{color:var(--a)}
+.quote{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.7;border-left:3px solid var(--hit);padding-left:14px;max-width:34em;margin:14px 0}
+.quote small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+
+.panel{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:18px 14px 16px;overflow-x:auto}
+.panel svg{display:block;width:100%;max-width:720px;min-width:540px;height:auto;margin:0 auto;color:var(--ink)}
+.panel.fit svg{min-width:0}
+figcaption{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;padding:0 6px}
+.stack{display:grid;gap:18px}
+.mt{margin-top:18px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:24px;color:var(--b);display:block;line-height:1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{font-size:15px;color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;border-top:3px solid var(--k,var(--rule))}
+.mini .k{font-size:12.5px;letter-spacing:.1em;color:var(--k,var(--muted))}
+.mini h3{font-size:19px;margin:2px 0 6px}
+.mini p,.mini li{font-size:15px;color:var(--muted)}
+.mini p b,.mini li b{color:var(--ink)}
+.mini ul{margin:4px 0 0;padding-left:1.1em}
+.mini .en{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+.vchain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.vchain li{background:var(--surface2);border:1px solid var(--rule);border-radius:10px;padding:8px 12px;font-size:15px;color:var(--ink)}
+.vchain li small{display:block;color:var(--muted);font-size:13px}
+.vchain li + li{margin-top:22px;position:relative}
+.vchain li + li::before{content:"↓";position:absolute;top:-23px;left:18px;color:var(--k,var(--muted));font-size:15px;line-height:22px}
+
+.trace{display:grid;grid-template-columns:1fr auto 1.3fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px 14px}
+.trace.head{background:none;border:0;padding:0 14px;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.trace .busy{font-weight:700}
+.trace .arr{color:var(--muted)}
+.trace .want{color:var(--b);font-weight:700}
+.traces{display:grid;gap:8px;max-width:760px}
+
+.tool{background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:20px;display:grid;gap:14px;max-width:760px}
+.tool label{font-size:15px;color:var(--muted)}
+.tool label b{color:var(--ink);font-size:18px}
+.tool input[type=range]{width:100%;accent-color:var(--b)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+.chip{font-size:13.5px;border:1px solid var(--b);color:var(--b);border-radius:999px;padding:2px 10px}
+.bars{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:center;font-size:14px;color:var(--muted)}
+.meter{height:16px;border-radius:8px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;transition:width .35s}
+.meter.b i{background:var(--b)}.meter.a i{background:var(--a)}
+.out{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.55}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:inherit;font-size:14.5px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:999px;padding:4px 14px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--hit);border-color:var(--hit);color:var(--bg);font-weight:700}
+
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:520px){.card{padding:18px}}
+.card .q{font-family:var(--display);font-weight:900;font-size:20px;line-height:1.5}
+.tag{font-size:12.5px;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.honest{font-size:15px;border-left:3px solid var(--muted);padding-left:12px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border-radius:14px;overflow:hidden}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--rule);padding:10px 14px;text-align:left;vertical-align:top}
+table.cmp th{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+table.cmp td:first-child{font-weight:700;white-space:nowrap}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:14px}
+
+.close{padding:56px 0}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,40px);line-height:1.45;max-width:20em}
+.close p em{font-style:normal;color:var(--b)}
+
+.sources ol{margin:0;padding-left:1.3em;font-size:14px;color:var(--muted);display:grid;gap:5px;max-width:62em}
+.sources a{word-break:break-word}
+.fine{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+svg text{font-family:var(--body)}
+.t{fill:currentColor}.t-muted{fill:var(--muted)}.t-a{fill:var(--a)}.t-b{fill:var(--b)}.t-hit{fill:var(--hit)}.t-c{fill:var(--c)}.t-d{fill:var(--d)}.t-bg{fill:var(--bg)}
+.f-surface{fill:var(--surface)}.f-surface2{fill:var(--surface2)}.f-bg{fill:var(--bg)}.f-none{fill:none}.f-a{fill:var(--a)}.f-b{fill:var(--b)}.f-hit{fill:var(--hit)}.f-c{fill:var(--c)}.f-d{fill:var(--d)}.f-muted{fill:var(--muted)}.f-ink{fill:var(--ink)}
+.f-a-soft{fill:var(--a);fill-opacity:.18}.f-b-soft{fill:var(--b);fill-opacity:.18}.f-hit-soft{fill:var(--hit);fill-opacity:.18}.f-c-soft{fill:var(--c);fill-opacity:.18}.f-d-soft{fill:var(--d);fill-opacity:.18}.f-muted-soft{fill:var(--muted);fill-opacity:.14}
+.s-a{stroke:var(--a)}.s-b{stroke:var(--b)}.s-hit{stroke:var(--hit)}.s-c{stroke:var(--c)}.s-d{stroke:var(--d)}.s-muted{stroke:var(--muted)}.s-rule{stroke:var(--rule)}.s-ink{stroke:currentColor}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:6 10;animation:flow 1.8s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.spin{transform-box:view-box;animation:orbit 18s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bob{animation:bob 2.6s ease-in-out infinite}
+@keyframes pulse{0%{transform:scale(.35);opacity:.9}100%{transform:scale(1);opacity:0}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.flow,.spin,.bob,.pulse{animation:none}.pulse{opacity:0}}
+.mini ul.vchain{padding-left:0}
+
+:root{--a:#e8b04a;--b:#e07a9a;--hit:#5fc4b4;--c:#7fb2ff;--d:#b98bf0}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);text-decoration:none;padding:16px 0 0}
+.site-back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-muted"/></marker><marker id="ah-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-a"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-b"/></marker><marker id="ah-hit" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-hit"/></marker><marker id="ah-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-c"/></marker><marker id="ah-d" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-d"/></marker><marker id="ah-ink" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker></defs></svg>
+<div class="wrap"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<header class="wrap hero">
+  <svg class="hero-art" viewBox="0 0 240 210" role="img" aria-label="一個人行緊樓梯，樓梯一級級向上，頂上有一條虛線叫真相，好似永遠差少少。">
+    <line x1="10" y1="34" x2="232" y2="34" class="s-a" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="232" y="24" text-anchor="end" class="t-a" font-size="14" font-weight="700">真相</text>
+    <path d="M10,200 H50 V172 H90 V146 H130 V122 H170 V100 H210 V82 H234" class="f-none s-ink" stroke-width="3" stroke-linejoin="round"/>
+    <polygon points="16,198 26,186 40,188 44,198" class="f-muted"/>
+    <g class="f-none s-ink" stroke-width="2.5" stroke-linecap="round">
+      <circle cx="112" cy="116" r="7"/>
+      <path d="M112,123 V134 M112,134 L106,146 M112,134 L120,146 M112,127 L122,121 M112,127 L104,132"/>
+    </g>
+    <circle cx="200" cy="58" r="3" class="f-a pulse"/>
+  </svg>
+  <div>
+    <h1>知識：一步一步行近真相</h1>
+    <p class="said">知識唔代表係真理。佢只不過係經驗過實證嘅一啲解釋。</p>
+    <p class="lede">所以目的唔係要相信一個知識，而係永遠保持警惕，同時有樂觀嘅心態，一步一步行去真相。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Approximation to truth</div>
+    <h2>知識 ≠ 真理</h2>
+    <p class="intro">我哋大概去唔到真正嘅終點。但係一步一步行，由石器時代行到今日，一啲都唔簡單。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 260" role="img" aria-label="一條樓梯一級級向上，越嚟越近上面嗰條真相虛線，但永遠差少少。">
+        <line x1="60" y1="44" x2="690" y2="44" class="s-a" stroke-width="2" stroke-dasharray="7 6"/>
+        <text x="60" y="32" class="t-a" font-size="14" font-weight="700">真相（可能永遠去唔到）</text>
+        <path d="M60,230 H112 V177.9 H164 V140.4 H216 V113.4 H268 V94 H320 V80 H372 V69.9 H424 V62.7 H476 V57.4 H528 V53.7 H580 V51 H632 V49 H684" class="f-none s-hit" stroke-width="3" stroke-linejoin="round"/>
+        <text x="300" y="150" class="t-hit" font-size="15" font-weight="700">知識：經驗過實證嘅解釋</text>
+        <text x="300" y="172" class="t-muted" font-size="13">每一級都係一個更好嘅解釋</text>
+        <text x="560" y="90" text-anchor="middle" class="t-muted" font-size="13">越嚟越近，但差少少</text>
+        <text x="86" y="252" text-anchor="middle" class="t-muted" font-size="13">石器</text>
+        <text x="684" y="252" text-anchor="end" class="t-muted" font-size="13">今日</text>
+      </svg>
+    </figure>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--b)"><div class="k">態度一</div><h3>永遠保持警惕</h3><p>You must not fool yourself，and you are the easiest person to fool。最易呃你嘅人，係你自己。</p></div>
+      <div class="mini" style="--k:var(--hit)"><div class="k">態度二</div><h3>永遠保持樂觀</h3><p>問題係解決得到嘅。Truth found by cooperation，one step at a time。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">點樣累積</div>
+    <h2>Evolution：由想要，到財富，再返轉頭</h2>
+    <p class="intro">有咗剩餘，就有更多人唔使耕田、可以去諗嘢，個圈就再轉多次。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 340" role="img" aria-label="知識循環：想要、睇到問題、大膽估、實驗同批評、難改嘅解釋、應用、能量剩餘即財富，再返去想要。">
+        <path d="M444.7,54.5 L446.5,54.8 L448.4,55.2 L450.2,55.5 L452.1,55.8 L453.9,56.1 L455.7,56.4 L457.5,56.8 L459.4,57.1 L461.2,57.5 L463.0,57.8 L464.8,58.2 L466.6,58.5 L468.4,58.9 L470.1,59.3 L471.9,59.7 L473.7,60.1 L475.4,60.5 L477.2,60.9 L478.9,61.3 L480.7,61.7" class="f-none s-muted flow" stroke-width="2" marker-end="url(#ah)"/><path d="M604.6,126.3 L605.3,127.1 L606.0,128.0 L606.6,128.8 L607.3,129.7 L607.9,130.6 L608.6,131.4 L609.2,132.3 L609.8,133.2 L610.4,134.0 L610.9,134.9 L611.5,135.8 L612.0,136.7 L612.6,137.5 L613.1,138.4 L613.6,139.3 L614.1,140.2 L614.5,141.1 L615.0,142.0 L615.4,142.9 L615.9,143.7 L616.3,144.6 L616.7,145.5 L617.1,146.4 L617.4,147.3 L617.8,148.2 L618.1,149.1 L618.5,150.0 L618.8,150.9 L619.1,151.8 L619.4,152.7 L619.6,153.6 L619.9,154.5 L620.1,155.4 L620.4,156.3 L620.6,157.2 L620.8,158.2 L620.9,159.1 L621.1,160.0 L621.3,160.9 L621.4,161.8 L621.5,162.7 L621.6,163.6 L621.7,164.5" class="f-none s-muted flow" stroke-width="2" marker-end="url(#ah)"/><path d="M588.8,229.4 L587.9,230.2 L586.9,231.0 L585.9,231.8 L584.9,232.6 L583.9,233.4 L582.9,234.1 L581.8,234.9 L580.8,235.7 L579.7,236.4 L578.7,237.2 L577.6,238.0 L576.5,238.7 L575.4,239.5 L574.2,240.2 L573.1,241.0 L572.0,241.7 L570.8,242.4 L569.6,243.2 L568.5,243.9 L567.3,244.6 L566.1,245.4 L564.8,246.1 L563.6,246.8 L562.4,247.5" class="f-none s-muted flow" stroke-width="2" marker-end="url(#ah)"/><path d="M369.8,291.9 L367.8,291.9 L365.9,292.0 L363.9,292.0 L362.0,292.0 L360.0,292.0" class="f-none s-muted flow" stroke-width="2" marker-end="url(#ah)"/><path d="M157.6,247.5 L156.4,246.8 L155.2,246.1 L153.9,245.4 L152.7,244.6 L151.5,243.9 L150.4,243.2 L149.2,242.4 L148.0,241.7 L146.9,241.0 L145.8,240.2 L144.6,239.5 L143.5,238.7 L142.4,238.0 L141.3,237.2 L140.3,236.4 L139.2,235.7 L138.2,234.9 L137.1,234.1 L136.1,233.4 L135.1,232.6 L134.1,231.8 L133.1,231.0 L132.1,230.2 L131.2,229.4" class="f-none s-muted flow" stroke-width="2" marker-end="url(#ah)"/><path d="M98.3,164.5 L98.4,163.6 L98.5,162.7 L98.6,161.8 L98.7,160.9 L98.9,160.0 L99.1,159.1 L99.2,158.2 L99.4,157.2 L99.6,156.3 L99.9,155.4 L100.1,154.5 L100.4,153.6 L100.6,152.7 L100.9,151.8 L101.2,150.9 L101.5,150.0 L101.9,149.1 L102.2,148.2 L102.6,147.3 L102.9,146.4 L103.3,145.5 L103.7,144.6 L104.1,143.7 L104.6,142.9 L105.0,142.0 L105.5,141.1 L105.9,140.2 L106.4,139.3 L106.9,138.4 L107.4,137.5 L108.0,136.7 L108.5,135.8 L109.1,134.9 L109.6,134.0 L110.2,133.2 L110.8,132.3 L111.4,131.4 L112.1,130.6 L112.7,129.7 L113.4,128.8 L114.0,128.0 L114.7,127.1 L115.4,126.3" class="f-none s-muted flow" stroke-width="2" marker-end="url(#ah)"/><path d="M239.3,61.7 L241.1,61.3 L242.8,60.9 L244.6,60.5 L246.3,60.1 L248.1,59.7 L249.9,59.3 L251.6,58.9 L253.4,58.5 L255.2,58.2 L257.0,57.8 L258.8,57.5 L260.6,57.1 L262.5,56.8 L264.3,56.4 L266.1,56.1 L267.9,55.8 L269.8,55.5 L271.6,55.2 L273.5,54.8 L275.3,54.5" class="f-none s-muted flow" stroke-width="2" marker-end="url(#ah)"/><rect x="285.0" y="24.0" width="150" height="48" rx="12" class="f-b-soft s-b" stroke-width="1.5"/><text x="360.0" y="45.0" text-anchor="middle" class="t-b" font-size="14" font-weight="700">Desire</text><text x="360.0" y="64.0" text-anchor="middle" class="t-muted" font-size="12.5">想要</text><rect x="489.8" y="69.9" width="150" height="48" rx="12" class="f-b-soft s-b" stroke-width="1.5"/><text x="564.8" y="90.9" text-anchor="middle" class="t-b" font-size="14" font-weight="700">Awareness</text><text x="564.8" y="109.9" text-anchor="middle" class="t-muted" font-size="12.5">睇到問題</text><rect x="535.4" y="173.1" width="160" height="48" rx="12" class="f-d-soft s-d" stroke-width="1.5"/><text x="615.4" y="194.1" text-anchor="middle" class="t-d" font-size="14" font-weight="700">GUESS</text><text x="615.4" y="213.1" text-anchor="middle" class="t-muted" font-size="12.5">大腦計、大膽估</text><rect x="378.7" y="255.9" width="190" height="48" rx="12" class="f-c-soft s-c" stroke-width="1.5"/><text x="473.7" y="276.9" text-anchor="middle" class="t-c" font-size="14" font-weight="700">Experiment + criticism</text><text x="473.7" y="295.9" text-anchor="middle" class="t-muted" font-size="12.5">實驗 + 批評（science）</text><rect x="141.3" y="255.9" width="210" height="48" rx="12" class="f-hit-soft s-hit" stroke-width="1.5"/><text x="246.3" y="276.9" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">Hard-to-vary explanation</text><text x="246.3" y="295.9" text-anchor="middle" class="t-muted" font-size="12.5">有 prediction power</text><rect x="29.6" y="173.1" width="150" height="48" rx="12" class="f-a-soft s-a" stroke-width="1.5"/><text x="104.6" y="194.1" text-anchor="middle" class="t-a" font-size="14" font-weight="700">Application</text><text x="104.6" y="213.1" text-anchor="middle" class="t-muted" font-size="12.5">engineering</text><rect x="80.2" y="69.9" width="150" height="48" rx="12" class="f-a-soft s-a" stroke-width="1.5"/><text x="155.2" y="90.9" text-anchor="middle" class="t-a" font-size="14" font-weight="700">Energy surplus</text><text x="155.2" y="109.9" text-anchor="middle" class="t-muted" font-size="12.5">= wealth</text>
+        <text x="360" y="164" text-anchor="middle" class="t" font-size="15" font-weight="700">Truth found by cooperation</text>
+        <text x="360" y="186" text-anchor="middle" class="t-muted" font-size="13">one step at a time，幾乎從來唔係一個人</text>
+      </svg>
+      <figcaption>Hard to vary：一個好嘅解釋，你改佢一個細節，佢就唔再解釋到啲嘢。隨便改都得嘅解釋（例如「神嬲咗」），等於冇解釋。</figcaption>
+    </figure>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--d)"><div class="k">基因演化</div><h3>要等生仔</h3><p>一代人二三十年，仲要有身體先傳得落去。</p></div>
+      <div class="mini" style="--k:var(--a)"><div class="k">Idea 演化</div><h3>Copy require no energy</h3><p>Ideas break conversation evolution：一個人諗到，講一次，成條村就識。抄嘢唔使能量。</p></div>
+    </div>
+    <p class="note"><b>失敗都係燃料</b>Failure → feedback → variation = progress → knowledge → wealth。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Truth found by cooperation</div>
+    <h2>企喺巨人嘅膊頭上面</h2>
+    <p class="intro">真相幾乎從來都唔係一個人發現嘅。每個人都係企喺前面嗰個人嘅膊頭上面，先望得遠少少。</p>
+    <p class="quote">If I have seen further it is by standing on the shoulders of Giants.<small>牛頓寫俾虎克嘅信，1675 年</small></p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 250" role="img" aria-label="四個人一個疊一個：哥白尼、開普勒、伽利略、牛頓。每個人企喺前一個嘅成果上面。">
+        <g font-size="13.5">
+          <rect x="60" y="190" width="600" height="40" rx="6" class="f-c-soft s-c" stroke-width="1.5"/>
+          <text x="80" y="215" class="t" font-weight="700">哥白尼 1543</text><text x="640" y="215" text-anchor="end" class="t-muted">地球圍住太陽轉</text>
+          <rect x="130" y="142" width="530" height="40" rx="6" class="f-d-soft s-d" stroke-width="1.5"/>
+          <text x="150" y="167" class="t" font-weight="700">開普勒 1609</text><text x="640" y="167" text-anchor="end" class="t-muted">條軌道係橢圓，有數可計</text>
+          <rect x="200" y="94" width="460" height="40" rx="6" class="f-hit-soft s-hit" stroke-width="1.5"/>
+          <text x="220" y="119" class="t" font-weight="700">伽利略 1632</text><text x="640" y="119" text-anchor="end" class="t-muted">嘢點樣跌、點樣郁，用實驗量</text>
+          <rect x="270" y="46" width="390" height="40" rx="6" class="f-a-soft s-a" stroke-width="1.5"/>
+          <text x="290" y="71" class="t-a" font-weight="700">牛頓 1687</text><text x="640" y="71" text-anchor="end" class="t-muted">一條引力公式，天同地一齊解釋</text>
+        </g>
+        <path d="M40,226 V40" class="f-none s-muted" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="50" y="30" class="t-muted" font-size="13">望得越嚟越遠</text>
+      </svg>
+      <figcaption>抽走下面任何一層，上面嗰層就企唔穩。牛頓唔係由零開始。</figcaption>
+    </figure>
+    <h3 class="mt" style="font-size:22px;margin-bottom:10px">一條好長嘅鏈：前面嗰樣，點樣推出後面嗰樣</h3>
+    <div class="steps">
+      <div class="step"><h3>石器 → 火</h3><p>識得用石頭切肉、削木，手同腦練咗出嚟，先控制得到火。火煮熟食物，個腦得到更多能量。</p></div>
+      <div class="step"><h3>火 → 陶器 + 炭</h3><p>火燒泥，泥變硬，就係陶。悶住嚟燒木頭，就係炭。炭燒得熱過木頭好多。</p></div>
+      <div class="step"><h3>陶窯 + 炭 → 冶煉</h3><p>窯困住啲熱，加埋炭，夠熱到礦石入面嘅金屬流出嚟。</p></div>
+      <div class="step"><h3>金屬 → 蒸汽機</h3><p>有鐵，先造到頂得住壓力嘅鍋爐同汽缸。最初係用嚟抽走煤礦入面嘅水（1712）。</p></div>
+      <div class="step"><h3>蒸汽機 → 工廠、鐵路、發電機</h3><p>蒸汽令嘢不停轉。轉動推機器、推火車；轉動加磁石同銅線，就出電（1831）。背後：熱力學、電磁力。</p></div>
+      <div class="step"><h3>發電機 → 電網</h3><p>電可以用線送去遠處（1882）。一個發電站，成個城市有郁、資訊、熱、光。</p></div>
+      <div class="step"><h3>電 → 半導體</h3><p>有電先可以研究電子點樣行。量子力學解釋到，就造出晶體管（1947）：一個冇零件會郁嘅開關。</p></div>
+      <div class="step"><h3>半導體 → 互聯網、手機、AI</h3><p>晶體管越整越細、越塞越多，變成電腦。電腦連埋一齊，再加大量數據同運算，就係 AI。</p></div>
+    </div>
+    <p class="punch">330 萬年入面，差唔多全部時間都喺度敲石頭。後面嗰幾格，係最後幾百年先發生：每一格都令下一格嚟得更快。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">500 年前</div>
+    <h2>前面一大段，好似嘥緊時間</h2>
+    <p class="intro">人類喺咁漫長嘅歷史入面，係大約 500 年前嘅科學革命，先真正改變咗我哋。睇人口就知：知識 → 食物 → 人口 → 更多知識，呢個 loop 一轉起，條線就直插上天。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 280" role="img" aria-label="世界人口由公元前一萬年約四百萬，一直好平，到 1800 年先有十億，2022 年八十億。科學革命喺 1543 年。">
+        <line x1="60" y1="240" x2="690" y2="240" class="s-muted" stroke-width="1.5"/>
+        <line x1="60" y1="240" x2="60" y2="30" class="s-muted" stroke-width="1.5"/>
+        <g class="t-muted" font-size="12" text-anchor="end"><text x="54" y="244">0</text><text x="54" y="144">40 億</text><text x="54" y="44">80 億</text></g>
+        <line x1="60" y1="140" x2="690" y2="140" class="s-rule" stroke-width="1"/>
+        <line x1="655" y1="34" x2="655" y2="240" class="s-hit" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <polyline points="60.0,239.9 575.6,235.0 627.2,233.1 652.9,228.8 663.2,225.1 668.4,215.4 673.6,200.0 674.9,190.0 676.6,165.0 677.4,140.0 678.0,115.0 678.6,90.0 679.2,65.0 679.8,40.0" class="f-none s-a" stroke-width="3" stroke-linejoin="round"/>
+        <text x="645" y="70" text-anchor="end" class="t-hit" font-size="13" font-weight="700">科學革命（1543）</text>
+        <text x="646" y="44" text-anchor="end" class="t-a" font-size="13" font-weight="700">2022：80 億</text>
+        <text x="640" y="206" text-anchor="end" class="t-a" font-size="13">1800：約 10 億</text>
+        <text x="90" y="226" class="t-muted" font-size="13">公元前 1 萬年：約 400 萬人</text>
+        <g class="t-muted" font-size="12" text-anchor="middle"><text x="70" y="260">公元前 1 萬年</text><text x="318" y="260">公元前 5000</text><text x="576" y="260">公元 1 年</text></g>
+      </svg>
+      <figcaption>1800 年之前，全球平均壽命少過 28 歲；2023 年係 73 歲。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">控制唔到嘅部分</div>
+    <h2>發現知識：部分可控，部分唔可控</h2>
+    <p class="intro">Gene（body、IQ）+ environment（social、financial、temperature、stress）→ knowledge。你嘅才能基本上已經確定；家境、個社會容唔容許你咁做，都唔到你話事。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 220" role="img" aria-label="基因你控制唔到，環境你控制到一部分，兩樣加埋決定你發現到幾多知識。">
+        <rect x="30" y="40" width="200" height="120" rx="12" class="f-surface2 s-d" stroke-width="1.5"/>
+        <text x="130" y="70" text-anchor="middle" class="t-d" font-size="17" font-weight="700">基因</text>
+        <text x="130" y="92" text-anchor="middle" class="t-muted" font-size="13">body、IQ</text>
+        <text x="130" y="122" text-anchor="middle" class="t" font-size="13">你控制到：0</text>
+        <rect x="60" y="134" width="140" height="10" rx="5" class="f-muted-soft"/>
+        <text x="255" y="108" text-anchor="middle" class="t-muted" font-size="26">+</text>
+        <rect x="280" y="40" width="220" height="120" rx="12" class="f-surface2 s-c" stroke-width="1.5"/>
+        <text x="390" y="70" text-anchor="middle" class="t-c" font-size="17" font-weight="700">環境</text>
+        <text x="390" y="92" text-anchor="middle" class="t-muted" font-size="12.5">社會、家境、溫度、壓力</text>
+        <text x="390" y="122" text-anchor="middle" class="t" font-size="13">你控制到：一部分</text>
+        <rect x="310" y="134" width="160" height="10" rx="5" class="f-muted-soft"/>
+        <rect x="310" y="134" width="64" height="10" rx="5" class="f-c"/>
+        <path d="M506,100 H562" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <rect x="570" y="60" width="130" height="80" rx="12" class="f-a-soft s-a" stroke-width="1.5"/>
+        <text x="635" y="106" text-anchor="middle" class="t-a" font-size="18" font-weight="700">知識</text>
+        <text x="360" y="200" text-anchor="middle" class="t-muted" font-size="13">社會容唔容許你咁做？呢樣都唔到你話事。</text>
+      </svg>
+    </figure>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--b)"><div class="k">環境殺知識</div><h3>伽利略，1633</h3><p>講地球圍住太陽轉，被判終身軟禁。</p></div>
+      <div class="mini" style="--k:var(--b)"><div class="k">環境殺知識</div><h3>文化大革命，1966–1976</h3><p>Kill knowledge，kill trust。大學停咗招生考試，到 1977 年先恢復。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">真知識嘅提示</div>
+    <h2>Once see truth，problem is solved forever</h2>
+    <p class="intro">當你睇到、睇清楚、明白咗嗰樣嘢，你就真正解決咗佢，唔係好似擠牙膏咁，擠一啲又返嚟。唔一定，但係一個好強嘅指標。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 240" role="img" aria-label="兩條線：真知識令問題一下跌到零，之後唔再返嚟；擠牙膏式嘅解決，問題跌少少又返嚟。">
+        <line x1="60" y1="210" x2="690" y2="210" class="s-muted" stroke-width="1.5" marker-end="url(#ah)"/>
+        <line x1="60" y1="210" x2="60" y2="30" class="s-muted" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="70" y="34" class="t-muted" font-size="13">問題大細</text>
+        <text x="680" y="230" text-anchor="end" class="t-muted" font-size="13">時間 →</text>
+        <path d="M60,80 C120,120 160,70 220,110 C280,150 320,90 380,130 C440,165 480,105 540,140 C600,170 640,125 680,150" class="f-none s-b" stroke-width="3"/>
+        <path d="M60,62 H260 C282,62 292,206 322,206 H680" class="f-none s-hit" stroke-width="3"/>
+        <text x="680" y="66" text-anchor="end" class="t-b" font-size="14" font-weight="700">擠牙膏：跌少少，又返嚟</text>
+        <text x="500" y="196" text-anchor="middle" class="t-hit" font-size="14" font-weight="700">真知識：一跌到零，唔再返嚟</text>
+      </svg>
+      <figcaption>例子：明白咗天花係病毒、識得種痘，1980 年天花就宣佈絕跡。解決咗，就係解決咗。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">感恩節火雞</div>
+    <h2>所謂肯定，可能只係暫時</h2>
+    <p class="intro">火雞每日都有人餵，一千日都係咁，佢越嚟越肯定人類係愛佢。第 1001 日係感恩節。所謂嘅肯定，可能 50 年後就被推翻。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 260" role="img" aria-label="火雞對人類嘅信心一千日一路升，第一千零一日感恩節一下跌落谷底。">
+        <line x1="60" y1="226" x2="690" y2="226" class="s-muted" stroke-width="1.5"/>
+        <line x1="60" y1="226" x2="60" y2="30" class="s-muted" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="70" y="34" class="t-muted" font-size="13">火雞有幾信人類</text>
+        <path d="M60,200 C200,120 400,80 640,62" class="f-none s-a" stroke-width="3"/>
+        <path d="M640,62 L650,222" class="f-none s-b" stroke-width="3"/>
+        <circle cx="650" cy="222" r="5" class="f-b"/>
+        <text x="330" y="150" text-anchor="middle" class="t-a" font-size="14" font-weight="700">日日有得食：越嚟越肯定</text>
+        <text x="630" y="246" text-anchor="end" class="t-b" font-size="13" font-weight="700">第 1001 日：感恩節</text>
+        <text x="70" y="246" class="t-muted" font-size="13">第 1 日</text>
+      </svg>
+    </figure>
+    <div class="grid2 mt">
+      <div class="mini" style="--k:var(--c)"><div class="k">1687 → 1915</div><h3>牛頓頂咗 228 年</h3><p>愛因斯坦修正咗佢。但牛頓嘅解釋到今日仲用得嚟送人上月球：被推翻，唔等於冇用，係錯得少咗。</p></div>
+      <div class="mini" style="--k:var(--muted)"><div class="k">問題</div><h3>好嘅解釋會存活幾耐？</h3><p>冇人知道。Philosophically we are always wrong，只係錯得越嚟越少。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">點樣孕育知識</div>
+    <h2>Innovation = child of freedom，parent of prosperity</h2>
+    <p class="quote">Innovation is the child of freedom and the parent of prosperity.<small>Matt Ridley，《How Innovation Works》（2020）</small></p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 190" role="img" aria-label="權力分開、公開競爭、ideas 交配，就係自由；自由生出創新，創新生出繁榮。">
+        <path d="M24,44 V36 H416 V44" class="f-none s-c" stroke-width="1.5"/>
+        <text x="220" y="26" text-anchor="middle" class="t-c" font-size="15" font-weight="700">自由</text>
+        <g font-size="14" font-weight="700" text-anchor="middle">
+          <rect x="25" y="78" width="110" height="44" rx="10" class="f-c-soft s-c" stroke-width="1.5"/><text x="80" y="105" class="t">權力分開</text>
+          <rect x="165" y="78" width="110" height="44" rx="10" class="f-c-soft s-c" stroke-width="1.5"/><text x="220" y="105" class="t">公開競爭</text>
+          <rect x="305" y="78" width="110" height="44" rx="10" class="f-c-soft s-c" stroke-width="1.5"/><text x="360" y="105" class="t">Ideas 交配</text>
+          <rect x="445" y="78" width="110" height="44" rx="10" class="f-hit-soft s-hit" stroke-width="1.5"/><text x="500" y="105" class="t-hit">創新</text>
+          <rect x="585" y="78" width="110" height="44" rx="10" class="f-a"/><text x="640" y="105" class="t-bg">繁榮</text>
+        </g>
+        <path d="M137,100 H161" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M277,100 H301" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M417,100 H441" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <path d="M557,100 H581" class="f-none s-muted" stroke-width="2" marker-end="url(#ah)"/>
+        <text x="500" y="150" text-anchor="middle" class="t-muted" font-size="12.5">child of freedom</text>
+        <text x="640" y="150" text-anchor="middle" class="t-muted" font-size="12.5">創新係佢老豆</text>
+        <text x="360" y="178" text-anchor="middle" class="t-muted" font-size="13">試、錯、再試嘅自由：冇人禁你，亦冇人搶你</text>
+      </svg>
+    </figure>
+    <p class="note"><b>合作</b>If we don't make stuff，there'll be no stuff。如果人人淨係為自己做嘢，就冇電、冇摩打、冇車。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">人類喺宇宙嘅位置</div>
+    <h2>好渺小，但喺知識上係中心</h2>
+    <p class="intro">人類好細，好似一粒星塵。但係喺知識嘅發現上，人類卻係喺宇宙嘅中心：我哋識解釋星、原子、黑洞同 DNA。</p>
+    <figure class="panel">
+      <svg viewBox="0 0 720 280" role="img" aria-label="左邊：宇宙好大，人類係一粒細到睇唔到嘅點。右邊：人類喺中間，向外解釋星、原子、黑洞同 DNA。">
+        <circle cx="180" cy="140" r="110" class="f-c-soft s-c" stroke-width="1.5"/>
+        <circle cx="232" cy="170" r="8" class="f-a pulse"/>
+        <circle cx="232" cy="170" r="1.8" class="f-a"/>
+        <text x="244" y="174" class="t-a" font-size="13" font-weight="700">你</text>
+        <text x="180" y="272" text-anchor="middle" class="t" font-size="14" font-weight="700">大小：一粒星塵</text>
+        <line x1="360" y1="20" x2="360" y2="260" class="s-rule" stroke-width="1.5"/>
+        <path d="M540,118 V58" class="f-none s-a flow" stroke-width="2" marker-end="url(#ah-a)"/>
+        <path d="M562,142 H632" class="f-none s-a flow" stroke-width="2" marker-end="url(#ah-a)"/>
+        <path d="M518,142 H448" class="f-none s-a flow" stroke-width="2" marker-end="url(#ah-a)"/>
+        <path d="M540,166 V214" class="f-none s-a flow" stroke-width="2" marker-end="url(#ah-a)"/>
+        <g class="f-none s-ink" stroke-width="2.5" stroke-linecap="round">
+          <circle cx="540" cy="128" r="7"/><path d="M540,135 V150 M540,150 L533,162 M540,150 L547,162 M540,140 L531,146 M540,140 L549,146"/>
+        </g>
+        <text x="540" y="46" text-anchor="middle" class="t" font-size="14">星</text>
+        <text x="640" y="147" class="t" font-size="14">原子</text>
+        <text x="440" y="147" text-anchor="end" class="t" font-size="14">黑洞</text>
+        <text x="540" y="234" text-anchor="middle" class="t" font-size="14">DNA</text>
+        <text x="540" y="272" text-anchor="middle" class="t-a" font-size="14" font-weight="700">知識：人類喺中心</text>
+      </svg>
+    </figure>
+    <p class="note"><b>Reverse entropy by knowledge</b>全世界嘅石頭都會被侵蝕，城市都係石頭，但啲建築冇風化，因為人類不停維修。用知識，局部倒轉熵。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">反駁</div>
+    <h2>你可能想講</h2>
+    <div class="obj">
+      <div class="card">
+        <p class="q">「知識唔係真理，咁點解要信科學？」</p>
+        <div><div class="tag">回應</div><p>唔係信，係用。佢係暫時最好、預測得最準嘅解釋。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>有人會用「科學都會錯」嚟賣更差嘅解釋。錯得少同錯得多，係兩回事：地球係圓嘅同地球係平嘅，唔係一樣錯。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「問題完全解決 = 真理？」</p>
+        <div><div class="tag">回應</div><p>係好強嘅指標：真係明白，就唔使擠牙膏。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>牛頓解決咗兩百幾年嘅問題，一樣俾人修正。解決咗，唔等於去到終點，只係行多咗一級。</p></div>
+      </div>
+      <div class="card">
+        <p class="q">「500 年前之前，真係嘥時間？」</p>
+        <div><div class="tag">回應</div><p>唔係嘥，係慢。冇火、冶金、文字、印刷術，就冇科學革命嘅材料。</p></div>
+        <div class="honest"><div class="tag">企唔穩嘅位</div><p>點解科學革命喺歐洲、喺嗰陣發生，歷史學家仲拗緊：印刷術、國與國競爭、制度，各有講法。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p>我哋大概去唔到終點。但由石器行到今日，<em>一啲都唔簡單</em>。</p>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <div class="eyebrow">來源</div>
+    <ol>
+      <li>Matt Ridley (2020), How Innovation Works：「Innovation is the child of freedom and the parent of prosperity.」（第 373 頁，全書最後一段第一句）：<a href="https://cafehayek.com/2020/07/quotation-of-the-day-3217.html">cafehayek.com</a>。</li>
+      <li>Our World in Data, Population Growth：公元前一萬年約 400 萬，1800 年約 10 億，2022 年 80 億：<a href="https://ourworldindata.org/population-growth">ourworldindata.org</a>。1800 年前平均壽命少過 28 歲，2023 年 73 歲：<a href="https://ourworldindata.org/peak-child">ourworldindata.org</a>。</li>
+      <li>Nassim Taleb (2007), The Black Swan：感恩節火雞。</li>
+      <li>Richard Feynman (1974), Cargo Cult Science：you must not fool yourself。</li>
+      <li>David Deutsch (2011), The Beginning of Infinity：hard to vary 嘅解釋；人類作為解釋者喺宇宙嘅地位。</li>
+      <li>世界衛生組織（1980）：宣佈天花絕跡。</li>
+    </ol>
+  </div>
+</section>
+
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
