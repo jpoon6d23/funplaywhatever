@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<style>[hidden]{display:none!important}html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>資產配置計劃</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one ledger column. Summary tiles, then now/target bars, quick shift, editable table, monthly plan */
+:root{
+  --bg:#0D1215; --surface:#141B1F; --surface-2:#1B2429; --line:#28343A;
+  --fg:#E4EBEE; --muted:#8B9AA1;
+  --passive:#5B9DF0; --active:#F0A04B; --cash:#8E9BA8;
+  --up:#47C28A; --down:#EE6B5E; --on-seg:#0B1014;
+  --body:"Noto Sans TC","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#F4F6F7;--surface:#FFFFFF;--surface-2:#EDF1F3;--line:#D6DEE2;--fg:#14202A;--muted:#5A6A74;--passive:#2F6FD1;--active:#C9771E;--cash:#6B7886;--up:#1C8754;--down:#C8402F;--on-seg:#FFFFFF;color-scheme:light}
+}
+:root[data-theme="light"]{--bg:#F4F6F7;--surface:#FFFFFF;--surface-2:#EDF1F3;--line:#D6DEE2;--fg:#14202A;--muted:#5A6A74;--passive:#2F6FD1;--active:#C9771E;--cash:#6B7886;--up:#1C8754;--down:#C8402F;--on-seg:#FFFFFF;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+h1{font-size:26px;margin:0;font-weight:700;text-wrap:balance}
+h2{font-size:17px;margin:0;font-weight:700}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.sub{color:var(--muted);font-size:14px;margin:4px 0 0}
+.status{font-size:12px;font-family:var(--mono);padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.status.ok{color:var(--up);border-color:var(--up)}
+.status.bad{color:var(--down);border-color:var(--down)}
+.mono,.num,td.n{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;min-width:0}
+section{display:flex;flex-direction:column;gap:12px;min-width:0}
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.tile .k{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.tile .v{font-family:var(--mono);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:2px}
+.tile .v .arrow{color:var(--muted);font-weight:400;margin:0 4px}
+.tile .d{font-family:var(--mono);font-size:13px}
+.pos{color:var(--up)} .neg{color:var(--down)} .zero{color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:10px}
+.barrow{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center}
+.barrow .lbl{font-size:13px;color:var(--muted)}
+.bar{display:flex;height:30px;border-radius:7px;overflow:hidden;background:var(--surface-2)}
+.seg{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--on-seg);white-space:nowrap;overflow:hidden;transition:width .25s}
+.seg.passive{background:var(--passive)} .seg.active{background:var(--active)} .seg.cash{background:var(--cash)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:0}
+.shift{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.field .lab{font-size:13px;color:var(--muted)}
+.rowc{display:flex;align-items:center;gap:10px}
+.rowc input[type=range]{flex:1;min-width:0}
+input[type=range]{accent-color:var(--passive)}
+select,input.txt,input.num{font:inherit;background:var(--surface-2);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:6px 8px;min-width:0}
+input.num{text-align:right;width:120px}
+input.txt{width:100%}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.chk{display:flex;align-items:center;gap:6px;font-size:14px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+button{font:inherit;cursor:pointer;border-radius:8px;padding:7px 14px;border:1px solid var(--line);background:var(--surface-2);color:var(--fg)}
+button.primary{background:var(--passive);border-color:var(--passive);color:var(--on-seg);font-weight:500}
+button.ghost{background:none;border:none;color:var(--muted);padding:4px 8px}
+button.ghost:hover{color:var(--down)}
+button.add{background:none;border:1px dashed var(--line);color:var(--muted);padding:5px 12px;font-size:13px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--passive);outline-offset:2px}
+.msg{font-size:13px;color:var(--muted);min-height:20px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.toolbar select{max-width:100%}
+button:disabled{opacity:.4;cursor:default}
+button.confirm{color:var(--down);border-color:var(--down)}
+textarea{font:13px/1.5 var(--mono);background:var(--surface-2);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px;width:100%;resize:vertical;word-break:break-all}
+td.hl{font-weight:700;font-size:15px;color:var(--fg)}
+td.hl[data-g="passive"]{background:color-mix(in srgb,var(--passive) 24%,transparent)}
+td.hl[data-g="active"]{background:color-mix(in srgb,var(--active) 24%,transparent)}
+td.hl[data-g="cash"]{background:color-mix(in srgb,var(--cash) 24%,transparent)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;min-width:820px;font-size:14px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{font-size:12px;font-weight:500;color:var(--muted);background:var(--surface-2);position:sticky;top:0}
+th:first-child,td:first-child{text-align:left}
+td.name{min-width:170px}
+tr.ghead td{background:var(--surface-2);font-weight:700;text-align:left}
+tr.ghead td .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px}
+tr.sub td{font-weight:600;border-bottom:2px solid var(--line)}
+tr.total td{font-weight:700;background:var(--surface-2);border-bottom:none}
+tr.addrow td{text-align:left;border-bottom:2px solid var(--line)}
+.plan{display:flex;flex-direction:column;gap:6px}
+.pl{display:grid;grid-template-columns:1fr auto auto;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.pl:last-child{border-bottom:none}
+.pl .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pl .m,.pl .t{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.pl .t{color:var(--muted);font-size:13px}
+.note{font-size:13px;color:var(--muted)}
+.empty{text-align:center;padding:40px 20px;color:var(--muted)}
+footer{font-size:12px;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.seg{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>資產配置計劃</h1>
+      <p class="sub">左邊係而家，右邊係半年至一年後嘅目標。改數字，即刻睇到邊度加、邊度減。</p>
+    </div>
+    <span class="status" id="status">連接緊…</span>
+  </div>
+
+  <div class="card empty" id="loading">載入緊你嘅配置…</div>
+
+  <div id="app" hidden style="display:flex;flex-direction:column;gap:28px">
+    <section class="card">
+      <div class="toolbar">
+        <button type="button" id="undo" disabled>↶ 還原上一步</button>
+        <button type="button" id="redo" disabled>↷ 重做</button>
+        <span class="note" style="margin-left:8px">版本紀錄</span>
+        <select id="ver" aria-label="揀一個版本"><option value="">揀一個時間點…</option></select>
+        <button type="button" id="verGo">還原呢個版本</button>
+        <button type="button" id="expBtn">匯出資料</button>
+        <button type="button" id="impBtn">匯入資料</button>
+      </div>
+      <div class="field" id="ioPanel" hidden>
+        <label for="io" id="ioLab"></label>
+        <textarea id="io" rows="4" spellcheck="false"></textarea>
+        <div class="btns"><button type="button" id="ioCopy">複製</button><button type="button" class="primary" id="ioLoad">載入呢段資料</button><button type="button" id="ioClose">收埋</button></div>
+      </div>
+      <div class="msg" id="undoMsg" aria-live="polite"></div>
+    </section>
+    <section>
+      <div class="tiles">
+        <div class="tile"><span class="k">總資產</span><span class="v" id="tTotal"></span><span class="d" id="tTotalD"></span></div>
+        <div class="tile"><span class="k">Passive 比例</span><span class="v" id="tPas"></span><span class="d" id="tPasD"></span></div>
+        <div class="tile"><span class="k">Active 比例</span><span class="v" id="tAct"></span><span class="d" id="tActD"></span></div>
+        <div class="tile"><span class="k">由 Active 轉出合共</span><span class="v" id="tMon"></span><span class="d" id="tMonD"></span></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>而家 對比 目標</h2>
+      <div class="bars">
+        <div class="barrow"><span class="lbl">而家</span><div class="bar" id="barNow"></div></div>
+        <div class="barrow"><span class="lbl">目標</span><div class="bar" id="barTgt"></div></div>
+      </div>
+      <div class="legend"><span><i style="background:var(--passive)"></i>Passive</span><span><i style="background:var(--active)"></i>Active</span><span><i style="background:var(--cash)"></i>Cash</span></div>
+    </section>
+
+    <section>
+      <div class="top"><h2>逐項</h2>
+        <div class="rowc"><label for="cur" class="note">貨幣</label><select id="cur"><option>£</option><option>$</option><option>HK$</option></select></div>
+      </div>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>項目</th><th>而家</th><th>佔比</th><th>目標</th><th>佔比</th><th>變動</th><th>變動 %</th><th>佔比變動</th><th></th></tr></thead>
+          <tbody id="tb"></tbody>
+        </table>
+      </div>
+      <p class="note">「變動 %」係該項目本身增加或減少幾多；「佔比變動」係佢喺總資產入面嘅比例升跌幾多個百分點（pp）。</p>
+    </section>
+
+    <footer id="foot">計劃工具，唔係投資建議。數字儲存喺呢個 artifact 嘅私人資料庫，只有你睇到。</footer>
+  </div>
+</div>
+
+<script>
+(function(){
+  const GROUPS=[{k:'passive',l:'Passive 被動'},{k:'active',l:'Active 主動'},{k:'cash',l:'Cash 現金'}];
+  const LS='alloc-plan-v1';
+  let S=null, ref=null, lastSaved='', saving=false, pending=false, saveTimer=null, dirty=false, mode='cloud';
+  let hist=[], fut=[], editing=false, editTimer=null, hRef=null, histDoc={snaps:[]}, hSaving=false, hPending=false, lastCkpt=0, lastSavedObj=null;
+  const $=id=>document.getElementById(id);
+  const cur=()=> (S&&S.currency)||'£';
+  const money=n=>(n<0?'−':'')+cur()+Math.round(Math.abs(n)).toLocaleString('en-GB');
+  const signed=n=>Math.round(n)===0?cur()+'0':(n>0?'+':'−')+cur()+Math.round(Math.abs(n)).toLocaleString('en-GB');
+  const pct=x=>isFinite(x)?(x*100).toFixed(1)+'%':'—';
+  const pp=x=>{const v=x*100;return Math.abs(v)<0.05?'0.0 pp':(v>0?'+':'−')+Math.abs(v).toFixed(1)+' pp'};
+  const rel=(a,b)=>{if(a===0)return b>0?'新增':'—';const r=(b-a)/a*100;return Math.abs(r)<0.05?'0.0%':(r>0?'+':'−')+Math.abs(r).toFixed(1)+'%'};
+  const cls=n=>Math.abs(n)<0.5?'zero':(n>0?'pos':'neg');
+  const num=v=>{const x=parseFloat(String(v).replace(/[^0-9.\-]/g,''));return isFinite(x)?x:0};
+  const clone=o=>JSON.parse(JSON.stringify(o));
+  const strip=o=>{if(!o)return '';const c=clone(o);delete c.updatedAt;return JSON.stringify(c)};
+  const uid=()=>'r'+Math.random().toString(36).slice(2,9);
+  function setStatus(t,k){const s=$('status');s.textContent=t;s.className='status'+(k?' '+k:'')}
+
+  function updUndo(){$('undo').disabled=!hist.length;$('redo').disabled=!fut.length}
+  function snap(){hist.push(clone(S));if(hist.length>60)hist.shift();fut=[];updUndo()}
+  function beginEdit(){if(!editing){snap();editing=true}clearTimeout(editTimer);editTimer=setTimeout(()=>{editing=false},1500)}
+  function armConfirm(btn,text,fn){
+    if(btn.dataset.armed){delete btn.dataset.armed;fn();return}
+    const orig=btn.textContent;btn.dataset.armed='1';btn.textContent=text;btn.classList.add('confirm');
+    setTimeout(()=>{if(btn.isConnected&&btn.dataset.armed){delete btn.dataset.armed;btn.textContent=orig;btn.classList.remove('confirm')}},3000);
+  }
+  function renderVer(){
+    const sel=$('ver');sel.innerHTML='<option value="">揀一個時間點…</option>';
+    (histDoc.snaps||[]).forEach((e,i)=>{const o=document.createElement('option');o.value=String(i);
+      let t='';try{t=new Date(e.at).toLocaleString('zh-HK',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}catch(x){t=e.at}
+      o.textContent=t+' · '+(e.label||'');sel.appendChild(o)});
+  }
+  function checkpoint(label,state){
+    lastCkpt=Date.now();
+    histDoc.snaps=[{at:new Date().toISOString(),label,state:clone(state)}].concat(histDoc.snaps||[]).slice(0,20);
+    renderVer();saveHist();
+  }
+  async function saveHist(){
+    if(!hRef){try{localStorage.setItem(LS+'-h',JSON.stringify(histDoc))}catch(e){}return}
+    if(hSaving){hPending=true;return}
+    hSaving=true;try{await hRef.set(clone(histDoc))}catch(e){}hSaving=false;
+    if(hPending){hPending=false;saveHist()}
+  }
+  $('undo').addEventListener('click',()=>{if(!hist.length)return;fut.push(clone(S));S=hist.pop();editing=false;renderAll();updUndo();scheduleSave();$('undoMsg').textContent='已還原上一步。'});
+  $('redo').addEventListener('click',()=>{if(!fut.length)return;hist.push(clone(S));S=fut.pop();editing=false;renderAll();updUndo();scheduleSave();$('undoMsg').textContent='已重做。'});
+  $('verGo').addEventListener('click',()=>{
+    const i=$('ver').value;if(i===''){$('undoMsg').textContent='先喺版本紀錄揀一個時間點。';return}
+    const e=(histDoc.snaps||[])[+i];if(!e||!e.state)return;
+    snap();checkpoint('還原版本之前',S);S=clone(e.state);if(!Array.isArray(S.items))S.items=[];
+    renderAll();scheduleSave();$('undoMsg').textContent='已還原到「'+(e.label||'')+'」。想返轉頭可以撳「還原上一步」。';
+  });
+  const enc=o=>'ALLOC1:'+btoa(unescape(encodeURIComponent(JSON.stringify(o))));
+  const dec=t=>{const s=String(t).trim().replace(/^ALLOC1:/,'');return JSON.parse(decodeURIComponent(escape(atob(s))))};
+  function openIO(kind){
+    const p=$('ioPanel'),io=$('io');p.hidden=false;
+    if(kind==='exp'){
+      const o=clone(S);delete o.updatedAt;io.value=enc(o);
+      $('ioLab').textContent='呢段係你而家全部數字。複製佢，喺另一部機或者香港版開「匯入資料」貼入去。';
+      $('ioCopy').hidden=false;$('ioLoad').hidden=true;io.readOnly=true;io.select();
+    }else{
+      io.value='';io.readOnly=false;
+      $('ioLab').textContent='將「匯出資料」得到嗰段文字貼喺度，再撳「載入呢段資料」。而家嘅數字會先備份，可以用「還原上一步」返轉頭。';
+      $('ioCopy').hidden=true;$('ioLoad').hidden=false;io.focus();
+    }
+  }
+  $('expBtn').addEventListener('click',()=>openIO('exp'));
+  $('impBtn').addEventListener('click',()=>openIO('imp'));
+  $('ioClose').addEventListener('click',()=>{$('ioPanel').hidden=true});
+  $('ioCopy').addEventListener('click',()=>{
+    const io=$('io');
+    try{navigator.clipboard.writeText(io.value).then(()=>{$('undoMsg').textContent='已複製。'},()=>{io.select();$('undoMsg').textContent='自動複製唔到，文字已經揀好，請手動複製。'})}
+    catch(e){io.select();$('undoMsg').textContent='自動複製唔到，文字已經揀好，請手動複製。'}
+  });
+  $('ioLoad').addEventListener('click',()=>{
+    let d=null;try{d=dec($('io').value)}catch(e){d=null}
+    if(!d||!Array.isArray(d.items)){$('undoMsg').textContent='讀唔到呢段資料。請貼返「匯出資料」得到嗰段完整文字，由 ALLOC1: 開始。';return}
+    snap();checkpoint('匯入之前',S);
+    S={currency:d.currency||'£',months:d.months||9,items:d.items.map(it=>({id:it.id||uid(),name:String(it.name||''),group:['passive','active','cash'].includes(it.group)?it.group:'passive',now:num(it.now),target:num(it.target)}))};
+    renderAll();scheduleSave();$('ioPanel').hidden=true;$('undoMsg').textContent='已載入 '+S.items.length+' 個項目。';
+  });
+
+  function totals(){
+    const r={now:{total:0,g:{passive:0,active:0,cash:0}},tgt:{total:0,g:{passive:0,active:0,cash:0}}};
+    S.items.forEach(it=>{const n=num(it.now),t=num(it.target);r.now.total+=n;r.tgt.total+=t;if(r.now.g[it.group]!==undefined){r.now.g[it.group]+=n;r.tgt.g[it.group]+=t}});
+    return r;
+  }
+
+  function renderAll(){
+    $('loading').hidden=true;$('app').hidden=false;
+    $('cur').value=S.currency||'£';
+    const tb=$('tb');tb.innerHTML='';
+    GROUPS.forEach(g=>{
+      const h=document.createElement('tr');h.className='ghead';
+      h.innerHTML='<td colspan="9"><span class="sw" style="background:var(--'+g.k+')"></span>'+g.l+'</td>';tb.appendChild(h);
+      S.items.filter(it=>it.group===g.k).forEach(it=>{
+        const tr=document.createElement('tr');
+        tr.innerHTML='<td class="name"><input class="txt" id="nm-'+it.id+'" aria-label="項目名稱"></td>'+
+          '<td><input class="num" id="now-'+it.id+'" inputmode="decimal" aria-label="而家金額"></td>'+
+          '<td class="n" id="np-'+it.id+'"></td>'+
+          '<td><input class="num" id="tg-'+it.id+'" inputmode="decimal" aria-label="目標金額"></td>'+
+          '<td class="n" id="tp-'+it.id+'"></td><td class="n" id="da-'+it.id+'"></td><td class="n" id="dr-'+it.id+'"></td><td class="n" id="dp-'+it.id+'"></td>'+
+          '<td><button type="button" class="ghost" aria-label="刪除呢項" data-del="'+it.id+'">✕</button></td>';
+        tb.appendChild(tr);
+        const nm=tr.querySelector('#nm-'+it.id),nw=tr.querySelector('#now-'+it.id),tg=tr.querySelector('#tg-'+it.id);
+        nm.value=it.name;nw.value=Math.round(num(it.now));tg.value=Math.round(num(it.target));
+        nm.addEventListener('input',()=>{beginEdit();it.name=nm.value;refreshControls();scheduleSave()});
+        nw.addEventListener('input',()=>{beginEdit();it.now=num(nw.value);updateDerived();scheduleSave()});
+        tg.addEventListener('input',()=>{beginEdit();it.target=num(tg.value);updateDerived();scheduleSave()});
+      });
+      const s=document.createElement('tr');s.className='sub';
+      s.innerHTML='<td>小計</td><td class="n" id="gn-'+g.k+'"></td><td class="n hl" data-g="'+g.k+'" id="gnp-'+g.k+'"></td><td class="n" id="gt-'+g.k+'"></td><td class="n hl" data-g="'+g.k+'" id="gtp-'+g.k+'"></td><td class="n" id="gda-'+g.k+'"></td><td class="n" id="gdr-'+g.k+'"></td><td class="n" id="gdp-'+g.k+'"></td><td></td>';
+      tb.appendChild(s);
+      const a=document.createElement('tr');a.className='addrow';
+      a.innerHTML='<td colspan="9"><button type="button" class="add" data-add="'+g.k+'">＋ 加一項 '+g.l.split(' ')[0]+'</button></td>';
+      tb.appendChild(a);
+    });
+    const t=document.createElement('tr');t.className='total';
+    t.innerHTML='<td>總計</td><td class="n" id="Tn"></td><td class="n">100%</td><td class="n" id="Tt"></td><td class="n">100%</td><td class="n" id="Tda"></td><td class="n" id="Tdr"></td><td class="n"></td><td></td>';
+    tb.appendChild(t);
+    tb.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>armConfirm(b,'確定刪除？',()=>{
+      const gone=S.items.find(x=>x.id===b.dataset.del);snap();checkpoint('刪除「'+(gone?gone.name:'')+'」之前',S);
+      S.items=S.items.filter(x=>x.id!==b.dataset.del);renderAll();scheduleSave();$('undoMsg').textContent='已刪除「'+(gone?gone.name:'')+'」。撳「還原上一步」可以救返。'})));
+    tb.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>{snap();const it={id:uid(),name:'新項目',group:b.dataset.add,now:0,target:0};S.items.push(it);renderAll();scheduleSave();const el=$('nm-'+it.id);if(el){el.focus();el.select()}}));
+    updateDerived();
+  }
+
+  function refreshControls(){
+    if(!$('src'))return;
+    const src=$('src'),prev=src.value;src.innerHTML='';
+    S.items.filter(it=>it.group!=='passive').forEach(it=>{const o=document.createElement('option');o.value=it.id;o.textContent=it.name;src.appendChild(o)});
+    if(prev&&S.items.some(x=>x.id===prev))src.value=prev;
+    else{const ib=S.items.find(x=>x.group==='active');if(ib)src.value=ib.id}
+    const d=$('dsts'),checked=new Set([...d.querySelectorAll('input:checked')].map(x=>x.dataset.id));d.innerHTML='';
+    S.items.filter(it=>it.group==='passive').forEach(it=>{const l=document.createElement('label');l.className='chk';
+      l.innerHTML='<input type="checkbox" id="dst-'+it.id+'" data-id="'+it.id+'">';l.appendChild(document.createTextNode(it.name));d.appendChild(l);
+      if(checked.has(it.id))l.querySelector('input').checked=true});
+  }
+
+  function setCell(id,text,c){const el=$(id);if(!el)return;el.textContent=text;el.className='n'+(el.dataset.g?' hl':'')+(c?' '+c:'')}
+
+  function updateDerived(){
+    const T=totals(),N=T.now.total||0,G=T.tgt.total||0;
+    S.items.forEach(it=>{const n=num(it.now),t=num(it.target),pn=N?n/N:0,pt=G?t/G:0;
+      setCell('np-'+it.id,pct(pn));setCell('tp-'+it.id,pct(pt));setCell('da-'+it.id,signed(t-n),cls(t-n));setCell('dr-'+it.id,rel(n,t),cls(t-n));setCell('dp-'+it.id,pp(pt-pn),cls((pt-pn)*1e4))});
+    GROUPS.forEach(g=>{const n=T.now.g[g.k],t=T.tgt.g[g.k],pn=N?n/N:0,pt=G?t/G:0;
+      setCell('gn-'+g.k,money(n));setCell('gnp-'+g.k,pct(pn));setCell('gt-'+g.k,money(t));setCell('gtp-'+g.k,pct(pt));setCell('gda-'+g.k,signed(t-n),cls(t-n));setCell('gdr-'+g.k,rel(n,t),cls(t-n));setCell('gdp-'+g.k,pp(pt-pn),cls((pt-pn)*1e4))});
+    setCell('Tn',money(N));setCell('Tt',money(G));setCell('Tda',signed(G-N),cls(G-N));setCell('Tdr',rel(N,G),cls(G-N));
+    $('tTotal').innerHTML=money(N)+'<span class="arrow">→</span>'+money(G);
+    const nm=G-N;$('tTotalD').textContent=Math.abs(nm)<0.5?'總數不變，只係重新分配':(nm>0?'新增資金 ':'提走資金 ')+signed(nm);$('tTotalD').className='d '+cls(nm);
+    const pN=N?T.now.g.passive/N:0,pT=G?T.tgt.g.passive/G:0,aN=N?T.now.g.active/N:0,aT=G?T.tgt.g.active/G:0;
+    $('tPas').innerHTML=pct(pN)+'<span class="arrow">→</span>'+pct(pT);$('tPasD').textContent=pp(pT-pN);$('tPasD').className='d '+cls((pT-pN)*1e4);
+    $('tAct').innerHTML=pct(aN)+'<span class="arrow">→</span>'+pct(aT);$('tActD').textContent=pp(aT-aN);$('tActD').className='d '+cls((aT-aN)*1e4);
+    const months=S.months||9;
+    const out=S.items.filter(it=>it.group==='active').reduce((s,it)=>s+Math.max(0,num(it.now)-num(it.target)),0);
+    const inP=S.items.filter(it=>it.group==='passive').reduce((s,it)=>s+Math.max(0,num(it.target)-num(it.now)),0);
+    $('tMon').textContent=money(out);$('tMonD').textContent='Passive 加入合共 '+money(inP);$('tMonD').className='d zero';
+    drawBar('barNow',T.now,N);drawBar('barTgt',T.tgt,G);
+    const pl=$('planList');if(pl){pl.innerHTML='';
+    const moves=S.items.map(it=>({it,d:num(it.target)-num(it.now)})).filter(m=>Math.abs(m.d)>=1).sort((a,b)=>a.d-b.d);
+    if(!moves.length){pl.innerHTML='<div class="note">目標同而家一樣，暫時唔使轉。改上面嘅目標數字或者用「快速調整」。</div>'}
+    moves.forEach(m=>{const r=document.createElement('div');r.className='pl';
+      const a=document.createElement('span');a.className='nm';a.textContent=(m.d<0?'由 ':'轉入 ')+m.it.name;
+      const b=document.createElement('span');b.className='m '+cls(m.d);b.textContent='每月 '+signed(m.d/months);
+      const c=document.createElement('span');c.className='t';c.textContent='合共 '+signed(m.d);
+      r.append(a,b,c);pl.appendChild(r)});
+    const outAll=moves.filter(m=>m.d<0).reduce((s,m)=>s-m.d,0),inAll=moves.filter(m=>m.d>0).reduce((s,m)=>s+m.d,0);
+    $('planCheck').textContent=moves.length?'轉出合共 '+money(outAll)+'，轉入合共 '+money(inAll)+'。'+(Math.abs(inAll-outAll)<0.5?'一出一入，打和。':(inAll>outAll?'多出嘅 '+money(inAll-outAll)+' 要用新資金補。':'剩低 '+money(outAll-inAll)+' 未有去處。')):'';}
+  }
+
+  function drawBar(id,part,total){
+    const el=$(id);el.innerHTML='';
+    GROUPS.forEach(g=>{const w=total?part.g[g.k]/total*100:0;if(w<=0)return;const s=document.createElement('div');s.className='seg '+g.k;s.style.width=w+'%';s.textContent=w>=7?g.k[0].toUpperCase()+g.k.slice(1)+' '+w.toFixed(0)+'%':'';s.title=g.l+' '+w.toFixed(1)+'%';el.appendChild(s)});
+  }
+
+  function applyShift(){
+    const msg=$('shiftMsg'),T=totals(),G=T.tgt.total;
+    if(G<=0){msg.textContent='先輸入目標金額。';return}
+    const p=+$('pTarget').value/100,need=p*G-T.tgt.g.passive;
+    const src=S.items.find(x=>x.id===$('src').value);
+    const dsts=S.items.filter(x=>x.group==='passive'&&$('dst-'+x.id)&&$('dst-'+x.id).checked);
+    if(!src){msg.textContent='揀一個抽錢來源。';return}
+    if(!dsts.length){msg.textContent='最少勾一個 Passive 項目做目的地。';return}
+    if(Math.abs(need)<1){msg.textContent='目標已經係 '+$('pTarget').value+'%，唔使改。';return}
+    snap();checkpoint('快速調整之前',S);
+    const split=(amt,n)=>{const e=Math.floor(amt/n);return Array.from({length:n},(_,i)=>i===n-1?amt-e*(n-1):e)};
+    if(need>0){
+      const amt=Math.round(Math.min(need,num(src.target)));src.target=Math.round(num(src.target))-amt;
+      split(amt,dsts.length).forEach((v,i)=>dsts[i].target=Math.round(num(dsts[i].target))+v);
+      msg.textContent='已由 '+src.name+' 抽 '+money(amt)+'，平均加去 '+dsts.map(d=>d.name).join('、')+(amt<need-0.5?'。來源唔夠錢，未去到目標比例。':'。');
+    }else{
+      let moved=0;split(Math.round(-need),dsts.length).forEach((v,i)=>{const d=dsts[i],m=Math.min(v,Math.round(num(d.target)));d.target=Math.round(num(d.target))-m;moved+=m});
+      src.target=Math.round(num(src.target))+moved;
+      msg.textContent='已由 '+dsts.map(d=>d.name).join('、')+' 抽返 '+money(moved)+' 去 '+src.name+'。';
+    }
+    renderAll();scheduleSave();
+  }
+
+  if($('apply'))$('apply').addEventListener('click',applyShift);
+  if($('reset'))$('reset').addEventListener('click',()=>armConfirm($('reset'),'再撳一次確認重設',()=>{snap();checkpoint('目標重設之前',S);S.items.forEach(it=>it.target=num(it.now));renderAll();scheduleSave();$('shiftMsg').textContent='目標已重設為而家嘅數。撳上面「還原上一步」可以返轉頭。'}));
+  if($('pTarget'))$('pTarget').addEventListener('input',()=>{$('pTargetV').textContent=$('pTarget').value+'%'});
+  if($('months'))$('months').addEventListener('input',()=>{beginEdit();S.months=+$('months').value;updateDerived();scheduleSave()});
+  $('cur').addEventListener('change',()=>{snap();S.currency=$('cur').value;updateDerived();scheduleSave()});
+
+  function scheduleSave(){dirty=true;clearTimeout(saveTimer);saveTimer=setTimeout(doSave,800)}
+  async function doSave(){
+    if(mode==='local'){try{localStorage.setItem(LS,JSON.stringify(S));setStatus('只存喺呢部機')}catch(e){setStatus('未能儲存','bad')}dirty=false;return}
+    if(!ref)return;
+    if(saving){pending=true;return}
+    saving=true;setStatus('儲存中…');
+    if(lastSavedObj&&Date.now()-lastCkpt>600000)checkpoint('自動備份',lastSavedObj);
+    const body=clone(S);body.updatedAt=new Date().toISOString();
+    try{await ref.set(body);lastSaved=strip(body);lastSavedObj=clone(S);setStatus('已儲存','ok')}
+    catch(e){setStatus(e&&e.code==='invalid_argument'?'冇權限儲存':(e&&e.code==='quota_exceeded'?'儲存空間滿咗':'儲存失敗，稍後再試'),'bad')}
+    saving=false;
+    if(pending){pending=false;doSave()}else dirty=false;
+  }
+
+  function startEmpty(note){
+    S={currency:'£',months:9,items:[]};renderAll();
+    if(note)setStatus(note,'bad');
+  }
+
+  function localMode(){
+    mode='local';let d=null;
+    $('foot').textContent='計劃工具，唔係投資建議。資料只存喺呢部機嘅瀏覽器，唔會上傳；換機要用「匯出資料」同「匯入資料」搬數。';
+    try{d=JSON.parse(localStorage.getItem(LS)||'null')}catch(e){d=null}
+    try{const h=JSON.parse(localStorage.getItem(LS+'-h')||'null');if(h&&Array.isArray(h.snaps))histDoc=h}catch(e){}
+    renderVer();
+    if(d&&Array.isArray(d.items)){S=d;renderAll()}else startEmpty();
+    setStatus('只存喺呢部機');
+  }
+
+  (async function boot(){
+    let db=null;
+    try{db=window.claude&&window.claude.use?await window.claude.use('db'):null}catch(e){db=null}
+    if(!db){localMode();return}
+    try{ref=db.doc('plans/main');hRef=db.doc('plans/history')}catch(e){localMode();return}
+    hRef.onSnapshot(s=>{if(s.exists&&!hSaving){const h=clone(s.data());if(Array.isArray(h.snaps)){histDoc=h;renderVer()}}},()=>{});
+    let timer=setTimeout(()=>{if(!S){$('loading').textContent='暫時連唔到儲存位置，稍後再開過。';setStatus('連唔到雲端','bad')}else setStatus('可能唔係最新','bad')},10000);
+    ref.onSnapshot(snap=>{
+      if(!snap.metadata.fromCache){clearTimeout(timer)}
+      if(snap.exists){
+        const d=snap.data();const j=strip(d);
+        if(dirty||saving)return;
+        if(!S||j!==strip(S)){S=clone(d);if(!Array.isArray(S.items))S.items=[];delete S.updatedAt;renderAll()}
+        lastSavedObj=clone(S);
+        lastSaved=j;if(!snap.metadata.fromCache)setStatus('已儲存','ok');
+      }else if(!snap.metadata.fromCache&&!S){startEmpty();setStatus('未有資料，可以開始加項目')}
+    },err=>{clearTimeout(timer);if(!S)startEmpty('連唔到雲端');else setStatus('連唔到雲端','bad')});
+  })();
+})();
+</script>
+</body>
+</html>
