@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="2026 年全世界嘅共識係 AI，但係穩步上升嘅係可樂。NVDA 喺冇人信嘅 2023 年升 9.6 倍；而家 CEO 走咗，散戶創紀錄接貨，buy the dip 變咗手勢。如果呢招唔再 work，會點？">
+<meta property="og:title" content="2026 AI 好勁，賣 Nvidia 買可樂">
+<meta property="og:description" content="2026 年全世界嘅共識係 AI，但係穩步上升嘅係可樂。NVDA 喺冇人信嘅 2023 年升 9.6 倍；而家 CEO 走咗，散戶創紀錄接貨，buy the dip 變咗手勢。如果呢招唔再 work，會點？">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpoon6d23.github.io/funplaywhatever/learn/nvidia-coke.html">
+<meta property="og:image" content="https://jpoon6d23.github.io/funplaywhatever/img/og/nvidia-coke.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="2026 AI 好勁，賣 Nvidia 買可樂">
+<meta property="og:site_name" content="玩笑但">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpoon6d23.github.io/funplaywhatever/learn/nvidia-coke.html">
+<title>2026 AI 好勁，賣 Nvidia 買可樂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; every chart is a full-width "terminal" panel; motif = ticker tags + white/red trade arrows from his PTA charts */
+:root{
+  --bg:#0F151B; --surface:#161F27; --surface-2:#1E2A34; --line:#2C3B48;
+  --fg:#E7ECF0; --muted:#94A3B0; --tag:#F2C94C; --on-tag:#2A2204;
+  --up:#4CC38A; --down:#EB6D5F; --nv:#7FB8E0; --ko:#F2C94C; --qq:#B9A6EE; --buy:#F4F6F8; --sell:#EB6D5F; --band:rgba(76,195,138,.10);
+  --display:"LXGW WenKai TC","Noto Serif TC","Songti TC",serif;
+  --body:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#F3F5F6;--surface:#FFFFFF;--surface-2:#E8EEF2;--line:#D2DBE1;--fg:#14212B;--muted:#56687A;--tag:#F2C94C;--on-tag:#2A2204;--up:#17804F;--down:#C23F2E;--nv:#2F6E9E;--ko:#B8860B;--qq:#6B57AE;--buy:#1B2733;--sell:#C23F2E;--band:rgba(23,128,79,.10);color-scheme:light}
+}
+:root[data-theme="light"]{--bg:#F3F5F6;--surface:#FFFFFF;--surface-2:#E8EEF2;--line:#D2DBE1;--fg:#14212B;--muted:#56687A;--tag:#F2C94C;--on-tag:#2A2204;--up:#17804F;--down:#C23F2E;--nv:#2F6E9E;--ko:#B8860B;--qq:#6B57AE;--buy:#1B2733;--sell:#C23F2E;--band:rgba(23,128,79,.10);color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.75}
+.wrap{max-width:900px;margin:0 auto;padding-block:40px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:72px}
+section{display:flex;flex-direction:column;gap:20px;min-width:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(38px,7.5vw,64px)}
+h2{font-size:clamp(27px,5vw,36px)}
+h3{font-size:20px}
+p{margin:0;max-width:40em}
+.lede{font-size:19px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+a{color:var(--nv)}
+mark{background:var(--tag);color:var(--on-tag);padding:0 4px;border-radius:3px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.up{color:var(--up)} .down{color:var(--down)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;min-width:0}
+.card h3{margin-bottom:6px}
+.card p{font-size:16px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.quote{font-family:var(--display);font-size:clamp(21px,3.6vw,26px);line-height:1.55;border-left:3px solid var(--tag);padding-left:18px;max-width:32em}
+.quote cite{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted);font-style:normal;margin-top:8px}
+
+/* hero ticker tags */
+.tags{display:flex;flex-wrap:wrap;gap:26px;margin-top:10px}
+.tag{position:relative;flex:1 1 260px;min-width:0;padding:20px 24px 22px 50px;clip-path:polygon(22px 0,100% 0,100% 100%,22px 100%,0 50%);border-radius:4px}
+.tag::before{content:"";position:absolute;left:23px;top:50%;width:11px;height:11px;border-radius:50%;background:var(--bg);transform:translateY(-50%)}
+.tag.nv{background:var(--surface-2);transform:rotate(-1.2deg)}
+.tag.ko{background:var(--tag);color:var(--on-tag);transform:rotate(1.4deg)}
+.tag .tk{font-family:var(--mono);font-size:13px;letter-spacing:.12em;opacity:.8}
+.tag .pct{font-family:var(--mono);font-size:clamp(40px,8vw,56px);font-weight:600;line-height:1.1;margin-top:4px}
+.tag.nv .pct{color:var(--down)}
+.tag .sub{font-size:15px;margin-top:6px}
+.stamp{display:inline-block;margin-top:10px;font-family:var(--display);font-size:19px;font-weight:700;padding:1px 12px;border:2.5px solid currentColor;border-radius:6px;transform:rotate(-4deg)}
+.tag.nv .stamp{color:var(--nv)}
+.tag.ko .stamp{color:#9B1C12}
+
+/* charts */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 14px 10px;min-width:0}
+.panel-head{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:space-between;padding:2px 4px 8px}
+.readout{font-family:var(--mono);font-size:13px;color:var(--muted);min-height:1.6em;font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:16px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.scroll svg{display:block;width:100%;min-width:640px;height:auto}
+svg text{font-family:var(--mono);fill:var(--muted)}
+.hint{font-size:13px;color:var(--muted);padding:6px 4px 0}
+
+/* chapter stepper */
+.steps{display:flex;flex-wrap:wrap;gap:8px}
+.steps button,.seg button{font:inherit;font-size:14px;background:var(--surface-2);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
+.steps button[aria-pressed="true"],.seg button[aria-pressed="true"]{background:var(--tag);color:var(--on-tag);border-color:var(--tag)}
+button:focus-visible{outline:2px solid var(--nv);outline-offset:2px}
+.chapter{display:grid;gap:10px}
+.chapter .when{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.chapter .said{background:var(--surface-2);border-radius:10px;padding:12px 14px;font-size:15px}
+.chapter .said b{font-weight:500;color:var(--tag)}
+.navrow{display:flex;gap:10px;align-items:center}
+
+/* stat tiles */
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.tile .v{font-family:var(--mono);font-size:26px;font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums}
+.tile .k{font-size:14px;color:var(--muted);margin-top:4px}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:600px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+th{font-weight:500;color:var(--muted);font-size:13px;background:var(--surface-2)}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.hl td{background:var(--band)}
+.note{font-size:14px;color:var(--muted)}
+
+/* evidence */
+.ev{display:grid;gap:4px}
+.ev .fig{font-family:var(--mono);font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
+.ev .src{font-size:13px;color:var(--muted)}
+.side{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--muted);margin-top:6px}
+.vs{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.vs .card h3 .num{font-size:16px}
+
+/* matrix */
+.matrix{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px;align-items:stretch}
+.matrix .ax{font-size:13px;color:var(--muted);display:flex;align-items:center;justify-content:center;text-align:center;padding:4px}
+.matrix button{font:inherit;text-align:left;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;min-height:84px}
+.matrix button b{display:block;font-family:var(--display);font-size:19px}
+.matrix button span{font-size:13px;color:var(--muted)}
+.matrix button[aria-pressed="true"]{border-color:var(--tag);box-shadow:0 0 0 1px var(--tag) inset}
+.matrix button.danger b{color:var(--down)}
+.mx-out{background:var(--surface-2);border-radius:12px;padding:16px 18px}
+
+.check{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.check li{display:flex;gap:12px;align-items:flex-start}
+.check li::before{content:"";flex:0 0 18px;height:18px;margin-top:5px;border:2px solid var(--muted);border-radius:4px}
+
+.sources{font-size:14px;color:var(--muted)}
+.sources ol{margin:0;padding-left:20px;display:grid;gap:4px}
+@media (prefers-reduced-motion: no-preference){
+  .tag{transition:transform .3s}
+  .tag:hover{transform:rotate(0)}
+}
+.topbar{max-width:900px;margin:0 auto;padding-top:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.site-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none;padding:4px 0}
+.site-back:hover{color:var(--fg)}
+</style>
+</head>
+<body>
+<div class="topbar"><a class="site-back" href="../#learn">← 玩笑但 · 學習</a></div>
+<div class="wrap">
+
+<section class="hero">
+  <div class="eyebrow">2026 年 11 月 17 日 · 數據計到 11 月 16 日收市</div>
+  <h1>2026：AI 好勁，<br>賣 Nvidia 買可樂</h1>
+  <p class="lede">今年全世界嘅共識係 AI。但係今年真正穩步上升嘅，係一間賣咗一百幾十年糖水嘅公司。冇 GPU，冇數據中心，冇 CEO 醜聞。</p>
+  <div class="tags">
+    <div class="tag nv">
+      <div class="tk">NVDA · 2026 年至今</div>
+      <div class="pct" id="nvYtd">−16.3%</div>
+      <div class="sub">10 月 6 日高位 $243.37 → 11 月 12 日 $148.80，跌咗 38.9%</div>
+      <span class="stamp">AI 龍頭</span>
+    </div>
+    <div class="tag ko">
+      <div class="tk">KO · 2026 年至今</div>
+      <div class="pct" id="koYtd">+42.3%</div>
+      <div class="sub">11 月 16 日收 $99.48，一年最高位</div>
+      <span class="stamp">糖水</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">圖 1 · 2026 年三條線</div>
+  <h2>今年，AI 輸咗俾汽水</h2>
+  <p>三條線都由 2025 年最後一個交易日當 100 計，紫色嘅 QQQ 係大市參考。綠色嗰段係 4 月到 6 月，即係今年唯一啱我 style 嘅三個月。除咗嗰段，NVDA 成年都係上上落落，最後仲跌穿年頭價。</p>
+  <div class="panel">
+    <div class="panel-head">
+      <div class="legend"><span><i style="background:var(--ko)"></i>KO 可口可樂</span><span><i style="background:var(--nv)"></i>NVDA</span><span><i style="background:var(--qq)"></i>QQQ</span></div>
+      <div class="readout" id="ytdRead">將手指或滑鼠放上圖睇每日數字</div>
+    </div>
+    <div class="scroll"><svg id="ytd" viewBox="0 0 860 340" role="img" aria-label="2026 年 NVDA、KO 同 QQQ 走勢，以年初為 100"></svg></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">圖 2 · NVDA 2022–2026 週線（拆股後價，對數尺）</div>
+  <h2>2023：冇人信嘅時候，佢升得最勁</h2>
+  <p>由 2022 年 12 月尾收市 $14.61，到 2024 年 6 月高位 $140.76，升咗 <mark>9.6 倍</mark>。成段升浪入面，最多人講嘅係「太貴」、「泡沫」、「要 short」。白色同紅色箭嘴係我喺呢段時間嘅 NVDA 買賣。逐段撳嚟睇。</p>
+  <div class="steps" id="steps" role="group" aria-label="揀時段"></div>
+  <div class="panel">
+    <div class="panel-head"><div class="legend"><span><i style="background:var(--buy)"></i>我買入</span><span><i style="background:var(--sell)"></i>我賣出</span></div></div>
+    <div class="scroll"><svg id="story" viewBox="0 0 860 360" role="img" aria-label="NVDA 週線圖，標示每個時段"></svg></div>
+  </div>
+  <div class="chapter card" id="chapter" aria-live="polite"></div>
+  <div class="navrow"><div class="seg"><button type="button" id="prevCh">← 上一段</button> <button type="button" id="nextCh">下一段 →</button></div></div>
+  <div class="tiles">
+    <div class="tile"><div class="v up">+0.69R</div><div class="k">9 單加埋</div></div>
+    <div class="tile"><div class="v up">×9.6</div><div class="k">同期 NVDA</div></div>
+  </div>
+
+  <h3>共識調轉咗頭</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th></th><th>2023 年 1 月 – 2024 年 6 月</th><th>2026 年 11 月</th></tr></thead>
+    <tbody>
+      <tr><td>大家講乜</td><td>太貴、泡沫、要 short</td><td>AI 好勁，乜事都冇，黃仁勳唔做 CEO 間公司都完全冇問題</td></tr>
+      <tr><td>錢點樣郁</td><td>2023 年 5 月一日蝕 23 億美元；2024 年 2 月又一日蝕 30 億</td><td>散戶 3 日淨買 16 億美元，12 個月最大</td></tr>
+      <tr><td>個價做咗乜</td><td class="up">升 9.6 倍</td><td>？</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">市場最鍾意做嘅嘢，就係等最多人企喺同一邊嘅時候，教佢哋做人。</p>
+</section>
+
+<section>
+  <div class="eyebrow">圖 3 · QQQ 週線，2023–2026</div>
+  <h2>Buy the dip 已經變成手勢</h2>
+  <p>由 2023 年開始，QQQ 每次大跌，跌完都好快返新高。四次都係咁。訓練咗四次，個市場同我一樣：見到跌，第一個反應係買。</p>
+  <div class="panel">
+    <div class="panel-head">
+      <div class="legend"><span><i style="background:var(--nv)"></i>QQQ 每週收市</span><span>▲ 每次跌市嘅低位</span></div>
+      <div class="readout" id="qqRead">撳三角睇嗰次嘅數字</div>
+    </div>
+    <div class="scroll"><svg id="qqq" viewBox="0 0 860 340" role="img" aria-label="QQQ 週線，標示五次跌市低位"></svg></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>低位嗰個星期</th><th>由高位跌</th><th>幾耐返新高</th><th>低位之後 26 個星期</th></tr></thead>
+    <tbody id="dipBody"></tbody>
+  </table></div>
+  <p>巴甫洛夫隻狗：每次鐘響都有飯食，食得四次，之後一聽到鐘聲就流口水。佢唔需要知道今次有冇飯。我自己嘅 rule 都係咁：見到谷底反彈第一日（day one）就要入貨，唔係就會遲。</p>
+  <div class="quote">我連自己都習慣咗手勢。<cite>2026 年 11 月 17 日</cite></div>
+</section>
+
+<section>
+  <div class="eyebrow">查證 · 我聽返嚟嗰樣嘢係咪真</div>
+  <h2>係真：散戶創紀錄咁接 NVDA</h2>
+  <p>我聽講 NVDA 大跌嘅時候好多人買貨。查過，係真，而且係紀錄級數。不過唔係所有人都喺度買。</p>
+  <div class="side">散戶（買緊）</div>
+  <div class="grid">
+    <div class="card ev"><div class="fig up">16 億美元</div><p>散戶 11 月 9 至 11 日三日淨買入 NVDA，至少 12 個月最大嘅三日。11 日單日 7.3 億，3 月以來最大。</p><div class="src">J.P. Morgan 數據，經 The Kobeissi Letter／Business Today</div></div>
+    <div class="card ev"><div class="fig up">1.11 億美元</div><p>11 月 12 日，CEO 辭職嗰朝，開市頭半個鐘散戶淨買入，有紀錄以來最大，平時開市嘅 40 幾倍。</p><div class="src">Vanda Research，經 Substack 整理</div></div>
+    <div class="card ev"><div class="fig up">61%</div><p>嗰個星期全美散戶淨買入（股票加 ETF），六成一係 NVDA 一隻。</p><div class="src">Vanda Research</div></div>
+    <div class="card ev"><div class="fig up">4.01 億美元</div><p>兩倍槓桿 NVDA ETF（NVDL）三日流入。即係唔止接，仲要借錢接。</p><div class="src">Business Today</div></div>
+    <div class="card ev"><div class="fig up">+432%</div><p>英國都一樣：IG 11 月 9 日買家數目比之前平均多 432%；Hargreaves Lansdown 大約 8 個買家對 1 個賣家；Freetrade 單日買入破紀錄。</p><div class="src">據報道，各平台時段同客群唔同，唔可以加埋計</div></div>
+    <div class="card ev"><div class="fig up">28 億美元</div><p>QQQ 11 月 5 日跌 6.5%，2020 年 3 月以來最差一日，當日仍然有 28 億美元流入。Vanda 話 SOXL 同 TQQQ 係散戶近幾個星期唯一大手買嘅地方。</p><div class="src">Briefs、The Daily Upside</div></div>
+  </div>
+  <div class="side">專業投資者（走緊）</div>
+  <div class="grid">
+    <div class="card ev"><div class="fig down">≥ 6 間</div><p>11 月 12 日朝早至少 6 間券商降級 NVDA，Bernstein、Baird 都喺入面。Morgan Stanley、美銀將佢踢出首選名單。</p><div class="src">Substack 整理 Reuters 等報道</div></div>
+    <div class="card ev"><div class="fig down">十年最快</div><p>截至 10 月 15 日嗰個星期，對沖基金沽科技股嘅速度係至少十年最快。</p><div class="src">Goldman Sachs prime brokerage</div></div>
+    <div class="card ev"><div class="fig down">1,180 億美元</div><p>截至 11 月 4 日一週，貨幣市場基金流入近 1,180 億美元，半年最大。</p><div class="src">Reuters，經 The Daily Upside</div></div>
+  </div>
+
+  <h3>上次唔係咁</h3>
+  <div class="vs">
+    <div class="card">
+      <h3>2026 年 3 月尾 <span class="num muted">QQQ 低位 555.60</span></h3>
+      <p>J.P. Morgan 話散戶「skip the dip、反彈就賣」，3 月買入只有 1 月一半。Vanda 話散戶自 2023 年 11 月以嚟第一次淨賣出個股，仲去買 SQQQ（三倍沽空 Nasdaq）同 SGOV（等同現金）。</p>
+      <p style="margin-top:8px">結果：<span class="up">嗰度就係底，之後 QQQ 升到 762.86（+37%）。</span></p>
+    </div>
+    <div class="card">
+      <h3>2026 年 11 月 <span class="num muted">QQQ 低位 647.12</span></h3>
+      <p>散戶創紀錄買 NVDA，借錢買槓桿 ETF，QQQ 跌 6.5% 嗰日照樣流入。</p>
+      <p style="margin-top:8px">結果：<span class="muted">未知。</span></p>
+    </div>
+  </div>
+  <p class="muted small">得一次對照，唔係定律。只係講返前篇「金融市場唔係超級市場」嘅道理：散戶唔敢接嗰陣係底；散戶搶住接嘅時候，彩池已經擠滿人。</p>
+</section>
+
+<section>
+  <div class="eyebrow">今個星期 · 兩場考試</div>
+  <h2>好消息出咗，個價升唔升？</h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>日子</th><th>事件</th><th>已知事實</th></tr></thead>
+    <tbody>
+      <tr><td class="n">11/17 二</td><td>NVDA 第三季業績（美股收市後，英國時間大約夜晚 9 點）</td><td>11 月 12 日黃仁勳辭職，CFO Colette Kress 署任 CEO；董事會搵緊正式人選</td></tr>
+      <tr><td class="n">11/19 四</td><td>Anthropic 喺 Nasdaq 上市，代號 ANT</td><td>據 11 月 12 日報道：招股價 $70–78，8.25 億股，集資逾 640 億美元，估值約 1.4 萬億；據 Bloomberg 超額認購約 6 倍</td></tr>
+    </tbody>
+  </table></div>
+  <p>如果佢哋講盡晒好話，但係個股價都係撲街，咁就係一個非常之大鑊嘅問題。撳下面四格睇每個組合代表乜。</p>
+  <div class="matrix" role="group" aria-label="消息同反應組合">
+    <div></div><div class="ax">股價升</div><div class="ax">股價跌</div>
+    <div class="ax">好消息</div>
+    <button type="button" data-k="gu"><b>好消息，升</b><span>正常</span></button>
+    <button type="button" data-k="gd" class="danger" aria-pressed="true"><b>好消息，跌</b><span>我最驚嘅一格</span></button>
+    <div class="ax">壞消息</div>
+    <button type="button" data-k="bu"><b>壞消息，升</b><span>賣家用完</span></button>
+    <button type="button" data-k="bd"><b>壞消息，跌</b><span>正常</span></button>
+  </div>
+  <div class="mx-out" id="mxOut" aria-live="polite"></div>
+  <p class="muted small">呢頁由 Claude 協助整理。Claude 係 Anthropic 開發嘅，所以 Anthropic 上市呢部分只列報道嘅事實，唔作任何評價。</p>
+</section>
+
+<section>
+  <div class="eyebrow">推測 · 用開放嘅角度睇</div>
+  <h2>如果 buy the dip 唔再 work，會點？</h2>
+  <p>市場係一個折現機制。當一個方法令大部分人賺到錢，佢就會令個方法失效：大家學識跌就買，個 dip 就會愈嚟愈淺，因為人人搶早買；直到有一次，想買嘅人已經全部買咗，跌落去就再冇人推返上嚟。我唔係話一定會咁，純粹好奇。下面三條路，三條都喺呢幾張圖見過。</p>
+  <div class="grid">
+    <div class="card">
+      <h3>路線 A：又一次 V 形</h3>
+      <p>好似 QQQ 2023 至 2026 嗰四次。Day one 入貨照 work，跟住 leaders 一齊返新高。</p>
+      <p class="note" style="margin-top:8px">你會見到：好消息出咗會升；好多隻 leader 返到新高附近。</p>
+    </div>
+    <div class="card">
+      <h3>路線 B：橫行好耐</h3>
+      <p>好似 NVDA 2024 年 6 月到 2025 年 6 月，一年冇新高。Day one 買咗上唔去，慢慢磨，止蝕一次又一次。</p>
+      <p class="note" style="margin-top:8px">你會見到：反彈去到上次高位就散；新高嘅股好少；資金走去可樂呢類防守股。</p>
+    </div>
+    <div class="card">
+      <h3>路線 C：再落一大級</h3>
+      <p>好似 NVDA 2022 年，由高位跌 69%。每次 day one 都失敗，反彈變成賣出嘅機會。</p>
+      <p class="note" style="margin-top:8px">你會見到：好消息都跌；低位一個低過一個；接貨嗰班人變成之後嘅賣家。</p>
+    </div>
+  </div>
+  <p>今日已經有一樣嘢對得上 B 同 C：今年最強嘅係可樂。呢樣嘢唔證明乜，只係講緊錢去咗邊。</p>
+</section>
+
+<section>
+  <div class="eyebrow">提醒自己</div>
+  <div class="quote">當個價格係咁跌，然後大家好樂觀 keep 住咁樣買嗰陣時，大概就係最危險嘅時候。<cite>2026 年 11 月 17 日</cite></div>
+  <p>下次 day one 撳買入掣之前，問自己：</p>
+  <ul class="check">
+    <li>上一個好消息出咗之後，個價有冇升？</li>
+    <li>有幾多隻 leader 喺新高附近？（我自己嘅標準：30 至 50 隻）</li>
+    <li>個反彈有冇跟進？定係好似 NVDA 11 月 12 日咁，開市跌到 $148.80 收返 $166.19，之後兩日又跌返落去？</li>
+    <li>我買係因為 setup，定係因為慣咗手勢？</li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">由你識嘅嘢搭過去</div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>你識嘅嘢</th><th>喺呢個 page 係乜</th></tr></thead>
+    <tbody>
+      <tr><td>超市減價係著數</td><td>市場減價可能係冇人要；跌唔等於平</td></tr>
+      <tr><td>巴甫洛夫隻狗</td><td>QQQ 跌咗四次都好快返新高，成個市場被訓練到見跌就買</td></tr>
+      <tr><td>彩池：大熱門賠率低</td><td>人人都 buy the dip，個回報就會愈嚟愈薄</td></tr>
+      <tr><td>天氣預報 vs 天氣重溫</td><td>新聞講緊 AI 有幾勁，個價講緊大家已經買咗幾多</td></tr>
+      <tr><td>我嘅 Oops（穿位再收返）</td><td>NVDA 11 月 12 日穿底收返，但之後兩日冇跟進，收市再低過嗰日</td></tr>
+      <tr><td>我嘅 expectation breaker</td><td>好消息出咗但個價跌，就係期望被打破</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small muted">前篇：<a href="https://jpoon6d23.github.io/funplaywhatever/learn/market-not-supermarket.html" target="_blank" rel="noopener">金融市場唔係超級市場</a></p>
+</section>
+
+<section class="sources">
+  <div class="eyebrow">來源</div>
+  <ol>
+    <li>價格：Interactive Brokers 歷史數據（NVDA、KO 日線至 2026-11-16；NVDA、QQQ 週線）。NVDA 2024 年 6 月 10 日一拆十，圖用拆股後價。</li>
+    <li>交易：我自己嘅 Trading log。</li>
+    <li><a href="https://www.businesstoday.in/markets/stocks/story/retail-investors-pour-1-6-billion-into-nvidia-in-3-days-are-they-buying-the-dip-or-catching-a-falling-knife-567417-2026-11-13" target="_blank" rel="noopener">Business Today：Retail investors pour $1.6 billion into Nvidia in 3 days</a></li>
+    <li><a href="https://hedgeweek.com/news/retail-investors-pour-1-6bn-into-nvidia-despite-ai-selloff" target="_blank" rel="noopener">Hedgeweek：Retail investors pour $1.6bn into Nvidia despite AI selloff</a></li>
+    <li><a href="https://petragordan.substack.com/p/retail-bought-nvidias-dip-but-professional" target="_blank" rel="noopener">Substack：Retail bought Nvidia's dip, but professional investors are not coming</a></li>
+    <li><a href="https://www.kucoin.com/blog/nvidia-stock-retail-dip-buying-ai" target="_blank" rel="noopener">KuCoin：英國平台（IG、HL、Saxo、Freetrade）數字整理</a></li>
+    <li><a href="https://abcnews.com/Business/nvidia-ceo-jensen-huang-resigns-amid-alleged-affair/story?id=138076256" target="_blank" rel="noopener">ABC News：Nvidia CEO Jensen Huang resigns</a></li>
+    <li><a href="https://www.briefs.co/news/retail-dip-buyers-tiptoe-back-in-after-a-bruising-thursday/" target="_blank" rel="noopener">Briefs：Retail dip buyers tiptoe back in after a bruising Thursday</a></li>
+    <li><a href="https://www.thedailyupside.com/etf/industry-news-etf/midterm-results-trigger-record-nasdaq-sell-off-rattling-chip-and-ai-funds/" target="_blank" rel="noopener">The Daily Upside：Midterm results trigger record Nasdaq sell-off</a></li>
+    <li><a href="https://www.sherwood.news/markets/retail-traders-skip-the-dip-to-dash-for-cash-and-bet-against-tech-speculative-fever-broken/" target="_blank" rel="noopener">Sherwood（2026-04-02）：Retail traders skip the dip</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2023-05-25/nvidia-short-sellers-lose-2-3-billion-in-one-day-as-stock-soars" target="_blank" rel="noopener">Bloomberg（2023-05-25）：Nvidia short sellers lose $2.3 billion in one day</a></li>
+    <li><a href="https://www.businesstoday.in/latest/world/story/nvidia-short-sellers-lose-8-billion-as-shares-rise-more-than-180-in-2023-383784-2023-06-01" target="_blank" rel="noopener">Business Today（2023-06-01）：Nvidia short sellers lose $8 billion</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2024-02-23/nvidia-nightmare-causes-3-billion-loss-for-short-sellers" target="_blank" rel="noopener">Bloomberg（2024-02-23）：Nvidia stock surge causes $3 billion loss for short sellers</a></li>
+    <li><a href="https://globalmarketsinvestor.substack.com/p/chart-of-the-week-retail-investors" target="_blank" rel="noopener">Global Markets Investor（2025-02-01）：DeepSeek 跌市散戶買入紀錄</a></li>
+    <li><a href="https://www.thewealthadvisor.com/article/anthropic-targets-november-19-ipo-14-trillion-valuation-and-64-billion-share-sale" target="_blank" rel="noopener">The Wealth Advisor：Anthropic targets November 19 IPO</a></li>
+    <li><a href="https://www.insiderfinance.io/news/nvidia-earnings-set-for-nov-17-amid-sell-signals" target="_blank" rel="noopener">InsiderFinance：Nvidia earnings set for Nov. 17</a></li>
+  </ol>
+</section>
+
+</div>
+
+<script>
+const D = {"d26":{"d":["2025-12-31","2026-01-02","2026-01-05","2026-01-06","2026-01-07","2026-01-08","2026-01-09","2026-01-12","2026-01-13","2026-01-14","2026-01-15","2026-01-16","2026-01-20","2026-01-21","2026-01-22","2026-01-23","2026-01-26","2026-01-27","2026-01-28","2026-01-29","2026-01-30","2026-02-02","2026-02-03","2026-02-04","2026-02-05","2026-02-06","2026-02-09","2026-02-10","2026-02-11","2026-02-12","2026-02-13","2026-02-17","2026-02-18","2026-02-19","2026-02-20","2026-02-23","2026-02-24","2026-02-25","2026-02-26","2026-02-27","2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06","2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13","2026-03-16","2026-03-17","2026-03-18","2026-03-19","2026-03-20","2026-03-23","2026-03-24","2026-03-25","2026-03-26","2026-03-27","2026-03-30","2026-03-31","2026-04-01","2026-04-02","2026-04-06","2026-04-07","2026-04-08","2026-04-09","2026-04-10","2026-04-13","2026-04-14","2026-04-15","2026-04-16","2026-04-17","2026-04-20","2026-04-21","2026-04-22","2026-04-23","2026-04-24","2026-04-27","2026-04-28","2026-04-29","2026-04-30","2026-05-01","2026-05-04","2026-05-05","2026-05-06","2026-05-07","2026-05-08","2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15","2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22","2026-05-26","2026-05-27","2026-05-28","2026-05-29","2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-08","2026-06-09","2026-06-10","2026-06-11","2026-06-12","2026-06-15","2026-06-16","2026-06-17","2026-06-18","2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26","2026-06-29","2026-06-30","2026-07-01","2026-07-02","2026-07-06","2026-07-07","2026-07-08","2026-07-09","2026-07-10","2026-07-13","2026-07-14","2026-07-15","2026-07-16","2026-07-17","2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-03","2026-08-04","2026-08-05","2026-08-06","2026-08-07","2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-08-31","2026-09-01","2026-09-02","2026-09-03","2026-09-04","2026-09-08","2026-09-09","2026-09-10","2026-09-11","2026-09-14","2026-09-15","2026-09-16","2026-09-17","2026-09-18","2026-09-21","2026-09-22","2026-09-23","2026-09-24","2026-09-25","2026-09-28","2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-05","2026-10-06","2026-10-07","2026-10-08","2026-10-09","2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-16","2026-10-19","2026-10-20","2026-10-21","2026-10-22","2026-10-23","2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-11-02","2026-11-03","2026-11-04","2026-11-05","2026-11-06","2026-11-09","2026-11-10","2026-11-11","2026-11-12","2026-11-13","2026-11-16"],"nv":[186.5,188.85,188.12,187.24,189.11,185.04,184.86,184.94,185.81,183.14,187.05,186.23,178.07,183.32,184.84,187.67,186.47,188.52,191.52,192.51,191.13,185.61,180.34,174.19,171.88,185.41,190.04,188.54,190.05,186.94,182.81,184.97,187.98,187.9,189.82,191.55,192.85,195.56,184.89,177.19,182.48,180.05,183.04,183.34,177.82,182.65,184.77,186.03,183.14,180.25,183.22,181.93,180.4,178.56,172.7,175.64,175.2,178.68,171.24,167.52,165.17,174.4,175.75,177.39,177.64,178.1,182.08,183.91,188.63,189.31,196.51,198.87,198.35,201.68,202.06,199.88,202.5,199.64,208.27,216.61,213.17,209.25,199.57,198.45,198.48,196.5,207.83,211.5,215.2,219.44,220.78,225.83,235.74,225.32,222.32,220.61,223.47,219.51,215.33,214.86,212.6,214.25,211.14,224.36,222.82,214.75,218.66,205.1,208.64,208.19,200.42,204.87,205.19,212.45,207.41,204.65,210.69,208.65,200.04,199.0,195.74,192.53,194.97,200.09,197.58,194.83,195.55,196.93,204.12,202.78,210.96,203.53,211.8,212.5,207.4,202.81,203.28,207.29,212.06,208.76,206.84,196.51,197.01,190.01,195.04,200.75,206.64,211.94,219.22,218.99,223.96,217.55,217.5,224.09,225.3,225.16,225.01,219.74,217.56,216.85,214.72,208.48,213.05,209.66,227.98,217.55,220.78,217.44,224.41,228.45,230.36,225.73,223.67,218.36,218.29,210.96,212.17,213.9,219.34,222.27,227.38,228.87,225.51,224.58,225.07,228.86,227.21,228.38,230.86,233.95,238.9,239.24,237.47,230.48,229.28,226.32,228.52,221.3,217.23,214.13,217.09,216.47,221.97,212.21,210.96,216.0,217.94,215.38,213.66,204.64,202.06,206.69,200.13,181.6,186.64,178.67,168.89,173.73,166.19,162.85,156.14],"ko":[69.91,69.12,67.94,67.84,67.54,69.37,70.51,70.5,71.24,71.44,70.48,70.44,71.75,72.01,71.87,72.88,72.56,73.55,73.06,73.43,74.81,75.33,76.89,77.35,78.51,79.03,77.97,76.81,78.6,79.0,78.68,79.56,79.49,78.91,79.84,80.56,80.72,80.47,80.5,81.56,80.22,79.34,78.1,77.03,77.04,77.8,77.88,77.63,77.61,77.34,77.82,77.58,75.97,75.55,74.75,75.11,74.67,75.25,74.69,75.71,76.27,76.05,76.08,76.72,77.22,75.91,77.29,78.18,77.47,76.41,75.9,75.31,75.18,75.74,75.48,74.7,74.63,76.28,76.63,75.44,78.35,78.87,78.76,78.58,78.19,78.48,79.23,78.43,78.42,78.66,80.03,80.26,80.45,80.82,81.2,81.92,81.55,81.17,81.48,80.46,81.62,80.41,79.01,78.64,78.41,78.76,76.82,79.48,79.54,81.34,83.59,82.53,82.62,80.91,80.28,79.93,79.39,79.53,80.31,80.6,80.42,82.63,82.65,81.27,81.29,84.14,82.96,84.05,83.4,82.63,83.49,84.25,83.08,82.45,84.92,81.56,82.12,81.97,82.2,81.17,82.25,84.07,88.27,89.08,88.49,87.59,86.86,86.56,86.83,86.85,87.05,86.87,86.48,86.71,87.42,87.71,86.98,88.82,90.35,90.5,91.1,91.99,91.64,90.08,89.06,89.66,88.67,88.0,88.24,88.81,88.07,88.36,87.55,87.83,88.29,89.35,88.71,87.87,88.06,88.25,87.12,88.61,88.09,88.1,87.81,87.18,86.84,86.08,86.1,85.65,86.51,86.17,85.82,87.77,88.05,89.79,90.11,91.78,92.0,93.9,93.42,93.49,92.68,95.34,92.71,92.7,91.18,91.73,92.82,94.08,95.83,94.8,95.8,95.73,95.67,96.03,96.91,97.57,97.44,99.25,99.48],"qq":[614.31,613.12,617.99,623.42,624.02,620.47,626.65,627.17,626.24,619.55,621.78,621.26,608.06,616.28,620.76,622.72,625.46,631.13,633.22,629.43,621.87,626.14,616.52,605.75,597.03,609.65,614.32,611.47,613.11,600.64,601.92,601.3,605.79,603.47,608.81,601.41,607.87,616.68,609.24,607.29,608.09,601.58,610.75,608.91,599.75,607.76,607.77,607.69,597.26,593.72,600.38,603.31,594.9,593.02,582.06,588.0,583.98,587.82,573.79,562.58,558.28,577.18,584.31,584.98,588.5,588.59,606.09,610.19,611.07,617.39,628.6,637.4,640.47,648.85,646.79,644.33,655.11,651.42,663.88,664.23,657.55,661.57,667.74,674.15,672.88,681.61,695.77,694.94,711.23,713.29,707.24,714.71,719.79,708.93,705.88,701.53,713.15,714.51,717.54,730.28,729.45,735.6,738.31,742.74,746.16,744.21,740.61,705.06,716.07,707.83,693.69,717.12,721.34,744.0,729.86,722.51,740.62,737.95,713.65,710.62,716.38,706.52,724.08,736.4,725.17,712.6,722.82,709.43,711.44,723.28,725.51,711.74,719.69,717.74,705.94,695.33,696.06,708.97,705.35,691.96,684.23,682.12,675.49,661.73,683.55,687.99,700.07,723.85,717.3,714.65,723.03,720.87,718.45,723.7,732.07,731.07,729.87,717.51,716.08,710.93,713.44,706.32,710.72,711.37,721.11,716.43,716.76,707.64,709.24,717.67,718.96,718.36,716.31,708.69,714.88,709.18,704.54,704.72,716.92,721.45,741.47,747.46,741.21,741.1,744.5,736.53,737.93,739.77,742.03,749.58,756.2,759.66,757.73,747.58,751.27,746.04,743.57,728.95,728.0,709.8,718.36,717.63,725.2,704.47,704.4,712.2,721.25,725.61,715.34,690.49,681.09,685.28,691.95,647.05,656.1,679.35,674.76,690.38,688.17,679.89,661.75]},"nvw":{"d":["2022-10-03","2022-10-10","2022-10-17","2022-10-24","2022-10-31","2022-11-07","2022-11-14","2022-11-21","2022-11-28","2022-12-05","2022-12-12","2022-12-19","2022-12-27","2023-01-03","2023-01-09","2023-01-17","2023-01-23","2023-01-30","2023-02-06","2023-02-13","2023-02-21","2023-02-27","2023-03-06","2023-03-13","2023-03-20","2023-03-27","2023-04-03","2023-04-10","2023-04-17","2023-04-24","2023-05-01","2023-05-08","2023-05-15","2023-05-22","2023-05-30","2023-06-05","2023-06-12","2023-06-20","2023-06-26","2023-07-03","2023-07-10","2023-07-17","2023-07-24","2023-07-31","2023-08-07","2023-08-14","2023-08-21","2023-08-28","2023-09-05","2023-09-11","2023-09-18","2023-09-25","2023-10-02","2023-10-09","2023-10-16","2023-10-23","2023-10-30","2023-11-06","2023-11-13","2023-11-20","2023-11-27","2023-12-04","2023-12-11","2023-12-18","2023-12-26","2024-01-02","2024-01-08","2024-01-16","2024-01-22","2024-01-29","2024-02-05","2024-02-12","2024-02-20","2024-02-26","2024-03-04","2024-03-11","2024-03-18","2024-03-25","2024-04-01","2024-04-08","2024-04-15","2024-04-22","2024-04-29","2024-05-06","2024-05-13","2024-05-20","2024-05-28","2024-06-03","2024-06-10","2024-06-17","2024-06-24","2024-07-01","2024-07-08","2024-07-15","2024-07-22","2024-07-29","2024-08-05","2024-08-12","2024-08-19","2024-08-26","2024-09-03","2024-09-09","2024-09-16","2024-09-23","2024-09-30","2024-10-07","2024-10-14","2024-10-21","2024-10-28","2024-11-04","2024-11-11","2024-11-18","2024-11-25","2024-12-02","2024-12-09","2024-12-16","2024-12-23","2024-12-30","2025-01-06","2025-01-13","2025-01-21","2025-01-27","2025-02-03","2025-02-10","2025-02-18","2025-02-24","2025-03-03","2025-03-10","2025-03-17","2025-03-24","2025-03-31","2025-04-07","2025-04-14","2025-04-21","2025-04-28","2025-05-05","2025-05-12","2025-05-19","2025-05-27","2025-06-02","2025-06-09","2025-06-16","2025-06-23","2025-06-30","2025-07-07","2025-07-14","2025-07-21","2025-07-28","2025-08-04","2025-08-11","2025-08-18","2025-08-25","2025-09-02","2025-09-08","2025-09-15","2025-09-22","2025-09-29","2025-10-06","2025-10-13","2025-10-20","2025-10-27","2025-11-03","2025-11-10","2025-11-17","2025-11-24","2025-12-01","2025-12-08","2025-12-15","2025-12-22","2025-12-29","2026-01-05","2026-01-12","2026-01-20","2026-01-26","2026-02-02","2026-02-09","2026-02-17","2026-02-23","2026-03-02","2026-03-09","2026-03-16","2026-03-23","2026-03-30","2026-04-06","2026-04-13","2026-04-20","2026-04-27","2026-05-04","2026-05-11","2026-05-18","2026-05-26","2026-06-01","2026-06-08","2026-06-15","2026-06-22","2026-06-29","2026-07-06","2026-07-13","2026-07-20","2026-07-27","2026-08-03","2026-08-10","2026-08-17","2026-08-24","2026-08-31","2026-09-08","2026-09-14","2026-09-21","2026-09-28","2026-10-05","2026-10-12","2026-10-19","2026-10-26","2026-11-02","2026-11-09","2026-11-16"],"o":[12.35,12.04,11.52,12.51,13.77,14.21,16.22,15.14,16.03,16.67,17.04,16.59,15.07,14.87,15.28,16.9,18.07,19.96,20.81,21.54,21.0,23.68,23.89,22.75,25.61,26.84,27.5,26.82,26.57,27.01,27.84,28.52,28.51,30.91,40.6,38.9,39.22,43.0,42.46,42.51,42.66,46.29,44.73,46.75,45.12,40.51,44.5,46.5,48.23,46.15,42.75,41.59,44.03,44.84,45.06,41.25,41.08,45.29,48.34,49.31,47.79,46.07,47.53,49.39,48.97,49.27,49.51,55.02,60.05,61.25,68.22,72.59,71.95,79.7,84.13,86.43,90.38,94.0,90.29,88.7,89.1,78.1,87.59,89.39,90.48,93.75,110.2,113.62,120.35,132.93,123.24,123.5,127.49,130.62,120.35,113.69,92.11,106.32,124.3,129.56,116.01,104.86,116.79,116.54,118.3,124.96,136.47,138.13,143.03,137.25,148.62,139.51,141.92,138.81,138.98,134.17,136.24,134.83,148.59,129.99,139.24,124.8,114.76,130.05,141.27,136.83,123.5,109.94,122.71,119.88,105.12,87.46,114.15,98.76,109.7,112.91,121.94,132.36,134.14,135.58,143.21,143.38,142.5,158.41,158.2,165.34,172.78,174.01,175.16,182.05,180.58,178.36,170.06,167.55,175.68,175.3,180.43,185.46,187.99,183.07,190.0,208.08,195.09,185.97,179.47,174.76,182.68,177.94,183.92,187.7,191.82,183.12,181.91,187.17,187.21,184.26,181.77,191.45,175.01,176.85,182.95,177.39,168.78,177.11,186.03,199.92,209.7,199.5,214.04,229.87,216.57,215.73,210.16,208.92,211.44,193.84,194.42,208.6,205.87,208.19,197.69,223.44,226.01,215.51,218.99,233.11,211.23,222.96,229.76,236.02,228.71,218.1,213.06,207.56,172.99,159.0],"h":[13.66,12.12,12.77,13.85,14.23,16.39,17.0,16.53,17.27,17.58,18.79,16.63,15.1,15.01,16.92,17.87,20.63,21.95,23.02,23.05,23.89,23.9,24.45,26.4,27.59,27.84,28.0,27.79,28.11,27.76,29.06,29.22,31.83,39.48,41.94,39.71,43.72,43.99,42.76,43.21,48.04,47.9,47.39,47.13,45.54,45.27,50.27,49.93,48.85,46.16,44.24,44.14,45.79,47.61,46.23,43.7,45.31,48.47,49.96,50.55,48.76,47.74,49.4,50.43,50.0,49.55,55.35,59.5,62.85,66.6,72.19,74.61,82.39,82.3,97.4,91.96,94.78,96.77,92.22,90.74,90.61,88.33,89.28,92.22,95.82,106.47,115.82,125.59,132.84,140.76,128.12,128.85,136.15,131.39,124.69,120.16,108.68,125.0,130.75,131.26,116.21,120.79,119.66,127.67,125.01,135.78,140.89,144.42,143.14,149.77,149.62,152.89,142.03,146.54,141.82,136.7,141.9,144.9,153.13,138.75,148.97,129.0,130.37,139.25,143.44,138.59,123.7,121.88,122.89,122.22,111.98,115.09,114.29,111.92,115.4,118.68,136.35,137.4,143.49,144.0,145.0,146.2,158.71,160.98,167.89,174.25,174.72,183.3,183.88,184.48,182.94,184.47,172.41,180.28,178.85,184.55,191.03,195.62,190.11,187.47,212.19,211.34,199.94,196.0,183.5,185.66,187.99,181.45,192.69,192.93,193.63,190.44,189.6,194.49,190.3,193.66,190.37,197.63,184.7,187.62,188.88,181.22,177.49,190.0,201.7,210.95,216.83,217.8,236.54,230.0,218.18,232.28,211.4,212.72,213.99,200.63,211.0,213.81,214.39,208.7,224.76,227.49,227.92,230.47,234.76,233.71,222.73,229.98,237.88,243.37,228.86,222.19,219.99,209.98,179.92,163.0],"l":[12.02,10.81,11.52,12.06,12.96,13.76,15.12,15.08,15.52,15.67,16.41,14.88,13.88,14.03,15.14,16.73,17.82,18.95,20.79,20.96,20.42,22.43,22.73,22.3,25.13,25.85,26.39,26.22,26.43,26.23,27.24,28.05,28.15,29.81,37.82,37.36,38.62,42.02,40.1,41.35,41.65,44.1,44.04,43.39,40.64,40.31,44.22,44.89,45.15,43.81,40.98,41.18,43.25,44.37,41.08,39.88,39.23,44.9,48.1,47.69,46.19,45.01,45.83,48.1,48.75,47.32,49.48,54.74,58.59,60.7,66.3,69.62,66.25,77.12,83.42,84.3,85.01,89.12,85.88,83.02,75.61,76.4,81.25,88.23,88.53,93.18,106.98,112.0,117.01,124.3,118.04,118.83,127.04,116.56,106.3,101.4,90.79,106.26,123.1,116.71,100.95,103.69,113.22,114.86,115.14,124.94,128.74,137.46,132.11,135.57,140.08,137.15,131.8,137.82,132.54,126.86,134.71,133.83,134.22,129.51,137.09,116.25,113.01,129.08,134.03,116.41,107.57,104.79,114.54,109.07,92.11,86.62,100.05,95.04,104.08,110.82,120.28,129.16,132.92,135.4,140.85,142.65,142.03,151.49,157.34,162.02,164.58,170.89,174.52,178.04,168.8,173.14,164.07,166.74,168.41,173.12,180.32,182.05,177.29,176.84,188.43,178.95,180.58,172.93,169.55,173.68,174.62,170.31,182.35,185.92,183.67,180.8,177.68,185.7,171.03,181.59,179.18,176.38,174.65,175.56,171.72,167.01,164.27,173.66,185.74,197.22,197.12,194.74,213.92,214.8,208.78,204.33,199.37,203.45,191.22,189.86,191.14,197.97,202.28,190.01,196.9,216.2,214.5,207.47,215.1,217.2,208.93,221.09,227.02,229.11,212.85,210.18,200.91,181.46,148.8,155.01],"c":[12.08,11.23,12.47,13.83,14.16,16.33,15.41,16.27,16.88,17.0,16.57,15.21,14.61,14.86,16.9,17.84,20.37,21.1,21.27,21.39,23.29,23.89,22.96,25.73,26.78,27.78,27.04,26.76,27.12,27.75,28.68,28.34,31.26,38.95,39.33,38.77,42.69,42.21,42.3,42.5,45.47,44.31,46.75,44.68,40.86,43.3,46.02,48.51,45.57,43.9,41.61,43.5,45.76,45.46,41.39,40.5,45.01,48.34,49.3,47.78,46.77,47.51,48.89,48.83,49.52,49.1,54.71,59.49,61.03,66.16,72.13,72.61,78.82,82.28,87.53,87.84,94.29,90.36,88.01,88.19,76.2,87.73,88.79,89.88,92.48,106.47,109.63,120.89,131.88,126.57,123.54,125.83,129.24,117.93,113.06,107.27,104.75,124.58,129.37,119.37,102.83,119.1,116.0,121.4,124.92,134.8,138.0,141.54,135.4,147.63,141.98,141.95,138.25,142.44,134.25,134.7,137.01,144.47,135.91,137.71,142.62,120.07,129.84,138.85,134.43,124.92,112.69,121.67,117.7,109.67,94.31,110.93,101.49,111.01,114.5,116.65,135.4,131.29,135.13,141.72,141.97,143.85,157.75,159.34,164.92,172.41,173.5,173.72,182.7,180.45,177.99,174.18,167.02,177.82,176.67,178.19,187.62,183.16,183.22,186.26,202.49,188.15,190.17,178.88,177.0,182.41,175.02,180.99,190.53,188.85,184.86,186.23,187.67,191.13,185.41,182.81,189.82,177.19,177.82,180.25,172.7,167.52,177.39,188.63,201.68,208.27,198.45,215.2,225.32,215.33,211.14,205.1,205.19,210.69,192.53,194.83,210.96,202.81,206.84,200.75,223.96,225.16,214.72,217.55,230.36,218.29,222.27,225.07,233.95,229.28,214.13,210.96,204.64,186.64,162.85,156.14]},"qqw":{"d":["2023-01-03","2023-01-09","2023-01-17","2023-01-23","2023-01-30","2023-02-06","2023-02-13","2023-02-21","2023-02-27","2023-03-06","2023-03-13","2023-03-20","2023-03-27","2023-04-03","2023-04-10","2023-04-13","2023-04-17","2023-04-24","2023-05-01","2023-05-08","2023-05-15","2023-05-22","2023-05-30","2023-06-05","2023-06-12","2023-06-20","2023-06-26","2023-07-03","2023-07-10","2023-07-17","2023-07-24","2023-07-31","2023-08-07","2023-08-14","2023-08-21","2023-08-28","2023-09-05","2023-09-11","2023-09-18","2023-09-25","2023-10-02","2023-10-09","2023-10-16","2023-10-23","2023-10-30","2023-11-06","2023-11-13","2023-11-20","2023-11-27","2023-12-04","2023-12-11","2023-12-18","2023-12-26","2024-01-02","2024-01-08","2024-01-16","2024-01-22","2024-01-29","2024-02-05","2024-02-12","2024-02-20","2024-02-26","2024-03-04","2024-03-11","2024-03-18","2024-03-25","2024-04-01","2024-04-08","2024-04-15","2024-04-22","2024-04-29","2024-05-06","2024-05-13","2024-05-20","2024-05-28","2024-06-03","2024-06-10","2024-06-17","2024-06-24","2024-07-01","2024-07-08","2024-07-15","2024-07-22","2024-07-29","2024-08-05","2024-08-12","2024-08-19","2024-08-26","2024-09-03","2024-09-09","2024-09-16","2024-09-23","2024-09-30","2024-10-07","2024-10-14","2024-10-21","2024-10-28","2024-11-04","2024-11-11","2024-11-18","2024-11-25","2024-12-02","2024-12-09","2024-12-16","2024-12-23","2024-12-30","2025-01-06","2025-01-13","2025-01-21","2025-01-27","2025-02-03","2025-02-10","2025-02-18","2025-02-24","2025-03-03","2025-03-10","2025-03-17","2025-03-24","2025-03-31","2025-04-07","2025-04-14","2025-04-21","2025-04-28","2025-05-05","2025-05-12","2025-05-19","2025-05-27","2025-06-02","2025-06-09","2025-06-16","2025-06-23","2025-06-30","2025-07-07","2025-07-14","2025-07-21","2025-07-28","2025-08-04","2025-08-11","2025-08-18","2025-08-25","2025-09-02","2025-09-08","2025-09-15","2025-09-22","2025-09-29","2025-10-06","2025-10-13","2025-10-20","2025-10-27","2025-11-03","2025-11-10","2025-11-17","2025-11-24","2025-12-01","2025-12-08","2025-12-15","2025-12-22","2025-12-29","2026-01-05","2026-01-12","2026-01-20","2026-01-26","2026-02-02","2026-02-09","2026-02-17","2026-02-23","2026-03-02","2026-03-09","2026-03-16","2026-03-23","2026-03-30","2026-04-06","2026-04-13","2026-04-20","2026-04-27","2026-05-04","2026-05-11","2026-05-18","2026-05-26","2026-06-01","2026-06-08","2026-06-15","2026-06-22","2026-06-29","2026-07-06","2026-07-13","2026-07-20","2026-07-27","2026-08-03","2026-08-10","2026-08-17","2026-08-24","2026-08-31","2026-09-08","2026-09-14","2026-09-21","2026-09-28","2026-10-05","2026-10-12","2026-10-19","2026-10-26","2026-11-02","2026-11-09","2026-11-16"],"h":[270.16,281.22,284.69,298.26,313.68,311.03,309.27,298.73,299.92,304.0,309.15,315.25,321.17,321.63,318.42,320.36,321.42,322.65,323.76,327.17,338.21,349.25,355.83,357.66,372.85,368.32,370.49,372.01,382.86,387.98,384.71,384.88,375.29,370.47,372.74,380.83,379.31,378.27,371.79,362.95,365.91,373.74,370.48,359.91,369.02,378.54,387.75,393.07,394.14,392.62,406.54,410.47,412.92,406.09,411.25,421.34,429.85,430.24,437.85,439.14,440.59,446.58,448.64,444.02,449.34,447.23,447.53,446.33,442.15,432.55,436.48,444.31,454.69,460.58,459.74,465.74,479.26,486.86,487.2,496.6,503.52,501.01,484.43,475.55,452.06,476.41,485.54,480.38,473.33,476.53,486.23,493.7,488.41,494.47,498.83,500.28,501.35,514.92,515.58,506.96,511.46,526.72,533.17,539.15,531.24,519.65,527.92,523.46,533.82,531.52,532.1,538.84,540.81,529.07,513.04,483.97,485.84,493.62,479.56,467.83,465.05,473.09,490.91,492.7,521.93,523.0,526.48,533.05,536.78,535.37,549.99,557.2,557.63,563.32,567.7,574.63,574.77,583.32,577.77,578.0,581.12,587.86,600.05,602.87,607.33,613.18,608.31,618.42,637.01,635.82,624.86,614.03,619.24,628.92,629.21,618.42,625.52,622.85,627.94,630.0,625.4,636.6,629.98,617.52,610.35,616.83,612.88,613.29,605.9,595.08,587.74,613.67,650.0,664.51,675.97,711.14,722.03,722.12,741.63,748.65,725.66,744.76,745.45,737.62,726.39,724.36,710.05,695.77,728.54,734.39,734.58,724.13,721.86,721.89,721.73,748.35,754.54,762.86,749.79,727.95,726.14,701.45,695.57,672.15],"l":[260.34,268.97,273.89,281.18,289.89,297.25,298.1,290.05,288.37,287.38,285.19,302.01,304.77,312.82,312.56,314.64,314.1,309.89,315.11,321.31,323.96,329.56,346.51,348.18,355.2,360.22,357.59,364.52,363.41,375.19,374.34,371.53,364.69,354.71,358.58,364.25,369.15,369.86,357.59,351.36,353.27,360.78,354.37,342.35,346.45,366.91,375.24,386.04,385.82,382.66,391.53,402.9,407.58,395.34,397.83,402.92,420.57,416.79,425.0,425.33,421.63,434.3,433.65,432.74,433.33,441.93,435.11,436.28,413.07,413.94,420.63,436.52,441.65,451.78,443.05,447.9,461.53,478.14,473.82,476.25,490.72,473.94,455.63,444.47,423.45,448.55,473.37,467.89,448.19,449.82,469.89,480.17,477.4,480.87,487.57,485.05,483.75,484.25,494.49,496.55,501.93,510.62,519.16,509.29,516.13,505.71,503.92,499.7,520.06,510.15,511.05,521.95,525.71,496.93,480.53,466.43,472.41,468.05,423.05,402.39,437.76,427.93,462.43,476.78,501.48,505.58,511.93,515.97,525.73,524.89,523.65,544.66,549.58,551.56,558.61,551.7,558.95,571.57,558.84,568.54,559.53,577.04,584.36,588.5,596.1,589.05,590.13,599.74,624.03,598.67,597.17,580.74,595.16,612.52,611.36,600.28,617.77,610.15,616.72,614.56,607.05,618.27,594.91,596.42,593.34,599.05,591.87,591.33,578.54,561.57,555.6,578.4,608.11,642.21,653.81,668.9,696.64,695.25,724.16,704.32,686.37,720.85,702.81,705.17,700.91,686.76,682.48,661.14,685.82,715.5,708.52,702.7,704.66,706.85,700.0,727.81,731.63,743.23,707.23,701.16,683.45,647.12,662.02,660.48],"c":[268.8,280.97,282.68,296.26,306.18,299.7,301.16,291.85,299.68,288.55,305.36,310.89,320.93,318.05,313.04,318.57,316.61,322.56,322.89,325.03,336.51,348.4,354.65,354.5,367.93,362.54,369.42,366.24,379.07,375.63,383.48,372.04,366.24,358.13,364.02,377.59,372.58,370.81,357.91,358.27,364.7,365.28,354.6,345.31,367.71,378.39,386.04,389.51,389.94,392.17,405.34,408.38,409.52,396.75,409.56,421.18,423.81,429.01,437.05,430.57,436.78,445.61,439.02,433.92,446.38,444.01,440.47,438.27,414.65,431.0,435.48,442.06,451.76,457.95,450.71,462.96,479.19,480.18,479.11,496.16,494.82,475.24,462.97,448.75,450.41,475.03,480.0,476.27,448.69,475.34,482.44,486.75,487.32,493.36,494.47,495.32,487.43,514.14,496.57,505.79,509.74,526.48,530.53,518.66,522.56,518.58,507.19,521.74,529.63,522.29,522.92,538.15,526.08,508.17,491.79,479.66,480.84,468.94,422.67,454.4,444.1,472.56,488.83,487.97,521.51,509.24,519.11,529.92,526.96,526.83,548.09,556.22,554.2,561.26,566.37,553.88,574.55,577.34,571.97,570.4,576.06,586.66,599.35,595.97,603.18,589.5,603.93,617.1,629.07,609.74,608.86,590.07,619.25,625.48,613.62,617.05,623.89,613.12,626.65,621.26,622.72,621.87,609.65,601.92,608.81,607.29,599.75,593.72,582.06,562.58,584.98,611.07,648.85,663.88,674.15,711.23,708.93,717.54,738.31,705.06,721.34,740.62,706.52,712.6,725.51,695.33,684.23,687.99,723.03,731.07,713.44,716.43,718.96,714.88,721.45,744.5,749.58,751.27,709.8,704.4,690.49,656.1,679.89,661.75]}};
+const NS="http://www.w3.org/2000/svg";
+function S(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+function T(txt,attrs,parent){const e=S('text',attrs,parent);e.textContent=txt;return e}
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmtPct=v=>(v>=0?'+':'−')+Math.abs(v).toFixed(1)+'%';
+const idxOnOrBefore=(arr,date)=>{let k=0;for(let i=0;i<arr.length;i++){if(arr[i]<=date)k=i;else break}return k};
+
+/* ---------- 圖 1：2026 NVDA vs KO ---------- */
+(function(){
+  const svg=document.getElementById('ytd'),W=860,H=340,m={l:46,r:92,t:16,b:34};
+  const d=D.d26.d,n=d.length,nv0=D.d26.nv[0],ko0=D.d26.ko[0];
+  const nv=D.d26.nv.map(v=>v/nv0*100),ko=D.d26.ko.map(v=>v/ko0*100),qq0=D.d26.qq[0],qq=D.d26.qq.map(v=>v/qq0*100);
+  document.getElementById('nvYtd').textContent=fmtPct(nv[n-1]-100);
+  document.getElementById('koYtd').textContent=fmtPct(ko[n-1]-100);
+  const y0=80,y1=150;
+  const X=i=>m.l+i*(W-m.l-m.r)/(n-1), Y=v=>m.t+(y1-v)/(y1-y0)*(H-m.t-m.b);
+  const a=d.findIndex(x=>x>='2026-04-01'),b=idxOnOrBefore(d,'2026-06-30');
+  S('rect',{x:X(a),y:m.t,width:X(b)-X(a),height:H-m.t-m.b,fill:'var(--band)'},svg);
+  T('4–6 月：啱我 style',{x:(X(a)+X(b))/2,y:m.t+14,'text-anchor':'middle','font-size':11,style:'fill:var(--up)'},svg);
+  for(let v=y0;v<=y1;v+=10){S('line',{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),stroke:'var(--line)','stroke-width':v===100?1.4:.6,'stroke-dasharray':v===100?'':'2 4'},svg);T(String(v),{x:m.l-8,y:Y(v)+4,'text-anchor':'end','font-size':11},svg)}
+  const mon=['1','2','3','4','5','6','7','8','9','10','11'];
+  let last='';d.forEach((x,i)=>{const mm=x.slice(5,7);if(i>0&&mm!==last){T(+mm+'月',{x:X(i),y:H-12,'text-anchor':'middle','font-size':11},svg)}last=mm});
+  const path=arr=>arr.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join('');
+  S('path',{d:path(qq),fill:'none',stroke:'var(--qq)','stroke-width':1.8},svg);
+  S('path',{d:path(nv),fill:'none',stroke:'var(--nv)','stroke-width':2},svg);
+  S('path',{d:path(ko),fill:'none',stroke:'var(--ko)','stroke-width':2.4},svg);
+  S('circle',{cx:X(n-1),cy:Y(ko[n-1]),r:4,fill:'var(--ko)'},svg);
+  S('circle',{cx:X(n-1),cy:Y(nv[n-1]),r:4,fill:'var(--nv)'},svg);
+  S('circle',{cx:X(n-1),cy:Y(qq[n-1]),r:4,fill:'var(--qq)'},svg);
+  T('QQQ '+fmtPct(qq[n-1]-100),{x:X(n-1)+8,y:Y(qq[n-1])+4,'font-size':12,'font-weight':600,style:'fill:var(--qq)'},svg);
+  T('KO '+fmtPct(ko[n-1]-100),{x:X(n-1)+8,y:Y(ko[n-1])+4,'font-size':12,'font-weight':600,style:'fill:var(--ko)'},svg);
+  T('NVDA '+fmtPct(nv[n-1]-100),{x:X(n-1)+8,y:Y(nv[n-1])+4,'font-size':12,'font-weight':600,style:'fill:var(--nv)'},svg);
+  const g=S('g',{style:'pointer-events:none'},svg),vl=S('line',{y1:m.t,y2:H-m.b,stroke:'var(--muted)','stroke-width':1,opacity:0},g);
+  const c1=S('circle',{r:4,fill:'var(--ko)',opacity:0},g),c2=S('circle',{r:4,fill:'var(--nv)',opacity:0},g),c3=S('circle',{r:4,fill:'var(--qq)',opacity:0},g);
+  const read=document.getElementById('ytdRead');
+  const hit=S('rect',{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:'transparent'},svg);
+  function move(ev){const p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;const q=p.matrixTransform(svg.getScreenCTM().inverse());let i=Math.round((q.x-m.l)/(W-m.l-m.r)*(n-1));i=Math.max(0,Math.min(n-1,i));
+    vl.setAttribute('x1',X(i));vl.setAttribute('x2',X(i));vl.setAttribute('opacity',.6);
+    c1.setAttribute('cx',X(i));c1.setAttribute('cy',Y(ko[i]));c1.setAttribute('opacity',1);c2.setAttribute('cx',X(i));c2.setAttribute('cy',Y(nv[i]));c2.setAttribute('opacity',1);c3.setAttribute('cx',X(i));c3.setAttribute('cy',Y(qq[i]));c3.setAttribute('opacity',1);
+    read.textContent=d[i]+'  KO $'+D.d26.ko[i].toFixed(2)+' ('+fmtPct(ko[i]-100)+')  NVDA $'+D.d26.nv[i].toFixed(2)+' ('+fmtPct(nv[i]-100)+')  QQQ $'+D.d26.qq[i].toFixed(2)+' ('+fmtPct(qq[i]-100)+')'}
+  hit.addEventListener('pointermove',move);hit.addEventListener('pointerdown',move);
+})();
+
+/* ---------- 我 2023–24 嘅 NVDA 買賣日子 ---------- */
+const TRB=['2023-04-13','2023-04-18','2023-06-28','2023-06-30','2023-07-06','2023-08-24','2024-02-28','2024-04-11'];
+const TRS=['2023-04-14','2023-04-18','2023-07-06','2023-08-24','2024-03-04','2024-03-07','2024-03-08','2024-04-11','2024-04-12'];
+/* ---------- 圖 2：NVDA 故事 ---------- */
+const CH=[
+ {from:'2022-10-03',to:'2022-12-27',t:'熊市底',when:'2022 年 10 月',body:'由 2021 年 11 月高位 $34.65 跌到 $10.81，跌咗 69%。',said:'<b>當時：</b>遊戲卡存貨過剩，美國限制對華晶片出口。冇人想掂半導體。'},
+ {from:'2023-01-03',to:'2023-02-13',t:'Stage 1',when:'2023 年 1 月',body:'熊市啱啱醒少少，NVDA 突破第一個 base，William O\'Neill 講嘅 stage 1。',said:'<b>我嘅記憶：</b>基本上個個都唔信，覺得只係熊市反彈。'},
+ {from:'2023-05-22',to:'2023-06-12',t:'+24% gap',when:'2023 年 5 月 25 日',body:'業績之後一日升 24%，突破 2021 年高位 $34.65，創新高。',said:'<b>當時：</b>大家覺得「黐線，太高啦」。沽空嘅人一日蝕 23 億美元（Bloomberg）；到 6 月初，年內蝕 80 億（S3 Partners）。'},
+ {from:'2023-06-20',to:'2024-03-04',t:'Stage 2',when:'2023 年 6 月 → 2024 年 3 月',body:'喺 $40–50 橫行大約 6 個月，2024 年 1 月突破 ~$50，兩個月後去到 $97.40。',said:'<b>當時：</b>2024 年 2 月業績後，沽空嘅人又一日蝕 30 億美元（Bloomberg）。'},
+ {from:'2024-03-04',to:'2024-06-17',t:'Stage 3',when:'2024 年 3 月 → 6 月',body:'$97.40 之後橫行兩個月，5 月業績後突破，6 月去到 $140.76。拆股前過 $1,000，6 月 10 日一拆十。',said:'<b>當時：</b>拆股前過 $1,000，6 月 18 日短暫成為全球市值最大嘅公司。'},
+ {from:'2024-06-17',to:'2025-06-23',t:'橫行一年',when:'2024 年 6 月 → 2025 年 6 月',body:'一年都冇新高。2025 年 1 月 DeepSeek 嗰日跌 17%。',said:'<b>當時：</b>高位之後散戶先大舉入場：2024 年第三季買咗大約 140 億美元，第四季 70 億（Global Markets Investor）。DeepSeek 嗰日散戶再買 5.62 億美元，單日紀錄（Vanda）。之後再跌多兩成幾，2025 年 4 月先見 $86.62。'},
+ {from:'2025-06-23',to:'2026-10-05',t:'慢慢上',when:'2025 年 6 月 → 2026 年 10 月',body:'突破 ~$153 之後一級級上，2026 年 10 月 6 日去到 $243.37。16 個月升六成，已經唔係 2023 年嗰種勁法。',said:'<b>當時：</b>AI 已經係人人都識講嘅故事。'},
+ {from:'2026-10-05',to:'9999',t:'突破失敗',when:'2026 年 10 月 → 而家',body:'新高之後五個星期跌咗 38.9%（$243.37 → $148.80）。11 月 12 日黃仁勳辭職。',said:'<b>而家：</b>AI 好勁，乜事都冇，CEO 走咗都冇問題，跌就係買入機會。散戶創紀錄接貨（下面有證據）。'}
+];
+(function(){
+  const svg=document.getElementById('story'),W=860,H=360,m={l:46,r:16,t:16,b:30};
+  const w=D.nvw,n=w.d.length,lo=Math.log(9),hi=Math.log(270);
+  const X=i=>m.l+(i+.5)*(W-m.l-m.r)/n, Y=v=>m.t+(hi-Math.log(v))/(hi-lo)*(H-m.t-m.b), bw=Math.max(1.5,(W-m.l-m.r)/n*.6);
+  const band=S('rect',{y:m.t,height:H-m.t-m.b,fill:'var(--band)'},svg);
+  [10,20,50,100,200].forEach(v=>{S('line',{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),stroke:'var(--line)','stroke-width':.6,'stroke-dasharray':'2 4'},svg);T('$'+v,{x:m.l-6,y:Y(v)+4,'text-anchor':'end','font-size':11},svg)});
+  let ly='';w.d.forEach((x,i)=>{const yy=x.slice(0,4);if(yy!==ly&&x.slice(5,7)<='01'){T(yy,{x:X(i),y:H-10,'text-anchor':'middle','font-size':11},svg)}if(x.slice(5,7)==='01')ly=yy});
+  const bars=S('g',{},svg);
+  for(let i=0;i<n;i++){const up=w.c[i]>=w.o[i];S('line',{x1:X(i),x2:X(i),y1:Y(w.h[i]),y2:Y(w.l[i]),stroke:'var(--muted)','stroke-width':1},bars);
+    S('rect',{x:X(i)-bw/2,width:bw,y:Y(Math.max(w.o[i],w.c[i])),height:Math.max(1,Math.abs(Y(w.o[i])-Y(w.c[i]))),fill:up?'var(--fg)':'var(--muted)'},bars)}
+  const wk=dt=>idxOnOrBefore(w.d,dt),ar=S('g',{},svg);
+  const mk=(dates,kind)=>{[...new Set(dates.map(wk))].forEach(i=>{const x=X(i),s=4,fill=kind==='b'?'var(--buy)':'var(--sell)';let y,p;
+    if(kind==='b'){y=Y(w.l[i])+5;p=[x,y,x-s,y+s*1.8,x+s,y+s*1.8];S('line',{x1:x,x2:x,y1:y+s*1.8,y2:y+s*1.8+6,stroke:fill,'stroke-width':2},ar)}
+    else{y=Y(w.h[i])-5;p=[x,y,x-s,y-s*1.8,x+s,y-s*1.8];S('line',{x1:x,x2:x,y1:y-s*1.8,y2:y-s*1.8-6,stroke:fill,'stroke-width':2},ar)}
+    S('polygon',{points:p.join(' '),fill:fill},ar)})};
+  mk(TRB,'b');mk(TRS,'s');
+  const steps=document.getElementById('steps'),box=document.getElementById('chapter');let cur=CH.length-1;
+  CH.forEach((c,k)=>{const b=document.createElement('button');b.type='button';b.textContent=(k+1)+'. '+c.t;b.addEventListener('click',()=>show(k));steps.appendChild(b)});
+  function show(k){cur=k;const c=CH[k];const a=w.d.findIndex(x=>x>=c.from),b=c.to==='9999'?n-1:idxOnOrBefore(w.d,c.to);
+    band.setAttribute('x',X(a)-bw);band.setAttribute('width',X(b)-X(a)+2*bw);
+    [...steps.children].forEach((e,j)=>e.setAttribute('aria-pressed',j===k));
+    box.innerHTML='<div class="when">'+c.when+'</div><h3>'+c.t+'</h3><p>'+c.body+'</p><div class="said">'+c.said+'</div>'}
+  document.getElementById('prevCh').addEventListener('click',()=>show((cur-1+CH.length)%CH.length));
+  document.getElementById('nextCh').addEventListener('click',()=>show((cur+1)%CH.length));
+  show(2);
+})();
+
+/* ---------- 圖 3：QQQ buy the dip ---------- */
+const DIPS=[
+ {wk:'2023-10-23',lbl:'2023 年 10 月尾',dd:-11.8,rec:'4 個星期',after:25.9},
+ {wk:'2024-08-05',lbl:'2024 年 8 月初',dd:-15.9,rec:'13 個星期',after:23.5},
+ {wk:'2025-04-07',lbl:'2025 年 4 月初',dd:-25.6,rec:'11 個星期',after:46.5},
+ {wk:'2026-03-30',lbl:'2026 年 3 月尾',dd:-12.8,rec:'2 個星期',after:34.9},
+ {wk:'2026-11-02',lbl:'2026 年 11 月',dd:-15.2,rec:'？',after:null}
+];
+(function(){
+  const body=document.getElementById('dipBody');
+  DIPS.forEach(dp=>{const tr=document.createElement('tr');tr.innerHTML='<td>'+dp.lbl+'</td><td class="n down">'+dp.dd.toFixed(1)+'%</td><td class="n">'+dp.rec+'</td><td class="n '+(dp.after==null?'':'up')+'">'+(dp.after==null?'？':'+'+dp.after.toFixed(1)+'%')+'</td>';body.appendChild(tr)});
+  const svg=document.getElementById('qqq'),W=860,H=340,m={l:46,r:16,t:16,b:30};
+  const q=D.qqw,n=q.d.length,y0=240,y1=800;
+  const X=i=>m.l+i*(W-m.l-m.r)/(n-1), Y=v=>m.t+(y1-v)/(y1-y0)*(H-m.t-m.b);
+  for(let v=300;v<=800;v+=100){S('line',{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),stroke:'var(--line)','stroke-width':.6,'stroke-dasharray':'2 4'},svg);T(String(v),{x:m.l-6,y:Y(v)+4,'text-anchor':'end','font-size':11},svg)}
+  let ly='';q.d.forEach((x,i)=>{const yy=x.slice(0,4);if(yy!==ly){T(yy,{x:X(i),y:H-10,'text-anchor':'middle','font-size':11},svg);ly=yy}});
+  for(let i=0;i<n;i++)S('line',{x1:X(i),x2:X(i),y1:Y(q.h[i]),y2:Y(q.l[i]),stroke:'var(--line)','stroke-width':1.4},svg);
+  S('path',{d:q.c.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(''),fill:'none',stroke:'var(--nv)','stroke-width':2},svg);
+  const read=document.getElementById('qqRead');
+  DIPS.forEach((dp,k)=>{const i=q.d.indexOf(dp.wk);if(i<0)return;const x=X(i),y=Y(q.l[i])+10,last=k===DIPS.length-1;
+    const g=S('g',{tabindex:0,role:'button','aria-label':dp.lbl,style:'cursor:pointer'},svg);
+    S('polygon',{points:[x,y,x-8,y+14,x+8,y+14].join(' '),fill:last?'var(--tag)':'var(--fg)'},g);
+    T(dp.dd.toFixed(1)+'%',{x:x,y:y+28,'text-anchor':'middle','font-size':11,style:'fill:'+(last?'var(--tag)':'var(--fg)')},g);
+    if(last)T('今次？',{x:x-12,y:y+44,'text-anchor':'end','font-size':12,'font-weight':600,style:'fill:var(--tag)'},g);
+    const f=()=>{read.textContent=dp.lbl+' · 由高位跌 '+dp.dd.toFixed(1)+'% · 返新高用咗 '+dp.rec+(dp.after==null?'':' · 26 個星期後 +'+dp.after.toFixed(1)+'%')};
+    g.addEventListener('click',f);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}})});
+})();
+
+/* ---------- 消息 × 反應 ---------- */
+(function(){
+  const M={
+    gu:'<h3>好消息，升</h3><p>正常反應。消息好過預期，仲有人肯出高價。共識繼續，buy the dip 又一次 work，路線 A。</p>',
+    gd:'<h3>好消息，跌</h3><p>「非常之大鑊」。業績好、上市順利，但個價推唔上，即係想買嘅人已經買晒。新聞係天氣預報，個價係天氣本身：大家已經預咗好消息，佢一出就冇人再加注。好消息都唔升，係最經典嘅派貨訊號之一。呢格出現，就係我講嘅 expectation breaker：期望被打破。</p>',
+    bu:'<h3>壞消息，升</h3><p>最強嘅訊號之一。壞消息已經反映晒喺價入面，想賣嘅人已經賣晒。2026 年 3 月尾散戶唔敢接、去買 SQQQ 嗰陣，就係呢種環境。</p>',
+    bd:'<h3>壞消息，跌</h3><p>正常反應。價格跟消息行，冇乜特別資訊。要睇跌完之後有冇人接，同埋接嘅係邊個。</p>'
+  };
+  const out=document.getElementById('mxOut'),btns=document.querySelectorAll('.matrix button');
+  function sel(k){btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===k));out.innerHTML=M[k]}
+  btns.forEach(b=>b.addEventListener('click',()=>sel(b.dataset.k)));sel('gd');
+})();
+</script>
+<div data-fpw-sub></div>
+<script src="../sub.js" defer></script>
+</body>
+</html>
